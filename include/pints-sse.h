@@ -1,5 +1,5 @@
-#ifndef PSIMD_SSE_H
-#define PSIMD_SSE_H
+#ifndef PINTS_SSE_H
+#define PINTS_SSE_H
 
 #ifdef SSE
 #undef v1f
@@ -1247,4 +1247,4 @@ inline v2l __sse2_v2l_lt(v2l a, v2l b) {
 #define v2l_geq(a, b) v2l_lt(b, a)
 #endif
 
-#endif //PSIMD_SSE_H
+#endif //PINTS_SSE_H

@@ -1,5 +1,5 @@
-#ifndef PSIMD_ARCH_DETECT_H
-#define PSIMD_ARCH_DETECT_H
+#ifndef PINTS_ARCH_DETECT_H
+#define PINTS_ARCH_DETECT_H
 
 #ifdef __SSE__
 #define SSE
@@ -51,4 +51,4 @@
 #endif
 
 
-#endif //PSIMD_ARCH_DETECT_H
+#endif //PINTS_ARCH_DETECT_H

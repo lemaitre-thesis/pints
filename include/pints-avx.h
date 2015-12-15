@@ -1,5 +1,5 @@
-#ifndef PSIMD_AVX_H
-#define PSIMD_AVX_H
+#ifndef PINTS_AVX_H
+#define PINTS_AVX_H
 
 
 #ifdef AVX
@@ -490,4 +490,4 @@ typedef __m512i v8l;
 #define v8f_fnmsub(a, b, c) _mm256_fnmsub_ps(a, b, c)
 #endif
 
-#endif //PSIMD_AVX_H
+#endif //PINTS_AVX_H

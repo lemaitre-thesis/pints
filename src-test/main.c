@@ -7,7 +7,7 @@
 //#define AVX
 //#define AVX2
 //#define inline
-#include "psimd.h"
+#include "pints.h"
 
 #define N 128
 float A[N] = {1}, B[N] = {1};

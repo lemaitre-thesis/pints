@@ -1,5 +1,0 @@
-#ifndef PSIMD_POLYFILL_FUNCS_H
-#define PSIMD_POLYFILL_FUNCS_H
-
-#include <stdint.h>
-#include <math.h>

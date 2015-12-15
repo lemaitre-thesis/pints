@@ -9,12 +9,12 @@
 const int MAX_REGISTERb_SIZE = 512;
 const int MAX_REGISTER_SIZE = MAX_REGISTERb_SIZE / 8;
 
-const char* output_filename1 = "include/psimd-polyfill-defines.h.auto";
-const char* header_filename1 = "generator/psimd-polyfill-defines.h.head";
-const char* footer_filename1 = "generator/psimd-polyfill-defines.h.foot";
-const char* output_filename2 = "include/psimd-polyfill-funcs.h.auto";
-const char* header_filename2 = "generator/psimd-polyfill-funcs.h.head";
-const char* footer_filename2 = "generator/psimd-polyfill-funcs.h.foot";
+const char* output_filename1 = "include/pints-polyfill-defines.h.auto";
+const char* header_filename1 = "generator/pints-polyfill-defines.h.head";
+const char* footer_filename1 = "generator/pints-polyfill-defines.h.foot";
+const char* output_filename2 = "include/pints-polyfill-funcs.h.auto";
+const char* header_filename2 = "generator/pints-polyfill-funcs.h.head";
+const char* footer_filename2 = "generator/pints-polyfill-funcs.h.foot";
 
 struct Type {
   const char  letter;

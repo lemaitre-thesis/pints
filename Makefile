@@ -55,7 +55,7 @@ SRC = $(addprefix ${SRC_PATH}/, $(FILE))
 OBJ = $(addprefix ${OBJ_PATH}/, $(addsuffix $(SUFFIX).o, $(basename $(FILE))))
 
 # -- Base rules ----------
-$(OBJ_PATH)/%$(SUFFIX).o : $(SRC_PATH)/%.c include/psimd-polyfill-defines.h.auto
+$(OBJ_PATH)/%$(SUFFIX).o : $(SRC_PATH)/%.c include/pints-polyfill-defines.h.auto
 	$(CC) $(CFLAGS) -c $< -o $@
    
 #-----Main rule ----------
@@ -63,7 +63,7 @@ $(EXE_PATH)/$(PRODUCT): $(OBJ)
 	$(CC) -o $@ $^ $(LDFLAGS) $(OPTFLAGS) $(CFG) $(INC) 
 
 #-----Generator rules-----
-include/psimd-polyfill-defines.h.auto : generator/gen.exe generator/psimd-polyfill-defines.h.head generator/psimd-polyfill-defines.h.foot generator/psimd-polyfill-funcs.h.head generator/psimd-polyfill-funcs.h.foot
+include/pints-polyfill-defines.h.auto : generator/gen.exe generator/pints-polyfill-defines.h.head generator/pints-polyfill-defines.h.foot generator/pints-polyfill-funcs.h.head generator/pints-polyfill-funcs.h.foot
 	generator/gen.exe
 
 generator/gen.exe : generator/gen.cpp
