@@ -3,13 +3,16 @@
 
 #include <stdint.h>
 #include <math.h>
-// 1 element vectors
+
+
+// Internals structures
+
 union __v1d {
-  double  v;
+  double v;
   int64_t i;
 };
 union __v1f {
-  float   v;
+  float v;
   int32_t i;
 };
 union __v1i {
@@ -21,8 +24,6 @@ union __v1l {
   int64_t i;
 };
 
-
-// Internal wider vectors
 struct __v2d { v1d a, b; };
 struct __v2f { v1f a, b; };
 struct __v2i { v1i a, b; };
@@ -37,1685 +38,1283 @@ struct __v8i { v4i a, b; };
 struct __v8l { v4l a, b; };
 struct __v16f { v8f a, b; };
 struct __v16i { v8i a, b; };
-inline union __v1d __v1d_and(union __v1d a, union __v1d b);
-inline union __v1f __v1f_and(union __v1f a, union __v1f b);
-inline union __v1i __v1i_and(union __v1i a, union __v1i b);
-inline union __v1l __v1l_and(union __v1l a, union __v1l b);
-inline union __v1d __v1d_or (union __v1d a, union __v1d b);
-inline union __v1f __v1f_or (union __v1f a, union __v1f b);
-inline union __v1i __v1i_or (union __v1i a, union __v1i b);
-inline union __v1l __v1l_or (union __v1l a, union __v1l b);
-inline union __v1d __v1d_xor(union __v1d a, union __v1d b);
-inline union __v1f __v1f_xor(union __v1f a, union __v1f b);
-inline union __v1i __v1i_xor(union __v1i a, union __v1i b);
-inline union __v1l __v1l_xor(union __v1l a, union __v1l b);
-inline union __v1d __v1d_eq (union __v1d a, union __v1d b);
-inline union __v1f __v1f_eq (union __v1f a, union __v1f b);
-inline union __v1i __v1i_eq (union __v1i a, union __v1i b);
-inline union __v1l __v1l_eq (union __v1l a, union __v1l b);
-inline union __v1d __v1d_neq(union __v1d a, union __v1d b);
-inline union __v1f __v1f_neq(union __v1f a, union __v1f b);
-inline union __v1i __v1i_neq(union __v1i a, union __v1i b);
-inline union __v1l __v1l_neq(union __v1l a, union __v1l b);
-inline union __v1d __v1d_gt (union __v1d a, union __v1d b);
-inline union __v1f __v1f_gt (union __v1f a, union __v1f b);
-inline union __v1i __v1i_gt (union __v1i a, union __v1i b);
-inline union __v1l __v1l_gt (union __v1l a, union __v1l b);
-inline union __v1d __v1d_geq(union __v1d a, union __v1d b);
-inline union __v1f __v1f_geq(union __v1f a, union __v1f b);
-inline union __v1i __v1i_geq(union __v1i a, union __v1i b);
-inline union __v1l __v1l_geq(union __v1l a, union __v1l b);
-inline union __v1d __v1d_lt (union __v1d a, union __v1d b);
-inline union __v1f __v1f_lt (union __v1f a, union __v1f b);
-inline union __v1i __v1i_lt (union __v1i a, union __v1i b);
-inline union __v1l __v1l_lt (union __v1l a, union __v1l b);
-inline union __v1d __v1d_leq(union __v1d a, union __v1d b);
-inline union __v1f __v1f_leq(union __v1f a, union __v1f b);
-inline union __v1i __v1i_leq(union __v1i a, union __v1i b);
-inline union __v1l __v1l_leq(union __v1l a, union __v1l b);
-inline union __v1d __v1d_add(union __v1d a, union __v1d b);
-inline union __v1f __v1f_add(union __v1f a, union __v1f b);
-inline union __v1i __v1i_add(union __v1i a, union __v1i b);
-inline union __v1l __v1l_add(union __v1l a, union __v1l b);
-inline union __v1d __v1d_sub(union __v1d a, union __v1d b);
-inline union __v1f __v1f_sub(union __v1f a, union __v1f b);
-inline union __v1i __v1i_sub(union __v1i a, union __v1i b);
-inline union __v1l __v1l_sub(union __v1l a, union __v1l b);
-inline union __v1d __v1d_mul(union __v1d a, union __v1d b);
-inline union __v1f __v1f_mul(union __v1f a, union __v1f b);
-inline union __v1i __v1i_mul(union __v1i a, union __v1i b);
-inline union __v1l __v1l_mul(union __v1l a, union __v1l b);
-inline union __v1d __v1d_div(union __v1d a, union __v1d b);
-inline union __v1f __v1f_div(union __v1f a, union __v1f b);
-inline union __v1i __v1i_div(union __v1i a, union __v1i b);
-inline union __v1l __v1l_div(union __v1l a, union __v1l b);
-inline union __v1d __v1d_sqrt(union __v1d a);
-inline union __v1f __v1f_sqrt(union __v1f a);
-inline union __v1i __v1i_sqrt(union __v1i a);
-inline union __v1l __v1l_sqrt(union __v1l a);
-inline union __v1d __v1d_set1 (double   v);
-inline union __v1f __v1f_set1 (float    v);
-inline union __v1i __v1i_set1 (int32_t  v);
-inline union __v1l __v1l_set1 (int64_t  v);
-inline union __v1d __v1d_load (const double * p);
-inline union __v1f __v1f_load (const float  * p);
-inline union __v1i __v1i_load (const int32_t* p);
-inline union __v1l __v1l_load (const int64_t* p);
-inline void __v1d_store (double * p, union __v1d a);
-inline void __v1f_store (float  * p, union __v1f a);
-inline void __v1i_store (int32_t* p, union __v1i a);
-inline void __v1l_store (int64_t* p, union __v1l a);
-inline int __v1d_is_zero(v1d a);
-inline int __v1f_is_zero(v1f a);
-inline int __v1i_is_zero(v1i a);
-inline int __v1l_is_zero(v1l a);
+
+
+
+
+
+// Casts ans Conversions declarations
+
+inline v1d __v1d_cast_v2d(struct __v2d a);
+inline v1f __v1f_cast_v2f(struct __v2f a);
+inline v1i __v1i_cast_v2i(struct __v2i a);
+inline v1l __v1l_cast_v2l(struct __v2l a);
+inline struct __v2d __v2d_cast_v1d(v1d a);
+inline v2d __v2d_cast_v4d(struct __v4d a);
+inline struct __v2f __v2f_cast_v1f(v1f a);
+inline v2f __v2f_cast_v4f(struct __v4f a);
+inline struct __v2i __v2i_cast_v1i(v1i a);
+inline v2i __v2i_cast_v4i(struct __v4i a);
+inline struct __v2l __v2l_cast_v1l(v1l a);
+inline v2l __v2l_cast_v4l(struct __v4l a);
+inline struct __v4d __v4d_cast_v2d(v2d a);
+inline v4d __v4d_cast_v8d(struct __v8d a);
+inline struct __v4f __v4f_cast_v2f(v2f a);
+inline v4f __v4f_cast_v8f(struct __v8f a);
+inline struct __v4i __v4i_cast_v2i(v2i a);
+inline v4i __v4i_cast_v8i(struct __v8i a);
+inline struct __v4l __v4l_cast_v2l(v2l a);
+inline v4l __v4l_cast_v8l(struct __v8l a);
+inline struct __v8d __v8d_cast_v4d(v4d a);
+inline struct __v8f __v8f_cast_v4f(v4f a);
+inline v8f __v8f_cast_v16f(struct __v16f a);
+inline struct __v8i __v8i_cast_v4i(v4i a);
+inline v8i __v8i_cast_v16i(struct __v16i a);
+inline struct __v8l __v8l_cast_v4l(v4l a);
+inline struct __v16f __v16f_cast_v8f(v8f a);
+inline struct __v16i __v16i_cast_v8i(v8i a);
+
+inline double __sd_cvt_v1d(v1d a);
+inline v1d __v1d_cvt_v1f(v1f a);
+inline v1d __v1d_cvt_v1i(v1i a);
+inline v1d __v1d_cvt_v1l(v1l a);
+inline v1f __v1f_cvt_v1d(v1d a);
+inline float __sf_cvt_v1f(v1f a);
+inline v1f __v1f_cvt_v1i(v1i a);
+inline v1f __v1f_cvt_v1l(v1l a);
+inline v1i __v1i_cvt_v1d(v1d a);
+inline v1i __v1i_cvt_v1f(v1f a);
+inline int32_t __si_cvt_v1i(v1i a);
+inline v1i __v1i_cvt_v1l(v1l a);
+inline v1l __v1l_cvt_v1d(v1d a);
+inline v1l __v1l_cvt_v1f(v1f a);
+inline v1l __v1l_cvt_v1i(v1i a);
+inline int64_t __sl_cvt_v1l(v1l a);
+
+
+
+// Builtins declarations
+
+inline union __v1d __v1d_load(const double *p);
+inline union __v1f __v1f_load(const float *p);
+inline union __v1i __v1i_load(const int32_t *p);
+inline union __v1l __v1l_load(const int64_t *p);
+
+inline v2d __v2d_load(const double *p);
+inline v2f __v2f_load(const float *p);
+inline v2i __v2i_load(const int32_t *p);
+inline v2l __v2l_load(const int64_t *p);
+inline v4d __v4d_load(const double *p);
+inline v4f __v4f_load(const float *p);
+inline v4i __v4i_load(const int32_t *p);
+inline v4l __v4l_load(const int64_t *p);
+inline v8d __v8d_load(const double *p);
+inline v8f __v8f_load(const float *p);
+inline v8i __v8i_load(const int32_t *p);
+inline v8l __v8l_load(const int64_t *p);
+inline v16f __v16f_load(const float *p);
+inline v16i __v16i_load(const int32_t *p);
+
+
+inline v1d compatible_v1d_loadu(const double *p);
+inline v1f compatible_v1f_loadu(const float *p);
+inline v1i compatible_v1i_loadu(const int32_t *p);
+inline v1l compatible_v1l_loadu(const int64_t *p);
+inline v2d compatible_v2d_loadu(const double *p);
+inline v2f compatible_v2f_loadu(const float *p);
+inline v2i compatible_v2i_loadu(const int32_t *p);
+inline v2l compatible_v2l_loadu(const int64_t *p);
+inline v4d compatible_v4d_loadu(const double *p);
+inline v4f compatible_v4f_loadu(const float *p);
+inline v4i compatible_v4i_loadu(const int32_t *p);
+inline v4l compatible_v4l_loadu(const int64_t *p);
+inline v8d compatible_v8d_loadu(const double *p);
+inline v8f compatible_v8f_loadu(const float *p);
+inline v8i compatible_v8i_loadu(const int32_t *p);
+inline v8l compatible_v8l_loadu(const int64_t *p);
+inline v16f compatible_v16f_loadu(const float *p);
+inline v16i compatible_v16i_loadu(const int32_t *p);
+
+inline void __v1d_store(double *p, union __v1d a);
+inline void __v1f_store(float *p, union __v1f a);
+inline void __v1i_store(int32_t *p, union __v1i a);
+inline void __v1l_store(int64_t *p, union __v1l a);
+
+inline void __v2d_store(double *p, v2d a);
+inline void __v2f_store(float *p, v2f a);
+inline void __v2i_store(int32_t *p, v2i a);
+inline void __v2l_store(int64_t *p, v2l a);
+inline void __v4d_store(double *p, v4d a);
+inline void __v4f_store(float *p, v4f a);
+inline void __v4i_store(int32_t *p, v4i a);
+inline void __v4l_store(int64_t *p, v4l a);
+inline void __v8d_store(double *p, v8d a);
+inline void __v8f_store(float *p, v8f a);
+inline void __v8i_store(int32_t *p, v8i a);
+inline void __v8l_store(int64_t *p, v8l a);
+inline void __v16f_store(float *p, v16f a);
+inline void __v16i_store(int32_t *p, v16i a);
+
+
+inline void compatible_v1d_storeu(double *p, v1d a);
+inline void compatible_v1f_storeu(float *p, v1f a);
+inline void compatible_v1i_storeu(int32_t *p, v1i a);
+inline void compatible_v1l_storeu(int64_t *p, v1l a);
+inline void compatible_v2d_storeu(double *p, v2d a);
+inline void compatible_v2f_storeu(float *p, v2f a);
+inline void compatible_v2i_storeu(int32_t *p, v2i a);
+inline void compatible_v2l_storeu(int64_t *p, v2l a);
+inline void compatible_v4d_storeu(double *p, v4d a);
+inline void compatible_v4f_storeu(float *p, v4f a);
+inline void compatible_v4i_storeu(int32_t *p, v4i a);
+inline void compatible_v4l_storeu(int64_t *p, v4l a);
+inline void compatible_v8d_storeu(double *p, v8d a);
+inline void compatible_v8f_storeu(float *p, v8f a);
+inline void compatible_v8i_storeu(int32_t *p, v8i a);
+inline void compatible_v8l_storeu(int64_t *p, v8l a);
+inline void compatible_v16f_storeu(float *p, v16f a);
+inline void compatible_v16i_storeu(int32_t *p, v16i a);
+
+inline v1d __v1d_set(double a);
+inline v1f __v1f_set(float a);
+inline v1i __v1i_set(int32_t a);
+inline v1l __v1l_set(int64_t a);
+
+
+
+
+
+
+
+
+inline struct __v2d __v2d_merge2_v1d(v1d low, v1d high);
+inline struct __v2f __v2f_merge2_v1f(v1f low, v1f high);
+inline struct __v2i __v2i_merge2_v1i(v1i low, v1i high);
+inline struct __v2l __v2l_merge2_v1l(v1l low, v1l high);
+inline struct __v4d __v4d_merge2_v2d(v2d low, v2d high);
+inline struct __v4f __v4f_merge2_v2f(v2f low, v2f high);
+inline struct __v4i __v4i_merge2_v2i(v2i low, v2i high);
+inline struct __v4l __v4l_merge2_v2l(v2l low, v2l high);
+inline struct __v8d __v8d_merge2_v4d(v4d low, v4d high);
+inline struct __v8f __v8f_merge2_v4f(v4f low, v4f high);
+inline struct __v8i __v8i_merge2_v4i(v4i low, v4i high);
+inline struct __v8l __v8l_merge2_v4l(v4l low, v4l high);
+inline struct __v16f __v16f_merge2_v8f(v8f low, v8f high);
+inline struct __v16i __v16i_merge2_v8i(v8i low, v8i high);
+
+
+
+
+
+
+
+
+
+
+
+
+inline v1d compatible_v1d_get_low_v2d(v2d a);
+inline v1f compatible_v1f_get_low_v2f(v2f a);
+inline v1i compatible_v1i_get_low_v2i(v2i a);
+inline v1l compatible_v1l_get_low_v2l(v2l a);
+inline v2d compatible_v2d_get_low_v4d(v4d a);
+inline v2f compatible_v2f_get_low_v4f(v4f a);
+inline v2i compatible_v2i_get_low_v4i(v4i a);
+inline v2l compatible_v2l_get_low_v4l(v4l a);
+inline v4d compatible_v4d_get_low_v8d(v8d a);
+inline v4f compatible_v4f_get_low_v8f(v8f a);
+inline v4i compatible_v4i_get_low_v8i(v8i a);
+inline v4l compatible_v4l_get_low_v8l(v8l a);
+inline v8f compatible_v8f_get_low_v16f(v16f a);
+inline v8i compatible_v8i_get_low_v16i(v16i a);
+
 inline v1d __v1d_get_high_v2d(struct __v2d a);
 inline v1f __v1f_get_high_v2f(struct __v2f a);
 inline v1i __v1i_get_high_v2i(struct __v2i a);
 inline v1l __v1l_get_high_v2l(struct __v2l a);
-inline v1d __v1d_get_low_v2d(struct __v2d a);
-inline v1f __v1f_get_low_v2f(struct __v2f a);
-inline v1i __v1i_get_low_v2i(struct __v2i a);
-inline v1l __v1l_get_low_v2l(struct __v2l a);
-inline v1d __v1d_compatible_get_high_v2d(v2d a);
-inline v1f __v1f_compatible_get_high_v2f(v2f a);
-inline v1i __v1i_compatible_get_high_v2i(v2i a);
-inline v1l __v1l_compatible_get_high_v2l(v2l a);
-inline v1d __v1d_compatible_get_low_v2d(v2d a);
-inline v1f __v1f_compatible_get_low_v2f(v2f a);
-inline v1i __v1i_compatible_get_low_v2i(v2i a);
-inline v1l __v1l_compatible_get_low_v2l(v2l a);
-inline void __v1d_fprint(void* f, v1d a);
-inline void __v1f_fprint(void* f, v1f a);
-inline void __v1i_fprint(void* f, v1i a);
-inline void __v1l_fprint(void* f, v1l a);
-inline void __v1d_print(v1d a);
-inline void __v1f_print(v1f a);
-inline void __v1i_print(v1i a);
-inline void __v1l_print(v1l a);
-inline v2d __v2d_and(v2d a, v2d b);
-inline v2f __v2f_and(v2f a, v2f b);
-inline v2i __v2i_and(v2i a, v2i b);
-inline v2l __v2l_and(v2l a, v2l b);
-inline v2d __v2d_or (v2d a, v2d b);
-inline v2f __v2f_or (v2f a, v2f b);
-inline v2i __v2i_or (v2i a, v2i b);
-inline v2l __v2l_or (v2l a, v2l b);
-inline v2d __v2d_xor(v2d a, v2d b);
-inline v2f __v2f_xor(v2f a, v2f b);
-inline v2i __v2i_xor(v2i a, v2i b);
-inline v2l __v2l_xor(v2l a, v2l b);
-inline v2d __v2d_eq (v2d a, v2d b);
-inline v2f __v2f_eq (v2f a, v2f b);
-inline v2i __v2i_eq (v2i a, v2i b);
-inline v2l __v2l_eq (v2l a, v2l b);
-inline v2d __v2d_neq(v2d a, v2d b);
-inline v2f __v2f_neq(v2f a, v2f b);
-inline v2i __v2i_neq(v2i a, v2i b);
-inline v2l __v2l_neq(v2l a, v2l b);
-inline v2d __v2d_gt (v2d a, v2d b);
-inline v2f __v2f_gt (v2f a, v2f b);
-inline v2i __v2i_gt (v2i a, v2i b);
-inline v2l __v2l_gt (v2l a, v2l b);
-inline v2d __v2d_geq(v2d a, v2d b);
-inline v2f __v2f_geq(v2f a, v2f b);
-inline v2i __v2i_geq(v2i a, v2i b);
-inline v2l __v2l_geq(v2l a, v2l b);
-inline v2d __v2d_lt (v2d a, v2d b);
-inline v2f __v2f_lt (v2f a, v2f b);
-inline v2i __v2i_lt (v2i a, v2i b);
-inline v2l __v2l_lt (v2l a, v2l b);
-inline v2d __v2d_leq(v2d a, v2d b);
-inline v2f __v2f_leq(v2f a, v2f b);
-inline v2i __v2i_leq(v2i a, v2i b);
-inline v2l __v2l_leq(v2l a, v2l b);
-inline v2d __v2d_add(v2d a, v2d b);
-inline v2f __v2f_add(v2f a, v2f b);
-inline v2i __v2i_add(v2i a, v2i b);
-inline v2l __v2l_add(v2l a, v2l b);
-inline v2d __v2d_sub(v2d a, v2d b);
-inline v2f __v2f_sub(v2f a, v2f b);
-inline v2i __v2i_sub(v2i a, v2i b);
-inline v2l __v2l_sub(v2l a, v2l b);
-inline v2d __v2d_mul(v2d a, v2d b);
-inline v2f __v2f_mul(v2f a, v2f b);
-inline v2i __v2i_mul(v2i a, v2i b);
-inline v2l __v2l_mul(v2l a, v2l b);
-inline v2d __v2d_div(v2d a, v2d b);
-inline v2f __v2f_div(v2f a, v2f b);
-inline v2i __v2i_div(v2i a, v2i b);
-inline v2l __v2l_div(v2l a, v2l b);
-inline v2d __v2d_sqrt(v2d a);
-inline v2f __v2f_sqrt(v2f a);
-inline v2i __v2i_sqrt(v2i a);
-inline v2l __v2l_sqrt(v2l a);
-inline v2d __v2d_set1 (double   v);
-inline v2f __v2f_set1 (float    v);
-inline v2i __v2i_set1 (int32_t  v);
-inline v2l __v2l_set1 (int64_t  v);
-inline v2d __v2d_load (const double * p);
-inline v2f __v2f_load (const float  * p);
-inline v2i __v2i_load (const int32_t* p);
-inline v2l __v2l_load (const int64_t* p);
-inline void __v2d_store (double * p, v2d a);
-inline void __v2f_store (float  * p, v2f a);
-inline void __v2i_store (int32_t* p, v2i a);
-inline void __v2l_store (int64_t* p, v2l a);
-inline int __v2d_is_zero(v2d a);
-inline int __v2f_is_zero(v2f a);
-inline int __v2i_is_zero(v2i a);
-inline int __v2l_is_zero(v2l a);
 inline v2d __v2d_get_high_v4d(struct __v4d a);
 inline v2f __v2f_get_high_v4f(struct __v4f a);
 inline v2i __v2i_get_high_v4i(struct __v4i a);
 inline v2l __v2l_get_high_v4l(struct __v4l a);
-inline v2d __v2d_get_low_v4d(struct __v4d a);
-inline v2f __v2f_get_low_v4f(struct __v4f a);
-inline v2i __v2i_get_low_v4i(struct __v4i a);
-inline v2l __v2l_get_low_v4l(struct __v4l a);
-inline struct __v2d __v2d_set_low_v1d(struct __v2d src, v1d a);
-inline struct __v2f __v2f_set_low_v1f(struct __v2f src, v1f a);
-inline struct __v2i __v2i_set_low_v1i(struct __v2i src, v1i a);
-inline struct __v2l __v2l_set_low_v1l(struct __v2l src, v1l a);
-inline struct __v2d __v2d_set_high_v1d(struct __v2d src, v1d a);
-inline struct __v2f __v2f_set_high_v1f(struct __v2f src, v1f a);
-inline struct __v2i __v2i_set_high_v1i(struct __v2i src, v1i a);
-inline struct __v2l __v2l_set_high_v1l(struct __v2l src, v1l a);
-inline struct __v2d __v2d_merge_v1d(v1d a, v1d b);
-inline struct __v2f __v2f_merge_v1f(v1f a, v1f b);
-inline struct __v2i __v2i_merge_v1i(v1i a, v1i b);
-inline struct __v2l __v2l_merge_v1l(v1l a, v1l b);
-inline v2d __v2d_compatible_get_high_v4d(v4d a);
-inline v2f __v2f_compatible_get_high_v4f(v4f a);
-inline v2i __v2i_compatible_get_high_v4i(v4i a);
-inline v2l __v2l_compatible_get_high_v4l(v4l a);
-inline v2d __v2d_compatible_get_low_v4d(v4d a);
-inline v2f __v2f_compatible_get_low_v4f(v4f a);
-inline v2i __v2i_compatible_get_low_v4i(v4i a);
-inline v2l __v2l_compatible_get_low_v4l(v4l a);
-inline v2d __v2d_compatible_set_low_v1d(v2d src, v1d a);
-inline v2f __v2f_compatible_set_low_v1f(v2f src, v1f a);
-inline v2i __v2i_compatible_set_low_v1i(v2i src, v1i a);
-inline v2l __v2l_compatible_set_low_v1l(v2l src, v1l a);
-inline v2d __v2d_compatible_set_high_v1d(v2d src, v1d a);
-inline v2f __v2f_compatible_set_high_v1f(v2f src, v1f a);
-inline v2i __v2i_compatible_set_high_v1i(v2i src, v1i a);
-inline v2l __v2l_compatible_set_high_v1l(v2l src, v1l a);
-inline v2d __v2d_compatible_merge_v1d(v1d a, v1d b);
-inline v2f __v2f_compatible_merge_v1f(v1f a, v1f b);
-inline v2i __v2i_compatible_merge_v1i(v1i a, v1i b);
-inline v2l __v2l_compatible_merge_v1l(v1l a, v1l b);
-inline void __v2d_fprint(void* f, v2d a);
-inline void __v2f_fprint(void* f, v2f a);
-inline void __v2i_fprint(void* f, v2i a);
-inline void __v2l_fprint(void* f, v2l a);
-inline void __v2d_print(v2d a);
-inline void __v2f_print(v2f a);
-inline void __v2i_print(v2i a);
-inline void __v2l_print(v2l a);
-inline v4d __v4d_and(v4d a, v4d b);
-inline v4f __v4f_and(v4f a, v4f b);
-inline v4i __v4i_and(v4i a, v4i b);
-inline v4l __v4l_and(v4l a, v4l b);
-inline v4d __v4d_or (v4d a, v4d b);
-inline v4f __v4f_or (v4f a, v4f b);
-inline v4i __v4i_or (v4i a, v4i b);
-inline v4l __v4l_or (v4l a, v4l b);
-inline v4d __v4d_xor(v4d a, v4d b);
-inline v4f __v4f_xor(v4f a, v4f b);
-inline v4i __v4i_xor(v4i a, v4i b);
-inline v4l __v4l_xor(v4l a, v4l b);
-inline v4d __v4d_eq (v4d a, v4d b);
-inline v4f __v4f_eq (v4f a, v4f b);
-inline v4i __v4i_eq (v4i a, v4i b);
-inline v4l __v4l_eq (v4l a, v4l b);
-inline v4d __v4d_neq(v4d a, v4d b);
-inline v4f __v4f_neq(v4f a, v4f b);
-inline v4i __v4i_neq(v4i a, v4i b);
-inline v4l __v4l_neq(v4l a, v4l b);
-inline v4d __v4d_gt (v4d a, v4d b);
-inline v4f __v4f_gt (v4f a, v4f b);
-inline v4i __v4i_gt (v4i a, v4i b);
-inline v4l __v4l_gt (v4l a, v4l b);
-inline v4d __v4d_geq(v4d a, v4d b);
-inline v4f __v4f_geq(v4f a, v4f b);
-inline v4i __v4i_geq(v4i a, v4i b);
-inline v4l __v4l_geq(v4l a, v4l b);
-inline v4d __v4d_lt (v4d a, v4d b);
-inline v4f __v4f_lt (v4f a, v4f b);
-inline v4i __v4i_lt (v4i a, v4i b);
-inline v4l __v4l_lt (v4l a, v4l b);
-inline v4d __v4d_leq(v4d a, v4d b);
-inline v4f __v4f_leq(v4f a, v4f b);
-inline v4i __v4i_leq(v4i a, v4i b);
-inline v4l __v4l_leq(v4l a, v4l b);
-inline v4d __v4d_add(v4d a, v4d b);
-inline v4f __v4f_add(v4f a, v4f b);
-inline v4i __v4i_add(v4i a, v4i b);
-inline v4l __v4l_add(v4l a, v4l b);
-inline v4d __v4d_sub(v4d a, v4d b);
-inline v4f __v4f_sub(v4f a, v4f b);
-inline v4i __v4i_sub(v4i a, v4i b);
-inline v4l __v4l_sub(v4l a, v4l b);
-inline v4d __v4d_mul(v4d a, v4d b);
-inline v4f __v4f_mul(v4f a, v4f b);
-inline v4i __v4i_mul(v4i a, v4i b);
-inline v4l __v4l_mul(v4l a, v4l b);
-inline v4d __v4d_div(v4d a, v4d b);
-inline v4f __v4f_div(v4f a, v4f b);
-inline v4i __v4i_div(v4i a, v4i b);
-inline v4l __v4l_div(v4l a, v4l b);
-inline v4d __v4d_sqrt(v4d a);
-inline v4f __v4f_sqrt(v4f a);
-inline v4i __v4i_sqrt(v4i a);
-inline v4l __v4l_sqrt(v4l a);
-inline v4d __v4d_set1 (double   v);
-inline v4f __v4f_set1 (float    v);
-inline v4i __v4i_set1 (int32_t  v);
-inline v4l __v4l_set1 (int64_t  v);
-inline v4d __v4d_load (const double * p);
-inline v4f __v4f_load (const float  * p);
-inline v4i __v4i_load (const int32_t* p);
-inline v4l __v4l_load (const int64_t* p);
-inline void __v4d_store (double * p, v4d a);
-inline void __v4f_store (float  * p, v4f a);
-inline void __v4i_store (int32_t* p, v4i a);
-inline void __v4l_store (int64_t* p, v4l a);
-inline int __v4d_is_zero(v4d a);
-inline int __v4f_is_zero(v4f a);
-inline int __v4i_is_zero(v4i a);
-inline int __v4l_is_zero(v4l a);
 inline v4d __v4d_get_high_v8d(struct __v8d a);
 inline v4f __v4f_get_high_v8f(struct __v8f a);
 inline v4i __v4i_get_high_v8i(struct __v8i a);
 inline v4l __v4l_get_high_v8l(struct __v8l a);
-inline v4d __v4d_get_low_v8d(struct __v8d a);
-inline v4f __v4f_get_low_v8f(struct __v8f a);
-inline v4i __v4i_get_low_v8i(struct __v8i a);
-inline v4l __v4l_get_low_v8l(struct __v8l a);
-inline struct __v4d __v4d_set_low_v2d(struct __v4d src, v2d a);
-inline struct __v4f __v4f_set_low_v2f(struct __v4f src, v2f a);
-inline struct __v4i __v4i_set_low_v2i(struct __v4i src, v2i a);
-inline struct __v4l __v4l_set_low_v2l(struct __v4l src, v2l a);
-inline struct __v4d __v4d_set_high_v2d(struct __v4d src, v2d a);
-inline struct __v4f __v4f_set_high_v2f(struct __v4f src, v2f a);
-inline struct __v4i __v4i_set_high_v2i(struct __v4i src, v2i a);
-inline struct __v4l __v4l_set_high_v2l(struct __v4l src, v2l a);
-inline struct __v4d __v4d_merge_v2d(v2d a, v2d b);
-inline struct __v4f __v4f_merge_v2f(v2f a, v2f b);
-inline struct __v4i __v4i_merge_v2i(v2i a, v2i b);
-inline struct __v4l __v4l_merge_v2l(v2l a, v2l b);
-inline v4d __v4d_compatible_get_high_v8d(v8d a);
-inline v4f __v4f_compatible_get_high_v8f(v8f a);
-inline v4i __v4i_compatible_get_high_v8i(v8i a);
-inline v4l __v4l_compatible_get_high_v8l(v8l a);
-inline v4d __v4d_compatible_get_low_v8d(v8d a);
-inline v4f __v4f_compatible_get_low_v8f(v8f a);
-inline v4i __v4i_compatible_get_low_v8i(v8i a);
-inline v4l __v4l_compatible_get_low_v8l(v8l a);
-inline v4d __v4d_compatible_set_low_v2d(v4d src, v2d a);
-inline v4f __v4f_compatible_set_low_v2f(v4f src, v2f a);
-inline v4i __v4i_compatible_set_low_v2i(v4i src, v2i a);
-inline v4l __v4l_compatible_set_low_v2l(v4l src, v2l a);
-inline v4d __v4d_compatible_set_high_v2d(v4d src, v2d a);
-inline v4f __v4f_compatible_set_high_v2f(v4f src, v2f a);
-inline v4i __v4i_compatible_set_high_v2i(v4i src, v2i a);
-inline v4l __v4l_compatible_set_high_v2l(v4l src, v2l a);
-inline v4d __v4d_compatible_merge_v2d(v2d a, v2d b);
-inline v4f __v4f_compatible_merge_v2f(v2f a, v2f b);
-inline v4i __v4i_compatible_merge_v2i(v2i a, v2i b);
-inline v4l __v4l_compatible_merge_v2l(v2l a, v2l b);
-inline void __v4d_fprint(void* f, v4d a);
-inline void __v4f_fprint(void* f, v4f a);
-inline void __v4i_fprint(void* f, v4i a);
-inline void __v4l_fprint(void* f, v4l a);
-inline void __v4d_print(v4d a);
-inline void __v4f_print(v4f a);
-inline void __v4i_print(v4i a);
-inline void __v4l_print(v4l a);
-inline v8d __v8d_and(v8d a, v8d b);
-inline v8f __v8f_and(v8f a, v8f b);
-inline v8i __v8i_and(v8i a, v8i b);
-inline v8l __v8l_and(v8l a, v8l b);
-inline v8d __v8d_or (v8d a, v8d b);
-inline v8f __v8f_or (v8f a, v8f b);
-inline v8i __v8i_or (v8i a, v8i b);
-inline v8l __v8l_or (v8l a, v8l b);
-inline v8d __v8d_xor(v8d a, v8d b);
-inline v8f __v8f_xor(v8f a, v8f b);
-inline v8i __v8i_xor(v8i a, v8i b);
-inline v8l __v8l_xor(v8l a, v8l b);
-inline v8d __v8d_eq (v8d a, v8d b);
-inline v8f __v8f_eq (v8f a, v8f b);
-inline v8i __v8i_eq (v8i a, v8i b);
-inline v8l __v8l_eq (v8l a, v8l b);
-inline v8d __v8d_neq(v8d a, v8d b);
-inline v8f __v8f_neq(v8f a, v8f b);
-inline v8i __v8i_neq(v8i a, v8i b);
-inline v8l __v8l_neq(v8l a, v8l b);
-inline v8d __v8d_gt (v8d a, v8d b);
-inline v8f __v8f_gt (v8f a, v8f b);
-inline v8i __v8i_gt (v8i a, v8i b);
-inline v8l __v8l_gt (v8l a, v8l b);
-inline v8d __v8d_geq(v8d a, v8d b);
-inline v8f __v8f_geq(v8f a, v8f b);
-inline v8i __v8i_geq(v8i a, v8i b);
-inline v8l __v8l_geq(v8l a, v8l b);
-inline v8d __v8d_lt (v8d a, v8d b);
-inline v8f __v8f_lt (v8f a, v8f b);
-inline v8i __v8i_lt (v8i a, v8i b);
-inline v8l __v8l_lt (v8l a, v8l b);
-inline v8d __v8d_leq(v8d a, v8d b);
-inline v8f __v8f_leq(v8f a, v8f b);
-inline v8i __v8i_leq(v8i a, v8i b);
-inline v8l __v8l_leq(v8l a, v8l b);
-inline v8d __v8d_add(v8d a, v8d b);
-inline v8f __v8f_add(v8f a, v8f b);
-inline v8i __v8i_add(v8i a, v8i b);
-inline v8l __v8l_add(v8l a, v8l b);
-inline v8d __v8d_sub(v8d a, v8d b);
-inline v8f __v8f_sub(v8f a, v8f b);
-inline v8i __v8i_sub(v8i a, v8i b);
-inline v8l __v8l_sub(v8l a, v8l b);
-inline v8d __v8d_mul(v8d a, v8d b);
-inline v8f __v8f_mul(v8f a, v8f b);
-inline v8i __v8i_mul(v8i a, v8i b);
-inline v8l __v8l_mul(v8l a, v8l b);
-inline v8d __v8d_div(v8d a, v8d b);
-inline v8f __v8f_div(v8f a, v8f b);
-inline v8i __v8i_div(v8i a, v8i b);
-inline v8l __v8l_div(v8l a, v8l b);
-inline v8d __v8d_sqrt(v8d a);
-inline v8f __v8f_sqrt(v8f a);
-inline v8i __v8i_sqrt(v8i a);
-inline v8l __v8l_sqrt(v8l a);
-inline v8d __v8d_set1 (double   v);
-inline v8f __v8f_set1 (float    v);
-inline v8i __v8i_set1 (int32_t  v);
-inline v8l __v8l_set1 (int64_t  v);
-inline v8d __v8d_load (const double * p);
-inline v8f __v8f_load (const float  * p);
-inline v8i __v8i_load (const int32_t* p);
-inline v8l __v8l_load (const int64_t* p);
-inline void __v8d_store (double * p, v8d a);
-inline void __v8f_store (float  * p, v8f a);
-inline void __v8i_store (int32_t* p, v8i a);
-inline void __v8l_store (int64_t* p, v8l a);
-inline int __v8d_is_zero(v8d a);
-inline int __v8f_is_zero(v8f a);
-inline int __v8i_is_zero(v8i a);
-inline int __v8l_is_zero(v8l a);
 inline v8f __v8f_get_high_v16f(struct __v16f a);
 inline v8i __v8i_get_high_v16i(struct __v16i a);
-inline v8f __v8f_get_low_v16f(struct __v16f a);
-inline v8i __v8i_get_low_v16i(struct __v16i a);
-inline struct __v8d __v8d_set_low_v4d(struct __v8d src, v4d a);
-inline struct __v8f __v8f_set_low_v4f(struct __v8f src, v4f a);
-inline struct __v8i __v8i_set_low_v4i(struct __v8i src, v4i a);
-inline struct __v8l __v8l_set_low_v4l(struct __v8l src, v4l a);
-inline struct __v8d __v8d_set_high_v4d(struct __v8d src, v4d a);
-inline struct __v8f __v8f_set_high_v4f(struct __v8f src, v4f a);
-inline struct __v8i __v8i_set_high_v4i(struct __v8i src, v4i a);
-inline struct __v8l __v8l_set_high_v4l(struct __v8l src, v4l a);
-inline struct __v8d __v8d_merge_v4d(v4d a, v4d b);
-inline struct __v8f __v8f_merge_v4f(v4f a, v4f b);
-inline struct __v8i __v8i_merge_v4i(v4i a, v4i b);
-inline struct __v8l __v8l_merge_v4l(v4l a, v4l b);
-inline v8f __v8f_compatible_get_high_v16f(v16f a);
-inline v8i __v8i_compatible_get_high_v16i(v16i a);
-inline v8f __v8f_compatible_get_low_v16f(v16f a);
-inline v8i __v8i_compatible_get_low_v16i(v16i a);
-inline v8d __v8d_compatible_set_low_v4d(v8d src, v4d a);
-inline v8f __v8f_compatible_set_low_v4f(v8f src, v4f a);
-inline v8i __v8i_compatible_set_low_v4i(v8i src, v4i a);
-inline v8l __v8l_compatible_set_low_v4l(v8l src, v4l a);
-inline v8d __v8d_compatible_set_high_v4d(v8d src, v4d a);
-inline v8f __v8f_compatible_set_high_v4f(v8f src, v4f a);
-inline v8i __v8i_compatible_set_high_v4i(v8i src, v4i a);
-inline v8l __v8l_compatible_set_high_v4l(v8l src, v4l a);
-inline v8d __v8d_compatible_merge_v4d(v4d a, v4d b);
-inline v8f __v8f_compatible_merge_v4f(v4f a, v4f b);
-inline v8i __v8i_compatible_merge_v4i(v4i a, v4i b);
-inline v8l __v8l_compatible_merge_v4l(v4l a, v4l b);
-inline void __v8d_fprint(void* f, v8d a);
-inline void __v8f_fprint(void* f, v8f a);
-inline void __v8i_fprint(void* f, v8i a);
-inline void __v8l_fprint(void* f, v8l a);
-inline void __v8d_print(v8d a);
-inline void __v8f_print(v8f a);
-inline void __v8i_print(v8i a);
-inline void __v8l_print(v8l a);
-inline v16f __v16f_and(v16f a, v16f b);
-inline v16i __v16i_and(v16i a, v16i b);
-inline v16f __v16f_or (v16f a, v16f b);
-inline v16i __v16i_or (v16i a, v16i b);
-inline v16f __v16f_xor(v16f a, v16f b);
-inline v16i __v16i_xor(v16i a, v16i b);
-inline v16f __v16f_eq (v16f a, v16f b);
-inline v16i __v16i_eq (v16i a, v16i b);
-inline v16f __v16f_neq(v16f a, v16f b);
-inline v16i __v16i_neq(v16i a, v16i b);
-inline v16f __v16f_gt (v16f a, v16f b);
-inline v16i __v16i_gt (v16i a, v16i b);
-inline v16f __v16f_geq(v16f a, v16f b);
-inline v16i __v16i_geq(v16i a, v16i b);
-inline v16f __v16f_lt (v16f a, v16f b);
-inline v16i __v16i_lt (v16i a, v16i b);
-inline v16f __v16f_leq(v16f a, v16f b);
-inline v16i __v16i_leq(v16i a, v16i b);
-inline v16f __v16f_add(v16f a, v16f b);
-inline v16i __v16i_add(v16i a, v16i b);
-inline v16f __v16f_sub(v16f a, v16f b);
-inline v16i __v16i_sub(v16i a, v16i b);
-inline v16f __v16f_mul(v16f a, v16f b);
-inline v16i __v16i_mul(v16i a, v16i b);
-inline v16f __v16f_div(v16f a, v16f b);
-inline v16i __v16i_div(v16i a, v16i b);
-inline v16f __v16f_sqrt(v16f a);
-inline v16i __v16i_sqrt(v16i a);
-inline v16f __v16f_set1 (float    v);
-inline v16i __v16i_set1 (int32_t  v);
-inline v16f __v16f_load (const float  * p);
-inline v16i __v16i_load (const int32_t* p);
-inline void __v16f_store (float  * p, v16f a);
-inline void __v16i_store (int32_t* p, v16i a);
-inline int __v16f_is_zero(v16f a);
-inline int __v16i_is_zero(v16i a);
-inline struct __v16f __v16f_set_low_v8f(struct __v16f src, v8f a);
-inline struct __v16i __v16i_set_low_v8i(struct __v16i src, v8i a);
-inline struct __v16f __v16f_set_high_v8f(struct __v16f src, v8f a);
-inline struct __v16i __v16i_set_high_v8i(struct __v16i src, v8i a);
-inline struct __v16f __v16f_merge_v8f(v8f a, v8f b);
-inline struct __v16i __v16i_merge_v8i(v8i a, v8i b);
-inline v16f __v16f_compatible_set_low_v8f(v16f src, v8f a);
-inline v16i __v16i_compatible_set_low_v8i(v16i src, v8i a);
-inline v16f __v16f_compatible_set_high_v8f(v16f src, v8f a);
-inline v16i __v16i_compatible_set_high_v8i(v16i src, v8i a);
-inline v16f __v16f_compatible_merge_v8f(v8f a, v8f b);
-inline v16i __v16i_compatible_merge_v8i(v8i a, v8i b);
-inline void __v16f_fprint(void* f, v16f a);
-inline void __v16i_fprint(void* f, v16i a);
-inline void __v16f_print(v16f a);
-inline void __v16i_print(v16i a);
 
-// Casts
-inline double  __d_cast_v1d(union __v1d a) { return a.v; }
-inline v1d __v1d_cast_v1d(v1d a) { return *((v1d*) &a); }
-inline v1l __v1l_cast_v1d(v1d a) { return *((v1l*) &a); }
-inline float   __f_cast_v1f(union __v1f a) { return a.v; }
-inline v1f __v1f_cast_v1f(v1f a) { return *((v1f*) &a); }
-inline v1i __v1i_cast_v1f(v1f a) { return *((v1i*) &a); }
-inline int32_t __i_cast_v1i(union __v1i a) { return a.v; }
-inline v1f __v1f_cast_v1i(v1i a) { return *((v1f*) &a); }
-inline v1i __v1i_cast_v1i(v1i a) { return *((v1i*) &a); }
-inline int64_t __l_cast_v1l(union __v1l a) { return a.v; }
-inline v1d __v1d_cast_v1l(v1l a) { return *((v1d*) &a); }
-inline v1l __v1l_cast_v1l(v1l a) { return *((v1l*) &a); }
+inline v1d compatible_v1d_get_high_v2d(v2d a);
+inline v1f compatible_v1f_get_high_v2f(v2f a);
+inline v1i compatible_v1i_get_high_v2i(v2i a);
+inline v1l compatible_v1l_get_high_v2l(v2l a);
+inline v2d compatible_v2d_get_high_v4d(v4d a);
+inline v2f compatible_v2f_get_high_v4f(v4f a);
+inline v2i compatible_v2i_get_high_v4i(v4i a);
+inline v2l compatible_v2l_get_high_v4l(v4l a);
+inline v4d compatible_v4d_get_high_v8d(v8d a);
+inline v4f compatible_v4f_get_high_v8f(v8f a);
+inline v4i compatible_v4i_get_high_v8i(v8i a);
+inline v4l compatible_v4l_get_high_v8l(v8l a);
+inline v8f compatible_v8f_get_high_v16f(v16f a);
+inline v8i compatible_v8i_get_high_v16i(v16i a);
+
+
+
+
+
+
+
+inline v2d compatible_v2d_merge_v1d(v1d low, v1d high);
+inline v2f compatible_v2f_merge_v1f(v1f low, v1f high);
+inline v2i compatible_v2i_merge_v1i(v1i low, v1i high);
+inline v2l compatible_v2l_merge_v1l(v1l low, v1l high);
+inline v4d compatible_v4d_merge_v2d(v2d low, v2d high);
+inline v4f compatible_v4f_merge_v2f(v2f low, v2f high);
+inline v4i compatible_v4i_merge_v2i(v2i low, v2i high);
+inline v4l compatible_v4l_merge_v2l(v2l low, v2l high);
+inline v8d compatible_v8d_merge_v4d(v4d low, v4d high);
+inline v8f compatible_v8f_merge_v4f(v4f low, v4f high);
+inline v8i compatible_v8i_merge_v4i(v4i low, v4i high);
+inline v8l compatible_v8l_merge_v4l(v4l low, v4l high);
+inline v16f compatible_v16f_merge_v8f(v8f low, v8f high);
+inline v16i compatible_v16i_merge_v8i(v8i low, v8i high);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+inline union __v1d __v1d_eq(union __v1d a, union __v1d b);
+inline union __v1f __v1f_eq(union __v1f a, union __v1f b);
+inline union __v1i __v1i_eq(union __v1i a, union __v1i b);
+inline union __v1l __v1l_eq(union __v1l a, union __v1l b);
+
+
+inline union __v1d __v1d_neq(union __v1d a, union __v1d b);
+inline union __v1f __v1f_neq(union __v1f a, union __v1f b);
+inline union __v1i __v1i_neq(union __v1i a, union __v1i b);
+inline union __v1l __v1l_neq(union __v1l a, union __v1l b);
+
+
+inline union __v1d __v1d_gt(union __v1d a, union __v1d b);
+inline union __v1f __v1f_gt(union __v1f a, union __v1f b);
+inline union __v1i __v1i_gt(union __v1i a, union __v1i b);
+inline union __v1l __v1l_gt(union __v1l a, union __v1l b);
+
+
+inline union __v1d __v1d_geq(union __v1d a, union __v1d b);
+inline union __v1f __v1f_geq(union __v1f a, union __v1f b);
+inline union __v1i __v1i_geq(union __v1i a, union __v1i b);
+inline union __v1l __v1l_geq(union __v1l a, union __v1l b);
+
+
+inline union __v1d __v1d_lt(union __v1d a, union __v1d b);
+inline union __v1f __v1f_lt(union __v1f a, union __v1f b);
+inline union __v1i __v1i_lt(union __v1i a, union __v1i b);
+inline union __v1l __v1l_lt(union __v1l a, union __v1l b);
+
+
+inline union __v1d __v1d_leq(union __v1d a, union __v1d b);
+inline union __v1f __v1f_leq(union __v1f a, union __v1f b);
+inline union __v1i __v1i_leq(union __v1i a, union __v1i b);
+inline union __v1l __v1l_leq(union __v1l a, union __v1l b);
+
+
+inline union __v1d __v1d_and(union __v1d a, union __v1d b);
+inline union __v1f __v1f_and(union __v1f a, union __v1f b);
+inline union __v1i __v1i_and(union __v1i a, union __v1i b);
+inline union __v1l __v1l_and(union __v1l a, union __v1l b);
+
+
+inline union __v1d __v1d_or(union __v1d a, union __v1d b);
+inline union __v1f __v1f_or(union __v1f a, union __v1f b);
+inline union __v1i __v1i_or(union __v1i a, union __v1i b);
+inline union __v1l __v1l_or(union __v1l a, union __v1l b);
+
+
+inline union __v1d __v1d_xor(union __v1d a, union __v1d b);
+inline union __v1f __v1f_xor(union __v1f a, union __v1f b);
+inline union __v1i __v1i_xor(union __v1i a, union __v1i b);
+inline union __v1l __v1l_xor(union __v1l a, union __v1l b);
+
+
+
+
+
+
+
+
+inline union __v1d __v1d_add(union __v1d a, union __v1d b);
+inline union __v1f __v1f_add(union __v1f a, union __v1f b);
+inline union __v1i __v1i_add(union __v1i a, union __v1i b);
+inline union __v1l __v1l_add(union __v1l a, union __v1l b);
+
+
+inline union __v1d __v1d_sub(union __v1d a, union __v1d b);
+inline union __v1f __v1f_sub(union __v1f a, union __v1f b);
+inline union __v1i __v1i_sub(union __v1i a, union __v1i b);
+inline union __v1l __v1l_sub(union __v1l a, union __v1l b);
+
+
+inline union __v1d __v1d_mul(union __v1d a, union __v1d b);
+inline union __v1f __v1f_mul(union __v1f a, union __v1f b);
+inline union __v1i __v1i_mul(union __v1i a, union __v1i b);
+inline union __v1l __v1l_mul(union __v1l a, union __v1l b);
+
+
+inline union __v1d __v1d_div(union __v1d a, union __v1d b);
+inline union __v1f __v1f_div(union __v1f a, union __v1f b);
+inline union __v1i __v1i_div(union __v1i a, union __v1i b);
+inline union __v1l __v1l_div(union __v1l a, union __v1l b);
+
+
+inline union __v1d __v1d_sqrt(union __v1d a);
+inline union __v1f __v1f_sqrt(union __v1f a);
+
+
+
+
+
+
+
+
+
+
+
+
+inline void __v1d_fprint(void *f, v1d a);
+inline void __v1f_fprint(void *f, v1f a);
+inline void __v1i_fprint(void *f, v1i a);
+inline void __v1l_fprint(void *f, v1l a);
+inline void __v2d_fprint(void *f, v2d a);
+inline void __v2f_fprint(void *f, v2f a);
+inline void __v2i_fprint(void *f, v2i a);
+inline void __v2l_fprint(void *f, v2l a);
+inline void __v4d_fprint(void *f, v4d a);
+inline void __v4f_fprint(void *f, v4f a);
+inline void __v4i_fprint(void *f, v4i a);
+inline void __v4l_fprint(void *f, v4l a);
+inline void __v8d_fprint(void *f, v8d a);
+inline void __v8f_fprint(void *f, v8f a);
+inline void __v8i_fprint(void *f, v8i a);
+inline void __v8l_fprint(void *f, v8l a);
+inline void __v16f_fprint(void *f, v16f a);
+inline void __v16i_fprint(void *f, v16i a);
+
+inline void __v1d_rfprint(void *f, v1d a);
+inline void __v1f_rfprint(void *f, v1f a);
+inline void __v1i_rfprint(void *f, v1i a);
+inline void __v1l_rfprint(void *f, v1l a);
+inline void __v2d_rfprint(void *f, v2d a);
+inline void __v2f_rfprint(void *f, v2f a);
+inline void __v2i_rfprint(void *f, v2i a);
+inline void __v2l_rfprint(void *f, v2l a);
+inline void __v4d_rfprint(void *f, v4d a);
+inline void __v4f_rfprint(void *f, v4f a);
+inline void __v4i_rfprint(void *f, v4i a);
+inline void __v4l_rfprint(void *f, v4l a);
+inline void __v8d_rfprint(void *f, v8d a);
+inline void __v8f_rfprint(void *f, v8f a);
+inline void __v8i_rfprint(void *f, v8i a);
+inline void __v8l_rfprint(void *f, v8l a);
+inline void __v16f_rfprint(void *f, v16f a);
+inline void __v16i_rfprint(void *f, v16i a);
+
+
+
+
+
+// Casts ans Conversions implementations
+
 inline v1d __v1d_cast_v2d(struct __v2d a) { return a.a; }
-inline struct __v2d __v2d_cast_v1d(v1d a) { struct __v2d r = { a: a }; return r; }
-inline v2d __v2d_cast_v2d(v2d a) { return *((v2d*) &a); }
-inline v2f __v2f_cast_v1d(v1d a) { return *((v2f*) &a); }
-inline v2i __v2i_cast_v1d(v1d a) { return *((v2i*) &a); }
-inline v2l __v2l_cast_v2d(v2d a) { return *((v2l*) &a); }
 inline v1f __v1f_cast_v2f(struct __v2f a) { return a.a; }
-inline struct __v2f __v2f_cast_v1f(v1f a) { struct __v2f r = { a: a }; return r; }
-inline v1d __v1d_cast_v2f(v2f a) { return *((v1d*) &a); }
-inline v2f __v2f_cast_v2f(v2f a) { return *((v2f*) &a); }
-inline v2i __v2i_cast_v2f(v2f a) { return *((v2i*) &a); }
-inline v1l __v1l_cast_v2f(v2f a) { return *((v1l*) &a); }
 inline v1i __v1i_cast_v2i(struct __v2i a) { return a.a; }
-inline struct __v2i __v2i_cast_v1i(v1i a) { struct __v2i r = { a: a }; return r; }
-inline v1d __v1d_cast_v2i(v2i a) { return *((v1d*) &a); }
-inline v2f __v2f_cast_v2i(v2i a) { return *((v2f*) &a); }
-inline v2i __v2i_cast_v2i(v2i a) { return *((v2i*) &a); }
-inline v1l __v1l_cast_v2i(v2i a) { return *((v1l*) &a); }
 inline v1l __v1l_cast_v2l(struct __v2l a) { return a.a; }
-inline struct __v2l __v2l_cast_v1l(v1l a) { struct __v2l r = { a: a }; return r; }
-inline v2d __v2d_cast_v2l(v2l a) { return *((v2d*) &a); }
-inline v2f __v2f_cast_v1l(v1l a) { return *((v2f*) &a); }
-inline v2i __v2i_cast_v1l(v1l a) { return *((v2i*) &a); }
-inline v2l __v2l_cast_v2l(v2l a) { return *((v2l*) &a); }
+inline struct __v2d __v2d_cast_v1d(v1d a) { struct __v2d r = { a: a }; return r; }
 inline v2d __v2d_cast_v4d(struct __v4d a) { return a.a; }
-inline struct __v4d __v4d_cast_v2d(v2d a) { struct __v4d r = { a: a }; return r; }
-inline v4d __v4d_cast_v4d(v4d a) { return *((v4d*) &a); }
-inline v4f __v4f_cast_v2d(v2d a) { return *((v4f*) &a); }
-inline v4i __v4i_cast_v2d(v2d a) { return *((v4i*) &a); }
-inline v4l __v4l_cast_v4d(v4d a) { return *((v4l*) &a); }
+inline struct __v2f __v2f_cast_v1f(v1f a) { struct __v2f r = { a: a }; return r; }
 inline v2f __v2f_cast_v4f(struct __v4f a) { return a.a; }
-inline struct __v4f __v4f_cast_v2f(v2f a) { struct __v4f r = { a: a }; return r; }
-inline v2d __v2d_cast_v4f(v4f a) { return *((v2d*) &a); }
-inline v4f __v4f_cast_v4f(v4f a) { return *((v4f*) &a); }
-inline v4i __v4i_cast_v4f(v4f a) { return *((v4i*) &a); }
-inline v2l __v2l_cast_v4f(v4f a) { return *((v2l*) &a); }
+inline struct __v2i __v2i_cast_v1i(v1i a) { struct __v2i r = { a: a }; return r; }
 inline v2i __v2i_cast_v4i(struct __v4i a) { return a.a; }
-inline struct __v4i __v4i_cast_v2i(v2i a) { struct __v4i r = { a: a }; return r; }
-inline v2d __v2d_cast_v4i(v4i a) { return *((v2d*) &a); }
-inline v4f __v4f_cast_v4i(v4i a) { return *((v4f*) &a); }
-inline v4i __v4i_cast_v4i(v4i a) { return *((v4i*) &a); }
-inline v2l __v2l_cast_v4i(v4i a) { return *((v2l*) &a); }
+inline struct __v2l __v2l_cast_v1l(v1l a) { struct __v2l r = { a: a }; return r; }
 inline v2l __v2l_cast_v4l(struct __v4l a) { return a.a; }
-inline struct __v4l __v4l_cast_v2l(v2l a) { struct __v4l r = { a: a }; return r; }
-inline v4d __v4d_cast_v4l(v4l a) { return *((v4d*) &a); }
-inline v4f __v4f_cast_v2l(v2l a) { return *((v4f*) &a); }
-inline v4i __v4i_cast_v2l(v2l a) { return *((v4i*) &a); }
-inline v4l __v4l_cast_v4l(v4l a) { return *((v4l*) &a); }
+inline struct __v4d __v4d_cast_v2d(v2d a) { struct __v4d r = { a: a }; return r; }
 inline v4d __v4d_cast_v8d(struct __v8d a) { return a.a; }
-inline struct __v8d __v8d_cast_v4d(v4d a) { struct __v8d r = { a: a }; return r; }
-inline v8d __v8d_cast_v8d(v8d a) { return *((v8d*) &a); }
-inline v8f __v8f_cast_v4d(v4d a) { return *((v8f*) &a); }
-inline v8i __v8i_cast_v4d(v4d a) { return *((v8i*) &a); }
-inline v8l __v8l_cast_v8d(v8d a) { return *((v8l*) &a); }
+inline struct __v4f __v4f_cast_v2f(v2f a) { struct __v4f r = { a: a }; return r; }
 inline v4f __v4f_cast_v8f(struct __v8f a) { return a.a; }
-inline struct __v8f __v8f_cast_v4f(v4f a) { struct __v8f r = { a: a }; return r; }
-inline v4d __v4d_cast_v8f(v8f a) { return *((v4d*) &a); }
-inline v8f __v8f_cast_v8f(v8f a) { return *((v8f*) &a); }
-inline v8i __v8i_cast_v8f(v8f a) { return *((v8i*) &a); }
-inline v4l __v4l_cast_v8f(v8f a) { return *((v4l*) &a); }
+inline struct __v4i __v4i_cast_v2i(v2i a) { struct __v4i r = { a: a }; return r; }
 inline v4i __v4i_cast_v8i(struct __v8i a) { return a.a; }
-inline struct __v8i __v8i_cast_v4i(v4i a) { struct __v8i r = { a: a }; return r; }
-inline v4d __v4d_cast_v8i(v8i a) { return *((v4d*) &a); }
-inline v8f __v8f_cast_v8i(v8i a) { return *((v8f*) &a); }
-inline v8i __v8i_cast_v8i(v8i a) { return *((v8i*) &a); }
-inline v4l __v4l_cast_v8i(v8i a) { return *((v4l*) &a); }
+inline struct __v4l __v4l_cast_v2l(v2l a) { struct __v4l r = { a: a }; return r; }
 inline v4l __v4l_cast_v8l(struct __v8l a) { return a.a; }
-inline struct __v8l __v8l_cast_v4l(v4l a) { struct __v8l r = { a: a }; return r; }
-inline v8d __v8d_cast_v8l(v8l a) { return *((v8d*) &a); }
-inline v8f __v8f_cast_v4l(v4l a) { return *((v8f*) &a); }
-inline v8i __v8i_cast_v4l(v4l a) { return *((v8i*) &a); }
-inline v8l __v8l_cast_v8l(v8l a) { return *((v8l*) &a); }
-inline v16f __v16f_cast_v8d(v8d a) { return *((v16f*) &a); }
-inline v16i __v16i_cast_v8d(v8d a) { return *((v16i*) &a); }
+inline struct __v8d __v8d_cast_v4d(v4d a) { struct __v8d r = { a: a }; return r; }
+inline struct __v8f __v8f_cast_v4f(v4f a) { struct __v8f r = { a: a }; return r; }
 inline v8f __v8f_cast_v16f(struct __v16f a) { return a.a; }
-inline struct __v16f __v16f_cast_v8f(v8f a) { struct __v16f r = { a: a }; return r; }
-inline v8d __v8d_cast_v16f(v16f a) { return *((v8d*) &a); }
-inline v16f __v16f_cast_v16f(v16f a) { return *((v16f*) &a); }
-inline v16i __v16i_cast_v16f(v16f a) { return *((v16i*) &a); }
-inline v8l __v8l_cast_v16f(v16f a) { return *((v8l*) &a); }
+inline struct __v8i __v8i_cast_v4i(v4i a) { struct __v8i r = { a: a }; return r; }
 inline v8i __v8i_cast_v16i(struct __v16i a) { return a.a; }
+inline struct __v8l __v8l_cast_v4l(v4l a) { struct __v8l r = { a: a }; return r; }
+inline struct __v16f __v16f_cast_v8f(v8f a) { struct __v16f r = { a: a }; return r; }
 inline struct __v16i __v16i_cast_v8i(v8i a) { struct __v16i r = { a: a }; return r; }
-inline v8d __v8d_cast_v16i(v16i a) { return *((v8d*) &a); }
-inline v16f __v16f_cast_v16i(v16i a) { return *((v16f*) &a); }
-inline v16i __v16i_cast_v16i(v16i a) { return *((v16i*) &a); }
-inline v8l __v8l_cast_v16i(v16i a) { return *((v8l*) &a); }
-inline v16f __v16f_cast_v8l(v8l a) { return *((v16f*) &a); }
-inline v16i __v16i_cast_v8l(v8l a) { return *((v16i*) &a); }
 
-// Conversions
-inline v1d __v1d_cvt_v1d(v1d a) {
-  double  src[1];
-  double  dst[1];
+inline double __sd_cvt_v1d(v1d a) {
   int i;
-  v1d_storeu(src, a);
-  for (i = 0; i < 1; i++) dst[i] = src[i];
-  return v1d_loadu(dst);
-}
-inline v1f __v1f_cvt_v1d(v1d a) {
-  double  src[1];
-  float   dst[1];
-  int i;
-  v1d_storeu(src, a);
-  for (i = 0; i < 1; i++) dst[i] = src[i];
-  return v1f_loadu(dst);
-}
-inline v1i __v1i_cvt_v1d(v1d a) {
-  double  src[1];
-  int32_t dst[1];
-  int i;
-  v1d_storeu(src, a);
-  for (i = 0; i < 1; i++) dst[i] = src[i];
-  return v1i_loadu(dst);
-}
-inline v1l __v1l_cvt_v1d(v1d a) {
-  double  src[1];
-  int64_t dst[1];
-  int i;
-  v1d_storeu(src, a);
-  for (i = 0; i < 1; i++) dst[i] = src[i];
-  return v1l_loadu(dst);
+  double sv1d;
+  v1d_store(&sv1d, a);
+  return sv1d;
 }
 inline v1d __v1d_cvt_v1f(v1f a) {
-  float   src[1];
-  double  dst[1];
   int i;
-  v1f_storeu(src, a);
-  for (i = 0; i < 1; i++) dst[i] = src[i];
-  return v1d_loadu(dst);
-}
-inline v1f __v1f_cvt_v1f(v1f a) {
-  float   src[1];
-  float   dst[1];
-  int i;
-  v1f_storeu(src, a);
-  for (i = 0; i < 1; i++) dst[i] = src[i];
-  return v1f_loadu(dst);
-}
-inline v1i __v1i_cvt_v1f(v1f a) {
-  float   src[1];
-  int32_t dst[1];
-  int i;
-  v1f_storeu(src, a);
-  for (i = 0; i < 1; i++) dst[i] = src[i];
-  return v1i_loadu(dst);
-}
-inline v1l __v1l_cvt_v1f(v1f a) {
-  float   src[1];
-  int64_t dst[1];
-  int i;
-  v1f_storeu(src, a);
-  for (i = 0; i < 1; i++) dst[i] = src[i];
-  return v1l_loadu(dst);
+  double sv1d;
+  float sv1f;
+  v1f_store(&sv1f, a);
+  sv1d = sv1f;
+  return v1d_load(&sv1d);
 }
 inline v1d __v1d_cvt_v1i(v1i a) {
-  int32_t src[1];
-  double  dst[1];
   int i;
-  v1i_storeu(src, a);
-  for (i = 0; i < 1; i++) dst[i] = src[i];
-  return v1d_loadu(dst);
-}
-inline v1f __v1f_cvt_v1i(v1i a) {
-  int32_t src[1];
-  float   dst[1];
-  int i;
-  v1i_storeu(src, a);
-  for (i = 0; i < 1; i++) dst[i] = src[i];
-  return v1f_loadu(dst);
-}
-inline v1i __v1i_cvt_v1i(v1i a) {
-  int32_t src[1];
-  int32_t dst[1];
-  int i;
-  v1i_storeu(src, a);
-  for (i = 0; i < 1; i++) dst[i] = src[i];
-  return v1i_loadu(dst);
-}
-inline v1l __v1l_cvt_v1i(v1i a) {
-  int32_t src[1];
-  int64_t dst[1];
-  int i;
-  v1i_storeu(src, a);
-  for (i = 0; i < 1; i++) dst[i] = src[i];
-  return v1l_loadu(dst);
+  double sv1d;
+  int32_t sv1i;
+  v1i_store(&sv1i, a);
+  sv1d = sv1i;
+  return v1d_load(&sv1d);
 }
 inline v1d __v1d_cvt_v1l(v1l a) {
-  int64_t src[1];
-  double  dst[1];
   int i;
-  v1l_storeu(src, a);
-  for (i = 0; i < 1; i++) dst[i] = src[i];
-  return v1d_loadu(dst);
+  double sv1d;
+  int64_t sv1l;
+  v1l_store(&sv1l, a);
+  sv1d = sv1l;
+  return v1d_load(&sv1d);
+}
+inline v1f __v1f_cvt_v1d(v1d a) {
+  int i;
+  float sv1f;
+  double sv1d;
+  v1d_store(&sv1d, a);
+  sv1f = sv1d;
+  return v1f_load(&sv1f);
+}
+inline float __sf_cvt_v1f(v1f a) {
+  int i;
+  float sv1f;
+  v1f_store(&sv1f, a);
+  return sv1f;
+}
+inline v1f __v1f_cvt_v1i(v1i a) {
+  int i;
+  float sv1f;
+  int32_t sv1i;
+  v1i_store(&sv1i, a);
+  sv1f = sv1i;
+  return v1f_load(&sv1f);
 }
 inline v1f __v1f_cvt_v1l(v1l a) {
-  int64_t src[1];
-  float   dst[1];
   int i;
-  v1l_storeu(src, a);
-  for (i = 0; i < 1; i++) dst[i] = src[i];
-  return v1f_loadu(dst);
+  float sv1f;
+  int64_t sv1l;
+  v1l_store(&sv1l, a);
+  sv1f = sv1l;
+  return v1f_load(&sv1f);
+}
+inline v1i __v1i_cvt_v1d(v1d a) {
+  int i;
+  int32_t sv1i;
+  double sv1d;
+  v1d_store(&sv1d, a);
+  sv1i = sv1d;
+  return v1i_load(&sv1i);
+}
+inline v1i __v1i_cvt_v1f(v1f a) {
+  int i;
+  int32_t sv1i;
+  float sv1f;
+  v1f_store(&sv1f, a);
+  sv1i = sv1f;
+  return v1i_load(&sv1i);
+}
+inline int32_t __si_cvt_v1i(v1i a) {
+  int i;
+  int32_t sv1i;
+  v1i_store(&sv1i, a);
+  return sv1i;
 }
 inline v1i __v1i_cvt_v1l(v1l a) {
-  int64_t src[1];
-  int32_t dst[1];
   int i;
-  v1l_storeu(src, a);
-  for (i = 0; i < 1; i++) dst[i] = src[i];
-  return v1i_loadu(dst);
+  int32_t sv1i;
+  int64_t sv1l;
+  v1l_store(&sv1l, a);
+  sv1i = sv1l;
+  return v1i_load(&sv1i);
 }
-inline v1l __v1l_cvt_v1l(v1l a) {
-  int64_t src[1];
-  int64_t dst[1];
+inline v1l __v1l_cvt_v1d(v1d a) {
   int i;
-  v1l_storeu(src, a);
-  for (i = 0; i < 1; i++) dst[i] = src[i];
-  return v1l_loadu(dst);
+  int64_t sv1l;
+  double sv1d;
+  v1d_store(&sv1d, a);
+  sv1l = sv1d;
+  return v1l_load(&sv1l);
 }
-inline v2d __v2d_cvt_v2d(v2d a) {
-  double  src[2];
-  double  dst[2];
+inline v1l __v1l_cvt_v1f(v1f a) {
   int i;
-  v2d_storeu(src, a);
-  for (i = 0; i < 2; i++) dst[i] = src[i];
-  return v2d_loadu(dst);
+  int64_t sv1l;
+  float sv1f;
+  v1f_store(&sv1f, a);
+  sv1l = sv1f;
+  return v1l_load(&sv1l);
 }
-inline v2f __v2f_cvt_v2d(v2d a) {
-  double  src[2];
-  float   dst[2];
+inline v1l __v1l_cvt_v1i(v1i a) {
   int i;
-  v2d_storeu(src, a);
-  for (i = 0; i < 2; i++) dst[i] = src[i];
-  return v2f_loadu(dst);
+  int64_t sv1l;
+  int32_t sv1i;
+  v1i_store(&sv1i, a);
+  sv1l = sv1i;
+  return v1l_load(&sv1l);
 }
-inline v2i __v2i_cvt_v2d(v2d a) {
-  double  src[2];
-  int32_t dst[2];
+inline int64_t __sl_cvt_v1l(v1l a) {
   int i;
-  v2d_storeu(src, a);
-  for (i = 0; i < 2; i++) dst[i] = src[i];
-  return v2i_loadu(dst);
-}
-inline v2l __v2l_cvt_v2d(v2d a) {
-  double  src[2];
-  int64_t dst[2];
-  int i;
-  v2d_storeu(src, a);
-  for (i = 0; i < 2; i++) dst[i] = src[i];
-  return v2l_loadu(dst);
-}
-inline v2d __v2d_cvt_v2f(v2f a) {
-  float   src[2];
-  double  dst[2];
-  int i;
-  v2f_storeu(src, a);
-  for (i = 0; i < 2; i++) dst[i] = src[i];
-  return v2d_loadu(dst);
-}
-inline v2f __v2f_cvt_v2f(v2f a) {
-  float   src[2];
-  float   dst[2];
-  int i;
-  v2f_storeu(src, a);
-  for (i = 0; i < 2; i++) dst[i] = src[i];
-  return v2f_loadu(dst);
-}
-inline v2i __v2i_cvt_v2f(v2f a) {
-  float   src[2];
-  int32_t dst[2];
-  int i;
-  v2f_storeu(src, a);
-  for (i = 0; i < 2; i++) dst[i] = src[i];
-  return v2i_loadu(dst);
-}
-inline v2l __v2l_cvt_v2f(v2f a) {
-  float   src[2];
-  int64_t dst[2];
-  int i;
-  v2f_storeu(src, a);
-  for (i = 0; i < 2; i++) dst[i] = src[i];
-  return v2l_loadu(dst);
-}
-inline v2d __v2d_cvt_v2i(v2i a) {
-  int32_t src[2];
-  double  dst[2];
-  int i;
-  v2i_storeu(src, a);
-  for (i = 0; i < 2; i++) dst[i] = src[i];
-  return v2d_loadu(dst);
-}
-inline v2f __v2f_cvt_v2i(v2i a) {
-  int32_t src[2];
-  float   dst[2];
-  int i;
-  v2i_storeu(src, a);
-  for (i = 0; i < 2; i++) dst[i] = src[i];
-  return v2f_loadu(dst);
-}
-inline v2i __v2i_cvt_v2i(v2i a) {
-  int32_t src[2];
-  int32_t dst[2];
-  int i;
-  v2i_storeu(src, a);
-  for (i = 0; i < 2; i++) dst[i] = src[i];
-  return v2i_loadu(dst);
-}
-inline v2l __v2l_cvt_v2i(v2i a) {
-  int32_t src[2];
-  int64_t dst[2];
-  int i;
-  v2i_storeu(src, a);
-  for (i = 0; i < 2; i++) dst[i] = src[i];
-  return v2l_loadu(dst);
-}
-inline v2d __v2d_cvt_v2l(v2l a) {
-  int64_t src[2];
-  double  dst[2];
-  int i;
-  v2l_storeu(src, a);
-  for (i = 0; i < 2; i++) dst[i] = src[i];
-  return v2d_loadu(dst);
-}
-inline v2f __v2f_cvt_v2l(v2l a) {
-  int64_t src[2];
-  float   dst[2];
-  int i;
-  v2l_storeu(src, a);
-  for (i = 0; i < 2; i++) dst[i] = src[i];
-  return v2f_loadu(dst);
-}
-inline v2i __v2i_cvt_v2l(v2l a) {
-  int64_t src[2];
-  int32_t dst[2];
-  int i;
-  v2l_storeu(src, a);
-  for (i = 0; i < 2; i++) dst[i] = src[i];
-  return v2i_loadu(dst);
-}
-inline v2l __v2l_cvt_v2l(v2l a) {
-  int64_t src[2];
-  int64_t dst[2];
-  int i;
-  v2l_storeu(src, a);
-  for (i = 0; i < 2; i++) dst[i] = src[i];
-  return v2l_loadu(dst);
-}
-inline v4d __v4d_cvt_v4d(v4d a) {
-  double  src[4];
-  double  dst[4];
-  int i;
-  v4d_storeu(src, a);
-  for (i = 0; i < 4; i++) dst[i] = src[i];
-  return v4d_loadu(dst);
-}
-inline v4f __v4f_cvt_v4d(v4d a) {
-  double  src[4];
-  float   dst[4];
-  int i;
-  v4d_storeu(src, a);
-  for (i = 0; i < 4; i++) dst[i] = src[i];
-  return v4f_loadu(dst);
-}
-inline v4i __v4i_cvt_v4d(v4d a) {
-  double  src[4];
-  int32_t dst[4];
-  int i;
-  v4d_storeu(src, a);
-  for (i = 0; i < 4; i++) dst[i] = src[i];
-  return v4i_loadu(dst);
-}
-inline v4l __v4l_cvt_v4d(v4d a) {
-  double  src[4];
-  int64_t dst[4];
-  int i;
-  v4d_storeu(src, a);
-  for (i = 0; i < 4; i++) dst[i] = src[i];
-  return v4l_loadu(dst);
-}
-inline v4d __v4d_cvt_v4f(v4f a) {
-  float   src[4];
-  double  dst[4];
-  int i;
-  v4f_storeu(src, a);
-  for (i = 0; i < 4; i++) dst[i] = src[i];
-  return v4d_loadu(dst);
-}
-inline v4f __v4f_cvt_v4f(v4f a) {
-  float   src[4];
-  float   dst[4];
-  int i;
-  v4f_storeu(src, a);
-  for (i = 0; i < 4; i++) dst[i] = src[i];
-  return v4f_loadu(dst);
-}
-inline v4i __v4i_cvt_v4f(v4f a) {
-  float   src[4];
-  int32_t dst[4];
-  int i;
-  v4f_storeu(src, a);
-  for (i = 0; i < 4; i++) dst[i] = src[i];
-  return v4i_loadu(dst);
-}
-inline v4l __v4l_cvt_v4f(v4f a) {
-  float   src[4];
-  int64_t dst[4];
-  int i;
-  v4f_storeu(src, a);
-  for (i = 0; i < 4; i++) dst[i] = src[i];
-  return v4l_loadu(dst);
-}
-inline v4d __v4d_cvt_v4i(v4i a) {
-  int32_t src[4];
-  double  dst[4];
-  int i;
-  v4i_storeu(src, a);
-  for (i = 0; i < 4; i++) dst[i] = src[i];
-  return v4d_loadu(dst);
-}
-inline v4f __v4f_cvt_v4i(v4i a) {
-  int32_t src[4];
-  float   dst[4];
-  int i;
-  v4i_storeu(src, a);
-  for (i = 0; i < 4; i++) dst[i] = src[i];
-  return v4f_loadu(dst);
-}
-inline v4i __v4i_cvt_v4i(v4i a) {
-  int32_t src[4];
-  int32_t dst[4];
-  int i;
-  v4i_storeu(src, a);
-  for (i = 0; i < 4; i++) dst[i] = src[i];
-  return v4i_loadu(dst);
-}
-inline v4l __v4l_cvt_v4i(v4i a) {
-  int32_t src[4];
-  int64_t dst[4];
-  int i;
-  v4i_storeu(src, a);
-  for (i = 0; i < 4; i++) dst[i] = src[i];
-  return v4l_loadu(dst);
-}
-inline v4d __v4d_cvt_v4l(v4l a) {
-  int64_t src[4];
-  double  dst[4];
-  int i;
-  v4l_storeu(src, a);
-  for (i = 0; i < 4; i++) dst[i] = src[i];
-  return v4d_loadu(dst);
-}
-inline v4f __v4f_cvt_v4l(v4l a) {
-  int64_t src[4];
-  float   dst[4];
-  int i;
-  v4l_storeu(src, a);
-  for (i = 0; i < 4; i++) dst[i] = src[i];
-  return v4f_loadu(dst);
-}
-inline v4i __v4i_cvt_v4l(v4l a) {
-  int64_t src[4];
-  int32_t dst[4];
-  int i;
-  v4l_storeu(src, a);
-  for (i = 0; i < 4; i++) dst[i] = src[i];
-  return v4i_loadu(dst);
-}
-inline v4l __v4l_cvt_v4l(v4l a) {
-  int64_t src[4];
-  int64_t dst[4];
-  int i;
-  v4l_storeu(src, a);
-  for (i = 0; i < 4; i++) dst[i] = src[i];
-  return v4l_loadu(dst);
-}
-inline v8d __v8d_cvt_v8d(v8d a) {
-  double  src[8];
-  double  dst[8];
-  int i;
-  v8d_storeu(src, a);
-  for (i = 0; i < 8; i++) dst[i] = src[i];
-  return v8d_loadu(dst);
-}
-inline v8f __v8f_cvt_v8d(v8d a) {
-  double  src[8];
-  float   dst[8];
-  int i;
-  v8d_storeu(src, a);
-  for (i = 0; i < 8; i++) dst[i] = src[i];
-  return v8f_loadu(dst);
-}
-inline v8i __v8i_cvt_v8d(v8d a) {
-  double  src[8];
-  int32_t dst[8];
-  int i;
-  v8d_storeu(src, a);
-  for (i = 0; i < 8; i++) dst[i] = src[i];
-  return v8i_loadu(dst);
-}
-inline v8l __v8l_cvt_v8d(v8d a) {
-  double  src[8];
-  int64_t dst[8];
-  int i;
-  v8d_storeu(src, a);
-  for (i = 0; i < 8; i++) dst[i] = src[i];
-  return v8l_loadu(dst);
-}
-inline v8d __v8d_cvt_v8f(v8f a) {
-  float   src[8];
-  double  dst[8];
-  int i;
-  v8f_storeu(src, a);
-  for (i = 0; i < 8; i++) dst[i] = src[i];
-  return v8d_loadu(dst);
-}
-inline v8f __v8f_cvt_v8f(v8f a) {
-  float   src[8];
-  float   dst[8];
-  int i;
-  v8f_storeu(src, a);
-  for (i = 0; i < 8; i++) dst[i] = src[i];
-  return v8f_loadu(dst);
-}
-inline v8i __v8i_cvt_v8f(v8f a) {
-  float   src[8];
-  int32_t dst[8];
-  int i;
-  v8f_storeu(src, a);
-  for (i = 0; i < 8; i++) dst[i] = src[i];
-  return v8i_loadu(dst);
-}
-inline v8l __v8l_cvt_v8f(v8f a) {
-  float   src[8];
-  int64_t dst[8];
-  int i;
-  v8f_storeu(src, a);
-  for (i = 0; i < 8; i++) dst[i] = src[i];
-  return v8l_loadu(dst);
-}
-inline v8d __v8d_cvt_v8i(v8i a) {
-  int32_t src[8];
-  double  dst[8];
-  int i;
-  v8i_storeu(src, a);
-  for (i = 0; i < 8; i++) dst[i] = src[i];
-  return v8d_loadu(dst);
-}
-inline v8f __v8f_cvt_v8i(v8i a) {
-  int32_t src[8];
-  float   dst[8];
-  int i;
-  v8i_storeu(src, a);
-  for (i = 0; i < 8; i++) dst[i] = src[i];
-  return v8f_loadu(dst);
-}
-inline v8i __v8i_cvt_v8i(v8i a) {
-  int32_t src[8];
-  int32_t dst[8];
-  int i;
-  v8i_storeu(src, a);
-  for (i = 0; i < 8; i++) dst[i] = src[i];
-  return v8i_loadu(dst);
-}
-inline v8l __v8l_cvt_v8i(v8i a) {
-  int32_t src[8];
-  int64_t dst[8];
-  int i;
-  v8i_storeu(src, a);
-  for (i = 0; i < 8; i++) dst[i] = src[i];
-  return v8l_loadu(dst);
-}
-inline v8d __v8d_cvt_v8l(v8l a) {
-  int64_t src[8];
-  double  dst[8];
-  int i;
-  v8l_storeu(src, a);
-  for (i = 0; i < 8; i++) dst[i] = src[i];
-  return v8d_loadu(dst);
-}
-inline v8f __v8f_cvt_v8l(v8l a) {
-  int64_t src[8];
-  float   dst[8];
-  int i;
-  v8l_storeu(src, a);
-  for (i = 0; i < 8; i++) dst[i] = src[i];
-  return v8f_loadu(dst);
-}
-inline v8i __v8i_cvt_v8l(v8l a) {
-  int64_t src[8];
-  int32_t dst[8];
-  int i;
-  v8l_storeu(src, a);
-  for (i = 0; i < 8; i++) dst[i] = src[i];
-  return v8i_loadu(dst);
-}
-inline v8l __v8l_cvt_v8l(v8l a) {
-  int64_t src[8];
-  int64_t dst[8];
-  int i;
-  v8l_storeu(src, a);
-  for (i = 0; i < 8; i++) dst[i] = src[i];
-  return v8l_loadu(dst);
-}
-inline v16f __v16f_cvt_v16f(v16f a) {
-  float   src[16];
-  float   dst[16];
-  int i;
-  v16f_storeu(src, a);
-  for (i = 0; i < 16; i++) dst[i] = src[i];
-  return v16f_loadu(dst);
-}
-inline v16i __v16i_cvt_v16f(v16f a) {
-  float   src[16];
-  int32_t dst[16];
-  int i;
-  v16f_storeu(src, a);
-  for (i = 0; i < 16; i++) dst[i] = src[i];
-  return v16i_loadu(dst);
-}
-inline v16f __v16f_cvt_v16i(v16i a) {
-  int32_t src[16];
-  float   dst[16];
-  int i;
-  v16i_storeu(src, a);
-  for (i = 0; i < 16; i++) dst[i] = src[i];
-  return v16f_loadu(dst);
-}
-inline v16i __v16i_cvt_v16i(v16i a) {
-  int32_t src[16];
-  int32_t dst[16];
-  int i;
-  v16i_storeu(src, a);
-  for (i = 0; i < 16; i++) dst[i] = src[i];
-  return v16i_loadu(dst);
-}
-inline v1d __v1d_set(double  a0) {
-  double  vec[1] = {a0};
-  return v1d_loadu(vec);
-}
-inline v1f __v1f_set(float   a0) {
-  float   vec[1] = {a0};
-  return v1f_loadu(vec);
-}
-inline v1i __v1i_set(int32_t a0) {
-  int32_t vec[1] = {a0};
-  return v1i_loadu(vec);
-}
-inline v1l __v1l_set(int64_t a0) {
-  int64_t vec[1] = {a0};
-  return v1l_loadu(vec);
-}
-inline v2d __v2d_set(double  a1, double  a0) {
-  double  vec[2] = {a0, a1};
-  return v2d_loadu(vec);
-}
-inline v2f __v2f_set(float   a1, float   a0) {
-  float   vec[2] = {a0, a1};
-  return v2f_loadu(vec);
-}
-inline v2i __v2i_set(int32_t a1, int32_t a0) {
-  int32_t vec[2] = {a0, a1};
-  return v2i_loadu(vec);
-}
-inline v2l __v2l_set(int64_t a1, int64_t a0) {
-  int64_t vec[2] = {a0, a1};
-  return v2l_loadu(vec);
-}
-inline v4d __v4d_set(double  a3, double  a2, double  a1, double  a0) {
-  double  vec[4] = {a0, a1, a2, a3};
-  return v4d_loadu(vec);
-}
-inline v4f __v4f_set(float   a3, float   a2, float   a1, float   a0) {
-  float   vec[4] = {a0, a1, a2, a3};
-  return v4f_loadu(vec);
-}
-inline v4i __v4i_set(int32_t a3, int32_t a2, int32_t a1, int32_t a0) {
-  int32_t vec[4] = {a0, a1, a2, a3};
-  return v4i_loadu(vec);
-}
-inline v4l __v4l_set(int64_t a3, int64_t a2, int64_t a1, int64_t a0) {
-  int64_t vec[4] = {a0, a1, a2, a3};
-  return v4l_loadu(vec);
-}
-inline v8d __v8d_set(double  a7, double  a6, double  a5, double  a4, double  a3, double  a2, double  a1, double  a0) {
-  double  vec[8] = {a0, a1, a2, a3, a4, a5, a6, a7};
-  return v8d_loadu(vec);
-}
-inline v8f __v8f_set(float   a7, float   a6, float   a5, float   a4, float   a3, float   a2, float   a1, float   a0) {
-  float   vec[8] = {a0, a1, a2, a3, a4, a5, a6, a7};
-  return v8f_loadu(vec);
-}
-inline v8i __v8i_set(int32_t a7, int32_t a6, int32_t a5, int32_t a4, int32_t a3, int32_t a2, int32_t a1, int32_t a0) {
-  int32_t vec[8] = {a0, a1, a2, a3, a4, a5, a6, a7};
-  return v8i_loadu(vec);
-}
-inline v8l __v8l_set(int64_t a7, int64_t a6, int64_t a5, int64_t a4, int64_t a3, int64_t a2, int64_t a1, int64_t a0) {
-  int64_t vec[8] = {a0, a1, a2, a3, a4, a5, a6, a7};
-  return v8l_loadu(vec);
-}
-inline v16f __v16f_set(float   a15, float   a14, float   a13, float   a12, float   a11, float   a10, float   a9, float   a8, float   a7, float   a6, float   a5, float   a4, float   a3, float   a2, float   a1, float   a0) {
-  float   vec[16] = {a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15};
-  return v16f_loadu(vec);
-}
-inline v16i __v16i_set(int32_t a15, int32_t a14, int32_t a13, int32_t a12, int32_t a11, int32_t a10, int32_t a9, int32_t a8, int32_t a7, int32_t a6, int32_t a5, int32_t a4, int32_t a3, int32_t a2, int32_t a1, int32_t a0) {
-  int32_t vec[16] = {a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15};
-  return v16i_loadu(vec);
+  int64_t sv1l;
+  v1l_store(&sv1l, a);
+  return sv1l;
 }
 
-inline v2d __v2d_intel_shuffle(v2d a, v2d b, const int imm8) { return v2d_merge_v1d(v1d_get_hilo_v2d(a,  imm8       & 1), v1d_get_hilo_v2d(b, (imm8 >> 1) & 1)); }inline v2l __v2l_intel_shuffle(v2l a, v2l b, const int imm8) { return v2l_merge_v1l(v1l_get_hilo_v2l(a,  imm8       & 1), v1l_get_hilo_v2l(b, (imm8 >> 1) & 1)); }inline v4f __v4f_intel_shuffle(v4f a, v4f b, const int imm8) {
-  v4f src;
-  v1f dst[4];
-  int i, ctrl;
-  for (i = 0; i < 4; i++) {
-    ctrl = (imm8 >> (i*2)) & 0x3;
-    src = (i < 2) ? a : b;
-    dst[i] = v1f_get_hilo_v2f(v2f_get_hilo_v4f(src, ctrl&2), ctrl&1);
-  }
-  return v4f_merge_v2f(v2f_merge_v1f(dst[0], dst[1]), v2f_merge_v1f(dst[2], dst[3]));
+
+
+// Builtins implementations
+
+inline union __v1d __v1d_load(const double *p) { union __v1d r = { v: *p }; return r; }
+inline union __v1f __v1f_load(const float *p) { union __v1f r = { v: *p }; return r; }
+inline union __v1i __v1i_load(const int32_t *p) { union __v1i r = { v: *p }; return r; }
+inline union __v1l __v1l_load(const int64_t *p) { union __v1l r = { v: *p }; return r; }
+
+inline v2d __v2d_load(const double *p) { return v2d_merge_v1d(v1d_load(p), v1d_load(p+1)); }
+inline v2f __v2f_load(const float *p) { return v2f_merge_v1f(v1f_load(p), v1f_load(p+1)); }
+inline v2i __v2i_load(const int32_t *p) { return v2i_merge_v1i(v1i_load(p), v1i_load(p+1)); }
+inline v2l __v2l_load(const int64_t *p) { return v2l_merge_v1l(v1l_load(p), v1l_load(p+1)); }
+inline v4d __v4d_load(const double *p) { return v4d_merge_v2d(v2d_load(p), v2d_load(p+2)); }
+inline v4f __v4f_load(const float *p) { return v4f_merge_v2f(v2f_load(p), v2f_load(p+2)); }
+inline v4i __v4i_load(const int32_t *p) { return v4i_merge_v2i(v2i_load(p), v2i_load(p+2)); }
+inline v4l __v4l_load(const int64_t *p) { return v4l_merge_v2l(v2l_load(p), v2l_load(p+2)); }
+inline v8d __v8d_load(const double *p) { return v8d_merge_v4d(v4d_load(p), v4d_load(p+4)); }
+inline v8f __v8f_load(const float *p) { return v8f_merge_v4f(v4f_load(p), v4f_load(p+4)); }
+inline v8i __v8i_load(const int32_t *p) { return v8i_merge_v4i(v4i_load(p), v4i_load(p+4)); }
+inline v8l __v8l_load(const int64_t *p) { return v8l_merge_v4l(v4l_load(p), v4l_load(p+4)); }
+inline v16f __v16f_load(const float *p) { return v16f_merge_v8f(v8f_load(p), v8f_load(p+8)); }
+inline v16i __v16i_load(const int32_t *p) { return v16i_merge_v8i(v8i_load(p), v8i_load(p+8)); }
+
+
+inline v1d compatible_v1d_loadu(const double *p) {
+  int i;
+  PINTS_ALIGNED_ARRAY(double, v, 1, 1*sizeof(double));
+  for (i = 0; i < 1; ++i) v[i] = p[i];
+  return v1d_load(v);
 }
-inline v4i __v4i_intel_shuffle(v4i a, v4i b, const int imm8) {
-  v4i src;
-  v1i dst[4];
-  int i, ctrl;
-  for (i = 0; i < 4; i++) {
-    ctrl = (imm8 >> (i*2)) & 0x3;
-    src = (i < 2) ? a : b;
-    dst[i] = v1i_get_hilo_v2i(v2i_get_hilo_v4i(src, ctrl&2), ctrl&1);
-  }
-  return v4i_merge_v2i(v2i_merge_v1i(dst[0], dst[1]), v2i_merge_v1i(dst[2], dst[3]));
+inline v1f compatible_v1f_loadu(const float *p) {
+  int i;
+  PINTS_ALIGNED_ARRAY(float, v, 1, 1*sizeof(float));
+  for (i = 0; i < 1; ++i) v[i] = p[i];
+  return v1f_load(v);
 }
-// 1 element vectors functions
-inline union __v1d __v1d_and(union __v1d a, union __v1d b) { union __v1d r = { i: a.i & b.i }; return r; }
-inline union __v1f __v1f_and(union __v1f a, union __v1f b) { union __v1f r = { i: a.i & b.i }; return r; }
-inline union __v1i __v1i_and(union __v1i a, union __v1i b) { union __v1i r = { i: a.i & b.i }; return r; }
-inline union __v1l __v1l_and(union __v1l a, union __v1l b) { union __v1l r = { i: a.i & b.i }; return r; }
+inline v1i compatible_v1i_loadu(const int32_t *p) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 1, 1*sizeof(int32_t));
+  for (i = 0; i < 1; ++i) v[i] = p[i];
+  return v1i_load(v);
+}
+inline v1l compatible_v1l_loadu(const int64_t *p) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int64_t, v, 1, 1*sizeof(int64_t));
+  for (i = 0; i < 1; ++i) v[i] = p[i];
+  return v1l_load(v);
+}
+inline v2d compatible_v2d_loadu(const double *p) {
+  int i;
+  PINTS_ALIGNED_ARRAY(double, v, 2, 2*sizeof(double));
+  for (i = 0; i < 2; ++i) v[i] = p[i];
+  return v2d_load(v);
+}
+inline v2f compatible_v2f_loadu(const float *p) {
+  int i;
+  PINTS_ALIGNED_ARRAY(float, v, 2, 2*sizeof(float));
+  for (i = 0; i < 2; ++i) v[i] = p[i];
+  return v2f_load(v);
+}
+inline v2i compatible_v2i_loadu(const int32_t *p) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 2, 2*sizeof(int32_t));
+  for (i = 0; i < 2; ++i) v[i] = p[i];
+  return v2i_load(v);
+}
+inline v2l compatible_v2l_loadu(const int64_t *p) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int64_t, v, 2, 2*sizeof(int64_t));
+  for (i = 0; i < 2; ++i) v[i] = p[i];
+  return v2l_load(v);
+}
+inline v4d compatible_v4d_loadu(const double *p) {
+  int i;
+  PINTS_ALIGNED_ARRAY(double, v, 4, 4*sizeof(double));
+  for (i = 0; i < 4; ++i) v[i] = p[i];
+  return v4d_load(v);
+}
+inline v4f compatible_v4f_loadu(const float *p) {
+  int i;
+  PINTS_ALIGNED_ARRAY(float, v, 4, 4*sizeof(float));
+  for (i = 0; i < 4; ++i) v[i] = p[i];
+  return v4f_load(v);
+}
+inline v4i compatible_v4i_loadu(const int32_t *p) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 4, 4*sizeof(int32_t));
+  for (i = 0; i < 4; ++i) v[i] = p[i];
+  return v4i_load(v);
+}
+inline v4l compatible_v4l_loadu(const int64_t *p) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int64_t, v, 4, 4*sizeof(int64_t));
+  for (i = 0; i < 4; ++i) v[i] = p[i];
+  return v4l_load(v);
+}
+inline v8d compatible_v8d_loadu(const double *p) {
+  int i;
+  PINTS_ALIGNED_ARRAY(double, v, 8, 8*sizeof(double));
+  for (i = 0; i < 8; ++i) v[i] = p[i];
+  return v8d_load(v);
+}
+inline v8f compatible_v8f_loadu(const float *p) {
+  int i;
+  PINTS_ALIGNED_ARRAY(float, v, 8, 8*sizeof(float));
+  for (i = 0; i < 8; ++i) v[i] = p[i];
+  return v8f_load(v);
+}
+inline v8i compatible_v8i_loadu(const int32_t *p) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 8, 8*sizeof(int32_t));
+  for (i = 0; i < 8; ++i) v[i] = p[i];
+  return v8i_load(v);
+}
+inline v8l compatible_v8l_loadu(const int64_t *p) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int64_t, v, 8, 8*sizeof(int64_t));
+  for (i = 0; i < 8; ++i) v[i] = p[i];
+  return v8l_load(v);
+}
+inline v16f compatible_v16f_loadu(const float *p) {
+  int i;
+  PINTS_ALIGNED_ARRAY(float, v, 16, 16*sizeof(float));
+  for (i = 0; i < 16; ++i) v[i] = p[i];
+  return v16f_load(v);
+}
+inline v16i compatible_v16i_loadu(const int32_t *p) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 16, 16*sizeof(int32_t));
+  for (i = 0; i < 16; ++i) v[i] = p[i];
+  return v16i_load(v);
+}
 
-inline union __v1d __v1d_or (union __v1d a, union __v1d b) { union __v1d r = { i: a.i | b.i }; return r; }
-inline union __v1f __v1f_or (union __v1f a, union __v1f b) { union __v1f r = { i: a.i | b.i }; return r; }
-inline union __v1i __v1i_or (union __v1i a, union __v1i b) { union __v1i r = { i: a.i | b.i }; return r; }
-inline union __v1l __v1l_or (union __v1l a, union __v1l b) { union __v1l r = { i: a.i | b.i }; return r; }
+inline void __v1d_store(double *p, union __v1d a) { *p = a.v; }
+inline void __v1f_store(float *p, union __v1f a) { *p = a.v; }
+inline void __v1i_store(int32_t *p, union __v1i a) { *p = a.v; }
+inline void __v1l_store(int64_t *p, union __v1l a) { *p = a.v; }
 
-inline union __v1d __v1d_xor(union __v1d a, union __v1d b) { union __v1d r = { i: a.i ^ b.i }; return r; }
-inline union __v1f __v1f_xor(union __v1f a, union __v1f b) { union __v1f r = { i: a.i ^ b.i }; return r; }
-inline union __v1i __v1i_xor(union __v1i a, union __v1i b) { union __v1i r = { i: a.i ^ b.i }; return r; }
-inline union __v1l __v1l_xor(union __v1l a, union __v1l b) { union __v1l r = { i: a.i ^ b.i }; return r; }
+inline void __v2d_store(double *p, v2d a) { v1d_store(p, v1d_get_low_v2d(a)); v1d_store(p+1, v1d_get_high_v2d(a)); }
+inline void __v2f_store(float *p, v2f a) { v1f_store(p, v1f_get_low_v2f(a)); v1f_store(p+1, v1f_get_high_v2f(a)); }
+inline void __v2i_store(int32_t *p, v2i a) { v1i_store(p, v1i_get_low_v2i(a)); v1i_store(p+1, v1i_get_high_v2i(a)); }
+inline void __v2l_store(int64_t *p, v2l a) { v1l_store(p, v1l_get_low_v2l(a)); v1l_store(p+1, v1l_get_high_v2l(a)); }
+inline void __v4d_store(double *p, v4d a) { v2d_store(p, v2d_get_low_v4d(a)); v2d_store(p+2, v2d_get_high_v4d(a)); }
+inline void __v4f_store(float *p, v4f a) { v2f_store(p, v2f_get_low_v4f(a)); v2f_store(p+2, v2f_get_high_v4f(a)); }
+inline void __v4i_store(int32_t *p, v4i a) { v2i_store(p, v2i_get_low_v4i(a)); v2i_store(p+2, v2i_get_high_v4i(a)); }
+inline void __v4l_store(int64_t *p, v4l a) { v2l_store(p, v2l_get_low_v4l(a)); v2l_store(p+2, v2l_get_high_v4l(a)); }
+inline void __v8d_store(double *p, v8d a) { v4d_store(p, v4d_get_low_v8d(a)); v4d_store(p+4, v4d_get_high_v8d(a)); }
+inline void __v8f_store(float *p, v8f a) { v4f_store(p, v4f_get_low_v8f(a)); v4f_store(p+4, v4f_get_high_v8f(a)); }
+inline void __v8i_store(int32_t *p, v8i a) { v4i_store(p, v4i_get_low_v8i(a)); v4i_store(p+4, v4i_get_high_v8i(a)); }
+inline void __v8l_store(int64_t *p, v8l a) { v4l_store(p, v4l_get_low_v8l(a)); v4l_store(p+4, v4l_get_high_v8l(a)); }
+inline void __v16f_store(float *p, v16f a) { v8f_store(p, v8f_get_low_v16f(a)); v8f_store(p+8, v8f_get_high_v16f(a)); }
+inline void __v16i_store(int32_t *p, v16i a) { v8i_store(p, v8i_get_low_v16i(a)); v8i_store(p+8, v8i_get_high_v16i(a)); }
 
-inline union __v1d __v1d_eq (union __v1d a, union __v1d b) { union __v1d r = { i: -(a.v == b.v) }; return r; }
-inline union __v1f __v1f_eq (union __v1f a, union __v1f b) { union __v1f r = { i: -(a.v == b.v) }; return r; }
-inline union __v1i __v1i_eq (union __v1i a, union __v1i b) { union __v1i r = { i: -(a.v == b.v) }; return r; }
-inline union __v1l __v1l_eq (union __v1l a, union __v1l b) { union __v1l r = { i: -(a.v == b.v) }; return r; }
+
+inline void compatible_v1d_storeu(double *p, v1d a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(double, v, 1, 1*sizeof(double));
+  v1d_store(v, a);
+  for (i = 0; i < 1; ++i) p[i] = v[i];
+}
+inline void compatible_v1f_storeu(float *p, v1f a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(float, v, 1, 1*sizeof(float));
+  v1f_store(v, a);
+  for (i = 0; i < 1; ++i) p[i] = v[i];
+}
+inline void compatible_v1i_storeu(int32_t *p, v1i a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 1, 1*sizeof(int32_t));
+  v1i_store(v, a);
+  for (i = 0; i < 1; ++i) p[i] = v[i];
+}
+inline void compatible_v1l_storeu(int64_t *p, v1l a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int64_t, v, 1, 1*sizeof(int64_t));
+  v1l_store(v, a);
+  for (i = 0; i < 1; ++i) p[i] = v[i];
+}
+inline void compatible_v2d_storeu(double *p, v2d a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(double, v, 2, 2*sizeof(double));
+  v2d_store(v, a);
+  for (i = 0; i < 2; ++i) p[i] = v[i];
+}
+inline void compatible_v2f_storeu(float *p, v2f a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(float, v, 2, 2*sizeof(float));
+  v2f_store(v, a);
+  for (i = 0; i < 2; ++i) p[i] = v[i];
+}
+inline void compatible_v2i_storeu(int32_t *p, v2i a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 2, 2*sizeof(int32_t));
+  v2i_store(v, a);
+  for (i = 0; i < 2; ++i) p[i] = v[i];
+}
+inline void compatible_v2l_storeu(int64_t *p, v2l a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int64_t, v, 2, 2*sizeof(int64_t));
+  v2l_store(v, a);
+  for (i = 0; i < 2; ++i) p[i] = v[i];
+}
+inline void compatible_v4d_storeu(double *p, v4d a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(double, v, 4, 4*sizeof(double));
+  v4d_store(v, a);
+  for (i = 0; i < 4; ++i) p[i] = v[i];
+}
+inline void compatible_v4f_storeu(float *p, v4f a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(float, v, 4, 4*sizeof(float));
+  v4f_store(v, a);
+  for (i = 0; i < 4; ++i) p[i] = v[i];
+}
+inline void compatible_v4i_storeu(int32_t *p, v4i a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 4, 4*sizeof(int32_t));
+  v4i_store(v, a);
+  for (i = 0; i < 4; ++i) p[i] = v[i];
+}
+inline void compatible_v4l_storeu(int64_t *p, v4l a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int64_t, v, 4, 4*sizeof(int64_t));
+  v4l_store(v, a);
+  for (i = 0; i < 4; ++i) p[i] = v[i];
+}
+inline void compatible_v8d_storeu(double *p, v8d a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(double, v, 8, 8*sizeof(double));
+  v8d_store(v, a);
+  for (i = 0; i < 8; ++i) p[i] = v[i];
+}
+inline void compatible_v8f_storeu(float *p, v8f a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(float, v, 8, 8*sizeof(float));
+  v8f_store(v, a);
+  for (i = 0; i < 8; ++i) p[i] = v[i];
+}
+inline void compatible_v8i_storeu(int32_t *p, v8i a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 8, 8*sizeof(int32_t));
+  v8i_store(v, a);
+  for (i = 0; i < 8; ++i) p[i] = v[i];
+}
+inline void compatible_v8l_storeu(int64_t *p, v8l a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int64_t, v, 8, 8*sizeof(int64_t));
+  v8l_store(v, a);
+  for (i = 0; i < 8; ++i) p[i] = v[i];
+}
+inline void compatible_v16f_storeu(float *p, v16f a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(float, v, 16, 16*sizeof(float));
+  v16f_store(v, a);
+  for (i = 0; i < 16; ++i) p[i] = v[i];
+}
+inline void compatible_v16i_storeu(int32_t *p, v16i a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 16, 16*sizeof(int32_t));
+  v16i_store(v, a);
+  for (i = 0; i < 16; ++i) p[i] = v[i];
+}
+
+inline v1d __v1d_set(double a) { return v1d_load(&a); }
+inline v1f __v1f_set(float a) { return v1f_load(&a); }
+inline v1i __v1i_set(int32_t a) { return v1i_load(&a); }
+inline v1l __v1l_set(int64_t a) { return v1l_load(&a); }
+
+
+
+
+
+
+
+
+inline struct __v2d __v2d_merge2_v1d(v1d low, v1d high) { struct __v2d r = { a: low, b: high }; return r; }
+inline struct __v2f __v2f_merge2_v1f(v1f low, v1f high) { struct __v2f r = { a: low, b: high }; return r; }
+inline struct __v2i __v2i_merge2_v1i(v1i low, v1i high) { struct __v2i r = { a: low, b: high }; return r; }
+inline struct __v2l __v2l_merge2_v1l(v1l low, v1l high) { struct __v2l r = { a: low, b: high }; return r; }
+inline struct __v4d __v4d_merge2_v2d(v2d low, v2d high) { struct __v4d r = { a: low, b: high }; return r; }
+inline struct __v4f __v4f_merge2_v2f(v2f low, v2f high) { struct __v4f r = { a: low, b: high }; return r; }
+inline struct __v4i __v4i_merge2_v2i(v2i low, v2i high) { struct __v4i r = { a: low, b: high }; return r; }
+inline struct __v4l __v4l_merge2_v2l(v2l low, v2l high) { struct __v4l r = { a: low, b: high }; return r; }
+inline struct __v8d __v8d_merge2_v4d(v4d low, v4d high) { struct __v8d r = { a: low, b: high }; return r; }
+inline struct __v8f __v8f_merge2_v4f(v4f low, v4f high) { struct __v8f r = { a: low, b: high }; return r; }
+inline struct __v8i __v8i_merge2_v4i(v4i low, v4i high) { struct __v8i r = { a: low, b: high }; return r; }
+inline struct __v8l __v8l_merge2_v4l(v4l low, v4l high) { struct __v8l r = { a: low, b: high }; return r; }
+inline struct __v16f __v16f_merge2_v8f(v8f low, v8f high) { struct __v16f r = { a: low, b: high }; return r; }
+inline struct __v16i __v16i_merge2_v8i(v8i low, v8i high) { struct __v16i r = { a: low, b: high }; return r; }
+
+
+
+
+
+
+
+
+
+
+
+
+inline v1d compatible_v1d_get_low_v2d(v2d a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(double, v, 2, 2*sizeof(double));
+  v2d_store(v, a);
+  return v1d_load(v);
+}
+inline v1f compatible_v1f_get_low_v2f(v2f a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(float, v, 2, 2*sizeof(float));
+  v2f_store(v, a);
+  return v1f_load(v);
+}
+inline v1i compatible_v1i_get_low_v2i(v2i a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 2, 2*sizeof(int32_t));
+  v2i_store(v, a);
+  return v1i_load(v);
+}
+inline v1l compatible_v1l_get_low_v2l(v2l a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int64_t, v, 2, 2*sizeof(int64_t));
+  v2l_store(v, a);
+  return v1l_load(v);
+}
+inline v2d compatible_v2d_get_low_v4d(v4d a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(double, v, 4, 4*sizeof(double));
+  v4d_store(v, a);
+  return v2d_load(v);
+}
+inline v2f compatible_v2f_get_low_v4f(v4f a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(float, v, 4, 4*sizeof(float));
+  v4f_store(v, a);
+  return v2f_load(v);
+}
+inline v2i compatible_v2i_get_low_v4i(v4i a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 4, 4*sizeof(int32_t));
+  v4i_store(v, a);
+  return v2i_load(v);
+}
+inline v2l compatible_v2l_get_low_v4l(v4l a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int64_t, v, 4, 4*sizeof(int64_t));
+  v4l_store(v, a);
+  return v2l_load(v);
+}
+inline v4d compatible_v4d_get_low_v8d(v8d a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(double, v, 8, 8*sizeof(double));
+  v8d_store(v, a);
+  return v4d_load(v);
+}
+inline v4f compatible_v4f_get_low_v8f(v8f a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(float, v, 8, 8*sizeof(float));
+  v8f_store(v, a);
+  return v4f_load(v);
+}
+inline v4i compatible_v4i_get_low_v8i(v8i a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 8, 8*sizeof(int32_t));
+  v8i_store(v, a);
+  return v4i_load(v);
+}
+inline v4l compatible_v4l_get_low_v8l(v8l a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int64_t, v, 8, 8*sizeof(int64_t));
+  v8l_store(v, a);
+  return v4l_load(v);
+}
+inline v8f compatible_v8f_get_low_v16f(v16f a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(float, v, 16, 16*sizeof(float));
+  v16f_store(v, a);
+  return v8f_load(v);
+}
+inline v8i compatible_v8i_get_low_v16i(v16i a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 16, 16*sizeof(int32_t));
+  v16i_store(v, a);
+  return v8i_load(v);
+}
+
+inline v1d __v1d_get_high_v2d(struct __v2d a) { return a.b; }
+inline v1f __v1f_get_high_v2f(struct __v2f a) { return a.b; }
+inline v1i __v1i_get_high_v2i(struct __v2i a) { return a.b; }
+inline v1l __v1l_get_high_v2l(struct __v2l a) { return a.b; }
+inline v2d __v2d_get_high_v4d(struct __v4d a) { return a.b; }
+inline v2f __v2f_get_high_v4f(struct __v4f a) { return a.b; }
+inline v2i __v2i_get_high_v4i(struct __v4i a) { return a.b; }
+inline v2l __v2l_get_high_v4l(struct __v4l a) { return a.b; }
+inline v4d __v4d_get_high_v8d(struct __v8d a) { return a.b; }
+inline v4f __v4f_get_high_v8f(struct __v8f a) { return a.b; }
+inline v4i __v4i_get_high_v8i(struct __v8i a) { return a.b; }
+inline v4l __v4l_get_high_v8l(struct __v8l a) { return a.b; }
+inline v8f __v8f_get_high_v16f(struct __v16f a) { return a.b; }
+inline v8i __v8i_get_high_v16i(struct __v16i a) { return a.b; }
+
+inline v1d compatible_v1d_get_high_v2d(v2d a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(double, v, 2, 2*sizeof(double));
+  v2d_store(v, a);
+  return v1d_load(v+1);
+}
+inline v1f compatible_v1f_get_high_v2f(v2f a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(float, v, 2, 2*sizeof(float));
+  v2f_store(v, a);
+  return v1f_load(v+1);
+}
+inline v1i compatible_v1i_get_high_v2i(v2i a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 2, 2*sizeof(int32_t));
+  v2i_store(v, a);
+  return v1i_load(v+1);
+}
+inline v1l compatible_v1l_get_high_v2l(v2l a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int64_t, v, 2, 2*sizeof(int64_t));
+  v2l_store(v, a);
+  return v1l_load(v+1);
+}
+inline v2d compatible_v2d_get_high_v4d(v4d a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(double, v, 4, 4*sizeof(double));
+  v4d_store(v, a);
+  return v2d_load(v+2);
+}
+inline v2f compatible_v2f_get_high_v4f(v4f a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(float, v, 4, 4*sizeof(float));
+  v4f_store(v, a);
+  return v2f_load(v+2);
+}
+inline v2i compatible_v2i_get_high_v4i(v4i a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 4, 4*sizeof(int32_t));
+  v4i_store(v, a);
+  return v2i_load(v+2);
+}
+inline v2l compatible_v2l_get_high_v4l(v4l a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int64_t, v, 4, 4*sizeof(int64_t));
+  v4l_store(v, a);
+  return v2l_load(v+2);
+}
+inline v4d compatible_v4d_get_high_v8d(v8d a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(double, v, 8, 8*sizeof(double));
+  v8d_store(v, a);
+  return v4d_load(v+4);
+}
+inline v4f compatible_v4f_get_high_v8f(v8f a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(float, v, 8, 8*sizeof(float));
+  v8f_store(v, a);
+  return v4f_load(v+4);
+}
+inline v4i compatible_v4i_get_high_v8i(v8i a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 8, 8*sizeof(int32_t));
+  v8i_store(v, a);
+  return v4i_load(v+4);
+}
+inline v4l compatible_v4l_get_high_v8l(v8l a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int64_t, v, 8, 8*sizeof(int64_t));
+  v8l_store(v, a);
+  return v4l_load(v+4);
+}
+inline v8f compatible_v8f_get_high_v16f(v16f a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(float, v, 16, 16*sizeof(float));
+  v16f_store(v, a);
+  return v8f_load(v+8);
+}
+inline v8i compatible_v8i_get_high_v16i(v16i a) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 16, 16*sizeof(int32_t));
+  v16i_store(v, a);
+  return v8i_load(v+8);
+}
+
+
+
+
+
+
+
+inline v2d compatible_v2d_merge_v1d(v1d low, v1d high) {
+  int i;
+  PINTS_ALIGNED_ARRAY(double, v, 2, 2*sizeof(double));
+  v1d_store(v, low);
+  v1d_store(v + 1, high);
+  return v2d_load(v);
+}
+inline v2f compatible_v2f_merge_v1f(v1f low, v1f high) {
+  int i;
+  PINTS_ALIGNED_ARRAY(float, v, 2, 2*sizeof(float));
+  v1f_store(v, low);
+  v1f_store(v + 1, high);
+  return v2f_load(v);
+}
+inline v2i compatible_v2i_merge_v1i(v1i low, v1i high) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 2, 2*sizeof(int32_t));
+  v1i_store(v, low);
+  v1i_store(v + 1, high);
+  return v2i_load(v);
+}
+inline v2l compatible_v2l_merge_v1l(v1l low, v1l high) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int64_t, v, 2, 2*sizeof(int64_t));
+  v1l_store(v, low);
+  v1l_store(v + 1, high);
+  return v2l_load(v);
+}
+inline v4d compatible_v4d_merge_v2d(v2d low, v2d high) {
+  int i;
+  PINTS_ALIGNED_ARRAY(double, v, 4, 4*sizeof(double));
+  v2d_store(v, low);
+  v2d_store(v + 2, high);
+  return v4d_load(v);
+}
+inline v4f compatible_v4f_merge_v2f(v2f low, v2f high) {
+  int i;
+  PINTS_ALIGNED_ARRAY(float, v, 4, 4*sizeof(float));
+  v2f_store(v, low);
+  v2f_store(v + 2, high);
+  return v4f_load(v);
+}
+inline v4i compatible_v4i_merge_v2i(v2i low, v2i high) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 4, 4*sizeof(int32_t));
+  v2i_store(v, low);
+  v2i_store(v + 2, high);
+  return v4i_load(v);
+}
+inline v4l compatible_v4l_merge_v2l(v2l low, v2l high) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int64_t, v, 4, 4*sizeof(int64_t));
+  v2l_store(v, low);
+  v2l_store(v + 2, high);
+  return v4l_load(v);
+}
+inline v8d compatible_v8d_merge_v4d(v4d low, v4d high) {
+  int i;
+  PINTS_ALIGNED_ARRAY(double, v, 8, 8*sizeof(double));
+  v4d_store(v, low);
+  v4d_store(v + 4, high);
+  return v8d_load(v);
+}
+inline v8f compatible_v8f_merge_v4f(v4f low, v4f high) {
+  int i;
+  PINTS_ALIGNED_ARRAY(float, v, 8, 8*sizeof(float));
+  v4f_store(v, low);
+  v4f_store(v + 4, high);
+  return v8f_load(v);
+}
+inline v8i compatible_v8i_merge_v4i(v4i low, v4i high) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 8, 8*sizeof(int32_t));
+  v4i_store(v, low);
+  v4i_store(v + 4, high);
+  return v8i_load(v);
+}
+inline v8l compatible_v8l_merge_v4l(v4l low, v4l high) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int64_t, v, 8, 8*sizeof(int64_t));
+  v4l_store(v, low);
+  v4l_store(v + 4, high);
+  return v8l_load(v);
+}
+inline v16f compatible_v16f_merge_v8f(v8f low, v8f high) {
+  int i;
+  PINTS_ALIGNED_ARRAY(float, v, 16, 16*sizeof(float));
+  v8f_store(v, low);
+  v8f_store(v + 8, high);
+  return v16f_load(v);
+}
+inline v16i compatible_v16i_merge_v8i(v8i low, v8i high) {
+  int i;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 16, 16*sizeof(int32_t));
+  v8i_store(v, low);
+  v8i_store(v + 8, high);
+  return v16i_load(v);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+inline union __v1d __v1d_eq(union __v1d a, union __v1d b) { union __v1d r = { i: -(a.v == b.v) }; return r; }
+inline union __v1f __v1f_eq(union __v1f a, union __v1f b) { union __v1f r = { i: -(a.v == b.v) }; return r; }
+inline union __v1i __v1i_eq(union __v1i a, union __v1i b) { union __v1i r = { i: -(a.v == b.v) }; return r; }
+inline union __v1l __v1l_eq(union __v1l a, union __v1l b) { union __v1l r = { i: -(a.v == b.v) }; return r; }
+
 
 inline union __v1d __v1d_neq(union __v1d a, union __v1d b) { union __v1d r = { i: -(a.v != b.v) }; return r; }
 inline union __v1f __v1f_neq(union __v1f a, union __v1f b) { union __v1f r = { i: -(a.v != b.v) }; return r; }
 inline union __v1i __v1i_neq(union __v1i a, union __v1i b) { union __v1i r = { i: -(a.v != b.v) }; return r; }
 inline union __v1l __v1l_neq(union __v1l a, union __v1l b) { union __v1l r = { i: -(a.v != b.v) }; return r; }
 
-inline union __v1d __v1d_gt (union __v1d a, union __v1d b) { union __v1d r = { i: -(a.v >  b.v) }; return r; }
-inline union __v1f __v1f_gt (union __v1f a, union __v1f b) { union __v1f r = { i: -(a.v >  b.v) }; return r; }
-inline union __v1i __v1i_gt (union __v1i a, union __v1i b) { union __v1i r = { i: -(a.v >  b.v) }; return r; }
-inline union __v1l __v1l_gt (union __v1l a, union __v1l b) { union __v1l r = { i: -(a.v >  b.v) }; return r; }
+
+inline union __v1d __v1d_gt(union __v1d a, union __v1d b) { union __v1d r = { i: -(a.v >  b.v) }; return r; }
+inline union __v1f __v1f_gt(union __v1f a, union __v1f b) { union __v1f r = { i: -(a.v >  b.v) }; return r; }
+inline union __v1i __v1i_gt(union __v1i a, union __v1i b) { union __v1i r = { i: -(a.v >  b.v) }; return r; }
+inline union __v1l __v1l_gt(union __v1l a, union __v1l b) { union __v1l r = { i: -(a.v >  b.v) }; return r; }
+
 
 inline union __v1d __v1d_geq(union __v1d a, union __v1d b) { union __v1d r = { i: -(a.v >= b.v) }; return r; }
 inline union __v1f __v1f_geq(union __v1f a, union __v1f b) { union __v1f r = { i: -(a.v >= b.v) }; return r; }
 inline union __v1i __v1i_geq(union __v1i a, union __v1i b) { union __v1i r = { i: -(a.v >= b.v) }; return r; }
 inline union __v1l __v1l_geq(union __v1l a, union __v1l b) { union __v1l r = { i: -(a.v >= b.v) }; return r; }
 
-inline union __v1d __v1d_lt (union __v1d a, union __v1d b) { union __v1d r = { i: -(a.v <  b.v) }; return r; }
-inline union __v1f __v1f_lt (union __v1f a, union __v1f b) { union __v1f r = { i: -(a.v <  b.v) }; return r; }
-inline union __v1i __v1i_lt (union __v1i a, union __v1i b) { union __v1i r = { i: -(a.v <  b.v) }; return r; }
-inline union __v1l __v1l_lt (union __v1l a, union __v1l b) { union __v1l r = { i: -(a.v <  b.v) }; return r; }
+
+inline union __v1d __v1d_lt(union __v1d a, union __v1d b) { union __v1d r = { i: -(a.v <  b.v) }; return r; }
+inline union __v1f __v1f_lt(union __v1f a, union __v1f b) { union __v1f r = { i: -(a.v <  b.v) }; return r; }
+inline union __v1i __v1i_lt(union __v1i a, union __v1i b) { union __v1i r = { i: -(a.v <  b.v) }; return r; }
+inline union __v1l __v1l_lt(union __v1l a, union __v1l b) { union __v1l r = { i: -(a.v <  b.v) }; return r; }
+
 
 inline union __v1d __v1d_leq(union __v1d a, union __v1d b) { union __v1d r = { i: -(a.v <= b.v) }; return r; }
 inline union __v1f __v1f_leq(union __v1f a, union __v1f b) { union __v1f r = { i: -(a.v <= b.v) }; return r; }
 inline union __v1i __v1i_leq(union __v1i a, union __v1i b) { union __v1i r = { i: -(a.v <= b.v) }; return r; }
 inline union __v1l __v1l_leq(union __v1l a, union __v1l b) { union __v1l r = { i: -(a.v <= b.v) }; return r; }
 
-inline union __v1d __v1d_add(union __v1d a, union __v1d b) { union __v1d r = { a.v +  b.v }; return r; }
-inline union __v1f __v1f_add(union __v1f a, union __v1f b) { union __v1f r = { a.v +  b.v }; return r; }
-inline union __v1i __v1i_add(union __v1i a, union __v1i b) { union __v1i r = { a.v +  b.v }; return r; }
-inline union __v1l __v1l_add(union __v1l a, union __v1l b) { union __v1l r = { a.v +  b.v }; return r; }
-
-inline union __v1d __v1d_sub(union __v1d a, union __v1d b) { union __v1d r = { a.v -  b.v }; return r; }
-inline union __v1f __v1f_sub(union __v1f a, union __v1f b) { union __v1f r = { a.v -  b.v }; return r; }
-inline union __v1i __v1i_sub(union __v1i a, union __v1i b) { union __v1i r = { a.v -  b.v }; return r; }
-inline union __v1l __v1l_sub(union __v1l a, union __v1l b) { union __v1l r = { a.v -  b.v }; return r; }
-
-inline union __v1d __v1d_mul(union __v1d a, union __v1d b) { union __v1d r = { a.v *  b.v }; return r; }
-inline union __v1f __v1f_mul(union __v1f a, union __v1f b) { union __v1f r = { a.v *  b.v }; return r; }
-inline union __v1i __v1i_mul(union __v1i a, union __v1i b) { union __v1i r = { a.v *  b.v }; return r; }
-inline union __v1l __v1l_mul(union __v1l a, union __v1l b) { union __v1l r = { a.v *  b.v }; return r; }
-
-inline union __v1d __v1d_div(union __v1d a, union __v1d b) { union __v1d r = { a.v /  b.v }; return r; }
-inline union __v1f __v1f_div(union __v1f a, union __v1f b) { union __v1f r = { a.v /  b.v }; return r; }
-inline union __v1i __v1i_div(union __v1i a, union __v1i b) { union __v1i r = { a.v /  b.v }; return r; }
-inline union __v1l __v1l_div(union __v1l a, union __v1l b) { union __v1l r = { a.v /  b.v }; return r; }
-
-inline union __v1d __v1d_sqrt(union __v1d a) { union __v1d r = { sqrt(a.v) }; return r; }
-inline union __v1f __v1f_sqrt(union __v1f a) { union __v1f r = { sqrt(a.v) }; return r; }
-inline union __v1i __v1i_sqrt(union __v1i a) { union __v1i r = { sqrt(a.v) }; return r; }
-inline union __v1l __v1l_sqrt(union __v1l a) { union __v1l r = { sqrt(a.v) }; return r; }
-
-inline union __v1d __v1d_set1 (double   v) { union __v1d r = { v  }; return r; }
-inline union __v1f __v1f_set1 (float    v) { union __v1f r = { v  }; return r; }
-inline union __v1i __v1i_set1 (int32_t  v) { union __v1i r = { v  }; return r; }
-inline union __v1l __v1l_set1 (int64_t  v) { union __v1l r = { v  }; return r; }
-
-inline union __v1d __v1d_load (const double * p) { union __v1d r = { *p }; return r; }
-inline union __v1f __v1f_load (const float  * p) { union __v1f r = { *p }; return r; }
-inline union __v1i __v1i_load (const int32_t* p) { union __v1i r = { *p }; return r; }
-inline union __v1l __v1l_load (const int64_t* p) { union __v1l r = { *p }; return r; }
-
-inline void __v1d_store (double * p, union __v1d a) { *p = a.v; }
-inline void __v1f_store (float  * p, union __v1f a) { *p = a.v; }
-inline void __v1i_store (int32_t* p, union __v1i a) { *p = a.v; }
-inline void __v1l_store (int64_t* p, union __v1l a) { *p = a.v; }
-
-
-
-// Internal wider functions
-inline v2d __v2d_and(v2d a, v2d b) { return v2d_merge_v1d(v1d_and(v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_and(v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
-inline v2f __v2f_and(v2f a, v2f b) { return v2f_merge_v1f(v1f_and(v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_and(v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
-inline v2i __v2i_and(v2i a, v2i b) { return v2i_merge_v1i(v1i_and(v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_and(v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
-inline v2l __v2l_and(v2l a, v2l b) { return v2l_merge_v1l(v1l_and(v1l_get_low_v2l(a), v1l_get_low_v2l(b)), v1l_and(v1l_get_high_v2l(a), v1l_get_high_v2l(b))); }
-
-inline v2d __v2d_or (v2d a, v2d b) { return v2d_merge_v1d(v1d_or (v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_or (v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
-inline v2f __v2f_or (v2f a, v2f b) { return v2f_merge_v1f(v1f_or (v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_or (v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
-inline v2i __v2i_or (v2i a, v2i b) { return v2i_merge_v1i(v1i_or (v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_or (v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
-inline v2l __v2l_or (v2l a, v2l b) { return v2l_merge_v1l(v1l_or (v1l_get_low_v2l(a), v1l_get_low_v2l(b)), v1l_or (v1l_get_high_v2l(a), v1l_get_high_v2l(b))); }
-
-inline v2d __v2d_xor(v2d a, v2d b) { return v2d_merge_v1d(v1d_xor(v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_xor(v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
-inline v2f __v2f_xor(v2f a, v2f b) { return v2f_merge_v1f(v1f_xor(v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_xor(v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
-inline v2i __v2i_xor(v2i a, v2i b) { return v2i_merge_v1i(v1i_xor(v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_xor(v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
-inline v2l __v2l_xor(v2l a, v2l b) { return v2l_merge_v1l(v1l_xor(v1l_get_low_v2l(a), v1l_get_low_v2l(b)), v1l_xor(v1l_get_high_v2l(a), v1l_get_high_v2l(b))); }
-
-inline v2d __v2d_eq (v2d a, v2d b) { return v2d_merge_v1d(v1d_eq (v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_eq (v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
-inline v2f __v2f_eq (v2f a, v2f b) { return v2f_merge_v1f(v1f_eq (v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_eq (v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
-inline v2i __v2i_eq (v2i a, v2i b) { return v2i_merge_v1i(v1i_eq (v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_eq (v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
-inline v2l __v2l_eq (v2l a, v2l b) { return v2l_merge_v1l(v1l_eq (v1l_get_low_v2l(a), v1l_get_low_v2l(b)), v1l_eq (v1l_get_high_v2l(a), v1l_get_high_v2l(b))); }
-
-inline v2d __v2d_neq(v2d a, v2d b) { return v2d_merge_v1d(v1d_neq(v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_neq(v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
-inline v2f __v2f_neq(v2f a, v2f b) { return v2f_merge_v1f(v1f_neq(v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_neq(v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
-inline v2i __v2i_neq(v2i a, v2i b) { return v2i_merge_v1i(v1i_neq(v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_neq(v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
-inline v2l __v2l_neq(v2l a, v2l b) { return v2l_merge_v1l(v1l_neq(v1l_get_low_v2l(a), v1l_get_low_v2l(b)), v1l_neq(v1l_get_high_v2l(a), v1l_get_high_v2l(b))); }
-
-inline v2d __v2d_gt (v2d a, v2d b) { return v2d_merge_v1d(v1d_gt (v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_gt (v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
-inline v2f __v2f_gt (v2f a, v2f b) { return v2f_merge_v1f(v1f_gt (v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_gt (v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
-inline v2i __v2i_gt (v2i a, v2i b) { return v2i_merge_v1i(v1i_gt (v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_gt (v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
-inline v2l __v2l_gt (v2l a, v2l b) { return v2l_merge_v1l(v1l_gt (v1l_get_low_v2l(a), v1l_get_low_v2l(b)), v1l_gt (v1l_get_high_v2l(a), v1l_get_high_v2l(b))); }
-
-inline v2d __v2d_geq(v2d a, v2d b) { return v2d_merge_v1d(v1d_geq(v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_geq(v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
-inline v2f __v2f_geq(v2f a, v2f b) { return v2f_merge_v1f(v1f_geq(v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_geq(v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
-inline v2i __v2i_geq(v2i a, v2i b) { return v2i_merge_v1i(v1i_geq(v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_geq(v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
-inline v2l __v2l_geq(v2l a, v2l b) { return v2l_merge_v1l(v1l_geq(v1l_get_low_v2l(a), v1l_get_low_v2l(b)), v1l_geq(v1l_get_high_v2l(a), v1l_get_high_v2l(b))); }
-
-inline v2d __v2d_lt (v2d a, v2d b) { return v2d_merge_v1d(v1d_lt (v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_lt (v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
-inline v2f __v2f_lt (v2f a, v2f b) { return v2f_merge_v1f(v1f_lt (v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_lt (v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
-inline v2i __v2i_lt (v2i a, v2i b) { return v2i_merge_v1i(v1i_lt (v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_lt (v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
-inline v2l __v2l_lt (v2l a, v2l b) { return v2l_merge_v1l(v1l_lt (v1l_get_low_v2l(a), v1l_get_low_v2l(b)), v1l_lt (v1l_get_high_v2l(a), v1l_get_high_v2l(b))); }
-
-inline v2d __v2d_leq(v2d a, v2d b) { return v2d_merge_v1d(v1d_leq(v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_leq(v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
-inline v2f __v2f_leq(v2f a, v2f b) { return v2f_merge_v1f(v1f_leq(v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_leq(v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
-inline v2i __v2i_leq(v2i a, v2i b) { return v2i_merge_v1i(v1i_leq(v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_leq(v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
-inline v2l __v2l_leq(v2l a, v2l b) { return v2l_merge_v1l(v1l_leq(v1l_get_low_v2l(a), v1l_get_low_v2l(b)), v1l_leq(v1l_get_high_v2l(a), v1l_get_high_v2l(b))); }
-
-inline v2d __v2d_add(v2d a, v2d b) { return v2d_merge_v1d(v1d_add(v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_add(v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
-inline v2f __v2f_add(v2f a, v2f b) { return v2f_merge_v1f(v1f_add(v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_add(v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
-inline v2i __v2i_add(v2i a, v2i b) { return v2i_merge_v1i(v1i_add(v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_add(v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
-inline v2l __v2l_add(v2l a, v2l b) { return v2l_merge_v1l(v1l_add(v1l_get_low_v2l(a), v1l_get_low_v2l(b)), v1l_add(v1l_get_high_v2l(a), v1l_get_high_v2l(b))); }
-
-inline v2d __v2d_sub(v2d a, v2d b) { return v2d_merge_v1d(v1d_sub(v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_sub(v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
-inline v2f __v2f_sub(v2f a, v2f b) { return v2f_merge_v1f(v1f_sub(v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_sub(v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
-inline v2i __v2i_sub(v2i a, v2i b) { return v2i_merge_v1i(v1i_sub(v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_sub(v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
-inline v2l __v2l_sub(v2l a, v2l b) { return v2l_merge_v1l(v1l_sub(v1l_get_low_v2l(a), v1l_get_low_v2l(b)), v1l_sub(v1l_get_high_v2l(a), v1l_get_high_v2l(b))); }
-
-inline v2d __v2d_mul(v2d a, v2d b) { return v2d_merge_v1d(v1d_mul(v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_mul(v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
-inline v2f __v2f_mul(v2f a, v2f b) { return v2f_merge_v1f(v1f_mul(v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_mul(v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
-inline v2i __v2i_mul(v2i a, v2i b) { return v2i_merge_v1i(v1i_mul(v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_mul(v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
-inline v2l __v2l_mul(v2l a, v2l b) { return v2l_merge_v1l(v1l_mul(v1l_get_low_v2l(a), v1l_get_low_v2l(b)), v1l_mul(v1l_get_high_v2l(a), v1l_get_high_v2l(b))); }
-
-inline v2d __v2d_div(v2d a, v2d b) { return v2d_merge_v1d(v1d_div(v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_div(v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
-inline v2f __v2f_div(v2f a, v2f b) { return v2f_merge_v1f(v1f_div(v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_div(v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
-inline v2i __v2i_div(v2i a, v2i b) { return v2i_merge_v1i(v1i_div(v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_div(v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
-inline v2l __v2l_div(v2l a, v2l b) { return v2l_merge_v1l(v1l_div(v1l_get_low_v2l(a), v1l_get_low_v2l(b)), v1l_div(v1l_get_high_v2l(a), v1l_get_high_v2l(b))); }
-
-inline v2d __v2d_sqrt(v2d a) { return v2d_merge_v1d(v1d_sqrt(v1d_get_low_v2d(a)), v1d_sqrt(v1d_get_high_v2d(a))); }
-inline v2f __v2f_sqrt(v2f a) { return v2f_merge_v1f(v1f_sqrt(v1f_get_low_v2f(a)), v1f_sqrt(v1f_get_high_v2f(a))); }
-inline v2i __v2i_sqrt(v2i a) { return v2i_merge_v1i(v1i_sqrt(v1i_get_low_v2i(a)), v1i_sqrt(v1i_get_high_v2i(a))); }
-inline v2l __v2l_sqrt(v2l a) { return v2l_merge_v1l(v1l_sqrt(v1l_get_low_v2l(a)), v1l_sqrt(v1l_get_high_v2l(a))); }
-
-inline v2d __v2d_set1 (double   v) { return v2d_merge_v1d(v1d_set1 (v), v1d_set1 (v)); }
-inline v2f __v2f_set1 (float    v) { return v2f_merge_v1f(v1f_set1 (v), v1f_set1 (v)); }
-inline v2i __v2i_set1 (int32_t  v) { return v2i_merge_v1i(v1i_set1 (v), v1i_set1 (v)); }
-inline v2l __v2l_set1 (int64_t  v) { return v2l_merge_v1l(v1l_set1 (v), v1l_set1 (v)); }
-
-inline v2d __v2d_load (const double * p) { return v2d_merge_v1d(v1d_load(p), v1d_load(p+1)); };
-inline v2f __v2f_load (const float  * p) { return v2f_merge_v1f(v1f_load(p), v1f_load(p+1)); };
-inline v2i __v2i_load (const int32_t* p) { return v2i_merge_v1i(v1i_load(p), v1i_load(p+1)); };
-inline v2l __v2l_load (const int64_t* p) { return v2l_merge_v1l(v1l_load(p), v1l_load(p+1)); };
-
-inline void __v2d_store (double * p, v2d a) { v1d_store (p, v1d_get_low_v2d(a)); v1d_store (p+1, v1d_get_high_v2d(a)); };
-inline void __v2f_store (float  * p, v2f a) { v1f_store (p, v1f_get_low_v2f(a)); v1f_store (p+1, v1f_get_high_v2f(a)); };
-inline void __v2i_store (int32_t* p, v2i a) { v1i_store (p, v1i_get_low_v2i(a)); v1i_store (p+1, v1i_get_high_v2i(a)); };
-inline void __v2l_store (int64_t* p, v2l a) { v1l_store (p, v1l_get_low_v2l(a)); v1l_store (p+1, v1l_get_high_v2l(a)); };
-
-inline v4d __v4d_and(v4d a, v4d b) { return v4d_merge_v2d(v2d_and(v2d_get_low_v4d(a), v2d_get_low_v4d(b)), v2d_and(v2d_get_high_v4d(a), v2d_get_high_v4d(b))); }
-inline v4f __v4f_and(v4f a, v4f b) { return v4f_merge_v2f(v2f_and(v2f_get_low_v4f(a), v2f_get_low_v4f(b)), v2f_and(v2f_get_high_v4f(a), v2f_get_high_v4f(b))); }
-inline v4i __v4i_and(v4i a, v4i b) { return v4i_merge_v2i(v2i_and(v2i_get_low_v4i(a), v2i_get_low_v4i(b)), v2i_and(v2i_get_high_v4i(a), v2i_get_high_v4i(b))); }
-inline v4l __v4l_and(v4l a, v4l b) { return v4l_merge_v2l(v2l_and(v2l_get_low_v4l(a), v2l_get_low_v4l(b)), v2l_and(v2l_get_high_v4l(a), v2l_get_high_v4l(b))); }
-
-inline v4d __v4d_or (v4d a, v4d b) { return v4d_merge_v2d(v2d_or (v2d_get_low_v4d(a), v2d_get_low_v4d(b)), v2d_or (v2d_get_high_v4d(a), v2d_get_high_v4d(b))); }
-inline v4f __v4f_or (v4f a, v4f b) { return v4f_merge_v2f(v2f_or (v2f_get_low_v4f(a), v2f_get_low_v4f(b)), v2f_or (v2f_get_high_v4f(a), v2f_get_high_v4f(b))); }
-inline v4i __v4i_or (v4i a, v4i b) { return v4i_merge_v2i(v2i_or (v2i_get_low_v4i(a), v2i_get_low_v4i(b)), v2i_or (v2i_get_high_v4i(a), v2i_get_high_v4i(b))); }
-inline v4l __v4l_or (v4l a, v4l b) { return v4l_merge_v2l(v2l_or (v2l_get_low_v4l(a), v2l_get_low_v4l(b)), v2l_or (v2l_get_high_v4l(a), v2l_get_high_v4l(b))); }
-
-inline v4d __v4d_xor(v4d a, v4d b) { return v4d_merge_v2d(v2d_xor(v2d_get_low_v4d(a), v2d_get_low_v4d(b)), v2d_xor(v2d_get_high_v4d(a), v2d_get_high_v4d(b))); }
-inline v4f __v4f_xor(v4f a, v4f b) { return v4f_merge_v2f(v2f_xor(v2f_get_low_v4f(a), v2f_get_low_v4f(b)), v2f_xor(v2f_get_high_v4f(a), v2f_get_high_v4f(b))); }
-inline v4i __v4i_xor(v4i a, v4i b) { return v4i_merge_v2i(v2i_xor(v2i_get_low_v4i(a), v2i_get_low_v4i(b)), v2i_xor(v2i_get_high_v4i(a), v2i_get_high_v4i(b))); }
-inline v4l __v4l_xor(v4l a, v4l b) { return v4l_merge_v2l(v2l_xor(v2l_get_low_v4l(a), v2l_get_low_v4l(b)), v2l_xor(v2l_get_high_v4l(a), v2l_get_high_v4l(b))); }
-
-inline v4d __v4d_eq (v4d a, v4d b) { return v4d_merge_v2d(v2d_eq (v2d_get_low_v4d(a), v2d_get_low_v4d(b)), v2d_eq (v2d_get_high_v4d(a), v2d_get_high_v4d(b))); }
-inline v4f __v4f_eq (v4f a, v4f b) { return v4f_merge_v2f(v2f_eq (v2f_get_low_v4f(a), v2f_get_low_v4f(b)), v2f_eq (v2f_get_high_v4f(a), v2f_get_high_v4f(b))); }
-inline v4i __v4i_eq (v4i a, v4i b) { return v4i_merge_v2i(v2i_eq (v2i_get_low_v4i(a), v2i_get_low_v4i(b)), v2i_eq (v2i_get_high_v4i(a), v2i_get_high_v4i(b))); }
-inline v4l __v4l_eq (v4l a, v4l b) { return v4l_merge_v2l(v2l_eq (v2l_get_low_v4l(a), v2l_get_low_v4l(b)), v2l_eq (v2l_get_high_v4l(a), v2l_get_high_v4l(b))); }
-
-inline v4d __v4d_neq(v4d a, v4d b) { return v4d_merge_v2d(v2d_neq(v2d_get_low_v4d(a), v2d_get_low_v4d(b)), v2d_neq(v2d_get_high_v4d(a), v2d_get_high_v4d(b))); }
-inline v4f __v4f_neq(v4f a, v4f b) { return v4f_merge_v2f(v2f_neq(v2f_get_low_v4f(a), v2f_get_low_v4f(b)), v2f_neq(v2f_get_high_v4f(a), v2f_get_high_v4f(b))); }
-inline v4i __v4i_neq(v4i a, v4i b) { return v4i_merge_v2i(v2i_neq(v2i_get_low_v4i(a), v2i_get_low_v4i(b)), v2i_neq(v2i_get_high_v4i(a), v2i_get_high_v4i(b))); }
-inline v4l __v4l_neq(v4l a, v4l b) { return v4l_merge_v2l(v2l_neq(v2l_get_low_v4l(a), v2l_get_low_v4l(b)), v2l_neq(v2l_get_high_v4l(a), v2l_get_high_v4l(b))); }
-
-inline v4d __v4d_gt (v4d a, v4d b) { return v4d_merge_v2d(v2d_gt (v2d_get_low_v4d(a), v2d_get_low_v4d(b)), v2d_gt (v2d_get_high_v4d(a), v2d_get_high_v4d(b))); }
-inline v4f __v4f_gt (v4f a, v4f b) { return v4f_merge_v2f(v2f_gt (v2f_get_low_v4f(a), v2f_get_low_v4f(b)), v2f_gt (v2f_get_high_v4f(a), v2f_get_high_v4f(b))); }
-inline v4i __v4i_gt (v4i a, v4i b) { return v4i_merge_v2i(v2i_gt (v2i_get_low_v4i(a), v2i_get_low_v4i(b)), v2i_gt (v2i_get_high_v4i(a), v2i_get_high_v4i(b))); }
-inline v4l __v4l_gt (v4l a, v4l b) { return v4l_merge_v2l(v2l_gt (v2l_get_low_v4l(a), v2l_get_low_v4l(b)), v2l_gt (v2l_get_high_v4l(a), v2l_get_high_v4l(b))); }
-
-inline v4d __v4d_geq(v4d a, v4d b) { return v4d_merge_v2d(v2d_geq(v2d_get_low_v4d(a), v2d_get_low_v4d(b)), v2d_geq(v2d_get_high_v4d(a), v2d_get_high_v4d(b))); }
-inline v4f __v4f_geq(v4f a, v4f b) { return v4f_merge_v2f(v2f_geq(v2f_get_low_v4f(a), v2f_get_low_v4f(b)), v2f_geq(v2f_get_high_v4f(a), v2f_get_high_v4f(b))); }
-inline v4i __v4i_geq(v4i a, v4i b) { return v4i_merge_v2i(v2i_geq(v2i_get_low_v4i(a), v2i_get_low_v4i(b)), v2i_geq(v2i_get_high_v4i(a), v2i_get_high_v4i(b))); }
-inline v4l __v4l_geq(v4l a, v4l b) { return v4l_merge_v2l(v2l_geq(v2l_get_low_v4l(a), v2l_get_low_v4l(b)), v2l_geq(v2l_get_high_v4l(a), v2l_get_high_v4l(b))); }
-
-inline v4d __v4d_lt (v4d a, v4d b) { return v4d_merge_v2d(v2d_lt (v2d_get_low_v4d(a), v2d_get_low_v4d(b)), v2d_lt (v2d_get_high_v4d(a), v2d_get_high_v4d(b))); }
-inline v4f __v4f_lt (v4f a, v4f b) { return v4f_merge_v2f(v2f_lt (v2f_get_low_v4f(a), v2f_get_low_v4f(b)), v2f_lt (v2f_get_high_v4f(a), v2f_get_high_v4f(b))); }
-inline v4i __v4i_lt (v4i a, v4i b) { return v4i_merge_v2i(v2i_lt (v2i_get_low_v4i(a), v2i_get_low_v4i(b)), v2i_lt (v2i_get_high_v4i(a), v2i_get_high_v4i(b))); }
-inline v4l __v4l_lt (v4l a, v4l b) { return v4l_merge_v2l(v2l_lt (v2l_get_low_v4l(a), v2l_get_low_v4l(b)), v2l_lt (v2l_get_high_v4l(a), v2l_get_high_v4l(b))); }
-
-inline v4d __v4d_leq(v4d a, v4d b) { return v4d_merge_v2d(v2d_leq(v2d_get_low_v4d(a), v2d_get_low_v4d(b)), v2d_leq(v2d_get_high_v4d(a), v2d_get_high_v4d(b))); }
-inline v4f __v4f_leq(v4f a, v4f b) { return v4f_merge_v2f(v2f_leq(v2f_get_low_v4f(a), v2f_get_low_v4f(b)), v2f_leq(v2f_get_high_v4f(a), v2f_get_high_v4f(b))); }
-inline v4i __v4i_leq(v4i a, v4i b) { return v4i_merge_v2i(v2i_leq(v2i_get_low_v4i(a), v2i_get_low_v4i(b)), v2i_leq(v2i_get_high_v4i(a), v2i_get_high_v4i(b))); }
-inline v4l __v4l_leq(v4l a, v4l b) { return v4l_merge_v2l(v2l_leq(v2l_get_low_v4l(a), v2l_get_low_v4l(b)), v2l_leq(v2l_get_high_v4l(a), v2l_get_high_v4l(b))); }
-
-inline v4d __v4d_add(v4d a, v4d b) { return v4d_merge_v2d(v2d_add(v2d_get_low_v4d(a), v2d_get_low_v4d(b)), v2d_add(v2d_get_high_v4d(a), v2d_get_high_v4d(b))); }
-inline v4f __v4f_add(v4f a, v4f b) { return v4f_merge_v2f(v2f_add(v2f_get_low_v4f(a), v2f_get_low_v4f(b)), v2f_add(v2f_get_high_v4f(a), v2f_get_high_v4f(b))); }
-inline v4i __v4i_add(v4i a, v4i b) { return v4i_merge_v2i(v2i_add(v2i_get_low_v4i(a), v2i_get_low_v4i(b)), v2i_add(v2i_get_high_v4i(a), v2i_get_high_v4i(b))); }
-inline v4l __v4l_add(v4l a, v4l b) { return v4l_merge_v2l(v2l_add(v2l_get_low_v4l(a), v2l_get_low_v4l(b)), v2l_add(v2l_get_high_v4l(a), v2l_get_high_v4l(b))); }
-
-inline v4d __v4d_sub(v4d a, v4d b) { return v4d_merge_v2d(v2d_sub(v2d_get_low_v4d(a), v2d_get_low_v4d(b)), v2d_sub(v2d_get_high_v4d(a), v2d_get_high_v4d(b))); }
-inline v4f __v4f_sub(v4f a, v4f b) { return v4f_merge_v2f(v2f_sub(v2f_get_low_v4f(a), v2f_get_low_v4f(b)), v2f_sub(v2f_get_high_v4f(a), v2f_get_high_v4f(b))); }
-inline v4i __v4i_sub(v4i a, v4i b) { return v4i_merge_v2i(v2i_sub(v2i_get_low_v4i(a), v2i_get_low_v4i(b)), v2i_sub(v2i_get_high_v4i(a), v2i_get_high_v4i(b))); }
-inline v4l __v4l_sub(v4l a, v4l b) { return v4l_merge_v2l(v2l_sub(v2l_get_low_v4l(a), v2l_get_low_v4l(b)), v2l_sub(v2l_get_high_v4l(a), v2l_get_high_v4l(b))); }
-
-inline v4d __v4d_mul(v4d a, v4d b) { return v4d_merge_v2d(v2d_mul(v2d_get_low_v4d(a), v2d_get_low_v4d(b)), v2d_mul(v2d_get_high_v4d(a), v2d_get_high_v4d(b))); }
-inline v4f __v4f_mul(v4f a, v4f b) { return v4f_merge_v2f(v2f_mul(v2f_get_low_v4f(a), v2f_get_low_v4f(b)), v2f_mul(v2f_get_high_v4f(a), v2f_get_high_v4f(b))); }
-inline v4i __v4i_mul(v4i a, v4i b) { return v4i_merge_v2i(v2i_mul(v2i_get_low_v4i(a), v2i_get_low_v4i(b)), v2i_mul(v2i_get_high_v4i(a), v2i_get_high_v4i(b))); }
-inline v4l __v4l_mul(v4l a, v4l b) { return v4l_merge_v2l(v2l_mul(v2l_get_low_v4l(a), v2l_get_low_v4l(b)), v2l_mul(v2l_get_high_v4l(a), v2l_get_high_v4l(b))); }
-
-inline v4d __v4d_div(v4d a, v4d b) { return v4d_merge_v2d(v2d_div(v2d_get_low_v4d(a), v2d_get_low_v4d(b)), v2d_div(v2d_get_high_v4d(a), v2d_get_high_v4d(b))); }
-inline v4f __v4f_div(v4f a, v4f b) { return v4f_merge_v2f(v2f_div(v2f_get_low_v4f(a), v2f_get_low_v4f(b)), v2f_div(v2f_get_high_v4f(a), v2f_get_high_v4f(b))); }
-inline v4i __v4i_div(v4i a, v4i b) { return v4i_merge_v2i(v2i_div(v2i_get_low_v4i(a), v2i_get_low_v4i(b)), v2i_div(v2i_get_high_v4i(a), v2i_get_high_v4i(b))); }
-inline v4l __v4l_div(v4l a, v4l b) { return v4l_merge_v2l(v2l_div(v2l_get_low_v4l(a), v2l_get_low_v4l(b)), v2l_div(v2l_get_high_v4l(a), v2l_get_high_v4l(b))); }
-
-inline v4d __v4d_sqrt(v4d a) { return v4d_merge_v2d(v2d_sqrt(v2d_get_low_v4d(a)), v2d_sqrt(v2d_get_high_v4d(a))); }
-inline v4f __v4f_sqrt(v4f a) { return v4f_merge_v2f(v2f_sqrt(v2f_get_low_v4f(a)), v2f_sqrt(v2f_get_high_v4f(a))); }
-inline v4i __v4i_sqrt(v4i a) { return v4i_merge_v2i(v2i_sqrt(v2i_get_low_v4i(a)), v2i_sqrt(v2i_get_high_v4i(a))); }
-inline v4l __v4l_sqrt(v4l a) { return v4l_merge_v2l(v2l_sqrt(v2l_get_low_v4l(a)), v2l_sqrt(v2l_get_high_v4l(a))); }
-
-inline v4d __v4d_set1 (double   v) { return v4d_merge_v2d(v2d_set1 (v), v2d_set1 (v)); }
-inline v4f __v4f_set1 (float    v) { return v4f_merge_v2f(v2f_set1 (v), v2f_set1 (v)); }
-inline v4i __v4i_set1 (int32_t  v) { return v4i_merge_v2i(v2i_set1 (v), v2i_set1 (v)); }
-inline v4l __v4l_set1 (int64_t  v) { return v4l_merge_v2l(v2l_set1 (v), v2l_set1 (v)); }
-
-inline v4d __v4d_load (const double * p) { return v4d_merge_v2d(v2d_load(p), v2d_load(p+2)); };
-inline v4f __v4f_load (const float  * p) { return v4f_merge_v2f(v2f_load(p), v2f_load(p+2)); };
-inline v4i __v4i_load (const int32_t* p) { return v4i_merge_v2i(v2i_load(p), v2i_load(p+2)); };
-inline v4l __v4l_load (const int64_t* p) { return v4l_merge_v2l(v2l_load(p), v2l_load(p+2)); };
-
-inline void __v4d_store (double * p, v4d a) { v2d_store (p, v2d_get_low_v4d(a)); v2d_store (p+2, v2d_get_high_v4d(a)); };
-inline void __v4f_store (float  * p, v4f a) { v2f_store (p, v2f_get_low_v4f(a)); v2f_store (p+2, v2f_get_high_v4f(a)); };
-inline void __v4i_store (int32_t* p, v4i a) { v2i_store (p, v2i_get_low_v4i(a)); v2i_store (p+2, v2i_get_high_v4i(a)); };
-inline void __v4l_store (int64_t* p, v4l a) { v2l_store (p, v2l_get_low_v4l(a)); v2l_store (p+2, v2l_get_high_v4l(a)); };
-
-inline v8d __v8d_and(v8d a, v8d b) { return v8d_merge_v4d(v4d_and(v4d_get_low_v8d(a), v4d_get_low_v8d(b)), v4d_and(v4d_get_high_v8d(a), v4d_get_high_v8d(b))); }
-inline v8f __v8f_and(v8f a, v8f b) { return v8f_merge_v4f(v4f_and(v4f_get_low_v8f(a), v4f_get_low_v8f(b)), v4f_and(v4f_get_high_v8f(a), v4f_get_high_v8f(b))); }
-inline v8i __v8i_and(v8i a, v8i b) { return v8i_merge_v4i(v4i_and(v4i_get_low_v8i(a), v4i_get_low_v8i(b)), v4i_and(v4i_get_high_v8i(a), v4i_get_high_v8i(b))); }
-inline v8l __v8l_and(v8l a, v8l b) { return v8l_merge_v4l(v4l_and(v4l_get_low_v8l(a), v4l_get_low_v8l(b)), v4l_and(v4l_get_high_v8l(a), v4l_get_high_v8l(b))); }
-
-inline v8d __v8d_or (v8d a, v8d b) { return v8d_merge_v4d(v4d_or (v4d_get_low_v8d(a), v4d_get_low_v8d(b)), v4d_or (v4d_get_high_v8d(a), v4d_get_high_v8d(b))); }
-inline v8f __v8f_or (v8f a, v8f b) { return v8f_merge_v4f(v4f_or (v4f_get_low_v8f(a), v4f_get_low_v8f(b)), v4f_or (v4f_get_high_v8f(a), v4f_get_high_v8f(b))); }
-inline v8i __v8i_or (v8i a, v8i b) { return v8i_merge_v4i(v4i_or (v4i_get_low_v8i(a), v4i_get_low_v8i(b)), v4i_or (v4i_get_high_v8i(a), v4i_get_high_v8i(b))); }
-inline v8l __v8l_or (v8l a, v8l b) { return v8l_merge_v4l(v4l_or (v4l_get_low_v8l(a), v4l_get_low_v8l(b)), v4l_or (v4l_get_high_v8l(a), v4l_get_high_v8l(b))); }
-
-inline v8d __v8d_xor(v8d a, v8d b) { return v8d_merge_v4d(v4d_xor(v4d_get_low_v8d(a), v4d_get_low_v8d(b)), v4d_xor(v4d_get_high_v8d(a), v4d_get_high_v8d(b))); }
-inline v8f __v8f_xor(v8f a, v8f b) { return v8f_merge_v4f(v4f_xor(v4f_get_low_v8f(a), v4f_get_low_v8f(b)), v4f_xor(v4f_get_high_v8f(a), v4f_get_high_v8f(b))); }
-inline v8i __v8i_xor(v8i a, v8i b) { return v8i_merge_v4i(v4i_xor(v4i_get_low_v8i(a), v4i_get_low_v8i(b)), v4i_xor(v4i_get_high_v8i(a), v4i_get_high_v8i(b))); }
-inline v8l __v8l_xor(v8l a, v8l b) { return v8l_merge_v4l(v4l_xor(v4l_get_low_v8l(a), v4l_get_low_v8l(b)), v4l_xor(v4l_get_high_v8l(a), v4l_get_high_v8l(b))); }
-
-inline v8d __v8d_eq (v8d a, v8d b) { return v8d_merge_v4d(v4d_eq (v4d_get_low_v8d(a), v4d_get_low_v8d(b)), v4d_eq (v4d_get_high_v8d(a), v4d_get_high_v8d(b))); }
-inline v8f __v8f_eq (v8f a, v8f b) { return v8f_merge_v4f(v4f_eq (v4f_get_low_v8f(a), v4f_get_low_v8f(b)), v4f_eq (v4f_get_high_v8f(a), v4f_get_high_v8f(b))); }
-inline v8i __v8i_eq (v8i a, v8i b) { return v8i_merge_v4i(v4i_eq (v4i_get_low_v8i(a), v4i_get_low_v8i(b)), v4i_eq (v4i_get_high_v8i(a), v4i_get_high_v8i(b))); }
-inline v8l __v8l_eq (v8l a, v8l b) { return v8l_merge_v4l(v4l_eq (v4l_get_low_v8l(a), v4l_get_low_v8l(b)), v4l_eq (v4l_get_high_v8l(a), v4l_get_high_v8l(b))); }
-
-inline v8d __v8d_neq(v8d a, v8d b) { return v8d_merge_v4d(v4d_neq(v4d_get_low_v8d(a), v4d_get_low_v8d(b)), v4d_neq(v4d_get_high_v8d(a), v4d_get_high_v8d(b))); }
-inline v8f __v8f_neq(v8f a, v8f b) { return v8f_merge_v4f(v4f_neq(v4f_get_low_v8f(a), v4f_get_low_v8f(b)), v4f_neq(v4f_get_high_v8f(a), v4f_get_high_v8f(b))); }
-inline v8i __v8i_neq(v8i a, v8i b) { return v8i_merge_v4i(v4i_neq(v4i_get_low_v8i(a), v4i_get_low_v8i(b)), v4i_neq(v4i_get_high_v8i(a), v4i_get_high_v8i(b))); }
-inline v8l __v8l_neq(v8l a, v8l b) { return v8l_merge_v4l(v4l_neq(v4l_get_low_v8l(a), v4l_get_low_v8l(b)), v4l_neq(v4l_get_high_v8l(a), v4l_get_high_v8l(b))); }
-
-inline v8d __v8d_gt (v8d a, v8d b) { return v8d_merge_v4d(v4d_gt (v4d_get_low_v8d(a), v4d_get_low_v8d(b)), v4d_gt (v4d_get_high_v8d(a), v4d_get_high_v8d(b))); }
-inline v8f __v8f_gt (v8f a, v8f b) { return v8f_merge_v4f(v4f_gt (v4f_get_low_v8f(a), v4f_get_low_v8f(b)), v4f_gt (v4f_get_high_v8f(a), v4f_get_high_v8f(b))); }
-inline v8i __v8i_gt (v8i a, v8i b) { return v8i_merge_v4i(v4i_gt (v4i_get_low_v8i(a), v4i_get_low_v8i(b)), v4i_gt (v4i_get_high_v8i(a), v4i_get_high_v8i(b))); }
-inline v8l __v8l_gt (v8l a, v8l b) { return v8l_merge_v4l(v4l_gt (v4l_get_low_v8l(a), v4l_get_low_v8l(b)), v4l_gt (v4l_get_high_v8l(a), v4l_get_high_v8l(b))); }
-
-inline v8d __v8d_geq(v8d a, v8d b) { return v8d_merge_v4d(v4d_geq(v4d_get_low_v8d(a), v4d_get_low_v8d(b)), v4d_geq(v4d_get_high_v8d(a), v4d_get_high_v8d(b))); }
-inline v8f __v8f_geq(v8f a, v8f b) { return v8f_merge_v4f(v4f_geq(v4f_get_low_v8f(a), v4f_get_low_v8f(b)), v4f_geq(v4f_get_high_v8f(a), v4f_get_high_v8f(b))); }
-inline v8i __v8i_geq(v8i a, v8i b) { return v8i_merge_v4i(v4i_geq(v4i_get_low_v8i(a), v4i_get_low_v8i(b)), v4i_geq(v4i_get_high_v8i(a), v4i_get_high_v8i(b))); }
-inline v8l __v8l_geq(v8l a, v8l b) { return v8l_merge_v4l(v4l_geq(v4l_get_low_v8l(a), v4l_get_low_v8l(b)), v4l_geq(v4l_get_high_v8l(a), v4l_get_high_v8l(b))); }
-
-inline v8d __v8d_lt (v8d a, v8d b) { return v8d_merge_v4d(v4d_lt (v4d_get_low_v8d(a), v4d_get_low_v8d(b)), v4d_lt (v4d_get_high_v8d(a), v4d_get_high_v8d(b))); }
-inline v8f __v8f_lt (v8f a, v8f b) { return v8f_merge_v4f(v4f_lt (v4f_get_low_v8f(a), v4f_get_low_v8f(b)), v4f_lt (v4f_get_high_v8f(a), v4f_get_high_v8f(b))); }
-inline v8i __v8i_lt (v8i a, v8i b) { return v8i_merge_v4i(v4i_lt (v4i_get_low_v8i(a), v4i_get_low_v8i(b)), v4i_lt (v4i_get_high_v8i(a), v4i_get_high_v8i(b))); }
-inline v8l __v8l_lt (v8l a, v8l b) { return v8l_merge_v4l(v4l_lt (v4l_get_low_v8l(a), v4l_get_low_v8l(b)), v4l_lt (v4l_get_high_v8l(a), v4l_get_high_v8l(b))); }
-
-inline v8d __v8d_leq(v8d a, v8d b) { return v8d_merge_v4d(v4d_leq(v4d_get_low_v8d(a), v4d_get_low_v8d(b)), v4d_leq(v4d_get_high_v8d(a), v4d_get_high_v8d(b))); }
-inline v8f __v8f_leq(v8f a, v8f b) { return v8f_merge_v4f(v4f_leq(v4f_get_low_v8f(a), v4f_get_low_v8f(b)), v4f_leq(v4f_get_high_v8f(a), v4f_get_high_v8f(b))); }
-inline v8i __v8i_leq(v8i a, v8i b) { return v8i_merge_v4i(v4i_leq(v4i_get_low_v8i(a), v4i_get_low_v8i(b)), v4i_leq(v4i_get_high_v8i(a), v4i_get_high_v8i(b))); }
-inline v8l __v8l_leq(v8l a, v8l b) { return v8l_merge_v4l(v4l_leq(v4l_get_low_v8l(a), v4l_get_low_v8l(b)), v4l_leq(v4l_get_high_v8l(a), v4l_get_high_v8l(b))); }
-
-inline v8d __v8d_add(v8d a, v8d b) { return v8d_merge_v4d(v4d_add(v4d_get_low_v8d(a), v4d_get_low_v8d(b)), v4d_add(v4d_get_high_v8d(a), v4d_get_high_v8d(b))); }
-inline v8f __v8f_add(v8f a, v8f b) { return v8f_merge_v4f(v4f_add(v4f_get_low_v8f(a), v4f_get_low_v8f(b)), v4f_add(v4f_get_high_v8f(a), v4f_get_high_v8f(b))); }
-inline v8i __v8i_add(v8i a, v8i b) { return v8i_merge_v4i(v4i_add(v4i_get_low_v8i(a), v4i_get_low_v8i(b)), v4i_add(v4i_get_high_v8i(a), v4i_get_high_v8i(b))); }
-inline v8l __v8l_add(v8l a, v8l b) { return v8l_merge_v4l(v4l_add(v4l_get_low_v8l(a), v4l_get_low_v8l(b)), v4l_add(v4l_get_high_v8l(a), v4l_get_high_v8l(b))); }
-
-inline v8d __v8d_sub(v8d a, v8d b) { return v8d_merge_v4d(v4d_sub(v4d_get_low_v8d(a), v4d_get_low_v8d(b)), v4d_sub(v4d_get_high_v8d(a), v4d_get_high_v8d(b))); }
-inline v8f __v8f_sub(v8f a, v8f b) { return v8f_merge_v4f(v4f_sub(v4f_get_low_v8f(a), v4f_get_low_v8f(b)), v4f_sub(v4f_get_high_v8f(a), v4f_get_high_v8f(b))); }
-inline v8i __v8i_sub(v8i a, v8i b) { return v8i_merge_v4i(v4i_sub(v4i_get_low_v8i(a), v4i_get_low_v8i(b)), v4i_sub(v4i_get_high_v8i(a), v4i_get_high_v8i(b))); }
-inline v8l __v8l_sub(v8l a, v8l b) { return v8l_merge_v4l(v4l_sub(v4l_get_low_v8l(a), v4l_get_low_v8l(b)), v4l_sub(v4l_get_high_v8l(a), v4l_get_high_v8l(b))); }
-
-inline v8d __v8d_mul(v8d a, v8d b) { return v8d_merge_v4d(v4d_mul(v4d_get_low_v8d(a), v4d_get_low_v8d(b)), v4d_mul(v4d_get_high_v8d(a), v4d_get_high_v8d(b))); }
-inline v8f __v8f_mul(v8f a, v8f b) { return v8f_merge_v4f(v4f_mul(v4f_get_low_v8f(a), v4f_get_low_v8f(b)), v4f_mul(v4f_get_high_v8f(a), v4f_get_high_v8f(b))); }
-inline v8i __v8i_mul(v8i a, v8i b) { return v8i_merge_v4i(v4i_mul(v4i_get_low_v8i(a), v4i_get_low_v8i(b)), v4i_mul(v4i_get_high_v8i(a), v4i_get_high_v8i(b))); }
-inline v8l __v8l_mul(v8l a, v8l b) { return v8l_merge_v4l(v4l_mul(v4l_get_low_v8l(a), v4l_get_low_v8l(b)), v4l_mul(v4l_get_high_v8l(a), v4l_get_high_v8l(b))); }
-
-inline v8d __v8d_div(v8d a, v8d b) { return v8d_merge_v4d(v4d_div(v4d_get_low_v8d(a), v4d_get_low_v8d(b)), v4d_div(v4d_get_high_v8d(a), v4d_get_high_v8d(b))); }
-inline v8f __v8f_div(v8f a, v8f b) { return v8f_merge_v4f(v4f_div(v4f_get_low_v8f(a), v4f_get_low_v8f(b)), v4f_div(v4f_get_high_v8f(a), v4f_get_high_v8f(b))); }
-inline v8i __v8i_div(v8i a, v8i b) { return v8i_merge_v4i(v4i_div(v4i_get_low_v8i(a), v4i_get_low_v8i(b)), v4i_div(v4i_get_high_v8i(a), v4i_get_high_v8i(b))); }
-inline v8l __v8l_div(v8l a, v8l b) { return v8l_merge_v4l(v4l_div(v4l_get_low_v8l(a), v4l_get_low_v8l(b)), v4l_div(v4l_get_high_v8l(a), v4l_get_high_v8l(b))); }
-
-inline v8d __v8d_sqrt(v8d a) { return v8d_merge_v4d(v4d_sqrt(v4d_get_low_v8d(a)), v4d_sqrt(v4d_get_high_v8d(a))); }
-inline v8f __v8f_sqrt(v8f a) { return v8f_merge_v4f(v4f_sqrt(v4f_get_low_v8f(a)), v4f_sqrt(v4f_get_high_v8f(a))); }
-inline v8i __v8i_sqrt(v8i a) { return v8i_merge_v4i(v4i_sqrt(v4i_get_low_v8i(a)), v4i_sqrt(v4i_get_high_v8i(a))); }
-inline v8l __v8l_sqrt(v8l a) { return v8l_merge_v4l(v4l_sqrt(v4l_get_low_v8l(a)), v4l_sqrt(v4l_get_high_v8l(a))); }
-
-inline v8d __v8d_set1 (double   v) { return v8d_merge_v4d(v4d_set1 (v), v4d_set1 (v)); }
-inline v8f __v8f_set1 (float    v) { return v8f_merge_v4f(v4f_set1 (v), v4f_set1 (v)); }
-inline v8i __v8i_set1 (int32_t  v) { return v8i_merge_v4i(v4i_set1 (v), v4i_set1 (v)); }
-inline v8l __v8l_set1 (int64_t  v) { return v8l_merge_v4l(v4l_set1 (v), v4l_set1 (v)); }
-
-inline v8d __v8d_load (const double * p) { return v8d_merge_v4d(v4d_load(p), v4d_load(p+4)); };
-inline v8f __v8f_load (const float  * p) { return v8f_merge_v4f(v4f_load(p), v4f_load(p+4)); };
-inline v8i __v8i_load (const int32_t* p) { return v8i_merge_v4i(v4i_load(p), v4i_load(p+4)); };
-inline v8l __v8l_load (const int64_t* p) { return v8l_merge_v4l(v4l_load(p), v4l_load(p+4)); };
-
-inline void __v8d_store (double * p, v8d a) { v4d_store (p, v4d_get_low_v8d(a)); v4d_store (p+4, v4d_get_high_v8d(a)); };
-inline void __v8f_store (float  * p, v8f a) { v4f_store (p, v4f_get_low_v8f(a)); v4f_store (p+4, v4f_get_high_v8f(a)); };
-inline void __v8i_store (int32_t* p, v8i a) { v4i_store (p, v4i_get_low_v8i(a)); v4i_store (p+4, v4i_get_high_v8i(a)); };
-inline void __v8l_store (int64_t* p, v8l a) { v4l_store (p, v4l_get_low_v8l(a)); v4l_store (p+4, v4l_get_high_v8l(a)); };
 
-inline v16f __v16f_and(v16f a, v16f b) { return v16f_merge_v8f(v8f_and(v8f_get_low_v16f(a), v8f_get_low_v16f(b)), v8f_and(v8f_get_high_v16f(a), v8f_get_high_v16f(b))); }
-inline v16i __v16i_and(v16i a, v16i b) { return v16i_merge_v8i(v8i_and(v8i_get_low_v16i(a), v8i_get_low_v16i(b)), v8i_and(v8i_get_high_v16i(a), v8i_get_high_v16i(b))); }
+inline union __v1d __v1d_and(union __v1d a, union __v1d b) { union __v1d r = { i: a.i & b.i }; return r; }
+inline union __v1f __v1f_and(union __v1f a, union __v1f b) { union __v1f r = { i: a.i & b.i }; return r; }
+inline union __v1i __v1i_and(union __v1i a, union __v1i b) { union __v1i r = { i: a.i & b.i }; return r; }
+inline union __v1l __v1l_and(union __v1l a, union __v1l b) { union __v1l r = { i: a.i & b.i }; return r; }
 
-inline v16f __v16f_or (v16f a, v16f b) { return v16f_merge_v8f(v8f_or (v8f_get_low_v16f(a), v8f_get_low_v16f(b)), v8f_or (v8f_get_high_v16f(a), v8f_get_high_v16f(b))); }
-inline v16i __v16i_or (v16i a, v16i b) { return v16i_merge_v8i(v8i_or (v8i_get_low_v16i(a), v8i_get_low_v16i(b)), v8i_or (v8i_get_high_v16i(a), v8i_get_high_v16i(b))); }
 
-inline v16f __v16f_xor(v16f a, v16f b) { return v16f_merge_v8f(v8f_xor(v8f_get_low_v16f(a), v8f_get_low_v16f(b)), v8f_xor(v8f_get_high_v16f(a), v8f_get_high_v16f(b))); }
-inline v16i __v16i_xor(v16i a, v16i b) { return v16i_merge_v8i(v8i_xor(v8i_get_low_v16i(a), v8i_get_low_v16i(b)), v8i_xor(v8i_get_high_v16i(a), v8i_get_high_v16i(b))); }
+inline union __v1d __v1d_or(union __v1d a, union __v1d b) { union __v1d r = { i: a.i | b.i }; return r; }
+inline union __v1f __v1f_or(union __v1f a, union __v1f b) { union __v1f r = { i: a.i | b.i }; return r; }
+inline union __v1i __v1i_or(union __v1i a, union __v1i b) { union __v1i r = { i: a.i | b.i }; return r; }
+inline union __v1l __v1l_or(union __v1l a, union __v1l b) { union __v1l r = { i: a.i | b.i }; return r; }
 
-inline v16f __v16f_eq (v16f a, v16f b) { return v16f_merge_v8f(v8f_eq (v8f_get_low_v16f(a), v8f_get_low_v16f(b)), v8f_eq (v8f_get_high_v16f(a), v8f_get_high_v16f(b))); }
-inline v16i __v16i_eq (v16i a, v16i b) { return v16i_merge_v8i(v8i_eq (v8i_get_low_v16i(a), v8i_get_low_v16i(b)), v8i_eq (v8i_get_high_v16i(a), v8i_get_high_v16i(b))); }
 
-inline v16f __v16f_neq(v16f a, v16f b) { return v16f_merge_v8f(v8f_neq(v8f_get_low_v16f(a), v8f_get_low_v16f(b)), v8f_neq(v8f_get_high_v16f(a), v8f_get_high_v16f(b))); }
-inline v16i __v16i_neq(v16i a, v16i b) { return v16i_merge_v8i(v8i_neq(v8i_get_low_v16i(a), v8i_get_low_v16i(b)), v8i_neq(v8i_get_high_v16i(a), v8i_get_high_v16i(b))); }
+inline union __v1d __v1d_xor(union __v1d a, union __v1d b) { union __v1d r = { i: a.i ^ b.i }; return r; }
+inline union __v1f __v1f_xor(union __v1f a, union __v1f b) { union __v1f r = { i: a.i ^ b.i }; return r; }
+inline union __v1i __v1i_xor(union __v1i a, union __v1i b) { union __v1i r = { i: a.i ^ b.i }; return r; }
+inline union __v1l __v1l_xor(union __v1l a, union __v1l b) { union __v1l r = { i: a.i ^ b.i }; return r; }
 
-inline v16f __v16f_gt (v16f a, v16f b) { return v16f_merge_v8f(v8f_gt (v8f_get_low_v16f(a), v8f_get_low_v16f(b)), v8f_gt (v8f_get_high_v16f(a), v8f_get_high_v16f(b))); }
-inline v16i __v16i_gt (v16i a, v16i b) { return v16i_merge_v8i(v8i_gt (v8i_get_low_v16i(a), v8i_get_low_v16i(b)), v8i_gt (v8i_get_high_v16i(a), v8i_get_high_v16i(b))); }
 
-inline v16f __v16f_geq(v16f a, v16f b) { return v16f_merge_v8f(v8f_geq(v8f_get_low_v16f(a), v8f_get_low_v16f(b)), v8f_geq(v8f_get_high_v16f(a), v8f_get_high_v16f(b))); }
-inline v16i __v16i_geq(v16i a, v16i b) { return v16i_merge_v8i(v8i_geq(v8i_get_low_v16i(a), v8i_get_low_v16i(b)), v8i_geq(v8i_get_high_v16i(a), v8i_get_high_v16i(b))); }
 
-inline v16f __v16f_lt (v16f a, v16f b) { return v16f_merge_v8f(v8f_lt (v8f_get_low_v16f(a), v8f_get_low_v16f(b)), v8f_lt (v8f_get_high_v16f(a), v8f_get_high_v16f(b))); }
-inline v16i __v16i_lt (v16i a, v16i b) { return v16i_merge_v8i(v8i_lt (v8i_get_low_v16i(a), v8i_get_low_v16i(b)), v8i_lt (v8i_get_high_v16i(a), v8i_get_high_v16i(b))); }
 
-inline v16f __v16f_leq(v16f a, v16f b) { return v16f_merge_v8f(v8f_leq(v8f_get_low_v16f(a), v8f_get_low_v16f(b)), v8f_leq(v8f_get_high_v16f(a), v8f_get_high_v16f(b))); }
-inline v16i __v16i_leq(v16i a, v16i b) { return v16i_merge_v8i(v8i_leq(v8i_get_low_v16i(a), v8i_get_low_v16i(b)), v8i_leq(v8i_get_high_v16i(a), v8i_get_high_v16i(b))); }
 
-inline v16f __v16f_add(v16f a, v16f b) { return v16f_merge_v8f(v8f_add(v8f_get_low_v16f(a), v8f_get_low_v16f(b)), v8f_add(v8f_get_high_v16f(a), v8f_get_high_v16f(b))); }
-inline v16i __v16i_add(v16i a, v16i b) { return v16i_merge_v8i(v8i_add(v8i_get_low_v16i(a), v8i_get_low_v16i(b)), v8i_add(v8i_get_high_v16i(a), v8i_get_high_v16i(b))); }
 
-inline v16f __v16f_sub(v16f a, v16f b) { return v16f_merge_v8f(v8f_sub(v8f_get_low_v16f(a), v8f_get_low_v16f(b)), v8f_sub(v8f_get_high_v16f(a), v8f_get_high_v16f(b))); }
-inline v16i __v16i_sub(v16i a, v16i b) { return v16i_merge_v8i(v8i_sub(v8i_get_low_v16i(a), v8i_get_low_v16i(b)), v8i_sub(v8i_get_high_v16i(a), v8i_get_high_v16i(b))); }
-
-inline v16f __v16f_mul(v16f a, v16f b) { return v16f_merge_v8f(v8f_mul(v8f_get_low_v16f(a), v8f_get_low_v16f(b)), v8f_mul(v8f_get_high_v16f(a), v8f_get_high_v16f(b))); }
-inline v16i __v16i_mul(v16i a, v16i b) { return v16i_merge_v8i(v8i_mul(v8i_get_low_v16i(a), v8i_get_low_v16i(b)), v8i_mul(v8i_get_high_v16i(a), v8i_get_high_v16i(b))); }
-
-inline v16f __v16f_div(v16f a, v16f b) { return v16f_merge_v8f(v8f_div(v8f_get_low_v16f(a), v8f_get_low_v16f(b)), v8f_div(v8f_get_high_v16f(a), v8f_get_high_v16f(b))); }
-inline v16i __v16i_div(v16i a, v16i b) { return v16i_merge_v8i(v8i_div(v8i_get_low_v16i(a), v8i_get_low_v16i(b)), v8i_div(v8i_get_high_v16i(a), v8i_get_high_v16i(b))); }
-
-inline v16f __v16f_sqrt(v16f a) { return v16f_merge_v8f(v8f_sqrt(v8f_get_low_v16f(a)), v8f_sqrt(v8f_get_high_v16f(a))); }
-inline v16i __v16i_sqrt(v16i a) { return v16i_merge_v8i(v8i_sqrt(v8i_get_low_v16i(a)), v8i_sqrt(v8i_get_high_v16i(a))); }
-
-inline v16f __v16f_set1 (float    v) { return v16f_merge_v8f(v8f_set1 (v), v8f_set1 (v)); }
-inline v16i __v16i_set1 (int32_t  v) { return v16i_merge_v8i(v8i_set1 (v), v8i_set1 (v)); }
-
-inline v16f __v16f_load (const float  * p) { return v16f_merge_v8f(v8f_load(p), v8f_load(p+8)); };
-inline v16i __v16i_load (const int32_t* p) { return v16i_merge_v8i(v8i_load(p), v8i_load(p+8)); };
-
-inline void __v16f_store (float  * p, v16f a) { v8f_store (p, v8f_get_low_v16f(a)); v8f_store (p+8, v8f_get_high_v16f(a)); };
-inline void __v16i_store (int32_t* p, v16i a) { v8i_store (p, v8i_get_low_v16i(a)); v8i_store (p+8, v8i_get_high_v16i(a)); };
-
-
-// Helpers
-
-inline int __v1d_is_zero(v1d a) { 
-  int i, b = 1;
-  double  va[1];
-  v1d_storeu(va, a);
-  for (i = 0; i < 1; i++) b = b && !va[i];
-  return b;
- }
-inline int __v1f_is_zero(v1f a) { 
-  int i, b = 1;
-  float   va[1];
-  v1f_storeu(va, a);
-  for (i = 0; i < 1; i++) b = b && !va[i];
-  return b;
- }
-inline int __v1i_is_zero(v1i a) { 
-  int i, b = 1;
-  int32_t va[1];
-  v1i_storeu(va, a);
-  for (i = 0; i < 1; i++) b = b && !va[i];
-  return b;
- }
-inline int __v1l_is_zero(v1l a) { 
-  int i, b = 1;
-  int64_t va[1];
-  v1l_storeu(va, a);
-  for (i = 0; i < 1; i++) b = b && !va[i];
-  return b;
- }
 
 
+inline union __v1d __v1d_add(union __v1d a, union __v1d b) { union __v1d r = { v: a.v + b.v }; return r; }
+inline union __v1f __v1f_add(union __v1f a, union __v1f b) { union __v1f r = { v: a.v + b.v }; return r; }
+inline union __v1i __v1i_add(union __v1i a, union __v1i b) { union __v1i r = { v: a.v + b.v }; return r; }
+inline union __v1l __v1l_add(union __v1l a, union __v1l b) { union __v1l r = { v: a.v + b.v }; return r; }
 
 
+inline union __v1d __v1d_sub(union __v1d a, union __v1d b) { union __v1d r = { v: a.v - b.v }; return r; }
+inline union __v1f __v1f_sub(union __v1f a, union __v1f b) { union __v1f r = { v: a.v - b.v }; return r; }
+inline union __v1i __v1i_sub(union __v1i a, union __v1i b) { union __v1i r = { v: a.v - b.v }; return r; }
+inline union __v1l __v1l_sub(union __v1l a, union __v1l b) { union __v1l r = { v: a.v - b.v }; return r; }
 
 
+inline union __v1d __v1d_mul(union __v1d a, union __v1d b) { union __v1d r = { v: a.v * b.v }; return r; }
+inline union __v1f __v1f_mul(union __v1f a, union __v1f b) { union __v1f r = { v: a.v * b.v }; return r; }
+inline union __v1i __v1i_mul(union __v1i a, union __v1i b) { union __v1i r = { v: a.v * b.v }; return r; }
+inline union __v1l __v1l_mul(union __v1l a, union __v1l b) { union __v1l r = { v: a.v * b.v }; return r; }
 
 
+inline union __v1d __v1d_div(union __v1d a, union __v1d b) { union __v1d r = { v: a.v / b.v }; return r; }
+inline union __v1f __v1f_div(union __v1f a, union __v1f b) { union __v1f r = { v: a.v / b.v }; return r; }
+inline union __v1i __v1i_div(union __v1i a, union __v1i b) { union __v1i r = { v: a.v / b.v }; return r; }
+inline union __v1l __v1l_div(union __v1l a, union __v1l b) { union __v1l r = { v: a.v / b.v }; return r; }
 
 
+inline union __v1d __v1d_sqrt(union __v1d a) { union __v1d r = { v: sqrt(a.v) }; return r; }
+inline union __v1f __v1f_sqrt(union __v1f a) { union __v1f r = { v: sqrt(a.v) }; return r; }
 
 
 
@@ -1724,939 +1323,372 @@ inline int __v1l_is_zero(v1l a) {
 
 
 
-inline v1d __v1d_get_high_v2d(struct __v2d a) { return a.b; }
-inline v1f __v1f_get_high_v2f(struct __v2f a) { return a.b; }
-inline v1i __v1i_get_high_v2i(struct __v2i a) { return a.b; }
-inline v1l __v1l_get_high_v2l(struct __v2l a) { return a.b; }
 
-inline v1d __v1d_get_low_v2d(struct __v2d a) { return a.a; }
-inline v1f __v1f_get_low_v2f(struct __v2f a) { return a.a; }
-inline v1i __v1i_get_low_v2i(struct __v2i a) { return a.a; }
-inline v1l __v1l_get_low_v2l(struct __v2l a) { return a.a; }
 
 
 
-
-inline v1d __v1d_compatible_get_high_v2d(v2d a) { 
-  double  va[2];
-  v2d_storeu(va, a);
-  return v1d_loadu(&va[1]);
- }
-inline v1f __v1f_compatible_get_high_v2f(v2f a) { 
-  float   va[2];
-  v2f_storeu(va, a);
-  return v1f_loadu(&va[1]);
- }
-inline v1i __v1i_compatible_get_high_v2i(v2i a) { 
-  int32_t va[2];
-  v2i_storeu(va, a);
-  return v1i_loadu(&va[1]);
- }
-inline v1l __v1l_compatible_get_high_v2l(v2l a) { 
-  int64_t va[2];
-  v2l_storeu(va, a);
-  return v1l_loadu(&va[1]);
- }
-
-inline v1d __v1d_compatible_get_low_v2d(v2d a) { 
-  double  va[2];
-  v2d_storeu(va, a);
-  return v1d_loadu(va);
- }
-inline v1f __v1f_compatible_get_low_v2f(v2f a) { 
-  float   va[2];
-  v2f_storeu(va, a);
-  return v1f_loadu(va);
- }
-inline v1i __v1i_compatible_get_low_v2i(v2i a) { 
-  int32_t va[2];
-  v2i_storeu(va, a);
-  return v1i_loadu(va);
- }
-inline v1l __v1l_compatible_get_low_v2l(v2l a) { 
-  int64_t va[2];
-  v2l_storeu(va, a);
-  return v1l_loadu(va);
- }
-
-
-
-
-
-
-
-
-
-
-
-
-inline void __v1d_fprint(void* f, v1d a) { 
-  double  vec[1];
+inline void __v1d_fprint(void *f, v1d a) {
   int i, comma = 0;
-  v1d_storeu(vec, a);
-  for (i = 0; i < 1; i++) {
-    if (comma) fprintf(f, "	");
+  PINTS_ALIGNED_ARRAY(double, v, 1, 1*sizeof(double));
+  v1d_store(v, a);
+  for (i = 0; i < 1; ++i) {
+    if (comma) fprintf(f, "\t");
     comma = 1;
-    fprintf(f, "%lf", vec[1-i-1]);
+    fprintf(f, "%lf", v[i]);
   }
- }
-inline void __v1f_fprint(void* f, v1f a) { 
-  float   vec[1];
+}
+inline void __v1f_fprint(void *f, v1f a) {
   int i, comma = 0;
-  v1f_storeu(vec, a);
-  for (i = 0; i < 1; i++) {
-    if (comma) fprintf(f, "	");
+  PINTS_ALIGNED_ARRAY(float, v, 1, 1*sizeof(float));
+  v1f_store(v, a);
+  for (i = 0; i < 1; ++i) {
+    if (comma) fprintf(f, "\t");
     comma = 1;
-    fprintf(f, "%f", vec[1-i-1]);
+    fprintf(f, "%f", v[i]);
   }
- }
-inline void __v1i_fprint(void* f, v1i a) { 
-  int32_t vec[1];
+}
+inline void __v1i_fprint(void *f, v1i a) {
   int i, comma = 0;
-  v1i_storeu(vec, a);
-  for (i = 0; i < 1; i++) {
-    if (comma) fprintf(f, "	");
+  PINTS_ALIGNED_ARRAY(int32_t, v, 1, 1*sizeof(int32_t));
+  v1i_store(v, a);
+  for (i = 0; i < 1; ++i) {
+    if (comma) fprintf(f, "\t");
     comma = 1;
-    fprintf(f, "%i", vec[1-i-1]);
+    fprintf(f, "%i", v[i]);
   }
- }
-inline void __v1l_fprint(void* f, v1l a) { 
-  int64_t vec[1];
+}
+inline void __v1l_fprint(void *f, v1l a) {
   int i, comma = 0;
-  v1l_storeu(vec, a);
-  for (i = 0; i < 1; i++) {
-    if (comma) fprintf(f, "	");
+  PINTS_ALIGNED_ARRAY(int64_t, v, 1, 1*sizeof(int64_t));
+  v1l_store(v, a);
+  for (i = 0; i < 1; ++i) {
+    if (comma) fprintf(f, "\t");
     comma = 1;
-    fprintf(f, "%lli", vec[1-i-1]);
+    fprintf(f, "%lli", v[i]);
   }
- }
-
-inline void __v1d_print(v1d a) { v1d_fprint(stdout, a); }
-inline void __v1f_print(v1f a) { v1f_fprint(stdout, a); }
-inline void __v1i_print(v1i a) { v1i_fprint(stdout, a); }
-inline void __v1l_print(v1l a) { v1l_fprint(stdout, a); }
-
-
-inline int __v2d_is_zero(v2d a) { 
-  int i, b = 1;
-  double  va[2];
-  v2d_storeu(va, a);
-  for (i = 0; i < 2; i++) b = b && !va[i];
-  return b;
- }
-inline int __v2f_is_zero(v2f a) { 
-  int i, b = 1;
-  float   va[2];
-  v2f_storeu(va, a);
-  for (i = 0; i < 2; i++) b = b && !va[i];
-  return b;
- }
-inline int __v2i_is_zero(v2i a) { 
-  int i, b = 1;
-  int32_t va[2];
-  v2i_storeu(va, a);
-  for (i = 0; i < 2; i++) b = b && !va[i];
-  return b;
- }
-inline int __v2l_is_zero(v2l a) { 
-  int i, b = 1;
-  int64_t va[2];
-  v2l_storeu(va, a);
-  for (i = 0; i < 2; i++) b = b && !va[i];
-  return b;
- }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-inline v2d __v2d_get_high_v4d(struct __v4d a) { return a.b; }
-inline v2f __v2f_get_high_v4f(struct __v4f a) { return a.b; }
-inline v2i __v2i_get_high_v4i(struct __v4i a) { return a.b; }
-inline v2l __v2l_get_high_v4l(struct __v4l a) { return a.b; }
-
-inline v2d __v2d_get_low_v4d(struct __v4d a) { return a.a; }
-inline v2f __v2f_get_low_v4f(struct __v4f a) { return a.a; }
-inline v2i __v2i_get_low_v4i(struct __v4i a) { return a.a; }
-inline v2l __v2l_get_low_v4l(struct __v4l a) { return a.a; }
-
-inline struct __v2d __v2d_set_low_v1d(struct __v2d src, v1d a) { src.a = a; return src; }
-inline struct __v2f __v2f_set_low_v1f(struct __v2f src, v1f a) { src.a = a; return src; }
-inline struct __v2i __v2i_set_low_v1i(struct __v2i src, v1i a) { src.a = a; return src; }
-inline struct __v2l __v2l_set_low_v1l(struct __v2l src, v1l a) { src.a = a; return src; }
-
-inline struct __v2d __v2d_set_high_v1d(struct __v2d src, v1d a) { src.b = a; return src; }
-inline struct __v2f __v2f_set_high_v1f(struct __v2f src, v1f a) { src.b = a; return src; }
-inline struct __v2i __v2i_set_high_v1i(struct __v2i src, v1i a) { src.b = a; return src; }
-inline struct __v2l __v2l_set_high_v1l(struct __v2l src, v1l a) { src.b = a; return src; }
-
-inline struct __v2d __v2d_merge_v1d(v1d a, v1d b) { struct __v2d r = { a: a, b: b }; return r; }
-inline struct __v2f __v2f_merge_v1f(v1f a, v1f b) { struct __v2f r = { a: a, b: b }; return r; }
-inline struct __v2i __v2i_merge_v1i(v1i a, v1i b) { struct __v2i r = { a: a, b: b }; return r; }
-inline struct __v2l __v2l_merge_v1l(v1l a, v1l b) { struct __v2l r = { a: a, b: b }; return r; }
-
-inline v2d __v2d_compatible_get_high_v4d(v4d a) { 
-  double  va[4];
-  v4d_storeu(va, a);
-  return v2d_loadu(&va[2]);
- }
-inline v2f __v2f_compatible_get_high_v4f(v4f a) { 
-  float   va[4];
-  v4f_storeu(va, a);
-  return v2f_loadu(&va[2]);
- }
-inline v2i __v2i_compatible_get_high_v4i(v4i a) { 
-  int32_t va[4];
-  v4i_storeu(va, a);
-  return v2i_loadu(&va[2]);
- }
-inline v2l __v2l_compatible_get_high_v4l(v4l a) { 
-  int64_t va[4];
-  v4l_storeu(va, a);
-  return v2l_loadu(&va[2]);
- }
-
-inline v2d __v2d_compatible_get_low_v4d(v4d a) { 
-  double  va[4];
-  v4d_storeu(va, a);
-  return v2d_loadu(va);
- }
-inline v2f __v2f_compatible_get_low_v4f(v4f a) { 
-  float   va[4];
-  v4f_storeu(va, a);
-  return v2f_loadu(va);
- }
-inline v2i __v2i_compatible_get_low_v4i(v4i a) { 
-  int32_t va[4];
-  v4i_storeu(va, a);
-  return v2i_loadu(va);
- }
-inline v2l __v2l_compatible_get_low_v4l(v4l a) { 
-  int64_t va[4];
-  v4l_storeu(va, a);
-  return v2l_loadu(va);
- }
-
-inline v2d __v2d_compatible_set_low_v1d(v2d src, v1d a) { 
-  double  v[2];
-  v2d_storeu(v, src);
-  v1d_storeu(v, a);
-  return v2d_loadu(v);
- }
-inline v2f __v2f_compatible_set_low_v1f(v2f src, v1f a) { 
-  float   v[2];
-  v2f_storeu(v, src);
-  v1f_storeu(v, a);
-  return v2f_loadu(v);
- }
-inline v2i __v2i_compatible_set_low_v1i(v2i src, v1i a) { 
-  int32_t v[2];
-  v2i_storeu(v, src);
-  v1i_storeu(v, a);
-  return v2i_loadu(v);
- }
-inline v2l __v2l_compatible_set_low_v1l(v2l src, v1l a) { 
-  int64_t v[2];
-  v2l_storeu(v, src);
-  v1l_storeu(v, a);
-  return v2l_loadu(v);
- }
-
-inline v2d __v2d_compatible_set_high_v1d(v2d src, v1d a) { 
-  double  v[2];
-  v2d_storeu(v, src);
-  v1d_storeu(&v[1], a);
-  return v2d_loadu(v);
- }
-inline v2f __v2f_compatible_set_high_v1f(v2f src, v1f a) { 
-  float   v[2];
-  v2f_storeu(v, src);
-  v1f_storeu(&v[1], a);
-  return v2f_loadu(v);
- }
-inline v2i __v2i_compatible_set_high_v1i(v2i src, v1i a) { 
-  int32_t v[2];
-  v2i_storeu(v, src);
-  v1i_storeu(&v[1], a);
-  return v2i_loadu(v);
- }
-inline v2l __v2l_compatible_set_high_v1l(v2l src, v1l a) { 
-  int64_t v[2];
-  v2l_storeu(v, src);
-  v1l_storeu(&v[1], a);
-  return v2l_loadu(v);
- }
-
-inline v2d __v2d_compatible_merge_v1d(v1d a, v1d b) { 
-  double  v[2];
-  v1d_storeu(&v[0], a);
-  v1d_storeu(&v[1], b);
-  return v2d_loadu(v);
- }
-inline v2f __v2f_compatible_merge_v1f(v1f a, v1f b) { 
-  float   v[2];
-  v1f_storeu(&v[0], a);
-  v1f_storeu(&v[1], b);
-  return v2f_loadu(v);
- }
-inline v2i __v2i_compatible_merge_v1i(v1i a, v1i b) { 
-  int32_t v[2];
-  v1i_storeu(&v[0], a);
-  v1i_storeu(&v[1], b);
-  return v2i_loadu(v);
- }
-inline v2l __v2l_compatible_merge_v1l(v1l a, v1l b) { 
-  int64_t v[2];
-  v1l_storeu(&v[0], a);
-  v1l_storeu(&v[1], b);
-  return v2l_loadu(v);
- }
-
-
-
-
-
-
-
-
-
-inline void __v2d_fprint(void* f, v2d a) { 
-  double  vec[2];
+}
+inline void __v2d_fprint(void *f, v2d a) {
   int i, comma = 0;
-  v2d_storeu(vec, a);
-  for (i = 0; i < 2; i++) {
-    if (comma) fprintf(f, "	");
+  PINTS_ALIGNED_ARRAY(double, v, 2, 2*sizeof(double));
+  v2d_store(v, a);
+  for (i = 0; i < 2; ++i) {
+    if (comma) fprintf(f, "\t");
     comma = 1;
-    fprintf(f, "%lf", vec[2-i-1]);
+    fprintf(f, "%lf", v[i]);
   }
- }
-inline void __v2f_fprint(void* f, v2f a) { 
-  float   vec[2];
+}
+inline void __v2f_fprint(void *f, v2f a) {
   int i, comma = 0;
-  v2f_storeu(vec, a);
-  for (i = 0; i < 2; i++) {
-    if (comma) fprintf(f, "	");
+  PINTS_ALIGNED_ARRAY(float, v, 2, 2*sizeof(float));
+  v2f_store(v, a);
+  for (i = 0; i < 2; ++i) {
+    if (comma) fprintf(f, "\t");
     comma = 1;
-    fprintf(f, "%f", vec[2-i-1]);
+    fprintf(f, "%f", v[i]);
   }
- }
-inline void __v2i_fprint(void* f, v2i a) { 
-  int32_t vec[2];
+}
+inline void __v2i_fprint(void *f, v2i a) {
   int i, comma = 0;
-  v2i_storeu(vec, a);
-  for (i = 0; i < 2; i++) {
-    if (comma) fprintf(f, "	");
+  PINTS_ALIGNED_ARRAY(int32_t, v, 2, 2*sizeof(int32_t));
+  v2i_store(v, a);
+  for (i = 0; i < 2; ++i) {
+    if (comma) fprintf(f, "\t");
     comma = 1;
-    fprintf(f, "%i", vec[2-i-1]);
+    fprintf(f, "%i", v[i]);
   }
- }
-inline void __v2l_fprint(void* f, v2l a) { 
-  int64_t vec[2];
+}
+inline void __v2l_fprint(void *f, v2l a) {
   int i, comma = 0;
-  v2l_storeu(vec, a);
-  for (i = 0; i < 2; i++) {
-    if (comma) fprintf(f, "	");
+  PINTS_ALIGNED_ARRAY(int64_t, v, 2, 2*sizeof(int64_t));
+  v2l_store(v, a);
+  for (i = 0; i < 2; ++i) {
+    if (comma) fprintf(f, "\t");
     comma = 1;
-    fprintf(f, "%lli", vec[2-i-1]);
+    fprintf(f, "%lli", v[i]);
   }
- }
-
-inline void __v2d_print(v2d a) { v2d_fprint(stdout, a); }
-inline void __v2f_print(v2f a) { v2f_fprint(stdout, a); }
-inline void __v2i_print(v2i a) { v2i_fprint(stdout, a); }
-inline void __v2l_print(v2l a) { v2l_fprint(stdout, a); }
-
-
-inline int __v4d_is_zero(v4d a) { 
-  int i, b = 1;
-  double  va[4];
-  v4d_storeu(va, a);
-  for (i = 0; i < 4; i++) b = b && !va[i];
-  return b;
- }
-inline int __v4f_is_zero(v4f a) { 
-  int i, b = 1;
-  float   va[4];
-  v4f_storeu(va, a);
-  for (i = 0; i < 4; i++) b = b && !va[i];
-  return b;
- }
-inline int __v4i_is_zero(v4i a) { 
-  int i, b = 1;
-  int32_t va[4];
-  v4i_storeu(va, a);
-  for (i = 0; i < 4; i++) b = b && !va[i];
-  return b;
- }
-inline int __v4l_is_zero(v4l a) { 
-  int i, b = 1;
-  int64_t va[4];
-  v4l_storeu(va, a);
-  for (i = 0; i < 4; i++) b = b && !va[i];
-  return b;
- }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-inline v4d __v4d_get_high_v8d(struct __v8d a) { return a.b; }
-inline v4f __v4f_get_high_v8f(struct __v8f a) { return a.b; }
-inline v4i __v4i_get_high_v8i(struct __v8i a) { return a.b; }
-inline v4l __v4l_get_high_v8l(struct __v8l a) { return a.b; }
-
-inline v4d __v4d_get_low_v8d(struct __v8d a) { return a.a; }
-inline v4f __v4f_get_low_v8f(struct __v8f a) { return a.a; }
-inline v4i __v4i_get_low_v8i(struct __v8i a) { return a.a; }
-inline v4l __v4l_get_low_v8l(struct __v8l a) { return a.a; }
-
-inline struct __v4d __v4d_set_low_v2d(struct __v4d src, v2d a) { src.a = a; return src; }
-inline struct __v4f __v4f_set_low_v2f(struct __v4f src, v2f a) { src.a = a; return src; }
-inline struct __v4i __v4i_set_low_v2i(struct __v4i src, v2i a) { src.a = a; return src; }
-inline struct __v4l __v4l_set_low_v2l(struct __v4l src, v2l a) { src.a = a; return src; }
-
-inline struct __v4d __v4d_set_high_v2d(struct __v4d src, v2d a) { src.b = a; return src; }
-inline struct __v4f __v4f_set_high_v2f(struct __v4f src, v2f a) { src.b = a; return src; }
-inline struct __v4i __v4i_set_high_v2i(struct __v4i src, v2i a) { src.b = a; return src; }
-inline struct __v4l __v4l_set_high_v2l(struct __v4l src, v2l a) { src.b = a; return src; }
-
-inline struct __v4d __v4d_merge_v2d(v2d a, v2d b) { struct __v4d r = { a: a, b: b }; return r; }
-inline struct __v4f __v4f_merge_v2f(v2f a, v2f b) { struct __v4f r = { a: a, b: b }; return r; }
-inline struct __v4i __v4i_merge_v2i(v2i a, v2i b) { struct __v4i r = { a: a, b: b }; return r; }
-inline struct __v4l __v4l_merge_v2l(v2l a, v2l b) { struct __v4l r = { a: a, b: b }; return r; }
-
-inline v4d __v4d_compatible_get_high_v8d(v8d a) { 
-  double  va[8];
-  v8d_storeu(va, a);
-  return v4d_loadu(&va[4]);
- }
-inline v4f __v4f_compatible_get_high_v8f(v8f a) { 
-  float   va[8];
-  v8f_storeu(va, a);
-  return v4f_loadu(&va[4]);
- }
-inline v4i __v4i_compatible_get_high_v8i(v8i a) { 
-  int32_t va[8];
-  v8i_storeu(va, a);
-  return v4i_loadu(&va[4]);
- }
-inline v4l __v4l_compatible_get_high_v8l(v8l a) { 
-  int64_t va[8];
-  v8l_storeu(va, a);
-  return v4l_loadu(&va[4]);
- }
-
-inline v4d __v4d_compatible_get_low_v8d(v8d a) { 
-  double  va[8];
-  v8d_storeu(va, a);
-  return v4d_loadu(va);
- }
-inline v4f __v4f_compatible_get_low_v8f(v8f a) { 
-  float   va[8];
-  v8f_storeu(va, a);
-  return v4f_loadu(va);
- }
-inline v4i __v4i_compatible_get_low_v8i(v8i a) { 
-  int32_t va[8];
-  v8i_storeu(va, a);
-  return v4i_loadu(va);
- }
-inline v4l __v4l_compatible_get_low_v8l(v8l a) { 
-  int64_t va[8];
-  v8l_storeu(va, a);
-  return v4l_loadu(va);
- }
-
-inline v4d __v4d_compatible_set_low_v2d(v4d src, v2d a) { 
-  double  v[4];
-  v4d_storeu(v, src);
-  v2d_storeu(v, a);
-  return v4d_loadu(v);
- }
-inline v4f __v4f_compatible_set_low_v2f(v4f src, v2f a) { 
-  float   v[4];
-  v4f_storeu(v, src);
-  v2f_storeu(v, a);
-  return v4f_loadu(v);
- }
-inline v4i __v4i_compatible_set_low_v2i(v4i src, v2i a) { 
-  int32_t v[4];
-  v4i_storeu(v, src);
-  v2i_storeu(v, a);
-  return v4i_loadu(v);
- }
-inline v4l __v4l_compatible_set_low_v2l(v4l src, v2l a) { 
-  int64_t v[4];
-  v4l_storeu(v, src);
-  v2l_storeu(v, a);
-  return v4l_loadu(v);
- }
-
-inline v4d __v4d_compatible_set_high_v2d(v4d src, v2d a) { 
-  double  v[4];
-  v4d_storeu(v, src);
-  v2d_storeu(&v[2], a);
-  return v4d_loadu(v);
- }
-inline v4f __v4f_compatible_set_high_v2f(v4f src, v2f a) { 
-  float   v[4];
-  v4f_storeu(v, src);
-  v2f_storeu(&v[2], a);
-  return v4f_loadu(v);
- }
-inline v4i __v4i_compatible_set_high_v2i(v4i src, v2i a) { 
-  int32_t v[4];
-  v4i_storeu(v, src);
-  v2i_storeu(&v[2], a);
-  return v4i_loadu(v);
- }
-inline v4l __v4l_compatible_set_high_v2l(v4l src, v2l a) { 
-  int64_t v[4];
-  v4l_storeu(v, src);
-  v2l_storeu(&v[2], a);
-  return v4l_loadu(v);
- }
-
-inline v4d __v4d_compatible_merge_v2d(v2d a, v2d b) { 
-  double  v[4];
-  v2d_storeu(&v[0], a);
-  v2d_storeu(&v[2], b);
-  return v4d_loadu(v);
- }
-inline v4f __v4f_compatible_merge_v2f(v2f a, v2f b) { 
-  float   v[4];
-  v2f_storeu(&v[0], a);
-  v2f_storeu(&v[2], b);
-  return v4f_loadu(v);
- }
-inline v4i __v4i_compatible_merge_v2i(v2i a, v2i b) { 
-  int32_t v[4];
-  v2i_storeu(&v[0], a);
-  v2i_storeu(&v[2], b);
-  return v4i_loadu(v);
- }
-inline v4l __v4l_compatible_merge_v2l(v2l a, v2l b) { 
-  int64_t v[4];
-  v2l_storeu(&v[0], a);
-  v2l_storeu(&v[2], b);
-  return v4l_loadu(v);
- }
-
-
-
-
-
-
-
-
-
-inline void __v4d_fprint(void* f, v4d a) { 
-  double  vec[4];
+}
+inline void __v4d_fprint(void *f, v4d a) {
   int i, comma = 0;
-  v4d_storeu(vec, a);
-  for (i = 0; i < 4; i++) {
-    if (comma) fprintf(f, "	");
+  PINTS_ALIGNED_ARRAY(double, v, 4, 4*sizeof(double));
+  v4d_store(v, a);
+  for (i = 0; i < 4; ++i) {
+    if (comma) fprintf(f, "\t");
     comma = 1;
-    fprintf(f, "%lf", vec[4-i-1]);
+    fprintf(f, "%lf", v[i]);
   }
- }
-inline void __v4f_fprint(void* f, v4f a) { 
-  float   vec[4];
+}
+inline void __v4f_fprint(void *f, v4f a) {
   int i, comma = 0;
-  v4f_storeu(vec, a);
-  for (i = 0; i < 4; i++) {
-    if (comma) fprintf(f, "	");
+  PINTS_ALIGNED_ARRAY(float, v, 4, 4*sizeof(float));
+  v4f_store(v, a);
+  for (i = 0; i < 4; ++i) {
+    if (comma) fprintf(f, "\t");
     comma = 1;
-    fprintf(f, "%f", vec[4-i-1]);
+    fprintf(f, "%f", v[i]);
   }
- }
-inline void __v4i_fprint(void* f, v4i a) { 
-  int32_t vec[4];
+}
+inline void __v4i_fprint(void *f, v4i a) {
   int i, comma = 0;
-  v4i_storeu(vec, a);
-  for (i = 0; i < 4; i++) {
-    if (comma) fprintf(f, "	");
+  PINTS_ALIGNED_ARRAY(int32_t, v, 4, 4*sizeof(int32_t));
+  v4i_store(v, a);
+  for (i = 0; i < 4; ++i) {
+    if (comma) fprintf(f, "\t");
     comma = 1;
-    fprintf(f, "%i", vec[4-i-1]);
+    fprintf(f, "%i", v[i]);
   }
- }
-inline void __v4l_fprint(void* f, v4l a) { 
-  int64_t vec[4];
+}
+inline void __v4l_fprint(void *f, v4l a) {
   int i, comma = 0;
-  v4l_storeu(vec, a);
-  for (i = 0; i < 4; i++) {
-    if (comma) fprintf(f, "	");
+  PINTS_ALIGNED_ARRAY(int64_t, v, 4, 4*sizeof(int64_t));
+  v4l_store(v, a);
+  for (i = 0; i < 4; ++i) {
+    if (comma) fprintf(f, "\t");
     comma = 1;
-    fprintf(f, "%lli", vec[4-i-1]);
+    fprintf(f, "%lli", v[i]);
   }
- }
-
-inline void __v4d_print(v4d a) { v4d_fprint(stdout, a); }
-inline void __v4f_print(v4f a) { v4f_fprint(stdout, a); }
-inline void __v4i_print(v4i a) { v4i_fprint(stdout, a); }
-inline void __v4l_print(v4l a) { v4l_fprint(stdout, a); }
-
-
-inline int __v8d_is_zero(v8d a) { 
-  int i, b = 1;
-  double  va[8];
-  v8d_storeu(va, a);
-  for (i = 0; i < 8; i++) b = b && !va[i];
-  return b;
- }
-inline int __v8f_is_zero(v8f a) { 
-  int i, b = 1;
-  float   va[8];
-  v8f_storeu(va, a);
-  for (i = 0; i < 8; i++) b = b && !va[i];
-  return b;
- }
-inline int __v8i_is_zero(v8i a) { 
-  int i, b = 1;
-  int32_t va[8];
-  v8i_storeu(va, a);
-  for (i = 0; i < 8; i++) b = b && !va[i];
-  return b;
- }
-inline int __v8l_is_zero(v8l a) { 
-  int i, b = 1;
-  int64_t va[8];
-  v8l_storeu(va, a);
-  for (i = 0; i < 8; i++) b = b && !va[i];
-  return b;
- }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-inline v8f __v8f_get_high_v16f(struct __v16f a) { return a.b; }
-inline v8i __v8i_get_high_v16i(struct __v16i a) { return a.b; }
-
-inline v8f __v8f_get_low_v16f(struct __v16f a) { return a.a; }
-inline v8i __v8i_get_low_v16i(struct __v16i a) { return a.a; }
-
-inline struct __v8d __v8d_set_low_v4d(struct __v8d src, v4d a) { src.a = a; return src; }
-inline struct __v8f __v8f_set_low_v4f(struct __v8f src, v4f a) { src.a = a; return src; }
-inline struct __v8i __v8i_set_low_v4i(struct __v8i src, v4i a) { src.a = a; return src; }
-inline struct __v8l __v8l_set_low_v4l(struct __v8l src, v4l a) { src.a = a; return src; }
-
-inline struct __v8d __v8d_set_high_v4d(struct __v8d src, v4d a) { src.b = a; return src; }
-inline struct __v8f __v8f_set_high_v4f(struct __v8f src, v4f a) { src.b = a; return src; }
-inline struct __v8i __v8i_set_high_v4i(struct __v8i src, v4i a) { src.b = a; return src; }
-inline struct __v8l __v8l_set_high_v4l(struct __v8l src, v4l a) { src.b = a; return src; }
-
-inline struct __v8d __v8d_merge_v4d(v4d a, v4d b) { struct __v8d r = { a: a, b: b }; return r; }
-inline struct __v8f __v8f_merge_v4f(v4f a, v4f b) { struct __v8f r = { a: a, b: b }; return r; }
-inline struct __v8i __v8i_merge_v4i(v4i a, v4i b) { struct __v8i r = { a: a, b: b }; return r; }
-inline struct __v8l __v8l_merge_v4l(v4l a, v4l b) { struct __v8l r = { a: a, b: b }; return r; }
-
-inline v8f __v8f_compatible_get_high_v16f(v16f a) { 
-  float   va[16];
-  v16f_storeu(va, a);
-  return v8f_loadu(&va[8]);
- }
-inline v8i __v8i_compatible_get_high_v16i(v16i a) { 
-  int32_t va[16];
-  v16i_storeu(va, a);
-  return v8i_loadu(&va[8]);
- }
-
-inline v8f __v8f_compatible_get_low_v16f(v16f a) { 
-  float   va[16];
-  v16f_storeu(va, a);
-  return v8f_loadu(va);
- }
-inline v8i __v8i_compatible_get_low_v16i(v16i a) { 
-  int32_t va[16];
-  v16i_storeu(va, a);
-  return v8i_loadu(va);
- }
-
-inline v8d __v8d_compatible_set_low_v4d(v8d src, v4d a) { 
-  double  v[8];
-  v8d_storeu(v, src);
-  v4d_storeu(v, a);
-  return v8d_loadu(v);
- }
-inline v8f __v8f_compatible_set_low_v4f(v8f src, v4f a) { 
-  float   v[8];
-  v8f_storeu(v, src);
-  v4f_storeu(v, a);
-  return v8f_loadu(v);
- }
-inline v8i __v8i_compatible_set_low_v4i(v8i src, v4i a) { 
-  int32_t v[8];
-  v8i_storeu(v, src);
-  v4i_storeu(v, a);
-  return v8i_loadu(v);
- }
-inline v8l __v8l_compatible_set_low_v4l(v8l src, v4l a) { 
-  int64_t v[8];
-  v8l_storeu(v, src);
-  v4l_storeu(v, a);
-  return v8l_loadu(v);
- }
-
-inline v8d __v8d_compatible_set_high_v4d(v8d src, v4d a) { 
-  double  v[8];
-  v8d_storeu(v, src);
-  v4d_storeu(&v[4], a);
-  return v8d_loadu(v);
- }
-inline v8f __v8f_compatible_set_high_v4f(v8f src, v4f a) { 
-  float   v[8];
-  v8f_storeu(v, src);
-  v4f_storeu(&v[4], a);
-  return v8f_loadu(v);
- }
-inline v8i __v8i_compatible_set_high_v4i(v8i src, v4i a) { 
-  int32_t v[8];
-  v8i_storeu(v, src);
-  v4i_storeu(&v[4], a);
-  return v8i_loadu(v);
- }
-inline v8l __v8l_compatible_set_high_v4l(v8l src, v4l a) { 
-  int64_t v[8];
-  v8l_storeu(v, src);
-  v4l_storeu(&v[4], a);
-  return v8l_loadu(v);
- }
-
-inline v8d __v8d_compatible_merge_v4d(v4d a, v4d b) { 
-  double  v[8];
-  v4d_storeu(&v[0], a);
-  v4d_storeu(&v[4], b);
-  return v8d_loadu(v);
- }
-inline v8f __v8f_compatible_merge_v4f(v4f a, v4f b) { 
-  float   v[8];
-  v4f_storeu(&v[0], a);
-  v4f_storeu(&v[4], b);
-  return v8f_loadu(v);
- }
-inline v8i __v8i_compatible_merge_v4i(v4i a, v4i b) { 
-  int32_t v[8];
-  v4i_storeu(&v[0], a);
-  v4i_storeu(&v[4], b);
-  return v8i_loadu(v);
- }
-inline v8l __v8l_compatible_merge_v4l(v4l a, v4l b) { 
-  int64_t v[8];
-  v4l_storeu(&v[0], a);
-  v4l_storeu(&v[4], b);
-  return v8l_loadu(v);
- }
-
-
-
-
-
-
-
-
-
-inline void __v8d_fprint(void* f, v8d a) { 
-  double  vec[8];
+}
+inline void __v8d_fprint(void *f, v8d a) {
   int i, comma = 0;
-  v8d_storeu(vec, a);
-  for (i = 0; i < 8; i++) {
-    if (comma) fprintf(f, "	");
+  PINTS_ALIGNED_ARRAY(double, v, 8, 8*sizeof(double));
+  v8d_store(v, a);
+  for (i = 0; i < 8; ++i) {
+    if (comma) fprintf(f, "\t");
     comma = 1;
-    fprintf(f, "%lf", vec[8-i-1]);
+    fprintf(f, "%lf", v[i]);
   }
- }
-inline void __v8f_fprint(void* f, v8f a) { 
-  float   vec[8];
+}
+inline void __v8f_fprint(void *f, v8f a) {
   int i, comma = 0;
-  v8f_storeu(vec, a);
-  for (i = 0; i < 8; i++) {
-    if (comma) fprintf(f, "	");
+  PINTS_ALIGNED_ARRAY(float, v, 8, 8*sizeof(float));
+  v8f_store(v, a);
+  for (i = 0; i < 8; ++i) {
+    if (comma) fprintf(f, "\t");
     comma = 1;
-    fprintf(f, "%f", vec[8-i-1]);
+    fprintf(f, "%f", v[i]);
   }
- }
-inline void __v8i_fprint(void* f, v8i a) { 
-  int32_t vec[8];
+}
+inline void __v8i_fprint(void *f, v8i a) {
   int i, comma = 0;
-  v8i_storeu(vec, a);
-  for (i = 0; i < 8; i++) {
-    if (comma) fprintf(f, "	");
+  PINTS_ALIGNED_ARRAY(int32_t, v, 8, 8*sizeof(int32_t));
+  v8i_store(v, a);
+  for (i = 0; i < 8; ++i) {
+    if (comma) fprintf(f, "\t");
     comma = 1;
-    fprintf(f, "%i", vec[8-i-1]);
+    fprintf(f, "%i", v[i]);
   }
- }
-inline void __v8l_fprint(void* f, v8l a) { 
-  int64_t vec[8];
+}
+inline void __v8l_fprint(void *f, v8l a) {
   int i, comma = 0;
-  v8l_storeu(vec, a);
-  for (i = 0; i < 8; i++) {
-    if (comma) fprintf(f, "	");
+  PINTS_ALIGNED_ARRAY(int64_t, v, 8, 8*sizeof(int64_t));
+  v8l_store(v, a);
+  for (i = 0; i < 8; ++i) {
+    if (comma) fprintf(f, "\t");
     comma = 1;
-    fprintf(f, "%lli", vec[8-i-1]);
+    fprintf(f, "%lli", v[i]);
   }
- }
-
-inline void __v8d_print(v8d a) { v8d_fprint(stdout, a); }
-inline void __v8f_print(v8f a) { v8f_fprint(stdout, a); }
-inline void __v8i_print(v8i a) { v8i_fprint(stdout, a); }
-inline void __v8l_print(v8l a) { v8l_fprint(stdout, a); }
-
-
-inline int __v16f_is_zero(v16f a) { 
-  int i, b = 1;
-  float   va[16];
-  v16f_storeu(va, a);
-  for (i = 0; i < 16; i++) b = b && !va[i];
-  return b;
- }
-inline int __v16i_is_zero(v16i a) { 
-  int i, b = 1;
-  int32_t va[16];
-  v16i_storeu(va, a);
-  for (i = 0; i < 16; i++) b = b && !va[i];
-  return b;
- }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-inline struct __v16f __v16f_set_low_v8f(struct __v16f src, v8f a) { src.a = a; return src; }
-inline struct __v16i __v16i_set_low_v8i(struct __v16i src, v8i a) { src.a = a; return src; }
-
-inline struct __v16f __v16f_set_high_v8f(struct __v16f src, v8f a) { src.b = a; return src; }
-inline struct __v16i __v16i_set_high_v8i(struct __v16i src, v8i a) { src.b = a; return src; }
-
-inline struct __v16f __v16f_merge_v8f(v8f a, v8f b) { struct __v16f r = { a: a, b: b }; return r; }
-inline struct __v16i __v16i_merge_v8i(v8i a, v8i b) { struct __v16i r = { a: a, b: b }; return r; }
-
-
-
-inline v16f __v16f_compatible_set_low_v8f(v16f src, v8f a) { 
-  float   v[16];
-  v16f_storeu(v, src);
-  v8f_storeu(v, a);
-  return v16f_loadu(v);
- }
-inline v16i __v16i_compatible_set_low_v8i(v16i src, v8i a) { 
-  int32_t v[16];
-  v16i_storeu(v, src);
-  v8i_storeu(v, a);
-  return v16i_loadu(v);
- }
-
-inline v16f __v16f_compatible_set_high_v8f(v16f src, v8f a) { 
-  float   v[16];
-  v16f_storeu(v, src);
-  v8f_storeu(&v[8], a);
-  return v16f_loadu(v);
- }
-inline v16i __v16i_compatible_set_high_v8i(v16i src, v8i a) { 
-  int32_t v[16];
-  v16i_storeu(v, src);
-  v8i_storeu(&v[8], a);
-  return v16i_loadu(v);
- }
-
-inline v16f __v16f_compatible_merge_v8f(v8f a, v8f b) { 
-  float   v[16];
-  v8f_storeu(&v[0], a);
-  v8f_storeu(&v[8], b);
-  return v16f_loadu(v);
- }
-inline v16i __v16i_compatible_merge_v8i(v8i a, v8i b) { 
-  int32_t v[16];
-  v8i_storeu(&v[0], a);
-  v8i_storeu(&v[8], b);
-  return v16i_loadu(v);
- }
-
-
-
-
-
-
-
-
-
-inline void __v16f_fprint(void* f, v16f a) { 
-  float   vec[16];
+}
+inline void __v16f_fprint(void *f, v16f a) {
   int i, comma = 0;
-  v16f_storeu(vec, a);
-  for (i = 0; i < 16; i++) {
-    if (comma) fprintf(f, "	");
+  PINTS_ALIGNED_ARRAY(float, v, 16, 16*sizeof(float));
+  v16f_store(v, a);
+  for (i = 0; i < 16; ++i) {
+    if (comma) fprintf(f, "\t");
     comma = 1;
-    fprintf(f, "%f", vec[16-i-1]);
+    fprintf(f, "%f", v[i]);
   }
- }
-inline void __v16i_fprint(void* f, v16i a) { 
-  int32_t vec[16];
+}
+inline void __v16i_fprint(void *f, v16i a) {
   int i, comma = 0;
-  v16i_storeu(vec, a);
-  for (i = 0; i < 16; i++) {
-    if (comma) fprintf(f, "	");
+  PINTS_ALIGNED_ARRAY(int32_t, v, 16, 16*sizeof(int32_t));
+  v16i_store(v, a);
+  for (i = 0; i < 16; ++i) {
+    if (comma) fprintf(f, "\t");
     comma = 1;
-    fprintf(f, "%i", vec[16-i-1]);
+    fprintf(f, "%i", v[i]);
   }
- }
+}
 
-inline void __v16f_print(v16f a) { v16f_fprint(stdout, a); }
-inline void __v16i_print(v16i a) { v16i_fprint(stdout, a); }
+inline void __v1d_rfprint(void *f, v1d a) {
+  int i, comma = 0;
+  PINTS_ALIGNED_ARRAY(double, v, 1, 1*sizeof(double));
+  v1d_store(v, a);
+  for (i = 0; i < 1; ++i) {
+    if (comma) fprintf(f, "\t");
+    comma = 1;
+    fprintf(f, "%lf", v[0-i]);
+  }
+}
+inline void __v1f_rfprint(void *f, v1f a) {
+  int i, comma = 0;
+  PINTS_ALIGNED_ARRAY(float, v, 1, 1*sizeof(float));
+  v1f_store(v, a);
+  for (i = 0; i < 1; ++i) {
+    if (comma) fprintf(f, "\t");
+    comma = 1;
+    fprintf(f, "%f", v[0-i]);
+  }
+}
+inline void __v1i_rfprint(void *f, v1i a) {
+  int i, comma = 0;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 1, 1*sizeof(int32_t));
+  v1i_store(v, a);
+  for (i = 0; i < 1; ++i) {
+    if (comma) fprintf(f, "\t");
+    comma = 1;
+    fprintf(f, "%i", v[0-i]);
+  }
+}
+inline void __v1l_rfprint(void *f, v1l a) {
+  int i, comma = 0;
+  PINTS_ALIGNED_ARRAY(int64_t, v, 1, 1*sizeof(int64_t));
+  v1l_store(v, a);
+  for (i = 0; i < 1; ++i) {
+    if (comma) fprintf(f, "\t");
+    comma = 1;
+    fprintf(f, "%lli", v[0-i]);
+  }
+}
+inline void __v2d_rfprint(void *f, v2d a) {
+  int i, comma = 0;
+  PINTS_ALIGNED_ARRAY(double, v, 2, 2*sizeof(double));
+  v2d_store(v, a);
+  for (i = 0; i < 2; ++i) {
+    if (comma) fprintf(f, "\t");
+    comma = 1;
+    fprintf(f, "%lf", v[1-i]);
+  }
+}
+inline void __v2f_rfprint(void *f, v2f a) {
+  int i, comma = 0;
+  PINTS_ALIGNED_ARRAY(float, v, 2, 2*sizeof(float));
+  v2f_store(v, a);
+  for (i = 0; i < 2; ++i) {
+    if (comma) fprintf(f, "\t");
+    comma = 1;
+    fprintf(f, "%f", v[1-i]);
+  }
+}
+inline void __v2i_rfprint(void *f, v2i a) {
+  int i, comma = 0;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 2, 2*sizeof(int32_t));
+  v2i_store(v, a);
+  for (i = 0; i < 2; ++i) {
+    if (comma) fprintf(f, "\t");
+    comma = 1;
+    fprintf(f, "%i", v[1-i]);
+  }
+}
+inline void __v2l_rfprint(void *f, v2l a) {
+  int i, comma = 0;
+  PINTS_ALIGNED_ARRAY(int64_t, v, 2, 2*sizeof(int64_t));
+  v2l_store(v, a);
+  for (i = 0; i < 2; ++i) {
+    if (comma) fprintf(f, "\t");
+    comma = 1;
+    fprintf(f, "%lli", v[1-i]);
+  }
+}
+inline void __v4d_rfprint(void *f, v4d a) {
+  int i, comma = 0;
+  PINTS_ALIGNED_ARRAY(double, v, 4, 4*sizeof(double));
+  v4d_store(v, a);
+  for (i = 0; i < 4; ++i) {
+    if (comma) fprintf(f, "\t");
+    comma = 1;
+    fprintf(f, "%lf", v[3-i]);
+  }
+}
+inline void __v4f_rfprint(void *f, v4f a) {
+  int i, comma = 0;
+  PINTS_ALIGNED_ARRAY(float, v, 4, 4*sizeof(float));
+  v4f_store(v, a);
+  for (i = 0; i < 4; ++i) {
+    if (comma) fprintf(f, "\t");
+    comma = 1;
+    fprintf(f, "%f", v[3-i]);
+  }
+}
+inline void __v4i_rfprint(void *f, v4i a) {
+  int i, comma = 0;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 4, 4*sizeof(int32_t));
+  v4i_store(v, a);
+  for (i = 0; i < 4; ++i) {
+    if (comma) fprintf(f, "\t");
+    comma = 1;
+    fprintf(f, "%i", v[3-i]);
+  }
+}
+inline void __v4l_rfprint(void *f, v4l a) {
+  int i, comma = 0;
+  PINTS_ALIGNED_ARRAY(int64_t, v, 4, 4*sizeof(int64_t));
+  v4l_store(v, a);
+  for (i = 0; i < 4; ++i) {
+    if (comma) fprintf(f, "\t");
+    comma = 1;
+    fprintf(f, "%lli", v[3-i]);
+  }
+}
+inline void __v8d_rfprint(void *f, v8d a) {
+  int i, comma = 0;
+  PINTS_ALIGNED_ARRAY(double, v, 8, 8*sizeof(double));
+  v8d_store(v, a);
+  for (i = 0; i < 8; ++i) {
+    if (comma) fprintf(f, "\t");
+    comma = 1;
+    fprintf(f, "%lf", v[7-i]);
+  }
+}
+inline void __v8f_rfprint(void *f, v8f a) {
+  int i, comma = 0;
+  PINTS_ALIGNED_ARRAY(float, v, 8, 8*sizeof(float));
+  v8f_store(v, a);
+  for (i = 0; i < 8; ++i) {
+    if (comma) fprintf(f, "\t");
+    comma = 1;
+    fprintf(f, "%f", v[7-i]);
+  }
+}
+inline void __v8i_rfprint(void *f, v8i a) {
+  int i, comma = 0;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 8, 8*sizeof(int32_t));
+  v8i_store(v, a);
+  for (i = 0; i < 8; ++i) {
+    if (comma) fprintf(f, "\t");
+    comma = 1;
+    fprintf(f, "%i", v[7-i]);
+  }
+}
+inline void __v8l_rfprint(void *f, v8l a) {
+  int i, comma = 0;
+  PINTS_ALIGNED_ARRAY(int64_t, v, 8, 8*sizeof(int64_t));
+  v8l_store(v, a);
+  for (i = 0; i < 8; ++i) {
+    if (comma) fprintf(f, "\t");
+    comma = 1;
+    fprintf(f, "%lli", v[7-i]);
+  }
+}
+inline void __v16f_rfprint(void *f, v16f a) {
+  int i, comma = 0;
+  PINTS_ALIGNED_ARRAY(float, v, 16, 16*sizeof(float));
+  v16f_store(v, a);
+  for (i = 0; i < 16; ++i) {
+    if (comma) fprintf(f, "\t");
+    comma = 1;
+    fprintf(f, "%f", v[15-i]);
+  }
+}
+inline void __v16i_rfprint(void *f, v16i a) {
+  int i, comma = 0;
+  PINTS_ALIGNED_ARRAY(int32_t, v, 16, 16*sizeof(int32_t));
+  v16i_store(v, a);
+  for (i = 0; i < 16; ++i) {
+    if (comma) fprintf(f, "\t");
+    comma = 1;
+    fprintf(f, "%i", v[15-i]);
+  }
+}
+
 
 
 

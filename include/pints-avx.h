@@ -31,19 +31,19 @@ typedef __m512i v8l;
 #undef v8f_set
 #undef v8i_set
 #undef v4l_set
-#define v4d_set(a3, a2, a1, a0)                 _mm256_set_pd(a3, a2, a1, a0)
-#define v8f_set(a7, a6, a5, a4, a3, a2, a1, a0) _mm256_set_ps(a7, a6, a5, a4, a3, a2, a1, a0)
-#define v8i_set(a7, a6, a5, a4, a3, a2, a1, a0) _mm256_set_epi32(a7, a6, a5, a4, a3, a2, a1, a0)
-#define v4l_set(a3, a2, a1, a0)                 _mm256_set_epi64x(a3, a2, a1, a0)
+#define v4d_set(a0, a1, a2, a3)                 _mm256_set_pd(a3, a2, a1, a0)
+#define v8f_set(a0, a1, a2, a3, a4, a5, a6, a7) _mm256_set_ps(a7, a6, a5, a4, a3, a2, a1, a0)
+#define v8i_set(a0, a1, a2, a3, a4, a5, a6, a7) _mm256_set_epi32(a7, a6, a5, a4, a3, a2, a1, a0)
+#define v4l_set(a0, a1, a2, a3)                 _mm256_set_epi64x(a3, a2, a1, a0)
 
 #undef v4d_setr
 #undef v8f_setr
 #undef v8i_setr
 #undef v4l_setr
-#define v4d_setr(a0, a1, a2, a3)                 _mm256_setr_pd(a0, a1, a2, a3)
-#define v8f_setr(a0, a1, a2, a3, a4, a5, a6, a7) _mm256_setr_ps(a0, a1, a2, a3, a4, a5, a6, a7)
-#define v8i_setr(a0, a1, a2, a3, a4, a5, a6, a7) _mm256_setr_epi32(a0, a1, a2, a3, a4, a5, a6, a7)
-#define v4l_setr(a0, a1, a2, a3)                 _mm256_setr_epi64x(a0, a1, a2, a3)
+#define v4d_setr(a3, a2, a1, a0)                 _mm256_setr_pd(a0, a1, a2, a3)
+#define v8f_setr(a7, a6, a5, a4, a3, a2, a1, a0) _mm256_setr_ps(a0, a1, a2, a3, a4, a5, a6, a7)
+#define v8i_setr(a7, a6, a5, a4, a3, a2, a1, a0) _mm256_setr_epi32(a0, a1, a2, a3, a4, a5, a6, a7)
+#define v4l_setr(a3, a2, a1, a0)                 _mm256_setr_epi64x(a0, a1, a2, a3)
 
 #undef v4d_set1
 #undef v8f_set1
@@ -218,16 +218,59 @@ typedef __m512i v8l;
 #define v8i_sqrt(a) v8i_cvt_v8f(v8f_sqrt(v8f_cvt_v8i(a)))
 #define v4l_sqrt(a) v4l_cvt_v4d(v4d_sqrt(v4d_cvt_v4l(a)))
 
+#undef v4d_blend
+#undef v8f_blend
+#define v4d_blend(a, b, rule) _mm256_blend_ps(a, b, mask)
+#define v8f_blend(a, b, rule) _mm256_blend_ps(a, b, mask)
 
-#undef v4d_intel_shuffle
-#undef v8f_intel_shuffle
-#undef v8i_intel_shuffle
-#undef v4l_intel_shuffle
-#define v4d_intel_shuffle(a, b, imm8) _mm256_shuffle_pd(a, b, imm8)
-#define v8f_intel_shuffle(a, b, imm8) _mm256_shuffle_ps(a, b, imm8)
-#define v8i_intel_shuffle(a, b, imm8) v8i_cast_v8f(v8f_intel_shuffle(v8f_cast_v8i(a), v8f_cast_v8i(b), imm8))
-#define v4l_intel_shuffle(a, b, imm8) v4l_cast_v4d(v4d_intel_shuffle(v4d_cast_v4l(a), v4d_cast_v4l(b), imm8))
+#undef v4d_inner_hshuffle2
+#undef v4l_inner_hshuffle2
+#define v4d_inner_hshuffle2(a, b, rule) _mm256_shuffle_pd(a, b, rule)
+#define v4l_inner_hshuffle2(a, b, rule) v4l_cast_v4d(v4d_inner_hshuffle2(v4d_cast_v4l(a), v4d_cast_v4l(b), rule))
 
+#undef v4d_inner_permute2
+#undef v4l_inner_permute2
+#define v4d_inner_permute2(a, rule) _mm256_permute_pd(a, rule)
+#define v4l_inner_permute2(a, rule) v4l_cast_v4d(v4d_inner_permute2(v4d_cast_v4l(a), rule))
+
+#undef v8f_inner_hshuffle2
+#undef v8i_inner_hshuffle2
+#define v8f_inner_hshuffle2(a, b, rule) _mm256_shuffle_ps(a, b, rule)
+#define v8i_inner_hshuffle2(a, b, rule) v8i_cast_v8f(v8f_inner_hshuffle2(v8f_cast_v8i(a), v8f_cast_v8i(b), rule))
+
+#undef v8f_inner_permute2
+#undef v8i_inner_permute2
+#define v8f_inner_permute2(a, rule) _mm256_permute_ps(a, rule)
+#define v8i_inner_permute2(a, rule) v8i_cast_v8f(v8f_inner_permute2(v8f_cast_v8i(a), rule))
+
+#undef v8f_inner_hshuffle4
+#undef v8i_inner_hshuffle4
+#define v8f_inner_hshuffle4(a, b, rule) v8f_inner_hshuffle2(a, b, (((rule)&2)<<3) | (((rule)&2)<<5) | (((rule)&1)<<2) | ((rule)&1) | 0x88)
+#define v8i_inner_hshuffle4(a, b, rule) v8i_inner_hshuffle2(a, b, (((rule)&2)<<3) | (((rule)&2)<<5) | (((rule)&1)<<2) | ((rule)&1) | 0x88)
+
+#undef v8f_inner_permute4
+#undef v8i_inner_permute4
+#define v8f_inner_permute4(a, rule) v8f_inner_permute2(a, (((rule)&2)<<3) | (((rule)&2)<<5) | (((rule)&1)<<2) | ((rule)&1) | 0x88)
+#define v8i_inner_permute4(a, rule) v8i_inner_permute2(a, (((rule)&2)<<3) | (((rule)&2)<<5) | (((rule)&1)<<2) | ((rule)&1) | 0x88)
+
+#undef v4d_outer_fshuffle2
+#undef v8f_outer_fshuffle2
+#undef v8i_outer_fshuffle2
+#undef v4l_outer_fshuffle2
+#define v4d_outer_fshuffle2(a, b, rule, mask) _mm256_permute2f128_pd(a, b, ((rule)&1)|(((mask)&1)<<1)|(((rule)&2)<<3)|(((mask)&2)<<4)
+#define v8f_outer_fshuffle2(a, b, rule, mask) _mm256_permute2f128_ps(a, b, ((rule)&1)|(((mask)&1)<<1)|(((rule)&2)<<3)|(((mask)&2)<<4)
+#define v8i_outer_fshuffle2(a, b, rule, mask) _mm256_permute2f128_si256(a, b, ((rule)&1)|(((mask)&1)<<1)|(((rule)&2)<<3)|(((mask)&2)<<4)
+#define v4l_outer_fshuffle2(a, b, rule, mask) _mm256_permute2f128_si256(a, b, ((rule)&1)|(((mask)&1)<<1)|(((rule)&2)<<3)|(((mask)&2)<<4)
+
+
+#undef v4d_outer_hshuffle2
+#undef v8f_outer_hshuffle2
+#undef v8i_outer_hshuffle2
+#undef v4l_outer_hshuffle2
+#define v4d_outer_hshuffle2(a, b, rule) _mm256_permute2f128_pd(a, b, ((rule)&1)|(((rule)&2)<<3)|0x20)
+#define v8f_outer_hshuffle2(a, b, rule) _mm256_permute2f128_ps(a, b, ((rule)&1)|(((rule)&2)<<3)|0x20)
+#define v8i_outer_hshuffle2(a, b, rule) _mm256_permute2f128_si256(a, b, ((rule)&1)|(((rule)&2)<<3)|0x20)
+#define v4l_outer_hshuffle2(a, b, rule) _mm256_permute2f128_si256(a, b, ((rule)&1)|(((rule)&2)<<3)|0x20)
 
 
 
@@ -345,10 +388,10 @@ typedef __m512i v8l;
 #undef v8f_set_low_v4f
 #undef v8i_set_low_v4i
 #undef v4l_set_low_v2l
-#undef v4d_merge_v2d
-#undef v8f_merge_v4f
-#undef v8i_merge_v4i
-#undef v4l_merge_v2l
+#undef v4d_merge2_v2d
+#undef v8f_merge2_v4f
+#undef v8i_merge2_v4i
+#undef v4l_merge2_v2l
 
 #define v2d_get_high_v4d(a)      _mm256_extractf128_pd(a, 1)
 #define v4f_get_high_v8f(a)      _mm256_extractf128_ps(a, 1)
@@ -366,10 +409,10 @@ typedef __m512i v8l;
 #define v8f_set_low_v4f(src, a)  _mm256_insertf128_ps(src, a, 0)
 #define v8i_set_low_v4i(src, a)  _mm256_insertf128_si256(src, a, 0)
 #define v4l_set_low_v2l(src, a)  _mm256_insertf128_si256(src, a, 0)
-#define v4d_merge_v2d(a, b)      _mm256_insertf128_pd(_mm256_castpd128_pd256(b), a, 0)
-#define v8f_merge_v4f(a, b)      _mm256_insertf128_ps(_mm256_castps128_ps256(b), a, 0)
-#define v8i_merge_v4i(a, b)      _mm256_insertf128_si256(_mm256_castsi128_si256(b), a, 0)
-#define v4l_merge_v2l(a, b)      _mm256_insertf128_si256(_mm256_castsi128_si256(b), a, 0)
+#define v4d_merge2_v2d(a, b)      _mm256_insertf128_pd(_mm256_castpd128_pd256(b), a, 0)
+#define v8f_merge2_v4f(a, b)      _mm256_insertf128_ps(_mm256_castps128_ps256(b), a, 0)
+#define v8i_merge2_v4i(a, b)      _mm256_insertf128_si256(_mm256_castsi128_si256(b), a, 0)
+#define v4l_merge2_v2l(a, b)      _mm256_insertf128_si256(_mm256_castsi128_si256(b), a, 0)
 
 #endif
 
@@ -381,8 +424,8 @@ typedef __m512i v8l;
 #undef v4l_load1
 #define v4d_load1(p) _mm256_broadcast_sd(p)
 #define v8f_load1(p) _mm256_broadcast_ss(p)
-#define v8i_load1(p) v8i_cast_v8f(v8f_load((float *) p))
-#define v4l_load1(p) v4l_cast_v4d(v4d_load((double*) p))
+#define v8i_load1(p) v8i_cast_v8f(v8f_load1((float *) p))
+#define v4l_load1(p) v4l_cast_v4d(v4d_load1((double*) p))
 
 
 #undef v8i_eq
