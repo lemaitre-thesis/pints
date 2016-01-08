@@ -135,6 +135,7 @@ inline v8l compatible_v8l_loadu(const int64_t *p);
 inline v16f compatible_v16f_loadu(const float *p);
 inline v16i compatible_v16i_loadu(const int32_t *p);
 
+
 inline void __v1d_store(double *p, union __v1d a);
 inline void __v1f_store(float *p, union __v1f a);
 inline void __v1i_store(int32_t *p, union __v1i a);
@@ -737,6 +738,7 @@ inline v16i compatible_v16i_loadu(const int32_t *p) {
   for (i = 0; i < 16; ++i) v[i] = p[i];
   return v16i_load(v);
 }
+
 
 inline void __v1d_store(double *p, union __v1d a) { *p = a.v; }
 inline void __v1f_store(float *p, union __v1f a) { *p = a.v; }

@@ -717,6 +717,7 @@ def generate_shuffles():
 #MXOR    = Macro("%M_xor", "a, b", "%M_cvt_%P(%P_xor(%P_cvt_%M(a), %P_cvt_%M(b)))")
 LOADU   = Macro("%P_loadu",  "p",    "%P_load(p)")
 STORU   = Macro("%P_storeu", "p, a", "%P_store((p), (a))")
+LOAD1   = Macro("%P_load1", "p", "%P_set1(*(p))")
 SET1    = Macro("%P_set1", "a", "%P_set(%$$0:%N$(a)$, $$)")
 ZEROS   = Macro("%P_zeros", "", "%P_set1(0)")
 ZERO    = Macro("%P_zero", "", "%P_zeros()")
@@ -754,7 +755,7 @@ PRINT   = Macro("%P_print",  "a", "%P_fprint(stdout, a)")
 rPRINT  = Macro("%P_rprint", "a", "%P_rfprint(stdout, a)")
 
 BUILTINS = [
-  LOAD, LOADr, LOADU, LOADUc, STORE, STORr, STORU, STORUc,
+  LOAD, LOADr, LOADU, LOADUc, LOAD1, STORE, STORr, STORU, STORUc,
   SET, SETr, rSET, SET1, ZEROS, ONES, ZERO, ONE
   ] + generate_merges() + [
   GETLO, GETLOc, GETHI, GETHIc, GETHILO,

@@ -1405,6 +1405,25 @@
 #define v16i_loadu(p) v16i_load(p)
 
 
+#define v1d_load1(p) v1d_set1(*(p))
+#define v1f_load1(p) v1f_set1(*(p))
+#define v1i_load1(p) v1i_set1(*(p))
+#define v1l_load1(p) v1l_set1(*(p))
+#define v2d_load1(p) v2d_set1(*(p))
+#define v2f_load1(p) v2f_set1(*(p))
+#define v2i_load1(p) v2i_set1(*(p))
+#define v2l_load1(p) v2l_set1(*(p))
+#define v4d_load1(p) v4d_set1(*(p))
+#define v4f_load1(p) v4f_set1(*(p))
+#define v4i_load1(p) v4i_set1(*(p))
+#define v4l_load1(p) v4l_set1(*(p))
+#define v8d_load1(p) v8d_set1(*(p))
+#define v8f_load1(p) v8f_set1(*(p))
+#define v8i_load1(p) v8i_set1(*(p))
+#define v8l_load1(p) v8l_set1(*(p))
+#define v16f_load1(p) v16f_set1(*(p))
+#define v16i_load1(p) v16i_set1(*(p))
+
 #define v1d_store __v1d_store
 #define v1f_store __v1f_store
 #define v1i_store __v1i_store
