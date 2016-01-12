@@ -116,6 +116,21 @@ inline v16f __v16f_load(const float *p);
 inline v16i __v16i_load(const int32_t *p);
 
 
+inline v2d __v2d_loadu(const double *p);
+inline v2f __v2f_loadu(const float *p);
+inline v2i __v2i_loadu(const int32_t *p);
+inline v2l __v2l_loadu(const int64_t *p);
+inline v4d __v4d_loadu(const double *p);
+inline v4f __v4f_loadu(const float *p);
+inline v4i __v4i_loadu(const int32_t *p);
+inline v4l __v4l_loadu(const int64_t *p);
+inline v8d __v8d_loadu(const double *p);
+inline v8f __v8f_loadu(const float *p);
+inline v8i __v8i_loadu(const int32_t *p);
+inline v8l __v8l_loadu(const int64_t *p);
+inline v16f __v16f_loadu(const float *p);
+inline v16i __v16i_loadu(const int32_t *p);
+
 inline v1d compatible_v1d_loadu(const double *p);
 inline v1f compatible_v1f_loadu(const float *p);
 inline v1i compatible_v1i_loadu(const int32_t *p);
@@ -135,6 +150,21 @@ inline v8l compatible_v8l_loadu(const int64_t *p);
 inline v16f compatible_v16f_loadu(const float *p);
 inline v16i compatible_v16i_loadu(const int32_t *p);
 
+
+inline v2d __v2d_load1(const double *p);
+inline v2f __v2f_load1(const float *p);
+inline v2i __v2i_load1(const int32_t *p);
+inline v2l __v2l_load1(const int64_t *p);
+inline v4d __v4d_load1(const double *p);
+inline v4f __v4f_load1(const float *p);
+inline v4i __v4i_load1(const int32_t *p);
+inline v4l __v4l_load1(const int64_t *p);
+inline v8d __v8d_load1(const double *p);
+inline v8f __v8f_load1(const float *p);
+inline v8i __v8i_load1(const int32_t *p);
+inline v8l __v8l_load1(const int64_t *p);
+inline v16f __v16f_load1(const float *p);
+inline v16i __v16i_load1(const int32_t *p);
 
 inline void __v1d_store(double *p, union __v1d a);
 inline void __v1f_store(float *p, union __v1f a);
@@ -157,6 +187,21 @@ inline void __v16f_store(float *p, v16f a);
 inline void __v16i_store(int32_t *p, v16i a);
 
 
+inline void __v2d_storeu(double *p, v2d a);
+inline void __v2f_storeu(float *p, v2f a);
+inline void __v2i_storeu(int32_t *p, v2i a);
+inline void __v2l_storeu(int64_t *p, v2l a);
+inline void __v4d_storeu(double *p, v4d a);
+inline void __v4f_storeu(float *p, v4f a);
+inline void __v4i_storeu(int32_t *p, v4i a);
+inline void __v4l_storeu(int64_t *p, v4l a);
+inline void __v8d_storeu(double *p, v8d a);
+inline void __v8f_storeu(float *p, v8f a);
+inline void __v8i_storeu(int32_t *p, v8i a);
+inline void __v8l_storeu(int64_t *p, v8l a);
+inline void __v16f_storeu(float *p, v16f a);
+inline void __v16i_storeu(int32_t *p, v16i a);
+
 inline void compatible_v1d_storeu(double *p, v1d a);
 inline void compatible_v1f_storeu(float *p, v1f a);
 inline void compatible_v1i_storeu(int32_t *p, v1i a);
@@ -176,6 +221,22 @@ inline void compatible_v8l_storeu(int64_t *p, v8l a);
 inline void compatible_v16f_storeu(float *p, v16f a);
 inline void compatible_v16i_storeu(int32_t *p, v16i a);
 
+
+inline void __v2d_store1(double *p, v2d a);
+inline void __v2f_store1(float *p, v2f a);
+inline void __v2i_store1(int32_t *p, v2i a);
+inline void __v2l_store1(int64_t *p, v2l a);
+inline void __v4d_store1(double *p, v4d a);
+inline void __v4f_store1(float *p, v4f a);
+inline void __v4i_store1(int32_t *p, v4i a);
+inline void __v4l_store1(int64_t *p, v4l a);
+inline void __v8d_store1(double *p, v8d a);
+inline void __v8f_store1(float *p, v8f a);
+inline void __v8i_store1(int32_t *p, v8i a);
+inline void __v8l_store1(int64_t *p, v8l a);
+inline void __v16f_store1(float *p, v16f a);
+inline void __v16i_store1(int32_t *p, v16i a);
+
 inline v1d __v1d_set(double a);
 inline v1f __v1f_set(float a);
 inline v1i __v1i_set(int32_t a);
@@ -183,6 +244,21 @@ inline v1l __v1l_set(int64_t a);
 
 
 
+
+inline v2d __v2d_set1(double v);
+inline v2f __v2f_set1(float v);
+inline v2i __v2i_set1(int32_t v);
+inline v2l __v2l_set1(int64_t v);
+inline v4d __v4d_set1(double v);
+inline v4f __v4f_set1(float v);
+inline v4i __v4i_set1(int32_t v);
+inline v4l __v4l_set1(int64_t v);
+inline v8d __v8d_set1(double v);
+inline v8f __v8f_set1(float v);
+inline v8i __v8i_set1(int32_t v);
+inline v8l __v8l_set1(int64_t v);
+inline v16f __v16f_set1(float v);
+inline v16i __v16i_set1(int32_t v);
 
 
 
@@ -639,6 +715,21 @@ inline v16f __v16f_load(const float *p) { return v16f_merge_v8f(v8f_load(p), v8f
 inline v16i __v16i_load(const int32_t *p) { return v16i_merge_v8i(v8i_load(p), v8i_load(p+8)); }
 
 
+inline v2d __v2d_loadu(const double *p) { return v2d_merge_v1d(v1d_loadu(p), v1d_loadu(p+1)); }
+inline v2f __v2f_loadu(const float *p) { return v2f_merge_v1f(v1f_loadu(p), v1f_loadu(p+1)); }
+inline v2i __v2i_loadu(const int32_t *p) { return v2i_merge_v1i(v1i_loadu(p), v1i_loadu(p+1)); }
+inline v2l __v2l_loadu(const int64_t *p) { return v2l_merge_v1l(v1l_loadu(p), v1l_loadu(p+1)); }
+inline v4d __v4d_loadu(const double *p) { return v4d_merge_v2d(v2d_loadu(p), v2d_loadu(p+2)); }
+inline v4f __v4f_loadu(const float *p) { return v4f_merge_v2f(v2f_loadu(p), v2f_loadu(p+2)); }
+inline v4i __v4i_loadu(const int32_t *p) { return v4i_merge_v2i(v2i_loadu(p), v2i_loadu(p+2)); }
+inline v4l __v4l_loadu(const int64_t *p) { return v4l_merge_v2l(v2l_loadu(p), v2l_loadu(p+2)); }
+inline v8d __v8d_loadu(const double *p) { return v8d_merge_v4d(v4d_loadu(p), v4d_loadu(p+4)); }
+inline v8f __v8f_loadu(const float *p) { return v8f_merge_v4f(v4f_loadu(p), v4f_loadu(p+4)); }
+inline v8i __v8i_loadu(const int32_t *p) { return v8i_merge_v4i(v4i_loadu(p), v4i_loadu(p+4)); }
+inline v8l __v8l_loadu(const int64_t *p) { return v8l_merge_v4l(v4l_loadu(p), v4l_loadu(p+4)); }
+inline v16f __v16f_loadu(const float *p) { return v16f_merge_v8f(v8f_loadu(p), v8f_loadu(p+8)); }
+inline v16i __v16i_loadu(const int32_t *p) { return v16i_merge_v8i(v8i_loadu(p), v8i_loadu(p+8)); }
+
 inline v1d compatible_v1d_loadu(const double *p) {
   int i;
   PINTS_ALIGNED_ARRAY(double, v, 1, 1*sizeof(double));
@@ -749,6 +840,21 @@ inline v16i compatible_v16i_loadu(const int32_t *p) {
 }
 
 
+inline v2d __v2d_load1(const double *p) { v1d a = v1d_load1(p); return v2d_merge_v1d(a, a); }
+inline v2f __v2f_load1(const float *p) { v1f a = v1f_load1(p); return v2f_merge_v1f(a, a); }
+inline v2i __v2i_load1(const int32_t *p) { v1i a = v1i_load1(p); return v2i_merge_v1i(a, a); }
+inline v2l __v2l_load1(const int64_t *p) { v1l a = v1l_load1(p); return v2l_merge_v1l(a, a); }
+inline v4d __v4d_load1(const double *p) { v2d a = v2d_load1(p); return v4d_merge_v2d(a, a); }
+inline v4f __v4f_load1(const float *p) { v2f a = v2f_load1(p); return v4f_merge_v2f(a, a); }
+inline v4i __v4i_load1(const int32_t *p) { v2i a = v2i_load1(p); return v4i_merge_v2i(a, a); }
+inline v4l __v4l_load1(const int64_t *p) { v2l a = v2l_load1(p); return v4l_merge_v2l(a, a); }
+inline v8d __v8d_load1(const double *p) { v4d a = v4d_load1(p); return v8d_merge_v4d(a, a); }
+inline v8f __v8f_load1(const float *p) { v4f a = v4f_load1(p); return v8f_merge_v4f(a, a); }
+inline v8i __v8i_load1(const int32_t *p) { v4i a = v4i_load1(p); return v8i_merge_v4i(a, a); }
+inline v8l __v8l_load1(const int64_t *p) { v4l a = v4l_load1(p); return v8l_merge_v4l(a, a); }
+inline v16f __v16f_load1(const float *p) { v8f a = v8f_load1(p); return v16f_merge_v8f(a, a); }
+inline v16i __v16i_load1(const int32_t *p) { v8i a = v8i_load1(p); return v16i_merge_v8i(a, a); }
+
 inline void __v1d_store(double *p, union __v1d a) { *p = a.v; }
 inline void __v1f_store(float *p, union __v1f a) { *p = a.v; }
 inline void __v1i_store(int32_t *p, union __v1i a) { *p = a.v; }
@@ -769,6 +875,21 @@ inline void __v8l_store(int64_t *p, v8l a) { v4l_store(p, v4l_get_low_v8l(a)); v
 inline void __v16f_store(float *p, v16f a) { v8f_store(p, v8f_get_low_v16f(a)); v8f_store(p+8, v8f_get_high_v16f(a)); }
 inline void __v16i_store(int32_t *p, v16i a) { v8i_store(p, v8i_get_low_v16i(a)); v8i_store(p+8, v8i_get_high_v16i(a)); }
 
+
+inline void __v2d_storeu(double *p, v2d a) { v1d_storeu(p, v1d_get_low_v2d(a)); v1d_storeu(p+1, v1d_get_high_v2d(a)); }
+inline void __v2f_storeu(float *p, v2f a) { v1f_storeu(p, v1f_get_low_v2f(a)); v1f_storeu(p+1, v1f_get_high_v2f(a)); }
+inline void __v2i_storeu(int32_t *p, v2i a) { v1i_storeu(p, v1i_get_low_v2i(a)); v1i_storeu(p+1, v1i_get_high_v2i(a)); }
+inline void __v2l_storeu(int64_t *p, v2l a) { v1l_storeu(p, v1l_get_low_v2l(a)); v1l_storeu(p+1, v1l_get_high_v2l(a)); }
+inline void __v4d_storeu(double *p, v4d a) { v2d_storeu(p, v2d_get_low_v4d(a)); v2d_storeu(p+2, v2d_get_high_v4d(a)); }
+inline void __v4f_storeu(float *p, v4f a) { v2f_storeu(p, v2f_get_low_v4f(a)); v2f_storeu(p+2, v2f_get_high_v4f(a)); }
+inline void __v4i_storeu(int32_t *p, v4i a) { v2i_storeu(p, v2i_get_low_v4i(a)); v2i_storeu(p+2, v2i_get_high_v4i(a)); }
+inline void __v4l_storeu(int64_t *p, v4l a) { v2l_storeu(p, v2l_get_low_v4l(a)); v2l_storeu(p+2, v2l_get_high_v4l(a)); }
+inline void __v8d_storeu(double *p, v8d a) { v4d_storeu(p, v4d_get_low_v8d(a)); v4d_storeu(p+4, v4d_get_high_v8d(a)); }
+inline void __v8f_storeu(float *p, v8f a) { v4f_storeu(p, v4f_get_low_v8f(a)); v4f_storeu(p+4, v4f_get_high_v8f(a)); }
+inline void __v8i_storeu(int32_t *p, v8i a) { v4i_storeu(p, v4i_get_low_v8i(a)); v4i_storeu(p+4, v4i_get_high_v8i(a)); }
+inline void __v8l_storeu(int64_t *p, v8l a) { v4l_storeu(p, v4l_get_low_v8l(a)); v4l_storeu(p+4, v4l_get_high_v8l(a)); }
+inline void __v16f_storeu(float *p, v16f a) { v8f_storeu(p, v8f_get_low_v16f(a)); v8f_storeu(p+8, v8f_get_high_v16f(a)); }
+inline void __v16i_storeu(int32_t *p, v16i a) { v8i_storeu(p, v8i_get_low_v16i(a)); v8i_storeu(p+8, v8i_get_high_v16i(a)); }
 
 inline void compatible_v1d_storeu(double *p, v1d a) {
   int i;
@@ -879,6 +1000,22 @@ inline void compatible_v16i_storeu(int32_t *p, v16i a) {
   for (i = 0; i < 16; ++i) p[i] = v[i];
 }
 
+
+inline void __v2d_store1(double *p, v2d a) { v1d_store1(p, v1d_get_low_v2d(a)); }
+inline void __v2f_store1(float *p, v2f a) { v1f_store1(p, v1f_get_low_v2f(a)); }
+inline void __v2i_store1(int32_t *p, v2i a) { v1i_store1(p, v1i_get_low_v2i(a)); }
+inline void __v2l_store1(int64_t *p, v2l a) { v1l_store1(p, v1l_get_low_v2l(a)); }
+inline void __v4d_store1(double *p, v4d a) { v2d_store1(p, v2d_get_low_v4d(a)); }
+inline void __v4f_store1(float *p, v4f a) { v2f_store1(p, v2f_get_low_v4f(a)); }
+inline void __v4i_store1(int32_t *p, v4i a) { v2i_store1(p, v2i_get_low_v4i(a)); }
+inline void __v4l_store1(int64_t *p, v4l a) { v2l_store1(p, v2l_get_low_v4l(a)); }
+inline void __v8d_store1(double *p, v8d a) { v4d_store1(p, v4d_get_low_v8d(a)); }
+inline void __v8f_store1(float *p, v8f a) { v4f_store1(p, v4f_get_low_v8f(a)); }
+inline void __v8i_store1(int32_t *p, v8i a) { v4i_store1(p, v4i_get_low_v8i(a)); }
+inline void __v8l_store1(int64_t *p, v8l a) { v4l_store1(p, v4l_get_low_v8l(a)); }
+inline void __v16f_store1(float *p, v16f a) { v8f_store1(p, v8f_get_low_v16f(a)); }
+inline void __v16i_store1(int32_t *p, v16i a) { v8i_store1(p, v8i_get_low_v16i(a)); }
+
 inline v1d __v1d_set(double a) { return v1d_load(&a); }
 inline v1f __v1f_set(float a) { return v1f_load(&a); }
 inline v1i __v1i_set(int32_t a) { return v1i_load(&a); }
@@ -886,6 +1023,21 @@ inline v1l __v1l_set(int64_t a) { return v1l_load(&a); }
 
 
 
+
+inline v2d __v2d_set1(double v) { v1d a = v1d_set1(v); return v2d_merge_v1d(a, a); }
+inline v2f __v2f_set1(float v) { v1f a = v1f_set1(v); return v2f_merge_v1f(a, a); }
+inline v2i __v2i_set1(int32_t v) { v1i a = v1i_set1(v); return v2i_merge_v1i(a, a); }
+inline v2l __v2l_set1(int64_t v) { v1l a = v1l_set1(v); return v2l_merge_v1l(a, a); }
+inline v4d __v4d_set1(double v) { v2d a = v2d_set1(v); return v4d_merge_v2d(a, a); }
+inline v4f __v4f_set1(float v) { v2f a = v2f_set1(v); return v4f_merge_v2f(a, a); }
+inline v4i __v4i_set1(int32_t v) { v2i a = v2i_set1(v); return v4i_merge_v2i(a, a); }
+inline v4l __v4l_set1(int64_t v) { v2l a = v2l_set1(v); return v4l_merge_v2l(a, a); }
+inline v8d __v8d_set1(double v) { v4d a = v4d_set1(v); return v8d_merge_v4d(a, a); }
+inline v8f __v8f_set1(float v) { v4f a = v4f_set1(v); return v8f_merge_v4f(a, a); }
+inline v8i __v8i_set1(int32_t v) { v4i a = v4i_set1(v); return v8i_merge_v4i(a, a); }
+inline v8l __v8l_set1(int64_t v) { v4l a = v4l_set1(v); return v8l_merge_v4l(a, a); }
+inline v16f __v16f_set1(float v) { v8f a = v8f_set1(v); return v16f_merge_v8f(a, a); }
+inline v16i __v16i_set1(int32_t v) { v8i a = v8i_set1(v); return v16i_merge_v8i(a, a); }
 
 
 

@@ -561,6 +561,11 @@ SQRTi = Macro("%P_sqrt", "a", "%P_cvt_%fP(%P_sqrt(%fP_cvt_%P(a)))", types = INTE
 LOAD  = Function("%I",   "%P_load",  "const %t *p", "%I r = { v: *p }; return r;", sizes = [1])
 STORE = Function("void", "%P_store", "%t *p, %I a", "*p = a.v;", sizes = [1])
 SET = Function("%T", "%P_set", "%t a", "return %P_load(&a);", sizes = [1])
+LOADU   = Macro("%P_loadu",  "p",    "%P_load(p)", sizes = [1])
+STORU   = Macro("%P_storeu", "p, a", "%P_store((p), (a))", sizes = [1])
+LOAD1   = Macro("%P_load1",  "p", "%P_set1(*(p))", sizes = [1])
+STOR1   = Macro("%P_store1", "p, a", "(*p = s%p_cvt_%P(a))", sizes = [1])
+SET1    = Macro("%P_set1", "v", "%P_set(%$$0:%N$(v)$, $$)", sizes = [1])
 EQr   = TrivialRecursion(EQ)
 NEQr  = TrivialRecursion(NEQ)
 GTr   = TrivialRecursion(GT)
@@ -580,6 +585,13 @@ LOADr = Function("%T", "%P_load",  "const %t *p",
 STORr = Function("void", "%P_store", "%t *p, %T a",
   r"%-P_store(p, %-P_get_low_%P(a)); %-P_store(p+%-N, %-P_get_high_%P(a));", sizes = recursive_sizes(1))
 SETr = Macro("%P_set", "%$$0:%N$a%n$, $$", "%P_merge_%-P(%-P_set(%$$0:%-N$(a%n)$, $$), %-P_set(%$$%-N:%N$(a%n)$, $$))")
+LOADUr  = Function("%T", "%P_loadu",  "const %t *p",
+  r"return %P_merge_%-P(%-P_loadu(p), %-P_loadu(p+%-N));", sizes = recursive_sizes(1))
+STORUr  = Function("void", "%P_storeu", "%t *p, %T a",
+  r"%-P_storeu(p, %-P_get_low_%P(a)); %-P_storeu(p+%-N, %-P_get_high_%P(a));", sizes = recursive_sizes(1))
+LOAD1r  = Function("%T", "%P_load1",  "const %t *p", "%-T a = %-P_load1(p); return %P_merge_%-P(a, a);", sizes = recursive_sizes(1))
+STOR1r  = Function("void", "%P_store1", "%t *p, %T a", "%-P_store1(p, %-P_get_low_%P(a));", sizes = recursive_sizes(1))
+SET1r   = Function("%T", "%P_set1", "%t v", "%-T a = %-P_set1(v); return %P_merge_%-P(a, a);", sizes = recursive_sizes(1))
 
 
 
@@ -743,10 +755,6 @@ def generate_blends():
 #MAND    = Macro("%M_and", "a, b", "%M_cvt_%P(%P_and(%P_cvt_%M(a), %P_cvt_%M(b)))")
 #MOR     = Macro("%M_or",  "a, b", "%M_cvt_%P(%P_or(%P_cvt_%M(a), %P_cvt_%M(b)))")
 #MXOR    = Macro("%M_xor", "a, b", "%M_cvt_%P(%P_xor(%P_cvt_%M(a), %P_cvt_%M(b)))")
-LOADU   = Macro("%P_loadu",  "p",    "%P_load(p)")
-STORU   = Macro("%P_storeu", "p, a", "%P_store((p), (a))")
-LOAD1   = Macro("%P_load1", "p", "%P_set1(*(p))")
-SET1    = Macro("%P_set1", "a", "%P_set(%$$0:%N$(a)$, $$)")
 ZEROS   = Macro("%P_zeros", "", "%P_set1(0)")
 ZERO    = Macro("%P_zero", "", "%P_zeros()")
 ONE     = Macro("%P_one", "", "%P_set1(1)")
@@ -779,8 +787,8 @@ PRINT   = Macro("%P_print",  "a", "%P_fprint(stdout, a)")
 rPRINT  = Macro("%P_rprint", "a", "%P_rfprint(stdout, a)")
 
 BUILTINS = [
-  LOAD, LOADr, LOADU, LOADUc, LOAD1, STORE, STORr, STORU, STORUc,
-  SET, SETr, rSET, SET1, ZEROS, ONES, ZERO, ONE
+  LOAD, LOADr, LOADU, LOADUr, LOADUc, LOAD1, LOAD1r, STORE, STORr, STORU, STORUr, STORUc, STOR1, STOR1r,
+  SET, SETr, rSET, SET1, SET1r, ZEROS, ONES, ZERO, ONE
   ] + generate_merges() + [
   GETLO, GETLOc, GETHI, GETHIc, GETHILO,
   SETLO, SETHI, SETHILO, MERGE, rMERGE, MERGEc, rMERGEc] + generate_blends() + [

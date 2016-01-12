@@ -1389,40 +1389,42 @@
 #define v1f_loadu(p) v1f_load(p)
 #define v1i_loadu(p) v1i_load(p)
 #define v1l_loadu(p) v1l_load(p)
-#define v2d_loadu(p) v2d_load(p)
-#define v2f_loadu(p) v2f_load(p)
-#define v2i_loadu(p) v2i_load(p)
-#define v2l_loadu(p) v2l_load(p)
-#define v4d_loadu(p) v4d_load(p)
-#define v4f_loadu(p) v4f_load(p)
-#define v4i_loadu(p) v4i_load(p)
-#define v4l_loadu(p) v4l_load(p)
-#define v8d_loadu(p) v8d_load(p)
-#define v8f_loadu(p) v8f_load(p)
-#define v8i_loadu(p) v8i_load(p)
-#define v8l_loadu(p) v8l_load(p)
-#define v16f_loadu(p) v16f_load(p)
-#define v16i_loadu(p) v16i_load(p)
+
+#define v2d_loadu __v2d_loadu
+#define v2f_loadu __v2f_loadu
+#define v2i_loadu __v2i_loadu
+#define v2l_loadu __v2l_loadu
+#define v4d_loadu __v4d_loadu
+#define v4f_loadu __v4f_loadu
+#define v4i_loadu __v4i_loadu
+#define v4l_loadu __v4l_loadu
+#define v8d_loadu __v8d_loadu
+#define v8f_loadu __v8f_loadu
+#define v8i_loadu __v8i_loadu
+#define v8l_loadu __v8l_loadu
+#define v16f_loadu __v16f_loadu
+#define v16i_loadu __v16i_loadu
 
 
 #define v1d_load1(p) v1d_set1(*(p))
 #define v1f_load1(p) v1f_set1(*(p))
 #define v1i_load1(p) v1i_set1(*(p))
 #define v1l_load1(p) v1l_set1(*(p))
-#define v2d_load1(p) v2d_set1(*(p))
-#define v2f_load1(p) v2f_set1(*(p))
-#define v2i_load1(p) v2i_set1(*(p))
-#define v2l_load1(p) v2l_set1(*(p))
-#define v4d_load1(p) v4d_set1(*(p))
-#define v4f_load1(p) v4f_set1(*(p))
-#define v4i_load1(p) v4i_set1(*(p))
-#define v4l_load1(p) v4l_set1(*(p))
-#define v8d_load1(p) v8d_set1(*(p))
-#define v8f_load1(p) v8f_set1(*(p))
-#define v8i_load1(p) v8i_set1(*(p))
-#define v8l_load1(p) v8l_set1(*(p))
-#define v16f_load1(p) v16f_set1(*(p))
-#define v16i_load1(p) v16i_set1(*(p))
+
+#define v2d_load1 __v2d_load1
+#define v2f_load1 __v2f_load1
+#define v2i_load1 __v2i_load1
+#define v2l_load1 __v2l_load1
+#define v4d_load1 __v4d_load1
+#define v4f_load1 __v4f_load1
+#define v4i_load1 __v4i_load1
+#define v4l_load1 __v4l_load1
+#define v8d_load1 __v8d_load1
+#define v8f_load1 __v8f_load1
+#define v8i_load1 __v8i_load1
+#define v8l_load1 __v8l_load1
+#define v16f_load1 __v16f_load1
+#define v16i_load1 __v16i_load1
 
 #define v1d_store __v1d_store
 #define v1f_store __v1f_store
@@ -1448,21 +1450,42 @@
 #define v1f_storeu(p, a) v1f_store((p), (a))
 #define v1i_storeu(p, a) v1i_store((p), (a))
 #define v1l_storeu(p, a) v1l_store((p), (a))
-#define v2d_storeu(p, a) v2d_store((p), (a))
-#define v2f_storeu(p, a) v2f_store((p), (a))
-#define v2i_storeu(p, a) v2i_store((p), (a))
-#define v2l_storeu(p, a) v2l_store((p), (a))
-#define v4d_storeu(p, a) v4d_store((p), (a))
-#define v4f_storeu(p, a) v4f_store((p), (a))
-#define v4i_storeu(p, a) v4i_store((p), (a))
-#define v4l_storeu(p, a) v4l_store((p), (a))
-#define v8d_storeu(p, a) v8d_store((p), (a))
-#define v8f_storeu(p, a) v8f_store((p), (a))
-#define v8i_storeu(p, a) v8i_store((p), (a))
-#define v8l_storeu(p, a) v8l_store((p), (a))
-#define v16f_storeu(p, a) v16f_store((p), (a))
-#define v16i_storeu(p, a) v16i_store((p), (a))
 
+#define v2d_storeu __v2d_storeu
+#define v2f_storeu __v2f_storeu
+#define v2i_storeu __v2i_storeu
+#define v2l_storeu __v2l_storeu
+#define v4d_storeu __v4d_storeu
+#define v4f_storeu __v4f_storeu
+#define v4i_storeu __v4i_storeu
+#define v4l_storeu __v4l_storeu
+#define v8d_storeu __v8d_storeu
+#define v8f_storeu __v8f_storeu
+#define v8i_storeu __v8i_storeu
+#define v8l_storeu __v8l_storeu
+#define v16f_storeu __v16f_storeu
+#define v16i_storeu __v16i_storeu
+
+
+#define v1d_store1(p, a) (*p = sd_cvt_v1d(a))
+#define v1f_store1(p, a) (*p = sf_cvt_v1f(a))
+#define v1i_store1(p, a) (*p = si_cvt_v1i(a))
+#define v1l_store1(p, a) (*p = sl_cvt_v1l(a))
+
+#define v2d_store1 __v2d_store1
+#define v2f_store1 __v2f_store1
+#define v2i_store1 __v2i_store1
+#define v2l_store1 __v2l_store1
+#define v4d_store1 __v4d_store1
+#define v4f_store1 __v4f_store1
+#define v4i_store1 __v4i_store1
+#define v4l_store1 __v4l_store1
+#define v8d_store1 __v8d_store1
+#define v8f_store1 __v8f_store1
+#define v8i_store1 __v8i_store1
+#define v8l_store1 __v8l_store1
+#define v16f_store1 __v16f_store1
+#define v16i_store1 __v16i_store1
 
 #define v1d_set __v1d_set
 #define v1f_set __v1f_set
@@ -1503,24 +1526,25 @@
 #define v16f_rset(a15, a14, a13, a12, a11, a10, a9, a8, a7, a6, a5, a4, a3, a2, a1, a0) v16f_set((a0), (a1), (a2), (a3), (a4), (a5), (a6), (a7), (a8), (a9), (a10), (a11), (a12), (a13), (a14), (a15))
 #define v16i_rset(a15, a14, a13, a12, a11, a10, a9, a8, a7, a6, a5, a4, a3, a2, a1, a0) v16i_set((a0), (a1), (a2), (a3), (a4), (a5), (a6), (a7), (a8), (a9), (a10), (a11), (a12), (a13), (a14), (a15))
 
-#define v1d_set1(a) v1d_set((a))
-#define v1f_set1(a) v1f_set((a))
-#define v1i_set1(a) v1i_set((a))
-#define v1l_set1(a) v1l_set((a))
-#define v2d_set1(a) v2d_set((a), (a))
-#define v2f_set1(a) v2f_set((a), (a))
-#define v2i_set1(a) v2i_set((a), (a))
-#define v2l_set1(a) v2l_set((a), (a))
-#define v4d_set1(a) v4d_set((a), (a), (a), (a))
-#define v4f_set1(a) v4f_set((a), (a), (a), (a))
-#define v4i_set1(a) v4i_set((a), (a), (a), (a))
-#define v4l_set1(a) v4l_set((a), (a), (a), (a))
-#define v8d_set1(a) v8d_set((a), (a), (a), (a), (a), (a), (a), (a))
-#define v8f_set1(a) v8f_set((a), (a), (a), (a), (a), (a), (a), (a))
-#define v8i_set1(a) v8i_set((a), (a), (a), (a), (a), (a), (a), (a))
-#define v8l_set1(a) v8l_set((a), (a), (a), (a), (a), (a), (a), (a))
-#define v16f_set1(a) v16f_set((a), (a), (a), (a), (a), (a), (a), (a), (a), (a), (a), (a), (a), (a), (a), (a))
-#define v16i_set1(a) v16i_set((a), (a), (a), (a), (a), (a), (a), (a), (a), (a), (a), (a), (a), (a), (a), (a))
+#define v1d_set1(v) v1d_set((v))
+#define v1f_set1(v) v1f_set((v))
+#define v1i_set1(v) v1i_set((v))
+#define v1l_set1(v) v1l_set((v))
+
+#define v2d_set1 __v2d_set1
+#define v2f_set1 __v2f_set1
+#define v2i_set1 __v2i_set1
+#define v2l_set1 __v2l_set1
+#define v4d_set1 __v4d_set1
+#define v4f_set1 __v4f_set1
+#define v4i_set1 __v4i_set1
+#define v4l_set1 __v4l_set1
+#define v8d_set1 __v8d_set1
+#define v8f_set1 __v8f_set1
+#define v8i_set1 __v8i_set1
+#define v8l_set1 __v8l_set1
+#define v16f_set1 __v16f_set1
+#define v16i_set1 __v16i_set1
 
 #define v1d_zeros() v1d_set1(0)
 #define v1f_zeros() v1f_set1(0)
