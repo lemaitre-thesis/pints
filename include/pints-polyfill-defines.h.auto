@@ -1811,469 +1811,578 @@
 #define compatible_v16f_rmerge_v8f(high, low) v16f_rmerge_v8f((high), (low))
 #define compatible_v16i_rmerge_v8i(high, low) v16i_rmerge_v8i((high), (low))
 
-#define v1d_blend(a, b, mask) ((mask&1) ? (b) : (a))
-#define v1f_blend(a, b, mask) ((mask&1) ? (b) : (a))
-#define v1i_blend(a, b, mask) ((mask&1) ? (b) : (a))
-#define v1l_blend(a, b, mask) ((mask&1) ? (b) : (a))
+#define v1d_blend1(a, b, mask) ((mask&1) ? (b) : (a))
+#define v1f_blend1(a, b, mask) ((mask&1) ? (b) : (a))
+#define v1i_blend1(a, b, mask) ((mask&1) ? (b) : (a))
+#define v1l_blend1(a, b, mask) ((mask&1) ? (b) : (a))
+#define v2d_blend1(a, b, mask) ((mask&1) ? (b) : (a))
+#define v2f_blend1(a, b, mask) ((mask&1) ? (b) : (a))
+#define v2i_blend1(a, b, mask) ((mask&1) ? (b) : (a))
+#define v2l_blend1(a, b, mask) ((mask&1) ? (b) : (a))
+#define v4d_blend1(a, b, mask) ((mask&1) ? (b) : (a))
+#define v4f_blend1(a, b, mask) ((mask&1) ? (b) : (a))
+#define v4i_blend1(a, b, mask) ((mask&1) ? (b) : (a))
+#define v4l_blend1(a, b, mask) ((mask&1) ? (b) : (a))
+#define v8d_blend1(a, b, mask) ((mask&1) ? (b) : (a))
+#define v8f_blend1(a, b, mask) ((mask&1) ? (b) : (a))
+#define v8i_blend1(a, b, mask) ((mask&1) ? (b) : (a))
+#define v8l_blend1(a, b, mask) ((mask&1) ? (b) : (a))
+#define v16f_blend1(a, b, mask) ((mask&1) ? (b) : (a))
+#define v16i_blend1(a, b, mask) ((mask&1) ? (b) : (a))
 
-#define v2d_blend(a, b, mask) v2d_merge_v1d(v1d_blend(v1d_get_low_v2d(a), v1d_get_low_v2d(b), (mask) & 1), v1d_blend(v1d_get_low_v2d(a), v1d_get_low_v2d(b), ((mask) & 1) >> 1))
-#define v2f_blend(a, b, mask) v2f_merge_v1f(v1f_blend(v1f_get_low_v2f(a), v1f_get_low_v2f(b), (mask) & 1), v1f_blend(v1f_get_low_v2f(a), v1f_get_low_v2f(b), ((mask) & 1) >> 1))
-#define v2i_blend(a, b, mask) v2i_merge_v1i(v1i_blend(v1i_get_low_v2i(a), v1i_get_low_v2i(b), (mask) & 1), v1i_blend(v1i_get_low_v2i(a), v1i_get_low_v2i(b), ((mask) & 1) >> 1))
-#define v2l_blend(a, b, mask) v2l_merge_v1l(v1l_blend(v1l_get_low_v2l(a), v1l_get_low_v2l(b), (mask) & 1), v1l_blend(v1l_get_low_v2l(a), v1l_get_low_v2l(b), ((mask) & 1) >> 1))
-#define v4d_blend(a, b, mask) v4d_merge_v2d(v2d_blend(v2d_get_low_v4d(a), v2d_get_low_v4d(b), (mask) & 3), v2d_blend(v2d_get_low_v4d(a), v2d_get_low_v4d(b), ((mask) & 3) >> 2))
-#define v4f_blend(a, b, mask) v4f_merge_v2f(v2f_blend(v2f_get_low_v4f(a), v2f_get_low_v4f(b), (mask) & 3), v2f_blend(v2f_get_low_v4f(a), v2f_get_low_v4f(b), ((mask) & 3) >> 2))
-#define v4i_blend(a, b, mask) v4i_merge_v2i(v2i_blend(v2i_get_low_v4i(a), v2i_get_low_v4i(b), (mask) & 3), v2i_blend(v2i_get_low_v4i(a), v2i_get_low_v4i(b), ((mask) & 3) >> 2))
-#define v4l_blend(a, b, mask) v4l_merge_v2l(v2l_blend(v2l_get_low_v4l(a), v2l_get_low_v4l(b), (mask) & 3), v2l_blend(v2l_get_low_v4l(a), v2l_get_low_v4l(b), ((mask) & 3) >> 2))
-#define v8d_blend(a, b, mask) v8d_merge_v4d(v4d_blend(v4d_get_low_v8d(a), v4d_get_low_v8d(b), (mask) & 7), v4d_blend(v4d_get_low_v8d(a), v4d_get_low_v8d(b), ((mask) & 7) >> 3))
-#define v8f_blend(a, b, mask) v8f_merge_v4f(v4f_blend(v4f_get_low_v8f(a), v4f_get_low_v8f(b), (mask) & 7), v4f_blend(v4f_get_low_v8f(a), v4f_get_low_v8f(b), ((mask) & 7) >> 3))
-#define v8i_blend(a, b, mask) v8i_merge_v4i(v4i_blend(v4i_get_low_v8i(a), v4i_get_low_v8i(b), (mask) & 7), v4i_blend(v4i_get_low_v8i(a), v4i_get_low_v8i(b), ((mask) & 7) >> 3))
-#define v8l_blend(a, b, mask) v8l_merge_v4l(v4l_blend(v4l_get_low_v8l(a), v4l_get_low_v8l(b), (mask) & 7), v4l_blend(v4l_get_low_v8l(a), v4l_get_low_v8l(b), ((mask) & 7) >> 3))
-#define v16f_blend(a, b, mask) v16f_merge_v8f(v8f_blend(v8f_get_low_v16f(a), v8f_get_low_v16f(b), (mask) & 15), v8f_blend(v8f_get_low_v16f(a), v8f_get_low_v16f(b), ((mask) & 15) >> 4))
-#define v16i_blend(a, b, mask) v16i_merge_v8i(v8i_blend(v8i_get_low_v16i(a), v8i_get_low_v16i(b), (mask) & 15), v8i_blend(v8i_get_low_v16i(a), v8i_get_low_v16i(b), ((mask) & 15) >> 4))
+#define v2d_blend2(a, b, mask) v2d_merge2_v1d(v1d_blend1(v1d_get_low_v2d(a), v1d_get_low_v2d(b), (mask) & 1), v1d_blend1(v1d_get_high_v2d(a), v1d_get_high_v2d(b), ((mask) >> 1) & 1))
+#define v2f_blend2(a, b, mask) v2f_merge2_v1f(v1f_blend1(v1f_get_low_v2f(a), v1f_get_low_v2f(b), (mask) & 1), v1f_blend1(v1f_get_high_v2f(a), v1f_get_high_v2f(b), ((mask) >> 1) & 1))
+#define v2i_blend2(a, b, mask) v2i_merge2_v1i(v1i_blend1(v1i_get_low_v2i(a), v1i_get_low_v2i(b), (mask) & 1), v1i_blend1(v1i_get_high_v2i(a), v1i_get_high_v2i(b), ((mask) >> 1) & 1))
+#define v2l_blend2(a, b, mask) v2l_merge2_v1l(v1l_blend1(v1l_get_low_v2l(a), v1l_get_low_v2l(b), (mask) & 1), v1l_blend1(v1l_get_high_v2l(a), v1l_get_high_v2l(b), ((mask) >> 1) & 1))
+#define v4d_blend2(a, b, mask) v4d_merge2_v2d(v2d_blend1(v2d_get_low_v4d(a), v2d_get_low_v4d(b), (mask) & 1), v2d_blend1(v2d_get_high_v4d(a), v2d_get_high_v4d(b), ((mask) >> 1) & 1))
+#define v4f_blend2(a, b, mask) v4f_merge2_v2f(v2f_blend1(v2f_get_low_v4f(a), v2f_get_low_v4f(b), (mask) & 1), v2f_blend1(v2f_get_high_v4f(a), v2f_get_high_v4f(b), ((mask) >> 1) & 1))
+#define v4i_blend2(a, b, mask) v4i_merge2_v2i(v2i_blend1(v2i_get_low_v4i(a), v2i_get_low_v4i(b), (mask) & 1), v2i_blend1(v2i_get_high_v4i(a), v2i_get_high_v4i(b), ((mask) >> 1) & 1))
+#define v4l_blend2(a, b, mask) v4l_merge2_v2l(v2l_blend1(v2l_get_low_v4l(a), v2l_get_low_v4l(b), (mask) & 1), v2l_blend1(v2l_get_high_v4l(a), v2l_get_high_v4l(b), ((mask) >> 1) & 1))
+#define v8d_blend2(a, b, mask) v8d_merge2_v4d(v4d_blend1(v4d_get_low_v8d(a), v4d_get_low_v8d(b), (mask) & 1), v4d_blend1(v4d_get_high_v8d(a), v4d_get_high_v8d(b), ((mask) >> 1) & 1))
+#define v8f_blend2(a, b, mask) v8f_merge2_v4f(v4f_blend1(v4f_get_low_v8f(a), v4f_get_low_v8f(b), (mask) & 1), v4f_blend1(v4f_get_high_v8f(a), v4f_get_high_v8f(b), ((mask) >> 1) & 1))
+#define v8i_blend2(a, b, mask) v8i_merge2_v4i(v4i_blend1(v4i_get_low_v8i(a), v4i_get_low_v8i(b), (mask) & 1), v4i_blend1(v4i_get_high_v8i(a), v4i_get_high_v8i(b), ((mask) >> 1) & 1))
+#define v8l_blend2(a, b, mask) v8l_merge2_v4l(v4l_blend1(v4l_get_low_v8l(a), v4l_get_low_v8l(b), (mask) & 1), v4l_blend1(v4l_get_high_v8l(a), v4l_get_high_v8l(b), ((mask) >> 1) & 1))
+#define v16f_blend2(a, b, mask) v16f_merge2_v8f(v8f_blend1(v8f_get_low_v16f(a), v8f_get_low_v16f(b), (mask) & 1), v8f_blend1(v8f_get_high_v16f(a), v8f_get_high_v16f(b), ((mask) >> 1) & 1))
+#define v16i_blend2(a, b, mask) v16i_merge2_v8i(v8i_blend1(v8i_get_low_v16i(a), v8i_get_low_v16i(b), (mask) & 1), v8i_blend1(v8i_get_high_v16i(a), v8i_get_high_v16i(b), ((mask) >> 1) & 1))
 
-#define v2d_outer_hshuffle2(a, b, rule) v2d_merge_v1d(v1d_get_hilo_v2d((a), (rule) & 1), v1d_get_hilo_v2d((b), ((rule) >> 1) & 1))
-#define v2f_outer_hshuffle2(a, b, rule) v2f_merge_v1f(v1f_get_hilo_v2f((a), (rule) & 1), v1f_get_hilo_v2f((b), ((rule) >> 1) & 1))
-#define v2i_outer_hshuffle2(a, b, rule) v2i_merge_v1i(v1i_get_hilo_v2i((a), (rule) & 1), v1i_get_hilo_v2i((b), ((rule) >> 1) & 1))
-#define v2l_outer_hshuffle2(a, b, rule) v2l_merge_v1l(v1l_get_hilo_v2l((a), (rule) & 1), v1l_get_hilo_v2l((b), ((rule) >> 1) & 1))
-#define v4d_outer_hshuffle2(a, b, rule) v4d_merge_v2d(v2d_get_hilo_v4d((a), (rule) & 1), v2d_get_hilo_v4d((b), ((rule) >> 1) & 1))
-#define v4f_outer_hshuffle2(a, b, rule) v4f_merge_v2f(v2f_get_hilo_v4f((a), (rule) & 1), v2f_get_hilo_v4f((b), ((rule) >> 1) & 1))
-#define v4i_outer_hshuffle2(a, b, rule) v4i_merge_v2i(v2i_get_hilo_v4i((a), (rule) & 1), v2i_get_hilo_v4i((b), ((rule) >> 1) & 1))
-#define v4l_outer_hshuffle2(a, b, rule) v4l_merge_v2l(v2l_get_hilo_v4l((a), (rule) & 1), v2l_get_hilo_v4l((b), ((rule) >> 1) & 1))
-#define v8d_outer_hshuffle2(a, b, rule) v8d_merge_v4d(v4d_get_hilo_v8d((a), (rule) & 1), v4d_get_hilo_v8d((b), ((rule) >> 1) & 1))
-#define v8f_outer_hshuffle2(a, b, rule) v8f_merge_v4f(v4f_get_hilo_v8f((a), (rule) & 1), v4f_get_hilo_v8f((b), ((rule) >> 1) & 1))
-#define v8i_outer_hshuffle2(a, b, rule) v8i_merge_v4i(v4i_get_hilo_v8i((a), (rule) & 1), v4i_get_hilo_v8i((b), ((rule) >> 1) & 1))
-#define v8l_outer_hshuffle2(a, b, rule) v8l_merge_v4l(v4l_get_hilo_v8l((a), (rule) & 1), v4l_get_hilo_v8l((b), ((rule) >> 1) & 1))
-#define v16f_outer_hshuffle2(a, b, rule) v16f_merge_v8f(v8f_get_hilo_v16f((a), (rule) & 1), v8f_get_hilo_v16f((b), ((rule) >> 1) & 1))
-#define v16i_outer_hshuffle2(a, b, rule) v16i_merge_v8i(v8i_get_hilo_v16i((a), (rule) & 1), v8i_get_hilo_v16i((b), ((rule) >> 1) & 1))
+#define v4d_blend4(a, b, mask) v4d_merge2_v2d(v2d_blend2(v2d_get_low_v4d(a), v2d_get_low_v4d(b), (mask) & 3), v2d_blend2(v2d_get_high_v4d(a), v2d_get_high_v4d(b), ((mask) >> 2) & 3))
+#define v4f_blend4(a, b, mask) v4f_merge2_v2f(v2f_blend2(v2f_get_low_v4f(a), v2f_get_low_v4f(b), (mask) & 3), v2f_blend2(v2f_get_high_v4f(a), v2f_get_high_v4f(b), ((mask) >> 2) & 3))
+#define v4i_blend4(a, b, mask) v4i_merge2_v2i(v2i_blend2(v2i_get_low_v4i(a), v2i_get_low_v4i(b), (mask) & 3), v2i_blend2(v2i_get_high_v4i(a), v2i_get_high_v4i(b), ((mask) >> 2) & 3))
+#define v4l_blend4(a, b, mask) v4l_merge2_v2l(v2l_blend2(v2l_get_low_v4l(a), v2l_get_low_v4l(b), (mask) & 3), v2l_blend2(v2l_get_high_v4l(a), v2l_get_high_v4l(b), ((mask) >> 2) & 3))
+#define v8d_blend4(a, b, mask) v8d_merge2_v4d(v4d_blend2(v4d_get_low_v8d(a), v4d_get_low_v8d(b), (mask) & 3), v4d_blend2(v4d_get_high_v8d(a), v4d_get_high_v8d(b), ((mask) >> 2) & 3))
+#define v8f_blend4(a, b, mask) v8f_merge2_v4f(v4f_blend2(v4f_get_low_v8f(a), v4f_get_low_v8f(b), (mask) & 3), v4f_blend2(v4f_get_high_v8f(a), v4f_get_high_v8f(b), ((mask) >> 2) & 3))
+#define v8i_blend4(a, b, mask) v8i_merge2_v4i(v4i_blend2(v4i_get_low_v8i(a), v4i_get_low_v8i(b), (mask) & 3), v4i_blend2(v4i_get_high_v8i(a), v4i_get_high_v8i(b), ((mask) >> 2) & 3))
+#define v8l_blend4(a, b, mask) v8l_merge2_v4l(v4l_blend2(v4l_get_low_v8l(a), v4l_get_low_v8l(b), (mask) & 3), v4l_blend2(v4l_get_high_v8l(a), v4l_get_high_v8l(b), ((mask) >> 2) & 3))
+#define v16f_blend4(a, b, mask) v16f_merge2_v8f(v8f_blend2(v8f_get_low_v16f(a), v8f_get_low_v16f(b), (mask) & 3), v8f_blend2(v8f_get_high_v16f(a), v8f_get_high_v16f(b), ((mask) >> 2) & 3))
+#define v16i_blend4(a, b, mask) v16i_merge2_v8i(v8i_blend2(v8i_get_low_v16i(a), v8i_get_low_v16i(b), (mask) & 3), v8i_blend2(v8i_get_high_v16i(a), v8i_get_high_v16i(b), ((mask) >> 2) & 3))
 
-#define v4d_outer_hshuffle4(a, b, rule) \
+#define v8d_blend8(a, b, mask) v8d_merge2_v4d(v4d_blend4(v4d_get_low_v8d(a), v4d_get_low_v8d(b), (mask) & 15), v4d_blend4(v4d_get_high_v8d(a), v4d_get_high_v8d(b), ((mask) >> 4) & 15))
+#define v8f_blend8(a, b, mask) v8f_merge2_v4f(v4f_blend4(v4f_get_low_v8f(a), v4f_get_low_v8f(b), (mask) & 15), v4f_blend4(v4f_get_high_v8f(a), v4f_get_high_v8f(b), ((mask) >> 4) & 15))
+#define v8i_blend8(a, b, mask) v8i_merge2_v4i(v4i_blend4(v4i_get_low_v8i(a), v4i_get_low_v8i(b), (mask) & 15), v4i_blend4(v4i_get_high_v8i(a), v4i_get_high_v8i(b), ((mask) >> 4) & 15))
+#define v8l_blend8(a, b, mask) v8l_merge2_v4l(v4l_blend4(v4l_get_low_v8l(a), v4l_get_low_v8l(b), (mask) & 15), v4l_blend4(v4l_get_high_v8l(a), v4l_get_high_v8l(b), ((mask) >> 4) & 15))
+#define v16f_blend8(a, b, mask) v16f_merge2_v8f(v8f_blend4(v8f_get_low_v16f(a), v8f_get_low_v16f(b), (mask) & 15), v8f_blend4(v8f_get_high_v16f(a), v8f_get_high_v16f(b), ((mask) >> 4) & 15))
+#define v16i_blend8(a, b, mask) v16i_merge2_v8i(v8i_blend4(v8i_get_low_v16i(a), v8i_get_low_v16i(b), (mask) & 15), v8i_blend4(v8i_get_high_v16i(a), v8i_get_high_v16i(b), ((mask) >> 4) & 15))
+
+#define v16f_blend16(a, b, mask) v16f_merge2_v8f(v8f_blend8(v8f_get_low_v16f(a), v8f_get_low_v16f(b), (mask) & 255), v8f_blend8(v8f_get_high_v16f(a), v8f_get_high_v16f(b), ((mask) >> 8) & 255))
+#define v16i_blend16(a, b, mask) v16i_merge2_v8i(v8i_blend8(v8i_get_low_v16i(a), v8i_get_low_v16i(b), (mask) & 255), v8i_blend8(v8i_get_high_v16i(a), v8i_get_high_v16i(b), ((mask) >> 8) & 255))
+
+#define v1d_blend(a, b, mask) v1d_blend1((a), (b), (mask))
+#define v1f_blend(a, b, mask) v1f_blend1((a), (b), (mask))
+#define v1i_blend(a, b, mask) v1i_blend1((a), (b), (mask))
+#define v1l_blend(a, b, mask) v1l_blend1((a), (b), (mask))
+#define v2d_blend(a, b, mask) v2d_blend2((a), (b), (mask))
+#define v2f_blend(a, b, mask) v2f_blend2((a), (b), (mask))
+#define v2i_blend(a, b, mask) v2i_blend2((a), (b), (mask))
+#define v2l_blend(a, b, mask) v2l_blend2((a), (b), (mask))
+#define v4d_blend(a, b, mask) v4d_blend4((a), (b), (mask))
+#define v4f_blend(a, b, mask) v4f_blend4((a), (b), (mask))
+#define v4i_blend(a, b, mask) v4i_blend4((a), (b), (mask))
+#define v4l_blend(a, b, mask) v4l_blend4((a), (b), (mask))
+#define v8d_blend(a, b, mask) v8d_blend8((a), (b), (mask))
+#define v8f_blend(a, b, mask) v8f_blend8((a), (b), (mask))
+#define v8i_blend(a, b, mask) v8i_blend8((a), (b), (mask))
+#define v8l_blend(a, b, mask) v8l_blend8((a), (b), (mask))
+#define v16f_blend(a, b, mask) v16f_blend16((a), (b), (mask))
+#define v16i_blend(a, b, mask) v16i_blend16((a), (b), (mask))
+
+#define v1d_blend1x1(a, b, mask) v1d_blend1((a), (b), (mask))
+#define v1f_blend1x1(a, b, mask) v1f_blend1((a), (b), (mask))
+#define v1i_blend1x1(a, b, mask) v1i_blend1((a), (b), (mask))
+#define v1l_blend1x1(a, b, mask) v1l_blend1((a), (b), (mask))
+#define v2d_blend2x1(a, b, mask) v2d_blend2((a), (b), (mask))
+#define v2f_blend2x1(a, b, mask) v2f_blend2((a), (b), (mask))
+#define v2i_blend2x1(a, b, mask) v2i_blend2((a), (b), (mask))
+#define v2l_blend2x1(a, b, mask) v2l_blend2((a), (b), (mask))
+#define v4d_blend4x1(a, b, mask) v4d_blend4((a), (b), (mask))
+#define v4f_blend4x1(a, b, mask) v4f_blend4((a), (b), (mask))
+#define v4i_blend4x1(a, b, mask) v4i_blend4((a), (b), (mask))
+#define v4l_blend4x1(a, b, mask) v4l_blend4((a), (b), (mask))
+#define v8d_blend8x1(a, b, mask) v8d_blend8((a), (b), (mask))
+#define v8f_blend8x1(a, b, mask) v8f_blend8((a), (b), (mask))
+#define v8i_blend8x1(a, b, mask) v8i_blend8((a), (b), (mask))
+#define v8l_blend8x1(a, b, mask) v8l_blend8((a), (b), (mask))
+#define v16f_blend16x1(a, b, mask) v16f_blend16((a), (b), (mask))
+#define v16i_blend16x1(a, b, mask) v16i_blend16((a), (b), (mask))
+
+#define v2d_blend1x2(a, b, mask) v2d_blend2x1((a), (b), (mask) | ((mask) << 1))
+#define v2f_blend1x2(a, b, mask) v2f_blend2x1((a), (b), (mask) | ((mask) << 1))
+#define v2i_blend1x2(a, b, mask) v2i_blend2x1((a), (b), (mask) | ((mask) << 1))
+#define v2l_blend1x2(a, b, mask) v2l_blend2x1((a), (b), (mask) | ((mask) << 1))
+#define v4d_blend2x2(a, b, mask) v4d_blend4x1((a), (b), (mask) | ((mask) << 2))
+#define v4f_blend2x2(a, b, mask) v4f_blend4x1((a), (b), (mask) | ((mask) << 2))
+#define v4i_blend2x2(a, b, mask) v4i_blend4x1((a), (b), (mask) | ((mask) << 2))
+#define v4l_blend2x2(a, b, mask) v4l_blend4x1((a), (b), (mask) | ((mask) << 2))
+#define v8d_blend4x2(a, b, mask) v8d_blend8x1((a), (b), (mask) | ((mask) << 4))
+#define v8f_blend4x2(a, b, mask) v8f_blend8x1((a), (b), (mask) | ((mask) << 4))
+#define v8i_blend4x2(a, b, mask) v8i_blend8x1((a), (b), (mask) | ((mask) << 4))
+#define v8l_blend4x2(a, b, mask) v8l_blend8x1((a), (b), (mask) | ((mask) << 4))
+#define v16f_blend8x2(a, b, mask) v16f_blend16x1((a), (b), (mask) | ((mask) << 8))
+#define v16i_blend8x2(a, b, mask) v16i_blend16x1((a), (b), (mask) | ((mask) << 8))
+
+#define v4d_blend1x4(a, b, mask) v4d_blend2x2((a), (b), (mask) | ((mask) << 1))
+#define v4f_blend1x4(a, b, mask) v4f_blend2x2((a), (b), (mask) | ((mask) << 1))
+#define v4i_blend1x4(a, b, mask) v4i_blend2x2((a), (b), (mask) | ((mask) << 1))
+#define v4l_blend1x4(a, b, mask) v4l_blend2x2((a), (b), (mask) | ((mask) << 1))
+#define v8d_blend2x4(a, b, mask) v8d_blend4x2((a), (b), (mask) | ((mask) << 2))
+#define v8f_blend2x4(a, b, mask) v8f_blend4x2((a), (b), (mask) | ((mask) << 2))
+#define v8i_blend2x4(a, b, mask) v8i_blend4x2((a), (b), (mask) | ((mask) << 2))
+#define v8l_blend2x4(a, b, mask) v8l_blend4x2((a), (b), (mask) | ((mask) << 2))
+#define v16f_blend4x4(a, b, mask) v16f_blend8x2((a), (b), (mask) | ((mask) << 4))
+#define v16i_blend4x4(a, b, mask) v16i_blend8x2((a), (b), (mask) | ((mask) << 4))
+
+#define v8d_blend1x8(a, b, mask) v8d_blend2x4((a), (b), (mask) | ((mask) << 1))
+#define v8f_blend1x8(a, b, mask) v8f_blend2x4((a), (b), (mask) | ((mask) << 1))
+#define v8i_blend1x8(a, b, mask) v8i_blend2x4((a), (b), (mask) | ((mask) << 1))
+#define v8l_blend1x8(a, b, mask) v8l_blend2x4((a), (b), (mask) | ((mask) << 1))
+#define v16f_blend2x8(a, b, mask) v16f_blend4x4((a), (b), (mask) | ((mask) << 2))
+#define v16i_blend2x8(a, b, mask) v16i_blend4x4((a), (b), (mask) | ((mask) << 2))
+
+#define v16f_blend1x16(a, b, mask) v16f_blend2x8((a), (b), (mask) | ((mask) << 1))
+#define v16i_blend1x16(a, b, mask) v16i_blend2x8((a), (b), (mask) | ((mask) << 1))
+
+#define v2d_hshuffle2(a, b, rule) v2d_merge_v1d(v1d_get_hilo_v2d((a), (rule) & 1), v1d_get_hilo_v2d((b), ((rule) >> 1) & 1))
+#define v2f_hshuffle2(a, b, rule) v2f_merge_v1f(v1f_get_hilo_v2f((a), (rule) & 1), v1f_get_hilo_v2f((b), ((rule) >> 1) & 1))
+#define v2i_hshuffle2(a, b, rule) v2i_merge_v1i(v1i_get_hilo_v2i((a), (rule) & 1), v1i_get_hilo_v2i((b), ((rule) >> 1) & 1))
+#define v2l_hshuffle2(a, b, rule) v2l_merge_v1l(v1l_get_hilo_v2l((a), (rule) & 1), v1l_get_hilo_v2l((b), ((rule) >> 1) & 1))
+#define v4d_hshuffle2(a, b, rule) v4d_merge_v2d(v2d_get_hilo_v4d((a), (rule) & 1), v2d_get_hilo_v4d((b), ((rule) >> 1) & 1))
+#define v4f_hshuffle2(a, b, rule) v4f_merge_v2f(v2f_get_hilo_v4f((a), (rule) & 1), v2f_get_hilo_v4f((b), ((rule) >> 1) & 1))
+#define v4i_hshuffle2(a, b, rule) v4i_merge_v2i(v2i_get_hilo_v4i((a), (rule) & 1), v2i_get_hilo_v4i((b), ((rule) >> 1) & 1))
+#define v4l_hshuffle2(a, b, rule) v4l_merge_v2l(v2l_get_hilo_v4l((a), (rule) & 1), v2l_get_hilo_v4l((b), ((rule) >> 1) & 1))
+#define v8d_hshuffle2(a, b, rule) v8d_merge_v4d(v4d_get_hilo_v8d((a), (rule) & 1), v4d_get_hilo_v8d((b), ((rule) >> 1) & 1))
+#define v8f_hshuffle2(a, b, rule) v8f_merge_v4f(v4f_get_hilo_v8f((a), (rule) & 1), v4f_get_hilo_v8f((b), ((rule) >> 1) & 1))
+#define v8i_hshuffle2(a, b, rule) v8i_merge_v4i(v4i_get_hilo_v8i((a), (rule) & 1), v4i_get_hilo_v8i((b), ((rule) >> 1) & 1))
+#define v8l_hshuffle2(a, b, rule) v8l_merge_v4l(v4l_get_hilo_v8l((a), (rule) & 1), v4l_get_hilo_v8l((b), ((rule) >> 1) & 1))
+#define v16f_hshuffle2(a, b, rule) v16f_merge_v8f(v8f_get_hilo_v16f((a), (rule) & 1), v8f_get_hilo_v16f((b), ((rule) >> 1) & 1))
+#define v16i_hshuffle2(a, b, rule) v16i_merge_v8i(v8i_get_hilo_v16i((a), (rule) & 1), v8i_get_hilo_v16i((b), ((rule) >> 1) & 1))
+
+#define v4d_hshuffle4(a, b, rule) \
   v4d_merge_v2d( \
-    v2d_outer_fshuffle2( \
+    v2d_fshuffle2( \
       v2d_get_low_v4d(a), v2d_get_high_v4d(a), \
       ((((rule) >> 0) & 1) << 0)|((((rule) >> 2) & 1) << 1), \
       ((((rule) >> 1) & 1) << 0)|((((rule) >> 3) & 1) << 1)), \
-    v2d_outer_fshuffle2( \
+    v2d_fshuffle2( \
       v2d_get_low_v4d(b), v2d_get_high_v4d(b), \
       ((((rule) >> 4) & 1) << 0)|((((rule) >> 6) & 1) << 1), \
       ((((rule) >> 5) & 1) << 0)|((((rule) >> 7) & 1) << 1)) \
     )
-#define v4f_outer_hshuffle4(a, b, rule) \
+#define v4f_hshuffle4(a, b, rule) \
   v4f_merge_v2f( \
-    v2f_outer_fshuffle2( \
+    v2f_fshuffle2( \
       v2f_get_low_v4f(a), v2f_get_high_v4f(a), \
       ((((rule) >> 0) & 1) << 0)|((((rule) >> 2) & 1) << 1), \
       ((((rule) >> 1) & 1) << 0)|((((rule) >> 3) & 1) << 1)), \
-    v2f_outer_fshuffle2( \
+    v2f_fshuffle2( \
       v2f_get_low_v4f(b), v2f_get_high_v4f(b), \
       ((((rule) >> 4) & 1) << 0)|((((rule) >> 6) & 1) << 1), \
       ((((rule) >> 5) & 1) << 0)|((((rule) >> 7) & 1) << 1)) \
     )
-#define v4i_outer_hshuffle4(a, b, rule) \
+#define v4i_hshuffle4(a, b, rule) \
   v4i_merge_v2i( \
-    v2i_outer_fshuffle2( \
+    v2i_fshuffle2( \
       v2i_get_low_v4i(a), v2i_get_high_v4i(a), \
       ((((rule) >> 0) & 1) << 0)|((((rule) >> 2) & 1) << 1), \
       ((((rule) >> 1) & 1) << 0)|((((rule) >> 3) & 1) << 1)), \
-    v2i_outer_fshuffle2( \
+    v2i_fshuffle2( \
       v2i_get_low_v4i(b), v2i_get_high_v4i(b), \
       ((((rule) >> 4) & 1) << 0)|((((rule) >> 6) & 1) << 1), \
       ((((rule) >> 5) & 1) << 0)|((((rule) >> 7) & 1) << 1)) \
     )
-#define v4l_outer_hshuffle4(a, b, rule) \
+#define v4l_hshuffle4(a, b, rule) \
   v4l_merge_v2l( \
-    v2l_outer_fshuffle2( \
+    v2l_fshuffle2( \
       v2l_get_low_v4l(a), v2l_get_high_v4l(a), \
       ((((rule) >> 0) & 1) << 0)|((((rule) >> 2) & 1) << 1), \
       ((((rule) >> 1) & 1) << 0)|((((rule) >> 3) & 1) << 1)), \
-    v2l_outer_fshuffle2( \
+    v2l_fshuffle2( \
       v2l_get_low_v4l(b), v2l_get_high_v4l(b), \
       ((((rule) >> 4) & 1) << 0)|((((rule) >> 6) & 1) << 1), \
       ((((rule) >> 5) & 1) << 0)|((((rule) >> 7) & 1) << 1)) \
     )
-#define v8d_outer_hshuffle4(a, b, rule) \
+#define v8d_hshuffle4(a, b, rule) \
   v8d_merge_v4d( \
-    v4d_outer_fshuffle2( \
+    v4d_fshuffle2( \
+      v4d_get_low_v8d(a), v4d_get_high_v8d(a), \
+      ((((rule) >> 0) & 1) << 0)|((((rule) >> 2) & 1) << 1), \
+      ((((rule) >> 1) & 1) << 0)|((((rule) >> 3) & 1) << 1)), \
+    v4d_fshuffle2( \
+      v4d_get_low_v8d(b), v4d_get_high_v8d(b), \
+      ((((rule) >> 4) & 1) << 0)|((((rule) >> 6) & 1) << 1), \
+      ((((rule) >> 5) & 1) << 0)|((((rule) >> 7) & 1) << 1)) \
+    )
+#define v8f_hshuffle4(a, b, rule) \
+  v8f_merge_v4f( \
+    v4f_fshuffle2( \
+      v4f_get_low_v8f(a), v4f_get_high_v8f(a), \
+      ((((rule) >> 0) & 1) << 0)|((((rule) >> 2) & 1) << 1), \
+      ((((rule) >> 1) & 1) << 0)|((((rule) >> 3) & 1) << 1)), \
+    v4f_fshuffle2( \
+      v4f_get_low_v8f(b), v4f_get_high_v8f(b), \
+      ((((rule) >> 4) & 1) << 0)|((((rule) >> 6) & 1) << 1), \
+      ((((rule) >> 5) & 1) << 0)|((((rule) >> 7) & 1) << 1)) \
+    )
+#define v8i_hshuffle4(a, b, rule) \
+  v8i_merge_v4i( \
+    v4i_fshuffle2( \
+      v4i_get_low_v8i(a), v4i_get_high_v8i(a), \
+      ((((rule) >> 0) & 1) << 0)|((((rule) >> 2) & 1) << 1), \
+      ((((rule) >> 1) & 1) << 0)|((((rule) >> 3) & 1) << 1)), \
+    v4i_fshuffle2( \
+      v4i_get_low_v8i(b), v4i_get_high_v8i(b), \
+      ((((rule) >> 4) & 1) << 0)|((((rule) >> 6) & 1) << 1), \
+      ((((rule) >> 5) & 1) << 0)|((((rule) >> 7) & 1) << 1)) \
+    )
+#define v8l_hshuffle4(a, b, rule) \
+  v8l_merge_v4l( \
+    v4l_fshuffle2( \
+      v4l_get_low_v8l(a), v4l_get_high_v8l(a), \
+      ((((rule) >> 0) & 1) << 0)|((((rule) >> 2) & 1) << 1), \
+      ((((rule) >> 1) & 1) << 0)|((((rule) >> 3) & 1) << 1)), \
+    v4l_fshuffle2( \
+      v4l_get_low_v8l(b), v4l_get_high_v8l(b), \
+      ((((rule) >> 4) & 1) << 0)|((((rule) >> 6) & 1) << 1), \
+      ((((rule) >> 5) & 1) << 0)|((((rule) >> 7) & 1) << 1)) \
+    )
+#define v16f_hshuffle4(a, b, rule) \
+  v16f_merge_v8f( \
+    v8f_fshuffle2( \
+      v8f_get_low_v16f(a), v8f_get_high_v16f(a), \
+      ((((rule) >> 0) & 1) << 0)|((((rule) >> 2) & 1) << 1), \
+      ((((rule) >> 1) & 1) << 0)|((((rule) >> 3) & 1) << 1)), \
+    v8f_fshuffle2( \
+      v8f_get_low_v16f(b), v8f_get_high_v16f(b), \
+      ((((rule) >> 4) & 1) << 0)|((((rule) >> 6) & 1) << 1), \
+      ((((rule) >> 5) & 1) << 0)|((((rule) >> 7) & 1) << 1)) \
+    )
+#define v16i_hshuffle4(a, b, rule) \
+  v16i_merge_v8i( \
+    v8i_fshuffle2( \
+      v8i_get_low_v16i(a), v8i_get_high_v16i(a), \
+      ((((rule) >> 0) & 1) << 0)|((((rule) >> 2) & 1) << 1), \
+      ((((rule) >> 1) & 1) << 0)|((((rule) >> 3) & 1) << 1)), \
+    v8i_fshuffle2( \
+      v8i_get_low_v16i(b), v8i_get_high_v16i(b), \
+      ((((rule) >> 4) & 1) << 0)|((((rule) >> 6) & 1) << 1), \
+      ((((rule) >> 5) & 1) << 0)|((((rule) >> 7) & 1) << 1)) \
+    )
+
+#define v8d_hshuffle8(a, b, rule) \
+  v8d_merge_v4d( \
+    v4d_fshuffle4( \
       v4d_get_low_v8d(a), v4d_get_high_v8d(a), \
       ((((rule) >> 0) & 3) << 0)|((((rule) >> 3) & 3) << 2)|((((rule) >> 6) & 3) << 4)|((((rule) >> 9) & 3) << 6), \
       ((((rule) >> 2) & 3) << 0)|((((rule) >> 5) & 3) << 1)|((((rule) >> 8) & 3) << 2)|((((rule) >> 11) & 3) << 3)), \
-    v4d_outer_fshuffle2( \
+    v4d_fshuffle4( \
       v4d_get_low_v8d(b), v4d_get_high_v8d(b), \
       ((((rule) >> 12) & 3) << 0)|((((rule) >> 15) & 3) << 2)|((((rule) >> 18) & 3) << 4)|((((rule) >> 21) & 3) << 6), \
       ((((rule) >> 14) & 3) << 0)|((((rule) >> 17) & 3) << 1)|((((rule) >> 20) & 3) << 2)|((((rule) >> 23) & 3) << 3)) \
     )
-#define v8f_outer_hshuffle4(a, b, rule) \
+#define v8f_hshuffle8(a, b, rule) \
   v8f_merge_v4f( \
-    v4f_outer_fshuffle2( \
+    v4f_fshuffle4( \
       v4f_get_low_v8f(a), v4f_get_high_v8f(a), \
       ((((rule) >> 0) & 3) << 0)|((((rule) >> 3) & 3) << 2)|((((rule) >> 6) & 3) << 4)|((((rule) >> 9) & 3) << 6), \
       ((((rule) >> 2) & 3) << 0)|((((rule) >> 5) & 3) << 1)|((((rule) >> 8) & 3) << 2)|((((rule) >> 11) & 3) << 3)), \
-    v4f_outer_fshuffle2( \
+    v4f_fshuffle4( \
       v4f_get_low_v8f(b), v4f_get_high_v8f(b), \
       ((((rule) >> 12) & 3) << 0)|((((rule) >> 15) & 3) << 2)|((((rule) >> 18) & 3) << 4)|((((rule) >> 21) & 3) << 6), \
       ((((rule) >> 14) & 3) << 0)|((((rule) >> 17) & 3) << 1)|((((rule) >> 20) & 3) << 2)|((((rule) >> 23) & 3) << 3)) \
     )
-#define v8i_outer_hshuffle4(a, b, rule) \
+#define v8i_hshuffle8(a, b, rule) \
   v8i_merge_v4i( \
-    v4i_outer_fshuffle2( \
+    v4i_fshuffle4( \
       v4i_get_low_v8i(a), v4i_get_high_v8i(a), \
       ((((rule) >> 0) & 3) << 0)|((((rule) >> 3) & 3) << 2)|((((rule) >> 6) & 3) << 4)|((((rule) >> 9) & 3) << 6), \
       ((((rule) >> 2) & 3) << 0)|((((rule) >> 5) & 3) << 1)|((((rule) >> 8) & 3) << 2)|((((rule) >> 11) & 3) << 3)), \
-    v4i_outer_fshuffle2( \
+    v4i_fshuffle4( \
       v4i_get_low_v8i(b), v4i_get_high_v8i(b), \
       ((((rule) >> 12) & 3) << 0)|((((rule) >> 15) & 3) << 2)|((((rule) >> 18) & 3) << 4)|((((rule) >> 21) & 3) << 6), \
       ((((rule) >> 14) & 3) << 0)|((((rule) >> 17) & 3) << 1)|((((rule) >> 20) & 3) << 2)|((((rule) >> 23) & 3) << 3)) \
     )
-#define v8l_outer_hshuffle4(a, b, rule) \
+#define v8l_hshuffle8(a, b, rule) \
   v8l_merge_v4l( \
-    v4l_outer_fshuffle2( \
+    v4l_fshuffle4( \
       v4l_get_low_v8l(a), v4l_get_high_v8l(a), \
       ((((rule) >> 0) & 3) << 0)|((((rule) >> 3) & 3) << 2)|((((rule) >> 6) & 3) << 4)|((((rule) >> 9) & 3) << 6), \
       ((((rule) >> 2) & 3) << 0)|((((rule) >> 5) & 3) << 1)|((((rule) >> 8) & 3) << 2)|((((rule) >> 11) & 3) << 3)), \
-    v4l_outer_fshuffle2( \
+    v4l_fshuffle4( \
       v4l_get_low_v8l(b), v4l_get_high_v8l(b), \
       ((((rule) >> 12) & 3) << 0)|((((rule) >> 15) & 3) << 2)|((((rule) >> 18) & 3) << 4)|((((rule) >> 21) & 3) << 6), \
       ((((rule) >> 14) & 3) << 0)|((((rule) >> 17) & 3) << 1)|((((rule) >> 20) & 3) << 2)|((((rule) >> 23) & 3) << 3)) \
     )
-#define v16f_outer_hshuffle4(a, b, rule) \
+#define v16f_hshuffle8(a, b, rule) \
   v16f_merge_v8f( \
-    v8f_outer_fshuffle2( \
+    v8f_fshuffle4( \
+      v8f_get_low_v16f(a), v8f_get_high_v16f(a), \
+      ((((rule) >> 0) & 3) << 0)|((((rule) >> 3) & 3) << 2)|((((rule) >> 6) & 3) << 4)|((((rule) >> 9) & 3) << 6), \
+      ((((rule) >> 2) & 3) << 0)|((((rule) >> 5) & 3) << 1)|((((rule) >> 8) & 3) << 2)|((((rule) >> 11) & 3) << 3)), \
+    v8f_fshuffle4( \
+      v8f_get_low_v16f(b), v8f_get_high_v16f(b), \
+      ((((rule) >> 12) & 3) << 0)|((((rule) >> 15) & 3) << 2)|((((rule) >> 18) & 3) << 4)|((((rule) >> 21) & 3) << 6), \
+      ((((rule) >> 14) & 3) << 0)|((((rule) >> 17) & 3) << 1)|((((rule) >> 20) & 3) << 2)|((((rule) >> 23) & 3) << 3)) \
+    )
+#define v16i_hshuffle8(a, b, rule) \
+  v16i_merge_v8i( \
+    v8i_fshuffle4( \
+      v8i_get_low_v16i(a), v8i_get_high_v16i(a), \
+      ((((rule) >> 0) & 3) << 0)|((((rule) >> 3) & 3) << 2)|((((rule) >> 6) & 3) << 4)|((((rule) >> 9) & 3) << 6), \
+      ((((rule) >> 2) & 3) << 0)|((((rule) >> 5) & 3) << 1)|((((rule) >> 8) & 3) << 2)|((((rule) >> 11) & 3) << 3)), \
+    v8i_fshuffle4( \
+      v8i_get_low_v16i(b), v8i_get_high_v16i(b), \
+      ((((rule) >> 12) & 3) << 0)|((((rule) >> 15) & 3) << 2)|((((rule) >> 18) & 3) << 4)|((((rule) >> 21) & 3) << 6), \
+      ((((rule) >> 14) & 3) << 0)|((((rule) >> 17) & 3) << 1)|((((rule) >> 20) & 3) << 2)|((((rule) >> 23) & 3) << 3)) \
+    )
+
+#define v16f_hshuffle16(a, b, rule) \
+  v16f_merge_v8f( \
+    v8f_fshuffle8( \
       v8f_get_low_v16f(a), v8f_get_high_v16f(a), \
       ((((rule) >> 0) & 7) << 0)|((((rule) >> 4) & 7) << 3)|((((rule) >> 8) & 7) << 6)|((((rule) >> 12) & 7) << 9)|((((rule) >> 16) & 7) << 12)|((((rule) >> 20) & 7) << 15)|((((rule) >> 24) & 7) << 18)|((((rule) >> 28) & 7) << 21), \
       ((((rule) >> 3) & 7) << 0)|((((rule) >> 7) & 7) << 1)|((((rule) >> 11) & 7) << 2)|((((rule) >> 15) & 7) << 3)|((((rule) >> 19) & 7) << 4)|((((rule) >> 23) & 7) << 5)|((((rule) >> 27) & 7) << 6)|((((rule) >> 31) & 7) << 7)), \
-    v8f_outer_fshuffle2( \
+    v8f_fshuffle8( \
       v8f_get_low_v16f(b), v8f_get_high_v16f(b), \
       ((((rule) >> 32) & 7) << 0)|((((rule) >> 36) & 7) << 3)|((((rule) >> 40) & 7) << 6)|((((rule) >> 44) & 7) << 9)|((((rule) >> 48) & 7) << 12)|((((rule) >> 52) & 7) << 15)|((((rule) >> 56) & 7) << 18)|((((rule) >> 60) & 7) << 21), \
       ((((rule) >> 35) & 7) << 0)|((((rule) >> 39) & 7) << 1)|((((rule) >> 43) & 7) << 2)|((((rule) >> 47) & 7) << 3)|((((rule) >> 51) & 7) << 4)|((((rule) >> 55) & 7) << 5)|((((rule) >> 59) & 7) << 6)|((((rule) >> 63) & 7) << 7)) \
     )
-#define v16i_outer_hshuffle4(a, b, rule) \
+#define v16i_hshuffle16(a, b, rule) \
   v16i_merge_v8i( \
-    v8i_outer_fshuffle2( \
+    v8i_fshuffle8( \
       v8i_get_low_v16i(a), v8i_get_high_v16i(a), \
       ((((rule) >> 0) & 7) << 0)|((((rule) >> 4) & 7) << 3)|((((rule) >> 8) & 7) << 6)|((((rule) >> 12) & 7) << 9)|((((rule) >> 16) & 7) << 12)|((((rule) >> 20) & 7) << 15)|((((rule) >> 24) & 7) << 18)|((((rule) >> 28) & 7) << 21), \
       ((((rule) >> 3) & 7) << 0)|((((rule) >> 7) & 7) << 1)|((((rule) >> 11) & 7) << 2)|((((rule) >> 15) & 7) << 3)|((((rule) >> 19) & 7) << 4)|((((rule) >> 23) & 7) << 5)|((((rule) >> 27) & 7) << 6)|((((rule) >> 31) & 7) << 7)), \
-    v8i_outer_fshuffle2( \
+    v8i_fshuffle8( \
       v8i_get_low_v16i(b), v8i_get_high_v16i(b), \
       ((((rule) >> 32) & 7) << 0)|((((rule) >> 36) & 7) << 3)|((((rule) >> 40) & 7) << 6)|((((rule) >> 44) & 7) << 9)|((((rule) >> 48) & 7) << 12)|((((rule) >> 52) & 7) << 15)|((((rule) >> 56) & 7) << 18)|((((rule) >> 60) & 7) << 21), \
       ((((rule) >> 35) & 7) << 0)|((((rule) >> 39) & 7) << 1)|((((rule) >> 43) & 7) << 2)|((((rule) >> 47) & 7) << 3)|((((rule) >> 51) & 7) << 4)|((((rule) >> 55) & 7) << 5)|((((rule) >> 59) & 7) << 6)|((((rule) >> 63) & 7) << 7)) \
     )
 
-#define v8d_outer_hshuffle8(a, b, rule) \
-  v8d_merge_v4d( \
-    v4d_outer_fshuffle4( \
-      v4d_get_low_v8d(a), v4d_get_high_v8d(a), \
-      ((((rule) >> 0) & 3) << 0)|((((rule) >> 3) & 3) << 2)|((((rule) >> 6) & 3) << 4)|((((rule) >> 9) & 3) << 6), \
-      ((((rule) >> 2) & 3) << 0)|((((rule) >> 5) & 3) << 1)|((((rule) >> 8) & 3) << 2)|((((rule) >> 11) & 3) << 3)), \
-    v4d_outer_fshuffle4( \
-      v4d_get_low_v8d(b), v4d_get_high_v8d(b), \
-      ((((rule) >> 12) & 3) << 0)|((((rule) >> 15) & 3) << 2)|((((rule) >> 18) & 3) << 4)|((((rule) >> 21) & 3) << 6), \
-      ((((rule) >> 14) & 3) << 0)|((((rule) >> 17) & 3) << 1)|((((rule) >> 20) & 3) << 2)|((((rule) >> 23) & 3) << 3)) \
-    )
-#define v8f_outer_hshuffle8(a, b, rule) \
-  v8f_merge_v4f( \
-    v4f_outer_fshuffle4( \
-      v4f_get_low_v8f(a), v4f_get_high_v8f(a), \
-      ((((rule) >> 0) & 3) << 0)|((((rule) >> 3) & 3) << 2)|((((rule) >> 6) & 3) << 4)|((((rule) >> 9) & 3) << 6), \
-      ((((rule) >> 2) & 3) << 0)|((((rule) >> 5) & 3) << 1)|((((rule) >> 8) & 3) << 2)|((((rule) >> 11) & 3) << 3)), \
-    v4f_outer_fshuffle4( \
-      v4f_get_low_v8f(b), v4f_get_high_v8f(b), \
-      ((((rule) >> 12) & 3) << 0)|((((rule) >> 15) & 3) << 2)|((((rule) >> 18) & 3) << 4)|((((rule) >> 21) & 3) << 6), \
-      ((((rule) >> 14) & 3) << 0)|((((rule) >> 17) & 3) << 1)|((((rule) >> 20) & 3) << 2)|((((rule) >> 23) & 3) << 3)) \
-    )
-#define v8i_outer_hshuffle8(a, b, rule) \
-  v8i_merge_v4i( \
-    v4i_outer_fshuffle4( \
-      v4i_get_low_v8i(a), v4i_get_high_v8i(a), \
-      ((((rule) >> 0) & 3) << 0)|((((rule) >> 3) & 3) << 2)|((((rule) >> 6) & 3) << 4)|((((rule) >> 9) & 3) << 6), \
-      ((((rule) >> 2) & 3) << 0)|((((rule) >> 5) & 3) << 1)|((((rule) >> 8) & 3) << 2)|((((rule) >> 11) & 3) << 3)), \
-    v4i_outer_fshuffle4( \
-      v4i_get_low_v8i(b), v4i_get_high_v8i(b), \
-      ((((rule) >> 12) & 3) << 0)|((((rule) >> 15) & 3) << 2)|((((rule) >> 18) & 3) << 4)|((((rule) >> 21) & 3) << 6), \
-      ((((rule) >> 14) & 3) << 0)|((((rule) >> 17) & 3) << 1)|((((rule) >> 20) & 3) << 2)|((((rule) >> 23) & 3) << 3)) \
-    )
-#define v8l_outer_hshuffle8(a, b, rule) \
-  v8l_merge_v4l( \
-    v4l_outer_fshuffle4( \
-      v4l_get_low_v8l(a), v4l_get_high_v8l(a), \
-      ((((rule) >> 0) & 3) << 0)|((((rule) >> 3) & 3) << 2)|((((rule) >> 6) & 3) << 4)|((((rule) >> 9) & 3) << 6), \
-      ((((rule) >> 2) & 3) << 0)|((((rule) >> 5) & 3) << 1)|((((rule) >> 8) & 3) << 2)|((((rule) >> 11) & 3) << 3)), \
-    v4l_outer_fshuffle4( \
-      v4l_get_low_v8l(b), v4l_get_high_v8l(b), \
-      ((((rule) >> 12) & 3) << 0)|((((rule) >> 15) & 3) << 2)|((((rule) >> 18) & 3) << 4)|((((rule) >> 21) & 3) << 6), \
-      ((((rule) >> 14) & 3) << 0)|((((rule) >> 17) & 3) << 1)|((((rule) >> 20) & 3) << 2)|((((rule) >> 23) & 3) << 3)) \
-    )
-#define v16f_outer_hshuffle8(a, b, rule) \
-  v16f_merge_v8f( \
-    v8f_outer_fshuffle4( \
-      v8f_get_low_v16f(a), v8f_get_high_v16f(a), \
-      ((((rule) >> 0) & 7) << 0)|((((rule) >> 4) & 7) << 3)|((((rule) >> 8) & 7) << 6)|((((rule) >> 12) & 7) << 9)|((((rule) >> 16) & 7) << 12)|((((rule) >> 20) & 7) << 15)|((((rule) >> 24) & 7) << 18)|((((rule) >> 28) & 7) << 21), \
-      ((((rule) >> 3) & 7) << 0)|((((rule) >> 7) & 7) << 1)|((((rule) >> 11) & 7) << 2)|((((rule) >> 15) & 7) << 3)|((((rule) >> 19) & 7) << 4)|((((rule) >> 23) & 7) << 5)|((((rule) >> 27) & 7) << 6)|((((rule) >> 31) & 7) << 7)), \
-    v8f_outer_fshuffle4( \
-      v8f_get_low_v16f(b), v8f_get_high_v16f(b), \
-      ((((rule) >> 32) & 7) << 0)|((((rule) >> 36) & 7) << 3)|((((rule) >> 40) & 7) << 6)|((((rule) >> 44) & 7) << 9)|((((rule) >> 48) & 7) << 12)|((((rule) >> 52) & 7) << 15)|((((rule) >> 56) & 7) << 18)|((((rule) >> 60) & 7) << 21), \
-      ((((rule) >> 35) & 7) << 0)|((((rule) >> 39) & 7) << 1)|((((rule) >> 43) & 7) << 2)|((((rule) >> 47) & 7) << 3)|((((rule) >> 51) & 7) << 4)|((((rule) >> 55) & 7) << 5)|((((rule) >> 59) & 7) << 6)|((((rule) >> 63) & 7) << 7)) \
-    )
-#define v16i_outer_hshuffle8(a, b, rule) \
-  v16i_merge_v8i( \
-    v8i_outer_fshuffle4( \
-      v8i_get_low_v16i(a), v8i_get_high_v16i(a), \
-      ((((rule) >> 0) & 7) << 0)|((((rule) >> 4) & 7) << 3)|((((rule) >> 8) & 7) << 6)|((((rule) >> 12) & 7) << 9)|((((rule) >> 16) & 7) << 12)|((((rule) >> 20) & 7) << 15)|((((rule) >> 24) & 7) << 18)|((((rule) >> 28) & 7) << 21), \
-      ((((rule) >> 3) & 7) << 0)|((((rule) >> 7) & 7) << 1)|((((rule) >> 11) & 7) << 2)|((((rule) >> 15) & 7) << 3)|((((rule) >> 19) & 7) << 4)|((((rule) >> 23) & 7) << 5)|((((rule) >> 27) & 7) << 6)|((((rule) >> 31) & 7) << 7)), \
-    v8i_outer_fshuffle4( \
-      v8i_get_low_v16i(b), v8i_get_high_v16i(b), \
-      ((((rule) >> 32) & 7) << 0)|((((rule) >> 36) & 7) << 3)|((((rule) >> 40) & 7) << 6)|((((rule) >> 44) & 7) << 9)|((((rule) >> 48) & 7) << 12)|((((rule) >> 52) & 7) << 15)|((((rule) >> 56) & 7) << 18)|((((rule) >> 60) & 7) << 21), \
-      ((((rule) >> 35) & 7) << 0)|((((rule) >> 39) & 7) << 1)|((((rule) >> 43) & 7) << 2)|((((rule) >> 47) & 7) << 3)|((((rule) >> 51) & 7) << 4)|((((rule) >> 55) & 7) << 5)|((((rule) >> 59) & 7) << 6)|((((rule) >> 63) & 7) << 7)) \
-    )
+#define v2d_permute2(a, rule) v2d_hshuffle2((a), (a), (rule))
+#define v2f_permute2(a, rule) v2f_hshuffle2((a), (a), (rule))
+#define v2i_permute2(a, rule) v2i_hshuffle2((a), (a), (rule))
+#define v2l_permute2(a, rule) v2l_hshuffle2((a), (a), (rule))
+#define v4d_permute2(a, rule) v4d_hshuffle2((a), (a), (rule))
+#define v4f_permute2(a, rule) v4f_hshuffle2((a), (a), (rule))
+#define v4i_permute2(a, rule) v4i_hshuffle2((a), (a), (rule))
+#define v4l_permute2(a, rule) v4l_hshuffle2((a), (a), (rule))
+#define v8d_permute2(a, rule) v8d_hshuffle2((a), (a), (rule))
+#define v8f_permute2(a, rule) v8f_hshuffle2((a), (a), (rule))
+#define v8i_permute2(a, rule) v8i_hshuffle2((a), (a), (rule))
+#define v8l_permute2(a, rule) v8l_hshuffle2((a), (a), (rule))
+#define v16f_permute2(a, rule) v16f_hshuffle2((a), (a), (rule))
+#define v16i_permute2(a, rule) v16i_hshuffle2((a), (a), (rule))
 
-#define v16f_outer_hshuffle16(a, b, rule) \
-  v16f_merge_v8f( \
-    v8f_outer_fshuffle8( \
-      v8f_get_low_v16f(a), v8f_get_high_v16f(a), \
-      ((((rule) >> 0) & 7) << 0)|((((rule) >> 4) & 7) << 3)|((((rule) >> 8) & 7) << 6)|((((rule) >> 12) & 7) << 9)|((((rule) >> 16) & 7) << 12)|((((rule) >> 20) & 7) << 15)|((((rule) >> 24) & 7) << 18)|((((rule) >> 28) & 7) << 21), \
-      ((((rule) >> 3) & 7) << 0)|((((rule) >> 7) & 7) << 1)|((((rule) >> 11) & 7) << 2)|((((rule) >> 15) & 7) << 3)|((((rule) >> 19) & 7) << 4)|((((rule) >> 23) & 7) << 5)|((((rule) >> 27) & 7) << 6)|((((rule) >> 31) & 7) << 7)), \
-    v8f_outer_fshuffle8( \
-      v8f_get_low_v16f(b), v8f_get_high_v16f(b), \
-      ((((rule) >> 32) & 7) << 0)|((((rule) >> 36) & 7) << 3)|((((rule) >> 40) & 7) << 6)|((((rule) >> 44) & 7) << 9)|((((rule) >> 48) & 7) << 12)|((((rule) >> 52) & 7) << 15)|((((rule) >> 56) & 7) << 18)|((((rule) >> 60) & 7) << 21), \
-      ((((rule) >> 35) & 7) << 0)|((((rule) >> 39) & 7) << 1)|((((rule) >> 43) & 7) << 2)|((((rule) >> 47) & 7) << 3)|((((rule) >> 51) & 7) << 4)|((((rule) >> 55) & 7) << 5)|((((rule) >> 59) & 7) << 6)|((((rule) >> 63) & 7) << 7)) \
-    )
-#define v16i_outer_hshuffle16(a, b, rule) \
-  v16i_merge_v8i( \
-    v8i_outer_fshuffle8( \
-      v8i_get_low_v16i(a), v8i_get_high_v16i(a), \
-      ((((rule) >> 0) & 7) << 0)|((((rule) >> 4) & 7) << 3)|((((rule) >> 8) & 7) << 6)|((((rule) >> 12) & 7) << 9)|((((rule) >> 16) & 7) << 12)|((((rule) >> 20) & 7) << 15)|((((rule) >> 24) & 7) << 18)|((((rule) >> 28) & 7) << 21), \
-      ((((rule) >> 3) & 7) << 0)|((((rule) >> 7) & 7) << 1)|((((rule) >> 11) & 7) << 2)|((((rule) >> 15) & 7) << 3)|((((rule) >> 19) & 7) << 4)|((((rule) >> 23) & 7) << 5)|((((rule) >> 27) & 7) << 6)|((((rule) >> 31) & 7) << 7)), \
-    v8i_outer_fshuffle8( \
-      v8i_get_low_v16i(b), v8i_get_high_v16i(b), \
-      ((((rule) >> 32) & 7) << 0)|((((rule) >> 36) & 7) << 3)|((((rule) >> 40) & 7) << 6)|((((rule) >> 44) & 7) << 9)|((((rule) >> 48) & 7) << 12)|((((rule) >> 52) & 7) << 15)|((((rule) >> 56) & 7) << 18)|((((rule) >> 60) & 7) << 21), \
-      ((((rule) >> 35) & 7) << 0)|((((rule) >> 39) & 7) << 1)|((((rule) >> 43) & 7) << 2)|((((rule) >> 47) & 7) << 3)|((((rule) >> 51) & 7) << 4)|((((rule) >> 55) & 7) << 5)|((((rule) >> 59) & 7) << 6)|((((rule) >> 63) & 7) << 7)) \
-    )
+#define v4d_permute4(a, rule) v4d_hshuffle4((a), (a), (rule))
+#define v4f_permute4(a, rule) v4f_hshuffle4((a), (a), (rule))
+#define v4i_permute4(a, rule) v4i_hshuffle4((a), (a), (rule))
+#define v4l_permute4(a, rule) v4l_hshuffle4((a), (a), (rule))
+#define v8d_permute4(a, rule) v8d_hshuffle4((a), (a), (rule))
+#define v8f_permute4(a, rule) v8f_hshuffle4((a), (a), (rule))
+#define v8i_permute4(a, rule) v8i_hshuffle4((a), (a), (rule))
+#define v8l_permute4(a, rule) v8l_hshuffle4((a), (a), (rule))
+#define v16f_permute4(a, rule) v16f_hshuffle4((a), (a), (rule))
+#define v16i_permute4(a, rule) v16i_hshuffle4((a), (a), (rule))
 
-#define v2d_outer_permute2(a, rule) v2d_outer_hshuffle2((a), (a), (rule))
-#define v2f_outer_permute2(a, rule) v2f_outer_hshuffle2((a), (a), (rule))
-#define v2i_outer_permute2(a, rule) v2i_outer_hshuffle2((a), (a), (rule))
-#define v2l_outer_permute2(a, rule) v2l_outer_hshuffle2((a), (a), (rule))
-#define v4d_outer_permute2(a, rule) v4d_outer_hshuffle2((a), (a), (rule))
-#define v4f_outer_permute2(a, rule) v4f_outer_hshuffle2((a), (a), (rule))
-#define v4i_outer_permute2(a, rule) v4i_outer_hshuffle2((a), (a), (rule))
-#define v4l_outer_permute2(a, rule) v4l_outer_hshuffle2((a), (a), (rule))
-#define v8d_outer_permute2(a, rule) v8d_outer_hshuffle2((a), (a), (rule))
-#define v8f_outer_permute2(a, rule) v8f_outer_hshuffle2((a), (a), (rule))
-#define v8i_outer_permute2(a, rule) v8i_outer_hshuffle2((a), (a), (rule))
-#define v8l_outer_permute2(a, rule) v8l_outer_hshuffle2((a), (a), (rule))
-#define v16f_outer_permute2(a, rule) v16f_outer_hshuffle2((a), (a), (rule))
-#define v16i_outer_permute2(a, rule) v16i_outer_hshuffle2((a), (a), (rule))
+#define v8d_permute8(a, rule) v8d_hshuffle8((a), (a), (rule))
+#define v8f_permute8(a, rule) v8f_hshuffle8((a), (a), (rule))
+#define v8i_permute8(a, rule) v8i_hshuffle8((a), (a), (rule))
+#define v8l_permute8(a, rule) v8l_hshuffle8((a), (a), (rule))
+#define v16f_permute8(a, rule) v16f_hshuffle8((a), (a), (rule))
+#define v16i_permute8(a, rule) v16i_hshuffle8((a), (a), (rule))
 
-#define v4d_outer_permute4(a, rule) v4d_outer_hshuffle4((a), (a), (rule))
-#define v4f_outer_permute4(a, rule) v4f_outer_hshuffle4((a), (a), (rule))
-#define v4i_outer_permute4(a, rule) v4i_outer_hshuffle4((a), (a), (rule))
-#define v4l_outer_permute4(a, rule) v4l_outer_hshuffle4((a), (a), (rule))
-#define v8d_outer_permute4(a, rule) v8d_outer_hshuffle4((a), (a), (rule))
-#define v8f_outer_permute4(a, rule) v8f_outer_hshuffle4((a), (a), (rule))
-#define v8i_outer_permute4(a, rule) v8i_outer_hshuffle4((a), (a), (rule))
-#define v8l_outer_permute4(a, rule) v8l_outer_hshuffle4((a), (a), (rule))
-#define v16f_outer_permute4(a, rule) v16f_outer_hshuffle4((a), (a), (rule))
-#define v16i_outer_permute4(a, rule) v16i_outer_hshuffle4((a), (a), (rule))
+#define v16f_permute16(a, rule) v16f_hshuffle16((a), (a), (rule))
+#define v16i_permute16(a, rule) v16i_hshuffle16((a), (a), (rule))
 
-#define v8d_outer_permute8(a, rule) v8d_outer_hshuffle8((a), (a), (rule))
-#define v8f_outer_permute8(a, rule) v8f_outer_hshuffle8((a), (a), (rule))
-#define v8i_outer_permute8(a, rule) v8i_outer_hshuffle8((a), (a), (rule))
-#define v8l_outer_permute8(a, rule) v8l_outer_hshuffle8((a), (a), (rule))
-#define v16f_outer_permute8(a, rule) v16f_outer_hshuffle8((a), (a), (rule))
-#define v16i_outer_permute8(a, rule) v16i_outer_hshuffle8((a), (a), (rule))
+#define v2d_fshuffle2(a, b, rule, mask) v2d_blend2(v2d_permute2((a), (rule)), v2d_permute2((b), (rule)), (mask))
+#define v2f_fshuffle2(a, b, rule, mask) v2f_blend2(v2f_permute2((a), (rule)), v2f_permute2((b), (rule)), (mask))
+#define v2i_fshuffle2(a, b, rule, mask) v2i_blend2(v2i_permute2((a), (rule)), v2i_permute2((b), (rule)), (mask))
+#define v2l_fshuffle2(a, b, rule, mask) v2l_blend2(v2l_permute2((a), (rule)), v2l_permute2((b), (rule)), (mask))
+#define v4d_fshuffle2(a, b, rule, mask) v4d_blend2(v4d_permute2((a), (rule)), v4d_permute2((b), (rule)), (mask))
+#define v4f_fshuffle2(a, b, rule, mask) v4f_blend2(v4f_permute2((a), (rule)), v4f_permute2((b), (rule)), (mask))
+#define v4i_fshuffle2(a, b, rule, mask) v4i_blend2(v4i_permute2((a), (rule)), v4i_permute2((b), (rule)), (mask))
+#define v4l_fshuffle2(a, b, rule, mask) v4l_blend2(v4l_permute2((a), (rule)), v4l_permute2((b), (rule)), (mask))
+#define v8d_fshuffle2(a, b, rule, mask) v8d_blend2(v8d_permute2((a), (rule)), v8d_permute2((b), (rule)), (mask))
+#define v8f_fshuffle2(a, b, rule, mask) v8f_blend2(v8f_permute2((a), (rule)), v8f_permute2((b), (rule)), (mask))
+#define v8i_fshuffle2(a, b, rule, mask) v8i_blend2(v8i_permute2((a), (rule)), v8i_permute2((b), (rule)), (mask))
+#define v8l_fshuffle2(a, b, rule, mask) v8l_blend2(v8l_permute2((a), (rule)), v8l_permute2((b), (rule)), (mask))
+#define v16f_fshuffle2(a, b, rule, mask) v16f_blend2(v16f_permute2((a), (rule)), v16f_permute2((b), (rule)), (mask))
+#define v16i_fshuffle2(a, b, rule, mask) v16i_blend2(v16i_permute2((a), (rule)), v16i_permute2((b), (rule)), (mask))
 
-#define v16f_outer_permute16(a, rule) v16f_outer_hshuffle16((a), (a), (rule))
-#define v16i_outer_permute16(a, rule) v16i_outer_hshuffle16((a), (a), (rule))
+#define v4d_fshuffle4(a, b, rule, mask) v4d_blend4(v4d_permute4((a), (rule)), v4d_permute4((b), (rule)), (mask))
+#define v4f_fshuffle4(a, b, rule, mask) v4f_blend4(v4f_permute4((a), (rule)), v4f_permute4((b), (rule)), (mask))
+#define v4i_fshuffle4(a, b, rule, mask) v4i_blend4(v4i_permute4((a), (rule)), v4i_permute4((b), (rule)), (mask))
+#define v4l_fshuffle4(a, b, rule, mask) v4l_blend4(v4l_permute4((a), (rule)), v4l_permute4((b), (rule)), (mask))
+#define v8d_fshuffle4(a, b, rule, mask) v8d_blend4(v8d_permute4((a), (rule)), v8d_permute4((b), (rule)), (mask))
+#define v8f_fshuffle4(a, b, rule, mask) v8f_blend4(v8f_permute4((a), (rule)), v8f_permute4((b), (rule)), (mask))
+#define v8i_fshuffle4(a, b, rule, mask) v8i_blend4(v8i_permute4((a), (rule)), v8i_permute4((b), (rule)), (mask))
+#define v8l_fshuffle4(a, b, rule, mask) v8l_blend4(v8l_permute4((a), (rule)), v8l_permute4((b), (rule)), (mask))
+#define v16f_fshuffle4(a, b, rule, mask) v16f_blend4(v16f_permute4((a), (rule)), v16f_permute4((b), (rule)), (mask))
+#define v16i_fshuffle4(a, b, rule, mask) v16i_blend4(v16i_permute4((a), (rule)), v16i_permute4((b), (rule)), (mask))
 
-#define v2d_outer_fshuffle2(a, b, rule, mask) v2d_blend(v2d_outer_permute2((a), (rule)), v2d_outer_permute2((b), (rule)), (mask))
-#define v2f_outer_fshuffle2(a, b, rule, mask) v2f_blend(v2f_outer_permute2((a), (rule)), v2f_outer_permute2((b), (rule)), (mask))
-#define v2i_outer_fshuffle2(a, b, rule, mask) v2i_blend(v2i_outer_permute2((a), (rule)), v2i_outer_permute2((b), (rule)), (mask))
-#define v2l_outer_fshuffle2(a, b, rule, mask) v2l_blend(v2l_outer_permute2((a), (rule)), v2l_outer_permute2((b), (rule)), (mask))
-#define v4d_outer_fshuffle2(a, b, rule, mask) v4d_blend(v4d_outer_permute2((a), (rule)), v4d_outer_permute2((b), (rule)), (mask))
-#define v4f_outer_fshuffle2(a, b, rule, mask) v4f_blend(v4f_outer_permute2((a), (rule)), v4f_outer_permute2((b), (rule)), (mask))
-#define v4i_outer_fshuffle2(a, b, rule, mask) v4i_blend(v4i_outer_permute2((a), (rule)), v4i_outer_permute2((b), (rule)), (mask))
-#define v4l_outer_fshuffle2(a, b, rule, mask) v4l_blend(v4l_outer_permute2((a), (rule)), v4l_outer_permute2((b), (rule)), (mask))
-#define v8d_outer_fshuffle2(a, b, rule, mask) v8d_blend(v8d_outer_permute2((a), (rule)), v8d_outer_permute2((b), (rule)), (mask))
-#define v8f_outer_fshuffle2(a, b, rule, mask) v8f_blend(v8f_outer_permute2((a), (rule)), v8f_outer_permute2((b), (rule)), (mask))
-#define v8i_outer_fshuffle2(a, b, rule, mask) v8i_blend(v8i_outer_permute2((a), (rule)), v8i_outer_permute2((b), (rule)), (mask))
-#define v8l_outer_fshuffle2(a, b, rule, mask) v8l_blend(v8l_outer_permute2((a), (rule)), v8l_outer_permute2((b), (rule)), (mask))
-#define v16f_outer_fshuffle2(a, b, rule, mask) v16f_blend(v16f_outer_permute2((a), (rule)), v16f_outer_permute2((b), (rule)), (mask))
-#define v16i_outer_fshuffle2(a, b, rule, mask) v16i_blend(v16i_outer_permute2((a), (rule)), v16i_outer_permute2((b), (rule)), (mask))
+#define v8d_fshuffle8(a, b, rule, mask) v8d_blend8(v8d_permute8((a), (rule)), v8d_permute8((b), (rule)), (mask))
+#define v8f_fshuffle8(a, b, rule, mask) v8f_blend8(v8f_permute8((a), (rule)), v8f_permute8((b), (rule)), (mask))
+#define v8i_fshuffle8(a, b, rule, mask) v8i_blend8(v8i_permute8((a), (rule)), v8i_permute8((b), (rule)), (mask))
+#define v8l_fshuffle8(a, b, rule, mask) v8l_blend8(v8l_permute8((a), (rule)), v8l_permute8((b), (rule)), (mask))
+#define v16f_fshuffle8(a, b, rule, mask) v16f_blend8(v16f_permute8((a), (rule)), v16f_permute8((b), (rule)), (mask))
+#define v16i_fshuffle8(a, b, rule, mask) v16i_blend8(v16i_permute8((a), (rule)), v16i_permute8((b), (rule)), (mask))
 
-#define v4d_outer_fshuffle4(a, b, rule, mask) v4d_blend(v4d_outer_permute4((a), (rule)), v4d_outer_permute4((b), (rule)), (mask))
-#define v4f_outer_fshuffle4(a, b, rule, mask) v4f_blend(v4f_outer_permute4((a), (rule)), v4f_outer_permute4((b), (rule)), (mask))
-#define v4i_outer_fshuffle4(a, b, rule, mask) v4i_blend(v4i_outer_permute4((a), (rule)), v4i_outer_permute4((b), (rule)), (mask))
-#define v4l_outer_fshuffle4(a, b, rule, mask) v4l_blend(v4l_outer_permute4((a), (rule)), v4l_outer_permute4((b), (rule)), (mask))
-#define v8d_outer_fshuffle4(a, b, rule, mask) v8d_blend(v8d_outer_permute4((a), (rule)), v8d_outer_permute4((b), (rule)), (mask))
-#define v8f_outer_fshuffle4(a, b, rule, mask) v8f_blend(v8f_outer_permute4((a), (rule)), v8f_outer_permute4((b), (rule)), (mask))
-#define v8i_outer_fshuffle4(a, b, rule, mask) v8i_blend(v8i_outer_permute4((a), (rule)), v8i_outer_permute4((b), (rule)), (mask))
-#define v8l_outer_fshuffle4(a, b, rule, mask) v8l_blend(v8l_outer_permute4((a), (rule)), v8l_outer_permute4((b), (rule)), (mask))
-#define v16f_outer_fshuffle4(a, b, rule, mask) v16f_blend(v16f_outer_permute4((a), (rule)), v16f_outer_permute4((b), (rule)), (mask))
-#define v16i_outer_fshuffle4(a, b, rule, mask) v16i_blend(v16i_outer_permute4((a), (rule)), v16i_outer_permute4((b), (rule)), (mask))
+#define v16f_fshuffle16(a, b, rule, mask) v16f_blend16(v16f_permute16((a), (rule)), v16f_permute16((b), (rule)), (mask))
+#define v16i_fshuffle16(a, b, rule, mask) v16i_blend16(v16i_permute16((a), (rule)), v16i_permute16((b), (rule)), (mask))
 
-#define v8d_outer_fshuffle8(a, b, rule, mask) v8d_blend(v8d_outer_permute8((a), (rule)), v8d_outer_permute8((b), (rule)), (mask))
-#define v8f_outer_fshuffle8(a, b, rule, mask) v8f_blend(v8f_outer_permute8((a), (rule)), v8f_outer_permute8((b), (rule)), (mask))
-#define v8i_outer_fshuffle8(a, b, rule, mask) v8i_blend(v8i_outer_permute8((a), (rule)), v8i_outer_permute8((b), (rule)), (mask))
-#define v8l_outer_fshuffle8(a, b, rule, mask) v8l_blend(v8l_outer_permute8((a), (rule)), v8l_outer_permute8((b), (rule)), (mask))
-#define v16f_outer_fshuffle8(a, b, rule, mask) v16f_blend(v16f_outer_permute8((a), (rule)), v16f_outer_permute8((b), (rule)), (mask))
-#define v16i_outer_fshuffle8(a, b, rule, mask) v16i_blend(v16i_outer_permute8((a), (rule)), v16i_outer_permute8((b), (rule)), (mask))
+#define v2d_hshuffle2x1(a, b, rule) v2d_hshuffle2((a), (b), (rule))
+#define v2f_hshuffle2x1(a, b, rule) v2f_hshuffle2((a), (b), (rule))
+#define v2i_hshuffle2x1(a, b, rule) v2i_hshuffle2((a), (b), (rule))
+#define v2l_hshuffle2x1(a, b, rule) v2l_hshuffle2((a), (b), (rule))
+#define v4d_hshuffle4x1(a, b, rule) v4d_hshuffle4((a), (b), (rule))
+#define v4f_hshuffle4x1(a, b, rule) v4f_hshuffle4((a), (b), (rule))
+#define v4i_hshuffle4x1(a, b, rule) v4i_hshuffle4((a), (b), (rule))
+#define v4l_hshuffle4x1(a, b, rule) v4l_hshuffle4((a), (b), (rule))
+#define v8d_hshuffle8x1(a, b, rule) v8d_hshuffle8((a), (b), (rule))
+#define v8f_hshuffle8x1(a, b, rule) v8f_hshuffle8((a), (b), (rule))
+#define v8i_hshuffle8x1(a, b, rule) v8i_hshuffle8((a), (b), (rule))
+#define v8l_hshuffle8x1(a, b, rule) v8l_hshuffle8((a), (b), (rule))
+#define v16f_hshuffle16x1(a, b, rule) v16f_hshuffle16((a), (b), (rule))
+#define v16i_hshuffle16x1(a, b, rule) v16i_hshuffle16((a), (b), (rule))
 
-#define v16f_outer_fshuffle16(a, b, rule, mask) v16f_blend(v16f_outer_permute16((a), (rule)), v16f_outer_permute16((b), (rule)), (mask))
-#define v16i_outer_fshuffle16(a, b, rule, mask) v16i_blend(v16i_outer_permute16((a), (rule)), v16i_outer_permute16((b), (rule)), (mask))
+#define v2d_permute2x1(a, b, rule) v2d_permute2((a), (b), (rule))
+#define v2f_permute2x1(a, b, rule) v2f_permute2((a), (b), (rule))
+#define v2i_permute2x1(a, b, rule) v2i_permute2((a), (b), (rule))
+#define v2l_permute2x1(a, b, rule) v2l_permute2((a), (b), (rule))
+#define v4d_permute4x1(a, b, rule) v4d_permute4((a), (b), (rule))
+#define v4f_permute4x1(a, b, rule) v4f_permute4((a), (b), (rule))
+#define v4i_permute4x1(a, b, rule) v4i_permute4((a), (b), (rule))
+#define v4l_permute4x1(a, b, rule) v4l_permute4((a), (b), (rule))
+#define v8d_permute8x1(a, b, rule) v8d_permute8((a), (b), (rule))
+#define v8f_permute8x1(a, b, rule) v8f_permute8((a), (b), (rule))
+#define v8i_permute8x1(a, b, rule) v8i_permute8((a), (b), (rule))
+#define v8l_permute8x1(a, b, rule) v8l_permute8((a), (b), (rule))
+#define v16f_permute16x1(a, b, rule) v16f_permute16((a), (b), (rule))
+#define v16i_permute16x1(a, b, rule) v16i_permute16((a), (b), (rule))
 
-#define v2d_inner_hshuffle1(a, b, rule) v2d_outer_hshuffle2((a), (b), (rule))
-#define v2f_inner_hshuffle1(a, b, rule) v2f_outer_hshuffle2((a), (b), (rule))
-#define v2i_inner_hshuffle1(a, b, rule) v2i_outer_hshuffle2((a), (b), (rule))
-#define v2l_inner_hshuffle1(a, b, rule) v2l_outer_hshuffle2((a), (b), (rule))
-#define v4d_inner_hshuffle1(a, b, rule) v4d_outer_hshuffle4((a), (b), (rule))
-#define v4f_inner_hshuffle1(a, b, rule) v4f_outer_hshuffle4((a), (b), (rule))
-#define v4i_inner_hshuffle1(a, b, rule) v4i_outer_hshuffle4((a), (b), (rule))
-#define v4l_inner_hshuffle1(a, b, rule) v4l_outer_hshuffle4((a), (b), (rule))
-#define v8d_inner_hshuffle1(a, b, rule) v8d_outer_hshuffle8((a), (b), (rule))
-#define v8f_inner_hshuffle1(a, b, rule) v8f_outer_hshuffle8((a), (b), (rule))
-#define v8i_inner_hshuffle1(a, b, rule) v8i_outer_hshuffle8((a), (b), (rule))
-#define v8l_inner_hshuffle1(a, b, rule) v8l_outer_hshuffle8((a), (b), (rule))
-#define v16f_inner_hshuffle1(a, b, rule) v16f_outer_hshuffle16((a), (b), (rule))
-#define v16i_inner_hshuffle1(a, b, rule) v16i_outer_hshuffle16((a), (b), (rule))
+#define v2d_fshuffle2x1(a, b, rule) v2d_fshuffle2((a), (b), (rule))
+#define v2f_fshuffle2x1(a, b, rule) v2f_fshuffle2((a), (b), (rule))
+#define v2i_fshuffle2x1(a, b, rule) v2i_fshuffle2((a), (b), (rule))
+#define v2l_fshuffle2x1(a, b, rule) v2l_fshuffle2((a), (b), (rule))
+#define v4d_fshuffle4x1(a, b, rule) v4d_fshuffle4((a), (b), (rule))
+#define v4f_fshuffle4x1(a, b, rule) v4f_fshuffle4((a), (b), (rule))
+#define v4i_fshuffle4x1(a, b, rule) v4i_fshuffle4((a), (b), (rule))
+#define v4l_fshuffle4x1(a, b, rule) v4l_fshuffle4((a), (b), (rule))
+#define v8d_fshuffle8x1(a, b, rule) v8d_fshuffle8((a), (b), (rule))
+#define v8f_fshuffle8x1(a, b, rule) v8f_fshuffle8((a), (b), (rule))
+#define v8i_fshuffle8x1(a, b, rule) v8i_fshuffle8((a), (b), (rule))
+#define v8l_fshuffle8x1(a, b, rule) v8l_fshuffle8((a), (b), (rule))
+#define v16f_fshuffle16x1(a, b, rule) v16f_fshuffle16((a), (b), (rule))
+#define v16i_fshuffle16x1(a, b, rule) v16i_fshuffle16((a), (b), (rule))
 
-#define v2d_inner_permute1(a, b, rule) v2d_outer_permute2((a), (b), (rule))
-#define v2f_inner_permute1(a, b, rule) v2f_outer_permute2((a), (b), (rule))
-#define v2i_inner_permute1(a, b, rule) v2i_outer_permute2((a), (b), (rule))
-#define v2l_inner_permute1(a, b, rule) v2l_outer_permute2((a), (b), (rule))
-#define v4d_inner_permute1(a, b, rule) v4d_outer_permute4((a), (b), (rule))
-#define v4f_inner_permute1(a, b, rule) v4f_outer_permute4((a), (b), (rule))
-#define v4i_inner_permute1(a, b, rule) v4i_outer_permute4((a), (b), (rule))
-#define v4l_inner_permute1(a, b, rule) v4l_outer_permute4((a), (b), (rule))
-#define v8d_inner_permute1(a, b, rule) v8d_outer_permute8((a), (b), (rule))
-#define v8f_inner_permute1(a, b, rule) v8f_outer_permute8((a), (b), (rule))
-#define v8i_inner_permute1(a, b, rule) v8i_outer_permute8((a), (b), (rule))
-#define v8l_inner_permute1(a, b, rule) v8l_outer_permute8((a), (b), (rule))
-#define v16f_inner_permute1(a, b, rule) v16f_outer_permute16((a), (b), (rule))
-#define v16i_inner_permute1(a, b, rule) v16i_outer_permute16((a), (b), (rule))
+#define v4d_hshuffle2x2(a, b, rule) v4d_merge2_v2d(v2d_hshuffle2x1(v2d_get_low_v4d(a), v2d_get_low_v4d(b), (rule)), v2d_hshuffle2x1(v2d_get_high_v4d(a), v2d_get_high_v4d(b), (rule)))
+#define v4f_hshuffle2x2(a, b, rule) v4f_merge2_v2f(v2f_hshuffle2x1(v2f_get_low_v4f(a), v2f_get_low_v4f(b), (rule)), v2f_hshuffle2x1(v2f_get_high_v4f(a), v2f_get_high_v4f(b), (rule)))
+#define v4i_hshuffle2x2(a, b, rule) v4i_merge2_v2i(v2i_hshuffle2x1(v2i_get_low_v4i(a), v2i_get_low_v4i(b), (rule)), v2i_hshuffle2x1(v2i_get_high_v4i(a), v2i_get_high_v4i(b), (rule)))
+#define v4l_hshuffle2x2(a, b, rule) v4l_merge2_v2l(v2l_hshuffle2x1(v2l_get_low_v4l(a), v2l_get_low_v4l(b), (rule)), v2l_hshuffle2x1(v2l_get_high_v4l(a), v2l_get_high_v4l(b), (rule)))
+#define v8d_hshuffle4x2(a, b, rule) v8d_merge2_v4d(v4d_hshuffle4x1(v4d_get_low_v8d(a), v4d_get_low_v8d(b), (rule)), v4d_hshuffle4x1(v4d_get_high_v8d(a), v4d_get_high_v8d(b), (rule)))
+#define v8f_hshuffle4x2(a, b, rule) v8f_merge2_v4f(v4f_hshuffle4x1(v4f_get_low_v8f(a), v4f_get_low_v8f(b), (rule)), v4f_hshuffle4x1(v4f_get_high_v8f(a), v4f_get_high_v8f(b), (rule)))
+#define v8i_hshuffle4x2(a, b, rule) v8i_merge2_v4i(v4i_hshuffle4x1(v4i_get_low_v8i(a), v4i_get_low_v8i(b), (rule)), v4i_hshuffle4x1(v4i_get_high_v8i(a), v4i_get_high_v8i(b), (rule)))
+#define v8l_hshuffle4x2(a, b, rule) v8l_merge2_v4l(v4l_hshuffle4x1(v4l_get_low_v8l(a), v4l_get_low_v8l(b), (rule)), v4l_hshuffle4x1(v4l_get_high_v8l(a), v4l_get_high_v8l(b), (rule)))
+#define v16f_hshuffle8x2(a, b, rule) v16f_merge2_v8f(v8f_hshuffle8x1(v8f_get_low_v16f(a), v8f_get_low_v16f(b), (rule)), v8f_hshuffle8x1(v8f_get_high_v16f(a), v8f_get_high_v16f(b), (rule)))
+#define v16i_hshuffle8x2(a, b, rule) v16i_merge2_v8i(v8i_hshuffle8x1(v8i_get_low_v16i(a), v8i_get_low_v16i(b), (rule)), v8i_hshuffle8x1(v8i_get_high_v16i(a), v8i_get_high_v16i(b), (rule)))
 
-#define v2d_inner_fshuffle1(a, b, rule) v2d_outer_fshuffle2((a), (b), (rule))
-#define v2f_inner_fshuffle1(a, b, rule) v2f_outer_fshuffle2((a), (b), (rule))
-#define v2i_inner_fshuffle1(a, b, rule) v2i_outer_fshuffle2((a), (b), (rule))
-#define v2l_inner_fshuffle1(a, b, rule) v2l_outer_fshuffle2((a), (b), (rule))
-#define v4d_inner_fshuffle1(a, b, rule) v4d_outer_fshuffle4((a), (b), (rule))
-#define v4f_inner_fshuffle1(a, b, rule) v4f_outer_fshuffle4((a), (b), (rule))
-#define v4i_inner_fshuffle1(a, b, rule) v4i_outer_fshuffle4((a), (b), (rule))
-#define v4l_inner_fshuffle1(a, b, rule) v4l_outer_fshuffle4((a), (b), (rule))
-#define v8d_inner_fshuffle1(a, b, rule) v8d_outer_fshuffle8((a), (b), (rule))
-#define v8f_inner_fshuffle1(a, b, rule) v8f_outer_fshuffle8((a), (b), (rule))
-#define v8i_inner_fshuffle1(a, b, rule) v8i_outer_fshuffle8((a), (b), (rule))
-#define v8l_inner_fshuffle1(a, b, rule) v8l_outer_fshuffle8((a), (b), (rule))
-#define v16f_inner_fshuffle1(a, b, rule) v16f_outer_fshuffle16((a), (b), (rule))
-#define v16i_inner_fshuffle1(a, b, rule) v16i_outer_fshuffle16((a), (b), (rule))
+#define v8d_hshuffle2x4(a, b, rule) v8d_merge2_v4d(v4d_hshuffle2x2(v4d_get_low_v8d(a), v4d_get_low_v8d(b), (rule)), v4d_hshuffle2x2(v4d_get_high_v8d(a), v4d_get_high_v8d(b), (rule)))
+#define v8f_hshuffle2x4(a, b, rule) v8f_merge2_v4f(v4f_hshuffle2x2(v4f_get_low_v8f(a), v4f_get_low_v8f(b), (rule)), v4f_hshuffle2x2(v4f_get_high_v8f(a), v4f_get_high_v8f(b), (rule)))
+#define v8i_hshuffle2x4(a, b, rule) v8i_merge2_v4i(v4i_hshuffle2x2(v4i_get_low_v8i(a), v4i_get_low_v8i(b), (rule)), v4i_hshuffle2x2(v4i_get_high_v8i(a), v4i_get_high_v8i(b), (rule)))
+#define v8l_hshuffle2x4(a, b, rule) v8l_merge2_v4l(v4l_hshuffle2x2(v4l_get_low_v8l(a), v4l_get_low_v8l(b), (rule)), v4l_hshuffle2x2(v4l_get_high_v8l(a), v4l_get_high_v8l(b), (rule)))
+#define v16f_hshuffle4x4(a, b, rule) v16f_merge2_v8f(v8f_hshuffle4x2(v8f_get_low_v16f(a), v8f_get_low_v16f(b), (rule)), v8f_hshuffle4x2(v8f_get_high_v16f(a), v8f_get_high_v16f(b), (rule)))
+#define v16i_hshuffle4x4(a, b, rule) v16i_merge2_v8i(v8i_hshuffle4x2(v8i_get_low_v16i(a), v8i_get_low_v16i(b), (rule)), v8i_hshuffle4x2(v8i_get_high_v16i(a), v8i_get_high_v16i(b), (rule)))
 
-#define v4d_inner_hshuffle2(a, b, rule) v4d_merge2_v2d(v2d_inner_hshuffle1(v2d_get_low_v4d(a), v2d_get_low_v4d(b), (rule)), v2d_inner_hshuffle1(v2d_get_high_v4d(a), v2d_get_high_v4d(b), (rule)))
-#define v4f_inner_hshuffle2(a, b, rule) v4f_merge2_v2f(v2f_inner_hshuffle1(v2f_get_low_v4f(a), v2f_get_low_v4f(b), (rule)), v2f_inner_hshuffle1(v2f_get_high_v4f(a), v2f_get_high_v4f(b), (rule)))
-#define v4i_inner_hshuffle2(a, b, rule) v4i_merge2_v2i(v2i_inner_hshuffle1(v2i_get_low_v4i(a), v2i_get_low_v4i(b), (rule)), v2i_inner_hshuffle1(v2i_get_high_v4i(a), v2i_get_high_v4i(b), (rule)))
-#define v4l_inner_hshuffle2(a, b, rule) v4l_merge2_v2l(v2l_inner_hshuffle1(v2l_get_low_v4l(a), v2l_get_low_v4l(b), (rule)), v2l_inner_hshuffle1(v2l_get_high_v4l(a), v2l_get_high_v4l(b), (rule)))
-#define v8d_inner_hshuffle2(a, b, rule) v8d_merge2_v4d(v4d_inner_hshuffle1(v4d_get_low_v8d(a), v4d_get_low_v8d(b), (rule)), v4d_inner_hshuffle1(v4d_get_high_v8d(a), v4d_get_high_v8d(b), (rule)))
-#define v8f_inner_hshuffle2(a, b, rule) v8f_merge2_v4f(v4f_inner_hshuffle1(v4f_get_low_v8f(a), v4f_get_low_v8f(b), (rule)), v4f_inner_hshuffle1(v4f_get_high_v8f(a), v4f_get_high_v8f(b), (rule)))
-#define v8i_inner_hshuffle2(a, b, rule) v8i_merge2_v4i(v4i_inner_hshuffle1(v4i_get_low_v8i(a), v4i_get_low_v8i(b), (rule)), v4i_inner_hshuffle1(v4i_get_high_v8i(a), v4i_get_high_v8i(b), (rule)))
-#define v8l_inner_hshuffle2(a, b, rule) v8l_merge2_v4l(v4l_inner_hshuffle1(v4l_get_low_v8l(a), v4l_get_low_v8l(b), (rule)), v4l_inner_hshuffle1(v4l_get_high_v8l(a), v4l_get_high_v8l(b), (rule)))
-#define v16f_inner_hshuffle2(a, b, rule) v16f_merge2_v8f(v8f_inner_hshuffle1(v8f_get_low_v16f(a), v8f_get_low_v16f(b), (rule)), v8f_inner_hshuffle1(v8f_get_high_v16f(a), v8f_get_high_v16f(b), (rule)))
-#define v16i_inner_hshuffle2(a, b, rule) v16i_merge2_v8i(v8i_inner_hshuffle1(v8i_get_low_v16i(a), v8i_get_low_v16i(b), (rule)), v8i_inner_hshuffle1(v8i_get_high_v16i(a), v8i_get_high_v16i(b), (rule)))
-
-#define v8d_inner_hshuffle4(a, b, rule) v8d_merge2_v4d(v4d_inner_hshuffle2(v4d_get_low_v8d(a), v4d_get_low_v8d(b), (rule)), v4d_inner_hshuffle2(v4d_get_high_v8d(a), v4d_get_high_v8d(b), (rule)))
-#define v8f_inner_hshuffle4(a, b, rule) v8f_merge2_v4f(v4f_inner_hshuffle2(v4f_get_low_v8f(a), v4f_get_low_v8f(b), (rule)), v4f_inner_hshuffle2(v4f_get_high_v8f(a), v4f_get_high_v8f(b), (rule)))
-#define v8i_inner_hshuffle4(a, b, rule) v8i_merge2_v4i(v4i_inner_hshuffle2(v4i_get_low_v8i(a), v4i_get_low_v8i(b), (rule)), v4i_inner_hshuffle2(v4i_get_high_v8i(a), v4i_get_high_v8i(b), (rule)))
-#define v8l_inner_hshuffle4(a, b, rule) v8l_merge2_v4l(v4l_inner_hshuffle2(v4l_get_low_v8l(a), v4l_get_low_v8l(b), (rule)), v4l_inner_hshuffle2(v4l_get_high_v8l(a), v4l_get_high_v8l(b), (rule)))
-#define v16f_inner_hshuffle4(a, b, rule) v16f_merge2_v8f(v8f_inner_hshuffle2(v8f_get_low_v16f(a), v8f_get_low_v16f(b), (rule)), v8f_inner_hshuffle2(v8f_get_high_v16f(a), v8f_get_high_v16f(b), (rule)))
-#define v16i_inner_hshuffle4(a, b, rule) v16i_merge2_v8i(v8i_inner_hshuffle2(v8i_get_low_v16i(a), v8i_get_low_v16i(b), (rule)), v8i_inner_hshuffle2(v8i_get_high_v16i(a), v8i_get_high_v16i(b), (rule)))
-
-#define v16f_inner_hshuffle8(a, b, rule) v16f_merge2_v8f(v8f_inner_hshuffle4(v8f_get_low_v16f(a), v8f_get_low_v16f(b), (rule)), v8f_inner_hshuffle4(v8f_get_high_v16f(a), v8f_get_high_v16f(b), (rule)))
-#define v16i_inner_hshuffle8(a, b, rule) v16i_merge2_v8i(v8i_inner_hshuffle4(v8i_get_low_v16i(a), v8i_get_low_v16i(b), (rule)), v8i_inner_hshuffle4(v8i_get_high_v16i(a), v8i_get_high_v16i(b), (rule)))
+#define v16f_hshuffle2x8(a, b, rule) v16f_merge2_v8f(v8f_hshuffle2x4(v8f_get_low_v16f(a), v8f_get_low_v16f(b), (rule)), v8f_hshuffle2x4(v8f_get_high_v16f(a), v8f_get_high_v16f(b), (rule)))
+#define v16i_hshuffle2x8(a, b, rule) v16i_merge2_v8i(v8i_hshuffle2x4(v8i_get_low_v16i(a), v8i_get_low_v16i(b), (rule)), v8i_hshuffle2x4(v8i_get_high_v16i(a), v8i_get_high_v16i(b), (rule)))
 
 
-#define v4d_inner_permute2(a, rule) v4d_inner_hshuffle2((a), (a), (rule))
-#define v4f_inner_permute2(a, rule) v4f_inner_hshuffle2((a), (a), (rule))
-#define v4i_inner_permute2(a, rule) v4i_inner_hshuffle2((a), (a), (rule))
-#define v4l_inner_permute2(a, rule) v4l_inner_hshuffle2((a), (a), (rule))
-#define v8d_inner_permute2(a, rule) v8d_inner_hshuffle2((a), (a), (rule))
-#define v8f_inner_permute2(a, rule) v8f_inner_hshuffle2((a), (a), (rule))
-#define v8i_inner_permute2(a, rule) v8i_inner_hshuffle2((a), (a), (rule))
-#define v8l_inner_permute2(a, rule) v8l_inner_hshuffle2((a), (a), (rule))
-#define v16f_inner_permute2(a, rule) v16f_inner_hshuffle2((a), (a), (rule))
-#define v16i_inner_permute2(a, rule) v16i_inner_hshuffle2((a), (a), (rule))
+#define v4d_permute2x2(a, rule) v4d_hshuffle2x2((a), (a), (rule))
+#define v4f_permute2x2(a, rule) v4f_hshuffle2x2((a), (a), (rule))
+#define v4i_permute2x2(a, rule) v4i_hshuffle2x2((a), (a), (rule))
+#define v4l_permute2x2(a, rule) v4l_hshuffle2x2((a), (a), (rule))
+#define v8d_permute4x2(a, rule) v8d_hshuffle4x2((a), (a), (rule))
+#define v8f_permute4x2(a, rule) v8f_hshuffle4x2((a), (a), (rule))
+#define v8i_permute4x2(a, rule) v8i_hshuffle4x2((a), (a), (rule))
+#define v8l_permute4x2(a, rule) v8l_hshuffle4x2((a), (a), (rule))
+#define v16f_permute8x2(a, rule) v16f_hshuffle8x2((a), (a), (rule))
+#define v16i_permute8x2(a, rule) v16i_hshuffle8x2((a), (a), (rule))
 
-#define v8d_inner_permute4(a, rule) v8d_inner_hshuffle4((a), (a), (rule))
-#define v8f_inner_permute4(a, rule) v8f_inner_hshuffle4((a), (a), (rule))
-#define v8i_inner_permute4(a, rule) v8i_inner_hshuffle4((a), (a), (rule))
-#define v8l_inner_permute4(a, rule) v8l_inner_hshuffle4((a), (a), (rule))
-#define v16f_inner_permute4(a, rule) v16f_inner_hshuffle4((a), (a), (rule))
-#define v16i_inner_permute4(a, rule) v16i_inner_hshuffle4((a), (a), (rule))
+#define v8d_permute2x4(a, rule) v8d_hshuffle2x4((a), (a), (rule))
+#define v8f_permute2x4(a, rule) v8f_hshuffle2x4((a), (a), (rule))
+#define v8i_permute2x4(a, rule) v8i_hshuffle2x4((a), (a), (rule))
+#define v8l_permute2x4(a, rule) v8l_hshuffle2x4((a), (a), (rule))
+#define v16f_permute4x4(a, rule) v16f_hshuffle4x4((a), (a), (rule))
+#define v16i_permute4x4(a, rule) v16i_hshuffle4x4((a), (a), (rule))
 
-#define v16f_inner_permute8(a, rule) v16f_inner_hshuffle8((a), (a), (rule))
-#define v16i_inner_permute8(a, rule) v16i_inner_hshuffle8((a), (a), (rule))
-
-
-#define v4d_inner_fshuffle2(a, b, rule, mask) v4d_blend(v4d_inner_permute2((a), (rule)), v4d_inner_permute2((b), (rule)), (mask))
-#define v4f_inner_fshuffle2(a, b, rule, mask) v4f_blend(v4f_inner_permute2((a), (rule)), v4f_inner_permute2((b), (rule)), (mask))
-#define v4i_inner_fshuffle2(a, b, rule, mask) v4i_blend(v4i_inner_permute2((a), (rule)), v4i_inner_permute2((b), (rule)), (mask))
-#define v4l_inner_fshuffle2(a, b, rule, mask) v4l_blend(v4l_inner_permute2((a), (rule)), v4l_inner_permute2((b), (rule)), (mask))
-#define v8d_inner_fshuffle2(a, b, rule, mask) v8d_blend(v8d_inner_permute2((a), (rule)), v8d_inner_permute2((b), (rule)), (mask))
-#define v8f_inner_fshuffle2(a, b, rule, mask) v8f_blend(v8f_inner_permute2((a), (rule)), v8f_inner_permute2((b), (rule)), (mask))
-#define v8i_inner_fshuffle2(a, b, rule, mask) v8i_blend(v8i_inner_permute2((a), (rule)), v8i_inner_permute2((b), (rule)), (mask))
-#define v8l_inner_fshuffle2(a, b, rule, mask) v8l_blend(v8l_inner_permute2((a), (rule)), v8l_inner_permute2((b), (rule)), (mask))
-#define v16f_inner_fshuffle2(a, b, rule, mask) v16f_blend(v16f_inner_permute2((a), (rule)), v16f_inner_permute2((b), (rule)), (mask))
-#define v16i_inner_fshuffle2(a, b, rule, mask) v16i_blend(v16i_inner_permute2((a), (rule)), v16i_inner_permute2((b), (rule)), (mask))
-
-#define v8d_inner_fshuffle4(a, b, rule, mask) v8d_blend(v8d_inner_permute4((a), (rule)), v8d_inner_permute4((b), (rule)), (mask))
-#define v8f_inner_fshuffle4(a, b, rule, mask) v8f_blend(v8f_inner_permute4((a), (rule)), v8f_inner_permute4((b), (rule)), (mask))
-#define v8i_inner_fshuffle4(a, b, rule, mask) v8i_blend(v8i_inner_permute4((a), (rule)), v8i_inner_permute4((b), (rule)), (mask))
-#define v8l_inner_fshuffle4(a, b, rule, mask) v8l_blend(v8l_inner_permute4((a), (rule)), v8l_inner_permute4((b), (rule)), (mask))
-#define v16f_inner_fshuffle4(a, b, rule, mask) v16f_blend(v16f_inner_permute4((a), (rule)), v16f_inner_permute4((b), (rule)), (mask))
-#define v16i_inner_fshuffle4(a, b, rule, mask) v16i_blend(v16i_inner_permute4((a), (rule)), v16i_inner_permute4((b), (rule)), (mask))
-
-#define v16f_inner_fshuffle8(a, b, rule, mask) v16f_blend(v16f_inner_permute8((a), (rule)), v16f_inner_permute8((b), (rule)), (mask))
-#define v16i_inner_fshuffle8(a, b, rule, mask) v16i_blend(v16i_inner_permute8((a), (rule)), v16i_inner_permute8((b), (rule)), (mask))
+#define v16f_permute2x8(a, rule) v16f_hshuffle2x8((a), (a), (rule))
+#define v16i_permute2x8(a, rule) v16i_hshuffle2x8((a), (a), (rule))
 
 
-#define v2d_hshuffle(a, b, rule) v2d_outer_hshuffle2((a), (b), (rule))
-#define v2f_hshuffle(a, b, rule) v2f_outer_hshuffle2((a), (b), (rule))
-#define v2i_hshuffle(a, b, rule) v2i_outer_hshuffle2((a), (b), (rule))
-#define v2l_hshuffle(a, b, rule) v2l_outer_hshuffle2((a), (b), (rule))
-#define v4d_hshuffle(a, b, rule) v4d_outer_hshuffle4((a), (b), (rule))
-#define v4f_hshuffle(a, b, rule) v4f_outer_hshuffle4((a), (b), (rule))
-#define v4i_hshuffle(a, b, rule) v4i_outer_hshuffle4((a), (b), (rule))
-#define v4l_hshuffle(a, b, rule) v4l_outer_hshuffle4((a), (b), (rule))
-#define v8d_hshuffle(a, b, rule) v8d_outer_hshuffle8((a), (b), (rule))
-#define v8f_hshuffle(a, b, rule) v8f_outer_hshuffle8((a), (b), (rule))
-#define v8i_hshuffle(a, b, rule) v8i_outer_hshuffle8((a), (b), (rule))
-#define v8l_hshuffle(a, b, rule) v8l_outer_hshuffle8((a), (b), (rule))
-#define v16f_hshuffle(a, b, rule) v16f_outer_hshuffle16((a), (b), (rule))
-#define v16i_hshuffle(a, b, rule) v16i_outer_hshuffle16((a), (b), (rule))
+#define v4d_fshuffle2x2(a, b, rule, mask) v4d_blend(v4d_permute2x2((a), (rule)), v4d_permute2x2((b), (rule)), (mask))
+#define v4f_fshuffle2x2(a, b, rule, mask) v4f_blend(v4f_permute2x2((a), (rule)), v4f_permute2x2((b), (rule)), (mask))
+#define v4i_fshuffle2x2(a, b, rule, mask) v4i_blend(v4i_permute2x2((a), (rule)), v4i_permute2x2((b), (rule)), (mask))
+#define v4l_fshuffle2x2(a, b, rule, mask) v4l_blend(v4l_permute2x2((a), (rule)), v4l_permute2x2((b), (rule)), (mask))
+#define v8d_fshuffle4x2(a, b, rule, mask) v8d_blend(v8d_permute4x2((a), (rule)), v8d_permute4x2((b), (rule)), (mask))
+#define v8f_fshuffle4x2(a, b, rule, mask) v8f_blend(v8f_permute4x2((a), (rule)), v8f_permute4x2((b), (rule)), (mask))
+#define v8i_fshuffle4x2(a, b, rule, mask) v8i_blend(v8i_permute4x2((a), (rule)), v8i_permute4x2((b), (rule)), (mask))
+#define v8l_fshuffle4x2(a, b, rule, mask) v8l_blend(v8l_permute4x2((a), (rule)), v8l_permute4x2((b), (rule)), (mask))
+#define v16f_fshuffle8x2(a, b, rule, mask) v16f_blend(v16f_permute8x2((a), (rule)), v16f_permute8x2((b), (rule)), (mask))
+#define v16i_fshuffle8x2(a, b, rule, mask) v16i_blend(v16i_permute8x2((a), (rule)), v16i_permute8x2((b), (rule)), (mask))
 
-#define v2d_permute(a, rule) v2d_outer_permute2((a), (rule))
-#define v2f_permute(a, rule) v2f_outer_permute2((a), (rule))
-#define v2i_permute(a, rule) v2i_outer_permute2((a), (rule))
-#define v2l_permute(a, rule) v2l_outer_permute2((a), (rule))
-#define v4d_permute(a, rule) v4d_outer_permute4((a), (rule))
-#define v4f_permute(a, rule) v4f_outer_permute4((a), (rule))
-#define v4i_permute(a, rule) v4i_outer_permute4((a), (rule))
-#define v4l_permute(a, rule) v4l_outer_permute4((a), (rule))
-#define v8d_permute(a, rule) v8d_outer_permute8((a), (rule))
-#define v8f_permute(a, rule) v8f_outer_permute8((a), (rule))
-#define v8i_permute(a, rule) v8i_outer_permute8((a), (rule))
-#define v8l_permute(a, rule) v8l_outer_permute8((a), (rule))
-#define v16f_permute(a, rule) v16f_outer_permute16((a), (rule))
-#define v16i_permute(a, rule) v16i_outer_permute16((a), (rule))
+#define v8d_fshuffle2x4(a, b, rule, mask) v8d_blend(v8d_permute2x4((a), (rule)), v8d_permute2x4((b), (rule)), (mask))
+#define v8f_fshuffle2x4(a, b, rule, mask) v8f_blend(v8f_permute2x4((a), (rule)), v8f_permute2x4((b), (rule)), (mask))
+#define v8i_fshuffle2x4(a, b, rule, mask) v8i_blend(v8i_permute2x4((a), (rule)), v8i_permute2x4((b), (rule)), (mask))
+#define v8l_fshuffle2x4(a, b, rule, mask) v8l_blend(v8l_permute2x4((a), (rule)), v8l_permute2x4((b), (rule)), (mask))
+#define v16f_fshuffle4x4(a, b, rule, mask) v16f_blend(v16f_permute4x4((a), (rule)), v16f_permute4x4((b), (rule)), (mask))
+#define v16i_fshuffle4x4(a, b, rule, mask) v16i_blend(v16i_permute4x4((a), (rule)), v16i_permute4x4((b), (rule)), (mask))
 
-#define v2d_fshuffle(a, b, rule, mask) v2d_outer_fshuffle2((a), (b), (rule), (mask))
-#define v2f_fshuffle(a, b, rule, mask) v2f_outer_fshuffle2((a), (b), (rule), (mask))
-#define v2i_fshuffle(a, b, rule, mask) v2i_outer_fshuffle2((a), (b), (rule), (mask))
-#define v2l_fshuffle(a, b, rule, mask) v2l_outer_fshuffle2((a), (b), (rule), (mask))
-#define v4d_fshuffle(a, b, rule, mask) v4d_outer_fshuffle4((a), (b), (rule), (mask))
-#define v4f_fshuffle(a, b, rule, mask) v4f_outer_fshuffle4((a), (b), (rule), (mask))
-#define v4i_fshuffle(a, b, rule, mask) v4i_outer_fshuffle4((a), (b), (rule), (mask))
-#define v4l_fshuffle(a, b, rule, mask) v4l_outer_fshuffle4((a), (b), (rule), (mask))
-#define v8d_fshuffle(a, b, rule, mask) v8d_outer_fshuffle8((a), (b), (rule), (mask))
-#define v8f_fshuffle(a, b, rule, mask) v8f_outer_fshuffle8((a), (b), (rule), (mask))
-#define v8i_fshuffle(a, b, rule, mask) v8i_outer_fshuffle8((a), (b), (rule), (mask))
-#define v8l_fshuffle(a, b, rule, mask) v8l_outer_fshuffle8((a), (b), (rule), (mask))
-#define v16f_fshuffle(a, b, rule, mask) v16f_outer_fshuffle16((a), (b), (rule), (mask))
-#define v16i_fshuffle(a, b, rule, mask) v16i_outer_fshuffle16((a), (b), (rule), (mask))
+#define v16f_fshuffle2x8(a, b, rule, mask) v16f_blend(v16f_permute2x8((a), (rule)), v16f_permute2x8((b), (rule)), (mask))
+#define v16i_fshuffle2x8(a, b, rule, mask) v16i_blend(v16i_permute2x8((a), (rule)), v16i_permute2x8((b), (rule)), (mask))
+
+
+#define v2d_hshuffle(a, b, rule) v2d_hshuffle2((a), (b), (rule))
+#define v2f_hshuffle(a, b, rule) v2f_hshuffle2((a), (b), (rule))
+#define v2i_hshuffle(a, b, rule) v2i_hshuffle2((a), (b), (rule))
+#define v2l_hshuffle(a, b, rule) v2l_hshuffle2((a), (b), (rule))
+#define v4d_hshuffle(a, b, rule) v4d_hshuffle4((a), (b), (rule))
+#define v4f_hshuffle(a, b, rule) v4f_hshuffle4((a), (b), (rule))
+#define v4i_hshuffle(a, b, rule) v4i_hshuffle4((a), (b), (rule))
+#define v4l_hshuffle(a, b, rule) v4l_hshuffle4((a), (b), (rule))
+#define v8d_hshuffle(a, b, rule) v8d_hshuffle8((a), (b), (rule))
+#define v8f_hshuffle(a, b, rule) v8f_hshuffle8((a), (b), (rule))
+#define v8i_hshuffle(a, b, rule) v8i_hshuffle8((a), (b), (rule))
+#define v8l_hshuffle(a, b, rule) v8l_hshuffle8((a), (b), (rule))
+#define v16f_hshuffle(a, b, rule) v16f_hshuffle16((a), (b), (rule))
+#define v16i_hshuffle(a, b, rule) v16i_hshuffle16((a), (b), (rule))
+
+#define v2d_permute(a, rule) v2d_permute2((a), (rule))
+#define v2f_permute(a, rule) v2f_permute2((a), (rule))
+#define v2i_permute(a, rule) v2i_permute2((a), (rule))
+#define v2l_permute(a, rule) v2l_permute2((a), (rule))
+#define v4d_permute(a, rule) v4d_permute4((a), (rule))
+#define v4f_permute(a, rule) v4f_permute4((a), (rule))
+#define v4i_permute(a, rule) v4i_permute4((a), (rule))
+#define v4l_permute(a, rule) v4l_permute4((a), (rule))
+#define v8d_permute(a, rule) v8d_permute8((a), (rule))
+#define v8f_permute(a, rule) v8f_permute8((a), (rule))
+#define v8i_permute(a, rule) v8i_permute8((a), (rule))
+#define v8l_permute(a, rule) v8l_permute8((a), (rule))
+#define v16f_permute(a, rule) v16f_permute16((a), (rule))
+#define v16i_permute(a, rule) v16i_permute16((a), (rule))
+
+#define v2d_fshuffle(a, b, rule, mask) v2d_fshuffle2((a), (b), (rule), (mask))
+#define v2f_fshuffle(a, b, rule, mask) v2f_fshuffle2((a), (b), (rule), (mask))
+#define v2i_fshuffle(a, b, rule, mask) v2i_fshuffle2((a), (b), (rule), (mask))
+#define v2l_fshuffle(a, b, rule, mask) v2l_fshuffle2((a), (b), (rule), (mask))
+#define v4d_fshuffle(a, b, rule, mask) v4d_fshuffle4((a), (b), (rule), (mask))
+#define v4f_fshuffle(a, b, rule, mask) v4f_fshuffle4((a), (b), (rule), (mask))
+#define v4i_fshuffle(a, b, rule, mask) v4i_fshuffle4((a), (b), (rule), (mask))
+#define v4l_fshuffle(a, b, rule, mask) v4l_fshuffle4((a), (b), (rule), (mask))
+#define v8d_fshuffle(a, b, rule, mask) v8d_fshuffle8((a), (b), (rule), (mask))
+#define v8f_fshuffle(a, b, rule, mask) v8f_fshuffle8((a), (b), (rule), (mask))
+#define v8i_fshuffle(a, b, rule, mask) v8i_fshuffle8((a), (b), (rule), (mask))
+#define v8l_fshuffle(a, b, rule, mask) v8l_fshuffle8((a), (b), (rule), (mask))
+#define v16f_fshuffle(a, b, rule, mask) v16f_fshuffle16((a), (b), (rule), (mask))
+#define v16i_fshuffle(a, b, rule, mask) v16i_fshuffle16((a), (b), (rule), (mask))
 
 #define v1d_eq __v1d_eq
 #define v1f_eq __v1f_eq

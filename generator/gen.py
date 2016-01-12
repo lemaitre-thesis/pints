@@ -561,7 +561,6 @@ SQRTi = Macro("%P_sqrt", "a", "%P_cvt_%fP(%P_sqrt(%fP_cvt_%P(a)))", types = INTE
 LOAD  = Function("%I",   "%P_load",  "const %t *p", "%I r = { v: *p }; return r;", sizes = [1])
 STORE = Function("void", "%P_store", "%t *p, %I a", "*p = a.v;", sizes = [1])
 SET = Function("%T", "%P_set", "%t a", "return %P_load(&a);", sizes = [1])
-BLEND = Macro("%P_blend", "a, b, mask", "((mask&1) ? (b) : (a))", sizes = [1])
 EQr   = TrivialRecursion(EQ)
 NEQr  = TrivialRecursion(NEQ)
 GTr   = TrivialRecursion(GT)
@@ -581,7 +580,6 @@ LOADr = Function("%T", "%P_load",  "const %t *p",
 STORr = Function("void", "%P_store", "%t *p, %T a",
   r"%-P_store(p, %-P_get_low_%P(a)); %-P_store(p+%-N, %-P_get_high_%P(a));", sizes = recursive_sizes(1))
 SETr = Macro("%P_set", "%$$0:%N$a%n$, $$", "%P_merge_%-P(%-P_set(%$$0:%-N$(a%n)$, $$), %-P_set(%$$%-N:%N$(a%n)$, $$))")
-BLENDr = Macro("%P_blend", "a, b, mask", "%P_merge_%-P(%-P_blend(%-P_get_low_%P(a), %-P_get_low_%P(b), (mask) & {{{%N-1}}}), %-P_blend(%-P_get_low_%P(a), %-P_get_low_%P(b), ((mask) & {{{%N-1}}}) >> {{{ln2(%N)}}}))", sizes = recursive_sizes(1))
 
 
 
@@ -657,35 +655,35 @@ def generate_merges():
   return merges
 
 
-inhSHUFFLEname = "%P_inner_hshuffle%'N'"
+inhSHUFFLEname = "%P_hshuffle{{{%N/%'N'}}}x%'N'"
 inhSHUFFLEargs = "a, b, rule"
-inhSHUFFLEbody = "%P_merge2_%-P(%-P_inner_hshuffle%'-N'(%-P_get_low_%P(a), %-P_get_low_%P(b), (rule)), %-P_inner_hshuffle%'-N'(%-P_get_high_%P(a), %-P_get_high_%P(b), (rule)))"
-inPERMUTEname = "%P_inner_permute%'N'"
+inhSHUFFLEbody = "%P_merge2_%-P(%-P_hshuffle{{{%N/%'N'}}}x%'-N'(%-P_get_low_%P(a), %-P_get_low_%P(b), (rule)), %-P_hshuffle{{{%N/%'N'}}}x%'-N'(%-P_get_high_%P(a), %-P_get_high_%P(b), (rule)))"
+inPERMUTEname = "%P_permute{{{%N/%'N'}}}x%'N'"
 inPERMUTEargs = "a, rule"
-inPERMUTEbody = "%P_inner_hshuffle%'N'((a), (a), (rule))"
-infSHUFFLEname = "%P_inner_fshuffle%'N'"
+inPERMUTEbody = "%P_hshuffle{{{%N/%'N'}}}x%'N'((a), (a), (rule))"
+infSHUFFLEname = "%P_fshuffle{{{%N/%'N'}}}x%'N'"
 infSHUFFLEargs = "a, b, rule, mask"
-infSHUFFLEbody = "%P_blend(%P_inner_permute%'N'((a), (rule)), %P_inner_permute%'N'((b), (rule)), (mask))"
+infSHUFFLEbody = "%P_blend(%P_permute{{{%N/%'N'}}}x%'N'((a), (rule)), %P_permute{{{%N/%'N'}}}x%'N'((b), (rule)), (mask))"
 
-outhSHUFFLEname = "%P_outer_hshuffle%'N'"
+outhSHUFFLEname = "%P_hshuffle%'N'"
 outhSHUFFLEargs = "a, b, rule"
 outhSHUFFLEbody = r"""%P_merge_%-P(
-  %-P_outer_fshuffle%'-N'(
+  %-P_fshuffle%'-N'(
     %-P_get_low_%P(a), %-P_get_high_%P(a),
-    %$$0:%-N$((((rule) >> {{{%n*ln2(%N)}}}) & {{{%-N-1}}}) << {{{%n*ln2(%-N)}}})$|$$,
-    %$$0:%-N$((((rule) >> {{{%n*ln2(%N)+ln2(%-N)}}}) & {{{%-N-1}}}) << %n)$|$$),
-  %-P_outer_fshuffle%'-N'(
+    %$$0:%'-N'$((((rule) >> {{{%n*ln2(%'N')}}}) & {{{%'-N'-1}}}) << {{{%n*ln2(%'-N')}}})$|$$,
+    %$$0:%'-N'$((((rule) >> {{{%n*ln2(%'N')+ln2(%'-N')}}}) & {{{%'-N'-1}}}) << %n)$|$$),
+  %-P_fshuffle%'-N'(
     %-P_get_low_%P(b), %-P_get_high_%P(b),
-    %$$0:%-N$((((rule) >> {{{%-N*ln2(%N)+%n*ln2(%N)}}}) & {{{%-N-1}}}) << {{{%n*ln2(%-N)}}})$|$$,
-    %$$0:%-N$((((rule) >> {{{%-N*ln2(%N)+%n*ln2(%N)+ln2(%-N)}}}) & {{{%-N-1}}}) << %n)$|$$)
+    %$$0:%'-N'$((((rule) >> {{{%'-N'*ln2(%'N')+%n*ln2(%'N')}}}) & {{{%'-N'-1}}}) << {{{%n*ln2(%'-N')}}})$|$$,
+    %$$0:%'-N'$((((rule) >> {{{%'-N'*ln2(%'N')+%n*ln2(%'N')+ln2(%'-N')}}}) & {{{%'-N'-1}}}) << %n)$|$$)
   )
 """
-outPERMUTEname = "%P_outer_permute%'N'"
+outPERMUTEname = "%P_permute%'N'"
 outPERMUTEargs = "a, rule"
-outPERMUTEbody = "%P_outer_hshuffle%'N'((a), (a), (rule))"
-outfSHUFFLEname = "%P_outer_fshuffle%'N'"
+outPERMUTEbody = "%P_hshuffle%'N'((a), (a), (rule))"
+outfSHUFFLEname = "%P_fshuffle%'N'"
 outfSHUFFLEargs = "a, b, rule, mask"
-outfSHUFFLEbody = "%P_blend(%P_outer_permute%'N'((a), (rule)), %P_outer_permute%'N'((b), (rule)), (mask))"
+outfSHUFFLEbody = "%P_blend%'N'(%P_permute%'N'((a), (rule)), %P_permute%'N'((b), (rule)), (mask))"
 def generate_shuffles():
   shuffles = []
   inhSHUFFLE = Macro(inhSHUFFLEname, inhSHUFFLEargs, inhSHUFFLEbody, cond = "%N > %'N'")
@@ -700,14 +698,44 @@ def generate_shuffles():
   shuffles += [pre_expand(outPERMUTE,  i) for i in SIZES if i is not 1]
   shuffles += [pre_expand(outfSHUFFLE, i) for i in SIZES if i is not 1]
   shuffles += [
-      Macro("%P_inner_hshuffle1", "a, b, rule", "%P_outer_hshuffle%N((a), (b), (rule))", sizes = recursive_sizes(1)),
-      Macro("%P_inner_permute1", "a, b, rule", "%P_outer_permute%N((a), (b), (rule))", sizes = recursive_sizes(1)),
-      Macro("%P_inner_fshuffle1", "a, b, rule", "%P_outer_fshuffle%N((a), (b), (rule))", sizes = recursive_sizes(1))
+      Macro("%P_hshuffle%Nx1", "a, b, rule", "%P_hshuffle%N((a), (b), (rule))", sizes = recursive_sizes(1)),
+      Macro("%P_permute%Nx1", "a, b, rule", "%P_permute%N((a), (b), (rule))", sizes = recursive_sizes(1)),
+      Macro("%P_fshuffle%Nx1", "a, b, rule", "%P_fshuffle%N((a), (b), (rule))", sizes = recursive_sizes(1))
   ]
   shuffles += [pre_expand(inhSHUFFLE, i) for i in SIZES if i is not 1]
   shuffles += [pre_expand(inPERMUTE,  i) for i in SIZES if i is not 1]
   shuffles += [pre_expand(infSHUFFLE, i) for i in SIZES if i is not 1]
   return shuffles
+HSHUFFLE2 = Macro("%P_hshuffle2", "a, b, rule", "%P_merge_%-P(%-P_get_hilo_%P((a), (rule) & 1), %-P_get_hilo_%P((b), ((rule) >> 1) & 1))")
+HSHUFFL = Macro("%P_hshuffle", "a, b, rule", "%P_hshuffle%N((a), (b), (rule))", sizes = recursive_sizes(1))
+PERMUTE = Macro("%P_permute", "a, rule", "%P_permute%N((a), (rule))", sizes = recursive_sizes(1))
+FSHUFFL = Macro("%P_fshuffle", "a, b, rule, mask", "%P_fshuffle%N((a), (b), (rule), (mask))", sizes = recursive_sizes(1))
+
+BLEND1 = Macro("%P_blend1", "a, b, mask", "((mask&1) ? (b) : (a))")
+#BLENDr = Macro("%P_blend", "a, b, mask", "%P_merge_%-P(%-P_blend(%-P_get_low_%P(a), %-P_get_low_%P(b), (mask) & {{{%N-1}}}), %-P_blend(%-P_get_low_%P(a), %-P_get_low_%P(b), ((mask) & {{{%N-1}}}) >> {{{ln2(%N)}}}))", sizes = recursive_sizes(1))
+
+inBLENDname = "%P_blend{{{%N/%'N'}}}x%'N'"
+inBLENDargs = "a, b, mask"
+#inBLENDbody = "%P_merge2_%-P(%P_blend{{{%n/%'N'}}}x%'-N'(%-P_get_low_%P(a), %-P_get_low_%P(b), (mask), %P_blend{{{%n/%'N'}}}x%'-N'(%-P_get_high_%P(a), %-P_get_high_%P(b), (mask))"
+inBLENDbody = "%P_blend{{{%+N/%'N'}}}x%'-N'((a), (b), (mask) | ((mask) << {{{%N/%'N'}}}))"
+
+outBLENDname = "%P_blend%'N'"
+outBLENDargs = "a, b, mask"
+outBLENDbody = "%P_merge2_%-P(%-P_blend%'-N'(%-P_get_low_%P(a), %-P_get_low_%P(b), (mask) & {{{(1<<%'-N')-1}}}), %-P_blend%'-N'(%-P_get_high_%P(a), %-P_get_high_%P(b), ((mask) >> %'-N') & {{{(1<<%'-N')-1}}}))"
+def generate_blends():
+  blends = [BLEND1]
+  outBLEND = Macro(outBLENDname, outBLENDargs, outBLENDbody, cond = "%N >= %'N'")
+  inBLENDN = Macro(inBLENDname,  inBLENDargs,  inBLENDbody,  cond = "%N >= %'N'")
+  blends += [outBLEND.pre_expand_type(FLOAT, i) for i in SIZES if i is not 1]
+  blends += [
+     Macro("%P_blend",      "a, b, mask", "%P_blend%N((a), (b), (mask))"),
+     Macro("%P_blend%Nx1",  "a, b, mask", "%P_blend%N((a), (b), (mask))")
+  ]
+  blends += [inBLENDN.pre_expand_type(FLOAT, i) for i in SIZES if i is not 1]
+  return blends
+
+
+
 
 
 
@@ -747,10 +775,6 @@ RCP     = Macro("%P_rcp",    "a", "%P_div(%P_one(), (a))")
 FRCP    = Macro("%P_frcp",   "a", "%P_rcp(a)")
 RSQRT   = Macro("%P_rsqrt",  "a", "%P_rcp(%P_sqrt(a))")
 FRSQRT  = Macro("%P_frsqrt", "a", "%P_rsqrt(a)")
-HSHUFFLE2 = Macro("%P_outer_hshuffle2", "a, b, rule", "%P_merge_%-P(%-P_get_hilo_%P((a), (rule) & 1), %-P_get_hilo_%P((b), ((rule) >> 1) & 1))")
-HSHUFFL = Macro("%P_hshuffle", "a, b, rule", "%P_outer_hshuffle%N((a), (b), (rule))", sizes = recursive_sizes(1))
-PERMUTE = Macro("%P_permute", "a, rule", "%P_outer_permute%N((a), (rule))", sizes = recursive_sizes(1))
-FSHUFFL = Macro("%P_fshuffle", "a, b, rule, mask", "%P_outer_fshuffle%N((a), (b), (rule), (mask))", sizes = recursive_sizes(1))
 PRINT   = Macro("%P_print",  "a", "%P_fprint(stdout, a)")
 rPRINT  = Macro("%P_rprint", "a", "%P_rfprint(stdout, a)")
 
@@ -759,7 +783,7 @@ BUILTINS = [
   SET, SETr, rSET, SET1, ZEROS, ONES, ZERO, ONE
   ] + generate_merges() + [
   GETLO, GETLOc, GETHI, GETHIc, GETHILO,
-  SETLO, SETHI, SETHILO, MERGE, rMERGE, MERGEc, rMERGEc, BLEND, BLENDr,
+  SETLO, SETHI, SETHILO, MERGE, rMERGE, MERGEc, rMERGEc] + generate_blends() + [
   HSHUFFLE2] + generate_shuffles() + [HSHUFFL, PERMUTE, FSHUFFL,
   EQ, EQr, NEQ, NEQr, GT, GTr, GEQ, GEQr, LT, LTr, LEQ, LEQr,
   AND, ANDr, OR, ORr, XOR, XORr, NOT, NAND, NOR, NXOR, ANDNOT, ORNOT,

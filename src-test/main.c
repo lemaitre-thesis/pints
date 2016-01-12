@@ -315,9 +315,9 @@ float dotprod_v4f(const float* a, const float* b, int n) {
     s = v4f_fmadd(va, vb, s);
   }
   // reduce s
-  sp = v4f_outer_permute2(s, 1);
+  sp = v4f_permute2(s, 1);
   add1 = v4f_add(s, sp);
-  add1p = v4f_inner_permute2(add1, 1);
+  add1p = v4f_permute2x2(add1, 1);
   add2 = v4f_add(add1, add1p);
   //v1f_store(&r, v1f_cast_v4f(add2));
   return sf_cvt_v4f(add2);
@@ -339,14 +339,41 @@ float dotprod_v8f(const float* a, const float* b, int n) {
     s = v8f_fmadd(va, vb, s);
   }
   // reduce s
-  sp = v8f_outer_permute2(s, 1);
+  sp = v8f_permute2(s, 1);
   add1 = v8f_add(s, sp);
-  add1p = v8f_inner_permute2(add1, 0x4E);
+  add1p = v8f_permute4x2(add1, 0x4E);
   add2 = v8f_add(add1, add1p);
-  add2p = v8f_inner_permute4(add2, 1);
+  add2p = v8f_permute2x4(add2, 1);
   add3 = v8f_add(add2, add2p);
   //v1f_store(&r, v1f_cast_v8f(add3));
   return sf_cvt_v8f(add3);
+}
+float dotprod_v16f(const float* a, const float* b, int n) {
+  float r;
+  int i;
+  v16i vmask;
+  v16f va, vb, s = v16f_zero(), sp, add1, add1p, add2, add2p, add3, add3p, add4;
+  for (i = 0; i < n - 16; i += 16) {
+    va = v16f_loadu(&a[i]);
+    vb = v16f_loadu(&b[i]);
+    s = v16f_fmadd(va, vb, s);
+  } /* remainder */ {
+    vmask = v16i_gt(v16i_set1(n-i), v16i_set(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15));
+    va = v16f_loadu(&a[i]);
+    vb = v16f_loadu(&b[i]);
+    va = v16f_and(va, v16f_cast_v16i(vmask));
+    s = v16f_fmadd(va, vb, s);
+  }
+  // reduce s
+  sp = v16f_permute2(s, (int64_t)1);
+  add1 = v16f_add(s, sp);
+  add1p = v16f_permute4(add1, (int64_t)0xB1);
+  add2 = v16f_add(add1, add1p);
+  add2p = v16f_permute4x4(add2, (int64_t)0x4E);
+  add3 = v16f_add(add2, add2p);
+  add3p = v16f_permute2x8(add3, (int64_t)1);
+  add4 = v16f_add(add3, add3p);
+  return sf_cvt_v16f(add4);
 }
 
 int main() {
@@ -354,9 +381,10 @@ int main() {
   float f2[16] = {1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1};
   double d1[16] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
   double d2[16] = {1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1};
-  printf("(v4f) f1.f2: %f\n  A.B: %f\n", dotprod_v4f(f1, f2, 16), dotprod_v4f(A, B, N));
-  printf("(v8f) f1.f2: %f\n  A.B: %f\n", dotprod_v8f(f1, f2, 16), dotprod_v8f(A, B, N));
-  printf("(v2d) d1.d2: %lf\n  C.D: %lf\n", dotprod_v2d(d1, d2, 16), dotprod_v2d(C, D, N));
+  printf("(v4f) f1.f2: %f\n  A.B: %f\n", dotprod_v4f(f1, f2, 15), dotprod_v4f(A, B, N));
+  printf("(v8f) f1.f2: %f\n  A.B: %f\n", dotprod_v8f(f1, f2, 15), dotprod_v8f(A, B, N));
+  printf("(v16) f1.f2: %f\n  A.B: %f\n", dotprod_v16f(f1, f2, 15), dotprod_v16f(A, B, N));
+  printf("(v2d) d1.d2: %lf\n  C.D: %lf\n", dotprod_v2d(d1, d2, 15), dotprod_v2d(C, D, N));
   //test_transpose_v8f();
   
   return 0;

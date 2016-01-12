@@ -3,30 +3,28 @@
 
 #ifdef SSE
 #undef v1f
-#undef v1i
 #undef v2f
-#undef v2i
 #undef v4f
-#undef v4i
 typedef __m128  v1f;
-typedef __m128i v1i;
-
 typedef __m128  v2f;
-typedef __m128i v2i;
-
 typedef __m128  v4f;
-typedef __m128i v4i;
 #endif
 
 #ifdef SSE2
 #undef v1d
+#undef v1i
 #undef v1l
 #undef v2d
+#undef v2i
 #undef v2l
+#undef v4i
 typedef __m128d v1d;
+typedef __m128i v1i;
 typedef __m128i v1l;
 typedef __m128d v2d;
+typedef __m128i v2i;
 typedef __m128i v2l;
+typedef __m128i v4i;
 #endif
 
 #ifdef SSE
@@ -108,12 +106,12 @@ typedef __m128i v2l;
 #define v4f_sqrt(a) _mm_sqrt_ps(a)
 
 
-#undef v4f_outer_hshuffle4
-#define v4f_outer_hshuffle4(a, b, rule) _mm_shuffle_ps(a, b, rule)
-#undef v4f_outer_hshuffle2
-#define v4f_outer_hshuffle2(a, b, rule) v4f_outer_hshuffle4(a, b, (((rule)&2)<<4) | (((rule)&2)<<6) | (((rule)&1)<<3) | (((rule)&1)<<1) | 0x44)
-#undef v4f_inner_hshuffle2
-#define v4f_inner_hshuffle2(a, b, rule) v4f_outer_hshuffle4(a, b, ((rule) << 4) | (rule))
+#undef v4f_hshuffle4
+#define v4f_hshuffle4(a, b, rule) _mm_shuffle_ps(a, b, rule)
+#undef v4f_hshuffle2
+#define v4f_hshuffle2(a, b, rule) v4f_hshuffle4(a, b, (((rule)&2)<<4) | (((rule)&2)<<6) | (((rule)&1)<<3) | (((rule)&1)<<1) | 0x44)
+#undef v4f_hshuffle2x2
+#define v4f_hshuffle2x2(a, b, rule) v4f_hshuffle4(a, b, ((rule) << 4) | (rule))
 
 
 // scalar
@@ -216,10 +214,11 @@ typedef __m128i v2l;
 #define v2f_load1(p) v4f_load(p)
 
 #undef v2f_store
-#define v2f_store(p, a) _mm_store_ps(p, a)
+#define v2f_store(p, a) _mm_storel_pi((__m64*) p, a)
+//#define v2f_store(p, a) _mm_store_ps(p, a)
 
-#undef v2f_storeu
-#define v2f_storeu(p, a) _mm_storeu_ps(p, a)
+//#undef v2f_storeu
+//#define v2f_storeu(p, a) _mm_storeu_ps(p, a)
 
 #undef v2f_zero
 #define v2f_zero() v4f_zero()
@@ -318,23 +317,27 @@ typedef __m128i v2l;
 #undef v1f_get_high_v2f
 #undef v2f_get_low_v4f
 #undef v1f_get_low_v2f
+#undef v2f_get_hilo_v4f
+#undef v1f_get_hilo_v2f
 #undef v4f_set_high_v2f
 #undef v2f_set_high_v1f
 #undef v4f_set_low_v2f
 #undef v2f_set_low_v1f
-#undef v4f_merge_v2f
-#undef v2f_merge_v1f
+#undef v4f_merge2_v2f
+#undef v2f_merge2_v1f
 
-#define v2f_get_high_v4f(a)      compatible_v2f_get_high_v4f(a)
-#define v1f_get_high_v2f(a)      compatible_v1f_get_high_v2f(a)
-#define v2f_get_low_v4f(a)       compatible_v2f_get_low_v4f(a)
-#define v1f_get_low_v2f(a)       compatible_v1f_get_low_v2f(a)
-#define v4f_set_high_v2f(src, a) compatible_v4f_set_high_v2f(src, a)
-#define v2f_set_high_v1f(src, a) compatible_v2f_set_high_v1f(src, a)
-#define v4f_set_low_v2f(src, a)  compatible_v4f_set_low_v2f(src, a)
-#define v2f_set_low_v1f(src, a)  compatible_v2f_set_low_v1f(src, a)
-#define v4f_merge_v2f(a, b)      compatible_v4f_merge_v2f(a, b)
-#define v2f_merge_v1f(a, b)      compatible_v2f_merge_v1f(a, b)
+#define v2f_get_high_v4f(a)       v2f_cast_v4f(v4f_permute4(a, 0xE))
+#define v1f_get_high_v2f(a)       v2f_cast_v4f(v4f_permute4(v4f_cast_v2f(a), 0x1))
+#define v2f_get_low_v4f(a)        v2f_cast_v4f(a)
+#define v1f_get_low_v2f(a)        v1f_cast_v2f(a)
+#define v2f_get_hilo_v4f(a, h)    v2f_cast_v4f(v4f_permute4(a, (((h) & 1) << 1) | (((h) & 1) << 3) | 0x4))
+#define v1f_get_hilo_v2f(a, h)    v1f_cast_v4f(v4f_permute4(a, (h) & 1))
+#define v4f_set_high_v2f(src, a)  v4f_hshuffle4(src, v4f_cast_v2f(a), 0x44)
+#define v2f_set_high_v1f(src, a)  v2f_merge2_v1f(v1f_get_low_v2f(src), a)
+#define v4f_set_low_v2f(src, a)   v4f_hshuffle4(v4f_cast_v2f(a), src, 0xE4)
+#define v2f_set_low_v1f(src, a)   v2f_merge2_v1f(a, v1f_get_high_v2f(src))
+#define v4f_merge2_v2f(a, b)      v4f_hshuffle4(v4f_cast_v2f(a), v4f_cast_v2f(b), 0x44)
+#define v2f_merge2_v1f(a, b)      _mm_unpacklo_ps(a, b)
 
 #endif
 
@@ -567,33 +570,33 @@ typedef __m128i v2l;
 #define v2l_sqrt(a) v2l_cvt_v2d(v2d_sqrt(v2d_cvt_v2l(a)))
 
 
-#undef v2d_outer_hshuffle2
-#undef v4f_outer_hshuffle4
-#undef v4i_outer_hshuffle4
-#undef v2l_outer_hshuffle2
-#define v2d_outer_hshuffle2(a, b, rule) _mm_shuffle_pd(a, b, rule)
-#define v4f_outer_hshuffle4(a, b, rule) _mm_shuffle_ps(a, b, rule)
-#define v4i_outer_hshuffle4(a, b, rule) v4i_cast_v4f(v4f_outer_hshuffle4(v4f_cast_v4i(a), v4f_cast_v4i(b), rule))
-#define v2l_outer_hshuffle2(a, b, rule) v2l_cast_v2d(v2d_outer_hshuffle2(v2d_cast_v2l(a), v2d_cast_v2l(b), rule))
+#undef v2d_hshuffle2
+#undef v4f_hshuffle4
+#undef v4i_hshuffle4
+#undef v2l_hshuffle2
+#define v2d_hshuffle2(a, b, rule) _mm_shuffle_pd(a, b, rule)
+#define v4f_hshuffle4(a, b, rule) _mm_shuffle_ps(a, b, rule)
+#define v4i_hshuffle4(a, b, rule) v4i_cast_v4f(v4f_hshuffle4(v4f_cast_v4i(a), v4f_cast_v4i(b), rule))
+#define v2l_hshuffle2(a, b, rule) v2l_cast_v2d(v2d_hshuffle2(v2d_cast_v2l(a), v2d_cast_v2l(b), rule))
 
-#undef v4f_outer_hshuffle2
-#undef v4i_outer_hshuffle2
-#define v4f_outer_hshuffle2(a, b, rule) v4f_outer_hshuffle4(a, b, (((rule)&2)<<4) | (((rule)&2)<<6) | (((rule)&1)<<3) | (((rule)&1)<<1) | 0x44)
-#define v4i_outer_hshuffle2(a, b, rule) v4i_outer_hshuffle4(a, b, (((rule)&2)<<4) | (((rule)&2)<<6) | (((rule)&1)<<3) | (((rule)&1)<<1) | 0x44)
+#undef v4f_hshuffle2
+#undef v4i_hshuffle2
+#define v4f_hshuffle2(a, b, rule) v4f_hshuffle4(a, b, (((rule)&2)<<4) | (((rule)&2)<<6) | (((rule)&1)<<3) | (((rule)&1)<<1) | 0x44)
+#define v4i_hshuffle2(a, b, rule) v4i_hshuffle4(a, b, (((rule)&2)<<4) | (((rule)&2)<<6) | (((rule)&1)<<3) | (((rule)&1)<<1) | 0x44)
 
-#undef v4f_inner_hshuffle2
-#undef v4i_inner_hshuffle2
-#define v4f_inner_hshuffle2(a, b, rule) v4f_outer_hshuffle4(a, b, ((rule) << 4) | (rule))
-#define v4i_inner_hshuffle2(a, b, rule) v4i_outer_hshuffle4(a, b, ((rule) << 4) | (rule))
+#undef v4f_hshuffle2x2
+#undef v4i_hshuffle2x2
+#define v4f_hshuffle2x2(a, b, rule) v4f_hshuffle4(a, b, ((rule) << 4) | (rule))
+#define v4i_hshuffle2x2(a, b, rule) v4i_hshuffle4(a, b, ((rule) << 4) | (rule))
 
-#undef v4i_outer_permute4
-#define v4i_outer_permute4(a, rule) _mm_shuffle_epi32(a, rule)
+#undef v4i_permute4
+#define v4i_permute4(a, rule) _mm_shuffle_epi32(a, rule)
 
-#undef v4i_outer_permute2
-#define v4i_outer_permute2(a, rule) v4i_outer_permute4(a, (((rule)&2)<<4) | (((rule)&2)<<6) | (((rule)&1)<<3) | (((rule)&1)<<1) | 0x44)
+#undef v4i_permute2
+#define v4i_permute2(a, rule) v4i_permute4(a, (((rule)&2)<<4) | (((rule)&2)<<6) | (((rule)&1)<<3) | (((rule)&1)<<1) | 0x44)
 
-#undef v4i_inner_permute2
-#define v4i_inner_permute2(a, rule) v4i_outer_permute4(a, ((rule) << 4) | (rule))
+#undef v4i_permute2x2
+#define v4i_permute2x2(a, rule) v4i_permute4(a, ((rule) << 4) | (rule))
 
 
 // scalar
@@ -859,13 +862,13 @@ typedef __m128i v2l;
 
 #undef v2f_store
 #undef v2i_store
-#define v2f_store(p, a) _mm_store_ps(p, a)
-#define v2i_store(p, a) v2f_store((float *)(p), v2f_cast_v2i(a))
+#define v2f_store(p, a) _mm_storel_pi((__m64*) p, a)
+#define v2i_store(p, a) _mm_storel_epi64((__m128i*) p, a)
 
-#undef v2f_storeu
-#undef v2i_storeu
-#define v2f_storeu(p, a) _mm_storeu_ps(p, a)
-#define v2i_storeu(p, a) v2f_storeu((float *)(p), v2f_cast_v2i(a))
+//#undef v2f_storeu
+//#undef v2i_storeu
+//#define v2f_storeu(p, a) _mm_storeu_ps(p, a)
+//#define v2i_storeu(p, a) v2f_storeu((float *)(p), v2f_cast_v2i(a))
 
 #undef v2f_zero
 #undef v2i_zero
@@ -952,14 +955,14 @@ typedef __m128i v2l;
 #define v2f_sqrt(a) _mm_sqrt_ps(a)
 #define v2i_sqrt(a) v2i_cvt_v2f(v2f_sqrt(v2f_cvt_v2i(a)))
 
-#undef v2f_outer_hshuffle2
-#undef v2i_outer_hshuffle2
-#undef v2f_outer_permute2
-#undef v2i_outer_permute2
-#define v2f_outer_hshuffle2(a, b, rule) v4f_inner_hshuffle2(a, b, rule)
-#define v2i_outer_hshuffle2(a, b, rule) v4i_inner_hshuffle2(a, b, rule)
-#define v2f_outer_permute2(a, rule) v4f_inner_permute2(a, rule)
-#define v2i_outer_permute2(a, rule) v4i_inner_permute2(a, rule)
+#undef v2f_hshuffle2
+#undef v2i_hshuffle2
+#undef v2f_permute2
+#undef v2i_permute2
+#define v2f_hshuffle2(a, b, rule) v4f_hshuffle2x2(a, b, rule)
+#define v2i_hshuffle2(a, b, rule) v4i_hshuffle2x2(a, b, rule)
+#define v2f_permute2(a, rule) v4f_permute2x2(a, rule)
+#define v2i_permute2(a, rule) v4i_permute2x2(a, rule)
 
 // Casts
 
@@ -1165,6 +1168,12 @@ typedef __m128i v2l;
 #undef v1l_get_low_v2l
 #undef v1f_get_low_v2f
 #undef v1i_get_low_v2i
+#undef v1d_get_hilo_v2d
+#undef v2f_get_hilo_v4f
+#undef v2i_get_hilo_v4i
+#undef v1l_get_hilo_v2l
+#undef v1f_get_hilo_v2f
+#undef v1i_get_hilo_v2i
 #undef v2d_set_high_v1d
 #undef v4f_set_high_v2f
 #undef v4i_set_high_v2i
@@ -1177,64 +1186,70 @@ typedef __m128i v2l;
 #undef v2l_set_low_v1l
 #undef v2f_set_low_v1f
 #undef v2i_set_low_v1i
-#undef v2d_merge_v1d
-#undef v4f_merge_v2f
-#undef v4i_merge_v2i
-#undef v2l_merge_v1l
-#undef v2f_merge_v1f
-#undef v2i_merge_v1i
+#undef v2d_merge2_v1d
+#undef v4f_merge2_v2f
+#undef v4i_merge2_v2i
+#undef v2l_merge2_v1l
+#undef v2f_merge2_v1f
+#undef v2i_merge2_v1i
 
-#define v1d_get_high_v2d(a)      v1d_cast_v2d(v2d_outer_permute2(a, 0x2))
-#define v2f_get_high_v4f(a)      v2f_cast_v4f(v4f_outer_permute4(a, 0xE))
-#define v2i_get_high_v4i(a)      v2i_cast_v4i(v4i_outer_permute4(a, 0xE))
-#define v1l_get_high_v2l(a)      v1l_cast_v2l(v2l_outer_permute2(a, 0x2))
-#define v1f_get_high_v2f(a)      v2f_cast_v4f(v4f_outer_permute4(v4f_cast_v2f(a), 0x1))
-#define v1i_get_high_v2i(a)      v2i_cast_v4i(v4i_outer_permute4(v4i_cast_v2i(a), 0x1))
-#define v1d_get_low_v2d(a)       v1d_cast_v2d(a)
-#define v2f_get_low_v4f(a)       v2f_cast_v4f(a)
-#define v2i_get_low_v4i(a)       v2i_cast_v4i(a)
-#define v1l_get_low_v2l(a)       v1l_cast_v2l(a)
-#define v1f_get_low_v2f(a)       v1f_cast_v2f(a)
-#define v1i_get_low_v2i(a)       v1i_cast_v2i(a)
-#define v2d_set_high_v1d(src, a) v2d_outer_hshuffle2(src, v2d_cast_v1d(a), 0x2)
-#define v4f_set_high_v2f(src, a) v4f_outer_hshuffle4(src, v4f_cast_v2f(a), 0xE4)
-#define v4i_set_high_v2i(src, a) v4i_outer_hshuffle4(src, v4i_cast_v2i(a), 0xE4)
-#define v2l_set_high_v1l(src, a) v2l_outer_hshuffle2(src, v2l_cast_v1l(a), 0x2)
-#define v2f_set_high_v1f(src, a) compatible_v2f_set_high_v1f(src, a)
-#define v2i_set_high_v1i(src, a) compatible_v2i_set_high_v1i(src, a)
-#define v2d_set_low_v1d(src, a)  v2d_outer_hshuffle2(v2d_cast_v1d(a), src, 0x2)
-#define v4f_set_low_v2f(src, a)  v4f_outer_hshuffle4(v4f_cast_v2f(a), src, 0xE4)
-#define v4i_set_low_v2i(src, a)  v4i_outer_hshuffle4(v4i_cast_v2i(a), src, 0xE4)
-#define v2l_set_low_v1l(src, a)  v2l_outer_hshuffle2(v2l_cast_v1l(a), src, 0x2)
-#define v2f_set_low_v1f(src, a)  compatible_v2f_set_low_v1f(src, a)
-#define v2i_set_low_v1i(src, a)  compatible_v2i_set_low_v1i(src, a)
-#define v2d_merge_v1d(a, b)      v2d_outer_hshuffle2(v2d_cast_v1d(a), v2d_cast_v1d(b), 0x2)
-#define v4f_merge_v2f(a, b)      v4f_outer_hshuffle4(v4f_cast_v2f(a), v4f_cast_v2f(b), 0xE4)
-#define v4i_merge_v2i(a, b)      v4i_outer_hshuffle4(v4i_cast_v2i(a), v4i_cast_v2i(b), 0xE4)
-#define v2l_merge_v1l(a, b)      v2l_outer_hshuffle2(v2l_cast_v1l(a), v2l_cast_v1l(b), 0x2)
-#define v2f_merge_v1f(a, b)      compatible_v2f_merge_v1f(a, b)
-#define v2i_merge_v1i(a, b)      compatible_v2i_merge_v1i(a, b)
+#define v1d_get_high_v2d(a)       v1d_cast_v2d(v2d_permute2(a, 0x1))
+#define v2f_get_high_v4f(a)       v2f_cast_v4f(v4f_permute4(a, 0xE))
+#define v2i_get_high_v4i(a)       v2i_cast_v4i(v4i_permute4(a, 0xE))
+#define v1l_get_high_v2l(a)       v1l_cast_v2l(v2l_permute2(a, 0x1))
+#define v1f_get_high_v2f(a)       v2f_cast_v4f(v4f_permute4(v4f_cast_v2f(a), 0x1))
+#define v1i_get_high_v2i(a)       v2i_cast_v4i(v4i_permute4(v4i_cast_v2i(a), 0x1))
+#define v1d_get_low_v2d(a)        v1d_cast_v2d(a)
+#define v2f_get_low_v4f(a)        v2f_cast_v4f(a)
+#define v2i_get_low_v4i(a)        v2i_cast_v4i(a)
+#define v1l_get_low_v2l(a)        v1l_cast_v2l(a)
+#define v1f_get_low_v2f(a)        v1f_cast_v2f(a)
+#define v1i_get_low_v2i(a)        v1i_cast_v2i(a)
+#define v1d_get_hilo_v2d(a, h)    v1d_cast_v2d(v2d_permute2(a, (h) & 1))
+#define v2f_get_hilo_v4f(a, h)    v2f_cast_v4f(v4f_permute4(a, (((h) & 1) << 1) | (((h) & 1) << 3) | 0x4))
+#define v2i_get_hilo_v4i(a, h)    v2i_cast_v4i(v4i_permute4(a, (((h) & 1) << 1) | (((h) & 1) << 3) | 0x4))
+#define v1l_get_hilo_v2l(a, h)    v1l_cast_v2l(v2l_permute2(a, (h) & 1))
+#define v1f_get_hilo_v2f(a, h)    v1f_cast_v4f(v4f_permute4(a, (h) & 1))
+#define v1i_get_hilo_v2i(a, h)    v1i_cast_v4i(v4i_permute4(a, (h) & 1))
+#define v2d_set_high_v1d(src, a)  v2d_hshuffle2(src, v2d_cast_v1d(a), 0x0)
+#define v4f_set_high_v2f(src, a)  v4f_hshuffle4(src, v4f_cast_v2f(a), 0x44)
+#define v4i_set_high_v2i(src, a)  v4i_hshuffle4(src, v4i_cast_v2i(a), 0x44)
+#define v2l_set_high_v1l(src, a)  v2l_hshuffle2(src, v2l_cast_v1l(a), 0x0)
+#define v2f_set_high_v1f(src, a)  v2f_merge2_v1f(v1f_get_low_v2f(src), a)
+#define v2i_set_high_v1i(src, a)  v2i_merge2_v1i(v1i_get_low_v2i(src), a)
+#define v2d_set_low_v1d(src, a)   v2d_hshuffle2(v2d_cast_v1d(a), src, 0x2)
+#define v4f_set_low_v2f(src, a)   v4f_hshuffle4(v4f_cast_v2f(a), src, 0xE4)
+#define v4i_set_low_v2i(src, a)   v4i_hshuffle4(v4i_cast_v2i(a), src, 0xE4)
+#define v2l_set_low_v1l(src, a)   v2l_hshuffle2(v2l_cast_v1l(a), src, 0x2)
+#define v2f_set_low_v1f(src, a)   v2f_merge2_v1f(a, v1f_get_high_v2f(src))
+#define v2i_set_low_v1i(src, a)   v2i_merge2_v1i(a, v1i_get_high_v2i(src))
+#define v2d_merge2_v1d(a, b)      v2d_hshuffle2(v2d_cast_v1d(a), v2d_cast_v1d(b), 0x0)
+#define v4f_merge2_v2f(a, b)      v4f_hshuffle4(v4f_cast_v2f(a), v4f_cast_v2f(b), 0x44)
+#define v4i_merge2_v2i(a, b)      v4i_hshuffle4(v4i_cast_v2i(a), v4i_cast_v2i(b), 0x44)
+#define v2l_merge2_v1l(a, b)      v2l_hshuffle2(v2l_cast_v1l(a), v2l_cast_v1l(b), 0x0)
+#define v2f_merge2_v1f(a, b)      _mm_unpacklo_ps(a, b)
+#define v2i_merge2_v1i(a, b)      _mm_unpacklo_epi32(a, b)
 
 inline v2l __sse2_v2l_eq(v2l a, v2l b) {
   v4i cmp = v4i_eq(v4i_cast_v2l(a), v4i_cast_v2l(b));
-  return v2l_cast_v4i(v4i_and(cmp, v4i_outer_permute4(cmp, 0xB1)));
+  return v2l_cast_v4i(v4i_and(cmp, v4i_permute4(cmp, 0xB1)));
 }
 
 inline v2l __sse2_v2l_gt(v2l a, v2l b) {
   v4i cmpeq = v4i_eq(v4i_cast_v2l(a), v4i_cast_v2l(b));
   v4i cmpgt = v4i_gt(v4i_cast_v2l(a), v4i_cast_v2l(b));
-  v4i high_eq = v4i_outer_permute4(cmpeq, 0xF5);
-  v4i high_gt = v4i_outer_permute4(cmpgt, 0xF5);
-  v4i  low_gt = v4i_outer_permute4(cmpgt, 0xA0);
+  v4i high_eq = v4i_permute4(cmpeq, 0xF5);
+  v4i high_gt = v4i_permute4(cmpgt, 0xF5);
+  v4i  low_gt = v4i_permute4(cmpgt, 0xA0);
   return v2l_cast_v4i(v4i_or(high_gt, v4i_and(high_eq, low_gt)));
 }
 
 inline v2l __sse2_v2l_lt(v2l a, v2l b) {
   v4i cmpeq = v4i_eq(v4i_cast_v2l(a), v4i_cast_v2l(b));
   v4i cmplt = v4i_lt(v4i_cast_v2l(a), v4i_cast_v2l(b));
-  v4i high_eq = v4i_outer_permute4(cmpeq, 0xF5);
-  v4i high_lt = v4i_outer_permute4(cmplt, 0xF5);
-  v4i  low_lt = v4i_outer_permute4(cmplt, 0xA0);
+  v4i high_eq = v4i_permute4(cmpeq, 0xF5);
+  v4i high_lt = v4i_permute4(cmplt, 0xF5);
+  v4i  low_lt = v4i_permute4(cmplt, 0xA0);
   return v2l_cast_v4i(v4i_or(high_lt, v4i_and(high_eq, low_lt)));
 }
 
@@ -1252,6 +1267,21 @@ inline v2l __sse2_v2l_lt(v2l a, v2l b) {
 
 #undef v2l_eq
 #define v2l_eq(a, b) _mm_cmpeq_epi64(a, b)
+
+
+
+#undef v2d_blend2
+#undef v4f_blend2
+#undef v4f_blend4
+#undef v4i_blend2
+#undef v4i_blend4
+#undef v2l_blend2
+#define v2d_blend2(a, b, mask) _mm_blend_pd(a, b, mask)
+#define v4f_blend2(a, b, mask) v4f_blend4(a, b, (((mask) & 3) << 2) | ((mask) & 3))
+#define v4f_blend4(a, b, mask) _mm_blend_ps(a, b, mask)
+#define v4i_blend2(a, b, mask) v4i_blend2(a, b, (((mask) & 3) << 2) | ((mask) & 3))
+#define v4i_blend4(a, b, mask) _mm_blend_epi16(a, b, ((mask) & 1)|(((mask) & 1) << 1)|((((mask) >> 1) & 1) << 2)|((((mask) >> 1) & 1) << 3)|((((mask) >> 2) & 1) << 4)|((((mask) >> 2) & 1) << 5)|((((mask) >> 3) & 1) << 6)|((((mask) >> 3) & 1) << 7))
+#define v2l_blend2(a, b, mask) v2l_blend2(a, b, (((mask) & 3) << 2) | ((mask) & 3))
 
 #endif
 

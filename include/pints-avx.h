@@ -218,59 +218,75 @@ typedef __m512i v8l;
 #define v8i_sqrt(a) v8i_cvt_v8f(v8f_sqrt(v8f_cvt_v8i(a)))
 #define v4l_sqrt(a) v4l_cvt_v4d(v4d_sqrt(v4d_cvt_v4l(a)))
 
-#undef v4d_blend
-#undef v8f_blend
-#define v4d_blend(a, b, rule) _mm256_blend_ps(a, b, mask)
-#define v8f_blend(a, b, rule) _mm256_blend_ps(a, b, mask)
+#undef v4d_blend2
+#undef v4d_blend4
+#undef v8f_blend2
+#undef v8f_blend4
+#undef v8f_blend8
+#undef v8i_blend2
+#undef v8i_blend4
+#undef v8i_blend8
+#undef v4l_blend2
+#undef v4l_blend4
+#define v4d_blend2(a, b, mask) v4d_blend4(a, b, (((mask) & 3) << 2) | ((mask) & 3))
+#define v4d_blend4(a, b, mask) _mm256_blend_pd(a, b, mask)
+#define v8f_blend2(a, b, mask) v8f_blend4(a, b, (((mask) & 3) << 2) | ((mask) & 3))
+#define v8f_blend4(a, b, mask) v8f_blend8(a, b, (((mask) & 7) << 4) | ((mask) & 7))
+#define v8f_blend8(a, b, mask) _mm256_blend_ps(a, b, mask)
+#define v8i_blend2(a, b, mask) v8i_blend4(a, b, (((mask) & 3) << 2) | ((mask) & 3))
+#define v8i_blend4(a, b, mask) v8i_blend8(a, b, (((mask) & 7) << 4) | ((mask) & 7))
+#define v8i_blend8(a, b, mask) v8i_cast_v8f(v8f_blend8(v8f_cast_v8i(a), v8f_cast_v8i(b), mask))
+#define v4l_blend2(a, b, mask) v4l_blend4(a, b, (((mask) & 3) << 2) | ((mask) & 3))
+#define v4l_blend4(a, b, mask) v4l_cast_v8i(v8i_blend4(v8i_cast_v4l(a), v8i_blend4(v8i_cast_v4l(b)), mask))
 
-#undef v4d_inner_hshuffle2
-#undef v4l_inner_hshuffle2
-#define v4d_inner_hshuffle2(a, b, rule) _mm256_shuffle_pd(a, b, rule)
-#define v4l_inner_hshuffle2(a, b, rule) v4l_cast_v4d(v4d_inner_hshuffle2(v4d_cast_v4l(a), v4d_cast_v4l(b), rule))
+#undef v4d_hshuffle2x2
+#undef v4l_hshuffle2x2
+#define v4d_hshuffle2x2(a, b, rule) _mm256_shuffle_pd(a, b, rule)
+#define v4l_hshuffle2x2(a, b, rule) v4l_cast_v4d(v4d_hshuffle2x2(v4d_cast_v4l(a), v4d_cast_v4l(b), rule))
 
-#undef v4d_inner_permute2
-#undef v4l_inner_permute2
-#define v4d_inner_permute2(a, rule) _mm256_permute_pd(a, rule)
-#define v4l_inner_permute2(a, rule) v4l_cast_v4d(v4d_inner_permute2(v4d_cast_v4l(a), rule))
+#undef v4d_permute2x2
+#undef v4l_permute2x2
+#define v4d_permute2x2(a, rule) _mm256_permute_pd(a, rule)
+#define v4l_permute2x2(a, rule) v4l_cast_v4d(v4d_permute2x2(v4d_cast_v4l(a), rule))
 
-#undef v8f_inner_hshuffle2
-#undef v8i_inner_hshuffle2
-#define v8f_inner_hshuffle2(a, b, rule) _mm256_shuffle_ps(a, b, rule)
-#define v8i_inner_hshuffle2(a, b, rule) v8i_cast_v8f(v8f_inner_hshuffle2(v8f_cast_v8i(a), v8f_cast_v8i(b), rule))
+#undef v8f_hshuffle4x2
+#undef v8i_hshuffle4x2
+#define v8f_hshuffle4x2(a, b, rule) _mm256_shuffle_ps(a, b, rule)
+#define v8i_hshuffle4x2(a, b, rule) v8i_cast_v8f(v8f_hshuffle4x2(v8f_cast_v8i(a), v8f_cast_v8i(b), rule))
 
-#undef v8f_inner_permute2
-#undef v8i_inner_permute2
-#define v8f_inner_permute2(a, rule) _mm256_permute_ps(a, rule)
-#define v8i_inner_permute2(a, rule) v8i_cast_v8f(v8f_inner_permute2(v8f_cast_v8i(a), rule))
+#undef v8f_permute4x2
+#undef v8i_permute4x2
+#define v8f_permute4x2(a, rule) _mm256_permute_ps(a, rule)
+#define v8i_permute4x2(a, rule) v8i_cast_v8f(v8f_permute4x2(v8f_cast_v8i(a), rule))
 
-#undef v8f_inner_hshuffle4
-#undef v8i_inner_hshuffle4
-#define v8f_inner_hshuffle4(a, b, rule) v8f_inner_hshuffle2(a, b, (((rule)&2)<<3) | (((rule)&2)<<5) | (((rule)&1)<<2) | ((rule)&1) | 0x88)
-#define v8i_inner_hshuffle4(a, b, rule) v8i_inner_hshuffle2(a, b, (((rule)&2)<<3) | (((rule)&2)<<5) | (((rule)&1)<<2) | ((rule)&1) | 0x88)
+#undef v8f_hshuffle2x4
+#undef v8i_hshuffle2x4
+#define v8f_hshuffle2x4(a, b, rule) v8f_hshuffle4x2(a, b, (((rule)&2)<<1) | (((rule)&2)<<5) | (((rule)&1)<<4) | ((rule)&1) | 0xA0)
+#define v8i_hshuffle2x4(a, b, rule) v8i_hshuffle4x2(a, b, (((rule)&2)<<1) | (((rule)&2)<<5) | (((rule)&1)<<4) | ((rule)&1) | 0xA0)
 
-#undef v8f_inner_permute4
-#undef v8i_inner_permute4
-#define v8f_inner_permute4(a, rule) v8f_inner_permute2(a, (((rule)&2)<<3) | (((rule)&2)<<5) | (((rule)&1)<<2) | ((rule)&1) | 0x88)
-#define v8i_inner_permute4(a, rule) v8i_inner_permute2(a, (((rule)&2)<<3) | (((rule)&2)<<5) | (((rule)&1)<<2) | ((rule)&1) | 0x88)
+#undef v8f_permute2x4
+#undef v8i_permute2x4
+#define v8f_permute2x4(a, rule) v8f_permute4x2(a, (((rule)&2)<<1) | (((rule)&2)<<5) | (((rule)&1)<<4) | ((rule)&1) | 0xA0)
+#define v8i_permute2x4(a, rule) v8i_permute4x2(a, (((rule)&2)<<1) | (((rule)&2)<<5) | (((rule)&1)<<4) | ((rule)&1) | 0xA0)
 
-#undef v4d_outer_fshuffle2
-#undef v8f_outer_fshuffle2
-#undef v8i_outer_fshuffle2
-#undef v4l_outer_fshuffle2
-#define v4d_outer_fshuffle2(a, b, rule, mask) _mm256_permute2f128_pd(a, b, ((rule)&1)|(((mask)&1)<<1)|(((rule)&2)<<3)|(((mask)&2)<<4)
-#define v8f_outer_fshuffle2(a, b, rule, mask) _mm256_permute2f128_ps(a, b, ((rule)&1)|(((mask)&1)<<1)|(((rule)&2)<<3)|(((mask)&2)<<4)
-#define v8i_outer_fshuffle2(a, b, rule, mask) _mm256_permute2f128_si256(a, b, ((rule)&1)|(((mask)&1)<<1)|(((rule)&2)<<3)|(((mask)&2)<<4)
-#define v4l_outer_fshuffle2(a, b, rule, mask) _mm256_permute2f128_si256(a, b, ((rule)&1)|(((mask)&1)<<1)|(((rule)&2)<<3)|(((mask)&2)<<4)
+#undef v4d_fshuffle2
+#undef v8f_fshuffle2
+#undef v8i_fshuffle2
+#undef v4l_fshuffle2
+#define v4d_fshuffle2(a, b, rule, mask) _mm256_permute2f128_pd(a, b, ((rule)&1)|(((mask)&1)<<1)|(((rule)&2)<<3)|(((mask)&2)<<4))
+#define v8f_fshuffle2(a, b, rule, mask) _mm256_permute2f128_ps(a, b, ((rule)&1)|(((mask)&1)<<1)|(((rule)&2)<<3)|(((mask)&2)<<4))
+#define v8i_fshuffle2(a, b, rule, mask) _mm256_permute2f128_si256(a, b, ((rule)&1)|(((mask)&1)<<1)|(((rule)&2)<<3)|(((mask)&2)<<4))
+#define v4l_fshuffle2(a, b, rule, mask) _mm256_permute2f128_si256(a, b, ((rule)&1)|(((mask)&1)<<1)|(((rule)&2)<<3)|(((mask)&2)<<4))
 
 
-#undef v4d_outer_hshuffle2
-#undef v8f_outer_hshuffle2
-#undef v8i_outer_hshuffle2
-#undef v4l_outer_hshuffle2
-#define v4d_outer_hshuffle2(a, b, rule) _mm256_permute2f128_pd(a, b, ((rule)&1)|(((rule)&2)<<3)|0x20)
-#define v8f_outer_hshuffle2(a, b, rule) _mm256_permute2f128_ps(a, b, ((rule)&1)|(((rule)&2)<<3)|0x20)
-#define v8i_outer_hshuffle2(a, b, rule) _mm256_permute2f128_si256(a, b, ((rule)&1)|(((rule)&2)<<3)|0x20)
-#define v4l_outer_hshuffle2(a, b, rule) _mm256_permute2f128_si256(a, b, ((rule)&1)|(((rule)&2)<<3)|0x20)
+#undef v4d_hshuffle2
+#undef v8f_hshuffle2
+#undef v8i_hshuffle2
+#undef v4l_hshuffle2
+#define v4d_hshuffle2(a, b, rule) _mm256_permute2f128_pd(a, b, ((rule)&1)|(((rule)&2)<<3)|0x20)
+#define v8f_hshuffle2(a, b, rule) _mm256_permute2f128_ps(a, b, ((rule)&1)|(((rule)&2)<<3)|0x20)
+#define v8i_hshuffle2(a, b, rule) _mm256_permute2f128_si256(a, b, ((rule)&1)|(((rule)&2)<<3)|0x20)
+#define v4l_hshuffle2(a, b, rule) _mm256_permute2f128_si256(a, b, ((rule)&1)|(((rule)&2)<<3)|0x20)
 
 
 
@@ -409,10 +425,10 @@ typedef __m512i v8l;
 #define v8f_set_low_v4f(src, a)  _mm256_insertf128_ps(src, a, 0)
 #define v8i_set_low_v4i(src, a)  _mm256_insertf128_si256(src, a, 0)
 #define v4l_set_low_v2l(src, a)  _mm256_insertf128_si256(src, a, 0)
-#define v4d_merge2_v2d(a, b)      _mm256_insertf128_pd(_mm256_castpd128_pd256(b), a, 0)
-#define v8f_merge2_v4f(a, b)      _mm256_insertf128_ps(_mm256_castps128_ps256(b), a, 0)
-#define v8i_merge2_v4i(a, b)      _mm256_insertf128_si256(_mm256_castsi128_si256(b), a, 0)
-#define v4l_merge2_v2l(a, b)      _mm256_insertf128_si256(_mm256_castsi128_si256(b), a, 0)
+#define v4d_merge2_v2d(a, b)      _mm256_insertf128_pd(_mm256_castpd128_pd256(a), b, 1)
+#define v8f_merge2_v4f(a, b)      _mm256_insertf128_ps(_mm256_castps128_ps256(a), b, 1)
+#define v8i_merge2_v4i(a, b)      _mm256_insertf128_si256(_mm256_castsi128_si256(a), b, 1)
+#define v4l_merge2_v2l(a, b)      _mm256_insertf128_si256(_mm256_castsi128_si256(a), b, 1)
 
 #endif
 
@@ -470,6 +486,29 @@ typedef __m512i v8l;
 
 #undef v8i_mul
 #define v8i_mul(a, b) _mm256_mullo_epi32(a, b)
+
+#undef v8i_blend8
+#define v8i_blend8(a, b, mask) _mm256_blend_epi32(a, b, mask)
+
+#undef v4i_blend4
+#define v4i_blend4(a, b, mask) _mm_blend_epi32(a, b, mask)
+
+#undef v8i_hshuffle4x2
+#define v8i_hshuffle4x2(a, b, rule) v8f_fshuffle4x2(v8f_cast_v8i(a), v8f_cast_v8i(b), rule, 0xC)
+
+#undef v8i_permute4x2
+#define v8i_permute4x2(a, rule) _mm256_shuffle_epi32(a, rule)
+
+#undef v8i_fshuffle2
+#undef v4l_fshuffle2
+#define v8i_fshuffle2(a, b, rule, mask) _mm256_permute2x128_si256(a, b, ((rule)&1)|(((mask)&1)<<1)|(((rule)&2)<<3)|(((mask)&2)<<4))
+#define v4l_fshuffle2(a, b, rule, mask) _mm256_permute2x128_si256(a, b, ((rule)&1)|(((mask)&1)<<1)|(((rule)&2)<<3)|(((mask)&2)<<4))
+
+
+#undef v8i_hshuffle2
+#undef v4l_hshuffle2
+#define v8i_hshuffle2(a, b, rule) _mm256_permute2x128_si256(a, b, ((rule)&1)|(((rule)&2)<<3)|0x20)
+#define v4l_hshuffle2(a, b, rule) _mm256_permute2x128_si256(a, b, ((rule)&1)|(((rule)&2)<<3)|0x20)
 
 #endif
 
@@ -531,6 +570,40 @@ typedef __m512i v8l;
 #define  v8f_fmsub(a, b, c)  _mm256_fmsub_ps(a, b, c)
 #define v8f_fnmadd(a, b, c) _mm256_fnmadd_ps(a, b, c)
 #define v8f_fnmsub(a, b, c) _mm256_fnmsub_ps(a, b, c)
+
+
+#undef v8d_fmadd
+#undef v8d_fmsub
+#undef v8d_fnmadd
+#undef v8d_fnmsub
+#undef v16f_fmadd
+#undef v16f_fmsub
+#undef v16f_fnmadd
+#undef v16f_fnmsub
+#undef v16i_fmadd
+#undef v16i_fmsub
+#undef v16i_fnmadd
+#undef v16i_fnmsub
+#undef v8l_fmadd
+#undef v8l_fmsub
+#undef v8l_fnmadd
+#undef v8l_fnmsub
+#define   v8d_fmadd(a, b, c)   v8d_merge_v4d(v4d_fmadd(v4d_get_low_v8d(a), v4d_get_low_v8d(b), v4d_get_low_v8d(c)), v4d_fmadd(v4d_get_high_v8d(a), v4d_get_high_v8d(b), v4d_get_high_v8d(c)))
+#define   v8d_fmsub(a, b, c)   v8d_merge_v4d(v4d_fmsub(v4d_get_low_v8d(a), v4d_get_low_v8d(b), v4d_get_low_v8d(c)), v4d_fmsub(v4d_get_high_v8d(a), v4d_get_high_v8d(b), v4d_get_high_v8d(c)))
+#define  v8d_fnmadd(a, b, c)   v8d_merge_v4d(v4d_fnmadd(v4d_get_low_v8d(a), v4d_get_low_v8d(b), v4d_get_low_v8d(c)), v4d_fnmadd(v4d_get_high_v8d(a), v4d_get_high_v8d(b), v4d_get_high_v8d(c)))
+#define  v8d_fnmsub(a, b, c)   v8d_merge_v4d(v4d_fnmsub(v4d_get_low_v8d(a), v4d_get_low_v8d(b), v4d_get_low_v8d(c)), v4d_fnmsub(v4d_get_high_v8d(a), v4d_get_high_v8d(b), v4d_get_high_v8d(c)))
+#define  v16f_fmadd(a, b, c)   v16f_merge_v8f(v8f_fmadd(v8f_get_low_v16f(a), v8f_get_low_v16f(b), v8f_get_low_v16f(c)), v8f_fmadd(v8f_get_high_v16f(a), v8f_get_high_v16f(b), v8f_get_high_v16f(c)))
+#define  v16f_fmsub(a, b, c)   v16f_merge_v8f(v8f_fmsub(v8f_get_low_v16f(a), v8f_get_low_v16f(b), v8f_get_low_v16f(c)), v8f_fmsub(v8f_get_high_v16f(a), v8f_get_high_v16f(b), v8f_get_high_v16f(c)))
+#define v16f_fnmadd(a, b, c)   v16f_merge_v8f(v8f_fnmadd(v8f_get_low_v16f(a), v8f_get_low_v16f(b), v8f_get_low_v16f(c)), v8f_fnmadd(v8f_get_high_v16f(a), v8f_get_high_v16f(b), v8f_get_high_v16f(c)))
+#define v16f_fnmsub(a, b, c)   v16f_merge_v8f(v8f_fnmsub(v8f_get_low_v16f(a), v8f_get_low_v16f(b), v8f_get_low_v16f(c)), v8f_fnmsub(v8f_get_high_v16f(a), v8f_get_high_v16f(b), v8f_get_high_v16f(c)))
+#define  v16i_fmadd(a, b, c)   v16i_merge_v8i(v8i_fmadd(v8i_get_low_v16i(a), v8i_get_low_v16i(b), v8i_get_low_v16i(c)), v8i_fmadd(v8i_get_high_v16i(a), v8i_get_high_v16i(b), v8i_get_high_v16i(c)))
+#define  v16i_fmsub(a, b, c)   v16i_merge_v8i(v8i_fmsub(v8i_get_low_v16i(a), v8i_get_low_v16i(b), v8i_get_low_v16i(c)), v8i_fmsub(v8i_get_high_v16i(a), v8i_get_high_v16i(b), v8i_get_high_v16i(c)))
+#define v16i_fnmadd(a, b, c)   v16i_merge_v8i(v8i_fnmadd(v8i_get_low_v16i(a), v8i_get_low_v16i(b), v8i_get_low_v16i(c)), v8i_fnmadd(v8i_get_high_v16i(a), v8i_get_high_v16i(b), v8i_get_high_v16i(c)))
+#define v16i_fnmsub(a, b, c)   v16i_merge_v8i(v8i_fnmsub(v8i_get_low_v16i(a), v8i_get_low_v16i(b), v8i_get_low_v16i(c)), v8i_fnmsub(v8i_get_high_v16i(a), v8i_get_high_v16i(b), v8i_get_high_v16i(c)))
+#define   v8l_fmadd(a, b, c)   v8l_merge_v4l(v4l_fmadd(v4l_get_low_v8l(a), v4l_get_low_v8l(b), v4l_get_low_v8l(c)), v4l_fmadd(v4l_get_high_v8l(a), v4l_get_high_v8l(b), v4l_get_high_v8l(c)))
+#define   v8l_fmsub(a, b, c)   v8l_merge_v4l(v4l_fmsub(v4l_get_low_v8l(a), v4l_get_low_v8l(b), v4l_get_low_v8l(c)), v4l_fmsub(v4l_get_high_v8l(a), v4l_get_high_v8l(b), v4l_get_high_v8l(c)))
+#define  v8l_fnmadd(a, b, c)   v8l_merge_v4l(v4l_fnmadd(v4l_get_low_v8l(a), v4l_get_low_v8l(b), v4l_get_low_v8l(c)), v4l_fnmadd(v4l_get_high_v8l(a), v4l_get_high_v8l(b), v4l_get_high_v8l(c)))
+#define  v8l_fnmsub(a, b, c)   v8l_merge_v4l(v4l_fnmsub(v4l_get_low_v8l(a), v4l_get_low_v8l(b), v4l_get_low_v8l(c)), v4l_fnmsub(v4l_get_high_v8l(a), v4l_get_high_v8l(b), v4l_get_high_v8l(c)))
 #endif
 
 #endif //PINTS_AVX_H

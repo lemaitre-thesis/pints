@@ -313,6 +313,15 @@ inline v16i compatible_v16i_merge_v8i(v8i low, v8i high);
 
 
 
+
+
+
+
+
+
+
+
+
 inline union __v1d __v1d_eq(union __v1d a, union __v1d b);
 inline union __v1f __v1f_eq(union __v1f a, union __v1f b);
 inline union __v1i __v1i_eq(union __v1i a, union __v1i b);
@@ -1197,6 +1206,15 @@ inline v16i compatible_v16i_merge_v8i(v8i low, v8i high) {
   v8i_store(v + 8, high);
   return v16i_load(v);
 }
+
+
+
+
+
+
+
+
+
 
 
 
