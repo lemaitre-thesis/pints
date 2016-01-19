@@ -426,7 +426,7 @@ class Function:
       size2 = size1
     if not self.is_valid(type1 = type1, size1 = size1, type2 = type2, size2 = size2):
       return ""
-    line = "".join(["inline ", self.rettype, " ", self.prefix, self.name, "(", self.args, ");\n"])
+    line = "".join(["static inline ", self.rettype, " ", self.prefix, self.name, "(", self.args, ");\n"])
     return expand_type_pattern(line, type1 = type1, size1 = size1, type2 = type2, size2 = size2, force = self.force);
   def body(self, type1, size1, type2 = None, size2 = None):
     if type2 is None:
@@ -435,7 +435,7 @@ class Function:
       size2 = size1
     if not self.is_valid(type1 = type1, size1 = size1, type2 = type2, size2 = size2):
       return ""
-    full_def = "".join(["inline ", self.rettype, " ", self.prefix, self.name, "(", self.args, ") {", self.definition, "}\n"])
+    full_def = "".join(["static inline ", self.rettype, " ", self.prefix, self.name, "(", self.args, ") {", self.definition, "}\n"])
     return expand_type_pattern(full_def, type1 = type1, size1 = size1, type2 = type2, size2 = size2, force = self.force)
   def __str__(self):
     return "".join([self.rettype, " ", self.prefix, self.name, "(", self.args, ") {", self.definition, "}"])
@@ -818,7 +818,7 @@ INTERNALS = [ UNION_INTERN, STRUCT_INTERN, TYPES_INTERN, MASK ]
 
 
 CVTs = remove_empty_lines(r"""
-inline %t __s%p_cvt_%P(%T a) {
+static inline %t __s%p_cvt_%P(%T a) {
   int i;
   %t s%P;
   %P_store(&s%P, a);
@@ -826,7 +826,7 @@ inline %t __s%p_cvt_%P(%T a) {
 }
 """)
 CVT = remove_empty_lines(r"""
-inline %T __%P_cvt_%P'(%T' a) {
+static inline %T __%P_cvt_%P'(%T' a) {
   int i;
   %t s%P;
   %t' s%P';
@@ -863,14 +863,14 @@ def generate_cvts():
       macro.append(CVTMr)
       if size1 is 1:
         macro.append("#define s%p_cvt_%'P' __s%p_cvt_%'P'")
-        declare.append("inline %t __s%p_cvt_%P(%T a);")
+        declare.append("static inline %t __s%p_cvt_%P(%T a);")
         definition.append(CVTs)
     else:
       if type1 is not type2 or size2 is not 1:
         macro.append(CVTsr)
       if size1 is 1 and size2 is 1:
         macro.append("#define %P_cvt_%'P' __%P_cvt_%'P'")
-        declare.append("inline %T __%P_cvt_%P'(%T' a);")
+        declare.append("static inline %T __%P_cvt_%P'(%T' a);")
         definition.append(CVT)
       elif size1 < size2:
         macro.append(CVTdown)
@@ -893,10 +893,10 @@ def generate_cvts():
 CASTm = "#define %P_cast_%'P' __%P_cast_%'P'"
 CASTi = "#define %P_cast_%P(a) (a)"
 CASTidown = remove_empty_lines(r"""
-inline %T __%P_cast_%'P(%'I a) { return a.a; }
+static inline %T __%P_cast_%'P(%'I a) { return a.a; }
 """)
 CASTiup = remove_empty_lines(r"""
-inline %I __%P_cast_%'P(%'T a) { %I r = { a: a }; return r; }
+static inline %I __%P_cast_%'P(%'T a) { %I r = { a: a }; return r; }
 """)
 CASTx = "#define %P_cast_%'P'(a) (*((%T*)(&a)))"
 CASTiupr = "#define %P_cast_%'P(a) %P_cast_%-P(%-P_cast_%'P(a))"
@@ -926,13 +926,13 @@ def generate_casts():
         macro.append(CASTi)
       elif size1 is size2 * 2:
         macro.append(CASTm)
-        declare.append("inline %I __%P_cast_%'P(%'T a);")
+        declare.append("static inline %I __%P_cast_%'P(%'T a);")
         definition.append(CASTiup)
       elif size1 > size2:
         macro.append(CASTiupr)
       elif size1 is size2 / 2:
         macro.append(CASTm)
-        declare.append("inline %T __%P_cast_%'P(%'I a);")
+        declare.append("static inline %T __%P_cast_%'P(%'I a);")
         definition.append(CASTidown)
       else:
         macro.append(CASTidownr)

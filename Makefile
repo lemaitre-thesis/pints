@@ -63,10 +63,10 @@ $(EXE_PATH)/$(PRODUCT): $(OBJ)
 	$(CC) -o $@ $^ $(LDFLAGS) $(OPTFLAGS) $(CFG) $(INC) 
 
 #-----Generator rules-----
-include/pints-polyfill-defines.h.auto : generator/gen.py generator/pints-polyfill-defines.h.head generator/pints-polyfill-defines.h.foot generator/pints-polyfill-funcs.h.head generator/pints-polyfill-funcs.h.foot
-	generator/gen.py
+include/pints-polyfill-defines.h : generator/template.py generator/templates/include/pints-polyfill-defines.h
+	generator/template.py
 
-generate: include/simd-polyfill-defines.h.auto
+generate: include/pints-polyfill-defines.h
 
 # -- Other stuff ----------
 depend:
@@ -75,8 +75,8 @@ depend:
 clean:
 	rm -f $(OBJ_PATH)/*
 	rm -f $(EXE_PATH)/*
-	rm -f include/pints-polyfill-defines.h.auto
-	rm -f include/pints-polyfill-funcs.h.auto
+	rm -f include/pints-polyfill-defines.h
+	rm -f include/pints-polyfill-funcs.h
 
 run: $(EXE_PATH)/$(PRODUCT)
 	$(EXE_PATH)/$(PRODUCT)

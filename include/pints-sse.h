@@ -1124,34 +1124,34 @@ typedef __m128i v4i;
 #define v2d_cvt_v2d(a) (a)
 #define v2f_cvt_v2d(a) _mm_cvtpd_ps(a)
 #define v2i_cvt_v2d(a) _mm_cvtpd_epi32(a)
-#define v2l_cvt_v2d(a) __v2l_cvt_v2d(a)
+#define v2l_cvt_v2d(a) compatible_v2l_cvt_v2d(a)
 #define v2d_cvt_v2f(a) _mm_cvtps_pd(a)
 #define v2f_cvt_v2f(a) (a)
 #define v2i_cvt_v2f(a) _mm_cvtps_epi32(a)
-#define v2l_cvt_v2f(a) __v2l_cvt_v2f(a)
+#define v2l_cvt_v2f(a) compatible_v2l_cvt_v2f(a)
 #define v2d_cvt_v2i(a) _mm_cvtepi32_pd(a)
 #define v2f_cvt_v2i(a) _mm_cvtepi32_ps(a)
 #define v2i_cvt_v2i(a) (a)
 #define v2l_cvt_v2i(a) _mm_cvtepi32_epi64(a)
-#define v2d_cvt_v2l(a) __v2d_cvt_v2l(a)
-#define v2f_cvt_v2l(a) __v2f_cvt_v2l(a)
-#define v2i_cvt_v2l(a) __v2i_cvt_v2l(a)
+#define v2d_cvt_v2l(a) compatible_v2d_cvt_v2l(a)
+#define v2f_cvt_v2l(a) compatible_v2f_cvt_v2l(a)
+#define v2i_cvt_v2l(a) compatible_v2i_cvt_v2l(a)
 #define v2l_cvt_v2l(a) (a)
 #define v1d_cvt_v1d(a) (a)
 #define v1f_cvt_v1d(a) v2f_cvt_v2d(a)
 #define v1i_cvt_v1d(a) v2i_cvt_v2d(a)
-#define v1l_cvt_v1d(a) __v1l_cvt_v1d(a)
+#define v1l_cvt_v1d(a) compatible_v1l_cvt_v1d(a)
 #define v1d_cvt_v1f(a) v2d_cvt_v2f(a)
 #define v1f_cvt_v1f(a) (a)
 #define v1i_cvt_v1f(a) v2i_cvt_v2f(a)
-#define v1l_cvt_v1f(a) __v1l_cvt_v1f(a)
+#define v1l_cvt_v1f(a) compatible_v1l_cvt_v1f(a)
 #define v1d_cvt_v1i(a) v2d_cvt_v2i(a)
 #define v1f_cvt_v1i(a) v2f_cvt_v2i(a)
 #define v1i_cvt_v1i(a) (a)
 #define v1l_cvt_v1i(a) v2l_cvt_v2i(a)
-#define v1d_cvt_v1l(a) __v1d_cvt_v1l(a)
-#define v1f_cvt_v1l(a) __v1f_cvt_v1l(a)
-#define v1i_cvt_v1l(a) __v1i_cvt_v1l(a)
+#define v1d_cvt_v1l(a) compatible_v1d_cvt_v1l(a)
+#define v1f_cvt_v1l(a) compatible_v1f_cvt_v1l(a)
+#define v1i_cvt_v1l(a) compatible_v1i_cvt_v1l(a)
 #define v1l_cvt_v1l(a) (a)
 
 
@@ -1230,12 +1230,12 @@ typedef __m128i v4i;
 #define v2f_merge2_v1f(a, b)      _mm_unpacklo_ps(a, b)
 #define v2i_merge2_v1i(a, b)      _mm_unpacklo_epi32(a, b)
 
-inline v2l __sse2_v2l_eq(v2l a, v2l b) {
+static inline v2l __sse2_v2l_eq(v2l a, v2l b) {
   v4i cmp = v4i_eq(v4i_cast_v2l(a), v4i_cast_v2l(b));
   return v2l_cast_v4i(v4i_and(cmp, v4i_permute4(cmp, 0xB1)));
 }
 
-inline v2l __sse2_v2l_gt(v2l a, v2l b) {
+static inline v2l __sse2_v2l_gt(v2l a, v2l b) {
   v4i cmpeq = v4i_eq(v4i_cast_v2l(a), v4i_cast_v2l(b));
   v4i cmpgt = v4i_gt(v4i_cast_v2l(a), v4i_cast_v2l(b));
   v4i high_eq = v4i_permute4(cmpeq, 0xF5);
@@ -1244,7 +1244,7 @@ inline v2l __sse2_v2l_gt(v2l a, v2l b) {
   return v2l_cast_v4i(v4i_or(high_gt, v4i_and(high_eq, low_gt)));
 }
 
-inline v2l __sse2_v2l_lt(v2l a, v2l b) {
+static inline v2l __sse2_v2l_lt(v2l a, v2l b) {
   v4i cmpeq = v4i_eq(v4i_cast_v2l(a), v4i_cast_v2l(b));
   v4i cmplt = v4i_lt(v4i_cast_v2l(a), v4i_cast_v2l(b));
   v4i high_eq = v4i_permute4(cmpeq, 0xF5);

@@ -1,0 +1,237 @@
+{% set Esizes = [] %}
+{% set Etypes = [] %}
+
+{% macro cond(str) -%}
+%$${{ str }}$$
+{%- endmacro %}
+
+{% macro define(f = None) -%}
+  {%- if DEFINE -%}
+    {%- filter macro() -%}
+      {%- filter expand_force(force = force) -%}
+        {{- f.define_p() if f != None }}
+        {{- caller() -}}
+        {{ "\n" }}
+      {%- endfilter -%}
+    {%- endfilter -%}
+  {%- endif -%}
+{%- endmacro %}
+
+{% macro def_func(f) -%}
+  {%- if DEFINE -%}
+    {%- filter expand_force(force = force) -%}
+      {{- f.define() -}}
+      {{ "\n" }}
+    {%- endfilter -%}
+  {%- endif -%}
+{%- endmacro %}
+
+{% macro declare(f, force = 0) -%}
+  {%- if DECLARE -%}
+    {%- filter expand_force(force = force) -%}
+      {{- f.declare() -}}
+      {{ "\n" }}
+    {%- endfilter -%}
+  {%- endif -%}
+{%- endmacro %}
+
+{% macro impl(f = None, force = 0) -%}
+  {%- if IMPLEMENTATION -%}
+    {%- filter expand_force(force = force) -%}
+      {{- f.signature() if f != None -}}
+      {{- caller() -}}
+      {{ "\n" }}
+    {%- endfilter -%}
+  {%- endif -%}
+{%- endmacro %}
+
+{% macro doc(f = None, force = 1) -%}
+  {%- if DOCUMENTATION -%}
+    {%- filter expand_force(force = force) -%}
+      {{- caller() -}}
+      {{- f.declare_nop() if f != None -}}
+      {{ "\n" }}
+    {%- endfilter -%}
+  {%- endif -%}
+{%- endmacro %}
+
+{% macro recursive_macro(f) -%}
+{%- if DEFINE -%}
+{{ f.define_p() }} {# -#}
+  %P_merge2_%-P( {#- -#}
+    {{- smaller(f.name()) }}({{ f.low_args() }}), {# -#}
+    {{- smaller(f.name()) }}({{ f.high_args() }}) {#- -#}
+  )
+{% endif -%}
+{%- endmacro %}
+
+{% macro recursive_func(f) -%}
+{%- if IMPLEMENTATION -%}
+{{ f.signature() }} { {# -#}
+  return %P_merge2_%-P( {#- -#}
+    {{ smaller(f.name()) }}({{ f.low_args() }}), {# -#}
+    {{ smaller(f.name()) }}({{ f.high_args() }}) {#- -#}
+  ); {# -#}
+}
+{% endif -%}
+{%- endmacro %}
+
+{% macro force(f = 0) -%}
+  {%- filter expand_force(force = f) -%}
+    {{- caller() -}}
+  {%- endfilter -%}
+{%- endmacro %}
+
+{% macro expand() -%}
+  {%- if expand_valid(caller(), sizes = Esizes, types = Etypes) -%} 
+    {%- filter expand_filter(sizes = Esizes, types = Etypes) -%}
+      {{- caller() -}}
+    {%- endfilter -%}
+  {%- endif -%}
+{%- endmacro %}
+
+{% macro for_sizes(sizes = None) -%}
+  {%- for size in (sizes or SIZES) -%}
+    {{- Esizes.append(size)|noprint -}}
+    {{- updateSizesTypes(Esizes, Etypes)|noprint -}}
+    {{- caller() -}}
+    {{- Esizes.pop()|noprint -}}
+    {{- updateSizesTypes(Esizes, Etypes)|noprint -}}
+  {%- endfor -%}
+{%- endmacro %}
+
+{% macro for_types(types = None) -%}
+  {%- for type in (types or TYPES) -%}
+    {{- Etypes.append(type)|noprint -}}
+    {{- updateSizesTypes(Esizes, Etypes)|noprint -}}
+    {{- caller() -}}
+    {{- Etypes.pop()|noprint -}}
+    {{- updateSizesTypes(Esizes, Etypes)|noprint -}}
+  {%- endfor -%}
+{%- endmacro %}
+
+{% macro for_both(sizes = None, types = None, sep = "") -%}
+  {%- for size in (sizes or SIZES) -%}
+    {{- Esizes.append(size)|noprint -}}
+    {%- for type in (types or TYPES) -%}
+      {{- Etypes.append(type)|noprint -}}
+      {{- updateSizesTypes(Esizes, Etypes)|noprint -}}
+      {{- caller() -}}
+      {{- Etypes.pop()|noprint -}}
+    {%- endfor -%}
+    {{- sep if not loop.last -}}
+    {{- Esizes.pop()|noprint -}}
+    {{- updateSizesTypes(Esizes, Etypes)|noprint -}}
+  {%- endfor -%}
+{%- endmacro %}
+
+{% macro expand_sizes(sizes = None) -%}
+  {%- for size in (sizes or SIZES) -%}
+    {{- Esizes.append(size)|noprint -}}
+    {{- updateSizesTypes(Esizes, Etypes)|noprint -}}
+    {%- if expand_valid(caller(), sizes = Esizes, types = Etypes) -%} 
+      {%- filter expand_filter(sizes = Esizes, types = Etypes) -%}
+        {{- caller() -}}
+      {%- endfilter -%}
+    {%- endif -%}
+    {{- Esizes.pop()|noprint -}}
+    {{- updateSizesTypes(Esizes, Etypes)|noprint -}}
+  {%- endfor -%}
+{%- endmacro %}
+
+{% macro expand_types(types = None) -%}
+  {%- for type in (types or TYPES) -%}
+    {{- Etypes.append(type)|noprint -}}
+    {{- updateSizesTypes(Esizes, Etypes)|noprint -}}
+    {%- if expand_valid(caller(), sizes = Esizes, types = Etypes) -%} 
+      {%- filter expand_filter(sizes = Esizees, types = Etypes) -%}
+        {{- caller() -}}
+      {%- endfilter -%}
+    {%- endif -%}
+    {{- Etypes.pop()|noprint -}}
+    {{- updateSizesTypes(Esizes, Etypes)|noprint -}}
+  {%- endfor -%}
+{%- endmacro %}
+
+{% macro expand_both(sizes = None, types = None, sep = "") -%}
+  {%- for size in (sizes or SIZES) -%}
+    {{- Esizes.append(size)|noprint -}}
+    {%- for type in (types or TYPES) -%}
+      {{- Etypes.append(type)|noprint -}}
+      {{- updateSizesTypes(Esizes, Etypes)|noprint -}}
+      {%- if expand_valid(caller(), sizes = Esizes, types = Etypes) -%} 
+        {%- filter expand_filter(sizes = Esizes, types = Etypes) -%}
+          {{- caller() -}}
+        {%- endfilter -%}
+      {%- endif -%}
+      {{- Etypes.pop()|noprint -}}
+    {%- endfor -%}
+    {{- sep if not loop.last -}}
+    {{- Esizes.pop()|noprint -}}
+    {{- updateSizesTypes(Esizes, Etypes)|noprint -}}
+  {%- endfor -%}
+{%- endmacro %}
+
+{% macro expandf(rettype, name, args, prefix = "__", sizes = None, types = None, sep = "") -%}
+  {%- set f = Func(rettype = rettype, name = name, args = args, prefix = prefix, **kwargs) -%}
+  {%- for size in (sizes or SIZES) -%}
+    {{- Esizes.append(size)|noprint -}}
+    {%- for type in (types or TYPES) -%}
+      {{- Etypes.append(type)|noprint -}}
+      {{- updateSizesTypes(Esizes, Etypes)|noprint -}}
+      {%- if expand_valid(caller(f), sizes = Esizes, types = Etypes) -%} 
+        {%- filter expand_filter(sizes = Esizes, types = Etypes) -%}
+          {{- caller(f) -}}
+        {%- endfilter -%}
+      {%- endif -%}
+      {{- Etypes.pop()|noprint -}}
+    {%- endfor -%}
+    {{- sep if not loop.last -}}
+    {{- Esizes.pop()|noprint -}}
+    {{- updateSizesTypes(Esizes, Etypes)|noprint -}}
+  {%- endfor -%}
+{%- endmacro %}
+
+{% macro macro(rettype, name, args, prefix = "__", sizes = None, types = None, sep = "") -%}
+  {%- set f = Func(rettype = rettype, name = name, args = args, prefix = prefix, **kwargs) -%}
+  {%- for size in (sizes or SIZES) -%}
+    {{- Esizes.append(size)|noprint -}}
+    {%- for type in (types or TYPES) -%}
+      {{- Etypes.append(type)|noprint -}}
+      {{- updateSizesTypes(Esizes, Etypes)|noprint -}}
+      {%- if expand_valid(caller(f), sizes = Esizes, types = Etypes) -%} 
+        {%- filter expand_filter(sizes = Esizes, types = Etypes) -%}
+          {{- caller(f) -}}
+        {%- endfilter -%}
+      {%- endif -%}
+      {{- Etypes.pop()|noprint -}}
+    {%- endfor -%}
+    {{- sep if not loop.last -}}
+    {{- Esizes.pop()|noprint -}}
+    {{- updateSizesTypes(Esizes, Etypes)|noprint -}}
+  {%- endfor -%}
+{%- endmacro %}
+
+{% macro func(rettype, name, args, prefix = "__", sizes = None, types = None, sep = "") -%}
+  {%- set f = Func(rettype = rettype, name = name, args = args, prefix = prefix, **kwargs) -%}
+  {%- for size in (sizes or SIZES) -%}
+    {{- Esizes.append(size)|noprint -}}
+    {%- for type in (types or TYPES) -%}
+      {{- Etypes.append(type)|noprint -}}
+      {{- updateSizesTypes(Esizes, Etypes)|noprint -}}
+      {%- if expand_valid(def_func(f) + "\n" + declare(f) + "\n" + caller(f), sizes = Esizes, types = Etypes) -%} 
+        {%- filter expand_filter(sizes = Esizes, types = Etypes) -%}
+          {{- def_func(f) }}
+          {{- declare(f) }}
+          {{- caller(f) -}}
+        {%- endfilter -%}
+      {%- endif -%}
+      {{- Etypes.pop()|noprint -}}
+    {%- endfor -%}
+    {{- sep if not loop.last -}}
+    {{- Esizes.pop()|noprint -}}
+    {{- updateSizesTypes(Esizes, Etypes)|noprint -}}
+  {%- endfor -%}
+{%- endmacro %}
+
+

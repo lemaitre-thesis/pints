@@ -1,0 +1,178 @@
+{%- import "expand.jinja" as _ with context -%}
+#ifndef PINTS_HELPER_H
+#define PINTS_HELPER_H
+//{{ FILE }}
+
+#define PINTS_ALIGN_UP(p, a) ((void*) ((((uintptr_t) p) + a-1) & ~(a-1)))
+#define PINTS_ALIGN_DOWN(p, a) ((void*) (((uintptr_t) p) & ~(a-1)))
+
+#define PINTS_ALIGNED_ARRAY(type, name, size, align) \
+  type name##_unaligned[(size) + (align)]; \
+  type *name = (type*)PINTS_ALIGN_UP(name##_unaligned, align)
+
+#define PINTS_REINTERPRET(to_t, from_t, v) (((union { from_t from; to_t to; }) { from: (v) }).to)
+
+#define __PINTS_PP_CAT(a, b) a##b
+#define PINTS_PP_CAT(a, b) __PINTS_PP_CAT(a, b)
+
+{% set MAX_ARGS = 64 %}
+#define PINTS_PP_NARGS(...) __PINTS_PP_NARGS(__VA_ARGS__, {% for i in range(MAX_ARGS, -1, -1) %}{{i}}{% if not loop.last %}, {% endif %}{% endfor %})
+#define __PINTS_PP_NARGS({% for i in range(1, 1+MAX_ARGS) %}_{{i}}{% if not loop.last %}, {% endif %}{% endfor %}, N, ...) N
+
+#define ___PINTS_2BITS_TO_B4(b1, b0) __PINTS_2BITS_TO_B4_##b1##b0
+#define __PINTS_2BITS_TO_B4(b1, b0) ___PINTS_2BITS_TO_B4(b1, b0)
+#define __PINTS_2BITS_TO_B4_00 0
+#define __PINTS_2BITS_TO_B4_01 1
+#define __PINTS_2BITS_TO_B4_10 2
+#define __PINTS_2BITS_TO_B4_11 3
+
+#define ___PINTS_3BITS_TO_OCTAL(b2, b1, b0) __PINTS_3BITS_TO_OCTAL_##b2##b1##b0
+#define __PINTS_3BITS_TO_OCTAL(b2, b1, b0) ___PINTS_3BITS_TO_OCTAL(b2, b1, b0)
+#define __PINTS_3BITS_TO_OCTAL_000 0
+#define __PINTS_3BITS_TO_OCTAL_001 1
+#define __PINTS_3BITS_TO_OCTAL_010 2
+#define __PINTS_3BITS_TO_OCTAL_011 3
+#define __PINTS_3BITS_TO_OCTAL_100 4
+#define __PINTS_3BITS_TO_OCTAL_101 5
+#define __PINTS_3BITS_TO_OCTAL_110 6
+#define __PINTS_3BITS_TO_OCTAL_111 7
+
+/* QIT: Quad digit */
+#define ___PINTS_2QITS_TO_HEXA(b1, b0) __PINTS_2QITS_TO_HEXA_##b1##b0
+#define __PINTS_2QITS_TO_HEXA(b1, b0) ___PINTS_2QITS_TO_HEXA(b1, b0)
+#define __PINTS_2QITS_TO_HEXA_00 0
+#define __PINTS_2QITS_TO_HEXA_01 1
+#define __PINTS_2QITS_TO_HEXA_02 2
+#define __PINTS_2QITS_TO_HEXA_03 3
+#define __PINTS_2QITS_TO_HEXA_10 4
+#define __PINTS_2QITS_TO_HEXA_11 5
+#define __PINTS_2QITS_TO_HEXA_12 6
+#define __PINTS_2QITS_TO_HEXA_13 7
+#define __PINTS_2QITS_TO_HEXA_20 8
+#define __PINTS_2QITS_TO_HEXA_21 9
+#define __PINTS_2QITS_TO_HEXA_22 A
+#define __PINTS_2QITS_TO_HEXA_23 B
+#define __PINTS_2QITS_TO_HEXA_30 C
+#define __PINTS_2QITS_TO_HEXA_31 D
+#define __PINTS_2QITS_TO_HEXA_32 E
+#define __PINTS_2QITS_TO_HEXA_33 F
+
+#define __PINTS_4BITS_TO_HEXA(b3, b2, b1, b0) __PINTS_2QITS_TO_HEXA(__PINTS_2BITS_TO_B4(b3, b2), __PINTS_2BITS_TO_B4(b1, b0))
+
+#define ___PINTS_DEC_TO_HEXA(d) __PINTS_DEC_TO_HEXA_##d
+#define __PINTS_DEC_TO_HEXA(d) ___PINTS_DEC_TO_HEXA(d)
+#define __PINTS_DEC_TO_HEXA_0  0
+#define __PINTS_DEC_TO_HEXA_1  1
+#define __PINTS_DEC_TO_HEXA_2  2
+#define __PINTS_DEC_TO_HEXA_3  3
+#define __PINTS_DEC_TO_HEXA_4  4
+#define __PINTS_DEC_TO_HEXA_5  5
+#define __PINTS_DEC_TO_HEXA_6  6
+#define __PINTS_DEC_TO_HEXA_7  7
+#define __PINTS_DEC_TO_HEXA_8  8
+#define __PINTS_DEC_TO_HEXA_9  9
+#define __PINTS_DEC_TO_HEXA_10 A
+#define __PINTS_DEC_TO_HEXA_11 B
+#define __PINTS_DEC_TO_HEXA_12 C
+#define __PINTS_DEC_TO_HEXA_13 D
+#define __PINTS_DEC_TO_HEXA_14 E
+#define __PINTS_DEC_TO_HEXA_15 F
+
+{% set MAX_BITS = 64 %}
+/* Base 2 */
+{% for N in range(0, MAX_BITS+1) %}
+#define PINTS_BASE2x{{N}}({% for i in range(N-1, -1, -1) %}b{{i}}{% if not loop.last %}, {% endif %}{% endfor %}) \
+{% if N == 0 %}
+  0x0
+{% elif N == 4 %}
+  PINTS_PP_CAT(0x, __PINTS_4BITS_TO_HEXA(b3, b2, b1, b0))
+{% elif N % 4 == 0 %}
+  PINTS_PP_CAT(PINTS_BASE2x{{N - 4}}({% for i in range(N-1, 3, -1) %}b{{i}}{% if not loop.last %}, {% endif %}{% endfor %}), __PINTS_4BITS_TO_HEXA(b3, b2, b1, b0))
+{% else %}
+  PINTS_BASE2x{{N + 4 - (N % 4)}}({{([0] * (4 - (N%4)))|join(", ")}}{% for i in range(N-1, -1, -1) %}, b{{i}}{% endfor %})
+{% endif %}
+{% endfor %}
+
+{% for N in range(0, MAX_BITS+1) %}
+#define PINTS_RBASE2x{{N}}({% for i in range(0, N) %}b{{i}}{% if not loop.last %}, {% endif %}{% endfor %}) \
+ PINTS_BASE2x{{N}}({% for i in range(N-1, -1, -1) %}b{{i}}{% if not loop.last %}, {% endif %}{% endfor %})
+{% endfor %}
+
+
+/* Base 4 */
+{% for N in range(0, 1+int(MAX_BITS/2)) %}
+#define PINTS_BASE4x{{N}}({% for i in range(N-1, -1, -1) %}q{{i}}{% if not loop.last %}, {% endif %}{% endfor %}) \
+{% if N == 0 %}
+  0x0
+{% elif N == 2 %}
+  PINTS_PP_CAT(0x, __PINTS_2QITS_TO_HEXA(q1, q0))
+{% elif N % 2 == 0 %}
+  PINTS_PP_CAT(PINTS_BASE4x{{N - 2}}({% for i in range(N-1, 1, -1) %}q{{i}}{% if not loop.last %}, {% endif %}{% endfor %}), __PINTS_2QITS_TO_HEXA(q1, q0))
+{% else %}
+  PINTS_BASE4x{{N + 1}}(0{% for i in range(N-1, -1, -1) %}, q{{i}}{% endfor %})
+{% endif %}
+{% endfor %}
+
+{% for N in range(0, 1+int(MAX_BITS/2)) %}
+#define PINTS_RBASE4x{{N}}({% for i in range(0, N) %}q{{i}}{% if not loop.last %}, {% endif %}{% endfor %}) \
+ PINTS_BASE4x{{N}}({% for i in range(N-1, -1, -1) %}q{{i}}{% if not loop.last %}, {% endif %}{% endfor %})
+{% endfor %}
+
+
+/* Base 8 */
+{% for N in range(0, 1+int(MAX_BITS/3)) %}
+#define PINTS_BASE8x{{N}}({% for i in range(N-1, -1, -1) %}o{{i}}{% if not loop.last %}, {% endif %}{% endfor %}) \
+{% if N == 0 %}
+  0
+{% else %}
+  PINTS_PP_CAT(PINTS_BASE8x{{N-1}}({% for i in range(N-1, 0, -1) %}o{{i}}{% if not loop.last %}, {% endif %}{% endfor %}), o0)
+{% endif %}
+{% endfor %}
+
+{% for N in range(0, 1+int(MAX_BITS/3)) %}
+#define PINTS_RBASE8x{{N}}({% for i in range(0, N) %}o{{i}}{% if not loop.last %}, {% endif %}{% endfor %}) \
+ PINTS_BASE8x{{N}}({% for i in range(N-1, -1, -1) %}o{{i}}{% if not loop.last %}, {% endif %}{% endfor %})
+{% endfor %}
+
+
+/* Base 16 */
+{% for N in range(0, 1+int(MAX_BITS/4)) %}
+#define PINTS_BASE16x{{N}}({% for i in range(N-1, -1, -1) %}h{{i}}{% if not loop.last %}, {% endif %}{% endfor %}) \
+{% if N == 0 %}
+  0x0
+{% elif N == 1 %}
+  PINTS_PP_CAT(0x, __PINTS_DEC_TO_HEXA(h0))
+{% else %}
+  PINTS_PP_CAT(PINTS_BASE16x{{N-1}}({% for i in range(N-1, 0, -1) %}h{{i}}{% if not loop.last %}, {% endif %}{% endfor %}), __PINTS_DEC_TO_HEXA(h0))
+{% endif %}
+{% endfor %}
+
+{% for N in range(0, 1+int(MAX_BITS/4)) %}
+#define PINTS_RBASE16x{{N}}({% for i in range(0, N) %}h{{i}}{% if not loop.last %}, {% endif %}{% endfor %}) \
+ PINTS_BASE16x{{N}}({% for i in range(N-1, -1, -1) %}h{{i}}{% if not loop.last %}, {% endif %}{% endfor %})
+{% endfor %}
+
+/* Unspecified number of args */
+{% for suffix in ["", "U", "UL", "LU", "ULL", "LLU"] %}
+{% for B in [2, 4, 8, 16] %}
+{% if suffix == "" %}
+#define PINTS_BASE{{B}}(...) PINTS_PP_CAT(PINTS_BASE{{B}}x, PINTS_PP_NARGS(__VA_ARGS__))(__VA_ARGS__)
+#define PINTS_RBASE{{B}}(...) PINTS_PP_CAT(PINTS_RBASE{{B}}x, PINTS_PP_NARGS(__VA_ARGS__))(__VA_ARGS__)
+{% else %}
+#define PINTS_BASE{{B}}_{{suffix}}(...) PINTS_PP_CAT(PINTS_BASE{{B}}(__VA_ARGS__), {{suffix}})
+#define PINTS_RBASE{{B}}_{{suffix}}(...) PINTS_PP_CAT(PINTS_RBASE{{B}}(__VA_ARGS__), {{suffix}})
+{% endif %}
+{% endfor %}
+{% endfor %}
+
+/* Shuffles helper */
+{% for B in [2, 4, 8, 16] %}
+#define PINTS_SHUFFLE{{B}} PINTS_RBASE{{B}}
+#define PINTS_RSHUFFLE{{B}} PINTS_BASE{{B}}
+{% endfor %}
+
+#define PINTS_SHUFFLE(...) PINTS_PP_CAT(PINTS_SHUFFLE, PINTS_PP_NARGS(__VA_ARGS__))(__VA_ARGS__)
+#define PINTS_RSHUFFLE(...) PINTS_PP_CAT(PINTS_RSHUFFLE, PINTS_PP_NARGS(__VA_ARGS__))(__VA_ARGS__)
+
+
+#endif //PINTS_HELPER_H

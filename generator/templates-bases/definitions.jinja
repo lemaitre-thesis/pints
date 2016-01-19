@@ -1,0 +1,888 @@
+{% import "expand.jinja" as _ with context %}
+
+/* CASTS */
+{% call _.for_both() %}
+  {%- call(f) _.expandf("%T", "%P_cast_%'P'", "%'T' a") %}
+    {%- set length1 = size1() * type1().size %}
+    {%- set length2 = size2() * type2().size %}
+    {%- if type1() == type2() %}
+      {%- if length1 == length2 %}
+        {%- call _.define(f) %} (a)
+        {%- endcall %}
+      {%- elif length1 == length2 * 2 %}
+        {{- _.def_func(f) }}
+        {%- call _.impl() -%} %I {{ f.pname() }}(%'T' a) { %I r = { a: a }; return r; }
+        {%- endcall %}
+      {%- elif length1 > length2 %}
+        {%- call _.define(f) %} %P_cast_%-P(%-P_cast_%'P(a))
+        {%- endcall %}
+      {%- elif length1 == length2 / 2 %}
+        {{- _.def_func(f) }}
+        {%- call _.impl() -%} %T {{ f.pname() }}(%'I' a) { return a.a; }
+        {%- endcall %}
+      {%- else %}{#/* length1 < length2 */#}
+        {%- call _.define(f) %} %P_cast_%'-P(%'-P_cast_%'P(a))
+        {%- endcall %}
+      {%- endif %}
+    {%- elif length1 == length2 %}
+      {%- call _.define(f) %} PINTS_REINTERPRET(%T, %'T', (a))
+      {%- endcall %}
+    {%- elif length1 > length2 %}
+      {%- call _.define(f) %} %P_cast_%-P(%-P_cast_%'P(%'P_cast_%'P'(a)))
+      {%- endcall %}
+    {%- else %}{#/* length1 < length2 */#}
+      {%- call _.define(f) %} %P_cast_%P'(%P'_cast_%'-P'(%'-P'_cast_%'P'(a)))
+      {%- endcall %}
+    {%- endif %}
+  {%- endcall %}
+{% endcall %}
+
+
+/* CONVERTS */
+{% call _.for_both() %}
+  {%- call(f) _.expandf("%T", "%P_cvt_%'P'", "%'T' a") %}
+    {%- if type1() == type2() and size1() == size2() %}
+      {%- call _.define(f) %} (a)
+      {%- endcall %}
+    {%- elif size1() == size2() == 1 %}
+      {{- _.def_func(f) }}
+      {{- _.declare(f) }}
+      {%- call _.impl(f) %} { %t s%P; %'t' s%'P'; %'P'_store(&s%'P', a); s%P = s%'P'; return %P_load(&s%P); }
+      {%- endcall %}
+    {%- elif size1() == size2() %}
+      {{- _.recursive_macro(f) }}
+    {%- elif size1() < size2() %}
+      {%- call _.define(f) %} %P_cvt_%P'(%P'_cast_%'P'(a))
+      {%- endcall %}
+    {%- else %}{#/* size1() > size2() */#}
+      {%- call _.define(f) %} %P_cast_%'P(%'P_cvt_%'P'(a))
+      {%- endcall %}
+    {%- endif %}
+  {%- endcall %}
+{% endcall %}
+
+{#/* CONVERTS to scalar */#}
+{% call _.for_both() %}
+  {%- call(f) _.expandf("%t", "s%p_cvt_%'P'", "%'T' a", sizes = [1]) %}
+    {%- if type1() == type2() and size2() == 1 %}
+      {{- _.def_func(f) }}
+      {{- _.declare(f) }}
+      {%- call _.impl(f) %} { %t s%P; %P_store(&s%P, a); return s%P; }
+      {%- endcall %}
+    {%- else %}
+      {%- call _.define(f) %} s%p_cvt_v1%p(v1%p_cvt_%'P'(a))
+      {%- endcall %}
+    {%- endif %}
+  {%- endcall %}
+{% endcall %}
+
+{#/* CONVERTS to mask */#}
+{% call(f) _.expandf("%M", "%M_cvt_%P", "%T a") %}
+  {%- call _.define(f) %} %iP_cast_%P(a)
+  {%- endcall %}
+{% endcall %}
+{#/* CONVERTS from mask */#}
+{% call(f) _.expandf("%T", "%P_cvt_%M", "%M a") %}
+  {%- call _.define(f) %} %P_cast_%iP(a)
+  {%- endcall %}
+{% endcall %}
+
+{#/* CONVERTS from mask to mask */#}
+{% call _.for_both() %}
+  {%- call(f) _.expandf("%t", "%M_cvt_%'M'", "%'M' a") %}
+    {%- call _.define(f) %} %iP_cast_%'iP'(a)
+    {%- endcall %}
+  {%- endcall %}
+{% endcall %}
+
+/* compatible CONVERTS */
+{% call _.for_both() %}
+{%- call(f) _.expandf("%T", "%P_cvt_%'P'", "%'T' a", prefix = "compatible_") %}
+{{- _.declare(f) }}
+{%- call _.impl(f) %} {
+  int i;
+  PINTS_ALIGNED_ARRAY(%t, vto, %N, %N*sizeof(%t));
+  PINTS_ALIGNED_ARRAY(%'t', vfrom, %'N', %'N'*sizeof(%'t'));
+  %'P'_store(vfrom, a);
+  for (i = 0; i < {{ min([size1(), size2()]) }}; ++i) vto[i] = vfrom[i];
+  return %P_load(vto);
+} {%- endcall %}
+{%- endcall %}
+{% endcall %}
+
+/* LOADS */
+{#/* load */#}
+{% call(f) _.expandf("%T", "%P_load", "const %t *p") %}
+  {%- if size1() == 1 %}
+    {{- _.def_func(f) }}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { v: *p }; return r; }
+    {%- endcall %}
+  {%- else %}
+    {{- _.def_func(f) }}
+    {{- _.declare(f) }}
+    {%- call _.impl(f) %} { return %P_merge2_%-P(%-P_load(p), %-P_load(p+%-N)); }
+    {%- endcall %}
+  {%- endif %}
+{% endcall %}
+
+{#/* loadu */#}
+{% call(f) _.expandf("%T", "%P_loadu", "const %t *p") %}
+  {%- if size1() == 1 %}
+    {%- call _.define(f) %} %P_load(p)
+    {%- endcall %}
+  {%- else %}
+    {{- _.def_func(f) }}
+    {{- _.declare(f) }}
+    {%- call _.impl(f) %} { return %P_merge2_%-P(%-P_loadu(p), %-P_loadu(p+%-N)); }
+    {%- endcall %}
+  {%- endif %}
+{% endcall %}
+
+{#/* load1 */#}
+{% call(f) _.expandf("%T", "%P_load1", "const %t *p") %}
+  {%- if size1() == 1 %}
+    {%- call _.define(f) %} %P_set1(*(p))
+    {%- endcall %}
+  {%- else %}
+    {{- _.def_func(f) }}
+    {{- _.declare(f) }}
+    {%- call _.impl(f) %} { %-T a = %-P_load1(p); return %P_merge2_%-P(a, a); }
+    {%- endcall %}
+  {%- endif %}
+{% endcall %}
+
+{#/* comptible loadu */#}
+{% call(f) _.expandf("%T", "%P_loadu", "const %t *p", prefix = "compatible_") %}
+{{- _.declare(f) }}
+{%- call _.impl(f) %} {
+  int i;
+  PINTS_ALIGNED_ARRAY(%t, v, %N, %N*sizeof(%t));
+  for (i = 0; i < %N; ++i) v[i] = p[i];
+  return %P_load(v);
+}{%- endcall %}
+{% endcall %}
+
+/* STORES */
+{#/* store */#}
+{% call(f) _.expandf("void", "%P_store", "%t *p, %T a") %}
+  {%- if size1() == 1 %}
+    {{- _.def_func(f) }}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { *p = a.v; }
+    {%- endcall %}
+  {%- else %}
+    {{- _.def_func(f) }}
+    {{- _.declare(f) }}
+    {%- call _.impl(f) %} { %-P_store(p, %-P_get_low_%P(a)); %-P_store(p+%-N, %-P_get_high_%P(a)); }
+    {%- endcall %}
+  {%- endif %}
+{% endcall %}
+
+{#/* storeu */#}
+{% call(f) _.expandf("void", "%P_storeu", "%t *p, %T a") %}
+  {%- if size1() == 1 %}
+    {%- call _.define(f) %} %P_store((p), (a))
+    {%- endcall %}
+  {%- else %}
+    {{- _.def_func(f) }}
+    {{- _.declare(f) }}
+    {%- call _.impl(f) %} { %-P_storeu(p, %-P_get_low_%P(a)); %-P_storeu(p+%-N, %-P_get_high_%P(a)); }
+    {%- endcall %}
+  {%- endif %}
+{% endcall %}
+
+{#/* store1 */#}
+{% call(f) _.expandf("void", "%P_store1", "%t *p, %T a") %}
+  {%- if size1() == 1 %}
+    {%- call _.define(f) %} (*(p) = s%p_cvt_%P(a))
+    {%- endcall %}
+  {%- else %}
+    {%- call _.define(f) %} %-P_store1(p, %-P_get_low_%P(a))
+    {%- endcall %}
+  {%- endif %}
+{% endcall %}
+
+{#/* comptible storeu */#}
+{% call(f) _.expandf("void", "%P_storeu", "%t *p, %T a", prefix = "compatible_") %}
+{{- _.declare(f) }}
+{%- call _.impl(f) %} {
+  int i;
+  PINTS_ALIGNED_ARRAY(%t, v, %N, %N*sizeof(%t));
+  %P_store(v, a);
+  for (i = 0; i < %N; ++i) p[i] = v[i];
+}{%- endcall %}
+{% endcall %}
+
+/* SETS */
+{#/* set */#}
+{% call(f) _.expandf("%T", "%P_set", "%$$0:%N$%t v%n$, $$") %}
+  {%- if size1() == 1 %}
+    {{- _.def_func(f) }}
+    {{- _.declare(f) }}
+    {%- call _.impl(f) %} { return %P_load(&v0); }
+    {%- endcall %}
+  {%- else %}
+    {%- call _.define(f) %} %P_merge2_%-P(%-P_set(%$$0:%-N$(v%n)$, $$), %-P_set(%$$%-N:%N$(v%n)$, $$))
+    {%- endcall %}
+  {%- endif %}
+{% endcall %}
+
+{#/* rset */#}
+{% call(f) _.expandf("%T", "%P_rset", "%$$%N:0$%t v%n$, $$") %}
+  {%- call _.define(f) %} %P_set(%$$0:%N$(v%n)$, $$)
+  {%- endcall %}
+{% endcall %}
+
+{#/* set1 */#}
+{% call(f) _.expandf("%T", "%P_set1", "%t v") %}
+  {%- if size1() == 1 %}
+    {%- call _.define(f) %} %P_set(v)
+    {%- endcall %}
+  {%- else %}
+    {{- _.def_func(f) }}
+    {{- _.declare(f) }}
+    {%- call _.impl(f) %} { %-T a = %-P_set1(v); return %P_merge2_%-P(a, a); }
+    {%- endcall %}
+  {%- endif %}
+{% endcall %}
+
+/* CONSTANTS */
+{#/* zeros */#}
+{% call(f) _.expandf("%T", "%P_zeros", "") %}
+  {%- call _.define(f) %} %P_set1(0)
+  {%- endcall %}
+{% endcall %}
+{#/* ones */#}
+{% call(f) _.expandf("%T", "%P_ones", "") %}
+  {%- if type1().is_int() %}
+    {%- call _.define(f) %} %P_set1(-1)
+    {%- endcall %}
+  {%- else %}
+    {%- call _.define(f) %} %P_set1(PINTS_REINTERPRET(%t, %it, -1))
+    {%- endcall %}
+  {%- endif %}
+{% endcall %}
+{#/* zero */#}
+{% call(f) _.expandf("%T", "%P_zero", "") %}
+  {%- call _.define(f) %} %P_zeros()
+  {%- endcall %}
+{% endcall %}
+{#/* one */#}
+{% call(f) _.expandf("%T", "%P_one", "") %}
+  {%- call _.define(f) %} %P_set1(1)
+  {%- endcall %}
+{% endcall %}
+
+/* MERGES */
+{#/* MergeN */#}
+{% call _.for_sizes(recursive_sizes(1)) %}
+  {%- call(f) _.expandf("%T", "%P_merge%'N_%^P", "%$$0:%'N'$%^T a%n$, $$") %}
+    {%- if size2() == 2 %}
+      {{- _.def_func(f) }}
+      {{- _.declare(f, -1) }}
+      {%- call _.impl(f, -1) %} { %I r = { a: a0, b: a1 }; return r; }
+      {%- endcall %}
+    {%- elif size2() > 2 %}
+      {%- call _.define(f) %} %P_merge2_%-P(%-P_merge%'-N_%^P(%$$0:%'-N$(a%n)$, $$), %-P_merge%'-N_%^P(%$$%'-N:%'N$(a%n)$, $$))
+      {%- endcall %}
+    {%- endif %}
+  {%- endcall %}
+{% endcall %}
+
+{#/* rMergeN */#}
+{% call _.for_sizes(recursive_sizes(1)) %}
+  {%- call(f) _.expandf("%T", "%P_rmerge%'N_%^P", "%$$%'N':0$%^T a%n$, $$") %}
+    {%- call _.define(f) %} %P_merge%'N_%^P(%$$0:%'N'$(a%n)$, $$)
+    {%- endcall %}
+  {%- endcall %}
+{% endcall %}
+
+{#/* Merge */#}
+{%- call(f) _.expandf("%T", "%P_merge_%-P", "%-T low, %-T high") %}
+  {%- call _.define() -%} #define {{ f.name() }} %P_merge2_%-P
+  {%- endcall %}
+{%- endcall %}
+
+{#/* rMerge */#}
+{%- call(f) _.expandf("%T", "%P_rmerge_%-P", "%-T high, %-T low") %}
+  {%- call _.define() -%} #define {{ f.name() }} %P_rmerge2_%-P
+  {%- endcall %}
+{%- endcall %}
+
+{#/* comptible merge2 */#}
+{% call(f) _.expandf("%T", "%P_merge_%-P", "%-T low, %-T high", prefix = "compatible_") %}
+{{- _.declare(f) }}
+{%- call _.impl(f) %} {
+  int i;
+  PINTS_ALIGNED_ARRAY(%t, v, %N, %N*sizeof(%t));
+  %-P_store(v, low);
+  %-P_store(v + %-N, high);
+  return %P_load(v);
+}{%- endcall %}
+{% endcall %}
+
+/* HIGH and LOW manipulation */
+{#/* get_low */#}
+{%- call(f) _.expandf("%-T", "%-P_get_low_%P", "%T a") %}
+  {%- call _.define(f) -%} %-P_cast_%P(a)
+  {%- endcall %}
+{%- endcall %}
+{#/* get_high */#}
+{%- call(f) _.expandf("%-T", "%-P_get_high_%P", "%I a") %}
+  {{- _.def_func(f) }}
+  {{- _.declare(f) }}
+  {%- call _.impl(f) %} { return a.b; }
+  {%- endcall %}
+{%- endcall %}
+{#/* get_hilo */#}
+{%- call(f) _.expandf("%-T", "%-P_get_hilo_%P", "%T a, int high") %}
+  {%- call _.define(f) %} ((high) ? %-P_get_high_%P(a) : %-P_get_low_%P(a))
+  {%- endcall %}
+{%- endcall %}
+{#/* set_low */#}
+{%- call(f) _.expandf("%T", "%P_set_low_%-P", "%T src, %-T low") %}
+  {%- call _.define(f) -%} %P_merge2_%-P(low, %-P_get_high_%P(src))
+  {%- endcall %}
+{%- endcall %}
+{#/* set_high */#}
+{%- call(f) _.expandf("%T", "%P_set_high_%-P", "%T src, %-T high") %}
+  {%- call _.define(f) -%} %P_merge2_%-P(%-P_get_low_%P(src), high)
+  {%- endcall %}
+{%- endcall %}
+{#/* set_hilo */#}
+{%- call(f) _.expandf("%T", "%P_set_hilo_%-P", "%T src, %-T a, int high") %}
+  {%- call _.define(f) %} ((high) ? %P_set_high_%-P(src, a) : %P_set_low_%-P(src, a))
+  {%- endcall %}
+{%- endcall %}
+{#/* comptible get_low */#}
+{% call(f) _.expandf("%-T", "%-P_get_low_%P", "%T a", prefix = "compatible_") %}
+{{- _.declare(f) }}
+{%- call _.impl(f) %} {
+  int i;
+  PINTS_ALIGNED_ARRAY(%t, v, %N, %N*sizeof(%t));
+  %P_store(v, a);
+  return %-P_load(v);
+}{%- endcall %}
+{% endcall %}
+{#/* comptible get_high */#}
+{% call(f) _.expandf("%-T", "%-P_get_high_%P", "%T a", prefix = "compatible_") %}
+{{- _.declare(f) }}
+{%- call _.impl(f) %} {
+  int i;
+  PINTS_ALIGNED_ARRAY(%t, v, %N, %N*sizeof(%t));
+  %P_store(v, a);
+  return %-P_load(v+%-N);
+}{%- endcall %}
+{% endcall %}
+
+/* BLENDS */
+{#/* outer blends */#}
+{% call _.for_sizes() %}
+  {%- set int_mask = uint_t(size1()) %}
+  {%- set mask = int((2 ** (size2() / 2))-1) %}
+  {%- call(f) _.expandf("%T", "%P_blend%'N", "%T a, %T b, " + int_mask + " mask") %}
+    {{- _.cond("%N >= %'N") }}
+    {%- if size2() == 1 %}
+      {%- call _.define(f) %} (((mask)&1) ? (b) : (a))
+      {%- endcall %}
+    {%- else %}
+      {%- call _.define(f) %} %P_merge2_%-P(%-P_blend%'-N(%-P_get_low_%P(a), %-P_get_low_%P(b), (mask) & {{ mask }}), %-P_blend%'-N(%-P_get_high_%P(a), %-P_get_high_%P(b), ((mask) >> %'-N) & {{ mask }}))
+      {%- endcall %}
+    {%- endif %}
+  {%- endcall %}
+{% endcall %}
+
+{#/* inner blends */#}
+{% call _.for_sizes() %}
+  {%- set int_mask = uint_t(size1()) %}
+  {%- call(f) _.expandf("%T", "%P_blend%'Nx%^N", "%T a, %T b, " + int_mask + " mask") %}
+    {{- _.cond("%N >= %'N") }}
+    {%- if size2() == size1() or size2() == 1 %}
+      {%- call _.define() -%} #define {{ f.name() }} %P_blend%N
+      {%- endcall %}
+    {%- else %}
+      {%- call _.define(f) %} %P_blend%'+Nx%^-N((a), (b), (mask) | ((mask) << %'N))
+      {%- endcall %}
+    {%- endif %}
+  {%- endcall %}
+{% endcall %}
+
+{#/* blend */#}
+{% call(f) _.expandf("%T", "%P_blend", "%T a, %T b, %$$int_s(%N)$uint_fast%n_t$$ mask") %}
+  {%- call _.define() -%} #define {{ f.name() }} %P_blend%N
+  {%- endcall %}
+{%- endcall %}
+
+/* SHUFFLES */
+{% macro hshuffle_rule_gen1(i, i1, i2, offset, s = 1) -%}
+  {%- set a0 = int(offset + i*ln2(i2)) -%}
+  {%- set a1 = int(i2/2)-1 -%}
+  {%- set a2 = i*s -%}
+  {%- if a2 == 0 -%}
+    {%- if a0 == 0 -%}
+      ((rule) & {{ a1 }})
+    {%- else -%}
+      (((rule) >> {{ a0 }}) & {{ a1 }})
+    {%- endif -%}
+  {%- else -%}
+    {%- if a0 == 0 -%}
+      (((rule) & {{ a1 }}) << {{ a2 }})
+    {%- else -%}
+      ((((rule) >> {{ a0 }}) & {{ a1 }}) << {{ a2 }})
+    {%- endif -%}
+  {%- endif -%}
+{%- endmacro %}
+{%- macro hshuffle_rule(i1, i2, offset = 0) %}
+      {%- for i in range(0, int(i2/2)) %}
+        {{- hshuffle_rule_gen1(i, i1, i2, offset, ln2(i2/2)) }}
+        {{- "|" if not loop.last }}
+      {%- endfor %},
+      {% for i in range(0, int(i2/2)) %}
+        {{- hshuffle_rule_gen1(i, i1, i2, offset + ln2(i2/2), 1) }}
+        {{- "|" if not loop.last }}
+      {%- endfor %}
+{%- endmacro %}
+{%- macro hshuffle_low() %}
+  {{- hshuffle_rule(size1(), size2(), 0) }}
+{%- endmacro %}
+{%- macro hshuffle_high() %}
+  {{- hshuffle_rule(size1(), size2(), ln2(size2()) * size2() / 2) }}
+{%- endmacro %}
+{#/* outer hshuffle */#}
+{% call _.for_sizes(recursive_sizes(1)) %}
+  {%- call(f) _.expandf("%T", "%P_hshuffle%'N", "%T a, %T b, %m rule") %}
+    {{- _.cond("%N >= %'N") }}
+    {%- if size2() == 2 %}
+      {%- call _.define(f) %} %P_merge_%-P(%-P_get_hilo_%P((a), (rule) & 1), %-P_get_hilo_%P((b), ((rule) >> 1) & 1))
+      {%- endcall %}
+    {%- else %}
+      {%- call _.define(f) -%}
+  %P_merge2_%-P(
+    %-P_fshuffle%'-N'(
+      %-P_get_low_%P(a), %-P_get_high_%P(a),
+      {{ hshuffle_low() }}
+    ),
+    %-P_fshuffle%'-N'(
+      %-P_get_low_%P(b), %-P_get_high_%P(b),
+      {{ hshuffle_high() }}
+    )
+  )
+      {%- endcall %}
+    {%- endif %}
+  {%- endcall %}
+{% endcall %}
+
+{#/* inner hshuffle */#}
+{% call _.for_sizes(recursive_sizes(1)) %}
+  {%- call(f) _.expandf("%T", "%P_hshuffle%'Nx%^N", "%T a, %T b, %m rule") %}
+    {{- _.cond("%N >= %'N") }}
+    {%- if size1() == size2() %}
+      {%- call _.define() -%} #define {{ f.name() }} %P_hshuffle%N
+      {%- endcall %}
+    {%- else %}
+      {%- call _.define(f) %} %P_merge2_%-P(%-P_hshuffle%'Nx%^-N(%-P_get_low_%P(a), %-P_get_low_%P(b), (rule)), %-P_hshuffle%'Nx%^-N(%-P_get_high_%P(a), %-P_get_high_%P(b), (rule)))
+      {%- endcall %}
+    {%- endif %}
+  {%- endcall %}
+{% endcall %}
+
+{#/* outer permute */#}
+{% call _.for_sizes(recursive_sizes(1)) %}
+  {%- call(f) _.expandf("%T", "%P_permute%'N", "%T a, %m rule") %}
+    {{- _.cond("%N >= %'N") }}
+    {%- call _.define(f) %} %P_hshuffle%'N((a), (a), (rule))
+    {%- endcall %}
+  {%- endcall %}
+{% endcall %}
+
+{#/* inner permute */#}
+{% call _.for_sizes(recursive_sizes(1)) %}
+  {%- call(f) _.expandf("%T", "%P_permute%'Nx%^N", "%T a, %m rule") %}
+    {{- _.cond("%N >= %'N") }}
+    {%- if size1() == size2() %}
+      {%- call _.define() -%} #define {{ f.name() }} %P_permute%N
+      {%- endcall %}
+    {%- else %}
+      {%- call _.define(f) %} %P_hshuffle%'Nx%^N((a), (a), (rule))
+      {%- endcall %}
+    {%- endif %}
+  {%- endcall %}
+{% endcall %}
+
+{#/* outer fshuffle */#}
+{% call _.for_sizes(recursive_sizes(1)) %}
+  {%- set int_mask = uint_t(size1()) %}
+  {%- call(f) _.expandf("%T", "%P_fshuffle%'N", "%T a, %T b, %m rule, " + int_mask + " mask") %}
+    {{- _.cond("%N >= %'N") }}
+    {%- call _.define(f) %} %P_blend(%P_permute%'N((a), (rule)), %P_permute%'N((b), (rule)), (mask))
+    {%- endcall %}
+  {%- endcall %}
+{% endcall %}
+
+{#/* inner fshuffle */#}
+{% call _.for_sizes(recursive_sizes(1)) %}
+  {%- set int_mask = uint_t(size1()) %}
+  {%- call(f) _.expandf("%T", "%P_fshuffle%'Nx%^N", "%T a, %T b, %m rule, " + int_mask + " mask") %}
+    {{- _.cond("%N >= %'N") }}
+    {%- if size1() == size2() %}
+      {%- call _.define() -%} #define {{ f.name() }} %P_fshuffle%N
+      {%- endcall %}
+    {%- else %}
+    {%- call _.define(f) %} %P_blend(%P_permute%'Nx%^N((a), (rule)), %P_permute%'Nx%^N((b), (rule)), (mask))
+      {%- endcall %}
+    {%- endif %}
+  {%- endcall %}
+{% endcall %}
+
+{#/* hshuffle */#}
+{%- call(f) _.expandf("%T", "%P_hshuffle", "%T a, %T b, %m rule") %}
+  {%- call _.define() -%} #define {{ f.name() }} %P_hshuffle%N
+  {%- endcall %}
+{%- endcall %}
+
+{#/* permute */#}
+{%- call(f) _.expandf("%T", "%P_permute", "%T a, %m rule") %}
+  {%- call _.define() -%} #define {{ f.name() }} %P_permute%N
+  {%- endcall %}
+{%- endcall %}
+
+{#/* fshuffle */#}
+{%- call(f) _.expandf("%T", "%P_fshuffle", "%T a, %T b, %m rule, %$$int_s(%N)$uint_fast%n_t$$  mask") %}
+  {%- call _.define() -%} #define {{ f.name() }} %P_fshuffle%N
+  {%- endcall %}
+{%- endcall %}
+
+/* COMPARISONS */
+{#/* EQ */#}
+{% call(f) _.expandf("%T", "%P_eq", "%T a, %T b") %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { i: -(a.v == b.v) }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+{#/* NEQ */#}
+{% call(f) _.expandf("%T", "%P_neq", "%T a, %T b") %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { i: -(a.v != b.v) }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+{#/* GT */#}
+{% call(f) _.expandf("%T", "%P_gt", "%T a, %T b") %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { i: -(a.v > b.v) }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+{#/* GEQ */#}
+{% call(f) _.expandf("%T", "%P_geq", "%T a, %T b") %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { i: -(a.v >= b.v) }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+{#/* LT */#}
+{% call(f) _.expandf("%T", "%P_lt", "%T a, %T b") %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { i: -(a.v < b.v) }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+{#/* LEQ */#}
+{% call(f) _.expandf("%T", "%P_leq", "%T a, %T b") %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { i: -(a.v <= b.v) }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+/* LOGIC */
+{#/* AND */#}
+{% call(f) _.expandf("%T", "%P_and", "%T a, %T b") %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { i: a.i & b.i }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+{#/* OR */#}
+{% call(f) _.expandf("%T", "%P_or", "%T a, %T b") %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { i: a.i | b.i }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+{#/* XOR */#}
+{% call(f) _.expandf("%T", "%P_xor", "%T a, %T b") %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { i: a.i ^ b.i }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+{#/* NOT */#}
+{% call(f) _.macro("%T", "%P_not", "%T a") %}
+  {%- call _.define(f) %} %P_xor((a), %P_ones())
+  {%- endcall %}
+{%- endcall %}
+
+{#/* NAND */#}
+{% call(f) _.macro("%T", "%P_nand", "%T a, %T b") %}
+  {%- call _.define(f) %} %P_not(%P_and((a), (b)))
+  {%- endcall %}
+{%- endcall %}
+
+{#/* NOR */#}
+{% call(f) _.macro("%T", "%P_nor", "%T a, %T b") %}
+  {%- call _.define(f) %} %P_not(%P_or((a), (b)))
+  {%- endcall %}
+{%- endcall %}
+
+{#/* NXOR */#}
+{% call(f) _.macro("%T", "%P_nxor", "%T a, %T b") %}
+  {%- call _.define(f) %} %P_not(%P_xor((a), (b)))
+  {%- endcall %}
+{%- endcall %}
+
+{#/* ANDNOT */#}
+{% call(f) _.macro("%T", "%P_andnot", "%T a, %T b") %}
+  {%- call _.define(f) %} %P_and((a), %P_not(b))
+  {%- endcall %}
+{%- endcall %}
+
+{#/* ORNOT */#}
+{% call(f) _.macro("%T", "%P_ornot", "%T a, %T b") %}
+  {%- call _.define(f) %} %P_or((a), %P_not(b))
+  {%- endcall %}
+{%- endcall %}
+
+
+/* ARITHMETIC AND MATH */
+{#/* ADD */#}
+{% call(f) _.expandf("%T", "%P_add", "%T a, %T b") %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { v: a.v + b.v }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+{#/* SUB */#}
+{% call(f) _.expandf("%T", "%P_sub", "%T a, %T b") %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { v: a.v - b.v }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+{#/* NEG */#}
+{% call(f) _.macro("%T", "%P_neg", "%T a") %}
+  {%- call _.define(f) %} %P_sub(%P_zero(), (a))
+  {%- endcall %}
+{%- endcall %}
+
+{#/* MUL */#}
+{% call(f) _.expandf("%T", "%P_mul", "%T a, %T b") %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { v: a.v * b.v }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+{#/* DIV */#}
+{% call(f) _.expandf("%T", "%P_div", "%T a, %T b") %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { v: a.v / b.v }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+{#/* RCP */#}
+{% call(f) _.macro("%T", "%P_rcp", "%T a") %}
+  {%- call _.define(f) %} %P_div(%P_one(), (a))
+  {%- endcall %}
+{%- endcall %}
+
+{#/* FRCP */#}
+{% call(f) _.macro("%T", "%P_frcp", "%T a") %}
+  {%- call _.define(f) %} %P_rcp(a)
+  {%- endcall %}
+{%- endcall %}
+
+{#/* SQRT */#}
+{% call(f) _.expandf("%T", "%P_sqrt", "%T a") %}
+  {{- _.def_func(f) }}
+  {%- if type1().is_float() %}
+    {%- if size1() == 1 %}
+      {{- _.declare(f, -1) }}
+      {%- call _.impl(f, -1) %} { %I r = { v: sqrt(a.v) }; return r; }{% endcall -%}
+    {%- else -%}
+      {{- _.declare(f) }}
+      {{- _.recursive_func(f) -}}
+    {%- endif %}
+  {%- else -%}
+    {{- _.declare(f) }}
+    {%- call _.impl(f) %} { return %P_cvt_%fP(%fP_sqrt(%fP_cvt_%P(a))); }
+    {%- endcall %}
+  {%- endif %}
+{%- endcall %}
+
+{#/* RSQRT */#}
+{% call(f) _.macro("%T", "%P_rsqrt", "%T a") %}
+  {%- call _.define(f) %} %P_rcp(%P_sqrt(a))
+  {%- endcall %}
+{%- endcall %}
+
+{#/* FRSQRT */#}
+{% call(f) _.macro("%T", "%P_frsqrt", "%T a") %}
+  {%- call _.define(f) %} %P_rsqrt(a)
+  {%- endcall %}
+{%- endcall %}
+
+/* Fused Multiply-Add */
+{#/* FMADD */#}
+{% call(f) _.macro("%T", "%P_fmadd", "%T a, %T b, %T acc") %}
+  {%- call _.define(f) %} %P_add(%P_mul((a), (b)), (acc))
+  {%- endcall %}
+{%- endcall %}
+
+{#/* FMSUB */#}
+{% call(f) _.macro("%T", "%P_fmsub", "%T a, %T b, %T acc") %}
+  {%- call _.define(f) %} %P_sub(%P_mul((a), (b)), (acc))
+  {%- endcall %}
+{%- endcall %}
+
+{#/* FNMADD */#}
+{% call(f) _.macro("%T", "%P_fnmadd", "%T a, %T b, %T acc") %}
+  {%- call _.define(f) %} %P_sub((acc), %P_mul((a), (b)))
+  {%- endcall %}
+{%- endcall %}
+
+{#/* FNMSUB */#}
+{% call(f) _.macro("%T", "%P_fnmsub", "%T a, %T b, %T acc") %}
+  {%- call _.define(f) %} %P_sub(%P_neg(acc), %P_mul((a), (b)))
+  {%- endcall %}
+{%- endcall %}
+
+/* PRINTS */
+{#/* FPRINTF */#}
+{% call(f) _.func("%T", "%P_fprintf", "void *file, %T a, const char* format") %}
+{%- call _.impl(f) %} {
+  int i, comma = 0;
+  PINTS_ALIGNED_ARRAY(%t, v, %N, %N*sizeof(%t));
+  %P_store(v, a);
+  for (i = 0; i < %N; ++i) {
+    if (comma) fprintf(file, "\t");
+    comma = 1;
+    fprintf(file, format, v[i]);
+  }
+}{% endcall -%}
+{%- endcall %}
+
+{#/* PRINTF */#}
+{% call(f) _.macro("%T", "%P_printf", "%T a, const char* format") %}
+  {%- call _.define(f) %} %P_fprintf(stdout, (a), format)
+  {%- endcall %}
+{%- endcall %}
+
+{#/* FPRINT */#}
+{% call(f) _.macro("%T", "%P_fprint", "void *file, %T a") %}
+  {%- call _.define(f) %} %P_fprintf((file), (a), "{{ type1().form }}")
+  {%- endcall %}
+{%- endcall %}
+
+{#/* PRINT */#}
+{% call(f) _.macro("%T", "%P_print", "%T a") %}
+  {%- call _.define(f) %} %P_fprintf(stdout, (a), "{{ type1().form }}")
+  {%- endcall %}
+{%- endcall %}
+
+{#/* RFPRINTF */#}
+{% call(f) _.func("%T", "%P_rfprintf", "void *file, %T a, const char* format") %}
+{%- call _.impl(f) %} {
+  int i, comma = 0;
+  PINTS_ALIGNED_ARRAY(%t, v, %N, %N*sizeof(%t));
+  %P_store(v, a);
+  for (i = 0; i < %N; ++i) {
+    if (comma) fprintf(file, "\t");
+    comma = 1;
+    fprintf(file, format, v[{{ size1()-1 }} - i]);
+  }
+}{% endcall -%}
+{%- endcall %}
+
+{#/* RPRINTF */#}
+{% call(f) _.macro("%T", "%P_rprintf", "%T a, const char* format") %}
+  {%- call _.define(f) %} %P_rfprintf(stdout, (a), format)
+  {%- endcall %}
+{%- endcall %}
+
+{#/* RFPRINT */#}
+{% call(f) _.macro("%T", "%P_rfprint", "void *file, %T a") %}
+  {%- call _.define(f) %} %P_rfprintf((file), (a), "{{ type1().form }}")
+  {%- endcall %}
+{%- endcall %}
+
+{#/* RPRINT */#}
+{% call(f) _.macro("%T", "%P_rprint", "%T a") %}
+  {%- call _.define(f) %} %P_rfprintf(stdout, (a), "{{ type1().form }}")
+  {%- endcall %}
+{%- endcall %}

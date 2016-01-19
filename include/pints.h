@@ -1,5 +1,5 @@
-#ifndef PINTS_HELPER_H
-#define PINTS_HELPER_H
+#ifndef PINTS_H
+#define PINTS_H
 
 // SSE
 //#define SSE
@@ -17,6 +17,7 @@
 //#define AVX512
 
 
+#include "pints-helper.h"
 #include "pints-polyfill-defines.h"
 
 #include "pints-arch-detect.h"
@@ -27,4 +28,4 @@
 #include "pints-polyfill-funcs.h"
 
 
-#endif //PINTS_HELPER_H
+#endif //PINTS_H
