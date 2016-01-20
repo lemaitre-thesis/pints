@@ -41,7 +41,7 @@ class Type:
 
   def permutation_type(self, i = 1):
     a = {1: 8, 2: 8, 4: 8, 8: 32, 16: 64 }
-    return "uint" + str(a.get(i, 64)) + "_t"
+    return "uint_fast" + str(a.get(i, 64)) + "_t"
 
   def is_int(self):
     return self.int_type is self
@@ -93,6 +93,18 @@ def ln2(i):
     n += 1
     i = i / 2
   return n
+
+def int_s(i):
+  for s in [8, 16, 32, 64]:
+    if s >= i:
+      return s
+  return 64
+
+def int_t(i):
+  return "int_fast" + str(int_s(i)) + "_t"
+
+def uint_t(i):
+  return "uint_fast" + str(int_s(i)) + "_t"
 
 SIZES = generate_powers()
 
@@ -199,12 +211,12 @@ def expand_type_pattern(_input, type1 = None, size1 = 1, type2 = None, size2 = N
         return "".join(["%$$", fromb or "", fromb and ":" or "", tob, "$", body, joinstr and "$" or "", joinstr or "", "$$"])
 
       incr = 1
-      b = eval(tob,   {"ln2" : ln2}, {"type1": type1, "type2": type2});
+      b = eval(tob,   {"ln2" : ln2, "int_s" : int_s}, {"type1": type1, "type2": type2});
       if fromb is None or fromb is "":
         a = b
         b += 1
       else:
-        a = eval(fromb, {"ln2" : ln2}, {"type1": type1, "type2": type2});
+        a = eval(fromb, {"ln2" : ln2, "int_s" : int_s}, {"type1": type1, "type2": type2});
       if a > b:
         a -= 1
         b -= 1
@@ -410,17 +422,23 @@ class Func:
   def __call__(*varargs, **kwargs):
     return Func.__new__(*varargs, **kwargs)
 
-def int_s(i):
-  for s in [8, 16, 32, 64]:
-    if i >= s:
-      return s
-  return 64
+def RANGE(a, b, pre = "", pren = None):
+  pren = pren or pre
+  if a == b:
+    return pre
+  if a > b:
+    a -= 1
+  else:
+    b -= 1
+  sa, sb = pre + str(a), pre + str(b)
+  if a == 0:
+    sa = pren or "0"
+  if b == 0:
+    sb = pren or "0"
+  if a == b:
+    return sa
+  return sa + ":" + sb
 
-def int_t(i):
-  return "int_fast" + str(int_s(i)) + "_t"
-
-def uint_t(i):
-  return "uint_fast" + str(int_s(i)) + "_t"
 
 
 env.filters["expand_filter"] = expand_filter

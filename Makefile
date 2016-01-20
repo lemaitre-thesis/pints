@@ -55,7 +55,7 @@ SRC = $(addprefix ${SRC_PATH}/, $(FILE))
 OBJ = $(addprefix ${OBJ_PATH}/, $(addsuffix $(SUFFIX).o, $(basename $(FILE))))
 
 # -- Base rules ----------
-$(OBJ_PATH)/%$(SUFFIX).o : $(SRC_PATH)/%.c include/pints-polyfill-defines.h.auto
+$(OBJ_PATH)/%$(SUFFIX).o : $(SRC_PATH)/%.c include/pints-polyfill-defines.h
 	$(CC) $(CFLAGS) -c $< -o $@
    
 #-----Main rule ----------
@@ -63,7 +63,7 @@ $(EXE_PATH)/$(PRODUCT): $(OBJ)
 	$(CC) -o $@ $^ $(LDFLAGS) $(OPTFLAGS) $(CFG) $(INC) 
 
 #-----Generator rules-----
-include/pints-polyfill-defines.h : generator/template.py generator/templates/include/pints-polyfill-defines.h
+include/pints-polyfill-defines.h : generator/template.py generator/templates/include/pints-polyfill-defines.h.jinja
 	generator/template.py
 
 generate: include/pints-polyfill-defines.h

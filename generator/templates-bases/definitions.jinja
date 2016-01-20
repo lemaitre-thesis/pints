@@ -1,118 +1,24 @@
 {% import "expand.jinja" as _ with context %}
 
-/* CASTS */
-{% call _.for_both() %}
-  {%- call(f) _.expandf("%T", "%P_cast_%'P'", "%'T' a") %}
-    {%- set length1 = size1() * type1().size %}
-    {%- set length2 = size2() * type2().size %}
-    {%- if type1() == type2() %}
-      {%- if length1 == length2 %}
-        {%- call _.define(f) %} (a)
-        {%- endcall %}
-      {%- elif length1 == length2 * 2 %}
-        {{- _.def_func(f) }}
-        {%- call _.impl() -%} %I {{ f.pname() }}(%'T' a) { %I r = { a: a }; return r; }
-        {%- endcall %}
-      {%- elif length1 > length2 %}
-        {%- call _.define(f) %} %P_cast_%-P(%-P_cast_%'P(a))
-        {%- endcall %}
-      {%- elif length1 == length2 / 2 %}
-        {{- _.def_func(f) }}
-        {%- call _.impl() -%} %T {{ f.pname() }}(%'I' a) { return a.a; }
-        {%- endcall %}
-      {%- else %}{#/* length1 < length2 */#}
-        {%- call _.define(f) %} %P_cast_%'-P(%'-P_cast_%'P(a))
-        {%- endcall %}
-      {%- endif %}
-    {%- elif length1 == length2 %}
-      {%- call _.define(f) %} PINTS_REINTERPRET(%T, %'T', (a))
-      {%- endcall %}
-    {%- elif length1 > length2 %}
-      {%- call _.define(f) %} %P_cast_%-P(%-P_cast_%'P(%'P_cast_%'P'(a)))
-      {%- endcall %}
-    {%- else %}{#/* length1 < length2 */#}
-      {%- call _.define(f) %} %P_cast_%P'(%P'_cast_%'-P'(%'-P'_cast_%'P'(a)))
-      {%- endcall %}
-    {%- endif %}
-  {%- endcall %}
-{% endcall %}
-
-
-/* CONVERTS */
-{% call _.for_both() %}
-  {%- call(f) _.expandf("%T", "%P_cvt_%'P'", "%'T' a") %}
-    {%- if type1() == type2() and size1() == size2() %}
-      {%- call _.define(f) %} (a)
-      {%- endcall %}
-    {%- elif size1() == size2() == 1 %}
-      {{- _.def_func(f) }}
-      {{- _.declare(f) }}
-      {%- call _.impl(f) %} { %t s%P; %'t' s%'P'; %'P'_store(&s%'P', a); s%P = s%'P'; return %P_load(&s%P); }
-      {%- endcall %}
-    {%- elif size1() == size2() %}
-      {{- _.recursive_macro(f) }}
-    {%- elif size1() < size2() %}
-      {%- call _.define(f) %} %P_cvt_%P'(%P'_cast_%'P'(a))
-      {%- endcall %}
-    {%- else %}{#/* size1() > size2() */#}
-      {%- call _.define(f) %} %P_cast_%'P(%'P_cvt_%'P'(a))
-      {%- endcall %}
-    {%- endif %}
-  {%- endcall %}
-{% endcall %}
-
-{#/* CONVERTS to scalar */#}
-{% call _.for_both() %}
-  {%- call(f) _.expandf("%t", "s%p_cvt_%'P'", "%'T' a", sizes = [1]) %}
-    {%- if type1() == type2() and size2() == 1 %}
-      {{- _.def_func(f) }}
-      {{- _.declare(f) }}
-      {%- call _.impl(f) %} { %t s%P; %P_store(&s%P, a); return s%P; }
-      {%- endcall %}
-    {%- else %}
-      {%- call _.define(f) %} s%p_cvt_v1%p(v1%p_cvt_%'P'(a))
-      {%- endcall %}
-    {%- endif %}
-  {%- endcall %}
-{% endcall %}
-
-{#/* CONVERTS to mask */#}
-{% call(f) _.expandf("%M", "%M_cvt_%P", "%T a") %}
-  {%- call _.define(f) %} %iP_cast_%P(a)
-  {%- endcall %}
-{% endcall %}
-{#/* CONVERTS from mask */#}
-{% call(f) _.expandf("%T", "%P_cvt_%M", "%M a") %}
-  {%- call _.define(f) %} %P_cast_%iP(a)
-  {%- endcall %}
-{% endcall %}
-
-{#/* CONVERTS from mask to mask */#}
-{% call _.for_both() %}
-  {%- call(f) _.expandf("%t", "%M_cvt_%'M'", "%'M' a") %}
-    {%- call _.define(f) %} %iP_cast_%'iP'(a)
-    {%- endcall %}
-  {%- endcall %}
-{% endcall %}
-
-/* compatible CONVERTS */
-{% call _.for_both() %}
-{%- call(f) _.expandf("%T", "%P_cvt_%'P'", "%'T' a", prefix = "compatible_") %}
-{{- _.declare(f) }}
-{%- call _.impl(f) %} {
-  int i;
-  PINTS_ALIGNED_ARRAY(%t, vto, %N, %N*sizeof(%t));
-  PINTS_ALIGNED_ARRAY(%'t', vfrom, %'N', %'N'*sizeof(%'t'));
-  %'P'_store(vfrom, a);
-  for (i = 0; i < {{ min([size1(), size2()]) }}; ++i) vto[i] = vfrom[i];
-  return %P_load(vto);
-} {%- endcall %}
-{%- endcall %}
-{% endcall %}
-
 /* LOADS */
+{{ _.doc_group("load functions") }}
 {#/* load */#}
 {% call(f) _.expandf("%T", "%P_load", "const %t *p") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup load
+ * \related %T
+ * \brief Loads %N \c %t from memory into a \c %T vector
+ * \details Loads %N \c %t ({{ type1().size * size1() * 8 }} bits) from memory into a \c %T vector.
+ *  \c p must be aligned on a {{ type1().size * size1() }}-bytes boundary or a general-protection exception may be generated.
+{% set length = type1().size * size1() * 8 %}
+ * \impl
+dst.bits[{{RANGE(0, length)}}] := MEMORY.bits[{{RANGE(0, length, pre="p+", pren="p")}}]
+\endimpl
+ * \param p the memory address of the data beginning
+ * \returns vector loaded
+ */
+{% endcall %}
   {%- if size1() == 1 %}
     {{- _.def_func(f) }}
     {{- _.declare(f, -1) }}
@@ -128,6 +34,21 @@
 
 {#/* loadu */#}
 {% call(f) _.expandf("%T", "%P_loadu", "const %t *p") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup load
+ * \related %T
+ * \brief Loads %N \c %t from memory into a \c %T vector
+ * \details Loads %N \c %t ({{ type1().size * size1() * 8 }} bits) from memory into a \c %T vector.
+ *  There is no alignment requirement.
+{% set length = type1().size * size1() * 8 %}
+ * \impl
+dst.bits[{{RANGE(0, length)}}] := MEMORY.bits[{{RANGE(0, length, pre="p+", pren="p")}}]
+\endimpl
+ * \param p the memory address of the data beginning
+ * \returns vector loaded
+ */
+{% endcall %}
   {%- if size1() == 1 %}
     {%- call _.define(f) %} %P_load(p)
     {%- endcall %}
@@ -141,6 +62,24 @@
 
 {#/* load1 */#}
 {% call(f) _.expandf("%T", "%P_load1", "const %t *p") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup load
+ * \related %T
+ * \brief Loads 1 \c %t from memory and broadcasts it into a \c %T vector
+ * \details Loads 1 \c %t ({{ type1().size * 8 }} bits) from memory and broadcasts it into a \c %T vector.
+ *  There is no alignment requirement.
+{% set length = type1().size * 8 %}
+ * \impl
+for j from 0 to {{size1()-1}}
+  i := j * {{length}} 
+  dst.bits[{{RANGE(0, length, pre="i+", pren="i")}}] := MEMORY.bits[{{RANGE(0, length, pre="p+", pren="p")}}]
+endfor
+\endimpl
+ * \param p the memory address of the scalar \c %t
+ * \returns vector loaded
+ */
+{% endcall %}
   {%- if size1() == 1 %}
     {%- call _.define(f) %} %P_set1(*(p))
     {%- endcall %}
@@ -164,8 +103,24 @@
 {% endcall %}
 
 /* STORES */
+{{ _.doc_group("store functions") }}
 {#/* store */#}
 {% call(f) _.expandf("void", "%P_store", "%t *p, %T a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup store
+ * \related %T
+ * \brief Stores a \c %T vector into memory.
+ * \details Stores a \c %T vector ({{ type1().size * size1() * 8 }} bits) into memory starting at the specified address.
+ *  \c p must be aligned on a {{ type1().size * size1() }}-bytes boundary or a general-protection exception may be generated.
+{% set length = type1().size * size1() * 8 %}
+ * \impl
+MEMORY.bits[{{RANGE(0, length, pre="p+", pren="p")}}] := a.bits[{{RANGE(0, length)}}]
+\endimpl
+ * \param p the memory address of the data beginning
+ * \param a the vector to be stored
+ */
+{% endcall %}
   {%- if size1() == 1 %}
     {{- _.def_func(f) }}
     {{- _.declare(f, -1) }}
@@ -181,6 +136,21 @@
 
 {#/* storeu */#}
 {% call(f) _.expandf("void", "%P_storeu", "%t *p, %T a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup store
+ * \related %T
+ * \brief Stores a \c %T vector into memory.
+ * \details Stores a \c %T vector ({{ type1().size * size1() * 8 }} bits) into memory starting at the specified address.
+ *  There is no alignment requirement.
+{% set length = type1().size * size1() * 8 %}
+ * \impl
+MEMORY.bits[{{RANGE(0, length, pre="p+", pren="p")}}] := a.bits[{{RANGE(0, length)}}]
+\endimpl
+ * \param p the memory address of the data beginning
+ * \param a the vector to be stored
+ */
+{% endcall %}
   {%- if size1() == 1 %}
     {%- call _.define(f) %} %P_store((p), (a))
     {%- endcall %}
@@ -194,6 +164,21 @@
 
 {#/* store1 */#}
 {% call(f) _.expandf("void", "%P_store1", "%t *p, %T a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup store
+ * \related %T
+ * \brief Stores the first element of a \c %T vector into memory.
+ * \details Stores the first element of a \c %T vector ({{ type1().size * 8 }} bits) into memory at the specified address.
+ *  There is no alignment requirement.
+{% set length = type1().size * 8 %}
+ * \impl
+MEMORY.bits[{{RANGE(0, length, pre="p+", pren="p")}}] := a.bits[{{RANGE(0, length)}}]
+\endimpl
+ * \param p the memory address
+ * \param a the vector to be stored
+ */
+{% endcall %}
   {%- if size1() == 1 %}
     {%- call _.define(f) %} (*(p) = s%p_cvt_%P(a))
     {%- endcall %}
@@ -215,8 +200,26 @@
 {% endcall %}
 
 /* SETS */
+{{ _.doc_group("set functions", shortname = "set") }}
 {#/* set */#}
 {% call(f) _.expandf("%T", "%P_set", "%$$0:%N$%t v%n$, $$") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup set
+ * \related %T
+ * \brief Sets the elements of a \c %T vector.
+ * \details Sets the elements of a \c %T vector.
+ * \impl
+{% for i in range(size1()) %}
+dst[{{i}}] := v{{i}}
+{% endfor %}
+\endimpl
+{% for i in range(size1()) %}
+ * \param v{{i}} the {{ _.nth(i+1) }} element of the vector
+{% endfor %}
+ * \returns the vector
+ */
+{% endcall %}
   {%- if size1() == 1 %}
     {{- _.def_func(f) }}
     {{- _.declare(f) }}
@@ -230,12 +233,44 @@
 
 {#/* rset */#}
 {% call(f) _.expandf("%T", "%P_rset", "%$$%N:0$%t v%n$, $$") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup set
+ * \related %T
+ * \brief Sets the elements of a \c %T vector (reverse order).
+ * \details Sets the elements of a \c %T vector in reversed order.
+ * \impl
+{% for i in range(size1()) %}
+dst[{{i}}] := v{{i}}
+{% endfor %}
+\endimpl
+{% for i in range(size1()-1, -1, -1) %}
+ * \param v{{i}} the {{ _.nth(i+1) }} element of the vector
+{% endfor %}
+ * \returns the vector
+ */
+{% endcall %}
   {%- call _.define(f) %} %P_set(%$$0:%N$(v%n)$, $$)
   {%- endcall %}
 {% endcall %}
 
 {#/* set1 */#}
 {% call(f) _.expandf("%T", "%P_set1", "%t v") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup set
+ * \related %T
+ * \brief Broadcasts a single value into all elements of a \c %T vector.
+ * \details Broadcasts a single value into all elements of a \c %T vector.
+ * \impl
+for i from 0 to {{size1()-1}}
+  dst[i] := v
+endfor
+\endimpl
+ * \param v scalar to broadcast
+ * \returns the vector
+ */
+{% endcall %}
   {%- if size1() == 1 %}
     {%- call _.define(f) %} %P_set(v)
     {%- endcall %}
@@ -250,11 +285,37 @@
 /* CONSTANTS */
 {#/* zeros */#}
 {% call(f) _.expandf("%T", "%P_zeros", "") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup set
+ * \related %T
+ * \brief Sets all bits to 0.
+ * \details Sets all bits to 0.
+{% set length = type1().size * size1() * 8 %}
+ * \impl
+dst.bits[{{RANGE(0, length)}}] := 0
+\endimpl
+ * \returns %T vector with all bits to 0
+ */
+{% endcall %}
   {%- call _.define(f) %} %P_set1(0)
   {%- endcall %}
 {% endcall %}
 {#/* ones */#}
 {% call(f) _.expandf("%T", "%P_ones", "") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup set
+ * \related %T
+ * \brief Sets all bits to 1.
+ * \details Sets all bits to 1.
+{% set length = type1().size * size1() * 8 %}
+ * \impl
+dst.bits[{{RANGE(0, length)}}] := 0x{{"%X" % (2 ** length - 1)}}
+\endimpl
+ * \returns %T vector with all bits to 1
+ */
+{% endcall %}
   {%- if type1().is_int() %}
     {%- call _.define(f) %} %P_set1(-1)
     {%- endcall %}
@@ -265,19 +326,880 @@
 {% endcall %}
 {#/* zero */#}
 {% call(f) _.expandf("%T", "%P_zero", "") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup set
+ * \related %T
+ * \brief Sets all elements to 0.
+ * \details Sets all elements to 0.
+ * \impl
+for i from 0 to {{size1() - 1}}
+  dst[i] := %t(0)
+endfor
+\endimpl
+ * \returns %T vector with all elements to 0
+ */
+{% endcall %}
   {%- call _.define(f) %} %P_zeros()
   {%- endcall %}
 {% endcall %}
 {#/* one */#}
 {% call(f) _.expandf("%T", "%P_one", "") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup set
+ * \related %T
+ * \brief Sets all elements to 1.
+ * \details Sets all elements to 1.
+ * \impl
+for i from 0 to {{size1() - 1}}
+  dst[i] := %t(1)
+endfor
+\endimpl
+ * \returns %T vector with all elements to 1
+ */
+{% endcall %}
   {%- call _.define(f) %} %P_set1(1)
   {%- endcall %}
 {% endcall %}
 
+
+/* COMPARISONS */
+{{ _.doc_group("comparison functions", shortname = "cmp") }}
+{#/* EQ */#}
+{% call(f) _.expandf("%T", "%P_eq", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup cmp
+ * \related %T
+ * \brief Compares the equality of the two input vectors
+ * \details Compares the equality of the \c %T vectors \c a and \c b.
+ *  The result is a \c %T vector where the ith element is all one bits if \c `a[i] == b[i]` and all zero bits otherwise.
+ *  The result vector can then be used as a masked using the logical operations such as %P_and(%T, %T)
+{% set length = type1().size * 8 %}
+ * \impl
+for j from 0 to {{size1()-1}}
+  i = j*{{length}}
+  if a[j] == b[j]
+    dst.bits[{{RANGE(0, length, pre="i+", pren="i")}}] := 0x{{"%X" % (2 ** length - 1)}}
+  else
+    dst.bits[{{RANGE(0, length, pre="i+", pren="i")}}] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \returns \c %T vector acting like a mask
+ */
+{% endcall %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { i: -(a.v == b.v) }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+{#/* NEQ */#}
+{% call(f) _.expandf("%T", "%P_neq", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup cmp
+ * \related %T
+ * \brief Compares the inequality of the two input vectors
+ * \details Compares the inequality of the \c %T vectors \c a and \c b.
+ *  The result is a \c %T vector where the ith element is all one bits if \c `a[i] != b[i]` and all zero bits otherwise.
+ *  The result vector can then be used as a masked using the logical operations such as %P_and(%T, %T)
+{% set length = type1().size * 8 %}
+ * \impl
+for j from 0 to {{size1()-1}}
+  i = j*{{length}}
+  if a[j] != b[j]
+    dst.bits[{{RANGE(0, length, pre="i+", pren="i")}}] := 0x{{"%X" % (2 ** length - 1)}}
+  else
+    dst.bits[{{RANGE(0, length, pre="i+", pren="i")}}] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \returns \c %T vector acting like a mask
+ */
+{% endcall %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { i: -(a.v != b.v) }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+{#/* GT */#}
+{% call(f) _.expandf("%T", "%P_gt", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup cmp
+ * \related %T
+ * \brief Compares if elements of \c a are greater than those of \c b.
+ * \details Compares if elements of \c a are greater than those of \c b.
+ *  The result is a \c %T vector where the ith element is all one bits if \c `a[i] > b[i]` and all zero bits otherwise.
+ *  The result vector can then be used as a masked using the logical operations such as %P_and(%T, %T)
+{% set length = type1().size * 8 %}
+ * \impl
+for j from 0 to {{size1()-1}}
+  i = j*{{length}}
+  if a[j] > b[j]
+    dst.bits[{{RANGE(0, length, pre="i+", pren="i")}}] := 0x{{"%X" % (2 ** length - 1)}}
+  else
+    dst.bits[{{RANGE(0, length, pre="i+", pren="i")}}] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \returns \c %T vector acting like a mask
+ */
+{% endcall %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { i: -(a.v > b.v) }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+{#/* GEQ */#}
+{% call(f) _.expandf("%T", "%P_geq", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup cmp
+ * \related %T
+ * \brief Compares if elements of \c a are greater than or equal to those of \c b.
+ * \details Compares if elements of \c a are greater than or equal to those of \c b.
+ *  The result is a \c %T vector where the ith element is all one bits if \c `a[i] >= b[i]` and all zero bits otherwise.
+ *  The result vector can then be used as a masked using the logical operations such as %P_and(%T, %T)
+{% set length = type1().size * 8 %}
+ * \impl
+for j from 0 to {{size1()-1}}
+  i = j*{{length}}
+  if a[j] >= b[j]
+    dst.bits[{{RANGE(0, length, pre="i+", pren="i")}}] := 0x{{"%X" % (2 ** length - 1)}}
+  else
+    dst.bits[{{RANGE(0, length, pre="i+", pren="i")}}] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \returns \c %T vector acting like a mask
+ */
+{% endcall %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { i: -(a.v >= b.v) }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+{#/* LT */#}
+{% call(f) _.expandf("%T", "%P_lt", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup cmp
+ * \related %T
+ * \brief Compares if elements of \c a are less than those of \c b.
+ * \details Compares if elements of \c a are less than those of \c b.
+ *  The result is a \c %T vector where the ith element is all one bits if \c `a[i] < b[i]` and all zero bits otherwise.
+ *  The result vector can then be used as a masked using the logical operations such as %P_and(%T, %T)
+{% set length = type1().size * 8 %}
+ * \impl
+for j from 0 to {{size1()-1}}
+  i = j*{{length}}
+  if a[j] < b[j]
+    dst.bits[{{RANGE(0, length, pre="i+", pren="i")}}] := 0x{{"%X" % (2 ** length - 1)}}
+  else
+    dst.bits[{{RANGE(0, length, pre="i+", pren="i")}}] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \returns \c %T vector acting like a mask
+ */
+{% endcall %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { i: -(a.v < b.v) }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+{#/* LEQ */#}
+{% call(f) _.expandf("%T", "%P_leq", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup cmp
+ * \related %T
+ * \brief Compares if elements of \c a are less than or equal to those of \c b.
+ * \details Compares if elements of \c a are less than or equal to those of \c b.
+ *  The result is a \c %T vector where the ith element is all one bits if \c `a[i] <= b[i]` and all zero bits otherwise.
+ *  The result vector can then be used as a masked using the logical operations such as %P_and(%T, %T)
+{% set length = type1().size * 8 %}
+ * \impl
+for j from 0 to {{size1()-1}}
+  i = j*{{length}}
+  if a[j] <= b[j]
+    dst.bits[{{RANGE(0, length, pre="i+", pren="i")}}] := 0x{{"%X" % (2 ** length - 1)}}
+  else
+    dst.bits[{{RANGE(0, length, pre="i+", pren="i")}}] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \returns \c %T vector acting like a mask
+ */
+{% endcall %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { i: -(a.v <= b.v) }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+/* LOGIC */
+{{ _.doc_group("logical functions", shortname = "logic") }}
+{#/* AND */#}
+{% call(f) _.expandf("%T", "%P_and", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup logic
+ * \related %T
+ * \brief Bitwise and ( \c `a & b` )
+ * \details Performs the bitwise and on the two \c %T input vectors \c a and \c b.
+{% set length = type1().size * size1() * 8 %}
+ * \impl
+dst.bits[{{RANGE(0, length)}}] = a.bits[{{RANGE(0, length)}}] & b.bits[{{RANGE(0, length)}}]
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \returns "bitwise and"ed \c %T vector
+ */
+{% endcall %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { i: a.i & b.i }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+{#/* OR */#}
+{% call(f) _.expandf("%T", "%P_or", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup logic
+ * \related %T
+ * \brief Bitwise or ( \c `a | b` )
+ * \details Performs the bitwise or on the two \c %T input vectors \c a and \c b.
+{% set length = type1().size * size1() * 8 %}
+ * \impl
+dst.bits[{{RANGE(0, length)}}] = a.bits[{{RANGE(0, length)}}] | b.bits[{{RANGE(0, length)}}]
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \returns "bitwise or"ed \c %T vector
+ */
+{% endcall %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { i: a.i | b.i }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+{#/* XOR */#}
+{% call(f) _.expandf("%T", "%P_xor", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup logic
+ * \related %T
+ * \brief Bitwise xor ( \c `a ^ b` )
+ * \details Performs the bitwise xor on the two \c %T input vectors \c a and \c b.
+{% set length = type1().size * size1() * 8 %}
+ * \impl
+dst.bits[{{RANGE(0, length)}}] = a.bits[{{RANGE(0, length)}}] ^ b.bits[{{RANGE(0, length)}}]
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \returns "bitwise xor"ed \c %T vector
+ */
+{% endcall %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { i: a.i ^ b.i }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+{#/* NOT */#}
+{% call(f) _.macro("%T", "%P_not", "%T a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup logic
+ * \related %T
+ * \brief Bitwise not ( \c `~a` )
+ * \details Performs the bitwise not on the \c %T input vector \c a.
+{% set length = type1().size * size1() * 8 %}
+ * \impl
+dst.bits[{{RANGE(0, length)}}] = ~a.bits[{{RANGE(0, length)}}]
+\endimpl
+ * \param a \c %T input vector
+ * \returns "bitwise not"ed \c %T vector
+ */
+{% endcall %}
+  {%- call _.define(f) %} %P_xor((a), %P_ones())
+  {%- endcall %}
+{%- endcall %}
+
+{#/* NAND */#}
+{% call(f) _.macro("%T", "%P_nand", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup logic
+ * \related %T
+ * \brief Bitwise nand ( \c `~(a & b)` )
+ * \details Performs the bitwise nand on the two \c %T input vectors \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `%P_not(%P_and(a, b))`
+ * \attention This function should not be confused with %P_andnot(%T a, %T b).
+{% set length = type1().size * size1() * 8 %}
+ * \impl
+dst.bits[{{RANGE(0, length)}}] = ~(a.bits[{{RANGE(0, length)}}] & b.bits[{{RANGE(0, length)}}])
+\endimpl
+ * \see %P_and(%T a, %T b)
+ * \see %P_not(%T a)
+ * \see %P_andnot(%T a, %T b)
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \returns "bitwise nand"ed \c %T vector
+ */
+{% endcall %}
+  {%- call _.define(f) %} %P_not(%P_and((a), (b)))
+  {%- endcall %}
+{%- endcall %}
+
+{#/* NOR */#}
+{% call(f) _.macro("%T", "%P_nor", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup logic
+ * \related %T
+ * \brief Bitwise nor ( \c `~(a | b)` )
+ * \details Performs the bitwise nor on the two \c %T input vectors \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `%P_not(%P_or(a, b))`
+ * \attention This function should not be confused with %P_ornot(%T a, %T b).
+{% set length = type1().size * size1() * 8 %}
+ * \impl
+dst.bits[{{RANGE(0, length)}}] = ~(a.bits[{{RANGE(0, length)}}] | b.bits[{{RANGE(0, length)}}])
+\endimpl
+ * \see %P_or(%T a, %T b)
+ * \see %P_not(%T a)
+ * \see %P_ornot(%T a, %T b)
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \returns "bitwise nor"ed \c %T vector
+ */
+{% endcall %}
+  {%- call _.define(f) %} %P_not(%P_or((a), (b)))
+  {%- endcall %}
+{%- endcall %}
+
+{#/* NXOR */#}
+{% call(f) _.macro("%T", "%P_nxor", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup logic
+ * \related %T
+ * \brief Bitwise nxor ( \c `~(a ^ b)` )
+ * \details Performs the bitwise nxor on the two \c %T input vectors \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `%P_not(%P_xor(a, b))`
+{% set length = type1().size * size1() * 8 %}
+ * \impl
+dst.bits[{{RANGE(0, length)}}] = ~(a.bits[{{RANGE(0, length)}}] ^ b.bits[{{RANGE(0, length)}}])
+\endimpl
+ * \see %P_xor(%T a, %T b)
+ * \see %P_not(%T a)
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \returns "bitwise nxor"ed \c %T vector
+ */
+{% endcall %}
+  {%- call _.define(f) %} %P_not(%P_xor((a), (b)))
+  {%- endcall %}
+{%- endcall %}
+
+{#/* ANDNOT */#}
+{% call(f) _.macro("%T", "%P_andnot", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup logic
+ * \related %T
+ * \brief Bitwise andnot ( \c `a & ~b` )
+ * \details Performs the bitwise andnot on the two \c %T input vectors \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `%P_and(a, %P_not(b))`
+ * \attention This function should not be confused with %P_nand(%T a, %T b).
+{% set length = type1().size * size1() * 8 %}
+ * \impl
+dst.bits[{{RANGE(0, length)}}] = a.bits[{{RANGE(0, length)}}] & ~b.bits[{{RANGE(0, length)}}]
+\endimpl
+ * \see %P_and(%T a, %T b)
+ * \see %P_not(%T a)
+ * \see %P_nand(%T a, %T b)
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \returns "bitwise andnot"ed \c %T vector
+ */
+{% endcall %}
+  {%- call _.define(f) %} %P_and((a), %P_not(b))
+  {%- endcall %}
+{%- endcall %}
+
+{#/* ORNOT */#}
+{% call(f) _.macro("%T", "%P_ornot", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup logic
+ * \related %T
+ * \brief Bitwise ornot ( \c `a | ~b` )
+ * \details Performs the bitwise ornot on the two \c %T input vectors \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `%P_or(a, %P_not(b))`
+ * \attention This function should not be confused with %P_nor(%T a, %T b).
+{% set length = type1().size * size1() * 8 %}
+ * \impl
+dst.bits[{{RANGE(0, length)}}] = a.bits[{{RANGE(0, length)}}] | ~b.bits[{{RANGE(0, length)}}]
+\endimpl
+ * \see %P_or(%T a, %T b)
+ * \see %P_not(%T a)
+ * \see %P_nor(%T a, %T b)
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \returns "bitwise ornot"ed \c %T vector
+ */
+{% endcall %}
+  {%- call _.define(f) %} %P_or((a), %P_not(b))
+  {%- endcall %}
+{%- endcall %}
+
+
+/* ARITHMETIC AND MATH */
+{{ _.doc_group("arithmetic functions", shortname = "arith") }}
+{{ _.doc_group("math functions", shortname = "math") }}
+{#/* ADD */#}
+{% call(f) _.expandf("%T", "%P_add", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \brief Elementwise addition ( \c `a + b` )
+ * \ingroup arith
+ * \related %T
+ * \details Performs the addition element by element of the input two \c %T vectors \c a and \c b.
+ * \impl
+for i from 0 to {{size1()-1}}
+  dst[i] := a[i] + b[i]
+endfor
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \returns Sum of \c a and \c b
+ */
+{% endcall %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { v: a.v + b.v }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+{#/* SUB */#}
+{% call(f) _.expandf("%T", "%P_sub", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup arith
+ * \related %T
+ * \brief Elementwise subtraction ( \c `a - b` )
+ * \details Performs the subtraction element by element of the two \c %T input vectors \c a and \c b.
+ * \impl
+for i from 0 to {{size1()-1}}
+  dst[i] := a[i] - b[i]
+endfor
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \returns Difference of \c a and \c b
+ */
+{% endcall %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { v: a.v - b.v }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+{#/* NEG */#}
+{% call(f) _.macro("%T", "%P_neg", "%T a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup arith
+ * \related %T
+ * \brief Elementwise negation ( \c `-a` )
+ * \details Performs the negation of every element of the \c %T input vector \c a.
+ * \attention Should not be confused with %P_not(%T a)
+ * \impl
+for i from 0 to {{size1()-1}}
+  dst[i] := -a[i]
+endfor
+\endimpl
+ * \param a \c %T input vector
+ * \returns Negation of \c a
+ */
+{% endcall %}
+  {%- call _.define(f) %} %P_sub(%P_zero(), (a))
+  {%- endcall %}
+{%- endcall %}
+
+{#/* MUL */#}
+{% call(f) _.expandf("%T", "%P_mul", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup arith
+ * \related %T
+ * \brief Elementwise multiplication ( \c `a * b` )
+ * \details Performs the multiplication element by element of the two \c %T input vectors \c a and \c b.
+ * \impl
+for i from 0 to {{size1()-1}}
+  dst[i] := a[i] * b[i]
+endfor
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \returns Product of \c a and \c b
+ */
+{% endcall %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { v: a.v * b.v }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+{#/* DIV */#}
+{% call(f) _.expandf("%T", "%P_div", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup arith
+ * \related %T
+ * \brief Elementwise division ( \c `a / b` )
+ * \details Performs the division element by element of the two \c %T input vectors \c a and \c b.
+ * \impl
+for i from 0 to {{size1()-1}}
+  dst[i] := a[i] / b[i]
+endfor
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \returns Quotient of \c a and \c b
+ */
+{% endcall %}
+  {{- _.def_func(f) }}
+  {%- if size1() == 1 %}
+    {{- _.declare(f, -1) }}
+    {%- call _.impl(f, -1) %} { %I r = { v: a.v / b.v }; return r; }{% endcall -%}
+  {% else -%}
+    {{- _.declare(f) }}
+    {{- _.recursive_func(f) -}}
+  {%- endif %}
+{%- endcall %}
+
+{#/* RCP */#}
+{% call(f) _.macro("%T", "%P_rcp", "%T a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup arith
+ * \related %T
+ * \brief Elementwise reciprocal ( \c `1 / a` )
+ * \details Computes the reciprocal of every element of the \c %T input vector \c a.
+ * \impl
+for i from 0 to {{size1()-1}}
+  dst[i] := 1 / a[i]
+endfor
+\endimpl
+ * \param a \c %T input vector
+ * \returns Reciprocal of \c a
+ */
+{% endcall %}
+  {%- call _.define(f) %} %P_div(%P_one(), (a))
+  {%- endcall %}
+{%- endcall %}
+
+{#/* FRCP */#}
+{% call(f) _.macro("%T", "%P_frcp", "%T a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup arith
+ * \related %T
+ * \brief Fast elementwise reciprocal ( \c `1 / a` )
+ * \details Computes the reciprocal of every element of the \c %T input vector \c a.
+ *  This function may be faster and less accurate than %P_rcp(%T a)
+ * \impl
+for i from 0 to {{size1()-1}}
+  dst[i] := FAST_COMPUTE(1 / a[i])
+endfor
+\endimpl
+ * \param a \c %T input vector
+ * \returns Reciprocal of \c a
+ */
+{% endcall %}
+  {%- call _.define(f) %} %P_rcp(a)
+  {%- endcall %}
+{%- endcall %}
+
+{#/* SQRT */#}
+{% call(f) _.expandf("%T", "%P_sqrt", "%T a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup math
+ * \related %T
+ * \brief Elementwise square root ( \c `sqrt(a)` )
+ * \details Computes the square root of every element of the \c %T input vector \c a.
+ * \impl
+for i from 0 to {{size1()-1}}
+  dst[i] := SQRT(a[i])
+endfor
+\endimpl
+ * \param a \c %T input vector
+ * \returns Square root of \c a
+ */
+{% endcall %}
+  {{- _.def_func(f) }}
+  {%- if type1().is_float() %}
+    {%- if size1() == 1 %}
+      {{- _.declare(f, -1) }}
+      {%- call _.impl(f, -1) %} { %I r = { v: sqrt(a.v) }; return r; }{% endcall -%}
+    {%- else -%}
+      {{- _.declare(f) }}
+      {{- _.recursive_func(f) -}}
+    {%- endif %}
+  {%- else -%}
+    {{- _.declare(f) }}
+    {%- call _.impl(f) %} { return %P_cvt_%fP(%fP_sqrt(%fP_cvt_%P(a))); }
+    {%- endcall %}
+  {%- endif %}
+{%- endcall %}
+
+{#/* RSQRT */#}
+{% call(f) _.macro("%T", "%P_rsqrt", "%T a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup math
+ * \related %T
+ * \brief Elementwise square root reciprocal ( \c `1 / sqrt(a)` )
+ * \details Computes the reciprocal of the square root of every element of the \c %T input vector \c a.
+ * \impl
+for i from 0 to {{size1()-1}}
+  dst[i] := 1 / SQRT(a[i])
+endfor
+\endimpl
+ * \param a \c %T input vector
+ * \returns Square root reciprocal of \c a
+ */
+{% endcall %}
+  {%- call _.define(f) %} %P_rcp(%P_sqrt(a))
+  {%- endcall %}
+{%- endcall %}
+
+{#/* FRSQRT */#}
+{% call(f) _.macro("%T", "%P_frsqrt", "%T a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup math
+ * \related %T
+ * \brief Fast elementwise square root reciprocal ( \c `1 / sqrt(a)` )
+ * \details Computes the reciprocal of the square root of every element of the \c %T input vector \c a.
+ *  This function may be faster and less accurate than %P_rsqrt(%T a)
+ * \impl
+for i from 0 to {{size1()-1}}
+  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))
+endfor
+\endimpl
+ * \param a \c %T input vector
+ * \returns Square root reciprocal of \c a
+ */
+{% endcall %}
+  {%- call _.define(f) %} %P_frcp(%P_sqrt(a))
+  {%- endcall %}
+{%- endcall %}
+
+/* Fused Multiply-Add */
+{#/* FMADD */#}
+{% call(f) _.macro("%T", "%P_fmadd", "%T a, %T b, %T acc") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup arith
+ * \related %T
+ * \brief Fused Multiply-Add ( \c `(a * b) + acc` )
+ * \details Performs the multiplication of the \c %T input vectors \c a and \c b,
+ *  then adds the result to the last \c %T input vector \c acc.
+ * \details Functionally equivalent to: \c `%P_add(%P_mul(a, b), acc)`
+ * \impl
+for i from 0 to {{size1()-1}}
+  dst[i] := (a[i] * b[i]) + acc[i]
+endfor
+\endimpl
+ * \param a first factor
+ * \param b second factor
+ * \param acc accumulator
+ * \returns result of \c `(a * b) + acc`
+ */
+{% endcall %}
+  {%- call _.define(f) %} %P_add(%P_mul((a), (b)), (acc))
+  {%- endcall %}
+{%- endcall %}
+
+{#/* FMSUB */#}
+{% call(f) _.macro("%T", "%P_fmsub", "%T a, %T b, %T acc") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup arith
+ * \related %T
+ * \brief Fused Multiply-Sub ( \c `(a * b) - acc` )
+ * \details Performs the multiplication of the \c %T input vectors \c a and \c b,
+ *  then subtracts the last \c %T input vector \c acc from the previous result.
+ * \details Functionally equivalent to: \c `%P_sub(%P_mul(a, b), acc)`
+ * \impl
+for i from 0 to {{size1()-1}}
+  dst[i] := (a[i] * b[i]) - acc[i]
+endfor
+\endimpl
+ * \param a first factor
+ * \param b second factor
+ * \param acc accumulator
+ * \returns result of \c `(a * b) - acc`
+ */
+{% endcall %}
+  {%- call _.define(f) %} %P_sub(%P_mul((a), (b)), (acc))
+  {%- endcall %}
+{%- endcall %}
+
+{#/* FNMADD */#}
+{% call(f) _.macro("%T", "%P_fnmadd", "%T a, %T b, %T acc") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup arith
+ * \related %T
+ * \brief Fused Multiply-Add ( \c `-(a * b) + acc` )
+ * \details Performs the multiplication of the \c %T input vectors \c a and \c b,
+ *  then subtracts the result from the last \c %T input vector \c acc.
+ * \details Functionally equivalent to: \c `%P_sub(acc, %P_mul(a, b))`
+ * \impl
+for i from 0 to {{size1()-1}}
+  dst[i] := -(a[i] * b[i]) + acc[i]
+endfor
+\endimpl
+ * \param a first factor
+ * \param b second factor
+ * \param acc accumulator
+ * \returns result of \c `-(a * b) + acc`
+ */
+{% endcall %}
+  {%- call _.define(f) %} %P_sub((acc), %P_mul((a), (b)))
+  {%- endcall %}
+{%- endcall %}
+
+{#/* FNMSUB */#}
+{% call(f) _.macro("%T", "%P_fnmsub", "%T a, %T b, %T acc") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup arith
+ * \related %T
+ * \brief Fused Multiply-Add ( \c `-(a * b) - acc` )
+ * \details Performs the multiplication of the \c %T input vectors \c a and \c b,
+ *  then subtracts the result from the negation of the last \c %T input vector \c acc.
+ * \details Functionally equivalent to: \c `%P_sub(%P_neg(acc), %P_mul(a, b))`
+ * \impl
+for i from 0 to {{size1()-1}}
+  dst[i] := -(a[i] * b[i]) - acc[i]
+endfor
+\endimpl
+ * \param a first factor
+ * \param b second factor
+ * \param acc accumulator
+ * \returns result of \c `-(a * b) - acc`
+ */
+{% endcall %}
+  {%- call _.define(f) %} %P_sub(%P_neg(acc), %P_mul((a), (b)))
+  {%- endcall %}
+{%- endcall %}
+
 /* MERGES */
+{{ _.doc_group("merge functions", shortname = "merge") }}
 {#/* MergeN */#}
 {% call _.for_sizes(recursive_sizes(1)) %}
   {%- call(f) _.expandf("%T", "%P_merge%'N_%^P", "%$$0:%'N'$%^T a%n$, $$") %}
+    {%- call _.doc(f) %}
+/**
+ * \ingroup merge
+ * \related %T
+ * \brief Merges %'N \c %^T vectors together.
+ * \details Merges %'N \c %^T vectors together into one \c %T vector.
+{% set clength = int(size1() / size2()) %}
+ * \impl
+{% for j in range(size2()) %}
+{% set i = j*clength %}
+dst[{{RANGE(i, i+clength)}}] := a{{j}}[{{RANGE(0, clength)}}]
+{% endfor %}
+\endimpl
+{% for i in range(size2()) %}
+ * \param a{{i}} {{ _.nth(i+1) }} part of the result vector
+{% endfor %}
+ * \returns merged vector
+ */
+{% endcall %}
     {%- if size2() == 2 %}
       {{- _.def_func(f) }}
       {{- _.declare(f, -1) }}
@@ -293,6 +1215,26 @@
 {#/* rMergeN */#}
 {% call _.for_sizes(recursive_sizes(1)) %}
   {%- call(f) _.expandf("%T", "%P_rmerge%'N_%^P", "%$$%'N':0$%^T a%n$, $$") %}
+    {%- call _.doc(f) %}
+/**
+ * \ingroup merge
+ * \related %T
+ * \brief Merges %'N \c %^T vectors together (reverse order).
+ * \details Merges %'N \c %^T vectors together into one \c %T vector in reversed order.
+{% set clength = int(size1() / size2()) %}
+ * \impl
+{% for j in range(size2()) %}
+{% set i = j*clength %}
+dst[{{RANGE(i, i+clength)}}] := a{{j}}[{{RANGE(0, clength)}}]
+{% endfor %}
+\endimpl
+ * \see %P_merge%'N_%^P(%$$0:%'N'$%^T a%n$, $$)
+{% for i in range(size2()-1, -1, -1) %}
+ * \param a{{i}} {{ _.nth(i+1) }} part of the result vector
+{% endfor %}
+ * \returns merged vector
+ */
+{% endcall %}
     {%- call _.define(f) %} %P_merge%'N_%^P(%$$0:%'N'$(a%n)$, $$)
     {%- endcall %}
   {%- endcall %}
@@ -300,12 +1242,47 @@
 
 {#/* Merge */#}
 {%- call(f) _.expandf("%T", "%P_merge_%-P", "%-T low, %-T high") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup merge
+ * \related %T
+ * \brief Merges 2 \c %-T vectors together.
+ * \details Merges 2 \c %-T vectors together into one \c %T vector.
+ *  Alias of %P_merge2_%-P(%-T a0, %-T a1)
+{% set clength = int(size1() / 2) %}
+ * \impl
+dst[{{RANGE(0, clength)}}] := low[{{RANGE(0, clength)}}]
+dst[{{RANGE(clength, 2*clength)}}] := high[{{RANGE(0, clength)}}]
+\endimpl
+ * \param low low part of the result vector
+ * \param high high part of the result vector
+ * \returns merged vector
+ */
+{% endcall %}
   {%- call _.define() -%} #define {{ f.name() }} %P_merge2_%-P
   {%- endcall %}
 {%- endcall %}
 
 {#/* rMerge */#}
 {%- call(f) _.expandf("%T", "%P_rmerge_%-P", "%-T high, %-T low") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup merge
+ * \related %T
+ * \brief Merges 2 \c %-T vectors together (reversed order).
+ * \details Merges 2 \c %-T vectors together into one \c %T vector in reversed order.
+ *  Alias of %P_rmerge2_%-P(%-T a1, %-T a0)
+{% set clength = int(size1() / 2) %}
+ * \impl
+dst[{{RANGE(0, clength)}}] := low[{{RANGE(0, clength)}}]
+dst[{{RANGE(clength, 2*clength)}}] := high[{{RANGE(0, clength)}}]
+\endimpl
+ * \see %P_merge_%-P(%-T low, %-T high)
+ * \param high high part of the result vector
+ * \param low low part of the result vector
+ * \returns merged vector
+ */
+{% endcall %}
   {%- call _.define() -%} #define {{ f.name() }} %P_rmerge2_%-P
   {%- endcall %}
 {%- endcall %}
@@ -323,13 +1300,45 @@
 {% endcall %}
 
 /* HIGH and LOW manipulation */
+{{ _.doc_group("high and low part manipulation functions", shortname = "hilo") }}
 {#/* get_low */#}
 {%- call(f) _.expandf("%-T", "%-P_get_low_%P", "%T a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup hilo
+ * \related %T
+ * \brief Gets the low part of a \c %T vector.
+ * \details Gets the low part of a \c %T vector.
+ *  Same effect as %-P_cast_%P(%T a)
+{% set length = int(size1()/2) %}
+ * \impl
+dst[{{RANGE(0,length)}}] := a[{{RANGE(0,length)}}]
+\endimpl
+ * \see %-P_get_high_%P(%T a)
+ * \param a \c %T vector within the low part is extracted
+ * \returns low part of the input
+ */
+{% endcall %}
   {%- call _.define(f) -%} %-P_cast_%P(a)
   {%- endcall %}
 {%- endcall %}
 {#/* get_high */#}
 {%- call(f) _.expandf("%-T", "%-P_get_high_%P", "%I a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup hilo
+ * \related %T
+ * \brief Gets the high part of a \c %T vector.
+ * \details Gets the high part of a \c %T vector.
+{% set length = int(size1()/2) %}
+ * \impl
+dst[{{RANGE(0, length)}}] := a[{{RANGE(length,2*length)}}]
+\endimpl
+ * \see %-P_get_low_%P(%T a)
+ * \param a \c %T vector within the high part is extracted
+ * \returns high part of the input
+ */
+{% endcall %}
   {{- _.def_func(f) }}
   {{- _.declare(f) }}
   {%- call _.impl(f) %} { return a.b; }
@@ -337,21 +1346,102 @@
 {%- endcall %}
 {#/* get_hilo */#}
 {%- call(f) _.expandf("%-T", "%-P_get_hilo_%P", "%T a, int high") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup hilo
+ * \related %T
+ * \brief Conditionnaly gets the low or the high part of a \c %T vector.
+ * \details If \c high is true, gets the high part of the \c %T input vector.
+ *  Else, gets the low part of the \c %T input vector.
+{% set length = int(size1()/2) %}
+ * \impl
+if high
+  dst[{{RANGE(0, length)}}] := a[{{RANGE(length,2*length)}}]
+else
+  dst[{{RANGE(0,length)}}] := a[{{RANGE(0,length)}}]
+endif
+\endimpl
+ * \see %-P_get_high_%P(%T a)
+ * \see %-P_get_low_%P(%T a)
+ * \param a \c %T vector within the low/high part is extracted
+ * \param high boolean to choose the high part
+ * \returns low/high part of the input
+ */
+{% endcall %}
   {%- call _.define(f) %} ((high) ? %-P_get_high_%P(a) : %-P_get_low_%P(a))
   {%- endcall %}
 {%- endcall %}
 {#/* set_low */#}
 {%- call(f) _.expandf("%T", "%P_set_low_%-P", "%T src, %-T low") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup hilo
+ * \related %T
+ * \brief Sets the low part of a \c %T vector.
+ * \details Creates a \c %T vector with the low part being \c low and the high part being the same as the high part or \c src
+{% set length = int(size1()/2) %}
+ * \impl
+dst[{{RANGE(0,length)}}] := a[{{RANGE(0,length)}}]
+dst[{{RANGE(length,2*length)}}] := src[{{RANGE(length,2*length)}}]
+\endimpl
+ * \see %P_set_high_%-P(%T src, %-T high)
+ * \param src \c %T vector within the low part is inserted
+ * \param low \c %-T vector inserted as low part
+ * \returns \c %T vector with the low part set to \c low
+ */
+{% endcall %}
   {%- call _.define(f) -%} %P_merge2_%-P(low, %-P_get_high_%P(src))
   {%- endcall %}
 {%- endcall %}
 {#/* set_high */#}
 {%- call(f) _.expandf("%T", "%P_set_high_%-P", "%T src, %-T high") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup hilo
+ * \related %T
+ * \brief Sets the high part of a \c %T vector.
+ * \details Creates a \c %T vector with the high part being \c high and the low part being the same as the low part or \c src
+{% set length = int(size1()/2) %}
+ * \impl
+dst[{{RANGE(0,length)}}] := src[{{RANGE(0,length)}}]
+dst[{{RANGE(length,2*length)}}] := a[{{RANGE(0,length)}}]
+\endimpl
+ * \see %P_set_low_%-P(%T src, %-T low)
+ * \param src \c %T vector within the high part is inserted
+ * \param high \c %-T vector inserted as high part
+ * \returns \c %T vector with the high part set to \c high
+ */
+{% endcall %}
   {%- call _.define(f) -%} %P_merge2_%-P(%-P_get_low_%P(src), high)
   {%- endcall %}
 {%- endcall %}
 {#/* set_hilo */#}
 {%- call(f) _.expandf("%T", "%P_set_hilo_%-P", "%T src, %-T a, int high") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup hilo
+ * \related %T
+ * \brief Conditionally sets the low or the high part of a \c %T vector.
+ * \details If \c high is true, sets the high part of the \c %T input vector.
+ *  Else, sets the low part of the \c %T input vector.
+{% set length = int(size1()/2) %}
+ * \impl
+if high
+  dst[{{RANGE(0,length)}}] := src[{{RANGE(0,length)}}]
+  dst[{{RANGE(length,2*length)}}] := a[{{RANGE(0,length)}}]
+else
+  dst[{{RANGE(0,length)}}] := a[{{RANGE(0,length)}}]
+  dst[{{RANGE(length,2*length)}}] := src[{{RANGE(length,2*length)}}]
+endif
+\endimpl
+ * \see %P_set_low_%-P(%T src, %-T low)
+ * \see %P_set_high_%-P(%T src, %-T high)
+ * \param src \c %T vector within the low/high part is inserted
+ * \param a \c %-T vector inserted as low/high part
+ * \param high boolean to choose the high part
+ * \returns \c %T vector with low/high part set to \c a
+ */
+{% endcall %}
   {%- call _.define(f) %} ((high) ? %P_set_high_%-P(src, a) : %P_set_low_%-P(src, a))
   {%- endcall %}
 {%- endcall %}
@@ -377,11 +1467,35 @@
 {% endcall %}
 
 /* BLENDS */
+{{ _.doc_group("blend functions", shortname = "blend") }}
 {#/* outer blends */#}
 {% call _.for_sizes() %}
   {%- set int_mask = uint_t(size1()) %}
   {%- set mask = int((2 ** (size2() / 2))-1) %}
   {%- call(f) _.expandf("%T", "%P_blend%'N", "%T a, %T b, " + int_mask + " mask") %}
+    {%- call _.doc(f) %}
+/**
+ * \ingroup blend
+ * \related %T
+ * \brief Creates a new \c %T vector whose elements are from \c a and \c b choosed by \c mask.
+ * \details Creates a new \c %T vector where the ith block of %^N elements is from \c b if the ith bit of \c mask is 1 and from \c a otherwise.
+{% set length = int(size1() / size2()) %}
+ * \impl
+for j from 0 to {{size2()-1}}
+  i = j * {{length}}
+  if mask.bits[j]
+    dst[{{RANGE(0, length, pre="i+", pren="i")}}] = b[{{RANGE(0, length, pre="i+", pren="i")}}]
+  else
+    dst[{{RANGE(0, length, pre="i+", pren="i")}}] = a[{{RANGE(0, length, pre="i+", pren="i")}}]
+  endif
+endfor
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \param mask integer mask choosing the input for each element. Must be an immediate!
+ * \returns blended vector
+ */
+{% endcall %}
     {{- _.cond("%N >= %'N") }}
     {%- if size2() == 1 %}
       {%- call _.define(f) %} (((mask)&1) ? (b) : (a))
@@ -397,6 +1511,36 @@
 {% call _.for_sizes() %}
   {%- set int_mask = uint_t(size1()) %}
   {%- call(f) _.expandf("%T", "%P_blend%'Nx%^N", "%T a, %T b, " + int_mask + " mask") %}
+    {%- call _.doc(f) %}
+/**
+ * \ingroup blend
+ * \related %T
+ * \brief Creates a new \c %T vector whose elements are from \c a and \c b choosed by \c mask.
+ * \details Creates a new \c %T vector where the ith element is from \c b if the \c `(i % %'N)`th bit of \c mask is 1 and from \c a otherwise.
+{% set clength = int(size1() / size2()) %}
+ * \impl
+function BLEND%'N(_a, _b, _m) {
+  for i from 0 to {{size2()-1}}
+    if _m.bits[i]
+      _tmp[i] = _b[i]
+    else
+      _tmp[i] = _a[i]
+    endif
+  endfor
+  return _tmp
+}
+
+for j from 0 to {{clength-1}}
+  i = j * {{size2()}}
+  dst[{{RANGE(0, size2(), pre="i+", pren="i")}}] = BLEND%'N(a[{{RANGE(0, size2(), pre="i+", pren="i")}}], b[{{RANGE(0, size2(), pre="i+", pren="i")}}], mask)
+endfor
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \param mask integer mask choosing the input for each element. Must be an immediate!
+ * \returns blended vector
+ */
+{% endcall %}
     {{- _.cond("%N >= %'N") }}
     {%- if size2() == size1() or size2() == 1 %}
       {%- call _.define() -%} #define {{ f.name() }} %P_blend%N
@@ -410,11 +1554,34 @@
 
 {#/* blend */#}
 {% call(f) _.expandf("%T", "%P_blend", "%T a, %T b, %$$int_s(%N)$uint_fast%n_t$$ mask") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup blend
+ * \related %T
+ * \brief Creates a new \c %T vector whose elements are from \c a and \c b choosed by \c mask.
+ * \details Creates a new \c %T vector where the ith element is from \c b if the ith bit of \c mask is 1 and from \c a otherwise.
+ *  Alias of %P_blend%N(%T a, %T b, %$$int_s(%N)$uint_fast%n_t$$ mask)
+ * \impl
+for i from 0 to {{size1()-1}}
+  if mask.bits[i]
+    dst[i] = b[i]
+  else
+    dst[i] = a[i]
+  endif
+endfor
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \param mask integer mask choosing the input for each element. Must be an immediate!
+ * \returns blended vector
+ */
+{% endcall %}
   {%- call _.define() -%} #define {{ f.name() }} %P_blend%N
   {%- endcall %}
 {%- endcall %}
 
 /* SHUFFLES */
+{{ _.doc_group("shuffling and permutation functions", shortname = "shuffle") }}
 {% macro hshuffle_rule_gen1(i, i1, i2, offset, s = 1) -%}
   {%- set a0 = int(offset + i*ln2(i2)) -%}
   {%- set a1 = int(i2/2)-1 -%}
@@ -451,7 +1618,39 @@
 {%- endmacro %}
 {#/* outer hshuffle */#}
 {% call _.for_sizes(recursive_sizes(1)) %}
-  {%- call(f) _.expandf("%T", "%P_hshuffle%'N", "%T a, %T b, %m rule") %}
+  {%- call(f) _.expandf("%T", "%P_hshuffle%'N", "%T a, %T b, %'m rule") %}
+    {%- call _.doc(f) %}
+/**
+ * \ingroup shuffle
+ * \related %T
+ * \brief Shuffles (outer) \c a and \c b together using the control in \c rule.
+ * \details Shuffles \c %T vectors \c a and \c b together using the control in \c rule.
+ *  The shuffle is done by moving %'N blocks of %^N elements.
+{% set clength = int(size1() / size2()) %}
+{% set lln2 = ln2(size2()) %}
+ * \impl
+function SELECT%'N(_src, _ctrl) {
+  case _ctrl.bits[{{RANGE(0, lln2)}}]
+{% for i in range(size2()) %}
+    0x{{"%X" % i}}:  _tmp := _src[{{RANGE(i*clength, (i+1)*clength)}}]
+{% endfor %}
+  endcase
+  return _tmp
+}
+
+{% for i in range(0, int(size2()/2)) %}
+dst[{{RANGE(i*clength, (i+1)*clength)}}] := SELECT%'N(a, rule[{{RANGE(i*lln2, (i+1)*lln2)}}])
+{% endfor %}
+{% for i in range(int(size2()/2), size2()) %}
+dst[{{RANGE(i*clength, (i+1)*clength)}}] := SELECT%'N(b, rule[{{RANGE(i*lln2, (i+1)*lln2)}}])
+{% endfor %}
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \param rule integer controlling the shuffle. Must be an immediate!
+ * \returns shuffled vector
+ */
+{% endcall %}
     {{- _.cond("%N >= %'N") }}
     {%- if size2() == 2 %}
       {%- call _.define(f) %} %P_merge_%-P(%-P_get_hilo_%P((a), (rule) & 1), %-P_get_hilo_%P((b), ((rule) >> 1) & 1))
@@ -475,7 +1674,43 @@
 
 {#/* inner hshuffle */#}
 {% call _.for_sizes(recursive_sizes(1)) %}
-  {%- call(f) _.expandf("%T", "%P_hshuffle%'Nx%^N", "%T a, %T b, %m rule") %}
+  {%- call(f) _.expandf("%T", "%P_hshuffle%'Nx%^N", "%T a, %T b, %'m rule") %}
+    {%- call _.doc(f) %}
+/**
+ * \ingroup shuffle
+ * \related %T
+ * \brief Shuffles (inner) \c a and \c b together using the control in \c rule.
+ * \details Shuffles \c %T vectors \c a and \c b together using the control in \c rule.
+ *  The shuffle is done by moving %'N elements with the same rule for every %^N blocks of %'N elements.
+{% set length = size2() %}
+{% set clength = int(size1() / size2()) %}
+{% set lln2 = ln2(length) %}
+ * \impl
+function SELECT%'N(_src, _ctrl) {
+  case _ctrl.bits[{{RANGE(0, lln2)}}]
+{% for i in range(size2()) %}
+    0x{{"%X" % i}}:  _tmp := _src[{{i}}]
+{% endfor %}
+  endcase
+  return _tmp
+}
+
+for j from 0 to {{clength-1}}
+  i = j*{{length}}
+{% for i in range(0, int(size2()/2)) %}
+  dst[{{RANGE(i, i+1, pre="i+",pren="i")}}] := SELECT%'N(a[{{RANGE(0, length, pre="i+",pren="i")}}], rule[{{RANGE(i*lln2, (i+1)*lln2)}}])
+{% endfor %}
+{% for i in range(int(size2()/2), size2()) %}
+  dst[{{RANGE(i, i+1, pre="i+",pren="i")}}] := SELECT%'N(b[{{RANGE(0, length, pre="i+",pren="i")}}], rule[{{RANGE(i*lln2, (i+1)*lln2)}}])
+{% endfor %}
+endfor
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \param rule integer controlling the shuffle. Must be an immediate!
+ * \returns shuffled vector
+ */
+{% endcall %}
     {{- _.cond("%N >= %'N") }}
     {%- if size1() == size2() %}
       {%- call _.define() -%} #define {{ f.name() }} %P_hshuffle%N
@@ -489,7 +1724,38 @@
 
 {#/* outer permute */#}
 {% call _.for_sizes(recursive_sizes(1)) %}
-  {%- call(f) _.expandf("%T", "%P_permute%'N", "%T a, %m rule") %}
+  {%- call(f) _.expandf("%T", "%P_permute%'N", "%T a, %'m rule") %}
+    {%- call _.doc(f) %}
+/**
+ * \ingroup shuffle
+ * \related %T
+ * \brief Shuffles (outer) \c a using the control in \c rule.
+ * \details Shuffles the \c %T vector \c a using the control in \c rule.
+ *  The shuffle is done by moving %'N blocks of %^N elements.
+ *
+ *  Functionally equivalent to \c `%P_hshuffle%'N(a, a, rule)`
+{% set clength = int(size1() / size2()) %}
+{% set lln2 = ln2(size2()) %}
+ * \impl
+function SELECT%'N(_src, _ctrl) {
+  case _ctrl.bits[{{RANGE(0, lln2)}}]
+{% for i in range(size2()) %}
+    0x{{"%X" % i}}:  _tmp := _src[{{RANGE(i*clength, (i+1)*clength)}}]
+{% endfor %}
+  endcase
+  return _tmp
+}
+
+{% for i in range(0, size2()) %}
+dst[{{RANGE(i*clength, (i+1)*clength)}}] := SELECT%'N(a, rule[{{RANGE(i*lln2, (i+1)*lln2)}}])
+{% endfor %}
+\endimpl
+ *  \see %P_hshuffle%'N(%T a, %T b, %m rule)
+ * \param a \c %T input vector
+ * \param rule integer controlling the shuffle. Must be an immediate!
+ * \returns shuffled vector
+ */
+{% endcall %}
     {{- _.cond("%N >= %'N") }}
     {%- call _.define(f) %} %P_hshuffle%'N((a), (a), (rule))
     {%- endcall %}
@@ -498,7 +1764,42 @@
 
 {#/* inner permute */#}
 {% call _.for_sizes(recursive_sizes(1)) %}
-  {%- call(f) _.expandf("%T", "%P_permute%'Nx%^N", "%T a, %m rule") %}
+  {%- call(f) _.expandf("%T", "%P_permute%'Nx%^N", "%T a, %'m rule") %}
+    {%- call _.doc(f) %}
+/**
+ * \ingroup shuffle
+ * \related %T
+ * \brief Shuffles (inner) \c a using the control in \c rule.
+ * \details Shuffles the \c %T vector \c a using the control in \c rule.
+ *  The shuffle is done by moving %'N elements with the same rule for every %^N blocks of %'N elements.
+ *
+ *  Functionally equivalent to \c `%P_hshuffle%'Nx%^N(a, a, rule)`
+{% set length = size2() %}
+{% set clength = int(size1() / size2()) %}
+{% set lln2 = ln2(length) %}
+ * \impl
+function SELECT%'N(_src, _ctrl) {
+  case _ctrl.bits[{{RANGE(0, lln2)}}]
+{% for i in range(size2()) %}
+    0x{{"%X" % i}}:  _tmp := _src[{{i}}]
+{% endfor %}
+  endcase
+  return _tmp
+}
+
+for j from 0 to {{clength-1}}
+  i = j*{{length}}
+{% for i in range(0, size2()) %}
+  dst[{{RANGE(i, i+1, pre="i+",pren="i")}}] := SELECT%'N(a[{{RANGE(0, length, pre="i+",pren="i")}}], rule[{{RANGE(i*lln2, (i+1)*lln2)}}])
+{% endfor %}
+endfor
+\endimpl
+ *  \see %P_hshuffle%'Nx%^N(%T a, %T b, %m rule)
+ * \param a \c %T input vector
+ * \param rule integer controlling the shuffle. Must be an immediate!
+ * \returns shuffled vector
+ */
+{% endcall %}
     {{- _.cond("%N >= %'N") }}
     {%- if size1() == size2() %}
       {%- call _.define() -%} #define {{ f.name() }} %P_permute%N
@@ -513,7 +1814,37 @@
 {#/* outer fshuffle */#}
 {% call _.for_sizes(recursive_sizes(1)) %}
   {%- set int_mask = uint_t(size1()) %}
-  {%- call(f) _.expandf("%T", "%P_fshuffle%'N", "%T a, %T b, %m rule, " + int_mask + " mask") %}
+  {%- call(f) _.expandf("%T", "%P_fshuffle%'N", "%T a, %T b, %'m rule, " + int_mask + " mask") %}
+    {%- call _.doc(f) %}
+/**
+ * \ingroup shuffle
+ * \related %T
+ * \brief Fully shuffles (outer) \c a and \c b using the control in \c rule, and blends them together using \c mask.
+ * \details Fully shuffles \c %T vectors \c a and \c b using the control in \c rule, and blends them together using \c mask.
+ *  The shuffle and the blend are done by moving %'N blocks of %^N elements.
+{% set clength = int(size1() / size2()) %}
+{% set lln2 = ln2(size2()) %}
+ * \impl
+function SELECT%'N(_src, _ctrl) {
+  case _ctrl.bits[{{RANGE(0, lln2)}}]
+{% for i in range(size2()) %}
+    0x{{"%X" % i}}:  _tmp := _src[{{RANGE(i*clength, (i+1)*clength)}}]
+{% endfor %}
+  endcase
+  return _tmp
+}
+
+{% for i in range(0, size2()) %}
+dst[{{RANGE(i*clength, (i+1)*clength)}}] := SELECT%'N((mask.bits[{{i}}] ? b : a), rule[{{RANGE(i*lln2, (i+1)*lln2)}}])
+{% endfor %}
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \param rule integer controlling the shuffle. Must be an immediate!
+ * \param mask integer mask controlling the blend. Must be an immediate!
+ * \returns shuffled vector
+ */
+{% endcall %}
     {{- _.cond("%N >= %'N") }}
     {%- call _.define(f) %} %P_blend(%P_permute%'N((a), (rule)), %P_permute%'N((b), (rule)), (mask))
     {%- endcall %}
@@ -523,7 +1854,41 @@
 {#/* inner fshuffle */#}
 {% call _.for_sizes(recursive_sizes(1)) %}
   {%- set int_mask = uint_t(size1()) %}
-  {%- call(f) _.expandf("%T", "%P_fshuffle%'Nx%^N", "%T a, %T b, %m rule, " + int_mask + " mask") %}
+  {%- call(f) _.expandf("%T", "%P_fshuffle%'Nx%^N", "%T a, %T b, %'m rule, " + int_mask + " mask") %}
+    {%- call _.doc(f) %}
+/**
+ * \ingroup shuffle
+ * \related %T
+ * \brief Fully shuffles (inner) \c a and \c b using the control in \c rule, and blends them together using \c mask.
+ * \details Fully shuffles \c %T vectors \c a and \c b using the control in \c rule, and blends them together using \c mask.
+ *  The shuffle and the blend are done by moving %'N elements with the same rule for every %^N blocks of %'N elements.
+{% set length = size2() %}
+{% set clength = int(size1() / size2()) %}
+{% set lln2 = ln2(length) %}
+ * \impl
+function SELECT%'N(_src, _ctrl) {
+  case _ctrl.bits[{{RANGE(0, lln2)}}]
+{% for i in range(size2()) %}
+    0x{{"%X" % i}}:  _tmp := _src[{{i}}]
+{% endfor %}
+  endcase
+  return _tmp
+}
+
+for j from 0 to {{clength-1}}
+  i = j*{{length}}
+{% for i in range(0, size2()) %}
+  dst[{{RANGE(i, i+1, pre="i+",pren="i")}}] := SELECT%'N((mask.bits[{{RANGE(i, i+1, pre="i+",pren="i")}}] ? a[{{RANGE(0, length, pre="i+",pren="i")}}] : b[{{RANGE(0, length, pre="i+",pren="i")}}]), rule[{{RANGE(i*lln2, (i+1)*lln2)}}])
+{% endfor %}
+endfor
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \param rule integer controlling the shuffle. Must be an immediate!
+ * \param mask integer mask controlling the blend. Must be an immediate!
+ * \returns shuffled vector
+ */
+{% endcall %}
     {{- _.cond("%N >= %'N") }}
     {%- if size1() == size2() %}
       {%- call _.define() -%} #define {{ f.name() }} %P_fshuffle%N
@@ -537,294 +1902,130 @@
 
 {#/* hshuffle */#}
 {%- call(f) _.expandf("%T", "%P_hshuffle", "%T a, %T b, %m rule") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup shuffle
+ * \related %T
+ * \brief Shuffles \c a and \c b together using the control in \c rule.
+ * \details Shuffles \c %T vectors \c a and \c b together using the control in \c rule.
+ *  The shuffle is done on whole vectors.
+{% set lln2 = ln2(size1()) %}
+ * \impl
+function SELECT%'N(_src, _ctrl) {
+  case _ctrl.bits[{{RANGE(0, lln2)}}]
+{% for i in range(size1()) %}
+    0x{{"%X" % i}}:  _tmp := _src[{{i}}]
+{% endfor %}
+  endcase
+  return _tmp
+}
+
+{% for i in range(0, int(size1()/2)) %}
+dst[{{i}}] := SELECT%'N(a, rule[{{RANGE(i*lln2, (i+1)*lln2)}}])
+{% endfor %}
+{% for i in range(int(size1()/2), size1()) %}
+dst[{{i}}] := SELECT%'N(b, rule[{{RANGE(i*lln2, (i+1)*lln2)}}])
+{% endfor %}
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \param rule integer controlling the shuffle. Must be an immediate!
+ * \returns shuffled vector
+ */
+{% endcall %}
   {%- call _.define() -%} #define {{ f.name() }} %P_hshuffle%N
   {%- endcall %}
 {%- endcall %}
 
 {#/* permute */#}
 {%- call(f) _.expandf("%T", "%P_permute", "%T a, %m rule") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup shuffle
+ * \related %T
+ * \brief Shuffles \c a using the control in \c rule.
+ * \details Shuffles the \c %T vector \c a using the control in \c rule.
+ *  The shuffle is done by moving %'N elements with the same rule for every %^N blocks of %'N elements.
+ *  The shuffle is done on the whole vector.
+ *
+ *  Functionally equivalent to \c `%P_hshuffle(a, a, rule)`
+{% set lln2 = ln2(size1()) %}
+ * \impl
+function SELECT%'N(_src, _ctrl) {
+  case _ctrl.bits[{{RANGE(0, lln2)}}]
+{% for i in range(size1()) %}
+    0x{{"%X" % i}}:  _tmp := _src[{{i}}]
+{% endfor %}
+  endcase
+  return _tmp
+}
+
+{% for i in range(0, size1()) %}
+dst[{{i}}] := SELECT%'N(a, rule[{{RANGE(i*lln2, (i+1)*lln2)}}])
+{% endfor %}
+\endimpl
+ *  \see %P_hshuffle%'Nx%^N(%T a, %T b, %m rule)
+ * \param a \c %T input vector
+ * \param rule integer controlling the shuffle. Must be an immediate!
+ * \returns shuffled vector
+ */
+{% endcall %}
   {%- call _.define() -%} #define {{ f.name() }} %P_permute%N
   {%- endcall %}
 {%- endcall %}
 
 {#/* fshuffle */#}
 {%- call(f) _.expandf("%T", "%P_fshuffle", "%T a, %T b, %m rule, %$$int_s(%N)$uint_fast%n_t$$  mask") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup shuffle
+ * \related %T
+ * \brief Fully shuffles (inner) \c a and \c b using the control in \c rule, and blends them together using \c mask.
+ * \details Fully shuffles \c %T vectors \c a and \c b using the control in \c rule, and blends them together using \c mask.
+ *  The shuffle is done on whole vectors.
+{% set lln2 = ln2(size1()) %}
+ * \impl
+function SELECT%'N(_src, _ctrl) {
+  case _ctrl.bits[{{RANGE(0, lln2)}}]
+{% for i in range(size1()) %}
+    0x{{"%X" % i}}:  _tmp := _src[{{i}}]
+{% endfor %}
+  endcase
+  return _tmp
+}
+
+{% for i in range(0, size1()) %}
+dst[{{i}}] := SELECT%'N((mask.bits[{{i}}] ? b : a), rule[{{RANGE(i*lln2, (i+1)*lln2)}}])
+{% endfor %}
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \param rule integer controlling the shuffle. Must be an immediate!
+ * \param mask integer mask controlling the blend. Must be an immediate!
+ * \returns shuffled vector
+ */
+{% endcall %}
   {%- call _.define() -%} #define {{ f.name() }} %P_fshuffle%N
   {%- endcall %}
 {%- endcall %}
 
-/* COMPARISONS */
-{#/* EQ */#}
-{% call(f) _.expandf("%T", "%P_eq", "%T a, %T b") %}
-  {{- _.def_func(f) }}
-  {%- if size1() == 1 %}
-    {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { i: -(a.v == b.v) }; return r; }{% endcall -%}
-  {% else -%}
-    {{- _.declare(f) }}
-    {{- _.recursive_func(f) -}}
-  {%- endif %}
-{%- endcall %}
-
-{#/* NEQ */#}
-{% call(f) _.expandf("%T", "%P_neq", "%T a, %T b") %}
-  {{- _.def_func(f) }}
-  {%- if size1() == 1 %}
-    {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { i: -(a.v != b.v) }; return r; }{% endcall -%}
-  {% else -%}
-    {{- _.declare(f) }}
-    {{- _.recursive_func(f) -}}
-  {%- endif %}
-{%- endcall %}
-
-{#/* GT */#}
-{% call(f) _.expandf("%T", "%P_gt", "%T a, %T b") %}
-  {{- _.def_func(f) }}
-  {%- if size1() == 1 %}
-    {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { i: -(a.v > b.v) }; return r; }{% endcall -%}
-  {% else -%}
-    {{- _.declare(f) }}
-    {{- _.recursive_func(f) -}}
-  {%- endif %}
-{%- endcall %}
-
-{#/* GEQ */#}
-{% call(f) _.expandf("%T", "%P_geq", "%T a, %T b") %}
-  {{- _.def_func(f) }}
-  {%- if size1() == 1 %}
-    {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { i: -(a.v >= b.v) }; return r; }{% endcall -%}
-  {% else -%}
-    {{- _.declare(f) }}
-    {{- _.recursive_func(f) -}}
-  {%- endif %}
-{%- endcall %}
-
-{#/* LT */#}
-{% call(f) _.expandf("%T", "%P_lt", "%T a, %T b") %}
-  {{- _.def_func(f) }}
-  {%- if size1() == 1 %}
-    {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { i: -(a.v < b.v) }; return r; }{% endcall -%}
-  {% else -%}
-    {{- _.declare(f) }}
-    {{- _.recursive_func(f) -}}
-  {%- endif %}
-{%- endcall %}
-
-{#/* LEQ */#}
-{% call(f) _.expandf("%T", "%P_leq", "%T a, %T b") %}
-  {{- _.def_func(f) }}
-  {%- if size1() == 1 %}
-    {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { i: -(a.v <= b.v) }; return r; }{% endcall -%}
-  {% else -%}
-    {{- _.declare(f) }}
-    {{- _.recursive_func(f) -}}
-  {%- endif %}
-{%- endcall %}
-
-/* LOGIC */
-{#/* AND */#}
-{% call(f) _.expandf("%T", "%P_and", "%T a, %T b") %}
-  {{- _.def_func(f) }}
-  {%- if size1() == 1 %}
-    {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { i: a.i & b.i }; return r; }{% endcall -%}
-  {% else -%}
-    {{- _.declare(f) }}
-    {{- _.recursive_func(f) -}}
-  {%- endif %}
-{%- endcall %}
-
-{#/* OR */#}
-{% call(f) _.expandf("%T", "%P_or", "%T a, %T b") %}
-  {{- _.def_func(f) }}
-  {%- if size1() == 1 %}
-    {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { i: a.i | b.i }; return r; }{% endcall -%}
-  {% else -%}
-    {{- _.declare(f) }}
-    {{- _.recursive_func(f) -}}
-  {%- endif %}
-{%- endcall %}
-
-{#/* XOR */#}
-{% call(f) _.expandf("%T", "%P_xor", "%T a, %T b") %}
-  {{- _.def_func(f) }}
-  {%- if size1() == 1 %}
-    {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { i: a.i ^ b.i }; return r; }{% endcall -%}
-  {% else -%}
-    {{- _.declare(f) }}
-    {{- _.recursive_func(f) -}}
-  {%- endif %}
-{%- endcall %}
-
-{#/* NOT */#}
-{% call(f) _.macro("%T", "%P_not", "%T a") %}
-  {%- call _.define(f) %} %P_xor((a), %P_ones())
-  {%- endcall %}
-{%- endcall %}
-
-{#/* NAND */#}
-{% call(f) _.macro("%T", "%P_nand", "%T a, %T b") %}
-  {%- call _.define(f) %} %P_not(%P_and((a), (b)))
-  {%- endcall %}
-{%- endcall %}
-
-{#/* NOR */#}
-{% call(f) _.macro("%T", "%P_nor", "%T a, %T b") %}
-  {%- call _.define(f) %} %P_not(%P_or((a), (b)))
-  {%- endcall %}
-{%- endcall %}
-
-{#/* NXOR */#}
-{% call(f) _.macro("%T", "%P_nxor", "%T a, %T b") %}
-  {%- call _.define(f) %} %P_not(%P_xor((a), (b)))
-  {%- endcall %}
-{%- endcall %}
-
-{#/* ANDNOT */#}
-{% call(f) _.macro("%T", "%P_andnot", "%T a, %T b") %}
-  {%- call _.define(f) %} %P_and((a), %P_not(b))
-  {%- endcall %}
-{%- endcall %}
-
-{#/* ORNOT */#}
-{% call(f) _.macro("%T", "%P_ornot", "%T a, %T b") %}
-  {%- call _.define(f) %} %P_or((a), %P_not(b))
-  {%- endcall %}
-{%- endcall %}
-
-
-/* ARITHMETIC AND MATH */
-{#/* ADD */#}
-{% call(f) _.expandf("%T", "%P_add", "%T a, %T b") %}
-  {{- _.def_func(f) }}
-  {%- if size1() == 1 %}
-    {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { v: a.v + b.v }; return r; }{% endcall -%}
-  {% else -%}
-    {{- _.declare(f) }}
-    {{- _.recursive_func(f) -}}
-  {%- endif %}
-{%- endcall %}
-
-{#/* SUB */#}
-{% call(f) _.expandf("%T", "%P_sub", "%T a, %T b") %}
-  {{- _.def_func(f) }}
-  {%- if size1() == 1 %}
-    {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { v: a.v - b.v }; return r; }{% endcall -%}
-  {% else -%}
-    {{- _.declare(f) }}
-    {{- _.recursive_func(f) -}}
-  {%- endif %}
-{%- endcall %}
-
-{#/* NEG */#}
-{% call(f) _.macro("%T", "%P_neg", "%T a") %}
-  {%- call _.define(f) %} %P_sub(%P_zero(), (a))
-  {%- endcall %}
-{%- endcall %}
-
-{#/* MUL */#}
-{% call(f) _.expandf("%T", "%P_mul", "%T a, %T b") %}
-  {{- _.def_func(f) }}
-  {%- if size1() == 1 %}
-    {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { v: a.v * b.v }; return r; }{% endcall -%}
-  {% else -%}
-    {{- _.declare(f) }}
-    {{- _.recursive_func(f) -}}
-  {%- endif %}
-{%- endcall %}
-
-{#/* DIV */#}
-{% call(f) _.expandf("%T", "%P_div", "%T a, %T b") %}
-  {{- _.def_func(f) }}
-  {%- if size1() == 1 %}
-    {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { v: a.v / b.v }; return r; }{% endcall -%}
-  {% else -%}
-    {{- _.declare(f) }}
-    {{- _.recursive_func(f) -}}
-  {%- endif %}
-{%- endcall %}
-
-{#/* RCP */#}
-{% call(f) _.macro("%T", "%P_rcp", "%T a") %}
-  {%- call _.define(f) %} %P_div(%P_one(), (a))
-  {%- endcall %}
-{%- endcall %}
-
-{#/* FRCP */#}
-{% call(f) _.macro("%T", "%P_frcp", "%T a") %}
-  {%- call _.define(f) %} %P_rcp(a)
-  {%- endcall %}
-{%- endcall %}
-
-{#/* SQRT */#}
-{% call(f) _.expandf("%T", "%P_sqrt", "%T a") %}
-  {{- _.def_func(f) }}
-  {%- if type1().is_float() %}
-    {%- if size1() == 1 %}
-      {{- _.declare(f, -1) }}
-      {%- call _.impl(f, -1) %} { %I r = { v: sqrt(a.v) }; return r; }{% endcall -%}
-    {%- else -%}
-      {{- _.declare(f) }}
-      {{- _.recursive_func(f) -}}
-    {%- endif %}
-  {%- else -%}
-    {{- _.declare(f) }}
-    {%- call _.impl(f) %} { return %P_cvt_%fP(%fP_sqrt(%fP_cvt_%P(a))); }
-    {%- endcall %}
-  {%- endif %}
-{%- endcall %}
-
-{#/* RSQRT */#}
-{% call(f) _.macro("%T", "%P_rsqrt", "%T a") %}
-  {%- call _.define(f) %} %P_rcp(%P_sqrt(a))
-  {%- endcall %}
-{%- endcall %}
-
-{#/* FRSQRT */#}
-{% call(f) _.macro("%T", "%P_frsqrt", "%T a") %}
-  {%- call _.define(f) %} %P_rsqrt(a)
-  {%- endcall %}
-{%- endcall %}
-
-/* Fused Multiply-Add */
-{#/* FMADD */#}
-{% call(f) _.macro("%T", "%P_fmadd", "%T a, %T b, %T acc") %}
-  {%- call _.define(f) %} %P_add(%P_mul((a), (b)), (acc))
-  {%- endcall %}
-{%- endcall %}
-
-{#/* FMSUB */#}
-{% call(f) _.macro("%T", "%P_fmsub", "%T a, %T b, %T acc") %}
-  {%- call _.define(f) %} %P_sub(%P_mul((a), (b)), (acc))
-  {%- endcall %}
-{%- endcall %}
-
-{#/* FNMADD */#}
-{% call(f) _.macro("%T", "%P_fnmadd", "%T a, %T b, %T acc") %}
-  {%- call _.define(f) %} %P_sub((acc), %P_mul((a), (b)))
-  {%- endcall %}
-{%- endcall %}
-
-{#/* FNMSUB */#}
-{% call(f) _.macro("%T", "%P_fnmsub", "%T a, %T b, %T acc") %}
-  {%- call _.define(f) %} %P_sub(%P_neg(acc), %P_mul((a), (b)))
-  {%- endcall %}
-{%- endcall %}
 
 /* PRINTS */
+{{ _.doc_group("print functions", shortname = "print") }}
 {#/* FPRINTF */#}
 {% call(f) _.func("%T", "%P_fprintf", "void *file, %T a, const char* format") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup print
+ * \related %T
+ * \brief Prints a \c %T vector
+ * \details Prints the \c %T input vector into \c file,
+ *  using \c format to format the printing of each element.
+ * \param file output file
+ * \param a \c %T vector to print
+ * \param format printf-like format
+ */
+{% endcall %}
 {%- call _.impl(f) %} {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(%t, v, %N, %N*sizeof(%t));
@@ -839,24 +2040,69 @@
 
 {#/* PRINTF */#}
 {% call(f) _.macro("%T", "%P_printf", "%T a, const char* format") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup print
+ * \related %T
+ * \brief Prints a \c %T vector
+ * \details Prints the \c %T input vector to \c stdout,
+ *  using \c format to format the printing of each element.
+ * \details functionally equivalent to \c `%P_fprintf(stdout, a, format)`
+ * \param a \c %T vector to print
+ * \param format printf-like format
+ */
+{% endcall %}
   {%- call _.define(f) %} %P_fprintf(stdout, (a), format)
   {%- endcall %}
 {%- endcall %}
 
 {#/* FPRINT */#}
 {% call(f) _.macro("%T", "%P_fprint", "void *file, %T a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup print
+ * \related %T
+ * \brief Prints a \c %T vector
+ * \details Prints the \c %T input vector into \c file.
+ * \details functionally equivalent to \c `%P_fprintf(file, a, "{{ type1().form }}")`
+ * \param file output file
+ * \param a \c %T vector to print
+ */
+{% endcall %}
   {%- call _.define(f) %} %P_fprintf((file), (a), "{{ type1().form }}")
   {%- endcall %}
 {%- endcall %}
 
 {#/* PRINT */#}
 {% call(f) _.macro("%T", "%P_print", "%T a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup print
+ * \related %T
+ * \brief Prints a \c %T vector
+ * \details Prints the \c %T input vector to stdout.
+ * \details functionally equivalent to \c `%P_fprintf(stdout, a, "{{ type1().form }}")`
+ * \param a \c %T vector to print
+ */
+{% endcall %}
   {%- call _.define(f) %} %P_fprintf(stdout, (a), "{{ type1().form }}")
   {%- endcall %}
 {%- endcall %}
 
 {#/* RFPRINTF */#}
 {% call(f) _.func("%T", "%P_rfprintf", "void *file, %T a, const char* format") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup print
+ * \related %T
+ * \brief Prints a \c %T vector (reversed order)
+ * \details Prints the \c %T input vector in reverse order into \c file,
+ *  using \c format to format the printing of each element.
+ * \param file output file
+ * \param a \c %T vector to print
+ * \param format printf-like format
+ */
+{% endcall %}
 {%- call _.impl(f) %} {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(%t, v, %N, %N*sizeof(%t));
@@ -871,18 +2117,267 @@
 
 {#/* RPRINTF */#}
 {% call(f) _.macro("%T", "%P_rprintf", "%T a, const char* format") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup print
+ * \related %T
+ * \brief Prints a \c %T vector (reversed order)
+ * \details Prints the \c %T input vector in reverse order to \c stdout,
+ *  using \c format to format the printing of each element.
+ * \details functionally equivalent to \c `%P_rfprintf(stdout, a, format)`
+ * \param a \c %T vector to print
+ * \param format printf-like format
+ */
+{% endcall %}
   {%- call _.define(f) %} %P_rfprintf(stdout, (a), format)
   {%- endcall %}
 {%- endcall %}
 
 {#/* RFPRINT */#}
 {% call(f) _.macro("%T", "%P_rfprint", "void *file, %T a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup print
+ * \related %T
+ * \brief Prints a \c %T vector (reversed order)
+ * \details Prints the \c %T input vector in reverse order into \c file.
+ * \details functionally equivalent to \c `%P_rfprintf(file, a, "{{ type1().form }}")`
+ * \param file output file
+ * \param a \c %T vector to print
+ */
+{% endcall %}
   {%- call _.define(f) %} %P_rfprintf((file), (a), "{{ type1().form }}")
   {%- endcall %}
 {%- endcall %}
 
 {#/* RPRINT */#}
 {% call(f) _.macro("%T", "%P_rprint", "%T a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup print
+ * \related %T
+ * \brief Prints a \c %T vector (reversed order)
+ * \details Prints the \c %T input vector in reverse order to stdout.
+ * \details functionally equivalent to \c `%P_rfprintf(stdout, a, "{{ type1().form }}")`
+ * \param a \c %T vector to print
+ */
+{% endcall %}
   {%- call _.define(f) %} %P_rfprintf(stdout, (a), "{{ type1().form }}")
   {%- endcall %}
 {%- endcall %}
+
+/* CASTS */
+{{_.doc_group("cast functions", "Functions for (bitwise) casting vectors") }}
+{% call _.for_both() %}
+  {%- call(f) _.expandf("%T", "%P_cast_%'P'", "%'T' a") %}
+    {%- set length1 = size1() * type1().size %}
+    {%- set length2 = size2() * type2().size %}
+    {%- call _.doc(f) %}
+/**
+ * \ingroup cast
+ * \related %T
+ * \brief Casts a \c %'T' vector into a \c %T vector.
+ * \details Casts a \c %'T' vector into a \c %T vector.
+ *  No conversion is done: it consists in a reinterpretation of the bit sequence.
+ *
+ *  Should be just a compiler hint and never produces any assembly instructions.
+{% if length1 > length2 %}
+ *  The upper bits of the result are undefined.
+{% elif length1 < length2 %}
+ *  The upper bits of the input are discarded.
+{% endif %}
+{% set min = min([type1().size * size1() * 8, type2().size * size2() * 8]) %}
+ * \impl
+  dst.bits[{{RANGE(0, min)}}] := a.bits[{{RANGE(0, min)}}]
+\endimpl
+ * \param a the vector to cast
+ * \returns the casted vector
+ */
+{% endcall %}
+    {%- if type1() == type2() %}
+      {%- if length1 == length2 %}
+        {%- call _.define(f) %} (a)
+        {%- endcall %}
+      {%- elif length1 == length2 * 2 %}
+        {{- _.def_func(f) }}
+        {%- call _.declare_nof() -%} %I {{ f.pname() }}(%'T' a); {%- endcall %}
+        {%- call _.impl() -%} %I {{ f.pname() }}(%'T' a) { %I r = { a: a }; return r; }
+        {%- endcall %}
+      {%- elif length1 > length2 %}
+        {%- call _.define(f) %} %P_cast_%-P(%-P_cast_%'P(a))
+        {%- endcall %}
+      {%- elif length1 == length2 / 2 %}
+        {{- _.def_func(f) }}
+        {%- call _.declare_nof() -%} %T {{ f.pname() }}(%'I' a); {%- endcall %}
+        {%- call _.impl() -%} %T {{ f.pname() }}(%'I' a) { return a.a; }
+        {%- endcall %}
+      {%- else %}{#/* length1 < length2 */#}
+        {%- call _.define(f) %} %P_cast_%'-P(%'-P_cast_%'P(a))
+        {%- endcall %}
+      {%- endif %}
+    {%- elif length1 == length2 %}
+      {%- call _.define(f) %} PINTS_REINTERPRET(%T, %'T', (a))
+      {%- endcall %}
+    {%- elif length1 > length2 %}
+      {%- call _.define(f) %} %P_cast_%-P(%-P_cast_%'P(%'P_cast_%'P'(a)))
+      {%- endcall %}
+    {%- else %}{#/* length1 < length2 */#}
+      {%- call _.define(f) %} %P_cast_%P'(%P'_cast_%'-P'(%'-P'_cast_%'P'(a)))
+      {%- endcall %}
+    {%- endif %}
+  {%- endcall %}
+{% endcall %}
+
+
+/* CONVERTS */
+{{ _.doc_group("conversion functions", "Functions for converting vectors", "convert") }}
+{% call _.for_both() %}
+  {%- call(f) _.expandf("%T", "%P_cvt_%'P'", "%'T' a") %}
+    {%- call _.doc(f) %}
+/**
+ * \ingroup convert
+ * \related %T
+ * \brief Converts a \c %'T' vector into a \c %T vector.
+ * \details Converts a \c %'T' vector into a \c %T vector.
+{% if size1() > size2() %}
+ *  The upper values of the result are undefined.
+{% elif size1() < size2() %}
+ *  The upper values of the input are discarded.
+{% endif %}
+{% set min = min([size1(), size2()]) - 1 %}
+ * \impl
+for i from 0 to {{min}}
+  dst[i] := CONVERT_FROM__%'t'__TO__%t(a[i])
+endfor
+\endimpl
+ * \param a the vector to convert
+ * \returns the converted vecter
+ */
+{% endcall %}
+    {%- if type1() == type2() and size1() == size2() %}
+      {%- call _.define(f) %} (a)
+      {%- endcall %}
+    {%- elif size1() == size2() == 1 %}
+      {{- _.def_func(f) }}
+      {{- _.declare(f) }}
+      {%- call _.impl(f) %} { %t s%P; %'t' s%'P'; %'P'_store(&s%'P', a); s%P = s%'P'; return %P_load(&s%P); }
+      {%- endcall %}
+    {%- elif size1() == size2() %}
+      {{- _.recursive_macro(f) }}
+    {%- elif size1() < size2() %}
+      {%- call _.define(f) %} %P_cvt_%P'(%P'_cast_%'P'(a))
+      {%- endcall %}
+    {%- else %}{#/* size1() > size2() */#}
+      {%- call _.define(f) %} %P_cast_%'P(%'P_cvt_%'P'(a))
+      {%- endcall %}
+    {%- endif %}
+  {%- endcall %}
+{% endcall %}
+
+{#/* CONVERTS to scalar */#}
+{{ _.doc_group("scalar conversion functions", "Functions for converting vectors into scalar", "sconvert") }}
+{% call _.for_both() %}
+  {%- call(f) _.expandf("%t", "s%p_cvt_%'P'", "%'T' a", sizes = [1]) %}
+    {%- call _.doc(f) %}
+/**
+ * \ingroup sconvert
+ * \related %T
+ * \brief Converts the first value of a \c %'T' vector into \c %t.
+ * \details Converts the first value of a \c %'T' vector into \c %t.
+ * \impl
+dst := CONVERT_FROM__%'t'__TO__%t(a[0])
+\endimpl
+ * \param a the vector to convert
+ * \returns scalar
+ */
+{% endcall %}
+    {%- if type1() == type2() and size2() == 1 %}
+      {{- _.def_func(f) }}
+      {{- _.declare(f) }}
+      {%- call _.impl(f) %} { %t s%P; %P_store(&s%P, a); return s%P; }
+      {%- endcall %}
+    {%- else %}
+      {%- call _.define(f) %} s%p_cvt_v1%p(v1%p_cvt_%'P'(a))
+      {%- endcall %}
+    {%- endif %}
+  {%- endcall %}
+{% endcall %}
+
+{{ _.doc_group("mask conversion functions", "Functions for converting vectors into and/or from mask-vectors", "mconvert") }}
+{#/* CONVERTS to mask */#}
+{% call(f) _.expandf("%M", "%M_cvt_%P", "%T a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup mconvert
+ * \related %T
+ * \brief Converts a \c %T vector into a \c %M vector-mask.
+ * \details Converts a \c %T vector into a \c %M vector-mask such as the following statements are equivalent for every \c %T vec:
+ *  - \c `%P_and(a, vec)`
+ *  - \c `%P_mask_move(%M_cast_%P(a), vec)`
+ *
+ * \param a the vector to convert
+ * \returns vector-mask
+ */
+{% endcall %}
+  {%- call _.define(f) %} %iP_cast_%P(a)
+  {%- endcall %}
+{% endcall %}
+{#/* CONVERTS from mask */#}
+{% call(f) _.expandf("%T", "%P_cvt_%M", "%M a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup mconvert
+ * \related %T
+ * \brief Converts a \c %M vector-mask into a \c %T vector.
+ * \details Converts a \c %M vector-mask into a \c %T vector such as the following statements are equivalent for every vector \c %T \c vec:
+ *  - \c `%P_and(%P_cvt_%M(a), vec)`
+ *  - \c `%P_mask_move(a, vec)`
+ *
+ * \param a the vector to convert
+ * \returns vector-mask
+ */
+{% endcall %}
+  {%- call _.define(f) %} %P_cast_%iP(a)
+  {%- endcall %}
+{% endcall %}
+
+{#/* CONVERTS from mask to mask */#}
+{% call _.for_both() %}
+  {%- call(f) _.expandf("%t", "%M_cvt_%'M'", "%'M' a") %}
+    {%- call _.doc(f) %}
+/**
+ * \ingroup mconvert
+ * \related %T
+ * \brief Converts a \c %'M' vector-mask into a \c %M vector-mask.
+ * \details Converts a \c %'M' vector-mask into a \c %M vector-mask. 
+{% if size1() > size2() %}
+ *  The upper values of the result are undefined.
+{% elif size1() < size2() %}
+ *  The upper values of the input are discarded.
+{% else %}
+ *  The input vector-mask and the output vector-mask mask the same elements.
+{% endif %}
+ * \param a the vector-mask to convert
+ * \returns the converted vector-mask
+ */
+{% endcall %}
+    {%- call _.define(f) %} %iP_cast_%'iP'(a)
+    {%- endcall %}
+  {%- endcall %}
+{% endcall %}
+
+/* compatible CONVERTS */
+{% call _.for_both() %}
+{%- call(f) _.expandf("%T", "%P_cvt_%'P'", "%'T' a", prefix = "compatible_") %}
+{{- _.declare(f) }}
+{%- call _.impl(f) %} {
+  int i;
+  PINTS_ALIGNED_ARRAY(%t, vto, %N, %N*sizeof(%t));
+  PINTS_ALIGNED_ARRAY(%'t', vfrom, %'N', %'N'*sizeof(%'t'));
+  %'P'_store(vfrom, a);
+  for (i = 0; i < {{ min([size1(), size2()]) }}; ++i) vto[i] = vfrom[i];
+  return %P_load(vto);
+} {%- endcall %}
+{%- endcall %}
+{% endcall %}
+

@@ -1,7 +1,50 @@
-#if 0 //PINTS_DOC_H
-//{{ FILE }}
+{% import "expand.jinja" as _ with context %}
+/** @file
+ * @brief User documentation
+ *
+ * This file contains the user documentation.
+ * This file does not contain any code.
+ */
 
+//#ifdef PINTS_DOC_H
+#error "This file should not be included"
+
+/**
+ *
+ *
+ *
+ *
+ */
+
+{% for i in SIZES %}
+/** \defgroup v{{i}} {{i}} elements vectors */
+{% endfor %}
+{% call _.expand_both() %}
+/**
+ * \ingroup v%N
+ * \brief Type for the manipulation of %N \c %t packed into one single vector.
+ * \details Type for the manipulation of %N \c %t packed into one single vector.
+ *  This structure does not actually exist. Depending on the target architecture, it can be:
+ *  - A preprocessor alias
+ *  - A typedef
+ *  - A struct defined in another way
+ *  - A union
+ *
+ *
+ * \attention This definition does not correspond to any actual implementation and should never used directly.
+ * \attention The actual implementation depends on the target architecture.
+ * \attention Use PintS functions instead.
+ */
+struct %T {
+  /**
+   * \brief Data of the vector.
+   * \details Data of the vector. The actual implementation depends on the target architecture.
+   * \attention As it is implementation dependant, you should never try to access it.
+   */
+  %t vector[%N];
+};
+{% endcall %}
 {% set DOCUMENTATION = True -%}
 {% include "definitions.jinja" with context %}
 
-#endif //PINTS_DOC_H
+//#endif //PINTS_DOC_H
