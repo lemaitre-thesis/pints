@@ -8,13 +8,6 @@
 //#ifdef PINTS_DOC_H
 #error "This file should not be included"
 
-/**
- *
- *
- *
- *
- */
-
 /** \defgroup v1 1 elements vectors */
 /** \defgroup v2 2 elements vectors */
 /** \defgroup v4 4 elements vectors */
