@@ -99,14 +99,32 @@ typedef __m512i v8l;
 #define v8i_storeu(p, a) _mm256_storeu_si256((__m256i*)p, a)
 #define v4l_storeu(p, a) _mm256_storeu_si256((__m256i*)p, a)
 
-#undef v4d_zero
-#undef v8f_zero
-#undef v8i_zero
-#undef v4l_zero
-#define v4d_zero() _mm256_setzero_pd()
-#define v8f_zero() _mm256_setzero_ps()
-#define v8i_zero() _mm256_setzero_si256()
-#define v4l_zero() _mm256_setzero_si256()
+#undef v4d_zeros
+#undef v8f_zeros
+#undef v8i_zeros
+#undef v4l_zeros
+#define v4d_zeros() _mm256_setzero_pd()
+#define v8f_zeros() _mm256_setzero_ps()
+#define v8i_zeros() _mm256_setzero_si256()
+#define v4l_zeros() _mm256_setzero_si256()
+
+#undef v2d_ones
+#undef v4f_ones
+#undef v4i_ones
+#undef v2l_ones
+#define v2d_ones() __avx_mm_setones_pd()
+#define v4f_ones() __avx_mm_setones_ps()
+#define v4i_ones() __avx_mm_setones_si128()
+#define v2l_ones() __avx_mm_setones_si128()
+
+#undef v4d_ones
+#undef v8f_ones
+#undef v8i_ones
+#undef v4l_ones
+#define v4d_ones() __avx_mm256_setones_pd()
+#define v8f_ones() __avx_mm256_setones_ps()
+#define v8i_ones() __avx_mm256_setones_si256()
+#define v4l_ones() __avx_mm256_setones_si256()
 
 #undef v4d_is_zero
 #undef v8f_is_zero
@@ -429,6 +447,42 @@ typedef __m512i v8l;
 #define v8f_merge2_v4f(a, b)      _mm256_insertf128_ps(_mm256_castps128_ps256(a), b, 1)
 #define v8i_merge2_v4i(a, b)      _mm256_insertf128_si256(_mm256_castsi128_si256(a), b, 1)
 #define v4l_merge2_v2l(a, b)      _mm256_insertf128_si256(_mm256_castsi128_si256(a), b, 1)
+
+static inline __m128 __avx_mm_setones_ps() {
+  __m128 ones;
+  __asm__ ("vcmpeqps %0, %0, %0" : "=x"(ones));
+  return ones;
+}
+
+static inline __m128d __avx_mm_setones_pd() {
+  __m128d ones;
+  __asm__ ("vcmpeqpd %0, %0, %0" : "=x"(ones));
+  return ones;
+}
+
+static inline __m128i __avx_mm_setones_si128() {
+  __m128i ones;
+  __asm__ ("vpcmpeqd %0, %0, %0" : "=x"(ones));
+  return ones;
+}
+
+static inline __m256 __avx_mm256_setones_ps() {
+  __m256 ones;
+  __asm__ ("vcmpeqps %0, %0, %0" : "=x"(ones));
+  return ones;
+}
+
+static inline __m256d __avx_mm256_setones_pd() {
+  __m256d ones;
+  __asm__ ("vcmpeqpd %0, %0, %0" : "=x"(ones));
+  return ones;
+}
+
+static inline __m256i __avx_mm256_setones_si256() {
+  __m256i ones;
+  __asm__ ("vpcmpeqd %0, %0, %0" : "=x"(ones));
+  return ones;
+}
 
 #endif
 

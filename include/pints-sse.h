@@ -54,8 +54,8 @@ typedef __m128i v4i;
 #undef v4f_storeu
 #define v4f_storeu(p, a) _mm_storeu_ps(p, a)
 
-#undef v4f_zero
-#define v4f_zero() _mm_setzero_ps()
+#undef v4f_zeros
+#define v4f_zeros() _mm_setzero_ps()
 
 #undef v4f_is_zero
 #define v4f_is_zero(a) (_mm_movemask_ps(_mm_cmpeq_ps(a, _mm_setzero_ps())) == 0x0F)
@@ -416,14 +416,23 @@ typedef __m128i v4i;
 #define v4i_storeu(p, a) _mm_storeu_si128((__m128i*)p, a)
 #define v2l_storeu(p, a) _mm_storeu_si128((__m128i*)p, a)
 
-#undef v2d_zero
-#undef v4f_zero
-#undef v4i_zero
-#undef v2l_zero
-#define v2d_zero() _mm_setzero_pd()
-#define v4f_zero() _mm_setzero_ps()
-#define v4i_zero() _mm_setzero_si128()
-#define v2l_zero() _mm_setzero_si128()
+#undef v2d_zeros
+#undef v4f_zeros
+#undef v4i_zeros
+#undef v2l_zeros
+#define v2d_zeros() _mm_setzero_pd()
+#define v4f_zeros() _mm_setzero_ps()
+#define v4i_zeros() _mm_setzero_si128()
+#define v2l_zeros() _mm_setzero_si128()
+
+#undef v2d_ones
+#undef v4f_ones
+#undef v4i_ones
+#undef v2l_ones
+#define v2d_ones() __sse2_mm_setones_pd()
+#define v4f_ones() __sse2_mm_setones_ps()
+#define v4i_ones() __sse2_mm_setones_si128()
+#define v2l_ones() __sse2_mm_setones_si128()
 
 #undef v2d_is_zero
 #undef v4f_is_zero
@@ -674,14 +683,23 @@ typedef __m128i v4i;
 #define v1i_storeu(p, a) v1i_store(p, a)
 #define v1l_storeu(p, a) v1l_store(p, a)
 
-#undef v1d_zero
-#undef v1f_zero
-#undef v1i_zero
-#undef v1l_zero
-#define v1d_zero() v2d_zero()
-#define v1f_zero() v4f_zero()
-#define v1i_zero() v4i_zero()
-#define v1l_zero() v2l_zero()
+#undef v1d_zeros
+#undef v1f_zeros
+#undef v1i_zeros
+#undef v1l_zeros
+#define v1d_zeros() v2d_zeros()
+#define v1f_zeros() v4f_zeros()
+#define v1i_zeros() v4i_zeros()
+#define v1l_zeros() v2l_zeros()
+
+#undef v1d_ones
+#undef v1f_ones
+#undef v1i_ones
+#undef v1l_ones
+#define v1d_ones() v2d_ones()
+#define v1f_ones() v4f_ones()
+#define v1i_ones() v4i_ones()
+#define v1l_ones() v2l_ones()
 
 #undef v1d_is_zero
 #undef v1f_is_zero
@@ -870,10 +888,15 @@ typedef __m128i v4i;
 //#define v2f_storeu(p, a) _mm_storeu_ps(p, a)
 //#define v2i_storeu(p, a) v2f_storeu((float *)(p), v2f_cast_v2i(a))
 
-#undef v2f_zero
-#undef v2i_zero
-#define v2f_zero() v4f_zero()
-#define v2i_zero() v4i_zero()
+#undef v2f_zeros
+#undef v2i_zeros
+#define v2f_zeros() v4f_zeros()
+#define v2i_zeros() v4i_zeros()
+
+#undef v2f_ones
+#undef v2i_ones
+#define v2f_ones() v4f_ones()
+#define v2i_ones() v4i_ones()
 
 #undef v2f_is_zero
 #undef v2i_is_zero
@@ -1251,6 +1274,24 @@ static inline v2l __sse2_v2l_lt(v2l a, v2l b) {
   v4i high_lt = v4i_permute4(cmplt, 0xF5);
   v4i  low_lt = v4i_permute4(cmplt, 0xA0);
   return v2l_cast_v4i(v4i_or(high_lt, v4i_and(high_eq, low_lt)));
+}
+
+static inline __m128 __sse2_mm_setones_ps() {
+  __m128 ones;
+  __asm__ ("cmpeqps %0, %0" : "=x"(ones));
+  return ones;
+}
+
+static inline __m128d __sse2_mm_setones_pd() {
+  __m128d ones;
+  __asm__ ("cmpeqpd %0, %0" : "=x"(ones));
+  return ones;
+}
+
+static inline __m128i __sse2_mm_setones_si128() {
+  __m128i ones;
+  __asm__ ("pcmpeqd %0, %0" : "=x"(ones));
+  return ones;
 }
 
 #endif

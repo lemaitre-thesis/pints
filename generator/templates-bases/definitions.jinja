@@ -2200,16 +2200,16 @@ dst[{{i}}] := SELECT%'N((mask.bits[{{i}}] ? b : a), rule[{{RANGE(i*lln2, (i+1)*l
         {%- endcall %}
       {%- elif length1 == length2 * 2 %}
         {{- _.def_func(f) }}
-        {%- call _.declare_nof() -%} %I {{ f.pname() }}(%'T' a); {%- endcall %}
-        {%- call _.impl() -%} %I {{ f.pname() }}(%'T' a) { %I r = { a: a }; return r; }
+        {%- call _.declare_nof() -%} static inline %I {{ f.pname() }}(%'T' a); {%- endcall %}
+        {%- call _.impl() -%} static inline %I {{ f.pname() }}(%'T' a) { %I r = { a: a }; return r; }
         {%- endcall %}
       {%- elif length1 > length2 %}
         {%- call _.define(f) %} %P_cast_%-P(%-P_cast_%'P(a))
         {%- endcall %}
       {%- elif length1 == length2 / 2 %}
         {{- _.def_func(f) }}
-        {%- call _.declare_nof() -%} %T {{ f.pname() }}(%'I' a); {%- endcall %}
-        {%- call _.impl() -%} %T {{ f.pname() }}(%'I' a) { return a.a; }
+        {%- call _.declare_nof() -%} static inline %T {{ f.pname() }}(%'I' a); {%- endcall %}
+        {%- call _.impl() -%} static inline %T {{ f.pname() }}(%'I' a) { return a.a; }
         {%- endcall %}
       {%- else %}{#/* length1 < length2 */#}
         {%- call _.define(f) %} %P_cast_%'-P(%'-P_cast_%'P(a))

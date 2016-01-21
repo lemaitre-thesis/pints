@@ -629,34 +629,34 @@ static inline void __v16i_rfprintf(FILE *file, v16i a, const char* format);
 
 /* CASTS */
 
-struct __v2d __v2d_cast_v1d(v1d a);
-struct __v2f __v2f_cast_v1f(v1f a);
-struct __v2i __v2i_cast_v1i(v1i a);
-struct __v2l __v2l_cast_v1l(v1l a);
-v1d __v1d_cast_v2d(struct __v2d a);
-struct __v4d __v4d_cast_v2d(v2d a);
-v1f __v1f_cast_v2f(struct __v2f a);
-struct __v4f __v4f_cast_v2f(v2f a);
-v1i __v1i_cast_v2i(struct __v2i a);
-struct __v4i __v4i_cast_v2i(v2i a);
-v1l __v1l_cast_v2l(struct __v2l a);
-struct __v4l __v4l_cast_v2l(v2l a);
-v2d __v2d_cast_v4d(struct __v4d a);
-struct __v8d __v8d_cast_v4d(v4d a);
-v2f __v2f_cast_v4f(struct __v4f a);
-struct __v8f __v8f_cast_v4f(v4f a);
-v2i __v2i_cast_v4i(struct __v4i a);
-struct __v8i __v8i_cast_v4i(v4i a);
-v2l __v2l_cast_v4l(struct __v4l a);
-struct __v8l __v8l_cast_v4l(v4l a);
-v4d __v4d_cast_v8d(struct __v8d a);
-v4f __v4f_cast_v8f(struct __v8f a);
-struct __v16f __v16f_cast_v8f(v8f a);
-v4i __v4i_cast_v8i(struct __v8i a);
-struct __v16i __v16i_cast_v8i(v8i a);
-v4l __v4l_cast_v8l(struct __v8l a);
-v8f __v8f_cast_v16f(struct __v16f a);
-v8i __v8i_cast_v16i(struct __v16i a);
+static inline struct __v2d __v2d_cast_v1d(v1d a);
+static inline struct __v2f __v2f_cast_v1f(v1f a);
+static inline struct __v2i __v2i_cast_v1i(v1i a);
+static inline struct __v2l __v2l_cast_v1l(v1l a);
+static inline v1d __v1d_cast_v2d(struct __v2d a);
+static inline struct __v4d __v4d_cast_v2d(v2d a);
+static inline v1f __v1f_cast_v2f(struct __v2f a);
+static inline struct __v4f __v4f_cast_v2f(v2f a);
+static inline v1i __v1i_cast_v2i(struct __v2i a);
+static inline struct __v4i __v4i_cast_v2i(v2i a);
+static inline v1l __v1l_cast_v2l(struct __v2l a);
+static inline struct __v4l __v4l_cast_v2l(v2l a);
+static inline v2d __v2d_cast_v4d(struct __v4d a);
+static inline struct __v8d __v8d_cast_v4d(v4d a);
+static inline v2f __v2f_cast_v4f(struct __v4f a);
+static inline struct __v8f __v8f_cast_v4f(v4f a);
+static inline v2i __v2i_cast_v4i(struct __v4i a);
+static inline struct __v8i __v8i_cast_v4i(v4i a);
+static inline v2l __v2l_cast_v4l(struct __v4l a);
+static inline struct __v8l __v8l_cast_v4l(v4l a);
+static inline v4d __v4d_cast_v8d(struct __v8d a);
+static inline v4f __v4f_cast_v8f(struct __v8f a);
+static inline struct __v16f __v16f_cast_v8f(v8f a);
+static inline v4i __v4i_cast_v8i(struct __v8i a);
+static inline struct __v16i __v16i_cast_v8i(v8i a);
+static inline v4l __v4l_cast_v8l(struct __v8l a);
+static inline v8f __v8f_cast_v16f(struct __v16f a);
+static inline v8i __v8i_cast_v16i(struct __v16i a);
 
 
 /* CONVERTS */
@@ -2327,34 +2327,34 @@ static inline void __v16i_rfprintf(FILE *file, v16i a, const char* format) {
 
 /* CASTS */
 
-struct __v2d __v2d_cast_v1d(v1d a) { struct __v2d r = { a: a }; return r; }
-struct __v2f __v2f_cast_v1f(v1f a) { struct __v2f r = { a: a }; return r; }
-struct __v2i __v2i_cast_v1i(v1i a) { struct __v2i r = { a: a }; return r; }
-struct __v2l __v2l_cast_v1l(v1l a) { struct __v2l r = { a: a }; return r; }
-v1d __v1d_cast_v2d(struct __v2d a) { return a.a; }
-struct __v4d __v4d_cast_v2d(v2d a) { struct __v4d r = { a: a }; return r; }
-v1f __v1f_cast_v2f(struct __v2f a) { return a.a; }
-struct __v4f __v4f_cast_v2f(v2f a) { struct __v4f r = { a: a }; return r; }
-v1i __v1i_cast_v2i(struct __v2i a) { return a.a; }
-struct __v4i __v4i_cast_v2i(v2i a) { struct __v4i r = { a: a }; return r; }
-v1l __v1l_cast_v2l(struct __v2l a) { return a.a; }
-struct __v4l __v4l_cast_v2l(v2l a) { struct __v4l r = { a: a }; return r; }
-v2d __v2d_cast_v4d(struct __v4d a) { return a.a; }
-struct __v8d __v8d_cast_v4d(v4d a) { struct __v8d r = { a: a }; return r; }
-v2f __v2f_cast_v4f(struct __v4f a) { return a.a; }
-struct __v8f __v8f_cast_v4f(v4f a) { struct __v8f r = { a: a }; return r; }
-v2i __v2i_cast_v4i(struct __v4i a) { return a.a; }
-struct __v8i __v8i_cast_v4i(v4i a) { struct __v8i r = { a: a }; return r; }
-v2l __v2l_cast_v4l(struct __v4l a) { return a.a; }
-struct __v8l __v8l_cast_v4l(v4l a) { struct __v8l r = { a: a }; return r; }
-v4d __v4d_cast_v8d(struct __v8d a) { return a.a; }
-v4f __v4f_cast_v8f(struct __v8f a) { return a.a; }
-struct __v16f __v16f_cast_v8f(v8f a) { struct __v16f r = { a: a }; return r; }
-v4i __v4i_cast_v8i(struct __v8i a) { return a.a; }
-struct __v16i __v16i_cast_v8i(v8i a) { struct __v16i r = { a: a }; return r; }
-v4l __v4l_cast_v8l(struct __v8l a) { return a.a; }
-v8f __v8f_cast_v16f(struct __v16f a) { return a.a; }
-v8i __v8i_cast_v16i(struct __v16i a) { return a.a; }
+static inline struct __v2d __v2d_cast_v1d(v1d a) { struct __v2d r = { a: a }; return r; }
+static inline struct __v2f __v2f_cast_v1f(v1f a) { struct __v2f r = { a: a }; return r; }
+static inline struct __v2i __v2i_cast_v1i(v1i a) { struct __v2i r = { a: a }; return r; }
+static inline struct __v2l __v2l_cast_v1l(v1l a) { struct __v2l r = { a: a }; return r; }
+static inline v1d __v1d_cast_v2d(struct __v2d a) { return a.a; }
+static inline struct __v4d __v4d_cast_v2d(v2d a) { struct __v4d r = { a: a }; return r; }
+static inline v1f __v1f_cast_v2f(struct __v2f a) { return a.a; }
+static inline struct __v4f __v4f_cast_v2f(v2f a) { struct __v4f r = { a: a }; return r; }
+static inline v1i __v1i_cast_v2i(struct __v2i a) { return a.a; }
+static inline struct __v4i __v4i_cast_v2i(v2i a) { struct __v4i r = { a: a }; return r; }
+static inline v1l __v1l_cast_v2l(struct __v2l a) { return a.a; }
+static inline struct __v4l __v4l_cast_v2l(v2l a) { struct __v4l r = { a: a }; return r; }
+static inline v2d __v2d_cast_v4d(struct __v4d a) { return a.a; }
+static inline struct __v8d __v8d_cast_v4d(v4d a) { struct __v8d r = { a: a }; return r; }
+static inline v2f __v2f_cast_v4f(struct __v4f a) { return a.a; }
+static inline struct __v8f __v8f_cast_v4f(v4f a) { struct __v8f r = { a: a }; return r; }
+static inline v2i __v2i_cast_v4i(struct __v4i a) { return a.a; }
+static inline struct __v8i __v8i_cast_v4i(v4i a) { struct __v8i r = { a: a }; return r; }
+static inline v2l __v2l_cast_v4l(struct __v4l a) { return a.a; }
+static inline struct __v8l __v8l_cast_v4l(v4l a) { struct __v8l r = { a: a }; return r; }
+static inline v4d __v4d_cast_v8d(struct __v8d a) { return a.a; }
+static inline v4f __v4f_cast_v8f(struct __v8f a) { return a.a; }
+static inline struct __v16f __v16f_cast_v8f(v8f a) { struct __v16f r = { a: a }; return r; }
+static inline v4i __v4i_cast_v8i(struct __v8i a) { return a.a; }
+static inline struct __v16i __v16i_cast_v8i(v8i a) { struct __v16i r = { a: a }; return r; }
+static inline v4l __v4l_cast_v8l(struct __v8l a) { return a.a; }
+static inline v8f __v8f_cast_v16f(struct __v16f a) { return a.a; }
+static inline v8i __v8i_cast_v16i(struct __v16i a) { return a.a; }
 
 
 /* CONVERTS */
