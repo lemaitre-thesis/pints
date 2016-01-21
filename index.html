@@ -81,11 +81,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>Portable intrinsics for SIMD</p>
+<p>Doxygen documentation: <a href="http://lemaitre-thesis.github.io/pints/">http://lemaitre-thesis.github.io/pints/</a></p>
 <h2>What is it?</h2>
 <p>PintS is an abstraction library to write SIMD code. It is fully compatible with both C and C++ and it is a header only library.</p>
 <p>The main goal is to provide a library to have the same code on multiple SIMD architecture or even without SIMD.</p>
 <h2>How does it work?</h2>
 <p>The library consists in definitions of the functions for non SIMD architectures, and specialization of some of them for SIMD architectures. These specializations are done by undefining the previous macro (which can be an alias to a function) and redefining it for the target architecture.</p>
+<p>The library is able to detect the target architecture using information given by the compiler and loads automatically the required header files.</p>
 <h2>How does it look?</h2>
 <div class="fragment"><div class="line"><span class="keywordtype">float</span> dotprod_v8f(<span class="keyword">const</span> <span class="keywordtype">float</span>* a, <span class="keyword">const</span> <span class="keywordtype">float</span>* b, <span class="keywordtype">int</span> n) {</div>
 <div class="line">  <span class="comment">// Local var declarations</span></div>
@@ -122,7 +124,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="comment">// convert 1st element of add3 to float</span></div>
 <div class="line">  <span class="keywordflow">return</span> <a class="code" href="group__sconvert.html#gaec0955e6be08432f14cede49d1311d4a">sf_cvt_v8f</a>(add3);</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2>Supported architectures</h2>
+</div><!-- fragment --><h2>How can I use it in my project?</h2>
+<p>You need to copy the folder <code>include</code> of this repository into your project and include the file <code>pints.h</code> wherever you want to use it.</p>
+<h2>Supported compilers</h2>
+<p>This library has only been tested on the following compilers:</p>
+<ul>
+<li>gcc (5.1)</li>
+<li>icc (16.0)</li>
+</ul>
+<p>However, this library is written with compatibility in mind and should also be compatible with other compilers</p>
+<h2>Supported architectures</h2>
 <p>For now, the supported architectures are:</p>
 <ul>
 <li>SSE</li>
