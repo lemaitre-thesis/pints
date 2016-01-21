@@ -1,5 +1,0 @@
-#ifndef PINTS_POLYFILL_FUNCS_H
-#define PINTS_POLYFILL_FUNCS_H
-
-#include <stdint.h>
-#include <math.h>

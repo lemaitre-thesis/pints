@@ -1,9 +1,0 @@
-#ifndef PINTS_POLYFILL_DEFINES_H
-#define PINTS_POLYFILL_DEFINES_H
-
-#define PINTS_ALIGN_UP(p, a) ((void*) ((((uintptr_t) p) + a-1) & ~(a-1)))
-#define PINTS_ALIGN_DOWN(p, a) ((void*) (((uintptr_t) p) & ~(a-1)))
-
-#define PINTS_ALIGNED_ARRAY(type, name, size, align) \
-  type name##_unaligned[(size) + (align)]; \
-  type *name = (type*)PINTS_ALIGN_UP(name##_unaligned, align)
