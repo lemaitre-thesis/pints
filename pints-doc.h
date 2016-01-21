@@ -26499,7 +26499,7 @@ v16i v16i_fshuffle(v16i a, v16i b, uint_fast64_t rule, uint_fast16_t  mask);
  * \param a \c v1d vector to print
  * \param format printf-like format
  */
-v1d v1d_fprintf(void *file, v1d a, const char* format);
+void v1d_fprintf(FILE *file, v1d a, const char* format);
 /**
  * \ingroup print
  * \related v1f
@@ -26510,7 +26510,7 @@ v1d v1d_fprintf(void *file, v1d a, const char* format);
  * \param a \c v1f vector to print
  * \param format printf-like format
  */
-v1f v1f_fprintf(void *file, v1f a, const char* format);
+void v1f_fprintf(FILE *file, v1f a, const char* format);
 /**
  * \ingroup print
  * \related v1i
@@ -26521,7 +26521,7 @@ v1f v1f_fprintf(void *file, v1f a, const char* format);
  * \param a \c v1i vector to print
  * \param format printf-like format
  */
-v1i v1i_fprintf(void *file, v1i a, const char* format);
+void v1i_fprintf(FILE *file, v1i a, const char* format);
 /**
  * \ingroup print
  * \related v1l
@@ -26532,7 +26532,7 @@ v1i v1i_fprintf(void *file, v1i a, const char* format);
  * \param a \c v1l vector to print
  * \param format printf-like format
  */
-v1l v1l_fprintf(void *file, v1l a, const char* format);
+void v1l_fprintf(FILE *file, v1l a, const char* format);
 /**
  * \ingroup print
  * \related v2d
@@ -26543,7 +26543,7 @@ v1l v1l_fprintf(void *file, v1l a, const char* format);
  * \param a \c v2d vector to print
  * \param format printf-like format
  */
-v2d v2d_fprintf(void *file, v2d a, const char* format);
+void v2d_fprintf(FILE *file, v2d a, const char* format);
 /**
  * \ingroup print
  * \related v2f
@@ -26554,7 +26554,7 @@ v2d v2d_fprintf(void *file, v2d a, const char* format);
  * \param a \c v2f vector to print
  * \param format printf-like format
  */
-v2f v2f_fprintf(void *file, v2f a, const char* format);
+void v2f_fprintf(FILE *file, v2f a, const char* format);
 /**
  * \ingroup print
  * \related v2i
@@ -26565,7 +26565,7 @@ v2f v2f_fprintf(void *file, v2f a, const char* format);
  * \param a \c v2i vector to print
  * \param format printf-like format
  */
-v2i v2i_fprintf(void *file, v2i a, const char* format);
+void v2i_fprintf(FILE *file, v2i a, const char* format);
 /**
  * \ingroup print
  * \related v2l
@@ -26576,7 +26576,7 @@ v2i v2i_fprintf(void *file, v2i a, const char* format);
  * \param a \c v2l vector to print
  * \param format printf-like format
  */
-v2l v2l_fprintf(void *file, v2l a, const char* format);
+void v2l_fprintf(FILE *file, v2l a, const char* format);
 /**
  * \ingroup print
  * \related v4d
@@ -26587,7 +26587,7 @@ v2l v2l_fprintf(void *file, v2l a, const char* format);
  * \param a \c v4d vector to print
  * \param format printf-like format
  */
-v4d v4d_fprintf(void *file, v4d a, const char* format);
+void v4d_fprintf(FILE *file, v4d a, const char* format);
 /**
  * \ingroup print
  * \related v4f
@@ -26598,7 +26598,7 @@ v4d v4d_fprintf(void *file, v4d a, const char* format);
  * \param a \c v4f vector to print
  * \param format printf-like format
  */
-v4f v4f_fprintf(void *file, v4f a, const char* format);
+void v4f_fprintf(FILE *file, v4f a, const char* format);
 /**
  * \ingroup print
  * \related v4i
@@ -26609,7 +26609,7 @@ v4f v4f_fprintf(void *file, v4f a, const char* format);
  * \param a \c v4i vector to print
  * \param format printf-like format
  */
-v4i v4i_fprintf(void *file, v4i a, const char* format);
+void v4i_fprintf(FILE *file, v4i a, const char* format);
 /**
  * \ingroup print
  * \related v4l
@@ -26620,7 +26620,7 @@ v4i v4i_fprintf(void *file, v4i a, const char* format);
  * \param a \c v4l vector to print
  * \param format printf-like format
  */
-v4l v4l_fprintf(void *file, v4l a, const char* format);
+void v4l_fprintf(FILE *file, v4l a, const char* format);
 /**
  * \ingroup print
  * \related v8d
@@ -26631,7 +26631,7 @@ v4l v4l_fprintf(void *file, v4l a, const char* format);
  * \param a \c v8d vector to print
  * \param format printf-like format
  */
-v8d v8d_fprintf(void *file, v8d a, const char* format);
+void v8d_fprintf(FILE *file, v8d a, const char* format);
 /**
  * \ingroup print
  * \related v8f
@@ -26642,7 +26642,7 @@ v8d v8d_fprintf(void *file, v8d a, const char* format);
  * \param a \c v8f vector to print
  * \param format printf-like format
  */
-v8f v8f_fprintf(void *file, v8f a, const char* format);
+void v8f_fprintf(FILE *file, v8f a, const char* format);
 /**
  * \ingroup print
  * \related v8i
@@ -26653,7 +26653,7 @@ v8f v8f_fprintf(void *file, v8f a, const char* format);
  * \param a \c v8i vector to print
  * \param format printf-like format
  */
-v8i v8i_fprintf(void *file, v8i a, const char* format);
+void v8i_fprintf(FILE *file, v8i a, const char* format);
 /**
  * \ingroup print
  * \related v8l
@@ -26664,7 +26664,7 @@ v8i v8i_fprintf(void *file, v8i a, const char* format);
  * \param a \c v8l vector to print
  * \param format printf-like format
  */
-v8l v8l_fprintf(void *file, v8l a, const char* format);
+void v8l_fprintf(FILE *file, v8l a, const char* format);
 /**
  * \ingroup print
  * \related v16f
@@ -26675,7 +26675,7 @@ v8l v8l_fprintf(void *file, v8l a, const char* format);
  * \param a \c v16f vector to print
  * \param format printf-like format
  */
-v16f v16f_fprintf(void *file, v16f a, const char* format);
+void v16f_fprintf(FILE *file, v16f a, const char* format);
 /**
  * \ingroup print
  * \related v16i
@@ -26686,7 +26686,7 @@ v16f v16f_fprintf(void *file, v16f a, const char* format);
  * \param a \c v16i vector to print
  * \param format printf-like format
  */
-v16i v16i_fprintf(void *file, v16i a, const char* format);
+void v16i_fprintf(FILE *file, v16i a, const char* format);
 
 /**
  * \ingroup print
@@ -26698,7 +26698,7 @@ v16i v16i_fprintf(void *file, v16i a, const char* format);
  * \param a \c v1d vector to print
  * \param format printf-like format
  */
-v1d v1d_printf(v1d a, const char* format);
+void v1d_printf(v1d a, const char* format);
 /**
  * \ingroup print
  * \related v1f
@@ -26709,7 +26709,7 @@ v1d v1d_printf(v1d a, const char* format);
  * \param a \c v1f vector to print
  * \param format printf-like format
  */
-v1f v1f_printf(v1f a, const char* format);
+void v1f_printf(v1f a, const char* format);
 /**
  * \ingroup print
  * \related v1i
@@ -26720,7 +26720,7 @@ v1f v1f_printf(v1f a, const char* format);
  * \param a \c v1i vector to print
  * \param format printf-like format
  */
-v1i v1i_printf(v1i a, const char* format);
+void v1i_printf(v1i a, const char* format);
 /**
  * \ingroup print
  * \related v1l
@@ -26731,7 +26731,7 @@ v1i v1i_printf(v1i a, const char* format);
  * \param a \c v1l vector to print
  * \param format printf-like format
  */
-v1l v1l_printf(v1l a, const char* format);
+void v1l_printf(v1l a, const char* format);
 /**
  * \ingroup print
  * \related v2d
@@ -26742,7 +26742,7 @@ v1l v1l_printf(v1l a, const char* format);
  * \param a \c v2d vector to print
  * \param format printf-like format
  */
-v2d v2d_printf(v2d a, const char* format);
+void v2d_printf(v2d a, const char* format);
 /**
  * \ingroup print
  * \related v2f
@@ -26753,7 +26753,7 @@ v2d v2d_printf(v2d a, const char* format);
  * \param a \c v2f vector to print
  * \param format printf-like format
  */
-v2f v2f_printf(v2f a, const char* format);
+void v2f_printf(v2f a, const char* format);
 /**
  * \ingroup print
  * \related v2i
@@ -26764,7 +26764,7 @@ v2f v2f_printf(v2f a, const char* format);
  * \param a \c v2i vector to print
  * \param format printf-like format
  */
-v2i v2i_printf(v2i a, const char* format);
+void v2i_printf(v2i a, const char* format);
 /**
  * \ingroup print
  * \related v2l
@@ -26775,7 +26775,7 @@ v2i v2i_printf(v2i a, const char* format);
  * \param a \c v2l vector to print
  * \param format printf-like format
  */
-v2l v2l_printf(v2l a, const char* format);
+void v2l_printf(v2l a, const char* format);
 /**
  * \ingroup print
  * \related v4d
@@ -26786,7 +26786,7 @@ v2l v2l_printf(v2l a, const char* format);
  * \param a \c v4d vector to print
  * \param format printf-like format
  */
-v4d v4d_printf(v4d a, const char* format);
+void v4d_printf(v4d a, const char* format);
 /**
  * \ingroup print
  * \related v4f
@@ -26797,7 +26797,7 @@ v4d v4d_printf(v4d a, const char* format);
  * \param a \c v4f vector to print
  * \param format printf-like format
  */
-v4f v4f_printf(v4f a, const char* format);
+void v4f_printf(v4f a, const char* format);
 /**
  * \ingroup print
  * \related v4i
@@ -26808,7 +26808,7 @@ v4f v4f_printf(v4f a, const char* format);
  * \param a \c v4i vector to print
  * \param format printf-like format
  */
-v4i v4i_printf(v4i a, const char* format);
+void v4i_printf(v4i a, const char* format);
 /**
  * \ingroup print
  * \related v4l
@@ -26819,7 +26819,7 @@ v4i v4i_printf(v4i a, const char* format);
  * \param a \c v4l vector to print
  * \param format printf-like format
  */
-v4l v4l_printf(v4l a, const char* format);
+void v4l_printf(v4l a, const char* format);
 /**
  * \ingroup print
  * \related v8d
@@ -26830,7 +26830,7 @@ v4l v4l_printf(v4l a, const char* format);
  * \param a \c v8d vector to print
  * \param format printf-like format
  */
-v8d v8d_printf(v8d a, const char* format);
+void v8d_printf(v8d a, const char* format);
 /**
  * \ingroup print
  * \related v8f
@@ -26841,7 +26841,7 @@ v8d v8d_printf(v8d a, const char* format);
  * \param a \c v8f vector to print
  * \param format printf-like format
  */
-v8f v8f_printf(v8f a, const char* format);
+void v8f_printf(v8f a, const char* format);
 /**
  * \ingroup print
  * \related v8i
@@ -26852,7 +26852,7 @@ v8f v8f_printf(v8f a, const char* format);
  * \param a \c v8i vector to print
  * \param format printf-like format
  */
-v8i v8i_printf(v8i a, const char* format);
+void v8i_printf(v8i a, const char* format);
 /**
  * \ingroup print
  * \related v8l
@@ -26863,7 +26863,7 @@ v8i v8i_printf(v8i a, const char* format);
  * \param a \c v8l vector to print
  * \param format printf-like format
  */
-v8l v8l_printf(v8l a, const char* format);
+void v8l_printf(v8l a, const char* format);
 /**
  * \ingroup print
  * \related v16f
@@ -26874,7 +26874,7 @@ v8l v8l_printf(v8l a, const char* format);
  * \param a \c v16f vector to print
  * \param format printf-like format
  */
-v16f v16f_printf(v16f a, const char* format);
+void v16f_printf(v16f a, const char* format);
 /**
  * \ingroup print
  * \related v16i
@@ -26885,7 +26885,7 @@ v16f v16f_printf(v16f a, const char* format);
  * \param a \c v16i vector to print
  * \param format printf-like format
  */
-v16i v16i_printf(v16i a, const char* format);
+void v16i_printf(v16i a, const char* format);
 
 /**
  * \ingroup print
@@ -26896,7 +26896,7 @@ v16i v16i_printf(v16i a, const char* format);
  * \param file output file
  * \param a \c v1d vector to print
  */
-v1d v1d_fprint(void *file, v1d a);
+void v1d_fprint(FILE *file, v1d a);
 /**
  * \ingroup print
  * \related v1f
@@ -26906,7 +26906,7 @@ v1d v1d_fprint(void *file, v1d a);
  * \param file output file
  * \param a \c v1f vector to print
  */
-v1f v1f_fprint(void *file, v1f a);
+void v1f_fprint(FILE *file, v1f a);
 /**
  * \ingroup print
  * \related v1i
@@ -26916,7 +26916,7 @@ v1f v1f_fprint(void *file, v1f a);
  * \param file output file
  * \param a \c v1i vector to print
  */
-v1i v1i_fprint(void *file, v1i a);
+void v1i_fprint(FILE *file, v1i a);
 /**
  * \ingroup print
  * \related v1l
@@ -26926,7 +26926,7 @@ v1i v1i_fprint(void *file, v1i a);
  * \param file output file
  * \param a \c v1l vector to print
  */
-v1l v1l_fprint(void *file, v1l a);
+void v1l_fprint(FILE *file, v1l a);
 /**
  * \ingroup print
  * \related v2d
@@ -26936,7 +26936,7 @@ v1l v1l_fprint(void *file, v1l a);
  * \param file output file
  * \param a \c v2d vector to print
  */
-v2d v2d_fprint(void *file, v2d a);
+void v2d_fprint(FILE *file, v2d a);
 /**
  * \ingroup print
  * \related v2f
@@ -26946,7 +26946,7 @@ v2d v2d_fprint(void *file, v2d a);
  * \param file output file
  * \param a \c v2f vector to print
  */
-v2f v2f_fprint(void *file, v2f a);
+void v2f_fprint(FILE *file, v2f a);
 /**
  * \ingroup print
  * \related v2i
@@ -26956,7 +26956,7 @@ v2f v2f_fprint(void *file, v2f a);
  * \param file output file
  * \param a \c v2i vector to print
  */
-v2i v2i_fprint(void *file, v2i a);
+void v2i_fprint(FILE *file, v2i a);
 /**
  * \ingroup print
  * \related v2l
@@ -26966,7 +26966,7 @@ v2i v2i_fprint(void *file, v2i a);
  * \param file output file
  * \param a \c v2l vector to print
  */
-v2l v2l_fprint(void *file, v2l a);
+void v2l_fprint(FILE *file, v2l a);
 /**
  * \ingroup print
  * \related v4d
@@ -26976,7 +26976,7 @@ v2l v2l_fprint(void *file, v2l a);
  * \param file output file
  * \param a \c v4d vector to print
  */
-v4d v4d_fprint(void *file, v4d a);
+void v4d_fprint(FILE *file, v4d a);
 /**
  * \ingroup print
  * \related v4f
@@ -26986,7 +26986,7 @@ v4d v4d_fprint(void *file, v4d a);
  * \param file output file
  * \param a \c v4f vector to print
  */
-v4f v4f_fprint(void *file, v4f a);
+void v4f_fprint(FILE *file, v4f a);
 /**
  * \ingroup print
  * \related v4i
@@ -26996,7 +26996,7 @@ v4f v4f_fprint(void *file, v4f a);
  * \param file output file
  * \param a \c v4i vector to print
  */
-v4i v4i_fprint(void *file, v4i a);
+void v4i_fprint(FILE *file, v4i a);
 /**
  * \ingroup print
  * \related v4l
@@ -27006,7 +27006,7 @@ v4i v4i_fprint(void *file, v4i a);
  * \param file output file
  * \param a \c v4l vector to print
  */
-v4l v4l_fprint(void *file, v4l a);
+void v4l_fprint(FILE *file, v4l a);
 /**
  * \ingroup print
  * \related v8d
@@ -27016,7 +27016,7 @@ v4l v4l_fprint(void *file, v4l a);
  * \param file output file
  * \param a \c v8d vector to print
  */
-v8d v8d_fprint(void *file, v8d a);
+void v8d_fprint(FILE *file, v8d a);
 /**
  * \ingroup print
  * \related v8f
@@ -27026,7 +27026,7 @@ v8d v8d_fprint(void *file, v8d a);
  * \param file output file
  * \param a \c v8f vector to print
  */
-v8f v8f_fprint(void *file, v8f a);
+void v8f_fprint(FILE *file, v8f a);
 /**
  * \ingroup print
  * \related v8i
@@ -27036,7 +27036,7 @@ v8f v8f_fprint(void *file, v8f a);
  * \param file output file
  * \param a \c v8i vector to print
  */
-v8i v8i_fprint(void *file, v8i a);
+void v8i_fprint(FILE *file, v8i a);
 /**
  * \ingroup print
  * \related v8l
@@ -27046,7 +27046,7 @@ v8i v8i_fprint(void *file, v8i a);
  * \param file output file
  * \param a \c v8l vector to print
  */
-v8l v8l_fprint(void *file, v8l a);
+void v8l_fprint(FILE *file, v8l a);
 /**
  * \ingroup print
  * \related v16f
@@ -27056,7 +27056,7 @@ v8l v8l_fprint(void *file, v8l a);
  * \param file output file
  * \param a \c v16f vector to print
  */
-v16f v16f_fprint(void *file, v16f a);
+void v16f_fprint(FILE *file, v16f a);
 /**
  * \ingroup print
  * \related v16i
@@ -27066,7 +27066,7 @@ v16f v16f_fprint(void *file, v16f a);
  * \param file output file
  * \param a \c v16i vector to print
  */
-v16i v16i_fprint(void *file, v16i a);
+void v16i_fprint(FILE *file, v16i a);
 
 /**
  * \ingroup print
@@ -27076,7 +27076,7 @@ v16i v16i_fprint(void *file, v16i a);
  * \details functionally equivalent to \c `v1d_fprintf(stdout, a, "%lf")`
  * \param a \c v1d vector to print
  */
-v1d v1d_print(v1d a);
+void v1d_print(v1d a);
 /**
  * \ingroup print
  * \related v1f
@@ -27085,7 +27085,7 @@ v1d v1d_print(v1d a);
  * \details functionally equivalent to \c `v1f_fprintf(stdout, a, "%f")`
  * \param a \c v1f vector to print
  */
-v1f v1f_print(v1f a);
+void v1f_print(v1f a);
 /**
  * \ingroup print
  * \related v1i
@@ -27094,7 +27094,7 @@ v1f v1f_print(v1f a);
  * \details functionally equivalent to \c `v1i_fprintf(stdout, a, "%i")`
  * \param a \c v1i vector to print
  */
-v1i v1i_print(v1i a);
+void v1i_print(v1i a);
 /**
  * \ingroup print
  * \related v1l
@@ -27103,7 +27103,7 @@ v1i v1i_print(v1i a);
  * \details functionally equivalent to \c `v1l_fprintf(stdout, a, "%lli")`
  * \param a \c v1l vector to print
  */
-v1l v1l_print(v1l a);
+void v1l_print(v1l a);
 /**
  * \ingroup print
  * \related v2d
@@ -27112,7 +27112,7 @@ v1l v1l_print(v1l a);
  * \details functionally equivalent to \c `v2d_fprintf(stdout, a, "%lf")`
  * \param a \c v2d vector to print
  */
-v2d v2d_print(v2d a);
+void v2d_print(v2d a);
 /**
  * \ingroup print
  * \related v2f
@@ -27121,7 +27121,7 @@ v2d v2d_print(v2d a);
  * \details functionally equivalent to \c `v2f_fprintf(stdout, a, "%f")`
  * \param a \c v2f vector to print
  */
-v2f v2f_print(v2f a);
+void v2f_print(v2f a);
 /**
  * \ingroup print
  * \related v2i
@@ -27130,7 +27130,7 @@ v2f v2f_print(v2f a);
  * \details functionally equivalent to \c `v2i_fprintf(stdout, a, "%i")`
  * \param a \c v2i vector to print
  */
-v2i v2i_print(v2i a);
+void v2i_print(v2i a);
 /**
  * \ingroup print
  * \related v2l
@@ -27139,7 +27139,7 @@ v2i v2i_print(v2i a);
  * \details functionally equivalent to \c `v2l_fprintf(stdout, a, "%lli")`
  * \param a \c v2l vector to print
  */
-v2l v2l_print(v2l a);
+void v2l_print(v2l a);
 /**
  * \ingroup print
  * \related v4d
@@ -27148,7 +27148,7 @@ v2l v2l_print(v2l a);
  * \details functionally equivalent to \c `v4d_fprintf(stdout, a, "%lf")`
  * \param a \c v4d vector to print
  */
-v4d v4d_print(v4d a);
+void v4d_print(v4d a);
 /**
  * \ingroup print
  * \related v4f
@@ -27157,7 +27157,7 @@ v4d v4d_print(v4d a);
  * \details functionally equivalent to \c `v4f_fprintf(stdout, a, "%f")`
  * \param a \c v4f vector to print
  */
-v4f v4f_print(v4f a);
+void v4f_print(v4f a);
 /**
  * \ingroup print
  * \related v4i
@@ -27166,7 +27166,7 @@ v4f v4f_print(v4f a);
  * \details functionally equivalent to \c `v4i_fprintf(stdout, a, "%i")`
  * \param a \c v4i vector to print
  */
-v4i v4i_print(v4i a);
+void v4i_print(v4i a);
 /**
  * \ingroup print
  * \related v4l
@@ -27175,7 +27175,7 @@ v4i v4i_print(v4i a);
  * \details functionally equivalent to \c `v4l_fprintf(stdout, a, "%lli")`
  * \param a \c v4l vector to print
  */
-v4l v4l_print(v4l a);
+void v4l_print(v4l a);
 /**
  * \ingroup print
  * \related v8d
@@ -27184,7 +27184,7 @@ v4l v4l_print(v4l a);
  * \details functionally equivalent to \c `v8d_fprintf(stdout, a, "%lf")`
  * \param a \c v8d vector to print
  */
-v8d v8d_print(v8d a);
+void v8d_print(v8d a);
 /**
  * \ingroup print
  * \related v8f
@@ -27193,7 +27193,7 @@ v8d v8d_print(v8d a);
  * \details functionally equivalent to \c `v8f_fprintf(stdout, a, "%f")`
  * \param a \c v8f vector to print
  */
-v8f v8f_print(v8f a);
+void v8f_print(v8f a);
 /**
  * \ingroup print
  * \related v8i
@@ -27202,7 +27202,7 @@ v8f v8f_print(v8f a);
  * \details functionally equivalent to \c `v8i_fprintf(stdout, a, "%i")`
  * \param a \c v8i vector to print
  */
-v8i v8i_print(v8i a);
+void v8i_print(v8i a);
 /**
  * \ingroup print
  * \related v8l
@@ -27211,7 +27211,7 @@ v8i v8i_print(v8i a);
  * \details functionally equivalent to \c `v8l_fprintf(stdout, a, "%lli")`
  * \param a \c v8l vector to print
  */
-v8l v8l_print(v8l a);
+void v8l_print(v8l a);
 /**
  * \ingroup print
  * \related v16f
@@ -27220,7 +27220,7 @@ v8l v8l_print(v8l a);
  * \details functionally equivalent to \c `v16f_fprintf(stdout, a, "%f")`
  * \param a \c v16f vector to print
  */
-v16f v16f_print(v16f a);
+void v16f_print(v16f a);
 /**
  * \ingroup print
  * \related v16i
@@ -27229,7 +27229,7 @@ v16f v16f_print(v16f a);
  * \details functionally equivalent to \c `v16i_fprintf(stdout, a, "%i")`
  * \param a \c v16i vector to print
  */
-v16i v16i_print(v16i a);
+void v16i_print(v16i a);
 
 /**
  * \ingroup print
@@ -27241,7 +27241,7 @@ v16i v16i_print(v16i a);
  * \param a \c v1d vector to print
  * \param format printf-like format
  */
-v1d v1d_rfprintf(void *file, v1d a, const char* format);
+void v1d_rfprintf(FILE *file, v1d a, const char* format);
 /**
  * \ingroup print
  * \related v1f
@@ -27252,7 +27252,7 @@ v1d v1d_rfprintf(void *file, v1d a, const char* format);
  * \param a \c v1f vector to print
  * \param format printf-like format
  */
-v1f v1f_rfprintf(void *file, v1f a, const char* format);
+void v1f_rfprintf(FILE *file, v1f a, const char* format);
 /**
  * \ingroup print
  * \related v1i
@@ -27263,7 +27263,7 @@ v1f v1f_rfprintf(void *file, v1f a, const char* format);
  * \param a \c v1i vector to print
  * \param format printf-like format
  */
-v1i v1i_rfprintf(void *file, v1i a, const char* format);
+void v1i_rfprintf(FILE *file, v1i a, const char* format);
 /**
  * \ingroup print
  * \related v1l
@@ -27274,7 +27274,7 @@ v1i v1i_rfprintf(void *file, v1i a, const char* format);
  * \param a \c v1l vector to print
  * \param format printf-like format
  */
-v1l v1l_rfprintf(void *file, v1l a, const char* format);
+void v1l_rfprintf(FILE *file, v1l a, const char* format);
 /**
  * \ingroup print
  * \related v2d
@@ -27285,7 +27285,7 @@ v1l v1l_rfprintf(void *file, v1l a, const char* format);
  * \param a \c v2d vector to print
  * \param format printf-like format
  */
-v2d v2d_rfprintf(void *file, v2d a, const char* format);
+void v2d_rfprintf(FILE *file, v2d a, const char* format);
 /**
  * \ingroup print
  * \related v2f
@@ -27296,7 +27296,7 @@ v2d v2d_rfprintf(void *file, v2d a, const char* format);
  * \param a \c v2f vector to print
  * \param format printf-like format
  */
-v2f v2f_rfprintf(void *file, v2f a, const char* format);
+void v2f_rfprintf(FILE *file, v2f a, const char* format);
 /**
  * \ingroup print
  * \related v2i
@@ -27307,7 +27307,7 @@ v2f v2f_rfprintf(void *file, v2f a, const char* format);
  * \param a \c v2i vector to print
  * \param format printf-like format
  */
-v2i v2i_rfprintf(void *file, v2i a, const char* format);
+void v2i_rfprintf(FILE *file, v2i a, const char* format);
 /**
  * \ingroup print
  * \related v2l
@@ -27318,7 +27318,7 @@ v2i v2i_rfprintf(void *file, v2i a, const char* format);
  * \param a \c v2l vector to print
  * \param format printf-like format
  */
-v2l v2l_rfprintf(void *file, v2l a, const char* format);
+void v2l_rfprintf(FILE *file, v2l a, const char* format);
 /**
  * \ingroup print
  * \related v4d
@@ -27329,7 +27329,7 @@ v2l v2l_rfprintf(void *file, v2l a, const char* format);
  * \param a \c v4d vector to print
  * \param format printf-like format
  */
-v4d v4d_rfprintf(void *file, v4d a, const char* format);
+void v4d_rfprintf(FILE *file, v4d a, const char* format);
 /**
  * \ingroup print
  * \related v4f
@@ -27340,7 +27340,7 @@ v4d v4d_rfprintf(void *file, v4d a, const char* format);
  * \param a \c v4f vector to print
  * \param format printf-like format
  */
-v4f v4f_rfprintf(void *file, v4f a, const char* format);
+void v4f_rfprintf(FILE *file, v4f a, const char* format);
 /**
  * \ingroup print
  * \related v4i
@@ -27351,7 +27351,7 @@ v4f v4f_rfprintf(void *file, v4f a, const char* format);
  * \param a \c v4i vector to print
  * \param format printf-like format
  */
-v4i v4i_rfprintf(void *file, v4i a, const char* format);
+void v4i_rfprintf(FILE *file, v4i a, const char* format);
 /**
  * \ingroup print
  * \related v4l
@@ -27362,7 +27362,7 @@ v4i v4i_rfprintf(void *file, v4i a, const char* format);
  * \param a \c v4l vector to print
  * \param format printf-like format
  */
-v4l v4l_rfprintf(void *file, v4l a, const char* format);
+void v4l_rfprintf(FILE *file, v4l a, const char* format);
 /**
  * \ingroup print
  * \related v8d
@@ -27373,7 +27373,7 @@ v4l v4l_rfprintf(void *file, v4l a, const char* format);
  * \param a \c v8d vector to print
  * \param format printf-like format
  */
-v8d v8d_rfprintf(void *file, v8d a, const char* format);
+void v8d_rfprintf(FILE *file, v8d a, const char* format);
 /**
  * \ingroup print
  * \related v8f
@@ -27384,7 +27384,7 @@ v8d v8d_rfprintf(void *file, v8d a, const char* format);
  * \param a \c v8f vector to print
  * \param format printf-like format
  */
-v8f v8f_rfprintf(void *file, v8f a, const char* format);
+void v8f_rfprintf(FILE *file, v8f a, const char* format);
 /**
  * \ingroup print
  * \related v8i
@@ -27395,7 +27395,7 @@ v8f v8f_rfprintf(void *file, v8f a, const char* format);
  * \param a \c v8i vector to print
  * \param format printf-like format
  */
-v8i v8i_rfprintf(void *file, v8i a, const char* format);
+void v8i_rfprintf(FILE *file, v8i a, const char* format);
 /**
  * \ingroup print
  * \related v8l
@@ -27406,7 +27406,7 @@ v8i v8i_rfprintf(void *file, v8i a, const char* format);
  * \param a \c v8l vector to print
  * \param format printf-like format
  */
-v8l v8l_rfprintf(void *file, v8l a, const char* format);
+void v8l_rfprintf(FILE *file, v8l a, const char* format);
 /**
  * \ingroup print
  * \related v16f
@@ -27417,7 +27417,7 @@ v8l v8l_rfprintf(void *file, v8l a, const char* format);
  * \param a \c v16f vector to print
  * \param format printf-like format
  */
-v16f v16f_rfprintf(void *file, v16f a, const char* format);
+void v16f_rfprintf(FILE *file, v16f a, const char* format);
 /**
  * \ingroup print
  * \related v16i
@@ -27428,7 +27428,7 @@ v16f v16f_rfprintf(void *file, v16f a, const char* format);
  * \param a \c v16i vector to print
  * \param format printf-like format
  */
-v16i v16i_rfprintf(void *file, v16i a, const char* format);
+void v16i_rfprintf(FILE *file, v16i a, const char* format);
 
 /**
  * \ingroup print
@@ -27440,7 +27440,7 @@ v16i v16i_rfprintf(void *file, v16i a, const char* format);
  * \param a \c v1d vector to print
  * \param format printf-like format
  */
-v1d v1d_rprintf(v1d a, const char* format);
+void v1d_rprintf(v1d a, const char* format);
 /**
  * \ingroup print
  * \related v1f
@@ -27451,7 +27451,7 @@ v1d v1d_rprintf(v1d a, const char* format);
  * \param a \c v1f vector to print
  * \param format printf-like format
  */
-v1f v1f_rprintf(v1f a, const char* format);
+void v1f_rprintf(v1f a, const char* format);
 /**
  * \ingroup print
  * \related v1i
@@ -27462,7 +27462,7 @@ v1f v1f_rprintf(v1f a, const char* format);
  * \param a \c v1i vector to print
  * \param format printf-like format
  */
-v1i v1i_rprintf(v1i a, const char* format);
+void v1i_rprintf(v1i a, const char* format);
 /**
  * \ingroup print
  * \related v1l
@@ -27473,7 +27473,7 @@ v1i v1i_rprintf(v1i a, const char* format);
  * \param a \c v1l vector to print
  * \param format printf-like format
  */
-v1l v1l_rprintf(v1l a, const char* format);
+void v1l_rprintf(v1l a, const char* format);
 /**
  * \ingroup print
  * \related v2d
@@ -27484,7 +27484,7 @@ v1l v1l_rprintf(v1l a, const char* format);
  * \param a \c v2d vector to print
  * \param format printf-like format
  */
-v2d v2d_rprintf(v2d a, const char* format);
+void v2d_rprintf(v2d a, const char* format);
 /**
  * \ingroup print
  * \related v2f
@@ -27495,7 +27495,7 @@ v2d v2d_rprintf(v2d a, const char* format);
  * \param a \c v2f vector to print
  * \param format printf-like format
  */
-v2f v2f_rprintf(v2f a, const char* format);
+void v2f_rprintf(v2f a, const char* format);
 /**
  * \ingroup print
  * \related v2i
@@ -27506,7 +27506,7 @@ v2f v2f_rprintf(v2f a, const char* format);
  * \param a \c v2i vector to print
  * \param format printf-like format
  */
-v2i v2i_rprintf(v2i a, const char* format);
+void v2i_rprintf(v2i a, const char* format);
 /**
  * \ingroup print
  * \related v2l
@@ -27517,7 +27517,7 @@ v2i v2i_rprintf(v2i a, const char* format);
  * \param a \c v2l vector to print
  * \param format printf-like format
  */
-v2l v2l_rprintf(v2l a, const char* format);
+void v2l_rprintf(v2l a, const char* format);
 /**
  * \ingroup print
  * \related v4d
@@ -27528,7 +27528,7 @@ v2l v2l_rprintf(v2l a, const char* format);
  * \param a \c v4d vector to print
  * \param format printf-like format
  */
-v4d v4d_rprintf(v4d a, const char* format);
+void v4d_rprintf(v4d a, const char* format);
 /**
  * \ingroup print
  * \related v4f
@@ -27539,7 +27539,7 @@ v4d v4d_rprintf(v4d a, const char* format);
  * \param a \c v4f vector to print
  * \param format printf-like format
  */
-v4f v4f_rprintf(v4f a, const char* format);
+void v4f_rprintf(v4f a, const char* format);
 /**
  * \ingroup print
  * \related v4i
@@ -27550,7 +27550,7 @@ v4f v4f_rprintf(v4f a, const char* format);
  * \param a \c v4i vector to print
  * \param format printf-like format
  */
-v4i v4i_rprintf(v4i a, const char* format);
+void v4i_rprintf(v4i a, const char* format);
 /**
  * \ingroup print
  * \related v4l
@@ -27561,7 +27561,7 @@ v4i v4i_rprintf(v4i a, const char* format);
  * \param a \c v4l vector to print
  * \param format printf-like format
  */
-v4l v4l_rprintf(v4l a, const char* format);
+void v4l_rprintf(v4l a, const char* format);
 /**
  * \ingroup print
  * \related v8d
@@ -27572,7 +27572,7 @@ v4l v4l_rprintf(v4l a, const char* format);
  * \param a \c v8d vector to print
  * \param format printf-like format
  */
-v8d v8d_rprintf(v8d a, const char* format);
+void v8d_rprintf(v8d a, const char* format);
 /**
  * \ingroup print
  * \related v8f
@@ -27583,7 +27583,7 @@ v8d v8d_rprintf(v8d a, const char* format);
  * \param a \c v8f vector to print
  * \param format printf-like format
  */
-v8f v8f_rprintf(v8f a, const char* format);
+void v8f_rprintf(v8f a, const char* format);
 /**
  * \ingroup print
  * \related v8i
@@ -27594,7 +27594,7 @@ v8f v8f_rprintf(v8f a, const char* format);
  * \param a \c v8i vector to print
  * \param format printf-like format
  */
-v8i v8i_rprintf(v8i a, const char* format);
+void v8i_rprintf(v8i a, const char* format);
 /**
  * \ingroup print
  * \related v8l
@@ -27605,7 +27605,7 @@ v8i v8i_rprintf(v8i a, const char* format);
  * \param a \c v8l vector to print
  * \param format printf-like format
  */
-v8l v8l_rprintf(v8l a, const char* format);
+void v8l_rprintf(v8l a, const char* format);
 /**
  * \ingroup print
  * \related v16f
@@ -27616,7 +27616,7 @@ v8l v8l_rprintf(v8l a, const char* format);
  * \param a \c v16f vector to print
  * \param format printf-like format
  */
-v16f v16f_rprintf(v16f a, const char* format);
+void v16f_rprintf(v16f a, const char* format);
 /**
  * \ingroup print
  * \related v16i
@@ -27627,7 +27627,7 @@ v16f v16f_rprintf(v16f a, const char* format);
  * \param a \c v16i vector to print
  * \param format printf-like format
  */
-v16i v16i_rprintf(v16i a, const char* format);
+void v16i_rprintf(v16i a, const char* format);
 
 /**
  * \ingroup print
@@ -27638,7 +27638,7 @@ v16i v16i_rprintf(v16i a, const char* format);
  * \param file output file
  * \param a \c v1d vector to print
  */
-v1d v1d_rfprint(void *file, v1d a);
+void v1d_rfprint(FILE *file, v1d a);
 /**
  * \ingroup print
  * \related v1f
@@ -27648,7 +27648,7 @@ v1d v1d_rfprint(void *file, v1d a);
  * \param file output file
  * \param a \c v1f vector to print
  */
-v1f v1f_rfprint(void *file, v1f a);
+void v1f_rfprint(FILE *file, v1f a);
 /**
  * \ingroup print
  * \related v1i
@@ -27658,7 +27658,7 @@ v1f v1f_rfprint(void *file, v1f a);
  * \param file output file
  * \param a \c v1i vector to print
  */
-v1i v1i_rfprint(void *file, v1i a);
+void v1i_rfprint(FILE *file, v1i a);
 /**
  * \ingroup print
  * \related v1l
@@ -27668,7 +27668,7 @@ v1i v1i_rfprint(void *file, v1i a);
  * \param file output file
  * \param a \c v1l vector to print
  */
-v1l v1l_rfprint(void *file, v1l a);
+void v1l_rfprint(FILE *file, v1l a);
 /**
  * \ingroup print
  * \related v2d
@@ -27678,7 +27678,7 @@ v1l v1l_rfprint(void *file, v1l a);
  * \param file output file
  * \param a \c v2d vector to print
  */
-v2d v2d_rfprint(void *file, v2d a);
+void v2d_rfprint(FILE *file, v2d a);
 /**
  * \ingroup print
  * \related v2f
@@ -27688,7 +27688,7 @@ v2d v2d_rfprint(void *file, v2d a);
  * \param file output file
  * \param a \c v2f vector to print
  */
-v2f v2f_rfprint(void *file, v2f a);
+void v2f_rfprint(FILE *file, v2f a);
 /**
  * \ingroup print
  * \related v2i
@@ -27698,7 +27698,7 @@ v2f v2f_rfprint(void *file, v2f a);
  * \param file output file
  * \param a \c v2i vector to print
  */
-v2i v2i_rfprint(void *file, v2i a);
+void v2i_rfprint(FILE *file, v2i a);
 /**
  * \ingroup print
  * \related v2l
@@ -27708,7 +27708,7 @@ v2i v2i_rfprint(void *file, v2i a);
  * \param file output file
  * \param a \c v2l vector to print
  */
-v2l v2l_rfprint(void *file, v2l a);
+void v2l_rfprint(FILE *file, v2l a);
 /**
  * \ingroup print
  * \related v4d
@@ -27718,7 +27718,7 @@ v2l v2l_rfprint(void *file, v2l a);
  * \param file output file
  * \param a \c v4d vector to print
  */
-v4d v4d_rfprint(void *file, v4d a);
+void v4d_rfprint(FILE *file, v4d a);
 /**
  * \ingroup print
  * \related v4f
@@ -27728,7 +27728,7 @@ v4d v4d_rfprint(void *file, v4d a);
  * \param file output file
  * \param a \c v4f vector to print
  */
-v4f v4f_rfprint(void *file, v4f a);
+void v4f_rfprint(FILE *file, v4f a);
 /**
  * \ingroup print
  * \related v4i
@@ -27738,7 +27738,7 @@ v4f v4f_rfprint(void *file, v4f a);
  * \param file output file
  * \param a \c v4i vector to print
  */
-v4i v4i_rfprint(void *file, v4i a);
+void v4i_rfprint(FILE *file, v4i a);
 /**
  * \ingroup print
  * \related v4l
@@ -27748,7 +27748,7 @@ v4i v4i_rfprint(void *file, v4i a);
  * \param file output file
  * \param a \c v4l vector to print
  */
-v4l v4l_rfprint(void *file, v4l a);
+void v4l_rfprint(FILE *file, v4l a);
 /**
  * \ingroup print
  * \related v8d
@@ -27758,7 +27758,7 @@ v4l v4l_rfprint(void *file, v4l a);
  * \param file output file
  * \param a \c v8d vector to print
  */
-v8d v8d_rfprint(void *file, v8d a);
+void v8d_rfprint(FILE *file, v8d a);
 /**
  * \ingroup print
  * \related v8f
@@ -27768,7 +27768,7 @@ v8d v8d_rfprint(void *file, v8d a);
  * \param file output file
  * \param a \c v8f vector to print
  */
-v8f v8f_rfprint(void *file, v8f a);
+void v8f_rfprint(FILE *file, v8f a);
 /**
  * \ingroup print
  * \related v8i
@@ -27778,7 +27778,7 @@ v8f v8f_rfprint(void *file, v8f a);
  * \param file output file
  * \param a \c v8i vector to print
  */
-v8i v8i_rfprint(void *file, v8i a);
+void v8i_rfprint(FILE *file, v8i a);
 /**
  * \ingroup print
  * \related v8l
@@ -27788,7 +27788,7 @@ v8i v8i_rfprint(void *file, v8i a);
  * \param file output file
  * \param a \c v8l vector to print
  */
-v8l v8l_rfprint(void *file, v8l a);
+void v8l_rfprint(FILE *file, v8l a);
 /**
  * \ingroup print
  * \related v16f
@@ -27798,7 +27798,7 @@ v8l v8l_rfprint(void *file, v8l a);
  * \param file output file
  * \param a \c v16f vector to print
  */
-v16f v16f_rfprint(void *file, v16f a);
+void v16f_rfprint(FILE *file, v16f a);
 /**
  * \ingroup print
  * \related v16i
@@ -27808,7 +27808,7 @@ v16f v16f_rfprint(void *file, v16f a);
  * \param file output file
  * \param a \c v16i vector to print
  */
-v16i v16i_rfprint(void *file, v16i a);
+void v16i_rfprint(FILE *file, v16i a);
 
 /**
  * \ingroup print
@@ -27818,7 +27818,7 @@ v16i v16i_rfprint(void *file, v16i a);
  * \details functionally equivalent to \c `v1d_rfprintf(stdout, a, "%lf")`
  * \param a \c v1d vector to print
  */
-v1d v1d_rprint(v1d a);
+void v1d_rprint(v1d a);
 /**
  * \ingroup print
  * \related v1f
@@ -27827,7 +27827,7 @@ v1d v1d_rprint(v1d a);
  * \details functionally equivalent to \c `v1f_rfprintf(stdout, a, "%f")`
  * \param a \c v1f vector to print
  */
-v1f v1f_rprint(v1f a);
+void v1f_rprint(v1f a);
 /**
  * \ingroup print
  * \related v1i
@@ -27836,7 +27836,7 @@ v1f v1f_rprint(v1f a);
  * \details functionally equivalent to \c `v1i_rfprintf(stdout, a, "%i")`
  * \param a \c v1i vector to print
  */
-v1i v1i_rprint(v1i a);
+void v1i_rprint(v1i a);
 /**
  * \ingroup print
  * \related v1l
@@ -27845,7 +27845,7 @@ v1i v1i_rprint(v1i a);
  * \details functionally equivalent to \c `v1l_rfprintf(stdout, a, "%lli")`
  * \param a \c v1l vector to print
  */
-v1l v1l_rprint(v1l a);
+void v1l_rprint(v1l a);
 /**
  * \ingroup print
  * \related v2d
@@ -27854,7 +27854,7 @@ v1l v1l_rprint(v1l a);
  * \details functionally equivalent to \c `v2d_rfprintf(stdout, a, "%lf")`
  * \param a \c v2d vector to print
  */
-v2d v2d_rprint(v2d a);
+void v2d_rprint(v2d a);
 /**
  * \ingroup print
  * \related v2f
@@ -27863,7 +27863,7 @@ v2d v2d_rprint(v2d a);
  * \details functionally equivalent to \c `v2f_rfprintf(stdout, a, "%f")`
  * \param a \c v2f vector to print
  */
-v2f v2f_rprint(v2f a);
+void v2f_rprint(v2f a);
 /**
  * \ingroup print
  * \related v2i
@@ -27872,7 +27872,7 @@ v2f v2f_rprint(v2f a);
  * \details functionally equivalent to \c `v2i_rfprintf(stdout, a, "%i")`
  * \param a \c v2i vector to print
  */
-v2i v2i_rprint(v2i a);
+void v2i_rprint(v2i a);
 /**
  * \ingroup print
  * \related v2l
@@ -27881,7 +27881,7 @@ v2i v2i_rprint(v2i a);
  * \details functionally equivalent to \c `v2l_rfprintf(stdout, a, "%lli")`
  * \param a \c v2l vector to print
  */
-v2l v2l_rprint(v2l a);
+void v2l_rprint(v2l a);
 /**
  * \ingroup print
  * \related v4d
@@ -27890,7 +27890,7 @@ v2l v2l_rprint(v2l a);
  * \details functionally equivalent to \c `v4d_rfprintf(stdout, a, "%lf")`
  * \param a \c v4d vector to print
  */
-v4d v4d_rprint(v4d a);
+void v4d_rprint(v4d a);
 /**
  * \ingroup print
  * \related v4f
@@ -27899,7 +27899,7 @@ v4d v4d_rprint(v4d a);
  * \details functionally equivalent to \c `v4f_rfprintf(stdout, a, "%f")`
  * \param a \c v4f vector to print
  */
-v4f v4f_rprint(v4f a);
+void v4f_rprint(v4f a);
 /**
  * \ingroup print
  * \related v4i
@@ -27908,7 +27908,7 @@ v4f v4f_rprint(v4f a);
  * \details functionally equivalent to \c `v4i_rfprintf(stdout, a, "%i")`
  * \param a \c v4i vector to print
  */
-v4i v4i_rprint(v4i a);
+void v4i_rprint(v4i a);
 /**
  * \ingroup print
  * \related v4l
@@ -27917,7 +27917,7 @@ v4i v4i_rprint(v4i a);
  * \details functionally equivalent to \c `v4l_rfprintf(stdout, a, "%lli")`
  * \param a \c v4l vector to print
  */
-v4l v4l_rprint(v4l a);
+void v4l_rprint(v4l a);
 /**
  * \ingroup print
  * \related v8d
@@ -27926,7 +27926,7 @@ v4l v4l_rprint(v4l a);
  * \details functionally equivalent to \c `v8d_rfprintf(stdout, a, "%lf")`
  * \param a \c v8d vector to print
  */
-v8d v8d_rprint(v8d a);
+void v8d_rprint(v8d a);
 /**
  * \ingroup print
  * \related v8f
@@ -27935,7 +27935,7 @@ v8d v8d_rprint(v8d a);
  * \details functionally equivalent to \c `v8f_rfprintf(stdout, a, "%f")`
  * \param a \c v8f vector to print
  */
-v8f v8f_rprint(v8f a);
+void v8f_rprint(v8f a);
 /**
  * \ingroup print
  * \related v8i
@@ -27944,7 +27944,7 @@ v8f v8f_rprint(v8f a);
  * \details functionally equivalent to \c `v8i_rfprintf(stdout, a, "%i")`
  * \param a \c v8i vector to print
  */
-v8i v8i_rprint(v8i a);
+void v8i_rprint(v8i a);
 /**
  * \ingroup print
  * \related v8l
@@ -27953,7 +27953,7 @@ v8i v8i_rprint(v8i a);
  * \details functionally equivalent to \c `v8l_rfprintf(stdout, a, "%lli")`
  * \param a \c v8l vector to print
  */
-v8l v8l_rprint(v8l a);
+void v8l_rprint(v8l a);
 /**
  * \ingroup print
  * \related v16f
@@ -27962,7 +27962,7 @@ v8l v8l_rprint(v8l a);
  * \details functionally equivalent to \c `v16f_rfprintf(stdout, a, "%f")`
  * \param a \c v16f vector to print
  */
-v16f v16f_rprint(v16f a);
+void v16f_rprint(v16f a);
 /**
  * \ingroup print
  * \related v16i
@@ -27971,7 +27971,7 @@ v16f v16f_rprint(v16f a);
  * \details functionally equivalent to \c `v16i_rfprintf(stdout, a, "%i")`
  * \param a \c v16i vector to print
  */
-v16i v16i_rprint(v16i a);
+void v16i_rprint(v16i a);
 
 /* CASTS */
 /** \defgroup cast cast functions

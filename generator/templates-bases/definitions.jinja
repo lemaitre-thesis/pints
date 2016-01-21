@@ -2013,7 +2013,7 @@ dst[{{i}}] := SELECT%'N((mask.bits[{{i}}] ? b : a), rule[{{RANGE(i*lln2, (i+1)*l
 /* PRINTS */
 {{ _.doc_group("print functions", shortname = "print") }}
 {#/* FPRINTF */#}
-{% call(f) _.func("%T", "%P_fprintf", "void *file, %T a, const char* format") %}
+{% call(f) _.func("void", "%P_fprintf", "FILE *file, %T a, const char* format") %}
   {%- call _.doc(f) %}
 /**
  * \ingroup print
@@ -2039,7 +2039,7 @@ dst[{{i}}] := SELECT%'N((mask.bits[{{i}}] ? b : a), rule[{{RANGE(i*lln2, (i+1)*l
 {%- endcall %}
 
 {#/* PRINTF */#}
-{% call(f) _.macro("%T", "%P_printf", "%T a, const char* format") %}
+{% call(f) _.macro("void", "%P_printf", "%T a, const char* format") %}
   {%- call _.doc(f) %}
 /**
  * \ingroup print
@@ -2057,7 +2057,7 @@ dst[{{i}}] := SELECT%'N((mask.bits[{{i}}] ? b : a), rule[{{RANGE(i*lln2, (i+1)*l
 {%- endcall %}
 
 {#/* FPRINT */#}
-{% call(f) _.macro("%T", "%P_fprint", "void *file, %T a") %}
+{% call(f) _.macro("void", "%P_fprint", "FILE *file, %T a") %}
   {%- call _.doc(f) %}
 /**
  * \ingroup print
@@ -2074,7 +2074,7 @@ dst[{{i}}] := SELECT%'N((mask.bits[{{i}}] ? b : a), rule[{{RANGE(i*lln2, (i+1)*l
 {%- endcall %}
 
 {#/* PRINT */#}
-{% call(f) _.macro("%T", "%P_print", "%T a") %}
+{% call(f) _.macro("void", "%P_print", "%T a") %}
   {%- call _.doc(f) %}
 /**
  * \ingroup print
@@ -2090,7 +2090,7 @@ dst[{{i}}] := SELECT%'N((mask.bits[{{i}}] ? b : a), rule[{{RANGE(i*lln2, (i+1)*l
 {%- endcall %}
 
 {#/* RFPRINTF */#}
-{% call(f) _.func("%T", "%P_rfprintf", "void *file, %T a, const char* format") %}
+{% call(f) _.func("void", "%P_rfprintf", "FILE *file, %T a, const char* format") %}
   {%- call _.doc(f) %}
 /**
  * \ingroup print
@@ -2116,7 +2116,7 @@ dst[{{i}}] := SELECT%'N((mask.bits[{{i}}] ? b : a), rule[{{RANGE(i*lln2, (i+1)*l
 {%- endcall %}
 
 {#/* RPRINTF */#}
-{% call(f) _.macro("%T", "%P_rprintf", "%T a, const char* format") %}
+{% call(f) _.macro("void", "%P_rprintf", "%T a, const char* format") %}
   {%- call _.doc(f) %}
 /**
  * \ingroup print
@@ -2134,7 +2134,7 @@ dst[{{i}}] := SELECT%'N((mask.bits[{{i}}] ? b : a), rule[{{RANGE(i*lln2, (i+1)*l
 {%- endcall %}
 
 {#/* RFPRINT */#}
-{% call(f) _.macro("%T", "%P_rfprint", "void *file, %T a") %}
+{% call(f) _.macro("void", "%P_rfprint", "FILE *file, %T a") %}
   {%- call _.doc(f) %}
 /**
  * \ingroup print
@@ -2151,7 +2151,7 @@ dst[{{i}}] := SELECT%'N((mask.bits[{{i}}] ? b : a), rule[{{RANGE(i*lln2, (i+1)*l
 {%- endcall %}
 
 {#/* RPRINT */#}
-{% call(f) _.macro("%T", "%P_rprint", "%T a") %}
+{% call(f) _.macro("void", "%P_rprint", "%T a") %}
   {%- call _.doc(f) %}
 /**
  * \ingroup print

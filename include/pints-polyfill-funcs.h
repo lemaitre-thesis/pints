@@ -583,46 +583,46 @@ static inline v8i compatible_v8i_get_high_v16i(v16i a);
 
 /* PRINTS */
 
-static inline v1d __v1d_fprintf(void *file, v1d a, const char* format);
-static inline v1f __v1f_fprintf(void *file, v1f a, const char* format);
-static inline v1i __v1i_fprintf(void *file, v1i a, const char* format);
-static inline v1l __v1l_fprintf(void *file, v1l a, const char* format);
-static inline v2d __v2d_fprintf(void *file, v2d a, const char* format);
-static inline v2f __v2f_fprintf(void *file, v2f a, const char* format);
-static inline v2i __v2i_fprintf(void *file, v2i a, const char* format);
-static inline v2l __v2l_fprintf(void *file, v2l a, const char* format);
-static inline v4d __v4d_fprintf(void *file, v4d a, const char* format);
-static inline v4f __v4f_fprintf(void *file, v4f a, const char* format);
-static inline v4i __v4i_fprintf(void *file, v4i a, const char* format);
-static inline v4l __v4l_fprintf(void *file, v4l a, const char* format);
-static inline v8d __v8d_fprintf(void *file, v8d a, const char* format);
-static inline v8f __v8f_fprintf(void *file, v8f a, const char* format);
-static inline v8i __v8i_fprintf(void *file, v8i a, const char* format);
-static inline v8l __v8l_fprintf(void *file, v8l a, const char* format);
-static inline v16f __v16f_fprintf(void *file, v16f a, const char* format);
-static inline v16i __v16i_fprintf(void *file, v16i a, const char* format);
+static inline void __v1d_fprintf(FILE *file, v1d a, const char* format);
+static inline void __v1f_fprintf(FILE *file, v1f a, const char* format);
+static inline void __v1i_fprintf(FILE *file, v1i a, const char* format);
+static inline void __v1l_fprintf(FILE *file, v1l a, const char* format);
+static inline void __v2d_fprintf(FILE *file, v2d a, const char* format);
+static inline void __v2f_fprintf(FILE *file, v2f a, const char* format);
+static inline void __v2i_fprintf(FILE *file, v2i a, const char* format);
+static inline void __v2l_fprintf(FILE *file, v2l a, const char* format);
+static inline void __v4d_fprintf(FILE *file, v4d a, const char* format);
+static inline void __v4f_fprintf(FILE *file, v4f a, const char* format);
+static inline void __v4i_fprintf(FILE *file, v4i a, const char* format);
+static inline void __v4l_fprintf(FILE *file, v4l a, const char* format);
+static inline void __v8d_fprintf(FILE *file, v8d a, const char* format);
+static inline void __v8f_fprintf(FILE *file, v8f a, const char* format);
+static inline void __v8i_fprintf(FILE *file, v8i a, const char* format);
+static inline void __v8l_fprintf(FILE *file, v8l a, const char* format);
+static inline void __v16f_fprintf(FILE *file, v16f a, const char* format);
+static inline void __v16i_fprintf(FILE *file, v16i a, const char* format);
 
 
 
 
-static inline v1d __v1d_rfprintf(void *file, v1d a, const char* format);
-static inline v1f __v1f_rfprintf(void *file, v1f a, const char* format);
-static inline v1i __v1i_rfprintf(void *file, v1i a, const char* format);
-static inline v1l __v1l_rfprintf(void *file, v1l a, const char* format);
-static inline v2d __v2d_rfprintf(void *file, v2d a, const char* format);
-static inline v2f __v2f_rfprintf(void *file, v2f a, const char* format);
-static inline v2i __v2i_rfprintf(void *file, v2i a, const char* format);
-static inline v2l __v2l_rfprintf(void *file, v2l a, const char* format);
-static inline v4d __v4d_rfprintf(void *file, v4d a, const char* format);
-static inline v4f __v4f_rfprintf(void *file, v4f a, const char* format);
-static inline v4i __v4i_rfprintf(void *file, v4i a, const char* format);
-static inline v4l __v4l_rfprintf(void *file, v4l a, const char* format);
-static inline v8d __v8d_rfprintf(void *file, v8d a, const char* format);
-static inline v8f __v8f_rfprintf(void *file, v8f a, const char* format);
-static inline v8i __v8i_rfprintf(void *file, v8i a, const char* format);
-static inline v8l __v8l_rfprintf(void *file, v8l a, const char* format);
-static inline v16f __v16f_rfprintf(void *file, v16f a, const char* format);
-static inline v16i __v16i_rfprintf(void *file, v16i a, const char* format);
+static inline void __v1d_rfprintf(FILE *file, v1d a, const char* format);
+static inline void __v1f_rfprintf(FILE *file, v1f a, const char* format);
+static inline void __v1i_rfprintf(FILE *file, v1i a, const char* format);
+static inline void __v1l_rfprintf(FILE *file, v1l a, const char* format);
+static inline void __v2d_rfprintf(FILE *file, v2d a, const char* format);
+static inline void __v2f_rfprintf(FILE *file, v2f a, const char* format);
+static inline void __v2i_rfprintf(FILE *file, v2i a, const char* format);
+static inline void __v2l_rfprintf(FILE *file, v2l a, const char* format);
+static inline void __v4d_rfprintf(FILE *file, v4d a, const char* format);
+static inline void __v4f_rfprintf(FILE *file, v4f a, const char* format);
+static inline void __v4i_rfprintf(FILE *file, v4i a, const char* format);
+static inline void __v4l_rfprintf(FILE *file, v4l a, const char* format);
+static inline void __v8d_rfprintf(FILE *file, v8d a, const char* format);
+static inline void __v8f_rfprintf(FILE *file, v8f a, const char* format);
+static inline void __v8i_rfprintf(FILE *file, v8i a, const char* format);
+static inline void __v8l_rfprintf(FILE *file, v8l a, const char* format);
+static inline void __v16f_rfprintf(FILE *file, v16f a, const char* format);
+static inline void __v16i_rfprintf(FILE *file, v16i a, const char* format);
 
 
 
@@ -1957,7 +1957,7 @@ static inline v8i compatible_v8i_get_high_v16i(v16i a) {
 
 /* PRINTS */
 
-static inline v1d __v1d_fprintf(void *file, v1d a, const char* format) {
+static inline void __v1d_fprintf(FILE *file, v1d a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(double, v, 1, 1*sizeof(double));
   v1d_store(v, a);
@@ -1967,7 +1967,7 @@ static inline v1d __v1d_fprintf(void *file, v1d a, const char* format) {
     fprintf(file, format, v[i]);
   }
 }
-static inline v1f __v1f_fprintf(void *file, v1f a, const char* format) {
+static inline void __v1f_fprintf(FILE *file, v1f a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(float, v, 1, 1*sizeof(float));
   v1f_store(v, a);
@@ -1977,7 +1977,7 @@ static inline v1f __v1f_fprintf(void *file, v1f a, const char* format) {
     fprintf(file, format, v[i]);
   }
 }
-static inline v1i __v1i_fprintf(void *file, v1i a, const char* format) {
+static inline void __v1i_fprintf(FILE *file, v1i a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(int32_t, v, 1, 1*sizeof(int32_t));
   v1i_store(v, a);
@@ -1987,7 +1987,7 @@ static inline v1i __v1i_fprintf(void *file, v1i a, const char* format) {
     fprintf(file, format, v[i]);
   }
 }
-static inline v1l __v1l_fprintf(void *file, v1l a, const char* format) {
+static inline void __v1l_fprintf(FILE *file, v1l a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(int64_t, v, 1, 1*sizeof(int64_t));
   v1l_store(v, a);
@@ -1997,7 +1997,7 @@ static inline v1l __v1l_fprintf(void *file, v1l a, const char* format) {
     fprintf(file, format, v[i]);
   }
 }
-static inline v2d __v2d_fprintf(void *file, v2d a, const char* format) {
+static inline void __v2d_fprintf(FILE *file, v2d a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(double, v, 2, 2*sizeof(double));
   v2d_store(v, a);
@@ -2007,7 +2007,7 @@ static inline v2d __v2d_fprintf(void *file, v2d a, const char* format) {
     fprintf(file, format, v[i]);
   }
 }
-static inline v2f __v2f_fprintf(void *file, v2f a, const char* format) {
+static inline void __v2f_fprintf(FILE *file, v2f a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(float, v, 2, 2*sizeof(float));
   v2f_store(v, a);
@@ -2017,7 +2017,7 @@ static inline v2f __v2f_fprintf(void *file, v2f a, const char* format) {
     fprintf(file, format, v[i]);
   }
 }
-static inline v2i __v2i_fprintf(void *file, v2i a, const char* format) {
+static inline void __v2i_fprintf(FILE *file, v2i a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(int32_t, v, 2, 2*sizeof(int32_t));
   v2i_store(v, a);
@@ -2027,7 +2027,7 @@ static inline v2i __v2i_fprintf(void *file, v2i a, const char* format) {
     fprintf(file, format, v[i]);
   }
 }
-static inline v2l __v2l_fprintf(void *file, v2l a, const char* format) {
+static inline void __v2l_fprintf(FILE *file, v2l a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(int64_t, v, 2, 2*sizeof(int64_t));
   v2l_store(v, a);
@@ -2037,7 +2037,7 @@ static inline v2l __v2l_fprintf(void *file, v2l a, const char* format) {
     fprintf(file, format, v[i]);
   }
 }
-static inline v4d __v4d_fprintf(void *file, v4d a, const char* format) {
+static inline void __v4d_fprintf(FILE *file, v4d a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(double, v, 4, 4*sizeof(double));
   v4d_store(v, a);
@@ -2047,7 +2047,7 @@ static inline v4d __v4d_fprintf(void *file, v4d a, const char* format) {
     fprintf(file, format, v[i]);
   }
 }
-static inline v4f __v4f_fprintf(void *file, v4f a, const char* format) {
+static inline void __v4f_fprintf(FILE *file, v4f a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(float, v, 4, 4*sizeof(float));
   v4f_store(v, a);
@@ -2057,7 +2057,7 @@ static inline v4f __v4f_fprintf(void *file, v4f a, const char* format) {
     fprintf(file, format, v[i]);
   }
 }
-static inline v4i __v4i_fprintf(void *file, v4i a, const char* format) {
+static inline void __v4i_fprintf(FILE *file, v4i a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(int32_t, v, 4, 4*sizeof(int32_t));
   v4i_store(v, a);
@@ -2067,7 +2067,7 @@ static inline v4i __v4i_fprintf(void *file, v4i a, const char* format) {
     fprintf(file, format, v[i]);
   }
 }
-static inline v4l __v4l_fprintf(void *file, v4l a, const char* format) {
+static inline void __v4l_fprintf(FILE *file, v4l a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(int64_t, v, 4, 4*sizeof(int64_t));
   v4l_store(v, a);
@@ -2077,7 +2077,7 @@ static inline v4l __v4l_fprintf(void *file, v4l a, const char* format) {
     fprintf(file, format, v[i]);
   }
 }
-static inline v8d __v8d_fprintf(void *file, v8d a, const char* format) {
+static inline void __v8d_fprintf(FILE *file, v8d a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(double, v, 8, 8*sizeof(double));
   v8d_store(v, a);
@@ -2087,7 +2087,7 @@ static inline v8d __v8d_fprintf(void *file, v8d a, const char* format) {
     fprintf(file, format, v[i]);
   }
 }
-static inline v8f __v8f_fprintf(void *file, v8f a, const char* format) {
+static inline void __v8f_fprintf(FILE *file, v8f a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(float, v, 8, 8*sizeof(float));
   v8f_store(v, a);
@@ -2097,7 +2097,7 @@ static inline v8f __v8f_fprintf(void *file, v8f a, const char* format) {
     fprintf(file, format, v[i]);
   }
 }
-static inline v8i __v8i_fprintf(void *file, v8i a, const char* format) {
+static inline void __v8i_fprintf(FILE *file, v8i a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(int32_t, v, 8, 8*sizeof(int32_t));
   v8i_store(v, a);
@@ -2107,7 +2107,7 @@ static inline v8i __v8i_fprintf(void *file, v8i a, const char* format) {
     fprintf(file, format, v[i]);
   }
 }
-static inline v8l __v8l_fprintf(void *file, v8l a, const char* format) {
+static inline void __v8l_fprintf(FILE *file, v8l a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(int64_t, v, 8, 8*sizeof(int64_t));
   v8l_store(v, a);
@@ -2117,7 +2117,7 @@ static inline v8l __v8l_fprintf(void *file, v8l a, const char* format) {
     fprintf(file, format, v[i]);
   }
 }
-static inline v16f __v16f_fprintf(void *file, v16f a, const char* format) {
+static inline void __v16f_fprintf(FILE *file, v16f a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(float, v, 16, 16*sizeof(float));
   v16f_store(v, a);
@@ -2127,7 +2127,7 @@ static inline v16f __v16f_fprintf(void *file, v16f a, const char* format) {
     fprintf(file, format, v[i]);
   }
 }
-static inline v16i __v16i_fprintf(void *file, v16i a, const char* format) {
+static inline void __v16i_fprintf(FILE *file, v16i a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(int32_t, v, 16, 16*sizeof(int32_t));
   v16i_store(v, a);
@@ -2141,7 +2141,7 @@ static inline v16i __v16i_fprintf(void *file, v16i a, const char* format) {
 
 
 
-static inline v1d __v1d_rfprintf(void *file, v1d a, const char* format) {
+static inline void __v1d_rfprintf(FILE *file, v1d a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(double, v, 1, 1*sizeof(double));
   v1d_store(v, a);
@@ -2151,7 +2151,7 @@ static inline v1d __v1d_rfprintf(void *file, v1d a, const char* format) {
     fprintf(file, format, v[0 - i]);
   }
 }
-static inline v1f __v1f_rfprintf(void *file, v1f a, const char* format) {
+static inline void __v1f_rfprintf(FILE *file, v1f a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(float, v, 1, 1*sizeof(float));
   v1f_store(v, a);
@@ -2161,7 +2161,7 @@ static inline v1f __v1f_rfprintf(void *file, v1f a, const char* format) {
     fprintf(file, format, v[0 - i]);
   }
 }
-static inline v1i __v1i_rfprintf(void *file, v1i a, const char* format) {
+static inline void __v1i_rfprintf(FILE *file, v1i a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(int32_t, v, 1, 1*sizeof(int32_t));
   v1i_store(v, a);
@@ -2171,7 +2171,7 @@ static inline v1i __v1i_rfprintf(void *file, v1i a, const char* format) {
     fprintf(file, format, v[0 - i]);
   }
 }
-static inline v1l __v1l_rfprintf(void *file, v1l a, const char* format) {
+static inline void __v1l_rfprintf(FILE *file, v1l a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(int64_t, v, 1, 1*sizeof(int64_t));
   v1l_store(v, a);
@@ -2181,7 +2181,7 @@ static inline v1l __v1l_rfprintf(void *file, v1l a, const char* format) {
     fprintf(file, format, v[0 - i]);
   }
 }
-static inline v2d __v2d_rfprintf(void *file, v2d a, const char* format) {
+static inline void __v2d_rfprintf(FILE *file, v2d a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(double, v, 2, 2*sizeof(double));
   v2d_store(v, a);
@@ -2191,7 +2191,7 @@ static inline v2d __v2d_rfprintf(void *file, v2d a, const char* format) {
     fprintf(file, format, v[1 - i]);
   }
 }
-static inline v2f __v2f_rfprintf(void *file, v2f a, const char* format) {
+static inline void __v2f_rfprintf(FILE *file, v2f a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(float, v, 2, 2*sizeof(float));
   v2f_store(v, a);
@@ -2201,7 +2201,7 @@ static inline v2f __v2f_rfprintf(void *file, v2f a, const char* format) {
     fprintf(file, format, v[1 - i]);
   }
 }
-static inline v2i __v2i_rfprintf(void *file, v2i a, const char* format) {
+static inline void __v2i_rfprintf(FILE *file, v2i a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(int32_t, v, 2, 2*sizeof(int32_t));
   v2i_store(v, a);
@@ -2211,7 +2211,7 @@ static inline v2i __v2i_rfprintf(void *file, v2i a, const char* format) {
     fprintf(file, format, v[1 - i]);
   }
 }
-static inline v2l __v2l_rfprintf(void *file, v2l a, const char* format) {
+static inline void __v2l_rfprintf(FILE *file, v2l a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(int64_t, v, 2, 2*sizeof(int64_t));
   v2l_store(v, a);
@@ -2221,7 +2221,7 @@ static inline v2l __v2l_rfprintf(void *file, v2l a, const char* format) {
     fprintf(file, format, v[1 - i]);
   }
 }
-static inline v4d __v4d_rfprintf(void *file, v4d a, const char* format) {
+static inline void __v4d_rfprintf(FILE *file, v4d a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(double, v, 4, 4*sizeof(double));
   v4d_store(v, a);
@@ -2231,7 +2231,7 @@ static inline v4d __v4d_rfprintf(void *file, v4d a, const char* format) {
     fprintf(file, format, v[3 - i]);
   }
 }
-static inline v4f __v4f_rfprintf(void *file, v4f a, const char* format) {
+static inline void __v4f_rfprintf(FILE *file, v4f a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(float, v, 4, 4*sizeof(float));
   v4f_store(v, a);
@@ -2241,7 +2241,7 @@ static inline v4f __v4f_rfprintf(void *file, v4f a, const char* format) {
     fprintf(file, format, v[3 - i]);
   }
 }
-static inline v4i __v4i_rfprintf(void *file, v4i a, const char* format) {
+static inline void __v4i_rfprintf(FILE *file, v4i a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(int32_t, v, 4, 4*sizeof(int32_t));
   v4i_store(v, a);
@@ -2251,7 +2251,7 @@ static inline v4i __v4i_rfprintf(void *file, v4i a, const char* format) {
     fprintf(file, format, v[3 - i]);
   }
 }
-static inline v4l __v4l_rfprintf(void *file, v4l a, const char* format) {
+static inline void __v4l_rfprintf(FILE *file, v4l a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(int64_t, v, 4, 4*sizeof(int64_t));
   v4l_store(v, a);
@@ -2261,7 +2261,7 @@ static inline v4l __v4l_rfprintf(void *file, v4l a, const char* format) {
     fprintf(file, format, v[3 - i]);
   }
 }
-static inline v8d __v8d_rfprintf(void *file, v8d a, const char* format) {
+static inline void __v8d_rfprintf(FILE *file, v8d a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(double, v, 8, 8*sizeof(double));
   v8d_store(v, a);
@@ -2271,7 +2271,7 @@ static inline v8d __v8d_rfprintf(void *file, v8d a, const char* format) {
     fprintf(file, format, v[7 - i]);
   }
 }
-static inline v8f __v8f_rfprintf(void *file, v8f a, const char* format) {
+static inline void __v8f_rfprintf(FILE *file, v8f a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(float, v, 8, 8*sizeof(float));
   v8f_store(v, a);
@@ -2281,7 +2281,7 @@ static inline v8f __v8f_rfprintf(void *file, v8f a, const char* format) {
     fprintf(file, format, v[7 - i]);
   }
 }
-static inline v8i __v8i_rfprintf(void *file, v8i a, const char* format) {
+static inline void __v8i_rfprintf(FILE *file, v8i a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(int32_t, v, 8, 8*sizeof(int32_t));
   v8i_store(v, a);
@@ -2291,7 +2291,7 @@ static inline v8i __v8i_rfprintf(void *file, v8i a, const char* format) {
     fprintf(file, format, v[7 - i]);
   }
 }
-static inline v8l __v8l_rfprintf(void *file, v8l a, const char* format) {
+static inline void __v8l_rfprintf(FILE *file, v8l a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(int64_t, v, 8, 8*sizeof(int64_t));
   v8l_store(v, a);
@@ -2301,7 +2301,7 @@ static inline v8l __v8l_rfprintf(void *file, v8l a, const char* format) {
     fprintf(file, format, v[7 - i]);
   }
 }
-static inline v16f __v16f_rfprintf(void *file, v16f a, const char* format) {
+static inline void __v16f_rfprintf(FILE *file, v16f a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(float, v, 16, 16*sizeof(float));
   v16f_store(v, a);
@@ -2311,7 +2311,7 @@ static inline v16f __v16f_rfprintf(void *file, v16f a, const char* format) {
     fprintf(file, format, v[15 - i]);
   }
 }
-static inline v16i __v16i_rfprintf(void *file, v16i a, const char* format) {
+static inline void __v16i_rfprintf(FILE *file, v16i a, const char* format) {
   int i, comma = 0;
   PINTS_ALIGNED_ARRAY(int32_t, v, 16, 16*sizeof(int32_t));
   v16i_store(v, a);

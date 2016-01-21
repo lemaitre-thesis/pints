@@ -20,6 +20,9 @@ These specializations are done by undefining the previous macro
 (which can be an alias to a function)
 and redefining it for the target architecture.
 
+The library is able to detect the target architecture using information
+given by the compiler and loads automatically the required header files.
+
 ## How does it look?
 
 ~~~c
@@ -59,6 +62,20 @@ float dotprod_v8f(const float* a, const float* b, int n) {
   return sf_cvt_v8f(add3);
 }
 ~~~
+
+## How can I use it in my project?
+
+You need to copy the folder `include` of this repository into your project
+and include the file `pints.h` wherever you want to use it.
+
+## Supported compilers
+
+This library has only been tested on the following compilers:
+- gcc (5.1)
+- icc (16.0)
+
+However, this library is written with compatibility in mind
+and should also be compatible with other compilers
 
 ## Supported architectures
 
