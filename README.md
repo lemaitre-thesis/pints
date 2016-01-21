@@ -2,6 +2,8 @@
 
 Portable intrinsics for SIMD
 
+Doxygen documentation: http://lemaitre-thesis.github.io/pints/
+
 ## What is it?
 
 PintS is an abstraction library to write SIMD code.
