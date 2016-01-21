@@ -1014,10 +1014,10 @@ static inline v16i compatible_v16i_cvt_v16i(v16i a);
 ////////////////////////////////////////////////////////////////////////////////
 /* LOADS */
 
-static inline union __v1d __v1d_load(const double *p) { union __v1d r = { v: *p }; return r; }
-static inline union __v1f __v1f_load(const float *p) { union __v1f r = { v: *p }; return r; }
-static inline union __v1i __v1i_load(const int32_t *p) { union __v1i r = { v: *p }; return r; }
-static inline union __v1l __v1l_load(const int64_t *p) { union __v1l r = { v: *p }; return r; }
+static inline union __v1d __v1d_load(const double *p) { union __v1d r = { .v = *p }; return r; }
+static inline union __v1f __v1f_load(const float *p) { union __v1f r = { .v = *p }; return r; }
+static inline union __v1i __v1i_load(const int32_t *p) { union __v1i r = { .v = *p }; return r; }
+static inline union __v1l __v1l_load(const int64_t *p) { union __v1l r = { .v = *p }; return r; }
 static inline v2d __v2d_load(const double *p) { return v2d_merge2_v1d(v1d_load(p), v1d_load(p+1)); }
 static inline v2f __v2f_load(const float *p) { return v2f_merge2_v1f(v1f_load(p), v1f_load(p+1)); }
 static inline v2i __v2i_load(const int32_t *p) { return v2i_merge2_v1i(v1i_load(p), v1i_load(p+1)); }
@@ -1346,10 +1346,10 @@ static inline v16i __v16i_set1(int32_t v) { v8i a = v8i_set1(v); return v16i_mer
 
 /* COMPARISONS */
 
-static inline union __v1d __v1d_eq(union __v1d a, union __v1d b) { union __v1d r = { i: -(a.v == b.v) }; return r; }
-static inline union __v1f __v1f_eq(union __v1f a, union __v1f b) { union __v1f r = { i: -(a.v == b.v) }; return r; }
-static inline union __v1i __v1i_eq(union __v1i a, union __v1i b) { union __v1i r = { i: -(a.v == b.v) }; return r; }
-static inline union __v1l __v1l_eq(union __v1l a, union __v1l b) { union __v1l r = { i: -(a.v == b.v) }; return r; }
+static inline union __v1d __v1d_eq(union __v1d a, union __v1d b) { union __v1d r = { .i = -(a.v == b.v) }; return r; }
+static inline union __v1f __v1f_eq(union __v1f a, union __v1f b) { union __v1f r = { .i = -(a.v == b.v) }; return r; }
+static inline union __v1i __v1i_eq(union __v1i a, union __v1i b) { union __v1i r = { .i = -(a.v == b.v) }; return r; }
+static inline union __v1l __v1l_eq(union __v1l a, union __v1l b) { union __v1l r = { .i = -(a.v == b.v) }; return r; }
 static inline v2d __v2d_eq(v2d a, v2d b) { return v2d_merge2_v1d(v1d_eq(v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_eq(v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
 static inline v2f __v2f_eq(v2f a, v2f b) { return v2f_merge2_v1f(v1f_eq(v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_eq(v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
 static inline v2i __v2i_eq(v2i a, v2i b) { return v2i_merge2_v1i(v1i_eq(v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_eq(v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
@@ -1365,10 +1365,10 @@ static inline v8l __v8l_eq(v8l a, v8l b) { return v8l_merge2_v4l(v4l_eq(v4l_get_
 static inline v16f __v16f_eq(v16f a, v16f b) { return v16f_merge2_v8f(v8f_eq(v8f_get_low_v16f(a), v8f_get_low_v16f(b)), v8f_eq(v8f_get_high_v16f(a), v8f_get_high_v16f(b))); }
 static inline v16i __v16i_eq(v16i a, v16i b) { return v16i_merge2_v8i(v8i_eq(v8i_get_low_v16i(a), v8i_get_low_v16i(b)), v8i_eq(v8i_get_high_v16i(a), v8i_get_high_v16i(b))); }
 
-static inline union __v1d __v1d_neq(union __v1d a, union __v1d b) { union __v1d r = { i: -(a.v != b.v) }; return r; }
-static inline union __v1f __v1f_neq(union __v1f a, union __v1f b) { union __v1f r = { i: -(a.v != b.v) }; return r; }
-static inline union __v1i __v1i_neq(union __v1i a, union __v1i b) { union __v1i r = { i: -(a.v != b.v) }; return r; }
-static inline union __v1l __v1l_neq(union __v1l a, union __v1l b) { union __v1l r = { i: -(a.v != b.v) }; return r; }
+static inline union __v1d __v1d_neq(union __v1d a, union __v1d b) { union __v1d r = { .i = -(a.v != b.v) }; return r; }
+static inline union __v1f __v1f_neq(union __v1f a, union __v1f b) { union __v1f r = { .i = -(a.v != b.v) }; return r; }
+static inline union __v1i __v1i_neq(union __v1i a, union __v1i b) { union __v1i r = { .i = -(a.v != b.v) }; return r; }
+static inline union __v1l __v1l_neq(union __v1l a, union __v1l b) { union __v1l r = { .i = -(a.v != b.v) }; return r; }
 static inline v2d __v2d_neq(v2d a, v2d b) { return v2d_merge2_v1d(v1d_neq(v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_neq(v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
 static inline v2f __v2f_neq(v2f a, v2f b) { return v2f_merge2_v1f(v1f_neq(v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_neq(v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
 static inline v2i __v2i_neq(v2i a, v2i b) { return v2i_merge2_v1i(v1i_neq(v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_neq(v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
@@ -1384,10 +1384,10 @@ static inline v8l __v8l_neq(v8l a, v8l b) { return v8l_merge2_v4l(v4l_neq(v4l_ge
 static inline v16f __v16f_neq(v16f a, v16f b) { return v16f_merge2_v8f(v8f_neq(v8f_get_low_v16f(a), v8f_get_low_v16f(b)), v8f_neq(v8f_get_high_v16f(a), v8f_get_high_v16f(b))); }
 static inline v16i __v16i_neq(v16i a, v16i b) { return v16i_merge2_v8i(v8i_neq(v8i_get_low_v16i(a), v8i_get_low_v16i(b)), v8i_neq(v8i_get_high_v16i(a), v8i_get_high_v16i(b))); }
 
-static inline union __v1d __v1d_gt(union __v1d a, union __v1d b) { union __v1d r = { i: -(a.v > b.v) }; return r; }
-static inline union __v1f __v1f_gt(union __v1f a, union __v1f b) { union __v1f r = { i: -(a.v > b.v) }; return r; }
-static inline union __v1i __v1i_gt(union __v1i a, union __v1i b) { union __v1i r = { i: -(a.v > b.v) }; return r; }
-static inline union __v1l __v1l_gt(union __v1l a, union __v1l b) { union __v1l r = { i: -(a.v > b.v) }; return r; }
+static inline union __v1d __v1d_gt(union __v1d a, union __v1d b) { union __v1d r = { .i = -(a.v > b.v) }; return r; }
+static inline union __v1f __v1f_gt(union __v1f a, union __v1f b) { union __v1f r = { .i = -(a.v > b.v) }; return r; }
+static inline union __v1i __v1i_gt(union __v1i a, union __v1i b) { union __v1i r = { .i = -(a.v > b.v) }; return r; }
+static inline union __v1l __v1l_gt(union __v1l a, union __v1l b) { union __v1l r = { .i = -(a.v > b.v) }; return r; }
 static inline v2d __v2d_gt(v2d a, v2d b) { return v2d_merge2_v1d(v1d_gt(v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_gt(v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
 static inline v2f __v2f_gt(v2f a, v2f b) { return v2f_merge2_v1f(v1f_gt(v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_gt(v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
 static inline v2i __v2i_gt(v2i a, v2i b) { return v2i_merge2_v1i(v1i_gt(v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_gt(v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
@@ -1403,10 +1403,10 @@ static inline v8l __v8l_gt(v8l a, v8l b) { return v8l_merge2_v4l(v4l_gt(v4l_get_
 static inline v16f __v16f_gt(v16f a, v16f b) { return v16f_merge2_v8f(v8f_gt(v8f_get_low_v16f(a), v8f_get_low_v16f(b)), v8f_gt(v8f_get_high_v16f(a), v8f_get_high_v16f(b))); }
 static inline v16i __v16i_gt(v16i a, v16i b) { return v16i_merge2_v8i(v8i_gt(v8i_get_low_v16i(a), v8i_get_low_v16i(b)), v8i_gt(v8i_get_high_v16i(a), v8i_get_high_v16i(b))); }
 
-static inline union __v1d __v1d_geq(union __v1d a, union __v1d b) { union __v1d r = { i: -(a.v >= b.v) }; return r; }
-static inline union __v1f __v1f_geq(union __v1f a, union __v1f b) { union __v1f r = { i: -(a.v >= b.v) }; return r; }
-static inline union __v1i __v1i_geq(union __v1i a, union __v1i b) { union __v1i r = { i: -(a.v >= b.v) }; return r; }
-static inline union __v1l __v1l_geq(union __v1l a, union __v1l b) { union __v1l r = { i: -(a.v >= b.v) }; return r; }
+static inline union __v1d __v1d_geq(union __v1d a, union __v1d b) { union __v1d r = { .i = -(a.v >= b.v) }; return r; }
+static inline union __v1f __v1f_geq(union __v1f a, union __v1f b) { union __v1f r = { .i = -(a.v >= b.v) }; return r; }
+static inline union __v1i __v1i_geq(union __v1i a, union __v1i b) { union __v1i r = { .i = -(a.v >= b.v) }; return r; }
+static inline union __v1l __v1l_geq(union __v1l a, union __v1l b) { union __v1l r = { .i = -(a.v >= b.v) }; return r; }
 static inline v2d __v2d_geq(v2d a, v2d b) { return v2d_merge2_v1d(v1d_geq(v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_geq(v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
 static inline v2f __v2f_geq(v2f a, v2f b) { return v2f_merge2_v1f(v1f_geq(v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_geq(v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
 static inline v2i __v2i_geq(v2i a, v2i b) { return v2i_merge2_v1i(v1i_geq(v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_geq(v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
@@ -1422,10 +1422,10 @@ static inline v8l __v8l_geq(v8l a, v8l b) { return v8l_merge2_v4l(v4l_geq(v4l_ge
 static inline v16f __v16f_geq(v16f a, v16f b) { return v16f_merge2_v8f(v8f_geq(v8f_get_low_v16f(a), v8f_get_low_v16f(b)), v8f_geq(v8f_get_high_v16f(a), v8f_get_high_v16f(b))); }
 static inline v16i __v16i_geq(v16i a, v16i b) { return v16i_merge2_v8i(v8i_geq(v8i_get_low_v16i(a), v8i_get_low_v16i(b)), v8i_geq(v8i_get_high_v16i(a), v8i_get_high_v16i(b))); }
 
-static inline union __v1d __v1d_lt(union __v1d a, union __v1d b) { union __v1d r = { i: -(a.v < b.v) }; return r; }
-static inline union __v1f __v1f_lt(union __v1f a, union __v1f b) { union __v1f r = { i: -(a.v < b.v) }; return r; }
-static inline union __v1i __v1i_lt(union __v1i a, union __v1i b) { union __v1i r = { i: -(a.v < b.v) }; return r; }
-static inline union __v1l __v1l_lt(union __v1l a, union __v1l b) { union __v1l r = { i: -(a.v < b.v) }; return r; }
+static inline union __v1d __v1d_lt(union __v1d a, union __v1d b) { union __v1d r = { .i = -(a.v < b.v) }; return r; }
+static inline union __v1f __v1f_lt(union __v1f a, union __v1f b) { union __v1f r = { .i = -(a.v < b.v) }; return r; }
+static inline union __v1i __v1i_lt(union __v1i a, union __v1i b) { union __v1i r = { .i = -(a.v < b.v) }; return r; }
+static inline union __v1l __v1l_lt(union __v1l a, union __v1l b) { union __v1l r = { .i = -(a.v < b.v) }; return r; }
 static inline v2d __v2d_lt(v2d a, v2d b) { return v2d_merge2_v1d(v1d_lt(v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_lt(v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
 static inline v2f __v2f_lt(v2f a, v2f b) { return v2f_merge2_v1f(v1f_lt(v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_lt(v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
 static inline v2i __v2i_lt(v2i a, v2i b) { return v2i_merge2_v1i(v1i_lt(v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_lt(v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
@@ -1441,10 +1441,10 @@ static inline v8l __v8l_lt(v8l a, v8l b) { return v8l_merge2_v4l(v4l_lt(v4l_get_
 static inline v16f __v16f_lt(v16f a, v16f b) { return v16f_merge2_v8f(v8f_lt(v8f_get_low_v16f(a), v8f_get_low_v16f(b)), v8f_lt(v8f_get_high_v16f(a), v8f_get_high_v16f(b))); }
 static inline v16i __v16i_lt(v16i a, v16i b) { return v16i_merge2_v8i(v8i_lt(v8i_get_low_v16i(a), v8i_get_low_v16i(b)), v8i_lt(v8i_get_high_v16i(a), v8i_get_high_v16i(b))); }
 
-static inline union __v1d __v1d_leq(union __v1d a, union __v1d b) { union __v1d r = { i: -(a.v <= b.v) }; return r; }
-static inline union __v1f __v1f_leq(union __v1f a, union __v1f b) { union __v1f r = { i: -(a.v <= b.v) }; return r; }
-static inline union __v1i __v1i_leq(union __v1i a, union __v1i b) { union __v1i r = { i: -(a.v <= b.v) }; return r; }
-static inline union __v1l __v1l_leq(union __v1l a, union __v1l b) { union __v1l r = { i: -(a.v <= b.v) }; return r; }
+static inline union __v1d __v1d_leq(union __v1d a, union __v1d b) { union __v1d r = { .i = -(a.v <= b.v) }; return r; }
+static inline union __v1f __v1f_leq(union __v1f a, union __v1f b) { union __v1f r = { .i = -(a.v <= b.v) }; return r; }
+static inline union __v1i __v1i_leq(union __v1i a, union __v1i b) { union __v1i r = { .i = -(a.v <= b.v) }; return r; }
+static inline union __v1l __v1l_leq(union __v1l a, union __v1l b) { union __v1l r = { .i = -(a.v <= b.v) }; return r; }
 static inline v2d __v2d_leq(v2d a, v2d b) { return v2d_merge2_v1d(v1d_leq(v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_leq(v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
 static inline v2f __v2f_leq(v2f a, v2f b) { return v2f_merge2_v1f(v1f_leq(v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_leq(v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
 static inline v2i __v2i_leq(v2i a, v2i b) { return v2i_merge2_v1i(v1i_leq(v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_leq(v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
@@ -1462,10 +1462,10 @@ static inline v16i __v16i_leq(v16i a, v16i b) { return v16i_merge2_v8i(v8i_leq(v
 
 /* LOGIC */
 
-static inline union __v1d __v1d_and(union __v1d a, union __v1d b) { union __v1d r = { i: a.i & b.i }; return r; }
-static inline union __v1f __v1f_and(union __v1f a, union __v1f b) { union __v1f r = { i: a.i & b.i }; return r; }
-static inline union __v1i __v1i_and(union __v1i a, union __v1i b) { union __v1i r = { i: a.i & b.i }; return r; }
-static inline union __v1l __v1l_and(union __v1l a, union __v1l b) { union __v1l r = { i: a.i & b.i }; return r; }
+static inline union __v1d __v1d_and(union __v1d a, union __v1d b) { union __v1d r = { .i = a.i & b.i }; return r; }
+static inline union __v1f __v1f_and(union __v1f a, union __v1f b) { union __v1f r = { .i = a.i & b.i }; return r; }
+static inline union __v1i __v1i_and(union __v1i a, union __v1i b) { union __v1i r = { .i = a.i & b.i }; return r; }
+static inline union __v1l __v1l_and(union __v1l a, union __v1l b) { union __v1l r = { .i = a.i & b.i }; return r; }
 static inline v2d __v2d_and(v2d a, v2d b) { return v2d_merge2_v1d(v1d_and(v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_and(v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
 static inline v2f __v2f_and(v2f a, v2f b) { return v2f_merge2_v1f(v1f_and(v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_and(v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
 static inline v2i __v2i_and(v2i a, v2i b) { return v2i_merge2_v1i(v1i_and(v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_and(v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
@@ -1481,10 +1481,10 @@ static inline v8l __v8l_and(v8l a, v8l b) { return v8l_merge2_v4l(v4l_and(v4l_ge
 static inline v16f __v16f_and(v16f a, v16f b) { return v16f_merge2_v8f(v8f_and(v8f_get_low_v16f(a), v8f_get_low_v16f(b)), v8f_and(v8f_get_high_v16f(a), v8f_get_high_v16f(b))); }
 static inline v16i __v16i_and(v16i a, v16i b) { return v16i_merge2_v8i(v8i_and(v8i_get_low_v16i(a), v8i_get_low_v16i(b)), v8i_and(v8i_get_high_v16i(a), v8i_get_high_v16i(b))); }
 
-static inline union __v1d __v1d_or(union __v1d a, union __v1d b) { union __v1d r = { i: a.i | b.i }; return r; }
-static inline union __v1f __v1f_or(union __v1f a, union __v1f b) { union __v1f r = { i: a.i | b.i }; return r; }
-static inline union __v1i __v1i_or(union __v1i a, union __v1i b) { union __v1i r = { i: a.i | b.i }; return r; }
-static inline union __v1l __v1l_or(union __v1l a, union __v1l b) { union __v1l r = { i: a.i | b.i }; return r; }
+static inline union __v1d __v1d_or(union __v1d a, union __v1d b) { union __v1d r = { .i = a.i | b.i }; return r; }
+static inline union __v1f __v1f_or(union __v1f a, union __v1f b) { union __v1f r = { .i = a.i | b.i }; return r; }
+static inline union __v1i __v1i_or(union __v1i a, union __v1i b) { union __v1i r = { .i = a.i | b.i }; return r; }
+static inline union __v1l __v1l_or(union __v1l a, union __v1l b) { union __v1l r = { .i = a.i | b.i }; return r; }
 static inline v2d __v2d_or(v2d a, v2d b) { return v2d_merge2_v1d(v1d_or(v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_or(v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
 static inline v2f __v2f_or(v2f a, v2f b) { return v2f_merge2_v1f(v1f_or(v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_or(v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
 static inline v2i __v2i_or(v2i a, v2i b) { return v2i_merge2_v1i(v1i_or(v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_or(v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
@@ -1500,10 +1500,10 @@ static inline v8l __v8l_or(v8l a, v8l b) { return v8l_merge2_v4l(v4l_or(v4l_get_
 static inline v16f __v16f_or(v16f a, v16f b) { return v16f_merge2_v8f(v8f_or(v8f_get_low_v16f(a), v8f_get_low_v16f(b)), v8f_or(v8f_get_high_v16f(a), v8f_get_high_v16f(b))); }
 static inline v16i __v16i_or(v16i a, v16i b) { return v16i_merge2_v8i(v8i_or(v8i_get_low_v16i(a), v8i_get_low_v16i(b)), v8i_or(v8i_get_high_v16i(a), v8i_get_high_v16i(b))); }
 
-static inline union __v1d __v1d_xor(union __v1d a, union __v1d b) { union __v1d r = { i: a.i ^ b.i }; return r; }
-static inline union __v1f __v1f_xor(union __v1f a, union __v1f b) { union __v1f r = { i: a.i ^ b.i }; return r; }
-static inline union __v1i __v1i_xor(union __v1i a, union __v1i b) { union __v1i r = { i: a.i ^ b.i }; return r; }
-static inline union __v1l __v1l_xor(union __v1l a, union __v1l b) { union __v1l r = { i: a.i ^ b.i }; return r; }
+static inline union __v1d __v1d_xor(union __v1d a, union __v1d b) { union __v1d r = { .i = a.i ^ b.i }; return r; }
+static inline union __v1f __v1f_xor(union __v1f a, union __v1f b) { union __v1f r = { .i = a.i ^ b.i }; return r; }
+static inline union __v1i __v1i_xor(union __v1i a, union __v1i b) { union __v1i r = { .i = a.i ^ b.i }; return r; }
+static inline union __v1l __v1l_xor(union __v1l a, union __v1l b) { union __v1l r = { .i = a.i ^ b.i }; return r; }
 static inline v2d __v2d_xor(v2d a, v2d b) { return v2d_merge2_v1d(v1d_xor(v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_xor(v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
 static inline v2f __v2f_xor(v2f a, v2f b) { return v2f_merge2_v1f(v1f_xor(v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_xor(v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
 static inline v2i __v2i_xor(v2i a, v2i b) { return v2i_merge2_v1i(v1i_xor(v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_xor(v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
@@ -1529,10 +1529,10 @@ static inline v16i __v16i_xor(v16i a, v16i b) { return v16i_merge2_v8i(v8i_xor(v
 /* ARITHMETIC AND MATH */
 
 
-static inline union __v1d __v1d_add(union __v1d a, union __v1d b) { union __v1d r = { v: a.v + b.v }; return r; }
-static inline union __v1f __v1f_add(union __v1f a, union __v1f b) { union __v1f r = { v: a.v + b.v }; return r; }
-static inline union __v1i __v1i_add(union __v1i a, union __v1i b) { union __v1i r = { v: a.v + b.v }; return r; }
-static inline union __v1l __v1l_add(union __v1l a, union __v1l b) { union __v1l r = { v: a.v + b.v }; return r; }
+static inline union __v1d __v1d_add(union __v1d a, union __v1d b) { union __v1d r = { .v = a.v + b.v }; return r; }
+static inline union __v1f __v1f_add(union __v1f a, union __v1f b) { union __v1f r = { .v = a.v + b.v }; return r; }
+static inline union __v1i __v1i_add(union __v1i a, union __v1i b) { union __v1i r = { .v = a.v + b.v }; return r; }
+static inline union __v1l __v1l_add(union __v1l a, union __v1l b) { union __v1l r = { .v = a.v + b.v }; return r; }
 static inline v2d __v2d_add(v2d a, v2d b) { return v2d_merge2_v1d(v1d_add(v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_add(v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
 static inline v2f __v2f_add(v2f a, v2f b) { return v2f_merge2_v1f(v1f_add(v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_add(v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
 static inline v2i __v2i_add(v2i a, v2i b) { return v2i_merge2_v1i(v1i_add(v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_add(v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
@@ -1548,10 +1548,10 @@ static inline v8l __v8l_add(v8l a, v8l b) { return v8l_merge2_v4l(v4l_add(v4l_ge
 static inline v16f __v16f_add(v16f a, v16f b) { return v16f_merge2_v8f(v8f_add(v8f_get_low_v16f(a), v8f_get_low_v16f(b)), v8f_add(v8f_get_high_v16f(a), v8f_get_high_v16f(b))); }
 static inline v16i __v16i_add(v16i a, v16i b) { return v16i_merge2_v8i(v8i_add(v8i_get_low_v16i(a), v8i_get_low_v16i(b)), v8i_add(v8i_get_high_v16i(a), v8i_get_high_v16i(b))); }
 
-static inline union __v1d __v1d_sub(union __v1d a, union __v1d b) { union __v1d r = { v: a.v - b.v }; return r; }
-static inline union __v1f __v1f_sub(union __v1f a, union __v1f b) { union __v1f r = { v: a.v - b.v }; return r; }
-static inline union __v1i __v1i_sub(union __v1i a, union __v1i b) { union __v1i r = { v: a.v - b.v }; return r; }
-static inline union __v1l __v1l_sub(union __v1l a, union __v1l b) { union __v1l r = { v: a.v - b.v }; return r; }
+static inline union __v1d __v1d_sub(union __v1d a, union __v1d b) { union __v1d r = { .v = a.v - b.v }; return r; }
+static inline union __v1f __v1f_sub(union __v1f a, union __v1f b) { union __v1f r = { .v = a.v - b.v }; return r; }
+static inline union __v1i __v1i_sub(union __v1i a, union __v1i b) { union __v1i r = { .v = a.v - b.v }; return r; }
+static inline union __v1l __v1l_sub(union __v1l a, union __v1l b) { union __v1l r = { .v = a.v - b.v }; return r; }
 static inline v2d __v2d_sub(v2d a, v2d b) { return v2d_merge2_v1d(v1d_sub(v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_sub(v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
 static inline v2f __v2f_sub(v2f a, v2f b) { return v2f_merge2_v1f(v1f_sub(v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_sub(v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
 static inline v2i __v2i_sub(v2i a, v2i b) { return v2i_merge2_v1i(v1i_sub(v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_sub(v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
@@ -1568,10 +1568,10 @@ static inline v16f __v16f_sub(v16f a, v16f b) { return v16f_merge2_v8f(v8f_sub(v
 static inline v16i __v16i_sub(v16i a, v16i b) { return v16i_merge2_v8i(v8i_sub(v8i_get_low_v16i(a), v8i_get_low_v16i(b)), v8i_sub(v8i_get_high_v16i(a), v8i_get_high_v16i(b))); }
 
 
-static inline union __v1d __v1d_mul(union __v1d a, union __v1d b) { union __v1d r = { v: a.v * b.v }; return r; }
-static inline union __v1f __v1f_mul(union __v1f a, union __v1f b) { union __v1f r = { v: a.v * b.v }; return r; }
-static inline union __v1i __v1i_mul(union __v1i a, union __v1i b) { union __v1i r = { v: a.v * b.v }; return r; }
-static inline union __v1l __v1l_mul(union __v1l a, union __v1l b) { union __v1l r = { v: a.v * b.v }; return r; }
+static inline union __v1d __v1d_mul(union __v1d a, union __v1d b) { union __v1d r = { .v = a.v * b.v }; return r; }
+static inline union __v1f __v1f_mul(union __v1f a, union __v1f b) { union __v1f r = { .v = a.v * b.v }; return r; }
+static inline union __v1i __v1i_mul(union __v1i a, union __v1i b) { union __v1i r = { .v = a.v * b.v }; return r; }
+static inline union __v1l __v1l_mul(union __v1l a, union __v1l b) { union __v1l r = { .v = a.v * b.v }; return r; }
 static inline v2d __v2d_mul(v2d a, v2d b) { return v2d_merge2_v1d(v1d_mul(v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_mul(v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
 static inline v2f __v2f_mul(v2f a, v2f b) { return v2f_merge2_v1f(v1f_mul(v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_mul(v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
 static inline v2i __v2i_mul(v2i a, v2i b) { return v2i_merge2_v1i(v1i_mul(v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_mul(v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
@@ -1587,10 +1587,10 @@ static inline v8l __v8l_mul(v8l a, v8l b) { return v8l_merge2_v4l(v4l_mul(v4l_ge
 static inline v16f __v16f_mul(v16f a, v16f b) { return v16f_merge2_v8f(v8f_mul(v8f_get_low_v16f(a), v8f_get_low_v16f(b)), v8f_mul(v8f_get_high_v16f(a), v8f_get_high_v16f(b))); }
 static inline v16i __v16i_mul(v16i a, v16i b) { return v16i_merge2_v8i(v8i_mul(v8i_get_low_v16i(a), v8i_get_low_v16i(b)), v8i_mul(v8i_get_high_v16i(a), v8i_get_high_v16i(b))); }
 
-static inline union __v1d __v1d_div(union __v1d a, union __v1d b) { union __v1d r = { v: a.v / b.v }; return r; }
-static inline union __v1f __v1f_div(union __v1f a, union __v1f b) { union __v1f r = { v: a.v / b.v }; return r; }
-static inline union __v1i __v1i_div(union __v1i a, union __v1i b) { union __v1i r = { v: a.v / b.v }; return r; }
-static inline union __v1l __v1l_div(union __v1l a, union __v1l b) { union __v1l r = { v: a.v / b.v }; return r; }
+static inline union __v1d __v1d_div(union __v1d a, union __v1d b) { union __v1d r = { .v = a.v / b.v }; return r; }
+static inline union __v1f __v1f_div(union __v1f a, union __v1f b) { union __v1f r = { .v = a.v / b.v }; return r; }
+static inline union __v1i __v1i_div(union __v1i a, union __v1i b) { union __v1i r = { .v = a.v / b.v }; return r; }
+static inline union __v1l __v1l_div(union __v1l a, union __v1l b) { union __v1l r = { .v = a.v / b.v }; return r; }
 static inline v2d __v2d_div(v2d a, v2d b) { return v2d_merge2_v1d(v1d_div(v1d_get_low_v2d(a), v1d_get_low_v2d(b)), v1d_div(v1d_get_high_v2d(a), v1d_get_high_v2d(b))); }
 static inline v2f __v2f_div(v2f a, v2f b) { return v2f_merge2_v1f(v1f_div(v1f_get_low_v2f(a), v1f_get_low_v2f(b)), v1f_div(v1f_get_high_v2f(a), v1f_get_high_v2f(b))); }
 static inline v2i __v2i_div(v2i a, v2i b) { return v2i_merge2_v1i(v1i_div(v1i_get_low_v2i(a), v1i_get_low_v2i(b)), v1i_div(v1i_get_high_v2i(a), v1i_get_high_v2i(b))); }
@@ -1608,8 +1608,8 @@ static inline v16i __v16i_div(v16i a, v16i b) { return v16i_merge2_v8i(v8i_div(v
 
 
 
-static inline union __v1d __v1d_sqrt(union __v1d a) { union __v1d r = { v: sqrt(a.v) }; return r; }
-static inline union __v1f __v1f_sqrt(union __v1f a) { union __v1f r = { v: sqrt(a.v) }; return r; }
+static inline union __v1d __v1d_sqrt(union __v1d a) { union __v1d r = { .v = sqrt(a.v) }; return r; }
+static inline union __v1f __v1f_sqrt(union __v1f a) { union __v1f r = { .v = sqrt(a.v) }; return r; }
 static inline v1i __v1i_sqrt(v1i a) { return v1i_cvt_v1f(v1f_sqrt(v1f_cvt_v1i(a))); }
 static inline v1l __v1l_sqrt(v1l a) { return v1l_cvt_v1d(v1d_sqrt(v1d_cvt_v1l(a))); }
 static inline v2d __v2d_sqrt(v2d a) { return v2d_merge2_v1d(v1d_sqrt(v1d_get_low_v2d(a)), v1d_sqrt(v1d_get_high_v2d(a))); }
@@ -1636,117 +1636,103 @@ static inline v16i __v16i_sqrt(v16i a) { return v16i_cvt_v16f(v16f_sqrt(v16f_cvt
 
 /* MERGES */
 
-static inline struct __v2d __v2d_merge2_v1d(v1d a0, v1d a1) { struct __v2d r = { a: a0, b: a1 }; return r; }
-static inline struct __v2f __v2f_merge2_v1f(v1f a0, v1f a1) { struct __v2f r = { a: a0, b: a1 }; return r; }
-static inline struct __v2i __v2i_merge2_v1i(v1i a0, v1i a1) { struct __v2i r = { a: a0, b: a1 }; return r; }
-static inline struct __v2l __v2l_merge2_v1l(v1l a0, v1l a1) { struct __v2l r = { a: a0, b: a1 }; return r; }
-static inline struct __v4d __v4d_merge2_v2d(v2d a0, v2d a1) { struct __v4d r = { a: a0, b: a1 }; return r; }
-static inline struct __v4f __v4f_merge2_v2f(v2f a0, v2f a1) { struct __v4f r = { a: a0, b: a1 }; return r; }
-static inline struct __v4i __v4i_merge2_v2i(v2i a0, v2i a1) { struct __v4i r = { a: a0, b: a1 }; return r; }
-static inline struct __v4l __v4l_merge2_v2l(v2l a0, v2l a1) { struct __v4l r = { a: a0, b: a1 }; return r; }
-static inline struct __v8d __v8d_merge2_v4d(v4d a0, v4d a1) { struct __v8d r = { a: a0, b: a1 }; return r; }
-static inline struct __v8f __v8f_merge2_v4f(v4f a0, v4f a1) { struct __v8f r = { a: a0, b: a1 }; return r; }
-static inline struct __v8i __v8i_merge2_v4i(v4i a0, v4i a1) { struct __v8i r = { a: a0, b: a1 }; return r; }
-static inline struct __v8l __v8l_merge2_v4l(v4l a0, v4l a1) { struct __v8l r = { a: a0, b: a1 }; return r; }
-static inline struct __v16f __v16f_merge2_v8f(v8f a0, v8f a1) { struct __v16f r = { a: a0, b: a1 }; return r; }
-static inline struct __v16i __v16i_merge2_v8i(v8i a0, v8i a1) { struct __v16i r = { a: a0, b: a1 }; return r; }
+static inline struct __v2d __v2d_merge2_v1d(v1d a0, v1d a1) { struct __v2d r = { .a = a0, .b = a1 }; return r; }
+static inline struct __v2f __v2f_merge2_v1f(v1f a0, v1f a1) { struct __v2f r = { .a = a0, .b = a1 }; return r; }
+static inline struct __v2i __v2i_merge2_v1i(v1i a0, v1i a1) { struct __v2i r = { .a = a0, .b = a1 }; return r; }
+static inline struct __v2l __v2l_merge2_v1l(v1l a0, v1l a1) { struct __v2l r = { .a = a0, .b = a1 }; return r; }
+static inline struct __v4d __v4d_merge2_v2d(v2d a0, v2d a1) { struct __v4d r = { .a = a0, .b = a1 }; return r; }
+static inline struct __v4f __v4f_merge2_v2f(v2f a0, v2f a1) { struct __v4f r = { .a = a0, .b = a1 }; return r; }
+static inline struct __v4i __v4i_merge2_v2i(v2i a0, v2i a1) { struct __v4i r = { .a = a0, .b = a1 }; return r; }
+static inline struct __v4l __v4l_merge2_v2l(v2l a0, v2l a1) { struct __v4l r = { .a = a0, .b = a1 }; return r; }
+static inline struct __v8d __v8d_merge2_v4d(v4d a0, v4d a1) { struct __v8d r = { .a = a0, .b = a1 }; return r; }
+static inline struct __v8f __v8f_merge2_v4f(v4f a0, v4f a1) { struct __v8f r = { .a = a0, .b = a1 }; return r; }
+static inline struct __v8i __v8i_merge2_v4i(v4i a0, v4i a1) { struct __v8i r = { .a = a0, .b = a1 }; return r; }
+static inline struct __v8l __v8l_merge2_v4l(v4l a0, v4l a1) { struct __v8l r = { .a = a0, .b = a1 }; return r; }
+static inline struct __v16f __v16f_merge2_v8f(v8f a0, v8f a1) { struct __v16f r = { .a = a0, .b = a1 }; return r; }
+static inline struct __v16i __v16i_merge2_v8i(v8i a0, v8i a1) { struct __v16i r = { .a = a0, .b = a1 }; return r; }
 
 
 
 
 static inline v2d compatible_v2d_merge_v1d(v1d low, v1d high) {
-  int i;
   PINTS_ALIGNED_ARRAY(double, v, 2, 2*sizeof(double));
   v1d_store(v, low);
   v1d_store(v + 1, high);
   return v2d_load(v);
 }
 static inline v2f compatible_v2f_merge_v1f(v1f low, v1f high) {
-  int i;
   PINTS_ALIGNED_ARRAY(float, v, 2, 2*sizeof(float));
   v1f_store(v, low);
   v1f_store(v + 1, high);
   return v2f_load(v);
 }
 static inline v2i compatible_v2i_merge_v1i(v1i low, v1i high) {
-  int i;
   PINTS_ALIGNED_ARRAY(int32_t, v, 2, 2*sizeof(int32_t));
   v1i_store(v, low);
   v1i_store(v + 1, high);
   return v2i_load(v);
 }
 static inline v2l compatible_v2l_merge_v1l(v1l low, v1l high) {
-  int i;
   PINTS_ALIGNED_ARRAY(int64_t, v, 2, 2*sizeof(int64_t));
   v1l_store(v, low);
   v1l_store(v + 1, high);
   return v2l_load(v);
 }
 static inline v4d compatible_v4d_merge_v2d(v2d low, v2d high) {
-  int i;
   PINTS_ALIGNED_ARRAY(double, v, 4, 4*sizeof(double));
   v2d_store(v, low);
   v2d_store(v + 2, high);
   return v4d_load(v);
 }
 static inline v4f compatible_v4f_merge_v2f(v2f low, v2f high) {
-  int i;
   PINTS_ALIGNED_ARRAY(float, v, 4, 4*sizeof(float));
   v2f_store(v, low);
   v2f_store(v + 2, high);
   return v4f_load(v);
 }
 static inline v4i compatible_v4i_merge_v2i(v2i low, v2i high) {
-  int i;
   PINTS_ALIGNED_ARRAY(int32_t, v, 4, 4*sizeof(int32_t));
   v2i_store(v, low);
   v2i_store(v + 2, high);
   return v4i_load(v);
 }
 static inline v4l compatible_v4l_merge_v2l(v2l low, v2l high) {
-  int i;
   PINTS_ALIGNED_ARRAY(int64_t, v, 4, 4*sizeof(int64_t));
   v2l_store(v, low);
   v2l_store(v + 2, high);
   return v4l_load(v);
 }
 static inline v8d compatible_v8d_merge_v4d(v4d low, v4d high) {
-  int i;
   PINTS_ALIGNED_ARRAY(double, v, 8, 8*sizeof(double));
   v4d_store(v, low);
   v4d_store(v + 4, high);
   return v8d_load(v);
 }
 static inline v8f compatible_v8f_merge_v4f(v4f low, v4f high) {
-  int i;
   PINTS_ALIGNED_ARRAY(float, v, 8, 8*sizeof(float));
   v4f_store(v, low);
   v4f_store(v + 4, high);
   return v8f_load(v);
 }
 static inline v8i compatible_v8i_merge_v4i(v4i low, v4i high) {
-  int i;
   PINTS_ALIGNED_ARRAY(int32_t, v, 8, 8*sizeof(int32_t));
   v4i_store(v, low);
   v4i_store(v + 4, high);
   return v8i_load(v);
 }
 static inline v8l compatible_v8l_merge_v4l(v4l low, v4l high) {
-  int i;
   PINTS_ALIGNED_ARRAY(int64_t, v, 8, 8*sizeof(int64_t));
   v4l_store(v, low);
   v4l_store(v + 4, high);
   return v8l_load(v);
 }
 static inline v16f compatible_v16f_merge_v8f(v8f low, v8f high) {
-  int i;
   PINTS_ALIGNED_ARRAY(float, v, 16, 16*sizeof(float));
   v8f_store(v, low);
   v8f_store(v + 8, high);
   return v16f_load(v);
 }
 static inline v16i compatible_v16i_merge_v8i(v8i low, v8i high) {
-  int i;
   PINTS_ALIGNED_ARRAY(int32_t, v, 16, 16*sizeof(int32_t));
   v8i_store(v, low);
   v8i_store(v + 8, high);
@@ -1770,169 +1756,141 @@ static inline v4l __v4l_get_high_v8l(struct __v8l a) { return a.b; }
 static inline v8f __v8f_get_high_v16f(struct __v16f a) { return a.b; }
 static inline v8i __v8i_get_high_v16i(struct __v16i a) { return a.b; }
 static inline v1d compatible_v1d_get_low_v2d(v2d a) {
-  int i;
   PINTS_ALIGNED_ARRAY(double, v, 2, 2*sizeof(double));
   v2d_store(v, a);
   return v1d_load(v);
 }
 static inline v1f compatible_v1f_get_low_v2f(v2f a) {
-  int i;
   PINTS_ALIGNED_ARRAY(float, v, 2, 2*sizeof(float));
   v2f_store(v, a);
   return v1f_load(v);
 }
 static inline v1i compatible_v1i_get_low_v2i(v2i a) {
-  int i;
   PINTS_ALIGNED_ARRAY(int32_t, v, 2, 2*sizeof(int32_t));
   v2i_store(v, a);
   return v1i_load(v);
 }
 static inline v1l compatible_v1l_get_low_v2l(v2l a) {
-  int i;
   PINTS_ALIGNED_ARRAY(int64_t, v, 2, 2*sizeof(int64_t));
   v2l_store(v, a);
   return v1l_load(v);
 }
 static inline v2d compatible_v2d_get_low_v4d(v4d a) {
-  int i;
   PINTS_ALIGNED_ARRAY(double, v, 4, 4*sizeof(double));
   v4d_store(v, a);
   return v2d_load(v);
 }
 static inline v2f compatible_v2f_get_low_v4f(v4f a) {
-  int i;
   PINTS_ALIGNED_ARRAY(float, v, 4, 4*sizeof(float));
   v4f_store(v, a);
   return v2f_load(v);
 }
 static inline v2i compatible_v2i_get_low_v4i(v4i a) {
-  int i;
   PINTS_ALIGNED_ARRAY(int32_t, v, 4, 4*sizeof(int32_t));
   v4i_store(v, a);
   return v2i_load(v);
 }
 static inline v2l compatible_v2l_get_low_v4l(v4l a) {
-  int i;
   PINTS_ALIGNED_ARRAY(int64_t, v, 4, 4*sizeof(int64_t));
   v4l_store(v, a);
   return v2l_load(v);
 }
 static inline v4d compatible_v4d_get_low_v8d(v8d a) {
-  int i;
   PINTS_ALIGNED_ARRAY(double, v, 8, 8*sizeof(double));
   v8d_store(v, a);
   return v4d_load(v);
 }
 static inline v4f compatible_v4f_get_low_v8f(v8f a) {
-  int i;
   PINTS_ALIGNED_ARRAY(float, v, 8, 8*sizeof(float));
   v8f_store(v, a);
   return v4f_load(v);
 }
 static inline v4i compatible_v4i_get_low_v8i(v8i a) {
-  int i;
   PINTS_ALIGNED_ARRAY(int32_t, v, 8, 8*sizeof(int32_t));
   v8i_store(v, a);
   return v4i_load(v);
 }
 static inline v4l compatible_v4l_get_low_v8l(v8l a) {
-  int i;
   PINTS_ALIGNED_ARRAY(int64_t, v, 8, 8*sizeof(int64_t));
   v8l_store(v, a);
   return v4l_load(v);
 }
 static inline v8f compatible_v8f_get_low_v16f(v16f a) {
-  int i;
   PINTS_ALIGNED_ARRAY(float, v, 16, 16*sizeof(float));
   v16f_store(v, a);
   return v8f_load(v);
 }
 static inline v8i compatible_v8i_get_low_v16i(v16i a) {
-  int i;
   PINTS_ALIGNED_ARRAY(int32_t, v, 16, 16*sizeof(int32_t));
   v16i_store(v, a);
   return v8i_load(v);
 }
 static inline v1d compatible_v1d_get_high_v2d(v2d a) {
-  int i;
   PINTS_ALIGNED_ARRAY(double, v, 2, 2*sizeof(double));
   v2d_store(v, a);
   return v1d_load(v+1);
 }
 static inline v1f compatible_v1f_get_high_v2f(v2f a) {
-  int i;
   PINTS_ALIGNED_ARRAY(float, v, 2, 2*sizeof(float));
   v2f_store(v, a);
   return v1f_load(v+1);
 }
 static inline v1i compatible_v1i_get_high_v2i(v2i a) {
-  int i;
   PINTS_ALIGNED_ARRAY(int32_t, v, 2, 2*sizeof(int32_t));
   v2i_store(v, a);
   return v1i_load(v+1);
 }
 static inline v1l compatible_v1l_get_high_v2l(v2l a) {
-  int i;
   PINTS_ALIGNED_ARRAY(int64_t, v, 2, 2*sizeof(int64_t));
   v2l_store(v, a);
   return v1l_load(v+1);
 }
 static inline v2d compatible_v2d_get_high_v4d(v4d a) {
-  int i;
   PINTS_ALIGNED_ARRAY(double, v, 4, 4*sizeof(double));
   v4d_store(v, a);
   return v2d_load(v+2);
 }
 static inline v2f compatible_v2f_get_high_v4f(v4f a) {
-  int i;
   PINTS_ALIGNED_ARRAY(float, v, 4, 4*sizeof(float));
   v4f_store(v, a);
   return v2f_load(v+2);
 }
 static inline v2i compatible_v2i_get_high_v4i(v4i a) {
-  int i;
   PINTS_ALIGNED_ARRAY(int32_t, v, 4, 4*sizeof(int32_t));
   v4i_store(v, a);
   return v2i_load(v+2);
 }
 static inline v2l compatible_v2l_get_high_v4l(v4l a) {
-  int i;
   PINTS_ALIGNED_ARRAY(int64_t, v, 4, 4*sizeof(int64_t));
   v4l_store(v, a);
   return v2l_load(v+2);
 }
 static inline v4d compatible_v4d_get_high_v8d(v8d a) {
-  int i;
   PINTS_ALIGNED_ARRAY(double, v, 8, 8*sizeof(double));
   v8d_store(v, a);
   return v4d_load(v+4);
 }
 static inline v4f compatible_v4f_get_high_v8f(v8f a) {
-  int i;
   PINTS_ALIGNED_ARRAY(float, v, 8, 8*sizeof(float));
   v8f_store(v, a);
   return v4f_load(v+4);
 }
 static inline v4i compatible_v4i_get_high_v8i(v8i a) {
-  int i;
   PINTS_ALIGNED_ARRAY(int32_t, v, 8, 8*sizeof(int32_t));
   v8i_store(v, a);
   return v4i_load(v+4);
 }
 static inline v4l compatible_v4l_get_high_v8l(v8l a) {
-  int i;
   PINTS_ALIGNED_ARRAY(int64_t, v, 8, 8*sizeof(int64_t));
   v8l_store(v, a);
   return v4l_load(v+4);
 }
 static inline v8f compatible_v8f_get_high_v16f(v16f a) {
-  int i;
   PINTS_ALIGNED_ARRAY(float, v, 16, 16*sizeof(float));
   v16f_store(v, a);
   return v8f_load(v+8);
 }
 static inline v8i compatible_v8i_get_high_v16i(v16i a) {
-  int i;
   PINTS_ALIGNED_ARRAY(int32_t, v, 16, 16*sizeof(int32_t));
   v16i_store(v, a);
   return v8i_load(v+8);
@@ -2327,31 +2285,31 @@ static inline void __v16i_rfprintf(FILE *file, v16i a, const char* format) {
 
 /* CASTS */
 
-static inline struct __v2d __v2d_cast_v1d(v1d a) { struct __v2d r = { a: a }; return r; }
-static inline struct __v2f __v2f_cast_v1f(v1f a) { struct __v2f r = { a: a }; return r; }
-static inline struct __v2i __v2i_cast_v1i(v1i a) { struct __v2i r = { a: a }; return r; }
-static inline struct __v2l __v2l_cast_v1l(v1l a) { struct __v2l r = { a: a }; return r; }
+static inline struct __v2d __v2d_cast_v1d(v1d a) { struct __v2d r = { .a = a }; return r; }
+static inline struct __v2f __v2f_cast_v1f(v1f a) { struct __v2f r = { .a = a }; return r; }
+static inline struct __v2i __v2i_cast_v1i(v1i a) { struct __v2i r = { .a = a }; return r; }
+static inline struct __v2l __v2l_cast_v1l(v1l a) { struct __v2l r = { .a = a }; return r; }
 static inline v1d __v1d_cast_v2d(struct __v2d a) { return a.a; }
-static inline struct __v4d __v4d_cast_v2d(v2d a) { struct __v4d r = { a: a }; return r; }
+static inline struct __v4d __v4d_cast_v2d(v2d a) { struct __v4d r = { .a = a }; return r; }
 static inline v1f __v1f_cast_v2f(struct __v2f a) { return a.a; }
-static inline struct __v4f __v4f_cast_v2f(v2f a) { struct __v4f r = { a: a }; return r; }
+static inline struct __v4f __v4f_cast_v2f(v2f a) { struct __v4f r = { .a = a }; return r; }
 static inline v1i __v1i_cast_v2i(struct __v2i a) { return a.a; }
-static inline struct __v4i __v4i_cast_v2i(v2i a) { struct __v4i r = { a: a }; return r; }
+static inline struct __v4i __v4i_cast_v2i(v2i a) { struct __v4i r = { .a = a }; return r; }
 static inline v1l __v1l_cast_v2l(struct __v2l a) { return a.a; }
-static inline struct __v4l __v4l_cast_v2l(v2l a) { struct __v4l r = { a: a }; return r; }
+static inline struct __v4l __v4l_cast_v2l(v2l a) { struct __v4l r = { .a = a }; return r; }
 static inline v2d __v2d_cast_v4d(struct __v4d a) { return a.a; }
-static inline struct __v8d __v8d_cast_v4d(v4d a) { struct __v8d r = { a: a }; return r; }
+static inline struct __v8d __v8d_cast_v4d(v4d a) { struct __v8d r = { .a = a }; return r; }
 static inline v2f __v2f_cast_v4f(struct __v4f a) { return a.a; }
-static inline struct __v8f __v8f_cast_v4f(v4f a) { struct __v8f r = { a: a }; return r; }
+static inline struct __v8f __v8f_cast_v4f(v4f a) { struct __v8f r = { .a = a }; return r; }
 static inline v2i __v2i_cast_v4i(struct __v4i a) { return a.a; }
-static inline struct __v8i __v8i_cast_v4i(v4i a) { struct __v8i r = { a: a }; return r; }
+static inline struct __v8i __v8i_cast_v4i(v4i a) { struct __v8i r = { .a = a }; return r; }
 static inline v2l __v2l_cast_v4l(struct __v4l a) { return a.a; }
-static inline struct __v8l __v8l_cast_v4l(v4l a) { struct __v8l r = { a: a }; return r; }
+static inline struct __v8l __v8l_cast_v4l(v4l a) { struct __v8l r = { .a = a }; return r; }
 static inline v4d __v4d_cast_v8d(struct __v8d a) { return a.a; }
 static inline v4f __v4f_cast_v8f(struct __v8f a) { return a.a; }
-static inline struct __v16f __v16f_cast_v8f(v8f a) { struct __v16f r = { a: a }; return r; }
+static inline struct __v16f __v16f_cast_v8f(v8f a) { struct __v16f r = { .a = a }; return r; }
 static inline v4i __v4i_cast_v8i(struct __v8i a) { return a.a; }
-static inline struct __v16i __v16i_cast_v8i(v8i a) { struct __v16i r = { a: a }; return r; }
+static inline struct __v16i __v16i_cast_v8i(v8i a) { struct __v16i r = { .a = a }; return r; }
 static inline v4l __v4l_cast_v8l(struct __v8l a) { return a.a; }
 static inline v8f __v8f_cast_v16f(struct __v16f a) { return a.a; }
 static inline v8i __v8i_cast_v16i(struct __v16i a) { return a.a; }
@@ -2359,24 +2317,24 @@ static inline v8i __v8i_cast_v16i(struct __v16i a) { return a.a; }
 
 /* CONVERTS */
 
-static inline v1f __v1f_cvt_v1d(v1d a) { float sv1f; double sv1d; v1d_store(&sv1d, a); sv1f = sv1d; return v1f_load(&sv1f); }
-static inline v1i __v1i_cvt_v1d(v1d a) { int32_t sv1i; double sv1d; v1d_store(&sv1d, a); sv1i = sv1d; return v1i_load(&sv1i); }
-static inline v1l __v1l_cvt_v1d(v1d a) { int64_t sv1l; double sv1d; v1d_store(&sv1d, a); sv1l = sv1d; return v1l_load(&sv1l); }
-static inline v1d __v1d_cvt_v1f(v1f a) { double sv1d; float sv1f; v1f_store(&sv1f, a); sv1d = sv1f; return v1d_load(&sv1d); }
-static inline v1i __v1i_cvt_v1f(v1f a) { int32_t sv1i; float sv1f; v1f_store(&sv1f, a); sv1i = sv1f; return v1i_load(&sv1i); }
-static inline v1l __v1l_cvt_v1f(v1f a) { int64_t sv1l; float sv1f; v1f_store(&sv1f, a); sv1l = sv1f; return v1l_load(&sv1l); }
-static inline v1d __v1d_cvt_v1i(v1i a) { double sv1d; int32_t sv1i; v1i_store(&sv1i, a); sv1d = sv1i; return v1d_load(&sv1d); }
-static inline v1f __v1f_cvt_v1i(v1i a) { float sv1f; int32_t sv1i; v1i_store(&sv1i, a); sv1f = sv1i; return v1f_load(&sv1f); }
-static inline v1l __v1l_cvt_v1i(v1i a) { int64_t sv1l; int32_t sv1i; v1i_store(&sv1i, a); sv1l = sv1i; return v1l_load(&sv1l); }
-static inline v1d __v1d_cvt_v1l(v1l a) { double sv1d; int64_t sv1l; v1l_store(&sv1l, a); sv1d = sv1l; return v1d_load(&sv1d); }
-static inline v1f __v1f_cvt_v1l(v1l a) { float sv1f; int64_t sv1l; v1l_store(&sv1l, a); sv1f = sv1l; return v1f_load(&sv1f); }
-static inline v1i __v1i_cvt_v1l(v1l a) { int32_t sv1i; int64_t sv1l; v1l_store(&sv1l, a); sv1i = sv1l; return v1i_load(&sv1i); }
+static inline v1f __v1f_cvt_v1d(v1d a) { float sv1f; double sv1d; v1d_store(&sv1d, a); sv1f = (float) sv1d; return v1f_load(&sv1f); }
+static inline v1i __v1i_cvt_v1d(v1d a) { int32_t sv1i; double sv1d; v1d_store(&sv1d, a); sv1i = (int32_t) sv1d; return v1i_load(&sv1i); }
+static inline v1l __v1l_cvt_v1d(v1d a) { int64_t sv1l; double sv1d; v1d_store(&sv1d, a); sv1l = (int64_t) sv1d; return v1l_load(&sv1l); }
+static inline v1d __v1d_cvt_v1f(v1f a) { double sv1d; float sv1f; v1f_store(&sv1f, a); sv1d = (double) sv1f; return v1d_load(&sv1d); }
+static inline v1i __v1i_cvt_v1f(v1f a) { int32_t sv1i; float sv1f; v1f_store(&sv1f, a); sv1i = (int32_t) sv1f; return v1i_load(&sv1i); }
+static inline v1l __v1l_cvt_v1f(v1f a) { int64_t sv1l; float sv1f; v1f_store(&sv1f, a); sv1l = (int64_t) sv1f; return v1l_load(&sv1l); }
+static inline v1d __v1d_cvt_v1i(v1i a) { double sv1d; int32_t sv1i; v1i_store(&sv1i, a); sv1d = (double) sv1i; return v1d_load(&sv1d); }
+static inline v1f __v1f_cvt_v1i(v1i a) { float sv1f; int32_t sv1i; v1i_store(&sv1i, a); sv1f = (float) sv1i; return v1f_load(&sv1f); }
+static inline v1l __v1l_cvt_v1i(v1i a) { int64_t sv1l; int32_t sv1i; v1i_store(&sv1i, a); sv1l = (int64_t) sv1i; return v1l_load(&sv1l); }
+static inline v1d __v1d_cvt_v1l(v1l a) { double sv1d; int64_t sv1l; v1l_store(&sv1l, a); sv1d = (double) sv1l; return v1d_load(&sv1d); }
+static inline v1f __v1f_cvt_v1l(v1l a) { float sv1f; int64_t sv1l; v1l_store(&sv1l, a); sv1f = (float) sv1l; return v1f_load(&sv1f); }
+static inline v1i __v1i_cvt_v1l(v1l a) { int32_t sv1i; int64_t sv1l; v1l_store(&sv1l, a); sv1i = (int32_t) sv1l; return v1i_load(&sv1i); }
 
 
-static inline double __sd_cvt_v1d(v1d a) { double sv1d; v1d_store(&sv1d, a); return sv1d; }
-static inline float __sf_cvt_v1f(v1f a) { float sv1f; v1f_store(&sv1f, a); return sv1f; }
-static inline int32_t __si_cvt_v1i(v1i a) { int32_t sv1i; v1i_store(&sv1i, a); return sv1i; }
-static inline int64_t __sl_cvt_v1l(v1l a) { int64_t sv1l; v1l_store(&sv1l, a); return sv1l; }
+static inline double __sd_cvt_v1d(v1d a) { double sv1d; v1d_store(&sv1d, a); return (double) sv1d; }
+static inline float __sf_cvt_v1f(v1f a) { float sv1f; v1f_store(&sv1f, a); return (float) sv1f; }
+static inline int32_t __si_cvt_v1i(v1i a) { int32_t sv1i; v1i_store(&sv1i, a); return (int32_t) sv1i; }
+static inline int64_t __sl_cvt_v1l(v1l a) { int64_t sv1l; v1l_store(&sv1l, a); return (int64_t) sv1l; }
 
 
 
@@ -2387,7 +2345,7 @@ static inline v1d compatible_v1d_cvt_v1d(v1d a) {
   PINTS_ALIGNED_ARRAY(double, vto, 1, 1*sizeof(double));
   PINTS_ALIGNED_ARRAY(double, vfrom, 1, 1*sizeof(double));
   v1d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v1d_load(vto);
 }
 static inline v1f compatible_v1f_cvt_v1d(v1d a) {
@@ -2395,7 +2353,7 @@ static inline v1f compatible_v1f_cvt_v1d(v1d a) {
   PINTS_ALIGNED_ARRAY(float, vto, 1, 1*sizeof(float));
   PINTS_ALIGNED_ARRAY(double, vfrom, 1, 1*sizeof(double));
   v1d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v1f_load(vto);
 }
 static inline v1i compatible_v1i_cvt_v1d(v1d a) {
@@ -2403,7 +2361,7 @@ static inline v1i compatible_v1i_cvt_v1d(v1d a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 1, 1*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 1, 1*sizeof(double));
   v1d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v1i_load(vto);
 }
 static inline v1l compatible_v1l_cvt_v1d(v1d a) {
@@ -2411,7 +2369,7 @@ static inline v1l compatible_v1l_cvt_v1d(v1d a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 1, 1*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 1, 1*sizeof(double));
   v1d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v1l_load(vto);
 }
 static inline v2d compatible_v2d_cvt_v1d(v1d a) {
@@ -2419,7 +2377,7 @@ static inline v2d compatible_v2d_cvt_v1d(v1d a) {
   PINTS_ALIGNED_ARRAY(double, vto, 2, 2*sizeof(double));
   PINTS_ALIGNED_ARRAY(double, vfrom, 1, 1*sizeof(double));
   v1d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v2d_load(vto);
 }
 static inline v2f compatible_v2f_cvt_v1d(v1d a) {
@@ -2427,7 +2385,7 @@ static inline v2f compatible_v2f_cvt_v1d(v1d a) {
   PINTS_ALIGNED_ARRAY(float, vto, 2, 2*sizeof(float));
   PINTS_ALIGNED_ARRAY(double, vfrom, 1, 1*sizeof(double));
   v1d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v2f_load(vto);
 }
 static inline v2i compatible_v2i_cvt_v1d(v1d a) {
@@ -2435,7 +2393,7 @@ static inline v2i compatible_v2i_cvt_v1d(v1d a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 2, 2*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 1, 1*sizeof(double));
   v1d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v2i_load(vto);
 }
 static inline v2l compatible_v2l_cvt_v1d(v1d a) {
@@ -2443,7 +2401,7 @@ static inline v2l compatible_v2l_cvt_v1d(v1d a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 2, 2*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 1, 1*sizeof(double));
   v1d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v2l_load(vto);
 }
 static inline v4d compatible_v4d_cvt_v1d(v1d a) {
@@ -2451,7 +2409,7 @@ static inline v4d compatible_v4d_cvt_v1d(v1d a) {
   PINTS_ALIGNED_ARRAY(double, vto, 4, 4*sizeof(double));
   PINTS_ALIGNED_ARRAY(double, vfrom, 1, 1*sizeof(double));
   v1d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v4d_load(vto);
 }
 static inline v4f compatible_v4f_cvt_v1d(v1d a) {
@@ -2459,7 +2417,7 @@ static inline v4f compatible_v4f_cvt_v1d(v1d a) {
   PINTS_ALIGNED_ARRAY(float, vto, 4, 4*sizeof(float));
   PINTS_ALIGNED_ARRAY(double, vfrom, 1, 1*sizeof(double));
   v1d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v4f_load(vto);
 }
 static inline v4i compatible_v4i_cvt_v1d(v1d a) {
@@ -2467,7 +2425,7 @@ static inline v4i compatible_v4i_cvt_v1d(v1d a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 4, 4*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 1, 1*sizeof(double));
   v1d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v4i_load(vto);
 }
 static inline v4l compatible_v4l_cvt_v1d(v1d a) {
@@ -2475,7 +2433,7 @@ static inline v4l compatible_v4l_cvt_v1d(v1d a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 4, 4*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 1, 1*sizeof(double));
   v1d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v4l_load(vto);
 }
 static inline v8d compatible_v8d_cvt_v1d(v1d a) {
@@ -2483,7 +2441,7 @@ static inline v8d compatible_v8d_cvt_v1d(v1d a) {
   PINTS_ALIGNED_ARRAY(double, vto, 8, 8*sizeof(double));
   PINTS_ALIGNED_ARRAY(double, vfrom, 1, 1*sizeof(double));
   v1d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v8d_load(vto);
 }
 static inline v8f compatible_v8f_cvt_v1d(v1d a) {
@@ -2491,7 +2449,7 @@ static inline v8f compatible_v8f_cvt_v1d(v1d a) {
   PINTS_ALIGNED_ARRAY(float, vto, 8, 8*sizeof(float));
   PINTS_ALIGNED_ARRAY(double, vfrom, 1, 1*sizeof(double));
   v1d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v8f_load(vto);
 }
 static inline v8i compatible_v8i_cvt_v1d(v1d a) {
@@ -2499,7 +2457,7 @@ static inline v8i compatible_v8i_cvt_v1d(v1d a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 8, 8*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 1, 1*sizeof(double));
   v1d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v8i_load(vto);
 }
 static inline v8l compatible_v8l_cvt_v1d(v1d a) {
@@ -2507,7 +2465,7 @@ static inline v8l compatible_v8l_cvt_v1d(v1d a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 8, 8*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 1, 1*sizeof(double));
   v1d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v8l_load(vto);
 }
 static inline v16f compatible_v16f_cvt_v1d(v1d a) {
@@ -2515,7 +2473,7 @@ static inline v16f compatible_v16f_cvt_v1d(v1d a) {
   PINTS_ALIGNED_ARRAY(float, vto, 16, 16*sizeof(float));
   PINTS_ALIGNED_ARRAY(double, vfrom, 1, 1*sizeof(double));
   v1d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v16f_load(vto);
 }
 static inline v16i compatible_v16i_cvt_v1d(v1d a) {
@@ -2523,7 +2481,7 @@ static inline v16i compatible_v16i_cvt_v1d(v1d a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 16, 16*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 1, 1*sizeof(double));
   v1d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v16i_load(vto);
 }
 static inline v1d compatible_v1d_cvt_v1f(v1f a) {
@@ -2531,7 +2489,7 @@ static inline v1d compatible_v1d_cvt_v1f(v1f a) {
   PINTS_ALIGNED_ARRAY(double, vto, 1, 1*sizeof(double));
   PINTS_ALIGNED_ARRAY(float, vfrom, 1, 1*sizeof(float));
   v1f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v1d_load(vto);
 }
 static inline v1f compatible_v1f_cvt_v1f(v1f a) {
@@ -2539,7 +2497,7 @@ static inline v1f compatible_v1f_cvt_v1f(v1f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 1, 1*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 1, 1*sizeof(float));
   v1f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v1f_load(vto);
 }
 static inline v1i compatible_v1i_cvt_v1f(v1f a) {
@@ -2547,7 +2505,7 @@ static inline v1i compatible_v1i_cvt_v1f(v1f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 1, 1*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 1, 1*sizeof(float));
   v1f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v1i_load(vto);
 }
 static inline v1l compatible_v1l_cvt_v1f(v1f a) {
@@ -2555,7 +2513,7 @@ static inline v1l compatible_v1l_cvt_v1f(v1f a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 1, 1*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 1, 1*sizeof(float));
   v1f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v1l_load(vto);
 }
 static inline v2d compatible_v2d_cvt_v1f(v1f a) {
@@ -2563,7 +2521,7 @@ static inline v2d compatible_v2d_cvt_v1f(v1f a) {
   PINTS_ALIGNED_ARRAY(double, vto, 2, 2*sizeof(double));
   PINTS_ALIGNED_ARRAY(float, vfrom, 1, 1*sizeof(float));
   v1f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v2d_load(vto);
 }
 static inline v2f compatible_v2f_cvt_v1f(v1f a) {
@@ -2571,7 +2529,7 @@ static inline v2f compatible_v2f_cvt_v1f(v1f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 2, 2*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 1, 1*sizeof(float));
   v1f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v2f_load(vto);
 }
 static inline v2i compatible_v2i_cvt_v1f(v1f a) {
@@ -2579,7 +2537,7 @@ static inline v2i compatible_v2i_cvt_v1f(v1f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 2, 2*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 1, 1*sizeof(float));
   v1f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v2i_load(vto);
 }
 static inline v2l compatible_v2l_cvt_v1f(v1f a) {
@@ -2587,7 +2545,7 @@ static inline v2l compatible_v2l_cvt_v1f(v1f a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 2, 2*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 1, 1*sizeof(float));
   v1f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v2l_load(vto);
 }
 static inline v4d compatible_v4d_cvt_v1f(v1f a) {
@@ -2595,7 +2553,7 @@ static inline v4d compatible_v4d_cvt_v1f(v1f a) {
   PINTS_ALIGNED_ARRAY(double, vto, 4, 4*sizeof(double));
   PINTS_ALIGNED_ARRAY(float, vfrom, 1, 1*sizeof(float));
   v1f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v4d_load(vto);
 }
 static inline v4f compatible_v4f_cvt_v1f(v1f a) {
@@ -2603,7 +2561,7 @@ static inline v4f compatible_v4f_cvt_v1f(v1f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 4, 4*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 1, 1*sizeof(float));
   v1f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v4f_load(vto);
 }
 static inline v4i compatible_v4i_cvt_v1f(v1f a) {
@@ -2611,7 +2569,7 @@ static inline v4i compatible_v4i_cvt_v1f(v1f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 4, 4*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 1, 1*sizeof(float));
   v1f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v4i_load(vto);
 }
 static inline v4l compatible_v4l_cvt_v1f(v1f a) {
@@ -2619,7 +2577,7 @@ static inline v4l compatible_v4l_cvt_v1f(v1f a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 4, 4*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 1, 1*sizeof(float));
   v1f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v4l_load(vto);
 }
 static inline v8d compatible_v8d_cvt_v1f(v1f a) {
@@ -2627,7 +2585,7 @@ static inline v8d compatible_v8d_cvt_v1f(v1f a) {
   PINTS_ALIGNED_ARRAY(double, vto, 8, 8*sizeof(double));
   PINTS_ALIGNED_ARRAY(float, vfrom, 1, 1*sizeof(float));
   v1f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v8d_load(vto);
 }
 static inline v8f compatible_v8f_cvt_v1f(v1f a) {
@@ -2635,7 +2593,7 @@ static inline v8f compatible_v8f_cvt_v1f(v1f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 8, 8*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 1, 1*sizeof(float));
   v1f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v8f_load(vto);
 }
 static inline v8i compatible_v8i_cvt_v1f(v1f a) {
@@ -2643,7 +2601,7 @@ static inline v8i compatible_v8i_cvt_v1f(v1f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 8, 8*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 1, 1*sizeof(float));
   v1f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v8i_load(vto);
 }
 static inline v8l compatible_v8l_cvt_v1f(v1f a) {
@@ -2651,7 +2609,7 @@ static inline v8l compatible_v8l_cvt_v1f(v1f a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 8, 8*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 1, 1*sizeof(float));
   v1f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v8l_load(vto);
 }
 static inline v16f compatible_v16f_cvt_v1f(v1f a) {
@@ -2659,7 +2617,7 @@ static inline v16f compatible_v16f_cvt_v1f(v1f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 16, 16*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 1, 1*sizeof(float));
   v1f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v16f_load(vto);
 }
 static inline v16i compatible_v16i_cvt_v1f(v1f a) {
@@ -2667,7 +2625,7 @@ static inline v16i compatible_v16i_cvt_v1f(v1f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 16, 16*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 1, 1*sizeof(float));
   v1f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v16i_load(vto);
 }
 static inline v1d compatible_v1d_cvt_v1i(v1i a) {
@@ -2675,7 +2633,7 @@ static inline v1d compatible_v1d_cvt_v1i(v1i a) {
   PINTS_ALIGNED_ARRAY(double, vto, 1, 1*sizeof(double));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 1, 1*sizeof(int32_t));
   v1i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v1d_load(vto);
 }
 static inline v1f compatible_v1f_cvt_v1i(v1i a) {
@@ -2683,7 +2641,7 @@ static inline v1f compatible_v1f_cvt_v1i(v1i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 1, 1*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 1, 1*sizeof(int32_t));
   v1i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v1f_load(vto);
 }
 static inline v1i compatible_v1i_cvt_v1i(v1i a) {
@@ -2691,7 +2649,7 @@ static inline v1i compatible_v1i_cvt_v1i(v1i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 1, 1*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 1, 1*sizeof(int32_t));
   v1i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v1i_load(vto);
 }
 static inline v1l compatible_v1l_cvt_v1i(v1i a) {
@@ -2699,7 +2657,7 @@ static inline v1l compatible_v1l_cvt_v1i(v1i a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 1, 1*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 1, 1*sizeof(int32_t));
   v1i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v1l_load(vto);
 }
 static inline v2d compatible_v2d_cvt_v1i(v1i a) {
@@ -2707,7 +2665,7 @@ static inline v2d compatible_v2d_cvt_v1i(v1i a) {
   PINTS_ALIGNED_ARRAY(double, vto, 2, 2*sizeof(double));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 1, 1*sizeof(int32_t));
   v1i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v2d_load(vto);
 }
 static inline v2f compatible_v2f_cvt_v1i(v1i a) {
@@ -2715,7 +2673,7 @@ static inline v2f compatible_v2f_cvt_v1i(v1i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 2, 2*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 1, 1*sizeof(int32_t));
   v1i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v2f_load(vto);
 }
 static inline v2i compatible_v2i_cvt_v1i(v1i a) {
@@ -2723,7 +2681,7 @@ static inline v2i compatible_v2i_cvt_v1i(v1i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 2, 2*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 1, 1*sizeof(int32_t));
   v1i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v2i_load(vto);
 }
 static inline v2l compatible_v2l_cvt_v1i(v1i a) {
@@ -2731,7 +2689,7 @@ static inline v2l compatible_v2l_cvt_v1i(v1i a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 2, 2*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 1, 1*sizeof(int32_t));
   v1i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v2l_load(vto);
 }
 static inline v4d compatible_v4d_cvt_v1i(v1i a) {
@@ -2739,7 +2697,7 @@ static inline v4d compatible_v4d_cvt_v1i(v1i a) {
   PINTS_ALIGNED_ARRAY(double, vto, 4, 4*sizeof(double));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 1, 1*sizeof(int32_t));
   v1i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v4d_load(vto);
 }
 static inline v4f compatible_v4f_cvt_v1i(v1i a) {
@@ -2747,7 +2705,7 @@ static inline v4f compatible_v4f_cvt_v1i(v1i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 4, 4*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 1, 1*sizeof(int32_t));
   v1i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v4f_load(vto);
 }
 static inline v4i compatible_v4i_cvt_v1i(v1i a) {
@@ -2755,7 +2713,7 @@ static inline v4i compatible_v4i_cvt_v1i(v1i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 4, 4*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 1, 1*sizeof(int32_t));
   v1i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v4i_load(vto);
 }
 static inline v4l compatible_v4l_cvt_v1i(v1i a) {
@@ -2763,7 +2721,7 @@ static inline v4l compatible_v4l_cvt_v1i(v1i a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 4, 4*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 1, 1*sizeof(int32_t));
   v1i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v4l_load(vto);
 }
 static inline v8d compatible_v8d_cvt_v1i(v1i a) {
@@ -2771,7 +2729,7 @@ static inline v8d compatible_v8d_cvt_v1i(v1i a) {
   PINTS_ALIGNED_ARRAY(double, vto, 8, 8*sizeof(double));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 1, 1*sizeof(int32_t));
   v1i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v8d_load(vto);
 }
 static inline v8f compatible_v8f_cvt_v1i(v1i a) {
@@ -2779,7 +2737,7 @@ static inline v8f compatible_v8f_cvt_v1i(v1i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 8, 8*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 1, 1*sizeof(int32_t));
   v1i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v8f_load(vto);
 }
 static inline v8i compatible_v8i_cvt_v1i(v1i a) {
@@ -2787,7 +2745,7 @@ static inline v8i compatible_v8i_cvt_v1i(v1i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 8, 8*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 1, 1*sizeof(int32_t));
   v1i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v8i_load(vto);
 }
 static inline v8l compatible_v8l_cvt_v1i(v1i a) {
@@ -2795,7 +2753,7 @@ static inline v8l compatible_v8l_cvt_v1i(v1i a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 8, 8*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 1, 1*sizeof(int32_t));
   v1i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v8l_load(vto);
 }
 static inline v16f compatible_v16f_cvt_v1i(v1i a) {
@@ -2803,7 +2761,7 @@ static inline v16f compatible_v16f_cvt_v1i(v1i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 16, 16*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 1, 1*sizeof(int32_t));
   v1i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v16f_load(vto);
 }
 static inline v16i compatible_v16i_cvt_v1i(v1i a) {
@@ -2811,7 +2769,7 @@ static inline v16i compatible_v16i_cvt_v1i(v1i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 16, 16*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 1, 1*sizeof(int32_t));
   v1i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v16i_load(vto);
 }
 static inline v1d compatible_v1d_cvt_v1l(v1l a) {
@@ -2819,7 +2777,7 @@ static inline v1d compatible_v1d_cvt_v1l(v1l a) {
   PINTS_ALIGNED_ARRAY(double, vto, 1, 1*sizeof(double));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 1, 1*sizeof(int64_t));
   v1l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v1d_load(vto);
 }
 static inline v1f compatible_v1f_cvt_v1l(v1l a) {
@@ -2827,7 +2785,7 @@ static inline v1f compatible_v1f_cvt_v1l(v1l a) {
   PINTS_ALIGNED_ARRAY(float, vto, 1, 1*sizeof(float));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 1, 1*sizeof(int64_t));
   v1l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v1f_load(vto);
 }
 static inline v1i compatible_v1i_cvt_v1l(v1l a) {
@@ -2835,7 +2793,7 @@ static inline v1i compatible_v1i_cvt_v1l(v1l a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 1, 1*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 1, 1*sizeof(int64_t));
   v1l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v1i_load(vto);
 }
 static inline v1l compatible_v1l_cvt_v1l(v1l a) {
@@ -2843,7 +2801,7 @@ static inline v1l compatible_v1l_cvt_v1l(v1l a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 1, 1*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 1, 1*sizeof(int64_t));
   v1l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v1l_load(vto);
 }
 static inline v2d compatible_v2d_cvt_v1l(v1l a) {
@@ -2851,7 +2809,7 @@ static inline v2d compatible_v2d_cvt_v1l(v1l a) {
   PINTS_ALIGNED_ARRAY(double, vto, 2, 2*sizeof(double));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 1, 1*sizeof(int64_t));
   v1l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v2d_load(vto);
 }
 static inline v2f compatible_v2f_cvt_v1l(v1l a) {
@@ -2859,7 +2817,7 @@ static inline v2f compatible_v2f_cvt_v1l(v1l a) {
   PINTS_ALIGNED_ARRAY(float, vto, 2, 2*sizeof(float));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 1, 1*sizeof(int64_t));
   v1l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v2f_load(vto);
 }
 static inline v2i compatible_v2i_cvt_v1l(v1l a) {
@@ -2867,7 +2825,7 @@ static inline v2i compatible_v2i_cvt_v1l(v1l a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 2, 2*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 1, 1*sizeof(int64_t));
   v1l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v2i_load(vto);
 }
 static inline v2l compatible_v2l_cvt_v1l(v1l a) {
@@ -2875,7 +2833,7 @@ static inline v2l compatible_v2l_cvt_v1l(v1l a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 2, 2*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 1, 1*sizeof(int64_t));
   v1l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v2l_load(vto);
 }
 static inline v4d compatible_v4d_cvt_v1l(v1l a) {
@@ -2883,7 +2841,7 @@ static inline v4d compatible_v4d_cvt_v1l(v1l a) {
   PINTS_ALIGNED_ARRAY(double, vto, 4, 4*sizeof(double));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 1, 1*sizeof(int64_t));
   v1l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v4d_load(vto);
 }
 static inline v4f compatible_v4f_cvt_v1l(v1l a) {
@@ -2891,7 +2849,7 @@ static inline v4f compatible_v4f_cvt_v1l(v1l a) {
   PINTS_ALIGNED_ARRAY(float, vto, 4, 4*sizeof(float));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 1, 1*sizeof(int64_t));
   v1l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v4f_load(vto);
 }
 static inline v4i compatible_v4i_cvt_v1l(v1l a) {
@@ -2899,7 +2857,7 @@ static inline v4i compatible_v4i_cvt_v1l(v1l a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 4, 4*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 1, 1*sizeof(int64_t));
   v1l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v4i_load(vto);
 }
 static inline v4l compatible_v4l_cvt_v1l(v1l a) {
@@ -2907,7 +2865,7 @@ static inline v4l compatible_v4l_cvt_v1l(v1l a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 4, 4*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 1, 1*sizeof(int64_t));
   v1l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v4l_load(vto);
 }
 static inline v8d compatible_v8d_cvt_v1l(v1l a) {
@@ -2915,7 +2873,7 @@ static inline v8d compatible_v8d_cvt_v1l(v1l a) {
   PINTS_ALIGNED_ARRAY(double, vto, 8, 8*sizeof(double));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 1, 1*sizeof(int64_t));
   v1l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v8d_load(vto);
 }
 static inline v8f compatible_v8f_cvt_v1l(v1l a) {
@@ -2923,7 +2881,7 @@ static inline v8f compatible_v8f_cvt_v1l(v1l a) {
   PINTS_ALIGNED_ARRAY(float, vto, 8, 8*sizeof(float));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 1, 1*sizeof(int64_t));
   v1l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v8f_load(vto);
 }
 static inline v8i compatible_v8i_cvt_v1l(v1l a) {
@@ -2931,7 +2889,7 @@ static inline v8i compatible_v8i_cvt_v1l(v1l a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 8, 8*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 1, 1*sizeof(int64_t));
   v1l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v8i_load(vto);
 }
 static inline v8l compatible_v8l_cvt_v1l(v1l a) {
@@ -2939,7 +2897,7 @@ static inline v8l compatible_v8l_cvt_v1l(v1l a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 8, 8*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 1, 1*sizeof(int64_t));
   v1l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v8l_load(vto);
 }
 static inline v16f compatible_v16f_cvt_v1l(v1l a) {
@@ -2947,7 +2905,7 @@ static inline v16f compatible_v16f_cvt_v1l(v1l a) {
   PINTS_ALIGNED_ARRAY(float, vto, 16, 16*sizeof(float));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 1, 1*sizeof(int64_t));
   v1l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v16f_load(vto);
 }
 static inline v16i compatible_v16i_cvt_v1l(v1l a) {
@@ -2955,7 +2913,7 @@ static inline v16i compatible_v16i_cvt_v1l(v1l a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 16, 16*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 1, 1*sizeof(int64_t));
   v1l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v16i_load(vto);
 }
 static inline v1d compatible_v1d_cvt_v2d(v2d a) {
@@ -2963,7 +2921,7 @@ static inline v1d compatible_v1d_cvt_v2d(v2d a) {
   PINTS_ALIGNED_ARRAY(double, vto, 1, 1*sizeof(double));
   PINTS_ALIGNED_ARRAY(double, vfrom, 2, 2*sizeof(double));
   v2d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v1d_load(vto);
 }
 static inline v1f compatible_v1f_cvt_v2d(v2d a) {
@@ -2971,7 +2929,7 @@ static inline v1f compatible_v1f_cvt_v2d(v2d a) {
   PINTS_ALIGNED_ARRAY(float, vto, 1, 1*sizeof(float));
   PINTS_ALIGNED_ARRAY(double, vfrom, 2, 2*sizeof(double));
   v2d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v1f_load(vto);
 }
 static inline v1i compatible_v1i_cvt_v2d(v2d a) {
@@ -2979,7 +2937,7 @@ static inline v1i compatible_v1i_cvt_v2d(v2d a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 1, 1*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 2, 2*sizeof(double));
   v2d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v1i_load(vto);
 }
 static inline v1l compatible_v1l_cvt_v2d(v2d a) {
@@ -2987,7 +2945,7 @@ static inline v1l compatible_v1l_cvt_v2d(v2d a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 1, 1*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 2, 2*sizeof(double));
   v2d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v1l_load(vto);
 }
 static inline v2d compatible_v2d_cvt_v2d(v2d a) {
@@ -2995,7 +2953,7 @@ static inline v2d compatible_v2d_cvt_v2d(v2d a) {
   PINTS_ALIGNED_ARRAY(double, vto, 2, 2*sizeof(double));
   PINTS_ALIGNED_ARRAY(double, vfrom, 2, 2*sizeof(double));
   v2d_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (double) vfrom[i];
   return v2d_load(vto);
 }
 static inline v2f compatible_v2f_cvt_v2d(v2d a) {
@@ -3003,7 +2961,7 @@ static inline v2f compatible_v2f_cvt_v2d(v2d a) {
   PINTS_ALIGNED_ARRAY(float, vto, 2, 2*sizeof(float));
   PINTS_ALIGNED_ARRAY(double, vfrom, 2, 2*sizeof(double));
   v2d_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v2f_load(vto);
 }
 static inline v2i compatible_v2i_cvt_v2d(v2d a) {
@@ -3011,7 +2969,7 @@ static inline v2i compatible_v2i_cvt_v2d(v2d a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 2, 2*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 2, 2*sizeof(double));
   v2d_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v2i_load(vto);
 }
 static inline v2l compatible_v2l_cvt_v2d(v2d a) {
@@ -3019,7 +2977,7 @@ static inline v2l compatible_v2l_cvt_v2d(v2d a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 2, 2*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 2, 2*sizeof(double));
   v2d_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int64_t) vfrom[i];
   return v2l_load(vto);
 }
 static inline v4d compatible_v4d_cvt_v2d(v2d a) {
@@ -3027,7 +2985,7 @@ static inline v4d compatible_v4d_cvt_v2d(v2d a) {
   PINTS_ALIGNED_ARRAY(double, vto, 4, 4*sizeof(double));
   PINTS_ALIGNED_ARRAY(double, vfrom, 2, 2*sizeof(double));
   v2d_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (double) vfrom[i];
   return v4d_load(vto);
 }
 static inline v4f compatible_v4f_cvt_v2d(v2d a) {
@@ -3035,7 +2993,7 @@ static inline v4f compatible_v4f_cvt_v2d(v2d a) {
   PINTS_ALIGNED_ARRAY(float, vto, 4, 4*sizeof(float));
   PINTS_ALIGNED_ARRAY(double, vfrom, 2, 2*sizeof(double));
   v2d_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v4f_load(vto);
 }
 static inline v4i compatible_v4i_cvt_v2d(v2d a) {
@@ -3043,7 +3001,7 @@ static inline v4i compatible_v4i_cvt_v2d(v2d a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 4, 4*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 2, 2*sizeof(double));
   v2d_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v4i_load(vto);
 }
 static inline v4l compatible_v4l_cvt_v2d(v2d a) {
@@ -3051,7 +3009,7 @@ static inline v4l compatible_v4l_cvt_v2d(v2d a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 4, 4*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 2, 2*sizeof(double));
   v2d_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int64_t) vfrom[i];
   return v4l_load(vto);
 }
 static inline v8d compatible_v8d_cvt_v2d(v2d a) {
@@ -3059,7 +3017,7 @@ static inline v8d compatible_v8d_cvt_v2d(v2d a) {
   PINTS_ALIGNED_ARRAY(double, vto, 8, 8*sizeof(double));
   PINTS_ALIGNED_ARRAY(double, vfrom, 2, 2*sizeof(double));
   v2d_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (double) vfrom[i];
   return v8d_load(vto);
 }
 static inline v8f compatible_v8f_cvt_v2d(v2d a) {
@@ -3067,7 +3025,7 @@ static inline v8f compatible_v8f_cvt_v2d(v2d a) {
   PINTS_ALIGNED_ARRAY(float, vto, 8, 8*sizeof(float));
   PINTS_ALIGNED_ARRAY(double, vfrom, 2, 2*sizeof(double));
   v2d_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v8f_load(vto);
 }
 static inline v8i compatible_v8i_cvt_v2d(v2d a) {
@@ -3075,7 +3033,7 @@ static inline v8i compatible_v8i_cvt_v2d(v2d a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 8, 8*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 2, 2*sizeof(double));
   v2d_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v8i_load(vto);
 }
 static inline v8l compatible_v8l_cvt_v2d(v2d a) {
@@ -3083,7 +3041,7 @@ static inline v8l compatible_v8l_cvt_v2d(v2d a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 8, 8*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 2, 2*sizeof(double));
   v2d_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int64_t) vfrom[i];
   return v8l_load(vto);
 }
 static inline v16f compatible_v16f_cvt_v2d(v2d a) {
@@ -3091,7 +3049,7 @@ static inline v16f compatible_v16f_cvt_v2d(v2d a) {
   PINTS_ALIGNED_ARRAY(float, vto, 16, 16*sizeof(float));
   PINTS_ALIGNED_ARRAY(double, vfrom, 2, 2*sizeof(double));
   v2d_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v16f_load(vto);
 }
 static inline v16i compatible_v16i_cvt_v2d(v2d a) {
@@ -3099,7 +3057,7 @@ static inline v16i compatible_v16i_cvt_v2d(v2d a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 16, 16*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 2, 2*sizeof(double));
   v2d_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v16i_load(vto);
 }
 static inline v1d compatible_v1d_cvt_v2f(v2f a) {
@@ -3107,7 +3065,7 @@ static inline v1d compatible_v1d_cvt_v2f(v2f a) {
   PINTS_ALIGNED_ARRAY(double, vto, 1, 1*sizeof(double));
   PINTS_ALIGNED_ARRAY(float, vfrom, 2, 2*sizeof(float));
   v2f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v1d_load(vto);
 }
 static inline v1f compatible_v1f_cvt_v2f(v2f a) {
@@ -3115,7 +3073,7 @@ static inline v1f compatible_v1f_cvt_v2f(v2f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 1, 1*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 2, 2*sizeof(float));
   v2f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v1f_load(vto);
 }
 static inline v1i compatible_v1i_cvt_v2f(v2f a) {
@@ -3123,7 +3081,7 @@ static inline v1i compatible_v1i_cvt_v2f(v2f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 1, 1*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 2, 2*sizeof(float));
   v2f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v1i_load(vto);
 }
 static inline v1l compatible_v1l_cvt_v2f(v2f a) {
@@ -3131,7 +3089,7 @@ static inline v1l compatible_v1l_cvt_v2f(v2f a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 1, 1*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 2, 2*sizeof(float));
   v2f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v1l_load(vto);
 }
 static inline v2d compatible_v2d_cvt_v2f(v2f a) {
@@ -3139,7 +3097,7 @@ static inline v2d compatible_v2d_cvt_v2f(v2f a) {
   PINTS_ALIGNED_ARRAY(double, vto, 2, 2*sizeof(double));
   PINTS_ALIGNED_ARRAY(float, vfrom, 2, 2*sizeof(float));
   v2f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (double) vfrom[i];
   return v2d_load(vto);
 }
 static inline v2f compatible_v2f_cvt_v2f(v2f a) {
@@ -3147,7 +3105,7 @@ static inline v2f compatible_v2f_cvt_v2f(v2f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 2, 2*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 2, 2*sizeof(float));
   v2f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v2f_load(vto);
 }
 static inline v2i compatible_v2i_cvt_v2f(v2f a) {
@@ -3155,7 +3113,7 @@ static inline v2i compatible_v2i_cvt_v2f(v2f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 2, 2*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 2, 2*sizeof(float));
   v2f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v2i_load(vto);
 }
 static inline v2l compatible_v2l_cvt_v2f(v2f a) {
@@ -3163,7 +3121,7 @@ static inline v2l compatible_v2l_cvt_v2f(v2f a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 2, 2*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 2, 2*sizeof(float));
   v2f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int64_t) vfrom[i];
   return v2l_load(vto);
 }
 static inline v4d compatible_v4d_cvt_v2f(v2f a) {
@@ -3171,7 +3129,7 @@ static inline v4d compatible_v4d_cvt_v2f(v2f a) {
   PINTS_ALIGNED_ARRAY(double, vto, 4, 4*sizeof(double));
   PINTS_ALIGNED_ARRAY(float, vfrom, 2, 2*sizeof(float));
   v2f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (double) vfrom[i];
   return v4d_load(vto);
 }
 static inline v4f compatible_v4f_cvt_v2f(v2f a) {
@@ -3179,7 +3137,7 @@ static inline v4f compatible_v4f_cvt_v2f(v2f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 4, 4*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 2, 2*sizeof(float));
   v2f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v4f_load(vto);
 }
 static inline v4i compatible_v4i_cvt_v2f(v2f a) {
@@ -3187,7 +3145,7 @@ static inline v4i compatible_v4i_cvt_v2f(v2f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 4, 4*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 2, 2*sizeof(float));
   v2f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v4i_load(vto);
 }
 static inline v4l compatible_v4l_cvt_v2f(v2f a) {
@@ -3195,7 +3153,7 @@ static inline v4l compatible_v4l_cvt_v2f(v2f a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 4, 4*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 2, 2*sizeof(float));
   v2f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int64_t) vfrom[i];
   return v4l_load(vto);
 }
 static inline v8d compatible_v8d_cvt_v2f(v2f a) {
@@ -3203,7 +3161,7 @@ static inline v8d compatible_v8d_cvt_v2f(v2f a) {
   PINTS_ALIGNED_ARRAY(double, vto, 8, 8*sizeof(double));
   PINTS_ALIGNED_ARRAY(float, vfrom, 2, 2*sizeof(float));
   v2f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (double) vfrom[i];
   return v8d_load(vto);
 }
 static inline v8f compatible_v8f_cvt_v2f(v2f a) {
@@ -3211,7 +3169,7 @@ static inline v8f compatible_v8f_cvt_v2f(v2f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 8, 8*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 2, 2*sizeof(float));
   v2f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v8f_load(vto);
 }
 static inline v8i compatible_v8i_cvt_v2f(v2f a) {
@@ -3219,7 +3177,7 @@ static inline v8i compatible_v8i_cvt_v2f(v2f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 8, 8*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 2, 2*sizeof(float));
   v2f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v8i_load(vto);
 }
 static inline v8l compatible_v8l_cvt_v2f(v2f a) {
@@ -3227,7 +3185,7 @@ static inline v8l compatible_v8l_cvt_v2f(v2f a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 8, 8*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 2, 2*sizeof(float));
   v2f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int64_t) vfrom[i];
   return v8l_load(vto);
 }
 static inline v16f compatible_v16f_cvt_v2f(v2f a) {
@@ -3235,7 +3193,7 @@ static inline v16f compatible_v16f_cvt_v2f(v2f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 16, 16*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 2, 2*sizeof(float));
   v2f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v16f_load(vto);
 }
 static inline v16i compatible_v16i_cvt_v2f(v2f a) {
@@ -3243,7 +3201,7 @@ static inline v16i compatible_v16i_cvt_v2f(v2f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 16, 16*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 2, 2*sizeof(float));
   v2f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v16i_load(vto);
 }
 static inline v1d compatible_v1d_cvt_v2i(v2i a) {
@@ -3251,7 +3209,7 @@ static inline v1d compatible_v1d_cvt_v2i(v2i a) {
   PINTS_ALIGNED_ARRAY(double, vto, 1, 1*sizeof(double));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 2, 2*sizeof(int32_t));
   v2i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v1d_load(vto);
 }
 static inline v1f compatible_v1f_cvt_v2i(v2i a) {
@@ -3259,7 +3217,7 @@ static inline v1f compatible_v1f_cvt_v2i(v2i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 1, 1*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 2, 2*sizeof(int32_t));
   v2i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v1f_load(vto);
 }
 static inline v1i compatible_v1i_cvt_v2i(v2i a) {
@@ -3267,7 +3225,7 @@ static inline v1i compatible_v1i_cvt_v2i(v2i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 1, 1*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 2, 2*sizeof(int32_t));
   v2i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v1i_load(vto);
 }
 static inline v1l compatible_v1l_cvt_v2i(v2i a) {
@@ -3275,7 +3233,7 @@ static inline v1l compatible_v1l_cvt_v2i(v2i a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 1, 1*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 2, 2*sizeof(int32_t));
   v2i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v1l_load(vto);
 }
 static inline v2d compatible_v2d_cvt_v2i(v2i a) {
@@ -3283,7 +3241,7 @@ static inline v2d compatible_v2d_cvt_v2i(v2i a) {
   PINTS_ALIGNED_ARRAY(double, vto, 2, 2*sizeof(double));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 2, 2*sizeof(int32_t));
   v2i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (double) vfrom[i];
   return v2d_load(vto);
 }
 static inline v2f compatible_v2f_cvt_v2i(v2i a) {
@@ -3291,7 +3249,7 @@ static inline v2f compatible_v2f_cvt_v2i(v2i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 2, 2*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 2, 2*sizeof(int32_t));
   v2i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v2f_load(vto);
 }
 static inline v2i compatible_v2i_cvt_v2i(v2i a) {
@@ -3299,7 +3257,7 @@ static inline v2i compatible_v2i_cvt_v2i(v2i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 2, 2*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 2, 2*sizeof(int32_t));
   v2i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v2i_load(vto);
 }
 static inline v2l compatible_v2l_cvt_v2i(v2i a) {
@@ -3307,7 +3265,7 @@ static inline v2l compatible_v2l_cvt_v2i(v2i a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 2, 2*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 2, 2*sizeof(int32_t));
   v2i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int64_t) vfrom[i];
   return v2l_load(vto);
 }
 static inline v4d compatible_v4d_cvt_v2i(v2i a) {
@@ -3315,7 +3273,7 @@ static inline v4d compatible_v4d_cvt_v2i(v2i a) {
   PINTS_ALIGNED_ARRAY(double, vto, 4, 4*sizeof(double));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 2, 2*sizeof(int32_t));
   v2i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (double) vfrom[i];
   return v4d_load(vto);
 }
 static inline v4f compatible_v4f_cvt_v2i(v2i a) {
@@ -3323,7 +3281,7 @@ static inline v4f compatible_v4f_cvt_v2i(v2i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 4, 4*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 2, 2*sizeof(int32_t));
   v2i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v4f_load(vto);
 }
 static inline v4i compatible_v4i_cvt_v2i(v2i a) {
@@ -3331,7 +3289,7 @@ static inline v4i compatible_v4i_cvt_v2i(v2i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 4, 4*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 2, 2*sizeof(int32_t));
   v2i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v4i_load(vto);
 }
 static inline v4l compatible_v4l_cvt_v2i(v2i a) {
@@ -3339,7 +3297,7 @@ static inline v4l compatible_v4l_cvt_v2i(v2i a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 4, 4*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 2, 2*sizeof(int32_t));
   v2i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int64_t) vfrom[i];
   return v4l_load(vto);
 }
 static inline v8d compatible_v8d_cvt_v2i(v2i a) {
@@ -3347,7 +3305,7 @@ static inline v8d compatible_v8d_cvt_v2i(v2i a) {
   PINTS_ALIGNED_ARRAY(double, vto, 8, 8*sizeof(double));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 2, 2*sizeof(int32_t));
   v2i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (double) vfrom[i];
   return v8d_load(vto);
 }
 static inline v8f compatible_v8f_cvt_v2i(v2i a) {
@@ -3355,7 +3313,7 @@ static inline v8f compatible_v8f_cvt_v2i(v2i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 8, 8*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 2, 2*sizeof(int32_t));
   v2i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v8f_load(vto);
 }
 static inline v8i compatible_v8i_cvt_v2i(v2i a) {
@@ -3363,7 +3321,7 @@ static inline v8i compatible_v8i_cvt_v2i(v2i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 8, 8*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 2, 2*sizeof(int32_t));
   v2i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v8i_load(vto);
 }
 static inline v8l compatible_v8l_cvt_v2i(v2i a) {
@@ -3371,7 +3329,7 @@ static inline v8l compatible_v8l_cvt_v2i(v2i a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 8, 8*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 2, 2*sizeof(int32_t));
   v2i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int64_t) vfrom[i];
   return v8l_load(vto);
 }
 static inline v16f compatible_v16f_cvt_v2i(v2i a) {
@@ -3379,7 +3337,7 @@ static inline v16f compatible_v16f_cvt_v2i(v2i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 16, 16*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 2, 2*sizeof(int32_t));
   v2i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v16f_load(vto);
 }
 static inline v16i compatible_v16i_cvt_v2i(v2i a) {
@@ -3387,7 +3345,7 @@ static inline v16i compatible_v16i_cvt_v2i(v2i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 16, 16*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 2, 2*sizeof(int32_t));
   v2i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v16i_load(vto);
 }
 static inline v1d compatible_v1d_cvt_v2l(v2l a) {
@@ -3395,7 +3353,7 @@ static inline v1d compatible_v1d_cvt_v2l(v2l a) {
   PINTS_ALIGNED_ARRAY(double, vto, 1, 1*sizeof(double));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 2, 2*sizeof(int64_t));
   v2l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v1d_load(vto);
 }
 static inline v1f compatible_v1f_cvt_v2l(v2l a) {
@@ -3403,7 +3361,7 @@ static inline v1f compatible_v1f_cvt_v2l(v2l a) {
   PINTS_ALIGNED_ARRAY(float, vto, 1, 1*sizeof(float));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 2, 2*sizeof(int64_t));
   v2l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v1f_load(vto);
 }
 static inline v1i compatible_v1i_cvt_v2l(v2l a) {
@@ -3411,7 +3369,7 @@ static inline v1i compatible_v1i_cvt_v2l(v2l a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 1, 1*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 2, 2*sizeof(int64_t));
   v2l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v1i_load(vto);
 }
 static inline v1l compatible_v1l_cvt_v2l(v2l a) {
@@ -3419,7 +3377,7 @@ static inline v1l compatible_v1l_cvt_v2l(v2l a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 1, 1*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 2, 2*sizeof(int64_t));
   v2l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v1l_load(vto);
 }
 static inline v2d compatible_v2d_cvt_v2l(v2l a) {
@@ -3427,7 +3385,7 @@ static inline v2d compatible_v2d_cvt_v2l(v2l a) {
   PINTS_ALIGNED_ARRAY(double, vto, 2, 2*sizeof(double));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 2, 2*sizeof(int64_t));
   v2l_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (double) vfrom[i];
   return v2d_load(vto);
 }
 static inline v2f compatible_v2f_cvt_v2l(v2l a) {
@@ -3435,7 +3393,7 @@ static inline v2f compatible_v2f_cvt_v2l(v2l a) {
   PINTS_ALIGNED_ARRAY(float, vto, 2, 2*sizeof(float));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 2, 2*sizeof(int64_t));
   v2l_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v2f_load(vto);
 }
 static inline v2i compatible_v2i_cvt_v2l(v2l a) {
@@ -3443,7 +3401,7 @@ static inline v2i compatible_v2i_cvt_v2l(v2l a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 2, 2*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 2, 2*sizeof(int64_t));
   v2l_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v2i_load(vto);
 }
 static inline v2l compatible_v2l_cvt_v2l(v2l a) {
@@ -3451,7 +3409,7 @@ static inline v2l compatible_v2l_cvt_v2l(v2l a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 2, 2*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 2, 2*sizeof(int64_t));
   v2l_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int64_t) vfrom[i];
   return v2l_load(vto);
 }
 static inline v4d compatible_v4d_cvt_v2l(v2l a) {
@@ -3459,7 +3417,7 @@ static inline v4d compatible_v4d_cvt_v2l(v2l a) {
   PINTS_ALIGNED_ARRAY(double, vto, 4, 4*sizeof(double));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 2, 2*sizeof(int64_t));
   v2l_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (double) vfrom[i];
   return v4d_load(vto);
 }
 static inline v4f compatible_v4f_cvt_v2l(v2l a) {
@@ -3467,7 +3425,7 @@ static inline v4f compatible_v4f_cvt_v2l(v2l a) {
   PINTS_ALIGNED_ARRAY(float, vto, 4, 4*sizeof(float));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 2, 2*sizeof(int64_t));
   v2l_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v4f_load(vto);
 }
 static inline v4i compatible_v4i_cvt_v2l(v2l a) {
@@ -3475,7 +3433,7 @@ static inline v4i compatible_v4i_cvt_v2l(v2l a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 4, 4*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 2, 2*sizeof(int64_t));
   v2l_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v4i_load(vto);
 }
 static inline v4l compatible_v4l_cvt_v2l(v2l a) {
@@ -3483,7 +3441,7 @@ static inline v4l compatible_v4l_cvt_v2l(v2l a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 4, 4*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 2, 2*sizeof(int64_t));
   v2l_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int64_t) vfrom[i];
   return v4l_load(vto);
 }
 static inline v8d compatible_v8d_cvt_v2l(v2l a) {
@@ -3491,7 +3449,7 @@ static inline v8d compatible_v8d_cvt_v2l(v2l a) {
   PINTS_ALIGNED_ARRAY(double, vto, 8, 8*sizeof(double));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 2, 2*sizeof(int64_t));
   v2l_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (double) vfrom[i];
   return v8d_load(vto);
 }
 static inline v8f compatible_v8f_cvt_v2l(v2l a) {
@@ -3499,7 +3457,7 @@ static inline v8f compatible_v8f_cvt_v2l(v2l a) {
   PINTS_ALIGNED_ARRAY(float, vto, 8, 8*sizeof(float));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 2, 2*sizeof(int64_t));
   v2l_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v8f_load(vto);
 }
 static inline v8i compatible_v8i_cvt_v2l(v2l a) {
@@ -3507,7 +3465,7 @@ static inline v8i compatible_v8i_cvt_v2l(v2l a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 8, 8*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 2, 2*sizeof(int64_t));
   v2l_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v8i_load(vto);
 }
 static inline v8l compatible_v8l_cvt_v2l(v2l a) {
@@ -3515,7 +3473,7 @@ static inline v8l compatible_v8l_cvt_v2l(v2l a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 8, 8*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 2, 2*sizeof(int64_t));
   v2l_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int64_t) vfrom[i];
   return v8l_load(vto);
 }
 static inline v16f compatible_v16f_cvt_v2l(v2l a) {
@@ -3523,7 +3481,7 @@ static inline v16f compatible_v16f_cvt_v2l(v2l a) {
   PINTS_ALIGNED_ARRAY(float, vto, 16, 16*sizeof(float));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 2, 2*sizeof(int64_t));
   v2l_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v16f_load(vto);
 }
 static inline v16i compatible_v16i_cvt_v2l(v2l a) {
@@ -3531,7 +3489,7 @@ static inline v16i compatible_v16i_cvt_v2l(v2l a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 16, 16*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 2, 2*sizeof(int64_t));
   v2l_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v16i_load(vto);
 }
 static inline v1d compatible_v1d_cvt_v4d(v4d a) {
@@ -3539,7 +3497,7 @@ static inline v1d compatible_v1d_cvt_v4d(v4d a) {
   PINTS_ALIGNED_ARRAY(double, vto, 1, 1*sizeof(double));
   PINTS_ALIGNED_ARRAY(double, vfrom, 4, 4*sizeof(double));
   v4d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v1d_load(vto);
 }
 static inline v1f compatible_v1f_cvt_v4d(v4d a) {
@@ -3547,7 +3505,7 @@ static inline v1f compatible_v1f_cvt_v4d(v4d a) {
   PINTS_ALIGNED_ARRAY(float, vto, 1, 1*sizeof(float));
   PINTS_ALIGNED_ARRAY(double, vfrom, 4, 4*sizeof(double));
   v4d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v1f_load(vto);
 }
 static inline v1i compatible_v1i_cvt_v4d(v4d a) {
@@ -3555,7 +3513,7 @@ static inline v1i compatible_v1i_cvt_v4d(v4d a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 1, 1*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 4, 4*sizeof(double));
   v4d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v1i_load(vto);
 }
 static inline v1l compatible_v1l_cvt_v4d(v4d a) {
@@ -3563,7 +3521,7 @@ static inline v1l compatible_v1l_cvt_v4d(v4d a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 1, 1*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 4, 4*sizeof(double));
   v4d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v1l_load(vto);
 }
 static inline v2d compatible_v2d_cvt_v4d(v4d a) {
@@ -3571,7 +3529,7 @@ static inline v2d compatible_v2d_cvt_v4d(v4d a) {
   PINTS_ALIGNED_ARRAY(double, vto, 2, 2*sizeof(double));
   PINTS_ALIGNED_ARRAY(double, vfrom, 4, 4*sizeof(double));
   v4d_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (double) vfrom[i];
   return v2d_load(vto);
 }
 static inline v2f compatible_v2f_cvt_v4d(v4d a) {
@@ -3579,7 +3537,7 @@ static inline v2f compatible_v2f_cvt_v4d(v4d a) {
   PINTS_ALIGNED_ARRAY(float, vto, 2, 2*sizeof(float));
   PINTS_ALIGNED_ARRAY(double, vfrom, 4, 4*sizeof(double));
   v4d_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v2f_load(vto);
 }
 static inline v2i compatible_v2i_cvt_v4d(v4d a) {
@@ -3587,7 +3545,7 @@ static inline v2i compatible_v2i_cvt_v4d(v4d a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 2, 2*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 4, 4*sizeof(double));
   v4d_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v2i_load(vto);
 }
 static inline v2l compatible_v2l_cvt_v4d(v4d a) {
@@ -3595,7 +3553,7 @@ static inline v2l compatible_v2l_cvt_v4d(v4d a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 2, 2*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 4, 4*sizeof(double));
   v4d_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int64_t) vfrom[i];
   return v2l_load(vto);
 }
 static inline v4d compatible_v4d_cvt_v4d(v4d a) {
@@ -3603,7 +3561,7 @@ static inline v4d compatible_v4d_cvt_v4d(v4d a) {
   PINTS_ALIGNED_ARRAY(double, vto, 4, 4*sizeof(double));
   PINTS_ALIGNED_ARRAY(double, vfrom, 4, 4*sizeof(double));
   v4d_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (double) vfrom[i];
   return v4d_load(vto);
 }
 static inline v4f compatible_v4f_cvt_v4d(v4d a) {
@@ -3611,7 +3569,7 @@ static inline v4f compatible_v4f_cvt_v4d(v4d a) {
   PINTS_ALIGNED_ARRAY(float, vto, 4, 4*sizeof(float));
   PINTS_ALIGNED_ARRAY(double, vfrom, 4, 4*sizeof(double));
   v4d_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (float) vfrom[i];
   return v4f_load(vto);
 }
 static inline v4i compatible_v4i_cvt_v4d(v4d a) {
@@ -3619,7 +3577,7 @@ static inline v4i compatible_v4i_cvt_v4d(v4d a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 4, 4*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 4, 4*sizeof(double));
   v4d_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int32_t) vfrom[i];
   return v4i_load(vto);
 }
 static inline v4l compatible_v4l_cvt_v4d(v4d a) {
@@ -3627,7 +3585,7 @@ static inline v4l compatible_v4l_cvt_v4d(v4d a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 4, 4*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 4, 4*sizeof(double));
   v4d_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int64_t) vfrom[i];
   return v4l_load(vto);
 }
 static inline v8d compatible_v8d_cvt_v4d(v4d a) {
@@ -3635,7 +3593,7 @@ static inline v8d compatible_v8d_cvt_v4d(v4d a) {
   PINTS_ALIGNED_ARRAY(double, vto, 8, 8*sizeof(double));
   PINTS_ALIGNED_ARRAY(double, vfrom, 4, 4*sizeof(double));
   v4d_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (double) vfrom[i];
   return v8d_load(vto);
 }
 static inline v8f compatible_v8f_cvt_v4d(v4d a) {
@@ -3643,7 +3601,7 @@ static inline v8f compatible_v8f_cvt_v4d(v4d a) {
   PINTS_ALIGNED_ARRAY(float, vto, 8, 8*sizeof(float));
   PINTS_ALIGNED_ARRAY(double, vfrom, 4, 4*sizeof(double));
   v4d_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (float) vfrom[i];
   return v8f_load(vto);
 }
 static inline v8i compatible_v8i_cvt_v4d(v4d a) {
@@ -3651,7 +3609,7 @@ static inline v8i compatible_v8i_cvt_v4d(v4d a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 8, 8*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 4, 4*sizeof(double));
   v4d_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int32_t) vfrom[i];
   return v8i_load(vto);
 }
 static inline v8l compatible_v8l_cvt_v4d(v4d a) {
@@ -3659,7 +3617,7 @@ static inline v8l compatible_v8l_cvt_v4d(v4d a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 8, 8*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 4, 4*sizeof(double));
   v4d_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int64_t) vfrom[i];
   return v8l_load(vto);
 }
 static inline v16f compatible_v16f_cvt_v4d(v4d a) {
@@ -3667,7 +3625,7 @@ static inline v16f compatible_v16f_cvt_v4d(v4d a) {
   PINTS_ALIGNED_ARRAY(float, vto, 16, 16*sizeof(float));
   PINTS_ALIGNED_ARRAY(double, vfrom, 4, 4*sizeof(double));
   v4d_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (float) vfrom[i];
   return v16f_load(vto);
 }
 static inline v16i compatible_v16i_cvt_v4d(v4d a) {
@@ -3675,7 +3633,7 @@ static inline v16i compatible_v16i_cvt_v4d(v4d a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 16, 16*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 4, 4*sizeof(double));
   v4d_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int32_t) vfrom[i];
   return v16i_load(vto);
 }
 static inline v1d compatible_v1d_cvt_v4f(v4f a) {
@@ -3683,7 +3641,7 @@ static inline v1d compatible_v1d_cvt_v4f(v4f a) {
   PINTS_ALIGNED_ARRAY(double, vto, 1, 1*sizeof(double));
   PINTS_ALIGNED_ARRAY(float, vfrom, 4, 4*sizeof(float));
   v4f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v1d_load(vto);
 }
 static inline v1f compatible_v1f_cvt_v4f(v4f a) {
@@ -3691,7 +3649,7 @@ static inline v1f compatible_v1f_cvt_v4f(v4f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 1, 1*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 4, 4*sizeof(float));
   v4f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v1f_load(vto);
 }
 static inline v1i compatible_v1i_cvt_v4f(v4f a) {
@@ -3699,7 +3657,7 @@ static inline v1i compatible_v1i_cvt_v4f(v4f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 1, 1*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 4, 4*sizeof(float));
   v4f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v1i_load(vto);
 }
 static inline v1l compatible_v1l_cvt_v4f(v4f a) {
@@ -3707,7 +3665,7 @@ static inline v1l compatible_v1l_cvt_v4f(v4f a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 1, 1*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 4, 4*sizeof(float));
   v4f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v1l_load(vto);
 }
 static inline v2d compatible_v2d_cvt_v4f(v4f a) {
@@ -3715,7 +3673,7 @@ static inline v2d compatible_v2d_cvt_v4f(v4f a) {
   PINTS_ALIGNED_ARRAY(double, vto, 2, 2*sizeof(double));
   PINTS_ALIGNED_ARRAY(float, vfrom, 4, 4*sizeof(float));
   v4f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (double) vfrom[i];
   return v2d_load(vto);
 }
 static inline v2f compatible_v2f_cvt_v4f(v4f a) {
@@ -3723,7 +3681,7 @@ static inline v2f compatible_v2f_cvt_v4f(v4f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 2, 2*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 4, 4*sizeof(float));
   v4f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v2f_load(vto);
 }
 static inline v2i compatible_v2i_cvt_v4f(v4f a) {
@@ -3731,7 +3689,7 @@ static inline v2i compatible_v2i_cvt_v4f(v4f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 2, 2*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 4, 4*sizeof(float));
   v4f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v2i_load(vto);
 }
 static inline v2l compatible_v2l_cvt_v4f(v4f a) {
@@ -3739,7 +3697,7 @@ static inline v2l compatible_v2l_cvt_v4f(v4f a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 2, 2*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 4, 4*sizeof(float));
   v4f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int64_t) vfrom[i];
   return v2l_load(vto);
 }
 static inline v4d compatible_v4d_cvt_v4f(v4f a) {
@@ -3747,7 +3705,7 @@ static inline v4d compatible_v4d_cvt_v4f(v4f a) {
   PINTS_ALIGNED_ARRAY(double, vto, 4, 4*sizeof(double));
   PINTS_ALIGNED_ARRAY(float, vfrom, 4, 4*sizeof(float));
   v4f_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (double) vfrom[i];
   return v4d_load(vto);
 }
 static inline v4f compatible_v4f_cvt_v4f(v4f a) {
@@ -3755,7 +3713,7 @@ static inline v4f compatible_v4f_cvt_v4f(v4f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 4, 4*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 4, 4*sizeof(float));
   v4f_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (float) vfrom[i];
   return v4f_load(vto);
 }
 static inline v4i compatible_v4i_cvt_v4f(v4f a) {
@@ -3763,7 +3721,7 @@ static inline v4i compatible_v4i_cvt_v4f(v4f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 4, 4*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 4, 4*sizeof(float));
   v4f_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int32_t) vfrom[i];
   return v4i_load(vto);
 }
 static inline v4l compatible_v4l_cvt_v4f(v4f a) {
@@ -3771,7 +3729,7 @@ static inline v4l compatible_v4l_cvt_v4f(v4f a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 4, 4*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 4, 4*sizeof(float));
   v4f_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int64_t) vfrom[i];
   return v4l_load(vto);
 }
 static inline v8d compatible_v8d_cvt_v4f(v4f a) {
@@ -3779,7 +3737,7 @@ static inline v8d compatible_v8d_cvt_v4f(v4f a) {
   PINTS_ALIGNED_ARRAY(double, vto, 8, 8*sizeof(double));
   PINTS_ALIGNED_ARRAY(float, vfrom, 4, 4*sizeof(float));
   v4f_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (double) vfrom[i];
   return v8d_load(vto);
 }
 static inline v8f compatible_v8f_cvt_v4f(v4f a) {
@@ -3787,7 +3745,7 @@ static inline v8f compatible_v8f_cvt_v4f(v4f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 8, 8*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 4, 4*sizeof(float));
   v4f_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (float) vfrom[i];
   return v8f_load(vto);
 }
 static inline v8i compatible_v8i_cvt_v4f(v4f a) {
@@ -3795,7 +3753,7 @@ static inline v8i compatible_v8i_cvt_v4f(v4f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 8, 8*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 4, 4*sizeof(float));
   v4f_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int32_t) vfrom[i];
   return v8i_load(vto);
 }
 static inline v8l compatible_v8l_cvt_v4f(v4f a) {
@@ -3803,7 +3761,7 @@ static inline v8l compatible_v8l_cvt_v4f(v4f a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 8, 8*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 4, 4*sizeof(float));
   v4f_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int64_t) vfrom[i];
   return v8l_load(vto);
 }
 static inline v16f compatible_v16f_cvt_v4f(v4f a) {
@@ -3811,7 +3769,7 @@ static inline v16f compatible_v16f_cvt_v4f(v4f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 16, 16*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 4, 4*sizeof(float));
   v4f_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (float) vfrom[i];
   return v16f_load(vto);
 }
 static inline v16i compatible_v16i_cvt_v4f(v4f a) {
@@ -3819,7 +3777,7 @@ static inline v16i compatible_v16i_cvt_v4f(v4f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 16, 16*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 4, 4*sizeof(float));
   v4f_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int32_t) vfrom[i];
   return v16i_load(vto);
 }
 static inline v1d compatible_v1d_cvt_v4i(v4i a) {
@@ -3827,7 +3785,7 @@ static inline v1d compatible_v1d_cvt_v4i(v4i a) {
   PINTS_ALIGNED_ARRAY(double, vto, 1, 1*sizeof(double));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 4, 4*sizeof(int32_t));
   v4i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v1d_load(vto);
 }
 static inline v1f compatible_v1f_cvt_v4i(v4i a) {
@@ -3835,7 +3793,7 @@ static inline v1f compatible_v1f_cvt_v4i(v4i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 1, 1*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 4, 4*sizeof(int32_t));
   v4i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v1f_load(vto);
 }
 static inline v1i compatible_v1i_cvt_v4i(v4i a) {
@@ -3843,7 +3801,7 @@ static inline v1i compatible_v1i_cvt_v4i(v4i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 1, 1*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 4, 4*sizeof(int32_t));
   v4i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v1i_load(vto);
 }
 static inline v1l compatible_v1l_cvt_v4i(v4i a) {
@@ -3851,7 +3809,7 @@ static inline v1l compatible_v1l_cvt_v4i(v4i a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 1, 1*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 4, 4*sizeof(int32_t));
   v4i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v1l_load(vto);
 }
 static inline v2d compatible_v2d_cvt_v4i(v4i a) {
@@ -3859,7 +3817,7 @@ static inline v2d compatible_v2d_cvt_v4i(v4i a) {
   PINTS_ALIGNED_ARRAY(double, vto, 2, 2*sizeof(double));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 4, 4*sizeof(int32_t));
   v4i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (double) vfrom[i];
   return v2d_load(vto);
 }
 static inline v2f compatible_v2f_cvt_v4i(v4i a) {
@@ -3867,7 +3825,7 @@ static inline v2f compatible_v2f_cvt_v4i(v4i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 2, 2*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 4, 4*sizeof(int32_t));
   v4i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v2f_load(vto);
 }
 static inline v2i compatible_v2i_cvt_v4i(v4i a) {
@@ -3875,7 +3833,7 @@ static inline v2i compatible_v2i_cvt_v4i(v4i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 2, 2*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 4, 4*sizeof(int32_t));
   v4i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v2i_load(vto);
 }
 static inline v2l compatible_v2l_cvt_v4i(v4i a) {
@@ -3883,7 +3841,7 @@ static inline v2l compatible_v2l_cvt_v4i(v4i a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 2, 2*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 4, 4*sizeof(int32_t));
   v4i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int64_t) vfrom[i];
   return v2l_load(vto);
 }
 static inline v4d compatible_v4d_cvt_v4i(v4i a) {
@@ -3891,7 +3849,7 @@ static inline v4d compatible_v4d_cvt_v4i(v4i a) {
   PINTS_ALIGNED_ARRAY(double, vto, 4, 4*sizeof(double));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 4, 4*sizeof(int32_t));
   v4i_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (double) vfrom[i];
   return v4d_load(vto);
 }
 static inline v4f compatible_v4f_cvt_v4i(v4i a) {
@@ -3899,7 +3857,7 @@ static inline v4f compatible_v4f_cvt_v4i(v4i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 4, 4*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 4, 4*sizeof(int32_t));
   v4i_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (float) vfrom[i];
   return v4f_load(vto);
 }
 static inline v4i compatible_v4i_cvt_v4i(v4i a) {
@@ -3907,7 +3865,7 @@ static inline v4i compatible_v4i_cvt_v4i(v4i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 4, 4*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 4, 4*sizeof(int32_t));
   v4i_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int32_t) vfrom[i];
   return v4i_load(vto);
 }
 static inline v4l compatible_v4l_cvt_v4i(v4i a) {
@@ -3915,7 +3873,7 @@ static inline v4l compatible_v4l_cvt_v4i(v4i a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 4, 4*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 4, 4*sizeof(int32_t));
   v4i_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int64_t) vfrom[i];
   return v4l_load(vto);
 }
 static inline v8d compatible_v8d_cvt_v4i(v4i a) {
@@ -3923,7 +3881,7 @@ static inline v8d compatible_v8d_cvt_v4i(v4i a) {
   PINTS_ALIGNED_ARRAY(double, vto, 8, 8*sizeof(double));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 4, 4*sizeof(int32_t));
   v4i_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (double) vfrom[i];
   return v8d_load(vto);
 }
 static inline v8f compatible_v8f_cvt_v4i(v4i a) {
@@ -3931,7 +3889,7 @@ static inline v8f compatible_v8f_cvt_v4i(v4i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 8, 8*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 4, 4*sizeof(int32_t));
   v4i_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (float) vfrom[i];
   return v8f_load(vto);
 }
 static inline v8i compatible_v8i_cvt_v4i(v4i a) {
@@ -3939,7 +3897,7 @@ static inline v8i compatible_v8i_cvt_v4i(v4i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 8, 8*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 4, 4*sizeof(int32_t));
   v4i_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int32_t) vfrom[i];
   return v8i_load(vto);
 }
 static inline v8l compatible_v8l_cvt_v4i(v4i a) {
@@ -3947,7 +3905,7 @@ static inline v8l compatible_v8l_cvt_v4i(v4i a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 8, 8*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 4, 4*sizeof(int32_t));
   v4i_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int64_t) vfrom[i];
   return v8l_load(vto);
 }
 static inline v16f compatible_v16f_cvt_v4i(v4i a) {
@@ -3955,7 +3913,7 @@ static inline v16f compatible_v16f_cvt_v4i(v4i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 16, 16*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 4, 4*sizeof(int32_t));
   v4i_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (float) vfrom[i];
   return v16f_load(vto);
 }
 static inline v16i compatible_v16i_cvt_v4i(v4i a) {
@@ -3963,7 +3921,7 @@ static inline v16i compatible_v16i_cvt_v4i(v4i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 16, 16*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 4, 4*sizeof(int32_t));
   v4i_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int32_t) vfrom[i];
   return v16i_load(vto);
 }
 static inline v1d compatible_v1d_cvt_v4l(v4l a) {
@@ -3971,7 +3929,7 @@ static inline v1d compatible_v1d_cvt_v4l(v4l a) {
   PINTS_ALIGNED_ARRAY(double, vto, 1, 1*sizeof(double));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 4, 4*sizeof(int64_t));
   v4l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v1d_load(vto);
 }
 static inline v1f compatible_v1f_cvt_v4l(v4l a) {
@@ -3979,7 +3937,7 @@ static inline v1f compatible_v1f_cvt_v4l(v4l a) {
   PINTS_ALIGNED_ARRAY(float, vto, 1, 1*sizeof(float));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 4, 4*sizeof(int64_t));
   v4l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v1f_load(vto);
 }
 static inline v1i compatible_v1i_cvt_v4l(v4l a) {
@@ -3987,7 +3945,7 @@ static inline v1i compatible_v1i_cvt_v4l(v4l a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 1, 1*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 4, 4*sizeof(int64_t));
   v4l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v1i_load(vto);
 }
 static inline v1l compatible_v1l_cvt_v4l(v4l a) {
@@ -3995,7 +3953,7 @@ static inline v1l compatible_v1l_cvt_v4l(v4l a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 1, 1*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 4, 4*sizeof(int64_t));
   v4l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v1l_load(vto);
 }
 static inline v2d compatible_v2d_cvt_v4l(v4l a) {
@@ -4003,7 +3961,7 @@ static inline v2d compatible_v2d_cvt_v4l(v4l a) {
   PINTS_ALIGNED_ARRAY(double, vto, 2, 2*sizeof(double));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 4, 4*sizeof(int64_t));
   v4l_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (double) vfrom[i];
   return v2d_load(vto);
 }
 static inline v2f compatible_v2f_cvt_v4l(v4l a) {
@@ -4011,7 +3969,7 @@ static inline v2f compatible_v2f_cvt_v4l(v4l a) {
   PINTS_ALIGNED_ARRAY(float, vto, 2, 2*sizeof(float));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 4, 4*sizeof(int64_t));
   v4l_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v2f_load(vto);
 }
 static inline v2i compatible_v2i_cvt_v4l(v4l a) {
@@ -4019,7 +3977,7 @@ static inline v2i compatible_v2i_cvt_v4l(v4l a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 2, 2*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 4, 4*sizeof(int64_t));
   v4l_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v2i_load(vto);
 }
 static inline v2l compatible_v2l_cvt_v4l(v4l a) {
@@ -4027,7 +3985,7 @@ static inline v2l compatible_v2l_cvt_v4l(v4l a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 2, 2*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 4, 4*sizeof(int64_t));
   v4l_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int64_t) vfrom[i];
   return v2l_load(vto);
 }
 static inline v4d compatible_v4d_cvt_v4l(v4l a) {
@@ -4035,7 +3993,7 @@ static inline v4d compatible_v4d_cvt_v4l(v4l a) {
   PINTS_ALIGNED_ARRAY(double, vto, 4, 4*sizeof(double));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 4, 4*sizeof(int64_t));
   v4l_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (double) vfrom[i];
   return v4d_load(vto);
 }
 static inline v4f compatible_v4f_cvt_v4l(v4l a) {
@@ -4043,7 +4001,7 @@ static inline v4f compatible_v4f_cvt_v4l(v4l a) {
   PINTS_ALIGNED_ARRAY(float, vto, 4, 4*sizeof(float));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 4, 4*sizeof(int64_t));
   v4l_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (float) vfrom[i];
   return v4f_load(vto);
 }
 static inline v4i compatible_v4i_cvt_v4l(v4l a) {
@@ -4051,7 +4009,7 @@ static inline v4i compatible_v4i_cvt_v4l(v4l a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 4, 4*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 4, 4*sizeof(int64_t));
   v4l_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int32_t) vfrom[i];
   return v4i_load(vto);
 }
 static inline v4l compatible_v4l_cvt_v4l(v4l a) {
@@ -4059,7 +4017,7 @@ static inline v4l compatible_v4l_cvt_v4l(v4l a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 4, 4*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 4, 4*sizeof(int64_t));
   v4l_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int64_t) vfrom[i];
   return v4l_load(vto);
 }
 static inline v8d compatible_v8d_cvt_v4l(v4l a) {
@@ -4067,7 +4025,7 @@ static inline v8d compatible_v8d_cvt_v4l(v4l a) {
   PINTS_ALIGNED_ARRAY(double, vto, 8, 8*sizeof(double));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 4, 4*sizeof(int64_t));
   v4l_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (double) vfrom[i];
   return v8d_load(vto);
 }
 static inline v8f compatible_v8f_cvt_v4l(v4l a) {
@@ -4075,7 +4033,7 @@ static inline v8f compatible_v8f_cvt_v4l(v4l a) {
   PINTS_ALIGNED_ARRAY(float, vto, 8, 8*sizeof(float));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 4, 4*sizeof(int64_t));
   v4l_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (float) vfrom[i];
   return v8f_load(vto);
 }
 static inline v8i compatible_v8i_cvt_v4l(v4l a) {
@@ -4083,7 +4041,7 @@ static inline v8i compatible_v8i_cvt_v4l(v4l a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 8, 8*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 4, 4*sizeof(int64_t));
   v4l_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int32_t) vfrom[i];
   return v8i_load(vto);
 }
 static inline v8l compatible_v8l_cvt_v4l(v4l a) {
@@ -4091,7 +4049,7 @@ static inline v8l compatible_v8l_cvt_v4l(v4l a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 8, 8*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 4, 4*sizeof(int64_t));
   v4l_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int64_t) vfrom[i];
   return v8l_load(vto);
 }
 static inline v16f compatible_v16f_cvt_v4l(v4l a) {
@@ -4099,7 +4057,7 @@ static inline v16f compatible_v16f_cvt_v4l(v4l a) {
   PINTS_ALIGNED_ARRAY(float, vto, 16, 16*sizeof(float));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 4, 4*sizeof(int64_t));
   v4l_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (float) vfrom[i];
   return v16f_load(vto);
 }
 static inline v16i compatible_v16i_cvt_v4l(v4l a) {
@@ -4107,7 +4065,7 @@ static inline v16i compatible_v16i_cvt_v4l(v4l a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 16, 16*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 4, 4*sizeof(int64_t));
   v4l_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int32_t) vfrom[i];
   return v16i_load(vto);
 }
 static inline v1d compatible_v1d_cvt_v8d(v8d a) {
@@ -4115,7 +4073,7 @@ static inline v1d compatible_v1d_cvt_v8d(v8d a) {
   PINTS_ALIGNED_ARRAY(double, vto, 1, 1*sizeof(double));
   PINTS_ALIGNED_ARRAY(double, vfrom, 8, 8*sizeof(double));
   v8d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v1d_load(vto);
 }
 static inline v1f compatible_v1f_cvt_v8d(v8d a) {
@@ -4123,7 +4081,7 @@ static inline v1f compatible_v1f_cvt_v8d(v8d a) {
   PINTS_ALIGNED_ARRAY(float, vto, 1, 1*sizeof(float));
   PINTS_ALIGNED_ARRAY(double, vfrom, 8, 8*sizeof(double));
   v8d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v1f_load(vto);
 }
 static inline v1i compatible_v1i_cvt_v8d(v8d a) {
@@ -4131,7 +4089,7 @@ static inline v1i compatible_v1i_cvt_v8d(v8d a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 1, 1*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 8, 8*sizeof(double));
   v8d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v1i_load(vto);
 }
 static inline v1l compatible_v1l_cvt_v8d(v8d a) {
@@ -4139,7 +4097,7 @@ static inline v1l compatible_v1l_cvt_v8d(v8d a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 1, 1*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 8, 8*sizeof(double));
   v8d_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v1l_load(vto);
 }
 static inline v2d compatible_v2d_cvt_v8d(v8d a) {
@@ -4147,7 +4105,7 @@ static inline v2d compatible_v2d_cvt_v8d(v8d a) {
   PINTS_ALIGNED_ARRAY(double, vto, 2, 2*sizeof(double));
   PINTS_ALIGNED_ARRAY(double, vfrom, 8, 8*sizeof(double));
   v8d_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (double) vfrom[i];
   return v2d_load(vto);
 }
 static inline v2f compatible_v2f_cvt_v8d(v8d a) {
@@ -4155,7 +4113,7 @@ static inline v2f compatible_v2f_cvt_v8d(v8d a) {
   PINTS_ALIGNED_ARRAY(float, vto, 2, 2*sizeof(float));
   PINTS_ALIGNED_ARRAY(double, vfrom, 8, 8*sizeof(double));
   v8d_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v2f_load(vto);
 }
 static inline v2i compatible_v2i_cvt_v8d(v8d a) {
@@ -4163,7 +4121,7 @@ static inline v2i compatible_v2i_cvt_v8d(v8d a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 2, 2*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 8, 8*sizeof(double));
   v8d_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v2i_load(vto);
 }
 static inline v2l compatible_v2l_cvt_v8d(v8d a) {
@@ -4171,7 +4129,7 @@ static inline v2l compatible_v2l_cvt_v8d(v8d a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 2, 2*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 8, 8*sizeof(double));
   v8d_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int64_t) vfrom[i];
   return v2l_load(vto);
 }
 static inline v4d compatible_v4d_cvt_v8d(v8d a) {
@@ -4179,7 +4137,7 @@ static inline v4d compatible_v4d_cvt_v8d(v8d a) {
   PINTS_ALIGNED_ARRAY(double, vto, 4, 4*sizeof(double));
   PINTS_ALIGNED_ARRAY(double, vfrom, 8, 8*sizeof(double));
   v8d_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (double) vfrom[i];
   return v4d_load(vto);
 }
 static inline v4f compatible_v4f_cvt_v8d(v8d a) {
@@ -4187,7 +4145,7 @@ static inline v4f compatible_v4f_cvt_v8d(v8d a) {
   PINTS_ALIGNED_ARRAY(float, vto, 4, 4*sizeof(float));
   PINTS_ALIGNED_ARRAY(double, vfrom, 8, 8*sizeof(double));
   v8d_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (float) vfrom[i];
   return v4f_load(vto);
 }
 static inline v4i compatible_v4i_cvt_v8d(v8d a) {
@@ -4195,7 +4153,7 @@ static inline v4i compatible_v4i_cvt_v8d(v8d a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 4, 4*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 8, 8*sizeof(double));
   v8d_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int32_t) vfrom[i];
   return v4i_load(vto);
 }
 static inline v4l compatible_v4l_cvt_v8d(v8d a) {
@@ -4203,7 +4161,7 @@ static inline v4l compatible_v4l_cvt_v8d(v8d a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 4, 4*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 8, 8*sizeof(double));
   v8d_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int64_t) vfrom[i];
   return v4l_load(vto);
 }
 static inline v8d compatible_v8d_cvt_v8d(v8d a) {
@@ -4211,7 +4169,7 @@ static inline v8d compatible_v8d_cvt_v8d(v8d a) {
   PINTS_ALIGNED_ARRAY(double, vto, 8, 8*sizeof(double));
   PINTS_ALIGNED_ARRAY(double, vfrom, 8, 8*sizeof(double));
   v8d_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (double) vfrom[i];
   return v8d_load(vto);
 }
 static inline v8f compatible_v8f_cvt_v8d(v8d a) {
@@ -4219,7 +4177,7 @@ static inline v8f compatible_v8f_cvt_v8d(v8d a) {
   PINTS_ALIGNED_ARRAY(float, vto, 8, 8*sizeof(float));
   PINTS_ALIGNED_ARRAY(double, vfrom, 8, 8*sizeof(double));
   v8d_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (float) vfrom[i];
   return v8f_load(vto);
 }
 static inline v8i compatible_v8i_cvt_v8d(v8d a) {
@@ -4227,7 +4185,7 @@ static inline v8i compatible_v8i_cvt_v8d(v8d a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 8, 8*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 8, 8*sizeof(double));
   v8d_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (int32_t) vfrom[i];
   return v8i_load(vto);
 }
 static inline v8l compatible_v8l_cvt_v8d(v8d a) {
@@ -4235,7 +4193,7 @@ static inline v8l compatible_v8l_cvt_v8d(v8d a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 8, 8*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 8, 8*sizeof(double));
   v8d_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (int64_t) vfrom[i];
   return v8l_load(vto);
 }
 static inline v16f compatible_v16f_cvt_v8d(v8d a) {
@@ -4243,7 +4201,7 @@ static inline v16f compatible_v16f_cvt_v8d(v8d a) {
   PINTS_ALIGNED_ARRAY(float, vto, 16, 16*sizeof(float));
   PINTS_ALIGNED_ARRAY(double, vfrom, 8, 8*sizeof(double));
   v8d_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (float) vfrom[i];
   return v16f_load(vto);
 }
 static inline v16i compatible_v16i_cvt_v8d(v8d a) {
@@ -4251,7 +4209,7 @@ static inline v16i compatible_v16i_cvt_v8d(v8d a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 16, 16*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(double, vfrom, 8, 8*sizeof(double));
   v8d_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (int32_t) vfrom[i];
   return v16i_load(vto);
 }
 static inline v1d compatible_v1d_cvt_v8f(v8f a) {
@@ -4259,7 +4217,7 @@ static inline v1d compatible_v1d_cvt_v8f(v8f a) {
   PINTS_ALIGNED_ARRAY(double, vto, 1, 1*sizeof(double));
   PINTS_ALIGNED_ARRAY(float, vfrom, 8, 8*sizeof(float));
   v8f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v1d_load(vto);
 }
 static inline v1f compatible_v1f_cvt_v8f(v8f a) {
@@ -4267,7 +4225,7 @@ static inline v1f compatible_v1f_cvt_v8f(v8f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 1, 1*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 8, 8*sizeof(float));
   v8f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v1f_load(vto);
 }
 static inline v1i compatible_v1i_cvt_v8f(v8f a) {
@@ -4275,7 +4233,7 @@ static inline v1i compatible_v1i_cvt_v8f(v8f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 1, 1*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 8, 8*sizeof(float));
   v8f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v1i_load(vto);
 }
 static inline v1l compatible_v1l_cvt_v8f(v8f a) {
@@ -4283,7 +4241,7 @@ static inline v1l compatible_v1l_cvt_v8f(v8f a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 1, 1*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 8, 8*sizeof(float));
   v8f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v1l_load(vto);
 }
 static inline v2d compatible_v2d_cvt_v8f(v8f a) {
@@ -4291,7 +4249,7 @@ static inline v2d compatible_v2d_cvt_v8f(v8f a) {
   PINTS_ALIGNED_ARRAY(double, vto, 2, 2*sizeof(double));
   PINTS_ALIGNED_ARRAY(float, vfrom, 8, 8*sizeof(float));
   v8f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (double) vfrom[i];
   return v2d_load(vto);
 }
 static inline v2f compatible_v2f_cvt_v8f(v8f a) {
@@ -4299,7 +4257,7 @@ static inline v2f compatible_v2f_cvt_v8f(v8f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 2, 2*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 8, 8*sizeof(float));
   v8f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v2f_load(vto);
 }
 static inline v2i compatible_v2i_cvt_v8f(v8f a) {
@@ -4307,7 +4265,7 @@ static inline v2i compatible_v2i_cvt_v8f(v8f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 2, 2*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 8, 8*sizeof(float));
   v8f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v2i_load(vto);
 }
 static inline v2l compatible_v2l_cvt_v8f(v8f a) {
@@ -4315,7 +4273,7 @@ static inline v2l compatible_v2l_cvt_v8f(v8f a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 2, 2*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 8, 8*sizeof(float));
   v8f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int64_t) vfrom[i];
   return v2l_load(vto);
 }
 static inline v4d compatible_v4d_cvt_v8f(v8f a) {
@@ -4323,7 +4281,7 @@ static inline v4d compatible_v4d_cvt_v8f(v8f a) {
   PINTS_ALIGNED_ARRAY(double, vto, 4, 4*sizeof(double));
   PINTS_ALIGNED_ARRAY(float, vfrom, 8, 8*sizeof(float));
   v8f_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (double) vfrom[i];
   return v4d_load(vto);
 }
 static inline v4f compatible_v4f_cvt_v8f(v8f a) {
@@ -4331,7 +4289,7 @@ static inline v4f compatible_v4f_cvt_v8f(v8f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 4, 4*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 8, 8*sizeof(float));
   v8f_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (float) vfrom[i];
   return v4f_load(vto);
 }
 static inline v4i compatible_v4i_cvt_v8f(v8f a) {
@@ -4339,7 +4297,7 @@ static inline v4i compatible_v4i_cvt_v8f(v8f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 4, 4*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 8, 8*sizeof(float));
   v8f_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int32_t) vfrom[i];
   return v4i_load(vto);
 }
 static inline v4l compatible_v4l_cvt_v8f(v8f a) {
@@ -4347,7 +4305,7 @@ static inline v4l compatible_v4l_cvt_v8f(v8f a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 4, 4*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 8, 8*sizeof(float));
   v8f_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int64_t) vfrom[i];
   return v4l_load(vto);
 }
 static inline v8d compatible_v8d_cvt_v8f(v8f a) {
@@ -4355,7 +4313,7 @@ static inline v8d compatible_v8d_cvt_v8f(v8f a) {
   PINTS_ALIGNED_ARRAY(double, vto, 8, 8*sizeof(double));
   PINTS_ALIGNED_ARRAY(float, vfrom, 8, 8*sizeof(float));
   v8f_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (double) vfrom[i];
   return v8d_load(vto);
 }
 static inline v8f compatible_v8f_cvt_v8f(v8f a) {
@@ -4363,7 +4321,7 @@ static inline v8f compatible_v8f_cvt_v8f(v8f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 8, 8*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 8, 8*sizeof(float));
   v8f_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (float) vfrom[i];
   return v8f_load(vto);
 }
 static inline v8i compatible_v8i_cvt_v8f(v8f a) {
@@ -4371,7 +4329,7 @@ static inline v8i compatible_v8i_cvt_v8f(v8f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 8, 8*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 8, 8*sizeof(float));
   v8f_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (int32_t) vfrom[i];
   return v8i_load(vto);
 }
 static inline v8l compatible_v8l_cvt_v8f(v8f a) {
@@ -4379,7 +4337,7 @@ static inline v8l compatible_v8l_cvt_v8f(v8f a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 8, 8*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 8, 8*sizeof(float));
   v8f_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (int64_t) vfrom[i];
   return v8l_load(vto);
 }
 static inline v16f compatible_v16f_cvt_v8f(v8f a) {
@@ -4387,7 +4345,7 @@ static inline v16f compatible_v16f_cvt_v8f(v8f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 16, 16*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 8, 8*sizeof(float));
   v8f_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (float) vfrom[i];
   return v16f_load(vto);
 }
 static inline v16i compatible_v16i_cvt_v8f(v8f a) {
@@ -4395,7 +4353,7 @@ static inline v16i compatible_v16i_cvt_v8f(v8f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 16, 16*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 8, 8*sizeof(float));
   v8f_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (int32_t) vfrom[i];
   return v16i_load(vto);
 }
 static inline v1d compatible_v1d_cvt_v8i(v8i a) {
@@ -4403,7 +4361,7 @@ static inline v1d compatible_v1d_cvt_v8i(v8i a) {
   PINTS_ALIGNED_ARRAY(double, vto, 1, 1*sizeof(double));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 8, 8*sizeof(int32_t));
   v8i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v1d_load(vto);
 }
 static inline v1f compatible_v1f_cvt_v8i(v8i a) {
@@ -4411,7 +4369,7 @@ static inline v1f compatible_v1f_cvt_v8i(v8i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 1, 1*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 8, 8*sizeof(int32_t));
   v8i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v1f_load(vto);
 }
 static inline v1i compatible_v1i_cvt_v8i(v8i a) {
@@ -4419,7 +4377,7 @@ static inline v1i compatible_v1i_cvt_v8i(v8i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 1, 1*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 8, 8*sizeof(int32_t));
   v8i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v1i_load(vto);
 }
 static inline v1l compatible_v1l_cvt_v8i(v8i a) {
@@ -4427,7 +4385,7 @@ static inline v1l compatible_v1l_cvt_v8i(v8i a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 1, 1*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 8, 8*sizeof(int32_t));
   v8i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v1l_load(vto);
 }
 static inline v2d compatible_v2d_cvt_v8i(v8i a) {
@@ -4435,7 +4393,7 @@ static inline v2d compatible_v2d_cvt_v8i(v8i a) {
   PINTS_ALIGNED_ARRAY(double, vto, 2, 2*sizeof(double));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 8, 8*sizeof(int32_t));
   v8i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (double) vfrom[i];
   return v2d_load(vto);
 }
 static inline v2f compatible_v2f_cvt_v8i(v8i a) {
@@ -4443,7 +4401,7 @@ static inline v2f compatible_v2f_cvt_v8i(v8i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 2, 2*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 8, 8*sizeof(int32_t));
   v8i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v2f_load(vto);
 }
 static inline v2i compatible_v2i_cvt_v8i(v8i a) {
@@ -4451,7 +4409,7 @@ static inline v2i compatible_v2i_cvt_v8i(v8i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 2, 2*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 8, 8*sizeof(int32_t));
   v8i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v2i_load(vto);
 }
 static inline v2l compatible_v2l_cvt_v8i(v8i a) {
@@ -4459,7 +4417,7 @@ static inline v2l compatible_v2l_cvt_v8i(v8i a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 2, 2*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 8, 8*sizeof(int32_t));
   v8i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int64_t) vfrom[i];
   return v2l_load(vto);
 }
 static inline v4d compatible_v4d_cvt_v8i(v8i a) {
@@ -4467,7 +4425,7 @@ static inline v4d compatible_v4d_cvt_v8i(v8i a) {
   PINTS_ALIGNED_ARRAY(double, vto, 4, 4*sizeof(double));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 8, 8*sizeof(int32_t));
   v8i_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (double) vfrom[i];
   return v4d_load(vto);
 }
 static inline v4f compatible_v4f_cvt_v8i(v8i a) {
@@ -4475,7 +4433,7 @@ static inline v4f compatible_v4f_cvt_v8i(v8i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 4, 4*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 8, 8*sizeof(int32_t));
   v8i_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (float) vfrom[i];
   return v4f_load(vto);
 }
 static inline v4i compatible_v4i_cvt_v8i(v8i a) {
@@ -4483,7 +4441,7 @@ static inline v4i compatible_v4i_cvt_v8i(v8i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 4, 4*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 8, 8*sizeof(int32_t));
   v8i_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int32_t) vfrom[i];
   return v4i_load(vto);
 }
 static inline v4l compatible_v4l_cvt_v8i(v8i a) {
@@ -4491,7 +4449,7 @@ static inline v4l compatible_v4l_cvt_v8i(v8i a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 4, 4*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 8, 8*sizeof(int32_t));
   v8i_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int64_t) vfrom[i];
   return v4l_load(vto);
 }
 static inline v8d compatible_v8d_cvt_v8i(v8i a) {
@@ -4499,7 +4457,7 @@ static inline v8d compatible_v8d_cvt_v8i(v8i a) {
   PINTS_ALIGNED_ARRAY(double, vto, 8, 8*sizeof(double));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 8, 8*sizeof(int32_t));
   v8i_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (double) vfrom[i];
   return v8d_load(vto);
 }
 static inline v8f compatible_v8f_cvt_v8i(v8i a) {
@@ -4507,7 +4465,7 @@ static inline v8f compatible_v8f_cvt_v8i(v8i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 8, 8*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 8, 8*sizeof(int32_t));
   v8i_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (float) vfrom[i];
   return v8f_load(vto);
 }
 static inline v8i compatible_v8i_cvt_v8i(v8i a) {
@@ -4515,7 +4473,7 @@ static inline v8i compatible_v8i_cvt_v8i(v8i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 8, 8*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 8, 8*sizeof(int32_t));
   v8i_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (int32_t) vfrom[i];
   return v8i_load(vto);
 }
 static inline v8l compatible_v8l_cvt_v8i(v8i a) {
@@ -4523,7 +4481,7 @@ static inline v8l compatible_v8l_cvt_v8i(v8i a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 8, 8*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 8, 8*sizeof(int32_t));
   v8i_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (int64_t) vfrom[i];
   return v8l_load(vto);
 }
 static inline v16f compatible_v16f_cvt_v8i(v8i a) {
@@ -4531,7 +4489,7 @@ static inline v16f compatible_v16f_cvt_v8i(v8i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 16, 16*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 8, 8*sizeof(int32_t));
   v8i_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (float) vfrom[i];
   return v16f_load(vto);
 }
 static inline v16i compatible_v16i_cvt_v8i(v8i a) {
@@ -4539,7 +4497,7 @@ static inline v16i compatible_v16i_cvt_v8i(v8i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 16, 16*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 8, 8*sizeof(int32_t));
   v8i_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (int32_t) vfrom[i];
   return v16i_load(vto);
 }
 static inline v1d compatible_v1d_cvt_v8l(v8l a) {
@@ -4547,7 +4505,7 @@ static inline v1d compatible_v1d_cvt_v8l(v8l a) {
   PINTS_ALIGNED_ARRAY(double, vto, 1, 1*sizeof(double));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 8, 8*sizeof(int64_t));
   v8l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v1d_load(vto);
 }
 static inline v1f compatible_v1f_cvt_v8l(v8l a) {
@@ -4555,7 +4513,7 @@ static inline v1f compatible_v1f_cvt_v8l(v8l a) {
   PINTS_ALIGNED_ARRAY(float, vto, 1, 1*sizeof(float));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 8, 8*sizeof(int64_t));
   v8l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v1f_load(vto);
 }
 static inline v1i compatible_v1i_cvt_v8l(v8l a) {
@@ -4563,7 +4521,7 @@ static inline v1i compatible_v1i_cvt_v8l(v8l a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 1, 1*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 8, 8*sizeof(int64_t));
   v8l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v1i_load(vto);
 }
 static inline v1l compatible_v1l_cvt_v8l(v8l a) {
@@ -4571,7 +4529,7 @@ static inline v1l compatible_v1l_cvt_v8l(v8l a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 1, 1*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 8, 8*sizeof(int64_t));
   v8l_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v1l_load(vto);
 }
 static inline v2d compatible_v2d_cvt_v8l(v8l a) {
@@ -4579,7 +4537,7 @@ static inline v2d compatible_v2d_cvt_v8l(v8l a) {
   PINTS_ALIGNED_ARRAY(double, vto, 2, 2*sizeof(double));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 8, 8*sizeof(int64_t));
   v8l_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (double) vfrom[i];
   return v2d_load(vto);
 }
 static inline v2f compatible_v2f_cvt_v8l(v8l a) {
@@ -4587,7 +4545,7 @@ static inline v2f compatible_v2f_cvt_v8l(v8l a) {
   PINTS_ALIGNED_ARRAY(float, vto, 2, 2*sizeof(float));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 8, 8*sizeof(int64_t));
   v8l_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v2f_load(vto);
 }
 static inline v2i compatible_v2i_cvt_v8l(v8l a) {
@@ -4595,7 +4553,7 @@ static inline v2i compatible_v2i_cvt_v8l(v8l a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 2, 2*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 8, 8*sizeof(int64_t));
   v8l_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v2i_load(vto);
 }
 static inline v2l compatible_v2l_cvt_v8l(v8l a) {
@@ -4603,7 +4561,7 @@ static inline v2l compatible_v2l_cvt_v8l(v8l a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 2, 2*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 8, 8*sizeof(int64_t));
   v8l_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int64_t) vfrom[i];
   return v2l_load(vto);
 }
 static inline v4d compatible_v4d_cvt_v8l(v8l a) {
@@ -4611,7 +4569,7 @@ static inline v4d compatible_v4d_cvt_v8l(v8l a) {
   PINTS_ALIGNED_ARRAY(double, vto, 4, 4*sizeof(double));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 8, 8*sizeof(int64_t));
   v8l_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (double) vfrom[i];
   return v4d_load(vto);
 }
 static inline v4f compatible_v4f_cvt_v8l(v8l a) {
@@ -4619,7 +4577,7 @@ static inline v4f compatible_v4f_cvt_v8l(v8l a) {
   PINTS_ALIGNED_ARRAY(float, vto, 4, 4*sizeof(float));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 8, 8*sizeof(int64_t));
   v8l_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (float) vfrom[i];
   return v4f_load(vto);
 }
 static inline v4i compatible_v4i_cvt_v8l(v8l a) {
@@ -4627,7 +4585,7 @@ static inline v4i compatible_v4i_cvt_v8l(v8l a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 4, 4*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 8, 8*sizeof(int64_t));
   v8l_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int32_t) vfrom[i];
   return v4i_load(vto);
 }
 static inline v4l compatible_v4l_cvt_v8l(v8l a) {
@@ -4635,7 +4593,7 @@ static inline v4l compatible_v4l_cvt_v8l(v8l a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 4, 4*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 8, 8*sizeof(int64_t));
   v8l_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int64_t) vfrom[i];
   return v4l_load(vto);
 }
 static inline v8d compatible_v8d_cvt_v8l(v8l a) {
@@ -4643,7 +4601,7 @@ static inline v8d compatible_v8d_cvt_v8l(v8l a) {
   PINTS_ALIGNED_ARRAY(double, vto, 8, 8*sizeof(double));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 8, 8*sizeof(int64_t));
   v8l_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (double) vfrom[i];
   return v8d_load(vto);
 }
 static inline v8f compatible_v8f_cvt_v8l(v8l a) {
@@ -4651,7 +4609,7 @@ static inline v8f compatible_v8f_cvt_v8l(v8l a) {
   PINTS_ALIGNED_ARRAY(float, vto, 8, 8*sizeof(float));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 8, 8*sizeof(int64_t));
   v8l_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (float) vfrom[i];
   return v8f_load(vto);
 }
 static inline v8i compatible_v8i_cvt_v8l(v8l a) {
@@ -4659,7 +4617,7 @@ static inline v8i compatible_v8i_cvt_v8l(v8l a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 8, 8*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 8, 8*sizeof(int64_t));
   v8l_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (int32_t) vfrom[i];
   return v8i_load(vto);
 }
 static inline v8l compatible_v8l_cvt_v8l(v8l a) {
@@ -4667,7 +4625,7 @@ static inline v8l compatible_v8l_cvt_v8l(v8l a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 8, 8*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 8, 8*sizeof(int64_t));
   v8l_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (int64_t) vfrom[i];
   return v8l_load(vto);
 }
 static inline v16f compatible_v16f_cvt_v8l(v8l a) {
@@ -4675,7 +4633,7 @@ static inline v16f compatible_v16f_cvt_v8l(v8l a) {
   PINTS_ALIGNED_ARRAY(float, vto, 16, 16*sizeof(float));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 8, 8*sizeof(int64_t));
   v8l_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (float) vfrom[i];
   return v16f_load(vto);
 }
 static inline v16i compatible_v16i_cvt_v8l(v8l a) {
@@ -4683,7 +4641,7 @@ static inline v16i compatible_v16i_cvt_v8l(v8l a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 16, 16*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int64_t, vfrom, 8, 8*sizeof(int64_t));
   v8l_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (int32_t) vfrom[i];
   return v16i_load(vto);
 }
 static inline v1d compatible_v1d_cvt_v16f(v16f a) {
@@ -4691,7 +4649,7 @@ static inline v1d compatible_v1d_cvt_v16f(v16f a) {
   PINTS_ALIGNED_ARRAY(double, vto, 1, 1*sizeof(double));
   PINTS_ALIGNED_ARRAY(float, vfrom, 16, 16*sizeof(float));
   v16f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v1d_load(vto);
 }
 static inline v1f compatible_v1f_cvt_v16f(v16f a) {
@@ -4699,7 +4657,7 @@ static inline v1f compatible_v1f_cvt_v16f(v16f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 1, 1*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 16, 16*sizeof(float));
   v16f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v1f_load(vto);
 }
 static inline v1i compatible_v1i_cvt_v16f(v16f a) {
@@ -4707,7 +4665,7 @@ static inline v1i compatible_v1i_cvt_v16f(v16f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 1, 1*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 16, 16*sizeof(float));
   v16f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v1i_load(vto);
 }
 static inline v1l compatible_v1l_cvt_v16f(v16f a) {
@@ -4715,7 +4673,7 @@ static inline v1l compatible_v1l_cvt_v16f(v16f a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 1, 1*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 16, 16*sizeof(float));
   v16f_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v1l_load(vto);
 }
 static inline v2d compatible_v2d_cvt_v16f(v16f a) {
@@ -4723,7 +4681,7 @@ static inline v2d compatible_v2d_cvt_v16f(v16f a) {
   PINTS_ALIGNED_ARRAY(double, vto, 2, 2*sizeof(double));
   PINTS_ALIGNED_ARRAY(float, vfrom, 16, 16*sizeof(float));
   v16f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (double) vfrom[i];
   return v2d_load(vto);
 }
 static inline v2f compatible_v2f_cvt_v16f(v16f a) {
@@ -4731,7 +4689,7 @@ static inline v2f compatible_v2f_cvt_v16f(v16f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 2, 2*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 16, 16*sizeof(float));
   v16f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v2f_load(vto);
 }
 static inline v2i compatible_v2i_cvt_v16f(v16f a) {
@@ -4739,7 +4697,7 @@ static inline v2i compatible_v2i_cvt_v16f(v16f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 2, 2*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 16, 16*sizeof(float));
   v16f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v2i_load(vto);
 }
 static inline v2l compatible_v2l_cvt_v16f(v16f a) {
@@ -4747,7 +4705,7 @@ static inline v2l compatible_v2l_cvt_v16f(v16f a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 2, 2*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 16, 16*sizeof(float));
   v16f_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int64_t) vfrom[i];
   return v2l_load(vto);
 }
 static inline v4d compatible_v4d_cvt_v16f(v16f a) {
@@ -4755,7 +4713,7 @@ static inline v4d compatible_v4d_cvt_v16f(v16f a) {
   PINTS_ALIGNED_ARRAY(double, vto, 4, 4*sizeof(double));
   PINTS_ALIGNED_ARRAY(float, vfrom, 16, 16*sizeof(float));
   v16f_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (double) vfrom[i];
   return v4d_load(vto);
 }
 static inline v4f compatible_v4f_cvt_v16f(v16f a) {
@@ -4763,7 +4721,7 @@ static inline v4f compatible_v4f_cvt_v16f(v16f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 4, 4*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 16, 16*sizeof(float));
   v16f_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (float) vfrom[i];
   return v4f_load(vto);
 }
 static inline v4i compatible_v4i_cvt_v16f(v16f a) {
@@ -4771,7 +4729,7 @@ static inline v4i compatible_v4i_cvt_v16f(v16f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 4, 4*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 16, 16*sizeof(float));
   v16f_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int32_t) vfrom[i];
   return v4i_load(vto);
 }
 static inline v4l compatible_v4l_cvt_v16f(v16f a) {
@@ -4779,7 +4737,7 @@ static inline v4l compatible_v4l_cvt_v16f(v16f a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 4, 4*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 16, 16*sizeof(float));
   v16f_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int64_t) vfrom[i];
   return v4l_load(vto);
 }
 static inline v8d compatible_v8d_cvt_v16f(v16f a) {
@@ -4787,7 +4745,7 @@ static inline v8d compatible_v8d_cvt_v16f(v16f a) {
   PINTS_ALIGNED_ARRAY(double, vto, 8, 8*sizeof(double));
   PINTS_ALIGNED_ARRAY(float, vfrom, 16, 16*sizeof(float));
   v16f_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (double) vfrom[i];
   return v8d_load(vto);
 }
 static inline v8f compatible_v8f_cvt_v16f(v16f a) {
@@ -4795,7 +4753,7 @@ static inline v8f compatible_v8f_cvt_v16f(v16f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 8, 8*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 16, 16*sizeof(float));
   v16f_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (float) vfrom[i];
   return v8f_load(vto);
 }
 static inline v8i compatible_v8i_cvt_v16f(v16f a) {
@@ -4803,7 +4761,7 @@ static inline v8i compatible_v8i_cvt_v16f(v16f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 8, 8*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 16, 16*sizeof(float));
   v16f_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (int32_t) vfrom[i];
   return v8i_load(vto);
 }
 static inline v8l compatible_v8l_cvt_v16f(v16f a) {
@@ -4811,7 +4769,7 @@ static inline v8l compatible_v8l_cvt_v16f(v16f a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 8, 8*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 16, 16*sizeof(float));
   v16f_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (int64_t) vfrom[i];
   return v8l_load(vto);
 }
 static inline v16f compatible_v16f_cvt_v16f(v16f a) {
@@ -4819,7 +4777,7 @@ static inline v16f compatible_v16f_cvt_v16f(v16f a) {
   PINTS_ALIGNED_ARRAY(float, vto, 16, 16*sizeof(float));
   PINTS_ALIGNED_ARRAY(float, vfrom, 16, 16*sizeof(float));
   v16f_store(vfrom, a);
-  for (i = 0; i < 16; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 16; ++i) vto[i] = (float) vfrom[i];
   return v16f_load(vto);
 }
 static inline v16i compatible_v16i_cvt_v16f(v16f a) {
@@ -4827,7 +4785,7 @@ static inline v16i compatible_v16i_cvt_v16f(v16f a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 16, 16*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(float, vfrom, 16, 16*sizeof(float));
   v16f_store(vfrom, a);
-  for (i = 0; i < 16; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 16; ++i) vto[i] = (int32_t) vfrom[i];
   return v16i_load(vto);
 }
 static inline v1d compatible_v1d_cvt_v16i(v16i a) {
@@ -4835,7 +4793,7 @@ static inline v1d compatible_v1d_cvt_v16i(v16i a) {
   PINTS_ALIGNED_ARRAY(double, vto, 1, 1*sizeof(double));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 16, 16*sizeof(int32_t));
   v16i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (double) vfrom[i];
   return v1d_load(vto);
 }
 static inline v1f compatible_v1f_cvt_v16i(v16i a) {
@@ -4843,7 +4801,7 @@ static inline v1f compatible_v1f_cvt_v16i(v16i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 1, 1*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 16, 16*sizeof(int32_t));
   v16i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (float) vfrom[i];
   return v1f_load(vto);
 }
 static inline v1i compatible_v1i_cvt_v16i(v16i a) {
@@ -4851,7 +4809,7 @@ static inline v1i compatible_v1i_cvt_v16i(v16i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 1, 1*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 16, 16*sizeof(int32_t));
   v16i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int32_t) vfrom[i];
   return v1i_load(vto);
 }
 static inline v1l compatible_v1l_cvt_v16i(v16i a) {
@@ -4859,7 +4817,7 @@ static inline v1l compatible_v1l_cvt_v16i(v16i a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 1, 1*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 16, 16*sizeof(int32_t));
   v16i_store(vfrom, a);
-  for (i = 0; i < 1; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 1; ++i) vto[i] = (int64_t) vfrom[i];
   return v1l_load(vto);
 }
 static inline v2d compatible_v2d_cvt_v16i(v16i a) {
@@ -4867,7 +4825,7 @@ static inline v2d compatible_v2d_cvt_v16i(v16i a) {
   PINTS_ALIGNED_ARRAY(double, vto, 2, 2*sizeof(double));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 16, 16*sizeof(int32_t));
   v16i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (double) vfrom[i];
   return v2d_load(vto);
 }
 static inline v2f compatible_v2f_cvt_v16i(v16i a) {
@@ -4875,7 +4833,7 @@ static inline v2f compatible_v2f_cvt_v16i(v16i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 2, 2*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 16, 16*sizeof(int32_t));
   v16i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (float) vfrom[i];
   return v2f_load(vto);
 }
 static inline v2i compatible_v2i_cvt_v16i(v16i a) {
@@ -4883,7 +4841,7 @@ static inline v2i compatible_v2i_cvt_v16i(v16i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 2, 2*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 16, 16*sizeof(int32_t));
   v16i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int32_t) vfrom[i];
   return v2i_load(vto);
 }
 static inline v2l compatible_v2l_cvt_v16i(v16i a) {
@@ -4891,7 +4849,7 @@ static inline v2l compatible_v2l_cvt_v16i(v16i a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 2, 2*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 16, 16*sizeof(int32_t));
   v16i_store(vfrom, a);
-  for (i = 0; i < 2; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 2; ++i) vto[i] = (int64_t) vfrom[i];
   return v2l_load(vto);
 }
 static inline v4d compatible_v4d_cvt_v16i(v16i a) {
@@ -4899,7 +4857,7 @@ static inline v4d compatible_v4d_cvt_v16i(v16i a) {
   PINTS_ALIGNED_ARRAY(double, vto, 4, 4*sizeof(double));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 16, 16*sizeof(int32_t));
   v16i_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (double) vfrom[i];
   return v4d_load(vto);
 }
 static inline v4f compatible_v4f_cvt_v16i(v16i a) {
@@ -4907,7 +4865,7 @@ static inline v4f compatible_v4f_cvt_v16i(v16i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 4, 4*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 16, 16*sizeof(int32_t));
   v16i_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (float) vfrom[i];
   return v4f_load(vto);
 }
 static inline v4i compatible_v4i_cvt_v16i(v16i a) {
@@ -4915,7 +4873,7 @@ static inline v4i compatible_v4i_cvt_v16i(v16i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 4, 4*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 16, 16*sizeof(int32_t));
   v16i_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int32_t) vfrom[i];
   return v4i_load(vto);
 }
 static inline v4l compatible_v4l_cvt_v16i(v16i a) {
@@ -4923,7 +4881,7 @@ static inline v4l compatible_v4l_cvt_v16i(v16i a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 4, 4*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 16, 16*sizeof(int32_t));
   v16i_store(vfrom, a);
-  for (i = 0; i < 4; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 4; ++i) vto[i] = (int64_t) vfrom[i];
   return v4l_load(vto);
 }
 static inline v8d compatible_v8d_cvt_v16i(v16i a) {
@@ -4931,7 +4889,7 @@ static inline v8d compatible_v8d_cvt_v16i(v16i a) {
   PINTS_ALIGNED_ARRAY(double, vto, 8, 8*sizeof(double));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 16, 16*sizeof(int32_t));
   v16i_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (double) vfrom[i];
   return v8d_load(vto);
 }
 static inline v8f compatible_v8f_cvt_v16i(v16i a) {
@@ -4939,7 +4897,7 @@ static inline v8f compatible_v8f_cvt_v16i(v16i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 8, 8*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 16, 16*sizeof(int32_t));
   v16i_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (float) vfrom[i];
   return v8f_load(vto);
 }
 static inline v8i compatible_v8i_cvt_v16i(v16i a) {
@@ -4947,7 +4905,7 @@ static inline v8i compatible_v8i_cvt_v16i(v16i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 8, 8*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 16, 16*sizeof(int32_t));
   v16i_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (int32_t) vfrom[i];
   return v8i_load(vto);
 }
 static inline v8l compatible_v8l_cvt_v16i(v16i a) {
@@ -4955,7 +4913,7 @@ static inline v8l compatible_v8l_cvt_v16i(v16i a) {
   PINTS_ALIGNED_ARRAY(int64_t, vto, 8, 8*sizeof(int64_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 16, 16*sizeof(int32_t));
   v16i_store(vfrom, a);
-  for (i = 0; i < 8; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 8; ++i) vto[i] = (int64_t) vfrom[i];
   return v8l_load(vto);
 }
 static inline v16f compatible_v16f_cvt_v16i(v16i a) {
@@ -4963,7 +4921,7 @@ static inline v16f compatible_v16f_cvt_v16i(v16i a) {
   PINTS_ALIGNED_ARRAY(float, vto, 16, 16*sizeof(float));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 16, 16*sizeof(int32_t));
   v16i_store(vfrom, a);
-  for (i = 0; i < 16; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 16; ++i) vto[i] = (float) vfrom[i];
   return v16f_load(vto);
 }
 static inline v16i compatible_v16i_cvt_v16i(v16i a) {
@@ -4971,7 +4929,7 @@ static inline v16i compatible_v16i_cvt_v16i(v16i a) {
   PINTS_ALIGNED_ARRAY(int32_t, vto, 16, 16*sizeof(int32_t));
   PINTS_ALIGNED_ARRAY(int32_t, vfrom, 16, 16*sizeof(int32_t));
   v16i_store(vfrom, a);
-  for (i = 0; i < 16; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < 16; ++i) vto[i] = (int32_t) vfrom[i];
   return v16i_load(vto);
 }
 

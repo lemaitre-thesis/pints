@@ -9,7 +9,7 @@
   type name##_unaligned[(size) + (align)]; \
   type *name = (type*)PINTS_ALIGN_UP(name##_unaligned, align)
 
-#define PINTS_REINTERPRET(to_t, from_t, v) (((union { from_t from; to_t to; }) { from: (v) }).to)
+#define PINTS_REINTERPRET(to_t, from_t, v) (((union { from_t from; to_t to; }) { .from = (v) }).to)
 
 #define __PINTS_PP_CAT(a, b) a##b
 #define PINTS_PP_CAT(a, b) __PINTS_PP_CAT(a, b)

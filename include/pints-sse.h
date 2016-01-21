@@ -25,6 +25,10 @@ typedef __m128d v2d;
 typedef __m128i v2i;
 typedef __m128i v2l;
 typedef __m128i v4i;
+
+typedef __m128i __m128iu __attribute__((aligned(4)));
+typedef __m128i __m128lu __attribute__((aligned(8)));
+typedef __m64 __m64fu __attribute__((aligned(4)));
 #endif
 
 #ifdef SSE
@@ -214,7 +218,7 @@ typedef __m128i v4i;
 #define v2f_load1(p) v4f_load(p)
 
 #undef v2f_store
-#define v2f_store(p, a) _mm_storel_pi((__m64*) p, a)
+#define v2f_store(p, a) _mm_storel_pi((__m64fu*) p, a)
 //#define v2f_store(p, a) _mm_store_ps(p, a)
 
 //#undef v2f_storeu
@@ -377,8 +381,8 @@ typedef __m128i v4i;
 #undef v2l_load
 #define v2d_load(p) _mm_load_pd(p)
 #define v4f_load(p) _mm_load_ps(p)
-#define v4i_load(p) _mm_load_si128((__m128i*)p)
-#define v2l_load(p) _mm_load_si128((__m128i*)p)
+#define v4i_load(p) _mm_load_si128((__m128iu*)p)
+#define v2l_load(p) _mm_load_si128((__m128lu*)p)
 
 #undef v2d_loadu
 #undef v4f_loadu
@@ -386,8 +390,8 @@ typedef __m128i v4i;
 #undef v2l_loadu
 #define v2d_loadu(p) _mm_loadu_pd(p)
 #define v4f_loadu(p) _mm_loadu_ps(p)
-#define v4i_loadu(p) _mm_loadu_si128((__m128i*)p)
-#define v2l_loadu(p) _mm_loadu_si128((__m128i*)p)
+#define v4i_loadu(p) _mm_loadu_si128((__m128iu*)p)
+#define v2l_loadu(p) _mm_loadu_si128((__m128lu*)p)
 
 #undef v2d_load1
 #undef v4f_load1
@@ -404,8 +408,8 @@ typedef __m128i v4i;
 #undef v2l_store
 #define v2d_store(p, a) _mm_store_pd(p, a)
 #define v4f_store(p, a) _mm_store_ps(p, a)
-#define v4i_store(p, a) _mm_store_si128((__m128i*)p, a)
-#define v2l_store(p, a) _mm_store_si128((__m128i*)p, a)
+#define v4i_store(p, a) _mm_store_si128((__m128iu*)p, a)
+#define v2l_store(p, a) _mm_store_si128((__m128lu*)p, a)
 
 #undef v2d_storeu
 #undef v4f_storeu
@@ -413,8 +417,8 @@ typedef __m128i v4i;
 #undef v2l_storeu
 #define v2d_storeu(p, a) _mm_storeu_pd(p, a)
 #define v4f_storeu(p, a) _mm_storeu_ps(p, a)
-#define v4i_storeu(p, a) _mm_storeu_si128((__m128i*)p, a)
-#define v2l_storeu(p, a) _mm_storeu_si128((__m128i*)p, a)
+#define v4i_storeu(p, a) _mm_storeu_si128((__m128iu*)p, a)
+#define v2l_storeu(p, a) _mm_storeu_si128((__m128lu*)p, a)
 
 #undef v2d_zeros
 #undef v4f_zeros
@@ -880,8 +884,8 @@ typedef __m128i v4i;
 
 #undef v2f_store
 #undef v2i_store
-#define v2f_store(p, a) _mm_storel_pi((__m64*) p, a)
-#define v2i_store(p, a) _mm_storel_epi64((__m128i*) p, a)
+#define v2f_store(p, a) _mm_storel_pi((__m64fu*) p, a)
+#define v2i_store(p, a) _mm_storel_epi64((__m128iu*) p, a)
 
 //#undef v2f_storeu
 //#undef v2i_storeu

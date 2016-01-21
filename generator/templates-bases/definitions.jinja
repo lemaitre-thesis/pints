@@ -22,7 +22,7 @@ dst.bits[{{RANGE(0, length)}}] := MEMORY.bits[{{RANGE(0, length, pre="p+", pren=
   {%- if size1() == 1 %}
     {{- _.def_func(f) }}
     {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { v: *p }; return r; }
+    {%- call _.impl(f, -1) %} { %I r = { .v = *p }; return r; }
     {%- endcall %}
   {%- else %}
     {{- _.def_func(f) }}
@@ -395,7 +395,7 @@ endfor
   {{- _.def_func(f) }}
   {%- if size1() == 1 %}
     {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { i: -(a.v == b.v) }; return r; }{% endcall -%}
+    {%- call _.impl(f, -1) %} { %I r = { .i = -(a.v == b.v) }; return r; }{% endcall -%}
   {% else -%}
     {{- _.declare(f) }}
     {{- _.recursive_func(f) -}}
@@ -431,7 +431,7 @@ endfor
   {{- _.def_func(f) }}
   {%- if size1() == 1 %}
     {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { i: -(a.v != b.v) }; return r; }{% endcall -%}
+    {%- call _.impl(f, -1) %} { %I r = { .i = -(a.v != b.v) }; return r; }{% endcall -%}
   {% else -%}
     {{- _.declare(f) }}
     {{- _.recursive_func(f) -}}
@@ -467,7 +467,7 @@ endfor
   {{- _.def_func(f) }}
   {%- if size1() == 1 %}
     {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { i: -(a.v > b.v) }; return r; }{% endcall -%}
+    {%- call _.impl(f, -1) %} { %I r = { .i = -(a.v > b.v) }; return r; }{% endcall -%}
   {% else -%}
     {{- _.declare(f) }}
     {{- _.recursive_func(f) -}}
@@ -503,7 +503,7 @@ endfor
   {{- _.def_func(f) }}
   {%- if size1() == 1 %}
     {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { i: -(a.v >= b.v) }; return r; }{% endcall -%}
+    {%- call _.impl(f, -1) %} { %I r = { .i = -(a.v >= b.v) }; return r; }{% endcall -%}
   {% else -%}
     {{- _.declare(f) }}
     {{- _.recursive_func(f) -}}
@@ -539,7 +539,7 @@ endfor
   {{- _.def_func(f) }}
   {%- if size1() == 1 %}
     {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { i: -(a.v < b.v) }; return r; }{% endcall -%}
+    {%- call _.impl(f, -1) %} { %I r = { .i = -(a.v < b.v) }; return r; }{% endcall -%}
   {% else -%}
     {{- _.declare(f) }}
     {{- _.recursive_func(f) -}}
@@ -575,7 +575,7 @@ endfor
   {{- _.def_func(f) }}
   {%- if size1() == 1 %}
     {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { i: -(a.v <= b.v) }; return r; }{% endcall -%}
+    {%- call _.impl(f, -1) %} { %I r = { .i = -(a.v <= b.v) }; return r; }{% endcall -%}
   {% else -%}
     {{- _.declare(f) }}
     {{- _.recursive_func(f) -}}
@@ -604,7 +604,7 @@ dst.bits[{{RANGE(0, length)}}] = a.bits[{{RANGE(0, length)}}] & b.bits[{{RANGE(0
   {{- _.def_func(f) }}
   {%- if size1() == 1 %}
     {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { i: a.i & b.i }; return r; }{% endcall -%}
+    {%- call _.impl(f, -1) %} { %I r = { .i = a.i & b.i }; return r; }{% endcall -%}
   {% else -%}
     {{- _.declare(f) }}
     {{- _.recursive_func(f) -}}
@@ -631,7 +631,7 @@ dst.bits[{{RANGE(0, length)}}] = a.bits[{{RANGE(0, length)}}] | b.bits[{{RANGE(0
   {{- _.def_func(f) }}
   {%- if size1() == 1 %}
     {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { i: a.i | b.i }; return r; }{% endcall -%}
+    {%- call _.impl(f, -1) %} { %I r = { .i = a.i | b.i }; return r; }{% endcall -%}
   {% else -%}
     {{- _.declare(f) }}
     {{- _.recursive_func(f) -}}
@@ -658,7 +658,7 @@ dst.bits[{{RANGE(0, length)}}] = a.bits[{{RANGE(0, length)}}] ^ b.bits[{{RANGE(0
   {{- _.def_func(f) }}
   {%- if size1() == 1 %}
     {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { i: a.i ^ b.i }; return r; }{% endcall -%}
+    {%- call _.impl(f, -1) %} { %I r = { .i = a.i ^ b.i }; return r; }{% endcall -%}
   {% else -%}
     {{- _.declare(f) }}
     {{- _.recursive_func(f) -}}
@@ -843,7 +843,7 @@ endfor
   {{- _.def_func(f) }}
   {%- if size1() == 1 %}
     {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { v: a.v + b.v }; return r; }{% endcall -%}
+    {%- call _.impl(f, -1) %} { %I r = { .v = a.v + b.v }; return r; }{% endcall -%}
   {% else -%}
     {{- _.declare(f) }}
     {{- _.recursive_func(f) -}}
@@ -871,7 +871,7 @@ endfor
   {{- _.def_func(f) }}
   {%- if size1() == 1 %}
     {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { v: a.v - b.v }; return r; }{% endcall -%}
+    {%- call _.impl(f, -1) %} { %I r = { .v = a.v - b.v }; return r; }{% endcall -%}
   {% else -%}
     {{- _.declare(f) }}
     {{- _.recursive_func(f) -}}
@@ -921,7 +921,7 @@ endfor
   {{- _.def_func(f) }}
   {%- if size1() == 1 %}
     {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { v: a.v * b.v }; return r; }{% endcall -%}
+    {%- call _.impl(f, -1) %} { %I r = { .v = a.v * b.v }; return r; }{% endcall -%}
   {% else -%}
     {{- _.declare(f) }}
     {{- _.recursive_func(f) -}}
@@ -949,7 +949,7 @@ endfor
   {{- _.def_func(f) }}
   {%- if size1() == 1 %}
     {{- _.declare(f, -1) }}
-    {%- call _.impl(f, -1) %} { %I r = { v: a.v / b.v }; return r; }{% endcall -%}
+    {%- call _.impl(f, -1) %} { %I r = { .v = a.v / b.v }; return r; }{% endcall -%}
   {% else -%}
     {{- _.declare(f) }}
     {{- _.recursive_func(f) -}}
@@ -1020,7 +1020,7 @@ endfor
   {%- if type1().is_float() %}
     {%- if size1() == 1 %}
       {{- _.declare(f, -1) }}
-      {%- call _.impl(f, -1) %} { %I r = { v: sqrt(a.v) }; return r; }{% endcall -%}
+      {%- call _.impl(f, -1) %} { %I r = { .v = sqrt(a.v) }; return r; }{% endcall -%}
     {%- else -%}
       {{- _.declare(f) }}
       {{- _.recursive_func(f) -}}
@@ -1203,7 +1203,7 @@ dst[{{RANGE(i, i+clength)}}] := a{{j}}[{{RANGE(0, clength)}}]
     {%- if size2() == 2 %}
       {{- _.def_func(f) }}
       {{- _.declare(f, -1) }}
-      {%- call _.impl(f, -1) %} { %I r = { a: a0, b: a1 }; return r; }
+      {%- call _.impl(f, -1) %} { %I r = { .a = a0, .b = a1 }; return r; }
       {%- endcall %}
     {%- elif size2() > 2 %}
       {%- call _.define(f) %} %P_merge2_%-P(%-P_merge%'-N_%^P(%$$0:%'-N$(a%n)$, $$), %-P_merge%'-N_%^P(%$$%'-N:%'N$(a%n)$, $$))
@@ -1291,7 +1291,6 @@ dst[{{RANGE(clength, 2*clength)}}] := high[{{RANGE(0, clength)}}]
 {% call(f) _.expandf("%T", "%P_merge_%-P", "%-T low, %-T high", prefix = "compatible_") %}
 {{- _.declare(f) }}
 {%- call _.impl(f) %} {
-  int i;
   PINTS_ALIGNED_ARRAY(%t, v, %N, %N*sizeof(%t));
   %-P_store(v, low);
   %-P_store(v + %-N, high);
@@ -1449,7 +1448,6 @@ endif
 {% call(f) _.expandf("%-T", "%-P_get_low_%P", "%T a", prefix = "compatible_") %}
 {{- _.declare(f) }}
 {%- call _.impl(f) %} {
-  int i;
   PINTS_ALIGNED_ARRAY(%t, v, %N, %N*sizeof(%t));
   %P_store(v, a);
   return %-P_load(v);
@@ -1459,7 +1457,6 @@ endif
 {% call(f) _.expandf("%-T", "%-P_get_high_%P", "%T a", prefix = "compatible_") %}
 {{- _.declare(f) }}
 {%- call _.impl(f) %} {
-  int i;
   PINTS_ALIGNED_ARRAY(%t, v, %N, %N*sizeof(%t));
   %P_store(v, a);
   return %-P_load(v+%-N);
@@ -2201,7 +2198,7 @@ dst[{{i}}] := SELECT%'N((mask.bits[{{i}}] ? b : a), rule[{{RANGE(i*lln2, (i+1)*l
       {%- elif length1 == length2 * 2 %}
         {{- _.def_func(f) }}
         {%- call _.declare_nof() -%} static inline %I {{ f.pname() }}(%'T' a); {%- endcall %}
-        {%- call _.impl() -%} static inline %I {{ f.pname() }}(%'T' a) { %I r = { a: a }; return r; }
+        {%- call _.impl() -%} static inline %I {{ f.pname() }}(%'T' a) { %I r = { .a = a }; return r; }
         {%- endcall %}
       {%- elif length1 > length2 %}
         {%- call _.define(f) %} %P_cast_%-P(%-P_cast_%'P(a))
@@ -2260,7 +2257,7 @@ endfor
     {%- elif size1() == size2() == 1 %}
       {{- _.def_func(f) }}
       {{- _.declare(f) }}
-      {%- call _.impl(f) %} { %t s%P; %'t' s%'P'; %'P'_store(&s%'P', a); s%P = s%'P'; return %P_load(&s%P); }
+      {%- call _.impl(f) %} { %t s%P; %'t' s%'P'; %'P'_store(&s%'P', a); s%P = (%t) s%'P'; return %P_load(&s%P); }
       {%- endcall %}
     {%- elif size1() == size2() %}
       {{- _.recursive_macro(f) }}
@@ -2294,7 +2291,7 @@ dst := CONVERT_FROM__%'t'__TO__%t(a[0])
     {%- if type1() == type2() and size2() == 1 %}
       {{- _.def_func(f) }}
       {{- _.declare(f) }}
-      {%- call _.impl(f) %} { %t s%P; %P_store(&s%P, a); return s%P; }
+      {%- call _.impl(f) %} { %t s%P; %P_store(&s%P, a); return (%t) s%P; }
       {%- endcall %}
     {%- else %}
       {%- call _.define(f) %} s%p_cvt_v1%p(v1%p_cvt_%'P'(a))
@@ -2375,7 +2372,7 @@ dst := CONVERT_FROM__%'t'__TO__%t(a[0])
   PINTS_ALIGNED_ARRAY(%t, vto, %N, %N*sizeof(%t));
   PINTS_ALIGNED_ARRAY(%'t', vfrom, %'N', %'N'*sizeof(%'t'));
   %'P'_store(vfrom, a);
-  for (i = 0; i < {{ min([size1(), size2()]) }}; ++i) vto[i] = vfrom[i];
+  for (i = 0; i < {{ min([size1(), size2()]) }}; ++i) vto[i] = (%t) vfrom[i];
   return %P_load(vto);
 } {%- endcall %}
 {%- endcall %}
