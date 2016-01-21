@@ -250,7 +250,7 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="gad7c087d3937f5a51ec9debd04972f192"></a>
+<a class="anchor" id="gad94b15114f5238eb9630d59448aa67ab"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -258,9 +258,9 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structv16f.html">v16f</a> v16f_frsqrt </td>
+          <td class="memname"><a class="el" href="structv1d.html">v1d</a> v1d_sqrt </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structv16f.html">v16f</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="structv1d.html">v1d</a>&#160;</td>
           <td class="paramname"><em>a</em></td><td>)</td>
           <td></td>
         </tr>
@@ -271,22 +271,22 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv16f.html" title="Type for the manipulation of 16 float packed into one single vector. ">v16f</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#ga5a29f0b0a544a65fb72af21163d88195" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v16f_rsqrt(v16f a)</a> </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 15</div>
-<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
+<p>Computes the square root of every element of the <code><a class="el" href="structv1d.html" title="Type for the manipulation of 1 double packed into one single vector. ">v1d</a></code> input vector <code>a</code>. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 0</div>
+<div class="line">  dst[i] := SQRT(a[i])</div>
 <div class="line">endfor</div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv16f.html" title="Type for the manipulation of 16 float packed into one single vector. ">v16f</a></code> input vector </td></tr>
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv1d.html" title="Type for the manipulation of 1 double packed into one single vector. ">v1d</a></code> input vector </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga5a29f0b0a544a65fb72af21163d88195"></a>
+<a class="anchor" id="ga2e5faf9cc745240b7250e2ce0083930a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -294,9 +294,9 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structv16f.html">v16f</a> v16f_rsqrt </td>
+          <td class="memname"><a class="el" href="structv1f.html">v1f</a> v1f_sqrt </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structv16f.html">v16f</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="structv1f.html">v1f</a>&#160;</td>
           <td class="paramname"><em>a</em></td><td>)</td>
           <td></td>
         </tr>
@@ -307,18 +307,522 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv16f.html" title="Type for the manipulation of 16 float packed into one single vector. ">v16f</a></code> input vector <code>a</code>. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 15</div>
-<div class="line">  dst[i] := 1 / SQRT(a[i])</div>
+<p>Computes the square root of every element of the <code><a class="el" href="structv1f.html" title="Type for the manipulation of 1 float packed into one single vector. ">v1f</a></code> input vector <code>a</code>. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 0</div>
+<div class="line">  dst[i] := SQRT(a[i])</div>
 <div class="line">endfor</div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv16f.html" title="Type for the manipulation of 16 float packed into one single vector. ">v16f</a></code> input vector </td></tr>
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv1f.html" title="Type for the manipulation of 1 float packed into one single vector. ">v1f</a></code> input vector </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga7ab508cc7ccc90223e1a82e191c261ce"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv1i.html">v1i</a> v1i_sqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv1i.html">v1i</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the square root of every element of the <code><a class="el" href="structv1i.html" title="Type for the manipulation of 1 int32_t packed into one single vector. ">v1i</a></code> input vector <code>a</code>. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 0</div>
+<div class="line">  dst[i] := SQRT(a[i])</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv1i.html" title="Type for the manipulation of 1 int32_t packed into one single vector. ">v1i</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaa251e9b6416d46af5d0196e16efe10b9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv1l.html">v1l</a> v1l_sqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv1l.html">v1l</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the square root of every element of the <code><a class="el" href="structv1l.html" title="Type for the manipulation of 1 int64_t packed into one single vector. ">v1l</a></code> input vector <code>a</code>. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 0</div>
+<div class="line">  dst[i] := SQRT(a[i])</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv1l.html" title="Type for the manipulation of 1 int64_t packed into one single vector. ">v1l</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gad856c352c20d0443b51e469836dc6e00"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv2d.html">v2d</a> v2d_sqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv2d.html">v2d</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the square root of every element of the <code><a class="el" href="structv2d.html" title="Type for the manipulation of 2 double packed into one single vector. ">v2d</a></code> input vector <code>a</code>. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 1</div>
+<div class="line">  dst[i] := SQRT(a[i])</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv2d.html" title="Type for the manipulation of 2 double packed into one single vector. ">v2d</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga887e692889e8ff42da0f3dd565970ec2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv2f.html">v2f</a> v2f_sqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv2f.html">v2f</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the square root of every element of the <code><a class="el" href="structv2f.html" title="Type for the manipulation of 2 float packed into one single vector. ">v2f</a></code> input vector <code>a</code>. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 1</div>
+<div class="line">  dst[i] := SQRT(a[i])</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv2f.html" title="Type for the manipulation of 2 float packed into one single vector. ">v2f</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga1e3a94ded72762148b480e4017ece24b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv2i.html">v2i</a> v2i_sqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv2i.html">v2i</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the square root of every element of the <code><a class="el" href="structv2i.html" title="Type for the manipulation of 2 int32_t packed into one single vector. ">v2i</a></code> input vector <code>a</code>. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 1</div>
+<div class="line">  dst[i] := SQRT(a[i])</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv2i.html" title="Type for the manipulation of 2 int32_t packed into one single vector. ">v2i</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaaedff5d81f5d8654fe575b2fa4d5bfd7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv2l.html">v2l</a> v2l_sqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv2l.html">v2l</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the square root of every element of the <code><a class="el" href="structv2l.html" title="Type for the manipulation of 2 int64_t packed into one single vector. ">v2l</a></code> input vector <code>a</code>. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 1</div>
+<div class="line">  dst[i] := SQRT(a[i])</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv2l.html" title="Type for the manipulation of 2 int64_t packed into one single vector. ">v2l</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga3f97f45abcdfaf79d6370bf43c1bdf3e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv4d.html">v4d</a> v4d_sqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv4d.html">v4d</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the square root of every element of the <code><a class="el" href="structv4d.html" title="Type for the manipulation of 4 double packed into one single vector. ">v4d</a></code> input vector <code>a</code>. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 3</div>
+<div class="line">  dst[i] := SQRT(a[i])</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv4d.html" title="Type for the manipulation of 4 double packed into one single vector. ">v4d</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga769e3ca6f66bb3c65816003f22e40643"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv4f.html">v4f</a> v4f_sqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv4f.html">v4f</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the square root of every element of the <code><a class="el" href="structv4f.html" title="Type for the manipulation of 4 float packed into one single vector. ">v4f</a></code> input vector <code>a</code>. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 3</div>
+<div class="line">  dst[i] := SQRT(a[i])</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv4f.html" title="Type for the manipulation of 4 float packed into one single vector. ">v4f</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga2f3a3887802953b9af31c2660523fe02"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv4i.html">v4i</a> v4i_sqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv4i.html">v4i</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the square root of every element of the <code><a class="el" href="structv4i.html" title="Type for the manipulation of 4 int32_t packed into one single vector. ">v4i</a></code> input vector <code>a</code>. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 3</div>
+<div class="line">  dst[i] := SQRT(a[i])</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv4i.html" title="Type for the manipulation of 4 int32_t packed into one single vector. ">v4i</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga1db876d38823507156d7d3f75dd1d598"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv4l.html">v4l</a> v4l_sqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv4l.html">v4l</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the square root of every element of the <code><a class="el" href="structv4l.html" title="Type for the manipulation of 4 int64_t packed into one single vector. ">v4l</a></code> input vector <code>a</code>. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 3</div>
+<div class="line">  dst[i] := SQRT(a[i])</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv4l.html" title="Type for the manipulation of 4 int64_t packed into one single vector. ">v4l</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaf377bfab89fe959382b9a6a982c778de"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv8d.html">v8d</a> v8d_sqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv8d.html">v8d</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the square root of every element of the <code><a class="el" href="structv8d.html" title="Type for the manipulation of 8 double packed into one single vector. ">v8d</a></code> input vector <code>a</code>. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 7</div>
+<div class="line">  dst[i] := SQRT(a[i])</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv8d.html" title="Type for the manipulation of 8 double packed into one single vector. ">v8d</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gab0aa970384d203f4857b533e20cba81b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv8f.html">v8f</a> v8f_sqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv8f.html">v8f</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the square root of every element of the <code><a class="el" href="structv8f.html" title="Type for the manipulation of 8 float packed into one single vector. ">v8f</a></code> input vector <code>a</code>. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 7</div>
+<div class="line">  dst[i] := SQRT(a[i])</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv8f.html" title="Type for the manipulation of 8 float packed into one single vector. ">v8f</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga5b2154d46da29ddcdea7d7eb40f88fc4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv8i.html">v8i</a> v8i_sqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv8i.html">v8i</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the square root of every element of the <code><a class="el" href="structv8i.html" title="Type for the manipulation of 8 int32_t packed into one single vector. ">v8i</a></code> input vector <code>a</code>. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 7</div>
+<div class="line">  dst[i] := SQRT(a[i])</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv8i.html" title="Type for the manipulation of 8 int32_t packed into one single vector. ">v8i</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaf11aa1f6ca87bd4db1e161fd691e99b4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv8l.html">v8l</a> v8l_sqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv8l.html">v8l</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the square root of every element of the <code><a class="el" href="structv8l.html" title="Type for the manipulation of 8 int64_t packed into one single vector. ">v8l</a></code> input vector <code>a</code>. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 7</div>
+<div class="line">  dst[i] := SQRT(a[i])</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv8l.html" title="Type for the manipulation of 8 int64_t packed into one single vector. ">v8l</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
 
 </div>
 </div>
@@ -358,78 +862,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ga6fa10066393188f6cb2eda0845dba269"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv16i.html">v16i</a> v16i_frsqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv16i.html">v16i</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv16i.html" title="Type for the manipulation of 16 int32_t packed into one single vector. ">v16i</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#ga64cce67b45bf4e104017fe4635b3cfec" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v16i_rsqrt(v16i a)</a> </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 15</div>
-<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv16i.html" title="Type for the manipulation of 16 int32_t packed into one single vector. ">v16i</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga64cce67b45bf4e104017fe4635b3cfec"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv16i.html">v16i</a> v16i_rsqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv16i.html">v16i</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv16i.html" title="Type for the manipulation of 16 int32_t packed into one single vector. ">v16i</a></code> input vector <code>a</code>. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 15</div>
-<div class="line">  dst[i] := 1 / SQRT(a[i])</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv16i.html" title="Type for the manipulation of 16 int32_t packed into one single vector. ">v16i</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="ga7a3f10ef9dcdae8cfdba8b0a38c28b09"></a>
 <div class="memitem">
 <div class="memproto">
@@ -466,42 +898,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ga9a3dad39065289b0de1fd4a028e6f970"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv1d.html">v1d</a> v1d_frsqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv1d.html">v1d</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv1d.html" title="Type for the manipulation of 1 double packed into one single vector. ">v1d</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#gad885093b8a7d4a66249cdcd7e9da9807" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v1d_rsqrt(v1d a)</a> </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 0</div>
-<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv1d.html" title="Type for the manipulation of 1 double packed into one single vector. ">v1d</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="gad885093b8a7d4a66249cdcd7e9da9807"></a>
 <div class="memitem">
 <div class="memproto">
@@ -531,78 +927,6 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">a</td><td><code><a class="el" href="structv1d.html" title="Type for the manipulation of 1 double packed into one single vector. ">v1d</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gad94b15114f5238eb9630d59448aa67ab"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv1d.html">v1d</a> v1d_sqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv1d.html">v1d</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the square root of every element of the <code><a class="el" href="structv1d.html" title="Type for the manipulation of 1 double packed into one single vector. ">v1d</a></code> input vector <code>a</code>. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 0</div>
-<div class="line">  dst[i] := SQRT(a[i])</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv1d.html" title="Type for the manipulation of 1 double packed into one single vector. ">v1d</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga6d1b327554b3bdd86f102bc5f975f0cb"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv1f.html">v1f</a> v1f_frsqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv1f.html">v1f</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv1f.html" title="Type for the manipulation of 1 float packed into one single vector. ">v1f</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#ga6f753ef39590486db4a7055a99182cbd" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v1f_rsqrt(v1f a)</a> </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 0</div>
-<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv1f.html" title="Type for the manipulation of 1 float packed into one single vector. ">v1f</a></code> input vector </td></tr>
   </table>
   </dd>
 </dl>
@@ -646,78 +970,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ga2e5faf9cc745240b7250e2ce0083930a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv1f.html">v1f</a> v1f_sqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv1f.html">v1f</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the square root of every element of the <code><a class="el" href="structv1f.html" title="Type for the manipulation of 1 float packed into one single vector. ">v1f</a></code> input vector <code>a</code>. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 0</div>
-<div class="line">  dst[i] := SQRT(a[i])</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv1f.html" title="Type for the manipulation of 1 float packed into one single vector. ">v1f</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gaa3426dc26a6334ac6bf8406500e8096d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv1i.html">v1i</a> v1i_frsqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv1i.html">v1i</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv1i.html" title="Type for the manipulation of 1 int32_t packed into one single vector. ">v1i</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#gae3a5905503888330720b4d8aa0c49da5" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v1i_rsqrt(v1i a)</a> </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 0</div>
-<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv1i.html" title="Type for the manipulation of 1 int32_t packed into one single vector. ">v1i</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="gae3a5905503888330720b4d8aa0c49da5"></a>
 <div class="memitem">
 <div class="memproto">
@@ -747,78 +999,6 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">a</td><td><code><a class="el" href="structv1i.html" title="Type for the manipulation of 1 int32_t packed into one single vector. ">v1i</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga7ab508cc7ccc90223e1a82e191c261ce"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv1i.html">v1i</a> v1i_sqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv1i.html">v1i</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the square root of every element of the <code><a class="el" href="structv1i.html" title="Type for the manipulation of 1 int32_t packed into one single vector. ">v1i</a></code> input vector <code>a</code>. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 0</div>
-<div class="line">  dst[i] := SQRT(a[i])</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv1i.html" title="Type for the manipulation of 1 int32_t packed into one single vector. ">v1i</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga583a5efaa87c6ec9c5d115e138f52d1c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv1l.html">v1l</a> v1l_frsqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv1l.html">v1l</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv1l.html" title="Type for the manipulation of 1 int64_t packed into one single vector. ">v1l</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#ga964e7dbbd7a897e6effbc64d84a8c100" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v1l_rsqrt(v1l a)</a> </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 0</div>
-<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv1l.html" title="Type for the manipulation of 1 int64_t packed into one single vector. ">v1l</a></code> input vector </td></tr>
   </table>
   </dd>
 </dl>
@@ -862,78 +1042,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="gaa251e9b6416d46af5d0196e16efe10b9"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv1l.html">v1l</a> v1l_sqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv1l.html">v1l</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the square root of every element of the <code><a class="el" href="structv1l.html" title="Type for the manipulation of 1 int64_t packed into one single vector. ">v1l</a></code> input vector <code>a</code>. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 0</div>
-<div class="line">  dst[i] := SQRT(a[i])</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv1l.html" title="Type for the manipulation of 1 int64_t packed into one single vector. ">v1l</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga36fc88f1eca8a599c1b2b96782d827d3"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv2d.html">v2d</a> v2d_frsqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv2d.html">v2d</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv2d.html" title="Type for the manipulation of 2 double packed into one single vector. ">v2d</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#gaf8406e8ad4104c762dbf395c30addd6e" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v2d_rsqrt(v2d a)</a> </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 1</div>
-<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv2d.html" title="Type for the manipulation of 2 double packed into one single vector. ">v2d</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="gaf8406e8ad4104c762dbf395c30addd6e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -963,78 +1071,6 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">a</td><td><code><a class="el" href="structv2d.html" title="Type for the manipulation of 2 double packed into one single vector. ">v2d</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gad856c352c20d0443b51e469836dc6e00"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv2d.html">v2d</a> v2d_sqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv2d.html">v2d</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the square root of every element of the <code><a class="el" href="structv2d.html" title="Type for the manipulation of 2 double packed into one single vector. ">v2d</a></code> input vector <code>a</code>. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 1</div>
-<div class="line">  dst[i] := SQRT(a[i])</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv2d.html" title="Type for the manipulation of 2 double packed into one single vector. ">v2d</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga2cdee518c458df5e3db51cee26e29b6c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv2f.html">v2f</a> v2f_frsqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv2f.html">v2f</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv2f.html" title="Type for the manipulation of 2 float packed into one single vector. ">v2f</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#ga6e1536cd557ed4e86d2578fe5cbae6b1" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v2f_rsqrt(v2f a)</a> </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 1</div>
-<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv2f.html" title="Type for the manipulation of 2 float packed into one single vector. ">v2f</a></code> input vector </td></tr>
   </table>
   </dd>
 </dl>
@@ -1078,78 +1114,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ga887e692889e8ff42da0f3dd565970ec2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv2f.html">v2f</a> v2f_sqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv2f.html">v2f</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the square root of every element of the <code><a class="el" href="structv2f.html" title="Type for the manipulation of 2 float packed into one single vector. ">v2f</a></code> input vector <code>a</code>. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 1</div>
-<div class="line">  dst[i] := SQRT(a[i])</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv2f.html" title="Type for the manipulation of 2 float packed into one single vector. ">v2f</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gad1ed3d2565d4c3355d3ac34c5a328788"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv2i.html">v2i</a> v2i_frsqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv2i.html">v2i</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv2i.html" title="Type for the manipulation of 2 int32_t packed into one single vector. ">v2i</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#gab1455fac418f5e1edf030eedaadb3f3d" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v2i_rsqrt(v2i a)</a> </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 1</div>
-<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv2i.html" title="Type for the manipulation of 2 int32_t packed into one single vector. ">v2i</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="gab1455fac418f5e1edf030eedaadb3f3d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1179,78 +1143,6 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">a</td><td><code><a class="el" href="structv2i.html" title="Type for the manipulation of 2 int32_t packed into one single vector. ">v2i</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga1e3a94ded72762148b480e4017ece24b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv2i.html">v2i</a> v2i_sqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv2i.html">v2i</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the square root of every element of the <code><a class="el" href="structv2i.html" title="Type for the manipulation of 2 int32_t packed into one single vector. ">v2i</a></code> input vector <code>a</code>. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 1</div>
-<div class="line">  dst[i] := SQRT(a[i])</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv2i.html" title="Type for the manipulation of 2 int32_t packed into one single vector. ">v2i</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga70a517410a03f7ea97207dee7d7a7576"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv2l.html">v2l</a> v2l_frsqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv2l.html">v2l</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv2l.html" title="Type for the manipulation of 2 int64_t packed into one single vector. ">v2l</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#ga4e16ce6a5b3d48a6b6da30690799550f" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v2l_rsqrt(v2l a)</a> </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 1</div>
-<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv2l.html" title="Type for the manipulation of 2 int64_t packed into one single vector. ">v2l</a></code> input vector </td></tr>
   </table>
   </dd>
 </dl>
@@ -1294,78 +1186,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="gaaedff5d81f5d8654fe575b2fa4d5bfd7"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv2l.html">v2l</a> v2l_sqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv2l.html">v2l</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the square root of every element of the <code><a class="el" href="structv2l.html" title="Type for the manipulation of 2 int64_t packed into one single vector. ">v2l</a></code> input vector <code>a</code>. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 1</div>
-<div class="line">  dst[i] := SQRT(a[i])</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv2l.html" title="Type for the manipulation of 2 int64_t packed into one single vector. ">v2l</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gad6ec47eb6bfd23a998f965399fd6f91a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv4d.html">v4d</a> v4d_frsqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv4d.html">v4d</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv4d.html" title="Type for the manipulation of 4 double packed into one single vector. ">v4d</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#gae524d957d926228fcc02cb6695f99a9a" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v4d_rsqrt(v4d a)</a> </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 3</div>
-<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv4d.html" title="Type for the manipulation of 4 double packed into one single vector. ">v4d</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="gae524d957d926228fcc02cb6695f99a9a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1395,78 +1215,6 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">a</td><td><code><a class="el" href="structv4d.html" title="Type for the manipulation of 4 double packed into one single vector. ">v4d</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga3f97f45abcdfaf79d6370bf43c1bdf3e"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv4d.html">v4d</a> v4d_sqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv4d.html">v4d</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the square root of every element of the <code><a class="el" href="structv4d.html" title="Type for the manipulation of 4 double packed into one single vector. ">v4d</a></code> input vector <code>a</code>. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 3</div>
-<div class="line">  dst[i] := SQRT(a[i])</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv4d.html" title="Type for the manipulation of 4 double packed into one single vector. ">v4d</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga76e0fdc5687fd411e9c7982d35e129a2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv4f.html">v4f</a> v4f_frsqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv4f.html">v4f</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv4f.html" title="Type for the manipulation of 4 float packed into one single vector. ">v4f</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#gabcbf8d79cfc6034f27775815c8b0151c" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v4f_rsqrt(v4f a)</a> </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 3</div>
-<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv4f.html" title="Type for the manipulation of 4 float packed into one single vector. ">v4f</a></code> input vector </td></tr>
   </table>
   </dd>
 </dl>
@@ -1510,78 +1258,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ga769e3ca6f66bb3c65816003f22e40643"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv4f.html">v4f</a> v4f_sqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv4f.html">v4f</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the square root of every element of the <code><a class="el" href="structv4f.html" title="Type for the manipulation of 4 float packed into one single vector. ">v4f</a></code> input vector <code>a</code>. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 3</div>
-<div class="line">  dst[i] := SQRT(a[i])</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv4f.html" title="Type for the manipulation of 4 float packed into one single vector. ">v4f</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gae28450920cff238ffd62048e2621f5be"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv4i.html">v4i</a> v4i_frsqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv4i.html">v4i</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv4i.html" title="Type for the manipulation of 4 int32_t packed into one single vector. ">v4i</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#ga64cf60833f64f984ba0a32649512c85f" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v4i_rsqrt(v4i a)</a> </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 3</div>
-<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv4i.html" title="Type for the manipulation of 4 int32_t packed into one single vector. ">v4i</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="ga64cf60833f64f984ba0a32649512c85f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1611,78 +1287,6 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">a</td><td><code><a class="el" href="structv4i.html" title="Type for the manipulation of 4 int32_t packed into one single vector. ">v4i</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga2f3a3887802953b9af31c2660523fe02"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv4i.html">v4i</a> v4i_sqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv4i.html">v4i</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the square root of every element of the <code><a class="el" href="structv4i.html" title="Type for the manipulation of 4 int32_t packed into one single vector. ">v4i</a></code> input vector <code>a</code>. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 3</div>
-<div class="line">  dst[i] := SQRT(a[i])</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv4i.html" title="Type for the manipulation of 4 int32_t packed into one single vector. ">v4i</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga1d4d495b6866fc361dce9c59d8621edf"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv4l.html">v4l</a> v4l_frsqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv4l.html">v4l</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv4l.html" title="Type for the manipulation of 4 int64_t packed into one single vector. ">v4l</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#ga4bd16d417c396e4d35d9f22875d9c34e" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v4l_rsqrt(v4l a)</a> </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 3</div>
-<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv4l.html" title="Type for the manipulation of 4 int64_t packed into one single vector. ">v4l</a></code> input vector </td></tr>
   </table>
   </dd>
 </dl>
@@ -1726,78 +1330,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ga1db876d38823507156d7d3f75dd1d598"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv4l.html">v4l</a> v4l_sqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv4l.html">v4l</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the square root of every element of the <code><a class="el" href="structv4l.html" title="Type for the manipulation of 4 int64_t packed into one single vector. ">v4l</a></code> input vector <code>a</code>. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 3</div>
-<div class="line">  dst[i] := SQRT(a[i])</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv4l.html" title="Type for the manipulation of 4 int64_t packed into one single vector. ">v4l</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gad0112b4e23b50a34711486dde66a3b7f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv8d.html">v8d</a> v8d_frsqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv8d.html">v8d</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv8d.html" title="Type for the manipulation of 8 double packed into one single vector. ">v8d</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#gad978c866e3ec04453e18b558d6ca6390" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v8d_rsqrt(v8d a)</a> </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 7</div>
-<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv8d.html" title="Type for the manipulation of 8 double packed into one single vector. ">v8d</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="gad978c866e3ec04453e18b558d6ca6390"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1827,78 +1359,6 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">a</td><td><code><a class="el" href="structv8d.html" title="Type for the manipulation of 8 double packed into one single vector. ">v8d</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gaf377bfab89fe959382b9a6a982c778de"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv8d.html">v8d</a> v8d_sqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv8d.html">v8d</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the square root of every element of the <code><a class="el" href="structv8d.html" title="Type for the manipulation of 8 double packed into one single vector. ">v8d</a></code> input vector <code>a</code>. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 7</div>
-<div class="line">  dst[i] := SQRT(a[i])</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv8d.html" title="Type for the manipulation of 8 double packed into one single vector. ">v8d</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga272ffae877eef2a8afc5f8ecbd8981d3"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv8f.html">v8f</a> v8f_frsqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv8f.html">v8f</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv8f.html" title="Type for the manipulation of 8 float packed into one single vector. ">v8f</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#gae2d7146b728ee2c1c11881e5a3769028" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v8f_rsqrt(v8f a)</a> </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 7</div>
-<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv8f.html" title="Type for the manipulation of 8 float packed into one single vector. ">v8f</a></code> input vector </td></tr>
   </table>
   </dd>
 </dl>
@@ -1942,78 +1402,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="gab0aa970384d203f4857b533e20cba81b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv8f.html">v8f</a> v8f_sqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv8f.html">v8f</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the square root of every element of the <code><a class="el" href="structv8f.html" title="Type for the manipulation of 8 float packed into one single vector. ">v8f</a></code> input vector <code>a</code>. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 7</div>
-<div class="line">  dst[i] := SQRT(a[i])</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv8f.html" title="Type for the manipulation of 8 float packed into one single vector. ">v8f</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gafec44869ba2a74e4f01fe7a731de48d8"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv8i.html">v8i</a> v8i_frsqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv8i.html">v8i</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv8i.html" title="Type for the manipulation of 8 int32_t packed into one single vector. ">v8i</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#ga40d401818c006c43c275505d84c1d5a7" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v8i_rsqrt(v8i a)</a> </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 7</div>
-<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv8i.html" title="Type for the manipulation of 8 int32_t packed into one single vector. ">v8i</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="ga40d401818c006c43c275505d84c1d5a7"></a>
 <div class="memitem">
 <div class="memproto">
@@ -2043,78 +1431,6 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">a</td><td><code><a class="el" href="structv8i.html" title="Type for the manipulation of 8 int32_t packed into one single vector. ">v8i</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga5b2154d46da29ddcdea7d7eb40f88fc4"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv8i.html">v8i</a> v8i_sqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv8i.html">v8i</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the square root of every element of the <code><a class="el" href="structv8i.html" title="Type for the manipulation of 8 int32_t packed into one single vector. ">v8i</a></code> input vector <code>a</code>. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 7</div>
-<div class="line">  dst[i] := SQRT(a[i])</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv8i.html" title="Type for the manipulation of 8 int32_t packed into one single vector. ">v8i</a></code> input vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga59d0e1809970b6ec6ce5bfbd31c26412"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structv8l.html">v8l</a> v8l_frsqrt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structv8l.html">v8l</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv8l.html" title="Type for the manipulation of 8 int64_t packed into one single vector. ">v8l</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#ga5d0cf8ca65368f997f4f241450ce3c00" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v8l_rsqrt(v8l a)</a> </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 7</div>
-<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
-<div class="line">endfor</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td><code><a class="el" href="structv8l.html" title="Type for the manipulation of 8 int64_t packed into one single vector. ">v8l</a></code> input vector </td></tr>
   </table>
   </dd>
 </dl>
@@ -2158,7 +1474,7 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="gaf11aa1f6ca87bd4db1e161fd691e99b4"></a>
+<a class="anchor" id="ga5a29f0b0a544a65fb72af21163d88195"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -2166,7 +1482,619 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structv8l.html">v8l</a> v8l_sqrt </td>
+          <td class="memname"><a class="el" href="structv16f.html">v16f</a> v16f_rsqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv16f.html">v16f</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv16f.html" title="Type for the manipulation of 16 float packed into one single vector. ">v16f</a></code> input vector <code>a</code>. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 15</div>
+<div class="line">  dst[i] := 1 / SQRT(a[i])</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv16f.html" title="Type for the manipulation of 16 float packed into one single vector. ">v16f</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga64cce67b45bf4e104017fe4635b3cfec"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv16i.html">v16i</a> v16i_rsqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv16i.html">v16i</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv16i.html" title="Type for the manipulation of 16 int32_t packed into one single vector. ">v16i</a></code> input vector <code>a</code>. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 15</div>
+<div class="line">  dst[i] := 1 / SQRT(a[i])</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv16i.html" title="Type for the manipulation of 16 int32_t packed into one single vector. ">v16i</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga9a3dad39065289b0de1fd4a028e6f970"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv1d.html">v1d</a> v1d_frsqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv1d.html">v1d</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv1d.html" title="Type for the manipulation of 1 double packed into one single vector. ">v1d</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#gad885093b8a7d4a66249cdcd7e9da9807" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v1d_rsqrt(v1d a)</a> </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 0</div>
+<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv1d.html" title="Type for the manipulation of 1 double packed into one single vector. ">v1d</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga6d1b327554b3bdd86f102bc5f975f0cb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv1f.html">v1f</a> v1f_frsqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv1f.html">v1f</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv1f.html" title="Type for the manipulation of 1 float packed into one single vector. ">v1f</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#ga6f753ef39590486db4a7055a99182cbd" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v1f_rsqrt(v1f a)</a> </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 0</div>
+<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv1f.html" title="Type for the manipulation of 1 float packed into one single vector. ">v1f</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaa3426dc26a6334ac6bf8406500e8096d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv1i.html">v1i</a> v1i_frsqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv1i.html">v1i</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv1i.html" title="Type for the manipulation of 1 int32_t packed into one single vector. ">v1i</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#gae3a5905503888330720b4d8aa0c49da5" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v1i_rsqrt(v1i a)</a> </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 0</div>
+<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv1i.html" title="Type for the manipulation of 1 int32_t packed into one single vector. ">v1i</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga583a5efaa87c6ec9c5d115e138f52d1c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv1l.html">v1l</a> v1l_frsqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv1l.html">v1l</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv1l.html" title="Type for the manipulation of 1 int64_t packed into one single vector. ">v1l</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#ga964e7dbbd7a897e6effbc64d84a8c100" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v1l_rsqrt(v1l a)</a> </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 0</div>
+<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv1l.html" title="Type for the manipulation of 1 int64_t packed into one single vector. ">v1l</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga36fc88f1eca8a599c1b2b96782d827d3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv2d.html">v2d</a> v2d_frsqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv2d.html">v2d</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv2d.html" title="Type for the manipulation of 2 double packed into one single vector. ">v2d</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#gaf8406e8ad4104c762dbf395c30addd6e" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v2d_rsqrt(v2d a)</a> </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 1</div>
+<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv2d.html" title="Type for the manipulation of 2 double packed into one single vector. ">v2d</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga2cdee518c458df5e3db51cee26e29b6c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv2f.html">v2f</a> v2f_frsqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv2f.html">v2f</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv2f.html" title="Type for the manipulation of 2 float packed into one single vector. ">v2f</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#ga6e1536cd557ed4e86d2578fe5cbae6b1" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v2f_rsqrt(v2f a)</a> </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 1</div>
+<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv2f.html" title="Type for the manipulation of 2 float packed into one single vector. ">v2f</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gad1ed3d2565d4c3355d3ac34c5a328788"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv2i.html">v2i</a> v2i_frsqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv2i.html">v2i</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv2i.html" title="Type for the manipulation of 2 int32_t packed into one single vector. ">v2i</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#gab1455fac418f5e1edf030eedaadb3f3d" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v2i_rsqrt(v2i a)</a> </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 1</div>
+<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv2i.html" title="Type for the manipulation of 2 int32_t packed into one single vector. ">v2i</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga70a517410a03f7ea97207dee7d7a7576"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv2l.html">v2l</a> v2l_frsqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv2l.html">v2l</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv2l.html" title="Type for the manipulation of 2 int64_t packed into one single vector. ">v2l</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#ga4e16ce6a5b3d48a6b6da30690799550f" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v2l_rsqrt(v2l a)</a> </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 1</div>
+<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv2l.html" title="Type for the manipulation of 2 int64_t packed into one single vector. ">v2l</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gad6ec47eb6bfd23a998f965399fd6f91a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv4d.html">v4d</a> v4d_frsqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv4d.html">v4d</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv4d.html" title="Type for the manipulation of 4 double packed into one single vector. ">v4d</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#gae524d957d926228fcc02cb6695f99a9a" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v4d_rsqrt(v4d a)</a> </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 3</div>
+<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv4d.html" title="Type for the manipulation of 4 double packed into one single vector. ">v4d</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga76e0fdc5687fd411e9c7982d35e129a2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv4f.html">v4f</a> v4f_frsqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv4f.html">v4f</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv4f.html" title="Type for the manipulation of 4 float packed into one single vector. ">v4f</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#gabcbf8d79cfc6034f27775815c8b0151c" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v4f_rsqrt(v4f a)</a> </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 3</div>
+<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv4f.html" title="Type for the manipulation of 4 float packed into one single vector. ">v4f</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gae28450920cff238ffd62048e2621f5be"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv4i.html">v4i</a> v4i_frsqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv4i.html">v4i</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv4i.html" title="Type for the manipulation of 4 int32_t packed into one single vector. ">v4i</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#ga64cf60833f64f984ba0a32649512c85f" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v4i_rsqrt(v4i a)</a> </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 3</div>
+<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv4i.html" title="Type for the manipulation of 4 int32_t packed into one single vector. ">v4i</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga1d4d495b6866fc361dce9c59d8621edf"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv4l.html">v4l</a> v4l_frsqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv4l.html">v4l</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv4l.html" title="Type for the manipulation of 4 int64_t packed into one single vector. ">v4l</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#ga4bd16d417c396e4d35d9f22875d9c34e" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v4l_rsqrt(v4l a)</a> </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 3</div>
+<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv4l.html" title="Type for the manipulation of 4 int64_t packed into one single vector. ">v4l</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gad0112b4e23b50a34711486dde66a3b7f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv8d.html">v8d</a> v8d_frsqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv8d.html">v8d</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv8d.html" title="Type for the manipulation of 8 double packed into one single vector. ">v8d</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#gad978c866e3ec04453e18b558d6ca6390" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v8d_rsqrt(v8d a)</a> </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 7</div>
+<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv8d.html" title="Type for the manipulation of 8 double packed into one single vector. ">v8d</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga272ffae877eef2a8afc5f8ecbd8981d3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv8f.html">v8f</a> v8f_frsqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv8f.html">v8f</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv8f.html" title="Type for the manipulation of 8 float packed into one single vector. ">v8f</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#gae2d7146b728ee2c1c11881e5a3769028" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v8f_rsqrt(v8f a)</a> </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 7</div>
+<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv8f.html" title="Type for the manipulation of 8 float packed into one single vector. ">v8f</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gafec44869ba2a74e4f01fe7a731de48d8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv8i.html">v8i</a> v8i_frsqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv8i.html">v8i</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv8i.html" title="Type for the manipulation of 8 int32_t packed into one single vector. ">v8i</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#ga40d401818c006c43c275505d84c1d5a7" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v8i_rsqrt(v8i a)</a> </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 7</div>
+<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv8i.html" title="Type for the manipulation of 8 int32_t packed into one single vector. ">v8i</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga59d0e1809970b6ec6ce5bfbd31c26412"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv8l.html">v8l</a> v8l_frsqrt </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structv8l.html">v8l</a>&#160;</td>
           <td class="paramname"><em>a</em></td><td>)</td>
@@ -2179,9 +2107,9 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Computes the square root of every element of the <code><a class="el" href="structv8l.html" title="Type for the manipulation of 8 int64_t packed into one single vector. ">v8l</a></code> input vector <code>a</code>. </p>
+<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv8l.html" title="Type for the manipulation of 8 int64_t packed into one single vector. ">v8l</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#ga5d0cf8ca65368f997f4f241450ce3c00" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v8l_rsqrt(v8l a)</a> </p>
 <dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 7</div>
-<div class="line">  dst[i] := SQRT(a[i])</div>
+<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
 <div class="line">endfor</div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -2190,7 +2118,79 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Square root of <code>a</code> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gad7c087d3937f5a51ec9debd04972f192"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv16f.html">v16f</a> v16f_frsqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv16f.html">v16f</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv16f.html" title="Type for the manipulation of 16 float packed into one single vector. ">v16f</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#ga5a29f0b0a544a65fb72af21163d88195" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v16f_rsqrt(v16f a)</a> </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 15</div>
+<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv16f.html" title="Type for the manipulation of 16 float packed into one single vector. ">v16f</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga6fa10066393188f6cb2eda0845dba269"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structv16i.html">v16i</a> v16i_frsqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structv16i.html">v16i</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the reciprocal of the square root of every element of the <code><a class="el" href="structv16i.html" title="Type for the manipulation of 16 int32_t packed into one single vector. ">v16i</a></code> input vector <code>a</code>. This function may be faster and less accurate than <a class="el" href="group__math.html#ga64cce67b45bf4e104017fe4635b3cfec" title="Elementwise square root reciprocal ( 1 / sqrt(a) ) ">v16i_rsqrt(v16i a)</a> </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">for</span> i from 0 to 15</div>
+<div class="line">  dst[i] := FAST_COMPUTE(1 / SQRT(a[i]))</div>
+<div class="line">endfor</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><code><a class="el" href="structv16i.html" title="Type for the manipulation of 16 int32_t packed into one single vector. ">v16i</a></code> input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Square root reciprocal of <code>a</code> </dd></dl>
 
 </div>
 </div>

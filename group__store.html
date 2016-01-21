@@ -250,270 +250,6 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga18ae651cb4829f2c1ea99ba7243bf373"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v16f_store </td>
-          <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv16f.html">v16f</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores a <code><a class="el" href="structv16f.html" title="Type for the manipulation of 16 float packed into one single vector. ">v16f</a></code> vector (512 bits) into memory starting at the specified address. <code>p</code> must be aligned on a 64-bytes boundary or a general-protection exception may be generated. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+511] := a.bits[0:511]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga495eaa570a889b49dacf234c5eab914f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v16f_store1 </td>
-          <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv16f.html">v16f</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores the first element of a <code><a class="el" href="structv16f.html" title="Type for the manipulation of 16 float packed into one single vector. ">v16f</a></code> vector (32 bits) into memory at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="gaafe16100862edf6dd596dfabbb22acec"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v16f_storeu </td>
-          <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv16f.html">v16f</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores a <code><a class="el" href="structv16f.html" title="Type for the manipulation of 16 float packed into one single vector. ">v16f</a></code> vector (512 bits) into memory starting at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+511] := a.bits[0:511]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga4fd4fa3e96350721677c9ffea61b16ec"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v16i_store </td>
-          <td>(</td>
-          <td class="paramtype">int32_t *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv16i.html">v16i</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores a <code><a class="el" href="structv16i.html" title="Type for the manipulation of 16 int32_t packed into one single vector. ">v16i</a></code> vector (512 bits) into memory starting at the specified address. <code>p</code> must be aligned on a 64-bytes boundary or a general-protection exception may be generated. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+511] := a.bits[0:511]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga22cebf5c0a80621af2869c3cb37d9a14"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v16i_store1 </td>
-          <td>(</td>
-          <td class="paramtype">int32_t *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv16i.html">v16i</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores the first element of a <code><a class="el" href="structv16i.html" title="Type for the manipulation of 16 int32_t packed into one single vector. ">v16i</a></code> vector (32 bits) into memory at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga518ff267bbd0c5f682ea1433a7e67689"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v16i_storeu </td>
-          <td>(</td>
-          <td class="paramtype">int32_t *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv16i.html">v16i</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores a <code><a class="el" href="structv16i.html" title="Type for the manipulation of 16 int32_t packed into one single vector. ">v16i</a></code> vector (512 bits) into memory starting at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+511] := a.bits[0:511]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a class="anchor" id="ga5f979e9a2080b38fbce62a3ea44bc14f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -546,94 +282,6 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Stores a <code><a class="el" href="structv1d.html" title="Type for the manipulation of 1 double packed into one single vector. ">v1d</a></code> vector (64 bits) into memory starting at the specified address. <code>p</code> must be aligned on a 8-bytes boundary or a general-protection exception may be generated. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga42176d4d939c5784d789028409e3e392"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v1d_store1 </td>
-          <td>(</td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv1d.html">v1d</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores the first element of a <code><a class="el" href="structv1d.html" title="Type for the manipulation of 1 double packed into one single vector. ">v1d</a></code> vector (64 bits) into memory at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga75ea188536bc54824f2d36518f7d6087"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v1d_storeu </td>
-          <td>(</td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv1d.html">v1d</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores a <code><a class="el" href="structv1d.html" title="Type for the manipulation of 1 double packed into one single vector. ">v1d</a></code> vector (64 bits) into memory starting at the specified address. There is no alignment requirement. </p>
 <dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -690,94 +338,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ga96e145d185ce089970171e3ddaef0cd5"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v1f_store1 </td>
-          <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv1f.html">v1f</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores the first element of a <code><a class="el" href="structv1f.html" title="Type for the manipulation of 1 float packed into one single vector. ">v1f</a></code> vector (32 bits) into memory at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga2627f42880d0f9c9408f372c6da86929"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v1f_storeu </td>
-          <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv1f.html">v1f</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores a <code><a class="el" href="structv1f.html" title="Type for the manipulation of 1 float packed into one single vector. ">v1f</a></code> vector (32 bits) into memory starting at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a class="anchor" id="ga59520b19fcda900153a452a5c0ba6ca3"></a>
 <div class="memitem">
 <div class="memproto">
@@ -810,94 +370,6 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Stores a <code><a class="el" href="structv1i.html" title="Type for the manipulation of 1 int32_t packed into one single vector. ">v1i</a></code> vector (32 bits) into memory starting at the specified address. <code>p</code> must be aligned on a 4-bytes boundary or a general-protection exception may be generated. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="gad284cb66325cd7c4d96dca376f637a82"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v1i_store1 </td>
-          <td>(</td>
-          <td class="paramtype">int32_t *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv1i.html">v1i</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores the first element of a <code><a class="el" href="structv1i.html" title="Type for the manipulation of 1 int32_t packed into one single vector. ">v1i</a></code> vector (32 bits) into memory at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="gad95a36e031545a7b360a427fb0050658"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v1i_storeu </td>
-          <td>(</td>
-          <td class="paramtype">int32_t *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv1i.html">v1i</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores a <code><a class="el" href="structv1i.html" title="Type for the manipulation of 1 int32_t packed into one single vector. ">v1i</a></code> vector (32 bits) into memory starting at the specified address. There is no alignment requirement. </p>
 <dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -954,94 +426,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ga3b2db7e93f6a7b5305d5ae6a427cf22c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v1l_store1 </td>
-          <td>(</td>
-          <td class="paramtype">int64_t *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv1l.html">v1l</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores the first element of a <code><a class="el" href="structv1l.html" title="Type for the manipulation of 1 int64_t packed into one single vector. ">v1l</a></code> vector (64 bits) into memory at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga50bdbffa3f2128f36596c6b870699d6a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v1l_storeu </td>
-          <td>(</td>
-          <td class="paramtype">int64_t *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv1l.html">v1l</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores a <code><a class="el" href="structv1l.html" title="Type for the manipulation of 1 int64_t packed into one single vector. ">v1l</a></code> vector (64 bits) into memory starting at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a class="anchor" id="ga9145d033d3f7e2967824ac43d4128514"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1074,94 +458,6 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Stores a <code><a class="el" href="structv2d.html" title="Type for the manipulation of 2 double packed into one single vector. ">v2d</a></code> vector (128 bits) into memory starting at the specified address. <code>p</code> must be aligned on a 16-bytes boundary or a general-protection exception may be generated. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+127] := a.bits[0:127]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="gab5c4c9583aa4bc57bdfc8685a6957ded"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v2d_store1 </td>
-          <td>(</td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv2d.html">v2d</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores the first element of a <code><a class="el" href="structv2d.html" title="Type for the manipulation of 2 double packed into one single vector. ">v2d</a></code> vector (64 bits) into memory at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga41762f715d3bcbc1a46d25f4c696dda7"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v2d_storeu </td>
-          <td>(</td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv2d.html">v2d</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores a <code><a class="el" href="structv2d.html" title="Type for the manipulation of 2 double packed into one single vector. ">v2d</a></code> vector (128 bits) into memory starting at the specified address. There is no alignment requirement. </p>
 <dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+127] := a.bits[0:127]</div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -1218,94 +514,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ga24447bb15ccb5a7014158482e2f20b18"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v2f_store1 </td>
-          <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv2f.html">v2f</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores the first element of a <code><a class="el" href="structv2f.html" title="Type for the manipulation of 2 float packed into one single vector. ">v2f</a></code> vector (32 bits) into memory at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="gaa15b81f1536e6d14cde119254e7f211f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v2f_storeu </td>
-          <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv2f.html">v2f</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores a <code><a class="el" href="structv2f.html" title="Type for the manipulation of 2 float packed into one single vector. ">v2f</a></code> vector (64 bits) into memory starting at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a class="anchor" id="ga34d64e421bd23a45221bc4873675bc82"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1338,94 +546,6 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Stores a <code><a class="el" href="structv2i.html" title="Type for the manipulation of 2 int32_t packed into one single vector. ">v2i</a></code> vector (64 bits) into memory starting at the specified address. <code>p</code> must be aligned on a 8-bytes boundary or a general-protection exception may be generated. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga29bb5aab755fdee8607b22136131f266"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v2i_store1 </td>
-          <td>(</td>
-          <td class="paramtype">int32_t *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv2i.html">v2i</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores the first element of a <code><a class="el" href="structv2i.html" title="Type for the manipulation of 2 int32_t packed into one single vector. ">v2i</a></code> vector (32 bits) into memory at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga01a500e308b252c153020c0b08a89b43"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v2i_storeu </td>
-          <td>(</td>
-          <td class="paramtype">int32_t *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv2i.html">v2i</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores a <code><a class="el" href="structv2i.html" title="Type for the manipulation of 2 int32_t packed into one single vector. ">v2i</a></code> vector (64 bits) into memory starting at the specified address. There is no alignment requirement. </p>
 <dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -1482,94 +602,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ga38e5f06bd64113f447e1802c314fccaf"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v2l_store1 </td>
-          <td>(</td>
-          <td class="paramtype">int64_t *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv2l.html">v2l</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores the first element of a <code><a class="el" href="structv2l.html" title="Type for the manipulation of 2 int64_t packed into one single vector. ">v2l</a></code> vector (64 bits) into memory at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga720a476cbd6958ca414ea729f9aca84b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v2l_storeu </td>
-          <td>(</td>
-          <td class="paramtype">int64_t *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv2l.html">v2l</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores a <code><a class="el" href="structv2l.html" title="Type for the manipulation of 2 int64_t packed into one single vector. ">v2l</a></code> vector (128 bits) into memory starting at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+127] := a.bits[0:127]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a class="anchor" id="ga3fee013c71a3030c7e708fdd0b2fc676"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1602,94 +634,6 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Stores a <code><a class="el" href="structv4d.html" title="Type for the manipulation of 4 double packed into one single vector. ">v4d</a></code> vector (256 bits) into memory starting at the specified address. <code>p</code> must be aligned on a 32-bytes boundary or a general-protection exception may be generated. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+255] := a.bits[0:255]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga932af98911ede0221a03ec5b8ab245b0"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v4d_store1 </td>
-          <td>(</td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv4d.html">v4d</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores the first element of a <code><a class="el" href="structv4d.html" title="Type for the manipulation of 4 double packed into one single vector. ">v4d</a></code> vector (64 bits) into memory at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="gadd2005442199413cd94d0bbb7a0dcd0e"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v4d_storeu </td>
-          <td>(</td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv4d.html">v4d</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores a <code><a class="el" href="structv4d.html" title="Type for the manipulation of 4 double packed into one single vector. ">v4d</a></code> vector (256 bits) into memory starting at the specified address. There is no alignment requirement. </p>
 <dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+255] := a.bits[0:255]</div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -1746,94 +690,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ga10d791f8ad00c0429c4ba846a82bfe61"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v4f_store1 </td>
-          <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv4f.html">v4f</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores the first element of a <code><a class="el" href="structv4f.html" title="Type for the manipulation of 4 float packed into one single vector. ">v4f</a></code> vector (32 bits) into memory at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="gabb5730403924d7a2debf4ef7ccaee0c4"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v4f_storeu </td>
-          <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv4f.html">v4f</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores a <code><a class="el" href="structv4f.html" title="Type for the manipulation of 4 float packed into one single vector. ">v4f</a></code> vector (128 bits) into memory starting at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+127] := a.bits[0:127]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a class="anchor" id="ga4536bc6e24cc94b1b2aee49ee6105cc5"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1866,94 +722,6 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Stores a <code><a class="el" href="structv4i.html" title="Type for the manipulation of 4 int32_t packed into one single vector. ">v4i</a></code> vector (128 bits) into memory starting at the specified address. <code>p</code> must be aligned on a 16-bytes boundary or a general-protection exception may be generated. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+127] := a.bits[0:127]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="gaa92b545acdf7a0b52edef870b3382c2a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v4i_store1 </td>
-          <td>(</td>
-          <td class="paramtype">int32_t *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv4i.html">v4i</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores the first element of a <code><a class="el" href="structv4i.html" title="Type for the manipulation of 4 int32_t packed into one single vector. ">v4i</a></code> vector (32 bits) into memory at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga53915b03e73773b6d7be29047d95cf22"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v4i_storeu </td>
-          <td>(</td>
-          <td class="paramtype">int32_t *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv4i.html">v4i</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores a <code><a class="el" href="structv4i.html" title="Type for the manipulation of 4 int32_t packed into one single vector. ">v4i</a></code> vector (128 bits) into memory starting at the specified address. There is no alignment requirement. </p>
 <dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+127] := a.bits[0:127]</div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -2010,94 +778,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="gab3f44a8a0028acac7008320f9e0cd152"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v4l_store1 </td>
-          <td>(</td>
-          <td class="paramtype">int64_t *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv4l.html">v4l</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores the first element of a <code><a class="el" href="structv4l.html" title="Type for the manipulation of 4 int64_t packed into one single vector. ">v4l</a></code> vector (64 bits) into memory at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga6796e3380adbb6d9517779e0f043b77a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v4l_storeu </td>
-          <td>(</td>
-          <td class="paramtype">int64_t *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv4l.html">v4l</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores a <code><a class="el" href="structv4l.html" title="Type for the manipulation of 4 int64_t packed into one single vector. ">v4l</a></code> vector (256 bits) into memory starting at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+255] := a.bits[0:255]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a class="anchor" id="gacd168f9ab1d8dfd12dffd993c27e0d24"></a>
 <div class="memitem">
 <div class="memproto">
@@ -2130,94 +810,6 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Stores a <code><a class="el" href="structv8d.html" title="Type for the manipulation of 8 double packed into one single vector. ">v8d</a></code> vector (512 bits) into memory starting at the specified address. <code>p</code> must be aligned on a 64-bytes boundary or a general-protection exception may be generated. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+511] := a.bits[0:511]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga3fd0d462bcb34886ac6b487233be2a0d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v8d_store1 </td>
-          <td>(</td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv8d.html">v8d</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores the first element of a <code><a class="el" href="structv8d.html" title="Type for the manipulation of 8 double packed into one single vector. ">v8d</a></code> vector (64 bits) into memory at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="gac86bf33ac384d0fd275147dc7bf10276"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v8d_storeu </td>
-          <td>(</td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv8d.html">v8d</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores a <code><a class="el" href="structv8d.html" title="Type for the manipulation of 8 double packed into one single vector. ">v8d</a></code> vector (512 bits) into memory starting at the specified address. There is no alignment requirement. </p>
 <dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+511] := a.bits[0:511]</div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -2274,94 +866,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ga1d228f0ef0049d9dc8e348c2a3480987"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v8f_store1 </td>
-          <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv8f.html">v8f</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores the first element of a <code><a class="el" href="structv8f.html" title="Type for the manipulation of 8 float packed into one single vector. ">v8f</a></code> vector (32 bits) into memory at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga5c93edab3a05ca5cbc93322be6ff9757"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v8f_storeu </td>
-          <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv8f.html">v8f</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores a <code><a class="el" href="structv8f.html" title="Type for the manipulation of 8 float packed into one single vector. ">v8f</a></code> vector (256 bits) into memory starting at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+255] := a.bits[0:255]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a class="anchor" id="ga4c8a4fc4702deb04456d0dd0a73a5587"></a>
 <div class="memitem">
 <div class="memproto">
@@ -2394,94 +898,6 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Stores a <code><a class="el" href="structv8i.html" title="Type for the manipulation of 8 int32_t packed into one single vector. ">v8i</a></code> vector (256 bits) into memory starting at the specified address. <code>p</code> must be aligned on a 32-bytes boundary or a general-protection exception may be generated. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+255] := a.bits[0:255]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="gac1f115cd1611a77901737fd21bf1df25"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v8i_store1 </td>
-          <td>(</td>
-          <td class="paramtype">int32_t *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv8i.html">v8i</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores the first element of a <code><a class="el" href="structv8i.html" title="Type for the manipulation of 8 int32_t packed into one single vector. ">v8i</a></code> vector (32 bits) into memory at the specified address. There is no alignment requirement. </p>
-<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
-</div><!-- fragment --> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address </td></tr>
-    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ga1b83fdc05055eca7f4728d4a95a8e93a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void v8i_storeu </td>
-          <td>(</td>
-          <td class="paramtype">int32_t *&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structv8i.html">v8i</a>&#160;</td>
-          <td class="paramname"><em>a</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Stores a <code><a class="el" href="structv8i.html" title="Type for the manipulation of 8 int32_t packed into one single vector. ">v8i</a></code> vector (256 bits) into memory starting at the specified address. There is no alignment requirement. </p>
 <dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+255] := a.bits[0:255]</div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -2538,7 +954,7 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="gae73ca81bea0bbffbfd0c9c698d414973"></a>
+<a class="anchor" id="ga18ae651cb4829f2c1ea99ba7243bf373"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -2546,15 +962,15 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void v8l_store1 </td>
+          <td class="memname">void v16f_store </td>
           <td>(</td>
-          <td class="paramtype">int64_t *&#160;</td>
+          <td class="paramtype">float *&#160;</td>
           <td class="paramname"><em>p</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structv8l.html">v8l</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="structv16f.html">v16f</a>&#160;</td>
           <td class="paramname"><em>a</em>&#160;</td>
         </tr>
         <tr>
@@ -2569,12 +985,716 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Stores the first element of a <code><a class="el" href="structv8l.html" title="Type for the manipulation of 8 int64_t packed into one single vector. ">v8l</a></code> vector (64 bits) into memory at the specified address. There is no alignment requirement. </p>
+<p>Stores a <code><a class="el" href="structv16f.html" title="Type for the manipulation of 16 float packed into one single vector. ">v16f</a></code> vector (512 bits) into memory starting at the specified address. <code>p</code> must be aligned on a 64-bytes boundary or a general-protection exception may be generated. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+511] := a.bits[0:511]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga4fd4fa3e96350721677c9ffea61b16ec"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v16i_store </td>
+          <td>(</td>
+          <td class="paramtype">int32_t *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv16i.html">v16i</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores a <code><a class="el" href="structv16i.html" title="Type for the manipulation of 16 int32_t packed into one single vector. ">v16i</a></code> vector (512 bits) into memory starting at the specified address. <code>p</code> must be aligned on a 64-bytes boundary or a general-protection exception may be generated. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+511] := a.bits[0:511]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga75ea188536bc54824f2d36518f7d6087"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v1d_storeu </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv1d.html">v1d</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores a <code><a class="el" href="structv1d.html" title="Type for the manipulation of 1 double packed into one single vector. ">v1d</a></code> vector (64 bits) into memory starting at the specified address. There is no alignment requirement. </p>
 <dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p</td><td>the memory address </td></tr>
+    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga2627f42880d0f9c9408f372c6da86929"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v1f_storeu </td>
+          <td>(</td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv1f.html">v1f</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores a <code><a class="el" href="structv1f.html" title="Type for the manipulation of 1 float packed into one single vector. ">v1f</a></code> vector (32 bits) into memory starting at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gad95a36e031545a7b360a427fb0050658"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v1i_storeu </td>
+          <td>(</td>
+          <td class="paramtype">int32_t *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv1i.html">v1i</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores a <code><a class="el" href="structv1i.html" title="Type for the manipulation of 1 int32_t packed into one single vector. ">v1i</a></code> vector (32 bits) into memory starting at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga50bdbffa3f2128f36596c6b870699d6a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v1l_storeu </td>
+          <td>(</td>
+          <td class="paramtype">int64_t *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv1l.html">v1l</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores a <code><a class="el" href="structv1l.html" title="Type for the manipulation of 1 int64_t packed into one single vector. ">v1l</a></code> vector (64 bits) into memory starting at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga41762f715d3bcbc1a46d25f4c696dda7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v2d_storeu </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv2d.html">v2d</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores a <code><a class="el" href="structv2d.html" title="Type for the manipulation of 2 double packed into one single vector. ">v2d</a></code> vector (128 bits) into memory starting at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+127] := a.bits[0:127]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gaa15b81f1536e6d14cde119254e7f211f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v2f_storeu </td>
+          <td>(</td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv2f.html">v2f</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores a <code><a class="el" href="structv2f.html" title="Type for the manipulation of 2 float packed into one single vector. ">v2f</a></code> vector (64 bits) into memory starting at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga01a500e308b252c153020c0b08a89b43"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v2i_storeu </td>
+          <td>(</td>
+          <td class="paramtype">int32_t *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv2i.html">v2i</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores a <code><a class="el" href="structv2i.html" title="Type for the manipulation of 2 int32_t packed into one single vector. ">v2i</a></code> vector (64 bits) into memory starting at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga720a476cbd6958ca414ea729f9aca84b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v2l_storeu </td>
+          <td>(</td>
+          <td class="paramtype">int64_t *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv2l.html">v2l</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores a <code><a class="el" href="structv2l.html" title="Type for the manipulation of 2 int64_t packed into one single vector. ">v2l</a></code> vector (128 bits) into memory starting at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+127] := a.bits[0:127]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gadd2005442199413cd94d0bbb7a0dcd0e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v4d_storeu </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv4d.html">v4d</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores a <code><a class="el" href="structv4d.html" title="Type for the manipulation of 4 double packed into one single vector. ">v4d</a></code> vector (256 bits) into memory starting at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+255] := a.bits[0:255]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gabb5730403924d7a2debf4ef7ccaee0c4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v4f_storeu </td>
+          <td>(</td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv4f.html">v4f</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores a <code><a class="el" href="structv4f.html" title="Type for the manipulation of 4 float packed into one single vector. ">v4f</a></code> vector (128 bits) into memory starting at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+127] := a.bits[0:127]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga53915b03e73773b6d7be29047d95cf22"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v4i_storeu </td>
+          <td>(</td>
+          <td class="paramtype">int32_t *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv4i.html">v4i</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores a <code><a class="el" href="structv4i.html" title="Type for the manipulation of 4 int32_t packed into one single vector. ">v4i</a></code> vector (128 bits) into memory starting at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+127] := a.bits[0:127]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga6796e3380adbb6d9517779e0f043b77a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v4l_storeu </td>
+          <td>(</td>
+          <td class="paramtype">int64_t *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv4l.html">v4l</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores a <code><a class="el" href="structv4l.html" title="Type for the manipulation of 4 int64_t packed into one single vector. ">v4l</a></code> vector (256 bits) into memory starting at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+255] := a.bits[0:255]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gac86bf33ac384d0fd275147dc7bf10276"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v8d_storeu </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv8d.html">v8d</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores a <code><a class="el" href="structv8d.html" title="Type for the manipulation of 8 double packed into one single vector. ">v8d</a></code> vector (512 bits) into memory starting at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+511] := a.bits[0:511]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga5c93edab3a05ca5cbc93322be6ff9757"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v8f_storeu </td>
+          <td>(</td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv8f.html">v8f</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores a <code><a class="el" href="structv8f.html" title="Type for the manipulation of 8 float packed into one single vector. ">v8f</a></code> vector (256 bits) into memory starting at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+255] := a.bits[0:255]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga1b83fdc05055eca7f4728d4a95a8e93a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v8i_storeu </td>
+          <td>(</td>
+          <td class="paramtype">int32_t *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv8i.html">v8i</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores a <code><a class="el" href="structv8i.html" title="Type for the manipulation of 8 int32_t packed into one single vector. ">v8i</a></code> vector (256 bits) into memory starting at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+255] := a.bits[0:255]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
     <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
   </table>
   </dd>
@@ -2619,6 +1739,886 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gaafe16100862edf6dd596dfabbb22acec"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v16f_storeu </td>
+          <td>(</td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv16f.html">v16f</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores a <code><a class="el" href="structv16f.html" title="Type for the manipulation of 16 float packed into one single vector. ">v16f</a></code> vector (512 bits) into memory starting at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+511] := a.bits[0:511]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga518ff267bbd0c5f682ea1433a7e67689"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v16i_storeu </td>
+          <td>(</td>
+          <td class="paramtype">int32_t *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv16i.html">v16i</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores a <code><a class="el" href="structv16i.html" title="Type for the manipulation of 16 int32_t packed into one single vector. ">v16i</a></code> vector (512 bits) into memory starting at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+511] := a.bits[0:511]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address of the data beginning </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga42176d4d939c5784d789028409e3e392"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v1d_store1 </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv1d.html">v1d</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores the first element of a <code><a class="el" href="structv1d.html" title="Type for the manipulation of 1 double packed into one single vector. ">v1d</a></code> vector (64 bits) into memory at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga96e145d185ce089970171e3ddaef0cd5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v1f_store1 </td>
+          <td>(</td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv1f.html">v1f</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores the first element of a <code><a class="el" href="structv1f.html" title="Type for the manipulation of 1 float packed into one single vector. ">v1f</a></code> vector (32 bits) into memory at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gad284cb66325cd7c4d96dca376f637a82"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v1i_store1 </td>
+          <td>(</td>
+          <td class="paramtype">int32_t *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv1i.html">v1i</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores the first element of a <code><a class="el" href="structv1i.html" title="Type for the manipulation of 1 int32_t packed into one single vector. ">v1i</a></code> vector (32 bits) into memory at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga3b2db7e93f6a7b5305d5ae6a427cf22c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v1l_store1 </td>
+          <td>(</td>
+          <td class="paramtype">int64_t *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv1l.html">v1l</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores the first element of a <code><a class="el" href="structv1l.html" title="Type for the manipulation of 1 int64_t packed into one single vector. ">v1l</a></code> vector (64 bits) into memory at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gab5c4c9583aa4bc57bdfc8685a6957ded"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v2d_store1 </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv2d.html">v2d</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores the first element of a <code><a class="el" href="structv2d.html" title="Type for the manipulation of 2 double packed into one single vector. ">v2d</a></code> vector (64 bits) into memory at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga24447bb15ccb5a7014158482e2f20b18"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v2f_store1 </td>
+          <td>(</td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv2f.html">v2f</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores the first element of a <code><a class="el" href="structv2f.html" title="Type for the manipulation of 2 float packed into one single vector. ">v2f</a></code> vector (32 bits) into memory at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga29bb5aab755fdee8607b22136131f266"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v2i_store1 </td>
+          <td>(</td>
+          <td class="paramtype">int32_t *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv2i.html">v2i</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores the first element of a <code><a class="el" href="structv2i.html" title="Type for the manipulation of 2 int32_t packed into one single vector. ">v2i</a></code> vector (32 bits) into memory at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga38e5f06bd64113f447e1802c314fccaf"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v2l_store1 </td>
+          <td>(</td>
+          <td class="paramtype">int64_t *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv2l.html">v2l</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores the first element of a <code><a class="el" href="structv2l.html" title="Type for the manipulation of 2 int64_t packed into one single vector. ">v2l</a></code> vector (64 bits) into memory at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga932af98911ede0221a03ec5b8ab245b0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v4d_store1 </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv4d.html">v4d</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores the first element of a <code><a class="el" href="structv4d.html" title="Type for the manipulation of 4 double packed into one single vector. ">v4d</a></code> vector (64 bits) into memory at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga10d791f8ad00c0429c4ba846a82bfe61"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v4f_store1 </td>
+          <td>(</td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv4f.html">v4f</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores the first element of a <code><a class="el" href="structv4f.html" title="Type for the manipulation of 4 float packed into one single vector. ">v4f</a></code> vector (32 bits) into memory at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gaa92b545acdf7a0b52edef870b3382c2a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v4i_store1 </td>
+          <td>(</td>
+          <td class="paramtype">int32_t *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv4i.html">v4i</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores the first element of a <code><a class="el" href="structv4i.html" title="Type for the manipulation of 4 int32_t packed into one single vector. ">v4i</a></code> vector (32 bits) into memory at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gab3f44a8a0028acac7008320f9e0cd152"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v4l_store1 </td>
+          <td>(</td>
+          <td class="paramtype">int64_t *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv4l.html">v4l</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores the first element of a <code><a class="el" href="structv4l.html" title="Type for the manipulation of 4 int64_t packed into one single vector. ">v4l</a></code> vector (64 bits) into memory at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga3fd0d462bcb34886ac6b487233be2a0d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v8d_store1 </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv8d.html">v8d</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores the first element of a <code><a class="el" href="structv8d.html" title="Type for the manipulation of 8 double packed into one single vector. ">v8d</a></code> vector (64 bits) into memory at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga1d228f0ef0049d9dc8e348c2a3480987"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v8f_store1 </td>
+          <td>(</td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv8f.html">v8f</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores the first element of a <code><a class="el" href="structv8f.html" title="Type for the manipulation of 8 float packed into one single vector. ">v8f</a></code> vector (32 bits) into memory at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gac1f115cd1611a77901737fd21bf1df25"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v8i_store1 </td>
+          <td>(</td>
+          <td class="paramtype">int32_t *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv8i.html">v8i</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores the first element of a <code><a class="el" href="structv8i.html" title="Type for the manipulation of 8 int32_t packed into one single vector. ">v8i</a></code> vector (32 bits) into memory at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gae73ca81bea0bbffbfd0c9c698d414973"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v8l_store1 </td>
+          <td>(</td>
+          <td class="paramtype">int64_t *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv8l.html">v8l</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores the first element of a <code><a class="el" href="structv8l.html" title="Type for the manipulation of 8 int64_t packed into one single vector. ">v8l</a></code> vector (64 bits) into memory at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+63] := a.bits[0:63]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga495eaa570a889b49dacf234c5eab914f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v16f_store1 </td>
+          <td>(</td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv16f.html">v16f</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores the first element of a <code><a class="el" href="structv16f.html" title="Type for the manipulation of 16 float packed into one single vector. ">v16f</a></code> vector (32 bits) into memory at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address </td></tr>
+    <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga22cebf5c0a80621af2869c3cb37d9a14"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v16i_store1 </td>
+          <td>(</td>
+          <td class="paramtype">int32_t *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structv16i.html">v16i</a>&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores the first element of a <code><a class="el" href="structv16i.html" title="Type for the manipulation of 16 int32_t packed into one single vector. ">v16i</a></code> vector (32 bits) into memory at the specified address. There is no alignment requirement. </p>
+<dl class="section user"><dt>Operation</dt><dd><div class="fragment"><div class="line">MEMORY.bits[p:p+31] := a.bits[0:31]</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the memory address </td></tr>
     <tr><td class="paramname">a</td><td>the vector to be stored </td></tr>
   </table>
   </dd>
