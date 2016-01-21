@@ -22,7 +22,10 @@
  *  - A typedef
  *  - A struct defined in another way
  *  - A union
- *
+ * \details Sizes of this vector:
+ *  - {{size1()}} elements of type \c %t  ({{type1().size * 8}} bits)
+ *  - {{size1() * type1().size}} bytes
+ *  - {{size1() * type1().size * 8}} bits
  *
  * \attention This definition does not correspond to any actual implementation and should never used directly.
  * \attention The actual implementation depends on the target architecture.

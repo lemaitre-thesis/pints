@@ -22,7 +22,10 @@
  *  - A typedef
  *  - A struct defined in another way
  *  - A union
- *
+ * \details Sizes of this vector:
+ *  - 1 elements of type \c double  (64 bits)
+ *  - 8 bytes
+ *  - 64 bits
  *
  * \attention This definition does not correspond to any actual implementation and should never used directly.
  * \attention The actual implementation depends on the target architecture.
@@ -45,7 +48,10 @@ struct v1d {
  *  - A typedef
  *  - A struct defined in another way
  *  - A union
- *
+ * \details Sizes of this vector:
+ *  - 1 elements of type \c float  (32 bits)
+ *  - 4 bytes
+ *  - 32 bits
  *
  * \attention This definition does not correspond to any actual implementation and should never used directly.
  * \attention The actual implementation depends on the target architecture.
@@ -68,7 +74,10 @@ struct v1f {
  *  - A typedef
  *  - A struct defined in another way
  *  - A union
- *
+ * \details Sizes of this vector:
+ *  - 1 elements of type \c int32_t  (32 bits)
+ *  - 4 bytes
+ *  - 32 bits
  *
  * \attention This definition does not correspond to any actual implementation and should never used directly.
  * \attention The actual implementation depends on the target architecture.
@@ -91,7 +100,10 @@ struct v1i {
  *  - A typedef
  *  - A struct defined in another way
  *  - A union
- *
+ * \details Sizes of this vector:
+ *  - 1 elements of type \c int64_t  (64 bits)
+ *  - 8 bytes
+ *  - 64 bits
  *
  * \attention This definition does not correspond to any actual implementation and should never used directly.
  * \attention The actual implementation depends on the target architecture.
@@ -114,7 +126,10 @@ struct v1l {
  *  - A typedef
  *  - A struct defined in another way
  *  - A union
- *
+ * \details Sizes of this vector:
+ *  - 2 elements of type \c double  (64 bits)
+ *  - 16 bytes
+ *  - 128 bits
  *
  * \attention This definition does not correspond to any actual implementation and should never used directly.
  * \attention The actual implementation depends on the target architecture.
@@ -137,7 +152,10 @@ struct v2d {
  *  - A typedef
  *  - A struct defined in another way
  *  - A union
- *
+ * \details Sizes of this vector:
+ *  - 2 elements of type \c float  (32 bits)
+ *  - 8 bytes
+ *  - 64 bits
  *
  * \attention This definition does not correspond to any actual implementation and should never used directly.
  * \attention The actual implementation depends on the target architecture.
@@ -160,7 +178,10 @@ struct v2f {
  *  - A typedef
  *  - A struct defined in another way
  *  - A union
- *
+ * \details Sizes of this vector:
+ *  - 2 elements of type \c int32_t  (32 bits)
+ *  - 8 bytes
+ *  - 64 bits
  *
  * \attention This definition does not correspond to any actual implementation and should never used directly.
  * \attention The actual implementation depends on the target architecture.
@@ -183,7 +204,10 @@ struct v2i {
  *  - A typedef
  *  - A struct defined in another way
  *  - A union
- *
+ * \details Sizes of this vector:
+ *  - 2 elements of type \c int64_t  (64 bits)
+ *  - 16 bytes
+ *  - 128 bits
  *
  * \attention This definition does not correspond to any actual implementation and should never used directly.
  * \attention The actual implementation depends on the target architecture.
@@ -206,7 +230,10 @@ struct v2l {
  *  - A typedef
  *  - A struct defined in another way
  *  - A union
- *
+ * \details Sizes of this vector:
+ *  - 4 elements of type \c double  (64 bits)
+ *  - 32 bytes
+ *  - 256 bits
  *
  * \attention This definition does not correspond to any actual implementation and should never used directly.
  * \attention The actual implementation depends on the target architecture.
@@ -229,7 +256,10 @@ struct v4d {
  *  - A typedef
  *  - A struct defined in another way
  *  - A union
- *
+ * \details Sizes of this vector:
+ *  - 4 elements of type \c float  (32 bits)
+ *  - 16 bytes
+ *  - 128 bits
  *
  * \attention This definition does not correspond to any actual implementation and should never used directly.
  * \attention The actual implementation depends on the target architecture.
@@ -252,7 +282,10 @@ struct v4f {
  *  - A typedef
  *  - A struct defined in another way
  *  - A union
- *
+ * \details Sizes of this vector:
+ *  - 4 elements of type \c int32_t  (32 bits)
+ *  - 16 bytes
+ *  - 128 bits
  *
  * \attention This definition does not correspond to any actual implementation and should never used directly.
  * \attention The actual implementation depends on the target architecture.
@@ -275,7 +308,10 @@ struct v4i {
  *  - A typedef
  *  - A struct defined in another way
  *  - A union
- *
+ * \details Sizes of this vector:
+ *  - 4 elements of type \c int64_t  (64 bits)
+ *  - 32 bytes
+ *  - 256 bits
  *
  * \attention This definition does not correspond to any actual implementation and should never used directly.
  * \attention The actual implementation depends on the target architecture.
@@ -298,7 +334,10 @@ struct v4l {
  *  - A typedef
  *  - A struct defined in another way
  *  - A union
- *
+ * \details Sizes of this vector:
+ *  - 8 elements of type \c double  (64 bits)
+ *  - 64 bytes
+ *  - 512 bits
  *
  * \attention This definition does not correspond to any actual implementation and should never used directly.
  * \attention The actual implementation depends on the target architecture.
@@ -321,7 +360,10 @@ struct v8d {
  *  - A typedef
  *  - A struct defined in another way
  *  - A union
- *
+ * \details Sizes of this vector:
+ *  - 8 elements of type \c float  (32 bits)
+ *  - 32 bytes
+ *  - 256 bits
  *
  * \attention This definition does not correspond to any actual implementation and should never used directly.
  * \attention The actual implementation depends on the target architecture.
@@ -344,7 +386,10 @@ struct v8f {
  *  - A typedef
  *  - A struct defined in another way
  *  - A union
- *
+ * \details Sizes of this vector:
+ *  - 8 elements of type \c int32_t  (32 bits)
+ *  - 32 bytes
+ *  - 256 bits
  *
  * \attention This definition does not correspond to any actual implementation and should never used directly.
  * \attention The actual implementation depends on the target architecture.
@@ -367,7 +412,10 @@ struct v8i {
  *  - A typedef
  *  - A struct defined in another way
  *  - A union
- *
+ * \details Sizes of this vector:
+ *  - 8 elements of type \c int64_t  (64 bits)
+ *  - 64 bytes
+ *  - 512 bits
  *
  * \attention This definition does not correspond to any actual implementation and should never used directly.
  * \attention The actual implementation depends on the target architecture.
@@ -390,7 +438,10 @@ struct v8l {
  *  - A typedef
  *  - A struct defined in another way
  *  - A union
- *
+ * \details Sizes of this vector:
+ *  - 16 elements of type \c float  (32 bits)
+ *  - 64 bytes
+ *  - 512 bits
  *
  * \attention This definition does not correspond to any actual implementation and should never used directly.
  * \attention The actual implementation depends on the target architecture.
@@ -413,7 +464,10 @@ struct v16f {
  *  - A typedef
  *  - A struct defined in another way
  *  - A union
- *
+ * \details Sizes of this vector:
+ *  - 16 elements of type \c int32_t  (32 bits)
+ *  - 64 bytes
+ *  - 512 bits
  *
  * \attention This definition does not correspond to any actual implementation and should never used directly.
  * \attention The actual implementation depends on the target architecture.
