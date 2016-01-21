@@ -39209,7 +39209,7 @@ v16i v16i_cvt_m16i(m16i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m1d_cvt_m1d(m1d a);
+m1d m1d_cvt_m1d(m1d a);
 /**
  * \ingroup mconvert
  * \related v1f
@@ -39219,7 +39219,7 @@ double m1d_cvt_m1d(m1d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m1f_cvt_m1d(m1d a);
+m1f m1f_cvt_m1d(m1d a);
 /**
  * \ingroup mconvert
  * \related v1i
@@ -39229,7 +39229,7 @@ float m1f_cvt_m1d(m1d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m1i_cvt_m1d(m1d a);
+m1i m1i_cvt_m1d(m1d a);
 /**
  * \ingroup mconvert
  * \related v1l
@@ -39239,7 +39239,7 @@ int32_t m1i_cvt_m1d(m1d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m1l_cvt_m1d(m1d a);
+m1l m1l_cvt_m1d(m1d a);
 /**
  * \ingroup mconvert
  * \related v2d
@@ -39249,7 +39249,7 @@ int64_t m1l_cvt_m1d(m1d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m2d_cvt_m1d(m1d a);
+m2d m2d_cvt_m1d(m1d a);
 /**
  * \ingroup mconvert
  * \related v2f
@@ -39259,7 +39259,7 @@ double m2d_cvt_m1d(m1d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m2f_cvt_m1d(m1d a);
+m2f m2f_cvt_m1d(m1d a);
 /**
  * \ingroup mconvert
  * \related v2i
@@ -39269,7 +39269,7 @@ float m2f_cvt_m1d(m1d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m2i_cvt_m1d(m1d a);
+m2i m2i_cvt_m1d(m1d a);
 /**
  * \ingroup mconvert
  * \related v2l
@@ -39279,7 +39279,7 @@ int32_t m2i_cvt_m1d(m1d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m2l_cvt_m1d(m1d a);
+m2l m2l_cvt_m1d(m1d a);
 /**
  * \ingroup mconvert
  * \related v4d
@@ -39289,7 +39289,7 @@ int64_t m2l_cvt_m1d(m1d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m4d_cvt_m1d(m1d a);
+m4d m4d_cvt_m1d(m1d a);
 /**
  * \ingroup mconvert
  * \related v4f
@@ -39299,7 +39299,7 @@ double m4d_cvt_m1d(m1d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m4f_cvt_m1d(m1d a);
+m4f m4f_cvt_m1d(m1d a);
 /**
  * \ingroup mconvert
  * \related v4i
@@ -39309,7 +39309,7 @@ float m4f_cvt_m1d(m1d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m4i_cvt_m1d(m1d a);
+m4i m4i_cvt_m1d(m1d a);
 /**
  * \ingroup mconvert
  * \related v4l
@@ -39319,7 +39319,7 @@ int32_t m4i_cvt_m1d(m1d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m4l_cvt_m1d(m1d a);
+m4l m4l_cvt_m1d(m1d a);
 /**
  * \ingroup mconvert
  * \related v8d
@@ -39329,7 +39329,7 @@ int64_t m4l_cvt_m1d(m1d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m8d_cvt_m1d(m1d a);
+m8d m8d_cvt_m1d(m1d a);
 /**
  * \ingroup mconvert
  * \related v8f
@@ -39339,7 +39339,7 @@ double m8d_cvt_m1d(m1d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m8f_cvt_m1d(m1d a);
+m8f m8f_cvt_m1d(m1d a);
 /**
  * \ingroup mconvert
  * \related v8i
@@ -39349,7 +39349,7 @@ float m8f_cvt_m1d(m1d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m8i_cvt_m1d(m1d a);
+m8i m8i_cvt_m1d(m1d a);
 /**
  * \ingroup mconvert
  * \related v8l
@@ -39359,7 +39359,7 @@ int32_t m8i_cvt_m1d(m1d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m8l_cvt_m1d(m1d a);
+m8l m8l_cvt_m1d(m1d a);
 /**
  * \ingroup mconvert
  * \related v16f
@@ -39369,7 +39369,7 @@ int64_t m8l_cvt_m1d(m1d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m16f_cvt_m1d(m1d a);
+m16f m16f_cvt_m1d(m1d a);
 /**
  * \ingroup mconvert
  * \related v16i
@@ -39379,7 +39379,7 @@ float m16f_cvt_m1d(m1d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m16i_cvt_m1d(m1d a);
+m16i m16i_cvt_m1d(m1d a);
 /**
  * \ingroup mconvert
  * \related v1d
@@ -39389,7 +39389,7 @@ int32_t m16i_cvt_m1d(m1d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m1d_cvt_m1f(m1f a);
+m1d m1d_cvt_m1f(m1f a);
 /**
  * \ingroup mconvert
  * \related v1f
@@ -39399,7 +39399,7 @@ double m1d_cvt_m1f(m1f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m1f_cvt_m1f(m1f a);
+m1f m1f_cvt_m1f(m1f a);
 /**
  * \ingroup mconvert
  * \related v1i
@@ -39409,7 +39409,7 @@ float m1f_cvt_m1f(m1f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m1i_cvt_m1f(m1f a);
+m1i m1i_cvt_m1f(m1f a);
 /**
  * \ingroup mconvert
  * \related v1l
@@ -39419,7 +39419,7 @@ int32_t m1i_cvt_m1f(m1f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m1l_cvt_m1f(m1f a);
+m1l m1l_cvt_m1f(m1f a);
 /**
  * \ingroup mconvert
  * \related v2d
@@ -39429,7 +39429,7 @@ int64_t m1l_cvt_m1f(m1f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m2d_cvt_m1f(m1f a);
+m2d m2d_cvt_m1f(m1f a);
 /**
  * \ingroup mconvert
  * \related v2f
@@ -39439,7 +39439,7 @@ double m2d_cvt_m1f(m1f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m2f_cvt_m1f(m1f a);
+m2f m2f_cvt_m1f(m1f a);
 /**
  * \ingroup mconvert
  * \related v2i
@@ -39449,7 +39449,7 @@ float m2f_cvt_m1f(m1f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m2i_cvt_m1f(m1f a);
+m2i m2i_cvt_m1f(m1f a);
 /**
  * \ingroup mconvert
  * \related v2l
@@ -39459,7 +39459,7 @@ int32_t m2i_cvt_m1f(m1f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m2l_cvt_m1f(m1f a);
+m2l m2l_cvt_m1f(m1f a);
 /**
  * \ingroup mconvert
  * \related v4d
@@ -39469,7 +39469,7 @@ int64_t m2l_cvt_m1f(m1f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m4d_cvt_m1f(m1f a);
+m4d m4d_cvt_m1f(m1f a);
 /**
  * \ingroup mconvert
  * \related v4f
@@ -39479,7 +39479,7 @@ double m4d_cvt_m1f(m1f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m4f_cvt_m1f(m1f a);
+m4f m4f_cvt_m1f(m1f a);
 /**
  * \ingroup mconvert
  * \related v4i
@@ -39489,7 +39489,7 @@ float m4f_cvt_m1f(m1f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m4i_cvt_m1f(m1f a);
+m4i m4i_cvt_m1f(m1f a);
 /**
  * \ingroup mconvert
  * \related v4l
@@ -39499,7 +39499,7 @@ int32_t m4i_cvt_m1f(m1f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m4l_cvt_m1f(m1f a);
+m4l m4l_cvt_m1f(m1f a);
 /**
  * \ingroup mconvert
  * \related v8d
@@ -39509,7 +39509,7 @@ int64_t m4l_cvt_m1f(m1f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m8d_cvt_m1f(m1f a);
+m8d m8d_cvt_m1f(m1f a);
 /**
  * \ingroup mconvert
  * \related v8f
@@ -39519,7 +39519,7 @@ double m8d_cvt_m1f(m1f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m8f_cvt_m1f(m1f a);
+m8f m8f_cvt_m1f(m1f a);
 /**
  * \ingroup mconvert
  * \related v8i
@@ -39529,7 +39529,7 @@ float m8f_cvt_m1f(m1f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m8i_cvt_m1f(m1f a);
+m8i m8i_cvt_m1f(m1f a);
 /**
  * \ingroup mconvert
  * \related v8l
@@ -39539,7 +39539,7 @@ int32_t m8i_cvt_m1f(m1f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m8l_cvt_m1f(m1f a);
+m8l m8l_cvt_m1f(m1f a);
 /**
  * \ingroup mconvert
  * \related v16f
@@ -39549,7 +39549,7 @@ int64_t m8l_cvt_m1f(m1f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m16f_cvt_m1f(m1f a);
+m16f m16f_cvt_m1f(m1f a);
 /**
  * \ingroup mconvert
  * \related v16i
@@ -39559,7 +39559,7 @@ float m16f_cvt_m1f(m1f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m16i_cvt_m1f(m1f a);
+m16i m16i_cvt_m1f(m1f a);
 /**
  * \ingroup mconvert
  * \related v1d
@@ -39569,7 +39569,7 @@ int32_t m16i_cvt_m1f(m1f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m1d_cvt_m1i(m1i a);
+m1d m1d_cvt_m1i(m1i a);
 /**
  * \ingroup mconvert
  * \related v1f
@@ -39579,7 +39579,7 @@ double m1d_cvt_m1i(m1i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m1f_cvt_m1i(m1i a);
+m1f m1f_cvt_m1i(m1i a);
 /**
  * \ingroup mconvert
  * \related v1i
@@ -39589,7 +39589,7 @@ float m1f_cvt_m1i(m1i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m1i_cvt_m1i(m1i a);
+m1i m1i_cvt_m1i(m1i a);
 /**
  * \ingroup mconvert
  * \related v1l
@@ -39599,7 +39599,7 @@ int32_t m1i_cvt_m1i(m1i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m1l_cvt_m1i(m1i a);
+m1l m1l_cvt_m1i(m1i a);
 /**
  * \ingroup mconvert
  * \related v2d
@@ -39609,7 +39609,7 @@ int64_t m1l_cvt_m1i(m1i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m2d_cvt_m1i(m1i a);
+m2d m2d_cvt_m1i(m1i a);
 /**
  * \ingroup mconvert
  * \related v2f
@@ -39619,7 +39619,7 @@ double m2d_cvt_m1i(m1i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m2f_cvt_m1i(m1i a);
+m2f m2f_cvt_m1i(m1i a);
 /**
  * \ingroup mconvert
  * \related v2i
@@ -39629,7 +39629,7 @@ float m2f_cvt_m1i(m1i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m2i_cvt_m1i(m1i a);
+m2i m2i_cvt_m1i(m1i a);
 /**
  * \ingroup mconvert
  * \related v2l
@@ -39639,7 +39639,7 @@ int32_t m2i_cvt_m1i(m1i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m2l_cvt_m1i(m1i a);
+m2l m2l_cvt_m1i(m1i a);
 /**
  * \ingroup mconvert
  * \related v4d
@@ -39649,7 +39649,7 @@ int64_t m2l_cvt_m1i(m1i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m4d_cvt_m1i(m1i a);
+m4d m4d_cvt_m1i(m1i a);
 /**
  * \ingroup mconvert
  * \related v4f
@@ -39659,7 +39659,7 @@ double m4d_cvt_m1i(m1i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m4f_cvt_m1i(m1i a);
+m4f m4f_cvt_m1i(m1i a);
 /**
  * \ingroup mconvert
  * \related v4i
@@ -39669,7 +39669,7 @@ float m4f_cvt_m1i(m1i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m4i_cvt_m1i(m1i a);
+m4i m4i_cvt_m1i(m1i a);
 /**
  * \ingroup mconvert
  * \related v4l
@@ -39679,7 +39679,7 @@ int32_t m4i_cvt_m1i(m1i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m4l_cvt_m1i(m1i a);
+m4l m4l_cvt_m1i(m1i a);
 /**
  * \ingroup mconvert
  * \related v8d
@@ -39689,7 +39689,7 @@ int64_t m4l_cvt_m1i(m1i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m8d_cvt_m1i(m1i a);
+m8d m8d_cvt_m1i(m1i a);
 /**
  * \ingroup mconvert
  * \related v8f
@@ -39699,7 +39699,7 @@ double m8d_cvt_m1i(m1i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m8f_cvt_m1i(m1i a);
+m8f m8f_cvt_m1i(m1i a);
 /**
  * \ingroup mconvert
  * \related v8i
@@ -39709,7 +39709,7 @@ float m8f_cvt_m1i(m1i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m8i_cvt_m1i(m1i a);
+m8i m8i_cvt_m1i(m1i a);
 /**
  * \ingroup mconvert
  * \related v8l
@@ -39719,7 +39719,7 @@ int32_t m8i_cvt_m1i(m1i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m8l_cvt_m1i(m1i a);
+m8l m8l_cvt_m1i(m1i a);
 /**
  * \ingroup mconvert
  * \related v16f
@@ -39729,7 +39729,7 @@ int64_t m8l_cvt_m1i(m1i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m16f_cvt_m1i(m1i a);
+m16f m16f_cvt_m1i(m1i a);
 /**
  * \ingroup mconvert
  * \related v16i
@@ -39739,7 +39739,7 @@ float m16f_cvt_m1i(m1i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m16i_cvt_m1i(m1i a);
+m16i m16i_cvt_m1i(m1i a);
 /**
  * \ingroup mconvert
  * \related v1d
@@ -39749,7 +39749,7 @@ int32_t m16i_cvt_m1i(m1i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m1d_cvt_m1l(m1l a);
+m1d m1d_cvt_m1l(m1l a);
 /**
  * \ingroup mconvert
  * \related v1f
@@ -39759,7 +39759,7 @@ double m1d_cvt_m1l(m1l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m1f_cvt_m1l(m1l a);
+m1f m1f_cvt_m1l(m1l a);
 /**
  * \ingroup mconvert
  * \related v1i
@@ -39769,7 +39769,7 @@ float m1f_cvt_m1l(m1l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m1i_cvt_m1l(m1l a);
+m1i m1i_cvt_m1l(m1l a);
 /**
  * \ingroup mconvert
  * \related v1l
@@ -39779,7 +39779,7 @@ int32_t m1i_cvt_m1l(m1l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m1l_cvt_m1l(m1l a);
+m1l m1l_cvt_m1l(m1l a);
 /**
  * \ingroup mconvert
  * \related v2d
@@ -39789,7 +39789,7 @@ int64_t m1l_cvt_m1l(m1l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m2d_cvt_m1l(m1l a);
+m2d m2d_cvt_m1l(m1l a);
 /**
  * \ingroup mconvert
  * \related v2f
@@ -39799,7 +39799,7 @@ double m2d_cvt_m1l(m1l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m2f_cvt_m1l(m1l a);
+m2f m2f_cvt_m1l(m1l a);
 /**
  * \ingroup mconvert
  * \related v2i
@@ -39809,7 +39809,7 @@ float m2f_cvt_m1l(m1l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m2i_cvt_m1l(m1l a);
+m2i m2i_cvt_m1l(m1l a);
 /**
  * \ingroup mconvert
  * \related v2l
@@ -39819,7 +39819,7 @@ int32_t m2i_cvt_m1l(m1l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m2l_cvt_m1l(m1l a);
+m2l m2l_cvt_m1l(m1l a);
 /**
  * \ingroup mconvert
  * \related v4d
@@ -39829,7 +39829,7 @@ int64_t m2l_cvt_m1l(m1l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m4d_cvt_m1l(m1l a);
+m4d m4d_cvt_m1l(m1l a);
 /**
  * \ingroup mconvert
  * \related v4f
@@ -39839,7 +39839,7 @@ double m4d_cvt_m1l(m1l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m4f_cvt_m1l(m1l a);
+m4f m4f_cvt_m1l(m1l a);
 /**
  * \ingroup mconvert
  * \related v4i
@@ -39849,7 +39849,7 @@ float m4f_cvt_m1l(m1l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m4i_cvt_m1l(m1l a);
+m4i m4i_cvt_m1l(m1l a);
 /**
  * \ingroup mconvert
  * \related v4l
@@ -39859,7 +39859,7 @@ int32_t m4i_cvt_m1l(m1l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m4l_cvt_m1l(m1l a);
+m4l m4l_cvt_m1l(m1l a);
 /**
  * \ingroup mconvert
  * \related v8d
@@ -39869,7 +39869,7 @@ int64_t m4l_cvt_m1l(m1l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m8d_cvt_m1l(m1l a);
+m8d m8d_cvt_m1l(m1l a);
 /**
  * \ingroup mconvert
  * \related v8f
@@ -39879,7 +39879,7 @@ double m8d_cvt_m1l(m1l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m8f_cvt_m1l(m1l a);
+m8f m8f_cvt_m1l(m1l a);
 /**
  * \ingroup mconvert
  * \related v8i
@@ -39889,7 +39889,7 @@ float m8f_cvt_m1l(m1l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m8i_cvt_m1l(m1l a);
+m8i m8i_cvt_m1l(m1l a);
 /**
  * \ingroup mconvert
  * \related v8l
@@ -39899,7 +39899,7 @@ int32_t m8i_cvt_m1l(m1l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m8l_cvt_m1l(m1l a);
+m8l m8l_cvt_m1l(m1l a);
 /**
  * \ingroup mconvert
  * \related v16f
@@ -39909,7 +39909,7 @@ int64_t m8l_cvt_m1l(m1l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m16f_cvt_m1l(m1l a);
+m16f m16f_cvt_m1l(m1l a);
 /**
  * \ingroup mconvert
  * \related v16i
@@ -39919,7 +39919,7 @@ float m16f_cvt_m1l(m1l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m16i_cvt_m1l(m1l a);
+m16i m16i_cvt_m1l(m1l a);
 /**
  * \ingroup mconvert
  * \related v1d
@@ -39929,7 +39929,7 @@ int32_t m16i_cvt_m1l(m1l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m1d_cvt_m2d(m2d a);
+m1d m1d_cvt_m2d(m2d a);
 /**
  * \ingroup mconvert
  * \related v1f
@@ -39939,7 +39939,7 @@ double m1d_cvt_m2d(m2d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m1f_cvt_m2d(m2d a);
+m1f m1f_cvt_m2d(m2d a);
 /**
  * \ingroup mconvert
  * \related v1i
@@ -39949,7 +39949,7 @@ float m1f_cvt_m2d(m2d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m1i_cvt_m2d(m2d a);
+m1i m1i_cvt_m2d(m2d a);
 /**
  * \ingroup mconvert
  * \related v1l
@@ -39959,7 +39959,7 @@ int32_t m1i_cvt_m2d(m2d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m1l_cvt_m2d(m2d a);
+m1l m1l_cvt_m2d(m2d a);
 /**
  * \ingroup mconvert
  * \related v2d
@@ -39969,7 +39969,7 @@ int64_t m1l_cvt_m2d(m2d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m2d_cvt_m2d(m2d a);
+m2d m2d_cvt_m2d(m2d a);
 /**
  * \ingroup mconvert
  * \related v2f
@@ -39979,7 +39979,7 @@ double m2d_cvt_m2d(m2d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m2f_cvt_m2d(m2d a);
+m2f m2f_cvt_m2d(m2d a);
 /**
  * \ingroup mconvert
  * \related v2i
@@ -39989,7 +39989,7 @@ float m2f_cvt_m2d(m2d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m2i_cvt_m2d(m2d a);
+m2i m2i_cvt_m2d(m2d a);
 /**
  * \ingroup mconvert
  * \related v2l
@@ -39999,7 +39999,7 @@ int32_t m2i_cvt_m2d(m2d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m2l_cvt_m2d(m2d a);
+m2l m2l_cvt_m2d(m2d a);
 /**
  * \ingroup mconvert
  * \related v4d
@@ -40009,7 +40009,7 @@ int64_t m2l_cvt_m2d(m2d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m4d_cvt_m2d(m2d a);
+m4d m4d_cvt_m2d(m2d a);
 /**
  * \ingroup mconvert
  * \related v4f
@@ -40019,7 +40019,7 @@ double m4d_cvt_m2d(m2d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m4f_cvt_m2d(m2d a);
+m4f m4f_cvt_m2d(m2d a);
 /**
  * \ingroup mconvert
  * \related v4i
@@ -40029,7 +40029,7 @@ float m4f_cvt_m2d(m2d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m4i_cvt_m2d(m2d a);
+m4i m4i_cvt_m2d(m2d a);
 /**
  * \ingroup mconvert
  * \related v4l
@@ -40039,7 +40039,7 @@ int32_t m4i_cvt_m2d(m2d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m4l_cvt_m2d(m2d a);
+m4l m4l_cvt_m2d(m2d a);
 /**
  * \ingroup mconvert
  * \related v8d
@@ -40049,7 +40049,7 @@ int64_t m4l_cvt_m2d(m2d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m8d_cvt_m2d(m2d a);
+m8d m8d_cvt_m2d(m2d a);
 /**
  * \ingroup mconvert
  * \related v8f
@@ -40059,7 +40059,7 @@ double m8d_cvt_m2d(m2d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m8f_cvt_m2d(m2d a);
+m8f m8f_cvt_m2d(m2d a);
 /**
  * \ingroup mconvert
  * \related v8i
@@ -40069,7 +40069,7 @@ float m8f_cvt_m2d(m2d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m8i_cvt_m2d(m2d a);
+m8i m8i_cvt_m2d(m2d a);
 /**
  * \ingroup mconvert
  * \related v8l
@@ -40079,7 +40079,7 @@ int32_t m8i_cvt_m2d(m2d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m8l_cvt_m2d(m2d a);
+m8l m8l_cvt_m2d(m2d a);
 /**
  * \ingroup mconvert
  * \related v16f
@@ -40089,7 +40089,7 @@ int64_t m8l_cvt_m2d(m2d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m16f_cvt_m2d(m2d a);
+m16f m16f_cvt_m2d(m2d a);
 /**
  * \ingroup mconvert
  * \related v16i
@@ -40099,7 +40099,7 @@ float m16f_cvt_m2d(m2d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m16i_cvt_m2d(m2d a);
+m16i m16i_cvt_m2d(m2d a);
 /**
  * \ingroup mconvert
  * \related v1d
@@ -40109,7 +40109,7 @@ int32_t m16i_cvt_m2d(m2d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m1d_cvt_m2f(m2f a);
+m1d m1d_cvt_m2f(m2f a);
 /**
  * \ingroup mconvert
  * \related v1f
@@ -40119,7 +40119,7 @@ double m1d_cvt_m2f(m2f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m1f_cvt_m2f(m2f a);
+m1f m1f_cvt_m2f(m2f a);
 /**
  * \ingroup mconvert
  * \related v1i
@@ -40129,7 +40129,7 @@ float m1f_cvt_m2f(m2f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m1i_cvt_m2f(m2f a);
+m1i m1i_cvt_m2f(m2f a);
 /**
  * \ingroup mconvert
  * \related v1l
@@ -40139,7 +40139,7 @@ int32_t m1i_cvt_m2f(m2f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m1l_cvt_m2f(m2f a);
+m1l m1l_cvt_m2f(m2f a);
 /**
  * \ingroup mconvert
  * \related v2d
@@ -40149,7 +40149,7 @@ int64_t m1l_cvt_m2f(m2f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m2d_cvt_m2f(m2f a);
+m2d m2d_cvt_m2f(m2f a);
 /**
  * \ingroup mconvert
  * \related v2f
@@ -40159,7 +40159,7 @@ double m2d_cvt_m2f(m2f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m2f_cvt_m2f(m2f a);
+m2f m2f_cvt_m2f(m2f a);
 /**
  * \ingroup mconvert
  * \related v2i
@@ -40169,7 +40169,7 @@ float m2f_cvt_m2f(m2f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m2i_cvt_m2f(m2f a);
+m2i m2i_cvt_m2f(m2f a);
 /**
  * \ingroup mconvert
  * \related v2l
@@ -40179,7 +40179,7 @@ int32_t m2i_cvt_m2f(m2f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m2l_cvt_m2f(m2f a);
+m2l m2l_cvt_m2f(m2f a);
 /**
  * \ingroup mconvert
  * \related v4d
@@ -40189,7 +40189,7 @@ int64_t m2l_cvt_m2f(m2f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m4d_cvt_m2f(m2f a);
+m4d m4d_cvt_m2f(m2f a);
 /**
  * \ingroup mconvert
  * \related v4f
@@ -40199,7 +40199,7 @@ double m4d_cvt_m2f(m2f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m4f_cvt_m2f(m2f a);
+m4f m4f_cvt_m2f(m2f a);
 /**
  * \ingroup mconvert
  * \related v4i
@@ -40209,7 +40209,7 @@ float m4f_cvt_m2f(m2f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m4i_cvt_m2f(m2f a);
+m4i m4i_cvt_m2f(m2f a);
 /**
  * \ingroup mconvert
  * \related v4l
@@ -40219,7 +40219,7 @@ int32_t m4i_cvt_m2f(m2f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m4l_cvt_m2f(m2f a);
+m4l m4l_cvt_m2f(m2f a);
 /**
  * \ingroup mconvert
  * \related v8d
@@ -40229,7 +40229,7 @@ int64_t m4l_cvt_m2f(m2f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m8d_cvt_m2f(m2f a);
+m8d m8d_cvt_m2f(m2f a);
 /**
  * \ingroup mconvert
  * \related v8f
@@ -40239,7 +40239,7 @@ double m8d_cvt_m2f(m2f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m8f_cvt_m2f(m2f a);
+m8f m8f_cvt_m2f(m2f a);
 /**
  * \ingroup mconvert
  * \related v8i
@@ -40249,7 +40249,7 @@ float m8f_cvt_m2f(m2f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m8i_cvt_m2f(m2f a);
+m8i m8i_cvt_m2f(m2f a);
 /**
  * \ingroup mconvert
  * \related v8l
@@ -40259,7 +40259,7 @@ int32_t m8i_cvt_m2f(m2f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m8l_cvt_m2f(m2f a);
+m8l m8l_cvt_m2f(m2f a);
 /**
  * \ingroup mconvert
  * \related v16f
@@ -40269,7 +40269,7 @@ int64_t m8l_cvt_m2f(m2f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m16f_cvt_m2f(m2f a);
+m16f m16f_cvt_m2f(m2f a);
 /**
  * \ingroup mconvert
  * \related v16i
@@ -40279,7 +40279,7 @@ float m16f_cvt_m2f(m2f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m16i_cvt_m2f(m2f a);
+m16i m16i_cvt_m2f(m2f a);
 /**
  * \ingroup mconvert
  * \related v1d
@@ -40289,7 +40289,7 @@ int32_t m16i_cvt_m2f(m2f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m1d_cvt_m2i(m2i a);
+m1d m1d_cvt_m2i(m2i a);
 /**
  * \ingroup mconvert
  * \related v1f
@@ -40299,7 +40299,7 @@ double m1d_cvt_m2i(m2i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m1f_cvt_m2i(m2i a);
+m1f m1f_cvt_m2i(m2i a);
 /**
  * \ingroup mconvert
  * \related v1i
@@ -40309,7 +40309,7 @@ float m1f_cvt_m2i(m2i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m1i_cvt_m2i(m2i a);
+m1i m1i_cvt_m2i(m2i a);
 /**
  * \ingroup mconvert
  * \related v1l
@@ -40319,7 +40319,7 @@ int32_t m1i_cvt_m2i(m2i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m1l_cvt_m2i(m2i a);
+m1l m1l_cvt_m2i(m2i a);
 /**
  * \ingroup mconvert
  * \related v2d
@@ -40329,7 +40329,7 @@ int64_t m1l_cvt_m2i(m2i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m2d_cvt_m2i(m2i a);
+m2d m2d_cvt_m2i(m2i a);
 /**
  * \ingroup mconvert
  * \related v2f
@@ -40339,7 +40339,7 @@ double m2d_cvt_m2i(m2i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m2f_cvt_m2i(m2i a);
+m2f m2f_cvt_m2i(m2i a);
 /**
  * \ingroup mconvert
  * \related v2i
@@ -40349,7 +40349,7 @@ float m2f_cvt_m2i(m2i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m2i_cvt_m2i(m2i a);
+m2i m2i_cvt_m2i(m2i a);
 /**
  * \ingroup mconvert
  * \related v2l
@@ -40359,7 +40359,7 @@ int32_t m2i_cvt_m2i(m2i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m2l_cvt_m2i(m2i a);
+m2l m2l_cvt_m2i(m2i a);
 /**
  * \ingroup mconvert
  * \related v4d
@@ -40369,7 +40369,7 @@ int64_t m2l_cvt_m2i(m2i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m4d_cvt_m2i(m2i a);
+m4d m4d_cvt_m2i(m2i a);
 /**
  * \ingroup mconvert
  * \related v4f
@@ -40379,7 +40379,7 @@ double m4d_cvt_m2i(m2i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m4f_cvt_m2i(m2i a);
+m4f m4f_cvt_m2i(m2i a);
 /**
  * \ingroup mconvert
  * \related v4i
@@ -40389,7 +40389,7 @@ float m4f_cvt_m2i(m2i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m4i_cvt_m2i(m2i a);
+m4i m4i_cvt_m2i(m2i a);
 /**
  * \ingroup mconvert
  * \related v4l
@@ -40399,7 +40399,7 @@ int32_t m4i_cvt_m2i(m2i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m4l_cvt_m2i(m2i a);
+m4l m4l_cvt_m2i(m2i a);
 /**
  * \ingroup mconvert
  * \related v8d
@@ -40409,7 +40409,7 @@ int64_t m4l_cvt_m2i(m2i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m8d_cvt_m2i(m2i a);
+m8d m8d_cvt_m2i(m2i a);
 /**
  * \ingroup mconvert
  * \related v8f
@@ -40419,7 +40419,7 @@ double m8d_cvt_m2i(m2i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m8f_cvt_m2i(m2i a);
+m8f m8f_cvt_m2i(m2i a);
 /**
  * \ingroup mconvert
  * \related v8i
@@ -40429,7 +40429,7 @@ float m8f_cvt_m2i(m2i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m8i_cvt_m2i(m2i a);
+m8i m8i_cvt_m2i(m2i a);
 /**
  * \ingroup mconvert
  * \related v8l
@@ -40439,7 +40439,7 @@ int32_t m8i_cvt_m2i(m2i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m8l_cvt_m2i(m2i a);
+m8l m8l_cvt_m2i(m2i a);
 /**
  * \ingroup mconvert
  * \related v16f
@@ -40449,7 +40449,7 @@ int64_t m8l_cvt_m2i(m2i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m16f_cvt_m2i(m2i a);
+m16f m16f_cvt_m2i(m2i a);
 /**
  * \ingroup mconvert
  * \related v16i
@@ -40459,7 +40459,7 @@ float m16f_cvt_m2i(m2i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m16i_cvt_m2i(m2i a);
+m16i m16i_cvt_m2i(m2i a);
 /**
  * \ingroup mconvert
  * \related v1d
@@ -40469,7 +40469,7 @@ int32_t m16i_cvt_m2i(m2i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m1d_cvt_m2l(m2l a);
+m1d m1d_cvt_m2l(m2l a);
 /**
  * \ingroup mconvert
  * \related v1f
@@ -40479,7 +40479,7 @@ double m1d_cvt_m2l(m2l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m1f_cvt_m2l(m2l a);
+m1f m1f_cvt_m2l(m2l a);
 /**
  * \ingroup mconvert
  * \related v1i
@@ -40489,7 +40489,7 @@ float m1f_cvt_m2l(m2l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m1i_cvt_m2l(m2l a);
+m1i m1i_cvt_m2l(m2l a);
 /**
  * \ingroup mconvert
  * \related v1l
@@ -40499,7 +40499,7 @@ int32_t m1i_cvt_m2l(m2l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m1l_cvt_m2l(m2l a);
+m1l m1l_cvt_m2l(m2l a);
 /**
  * \ingroup mconvert
  * \related v2d
@@ -40509,7 +40509,7 @@ int64_t m1l_cvt_m2l(m2l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m2d_cvt_m2l(m2l a);
+m2d m2d_cvt_m2l(m2l a);
 /**
  * \ingroup mconvert
  * \related v2f
@@ -40519,7 +40519,7 @@ double m2d_cvt_m2l(m2l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m2f_cvt_m2l(m2l a);
+m2f m2f_cvt_m2l(m2l a);
 /**
  * \ingroup mconvert
  * \related v2i
@@ -40529,7 +40529,7 @@ float m2f_cvt_m2l(m2l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m2i_cvt_m2l(m2l a);
+m2i m2i_cvt_m2l(m2l a);
 /**
  * \ingroup mconvert
  * \related v2l
@@ -40539,7 +40539,7 @@ int32_t m2i_cvt_m2l(m2l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m2l_cvt_m2l(m2l a);
+m2l m2l_cvt_m2l(m2l a);
 /**
  * \ingroup mconvert
  * \related v4d
@@ -40549,7 +40549,7 @@ int64_t m2l_cvt_m2l(m2l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m4d_cvt_m2l(m2l a);
+m4d m4d_cvt_m2l(m2l a);
 /**
  * \ingroup mconvert
  * \related v4f
@@ -40559,7 +40559,7 @@ double m4d_cvt_m2l(m2l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m4f_cvt_m2l(m2l a);
+m4f m4f_cvt_m2l(m2l a);
 /**
  * \ingroup mconvert
  * \related v4i
@@ -40569,7 +40569,7 @@ float m4f_cvt_m2l(m2l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m4i_cvt_m2l(m2l a);
+m4i m4i_cvt_m2l(m2l a);
 /**
  * \ingroup mconvert
  * \related v4l
@@ -40579,7 +40579,7 @@ int32_t m4i_cvt_m2l(m2l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m4l_cvt_m2l(m2l a);
+m4l m4l_cvt_m2l(m2l a);
 /**
  * \ingroup mconvert
  * \related v8d
@@ -40589,7 +40589,7 @@ int64_t m4l_cvt_m2l(m2l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m8d_cvt_m2l(m2l a);
+m8d m8d_cvt_m2l(m2l a);
 /**
  * \ingroup mconvert
  * \related v8f
@@ -40599,7 +40599,7 @@ double m8d_cvt_m2l(m2l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m8f_cvt_m2l(m2l a);
+m8f m8f_cvt_m2l(m2l a);
 /**
  * \ingroup mconvert
  * \related v8i
@@ -40609,7 +40609,7 @@ float m8f_cvt_m2l(m2l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m8i_cvt_m2l(m2l a);
+m8i m8i_cvt_m2l(m2l a);
 /**
  * \ingroup mconvert
  * \related v8l
@@ -40619,7 +40619,7 @@ int32_t m8i_cvt_m2l(m2l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m8l_cvt_m2l(m2l a);
+m8l m8l_cvt_m2l(m2l a);
 /**
  * \ingroup mconvert
  * \related v16f
@@ -40629,7 +40629,7 @@ int64_t m8l_cvt_m2l(m2l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m16f_cvt_m2l(m2l a);
+m16f m16f_cvt_m2l(m2l a);
 /**
  * \ingroup mconvert
  * \related v16i
@@ -40639,7 +40639,7 @@ float m16f_cvt_m2l(m2l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m16i_cvt_m2l(m2l a);
+m16i m16i_cvt_m2l(m2l a);
 /**
  * \ingroup mconvert
  * \related v1d
@@ -40649,7 +40649,7 @@ int32_t m16i_cvt_m2l(m2l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m1d_cvt_m4d(m4d a);
+m1d m1d_cvt_m4d(m4d a);
 /**
  * \ingroup mconvert
  * \related v1f
@@ -40659,7 +40659,7 @@ double m1d_cvt_m4d(m4d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m1f_cvt_m4d(m4d a);
+m1f m1f_cvt_m4d(m4d a);
 /**
  * \ingroup mconvert
  * \related v1i
@@ -40669,7 +40669,7 @@ float m1f_cvt_m4d(m4d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m1i_cvt_m4d(m4d a);
+m1i m1i_cvt_m4d(m4d a);
 /**
  * \ingroup mconvert
  * \related v1l
@@ -40679,7 +40679,7 @@ int32_t m1i_cvt_m4d(m4d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m1l_cvt_m4d(m4d a);
+m1l m1l_cvt_m4d(m4d a);
 /**
  * \ingroup mconvert
  * \related v2d
@@ -40689,7 +40689,7 @@ int64_t m1l_cvt_m4d(m4d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m2d_cvt_m4d(m4d a);
+m2d m2d_cvt_m4d(m4d a);
 /**
  * \ingroup mconvert
  * \related v2f
@@ -40699,7 +40699,7 @@ double m2d_cvt_m4d(m4d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m2f_cvt_m4d(m4d a);
+m2f m2f_cvt_m4d(m4d a);
 /**
  * \ingroup mconvert
  * \related v2i
@@ -40709,7 +40709,7 @@ float m2f_cvt_m4d(m4d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m2i_cvt_m4d(m4d a);
+m2i m2i_cvt_m4d(m4d a);
 /**
  * \ingroup mconvert
  * \related v2l
@@ -40719,7 +40719,7 @@ int32_t m2i_cvt_m4d(m4d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m2l_cvt_m4d(m4d a);
+m2l m2l_cvt_m4d(m4d a);
 /**
  * \ingroup mconvert
  * \related v4d
@@ -40729,7 +40729,7 @@ int64_t m2l_cvt_m4d(m4d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m4d_cvt_m4d(m4d a);
+m4d m4d_cvt_m4d(m4d a);
 /**
  * \ingroup mconvert
  * \related v4f
@@ -40739,7 +40739,7 @@ double m4d_cvt_m4d(m4d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m4f_cvt_m4d(m4d a);
+m4f m4f_cvt_m4d(m4d a);
 /**
  * \ingroup mconvert
  * \related v4i
@@ -40749,7 +40749,7 @@ float m4f_cvt_m4d(m4d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m4i_cvt_m4d(m4d a);
+m4i m4i_cvt_m4d(m4d a);
 /**
  * \ingroup mconvert
  * \related v4l
@@ -40759,7 +40759,7 @@ int32_t m4i_cvt_m4d(m4d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m4l_cvt_m4d(m4d a);
+m4l m4l_cvt_m4d(m4d a);
 /**
  * \ingroup mconvert
  * \related v8d
@@ -40769,7 +40769,7 @@ int64_t m4l_cvt_m4d(m4d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m8d_cvt_m4d(m4d a);
+m8d m8d_cvt_m4d(m4d a);
 /**
  * \ingroup mconvert
  * \related v8f
@@ -40779,7 +40779,7 @@ double m8d_cvt_m4d(m4d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m8f_cvt_m4d(m4d a);
+m8f m8f_cvt_m4d(m4d a);
 /**
  * \ingroup mconvert
  * \related v8i
@@ -40789,7 +40789,7 @@ float m8f_cvt_m4d(m4d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m8i_cvt_m4d(m4d a);
+m8i m8i_cvt_m4d(m4d a);
 /**
  * \ingroup mconvert
  * \related v8l
@@ -40799,7 +40799,7 @@ int32_t m8i_cvt_m4d(m4d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m8l_cvt_m4d(m4d a);
+m8l m8l_cvt_m4d(m4d a);
 /**
  * \ingroup mconvert
  * \related v16f
@@ -40809,7 +40809,7 @@ int64_t m8l_cvt_m4d(m4d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m16f_cvt_m4d(m4d a);
+m16f m16f_cvt_m4d(m4d a);
 /**
  * \ingroup mconvert
  * \related v16i
@@ -40819,7 +40819,7 @@ float m16f_cvt_m4d(m4d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m16i_cvt_m4d(m4d a);
+m16i m16i_cvt_m4d(m4d a);
 /**
  * \ingroup mconvert
  * \related v1d
@@ -40829,7 +40829,7 @@ int32_t m16i_cvt_m4d(m4d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m1d_cvt_m4f(m4f a);
+m1d m1d_cvt_m4f(m4f a);
 /**
  * \ingroup mconvert
  * \related v1f
@@ -40839,7 +40839,7 @@ double m1d_cvt_m4f(m4f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m1f_cvt_m4f(m4f a);
+m1f m1f_cvt_m4f(m4f a);
 /**
  * \ingroup mconvert
  * \related v1i
@@ -40849,7 +40849,7 @@ float m1f_cvt_m4f(m4f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m1i_cvt_m4f(m4f a);
+m1i m1i_cvt_m4f(m4f a);
 /**
  * \ingroup mconvert
  * \related v1l
@@ -40859,7 +40859,7 @@ int32_t m1i_cvt_m4f(m4f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m1l_cvt_m4f(m4f a);
+m1l m1l_cvt_m4f(m4f a);
 /**
  * \ingroup mconvert
  * \related v2d
@@ -40869,7 +40869,7 @@ int64_t m1l_cvt_m4f(m4f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m2d_cvt_m4f(m4f a);
+m2d m2d_cvt_m4f(m4f a);
 /**
  * \ingroup mconvert
  * \related v2f
@@ -40879,7 +40879,7 @@ double m2d_cvt_m4f(m4f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m2f_cvt_m4f(m4f a);
+m2f m2f_cvt_m4f(m4f a);
 /**
  * \ingroup mconvert
  * \related v2i
@@ -40889,7 +40889,7 @@ float m2f_cvt_m4f(m4f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m2i_cvt_m4f(m4f a);
+m2i m2i_cvt_m4f(m4f a);
 /**
  * \ingroup mconvert
  * \related v2l
@@ -40899,7 +40899,7 @@ int32_t m2i_cvt_m4f(m4f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m2l_cvt_m4f(m4f a);
+m2l m2l_cvt_m4f(m4f a);
 /**
  * \ingroup mconvert
  * \related v4d
@@ -40909,7 +40909,7 @@ int64_t m2l_cvt_m4f(m4f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m4d_cvt_m4f(m4f a);
+m4d m4d_cvt_m4f(m4f a);
 /**
  * \ingroup mconvert
  * \related v4f
@@ -40919,7 +40919,7 @@ double m4d_cvt_m4f(m4f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m4f_cvt_m4f(m4f a);
+m4f m4f_cvt_m4f(m4f a);
 /**
  * \ingroup mconvert
  * \related v4i
@@ -40929,7 +40929,7 @@ float m4f_cvt_m4f(m4f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m4i_cvt_m4f(m4f a);
+m4i m4i_cvt_m4f(m4f a);
 /**
  * \ingroup mconvert
  * \related v4l
@@ -40939,7 +40939,7 @@ int32_t m4i_cvt_m4f(m4f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m4l_cvt_m4f(m4f a);
+m4l m4l_cvt_m4f(m4f a);
 /**
  * \ingroup mconvert
  * \related v8d
@@ -40949,7 +40949,7 @@ int64_t m4l_cvt_m4f(m4f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m8d_cvt_m4f(m4f a);
+m8d m8d_cvt_m4f(m4f a);
 /**
  * \ingroup mconvert
  * \related v8f
@@ -40959,7 +40959,7 @@ double m8d_cvt_m4f(m4f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m8f_cvt_m4f(m4f a);
+m8f m8f_cvt_m4f(m4f a);
 /**
  * \ingroup mconvert
  * \related v8i
@@ -40969,7 +40969,7 @@ float m8f_cvt_m4f(m4f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m8i_cvt_m4f(m4f a);
+m8i m8i_cvt_m4f(m4f a);
 /**
  * \ingroup mconvert
  * \related v8l
@@ -40979,7 +40979,7 @@ int32_t m8i_cvt_m4f(m4f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m8l_cvt_m4f(m4f a);
+m8l m8l_cvt_m4f(m4f a);
 /**
  * \ingroup mconvert
  * \related v16f
@@ -40989,7 +40989,7 @@ int64_t m8l_cvt_m4f(m4f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m16f_cvt_m4f(m4f a);
+m16f m16f_cvt_m4f(m4f a);
 /**
  * \ingroup mconvert
  * \related v16i
@@ -40999,7 +40999,7 @@ float m16f_cvt_m4f(m4f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m16i_cvt_m4f(m4f a);
+m16i m16i_cvt_m4f(m4f a);
 /**
  * \ingroup mconvert
  * \related v1d
@@ -41009,7 +41009,7 @@ int32_t m16i_cvt_m4f(m4f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m1d_cvt_m4i(m4i a);
+m1d m1d_cvt_m4i(m4i a);
 /**
  * \ingroup mconvert
  * \related v1f
@@ -41019,7 +41019,7 @@ double m1d_cvt_m4i(m4i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m1f_cvt_m4i(m4i a);
+m1f m1f_cvt_m4i(m4i a);
 /**
  * \ingroup mconvert
  * \related v1i
@@ -41029,7 +41029,7 @@ float m1f_cvt_m4i(m4i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m1i_cvt_m4i(m4i a);
+m1i m1i_cvt_m4i(m4i a);
 /**
  * \ingroup mconvert
  * \related v1l
@@ -41039,7 +41039,7 @@ int32_t m1i_cvt_m4i(m4i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m1l_cvt_m4i(m4i a);
+m1l m1l_cvt_m4i(m4i a);
 /**
  * \ingroup mconvert
  * \related v2d
@@ -41049,7 +41049,7 @@ int64_t m1l_cvt_m4i(m4i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m2d_cvt_m4i(m4i a);
+m2d m2d_cvt_m4i(m4i a);
 /**
  * \ingroup mconvert
  * \related v2f
@@ -41059,7 +41059,7 @@ double m2d_cvt_m4i(m4i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m2f_cvt_m4i(m4i a);
+m2f m2f_cvt_m4i(m4i a);
 /**
  * \ingroup mconvert
  * \related v2i
@@ -41069,7 +41069,7 @@ float m2f_cvt_m4i(m4i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m2i_cvt_m4i(m4i a);
+m2i m2i_cvt_m4i(m4i a);
 /**
  * \ingroup mconvert
  * \related v2l
@@ -41079,7 +41079,7 @@ int32_t m2i_cvt_m4i(m4i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m2l_cvt_m4i(m4i a);
+m2l m2l_cvt_m4i(m4i a);
 /**
  * \ingroup mconvert
  * \related v4d
@@ -41089,7 +41089,7 @@ int64_t m2l_cvt_m4i(m4i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m4d_cvt_m4i(m4i a);
+m4d m4d_cvt_m4i(m4i a);
 /**
  * \ingroup mconvert
  * \related v4f
@@ -41099,7 +41099,7 @@ double m4d_cvt_m4i(m4i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m4f_cvt_m4i(m4i a);
+m4f m4f_cvt_m4i(m4i a);
 /**
  * \ingroup mconvert
  * \related v4i
@@ -41109,7 +41109,7 @@ float m4f_cvt_m4i(m4i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m4i_cvt_m4i(m4i a);
+m4i m4i_cvt_m4i(m4i a);
 /**
  * \ingroup mconvert
  * \related v4l
@@ -41119,7 +41119,7 @@ int32_t m4i_cvt_m4i(m4i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m4l_cvt_m4i(m4i a);
+m4l m4l_cvt_m4i(m4i a);
 /**
  * \ingroup mconvert
  * \related v8d
@@ -41129,7 +41129,7 @@ int64_t m4l_cvt_m4i(m4i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m8d_cvt_m4i(m4i a);
+m8d m8d_cvt_m4i(m4i a);
 /**
  * \ingroup mconvert
  * \related v8f
@@ -41139,7 +41139,7 @@ double m8d_cvt_m4i(m4i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m8f_cvt_m4i(m4i a);
+m8f m8f_cvt_m4i(m4i a);
 /**
  * \ingroup mconvert
  * \related v8i
@@ -41149,7 +41149,7 @@ float m8f_cvt_m4i(m4i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m8i_cvt_m4i(m4i a);
+m8i m8i_cvt_m4i(m4i a);
 /**
  * \ingroup mconvert
  * \related v8l
@@ -41159,7 +41159,7 @@ int32_t m8i_cvt_m4i(m4i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m8l_cvt_m4i(m4i a);
+m8l m8l_cvt_m4i(m4i a);
 /**
  * \ingroup mconvert
  * \related v16f
@@ -41169,7 +41169,7 @@ int64_t m8l_cvt_m4i(m4i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m16f_cvt_m4i(m4i a);
+m16f m16f_cvt_m4i(m4i a);
 /**
  * \ingroup mconvert
  * \related v16i
@@ -41179,7 +41179,7 @@ float m16f_cvt_m4i(m4i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m16i_cvt_m4i(m4i a);
+m16i m16i_cvt_m4i(m4i a);
 /**
  * \ingroup mconvert
  * \related v1d
@@ -41189,7 +41189,7 @@ int32_t m16i_cvt_m4i(m4i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m1d_cvt_m4l(m4l a);
+m1d m1d_cvt_m4l(m4l a);
 /**
  * \ingroup mconvert
  * \related v1f
@@ -41199,7 +41199,7 @@ double m1d_cvt_m4l(m4l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m1f_cvt_m4l(m4l a);
+m1f m1f_cvt_m4l(m4l a);
 /**
  * \ingroup mconvert
  * \related v1i
@@ -41209,7 +41209,7 @@ float m1f_cvt_m4l(m4l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m1i_cvt_m4l(m4l a);
+m1i m1i_cvt_m4l(m4l a);
 /**
  * \ingroup mconvert
  * \related v1l
@@ -41219,7 +41219,7 @@ int32_t m1i_cvt_m4l(m4l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m1l_cvt_m4l(m4l a);
+m1l m1l_cvt_m4l(m4l a);
 /**
  * \ingroup mconvert
  * \related v2d
@@ -41229,7 +41229,7 @@ int64_t m1l_cvt_m4l(m4l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m2d_cvt_m4l(m4l a);
+m2d m2d_cvt_m4l(m4l a);
 /**
  * \ingroup mconvert
  * \related v2f
@@ -41239,7 +41239,7 @@ double m2d_cvt_m4l(m4l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m2f_cvt_m4l(m4l a);
+m2f m2f_cvt_m4l(m4l a);
 /**
  * \ingroup mconvert
  * \related v2i
@@ -41249,7 +41249,7 @@ float m2f_cvt_m4l(m4l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m2i_cvt_m4l(m4l a);
+m2i m2i_cvt_m4l(m4l a);
 /**
  * \ingroup mconvert
  * \related v2l
@@ -41259,7 +41259,7 @@ int32_t m2i_cvt_m4l(m4l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m2l_cvt_m4l(m4l a);
+m2l m2l_cvt_m4l(m4l a);
 /**
  * \ingroup mconvert
  * \related v4d
@@ -41269,7 +41269,7 @@ int64_t m2l_cvt_m4l(m4l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m4d_cvt_m4l(m4l a);
+m4d m4d_cvt_m4l(m4l a);
 /**
  * \ingroup mconvert
  * \related v4f
@@ -41279,7 +41279,7 @@ double m4d_cvt_m4l(m4l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m4f_cvt_m4l(m4l a);
+m4f m4f_cvt_m4l(m4l a);
 /**
  * \ingroup mconvert
  * \related v4i
@@ -41289,7 +41289,7 @@ float m4f_cvt_m4l(m4l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m4i_cvt_m4l(m4l a);
+m4i m4i_cvt_m4l(m4l a);
 /**
  * \ingroup mconvert
  * \related v4l
@@ -41299,7 +41299,7 @@ int32_t m4i_cvt_m4l(m4l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m4l_cvt_m4l(m4l a);
+m4l m4l_cvt_m4l(m4l a);
 /**
  * \ingroup mconvert
  * \related v8d
@@ -41309,7 +41309,7 @@ int64_t m4l_cvt_m4l(m4l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m8d_cvt_m4l(m4l a);
+m8d m8d_cvt_m4l(m4l a);
 /**
  * \ingroup mconvert
  * \related v8f
@@ -41319,7 +41319,7 @@ double m8d_cvt_m4l(m4l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m8f_cvt_m4l(m4l a);
+m8f m8f_cvt_m4l(m4l a);
 /**
  * \ingroup mconvert
  * \related v8i
@@ -41329,7 +41329,7 @@ float m8f_cvt_m4l(m4l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m8i_cvt_m4l(m4l a);
+m8i m8i_cvt_m4l(m4l a);
 /**
  * \ingroup mconvert
  * \related v8l
@@ -41339,7 +41339,7 @@ int32_t m8i_cvt_m4l(m4l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m8l_cvt_m4l(m4l a);
+m8l m8l_cvt_m4l(m4l a);
 /**
  * \ingroup mconvert
  * \related v16f
@@ -41349,7 +41349,7 @@ int64_t m8l_cvt_m4l(m4l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m16f_cvt_m4l(m4l a);
+m16f m16f_cvt_m4l(m4l a);
 /**
  * \ingroup mconvert
  * \related v16i
@@ -41359,7 +41359,7 @@ float m16f_cvt_m4l(m4l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m16i_cvt_m4l(m4l a);
+m16i m16i_cvt_m4l(m4l a);
 /**
  * \ingroup mconvert
  * \related v1d
@@ -41369,7 +41369,7 @@ int32_t m16i_cvt_m4l(m4l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m1d_cvt_m8d(m8d a);
+m1d m1d_cvt_m8d(m8d a);
 /**
  * \ingroup mconvert
  * \related v1f
@@ -41379,7 +41379,7 @@ double m1d_cvt_m8d(m8d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m1f_cvt_m8d(m8d a);
+m1f m1f_cvt_m8d(m8d a);
 /**
  * \ingroup mconvert
  * \related v1i
@@ -41389,7 +41389,7 @@ float m1f_cvt_m8d(m8d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m1i_cvt_m8d(m8d a);
+m1i m1i_cvt_m8d(m8d a);
 /**
  * \ingroup mconvert
  * \related v1l
@@ -41399,7 +41399,7 @@ int32_t m1i_cvt_m8d(m8d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m1l_cvt_m8d(m8d a);
+m1l m1l_cvt_m8d(m8d a);
 /**
  * \ingroup mconvert
  * \related v2d
@@ -41409,7 +41409,7 @@ int64_t m1l_cvt_m8d(m8d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m2d_cvt_m8d(m8d a);
+m2d m2d_cvt_m8d(m8d a);
 /**
  * \ingroup mconvert
  * \related v2f
@@ -41419,7 +41419,7 @@ double m2d_cvt_m8d(m8d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m2f_cvt_m8d(m8d a);
+m2f m2f_cvt_m8d(m8d a);
 /**
  * \ingroup mconvert
  * \related v2i
@@ -41429,7 +41429,7 @@ float m2f_cvt_m8d(m8d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m2i_cvt_m8d(m8d a);
+m2i m2i_cvt_m8d(m8d a);
 /**
  * \ingroup mconvert
  * \related v2l
@@ -41439,7 +41439,7 @@ int32_t m2i_cvt_m8d(m8d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m2l_cvt_m8d(m8d a);
+m2l m2l_cvt_m8d(m8d a);
 /**
  * \ingroup mconvert
  * \related v4d
@@ -41449,7 +41449,7 @@ int64_t m2l_cvt_m8d(m8d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m4d_cvt_m8d(m8d a);
+m4d m4d_cvt_m8d(m8d a);
 /**
  * \ingroup mconvert
  * \related v4f
@@ -41459,7 +41459,7 @@ double m4d_cvt_m8d(m8d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m4f_cvt_m8d(m8d a);
+m4f m4f_cvt_m8d(m8d a);
 /**
  * \ingroup mconvert
  * \related v4i
@@ -41469,7 +41469,7 @@ float m4f_cvt_m8d(m8d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m4i_cvt_m8d(m8d a);
+m4i m4i_cvt_m8d(m8d a);
 /**
  * \ingroup mconvert
  * \related v4l
@@ -41479,7 +41479,7 @@ int32_t m4i_cvt_m8d(m8d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m4l_cvt_m8d(m8d a);
+m4l m4l_cvt_m8d(m8d a);
 /**
  * \ingroup mconvert
  * \related v8d
@@ -41489,7 +41489,7 @@ int64_t m4l_cvt_m8d(m8d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m8d_cvt_m8d(m8d a);
+m8d m8d_cvt_m8d(m8d a);
 /**
  * \ingroup mconvert
  * \related v8f
@@ -41499,7 +41499,7 @@ double m8d_cvt_m8d(m8d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m8f_cvt_m8d(m8d a);
+m8f m8f_cvt_m8d(m8d a);
 /**
  * \ingroup mconvert
  * \related v8i
@@ -41509,7 +41509,7 @@ float m8f_cvt_m8d(m8d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m8i_cvt_m8d(m8d a);
+m8i m8i_cvt_m8d(m8d a);
 /**
  * \ingroup mconvert
  * \related v8l
@@ -41519,7 +41519,7 @@ int32_t m8i_cvt_m8d(m8d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m8l_cvt_m8d(m8d a);
+m8l m8l_cvt_m8d(m8d a);
 /**
  * \ingroup mconvert
  * \related v16f
@@ -41529,7 +41529,7 @@ int64_t m8l_cvt_m8d(m8d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m16f_cvt_m8d(m8d a);
+m16f m16f_cvt_m8d(m8d a);
 /**
  * \ingroup mconvert
  * \related v16i
@@ -41539,7 +41539,7 @@ float m16f_cvt_m8d(m8d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m16i_cvt_m8d(m8d a);
+m16i m16i_cvt_m8d(m8d a);
 /**
  * \ingroup mconvert
  * \related v1d
@@ -41549,7 +41549,7 @@ int32_t m16i_cvt_m8d(m8d a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m1d_cvt_m8f(m8f a);
+m1d m1d_cvt_m8f(m8f a);
 /**
  * \ingroup mconvert
  * \related v1f
@@ -41559,7 +41559,7 @@ double m1d_cvt_m8f(m8f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m1f_cvt_m8f(m8f a);
+m1f m1f_cvt_m8f(m8f a);
 /**
  * \ingroup mconvert
  * \related v1i
@@ -41569,7 +41569,7 @@ float m1f_cvt_m8f(m8f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m1i_cvt_m8f(m8f a);
+m1i m1i_cvt_m8f(m8f a);
 /**
  * \ingroup mconvert
  * \related v1l
@@ -41579,7 +41579,7 @@ int32_t m1i_cvt_m8f(m8f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m1l_cvt_m8f(m8f a);
+m1l m1l_cvt_m8f(m8f a);
 /**
  * \ingroup mconvert
  * \related v2d
@@ -41589,7 +41589,7 @@ int64_t m1l_cvt_m8f(m8f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m2d_cvt_m8f(m8f a);
+m2d m2d_cvt_m8f(m8f a);
 /**
  * \ingroup mconvert
  * \related v2f
@@ -41599,7 +41599,7 @@ double m2d_cvt_m8f(m8f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m2f_cvt_m8f(m8f a);
+m2f m2f_cvt_m8f(m8f a);
 /**
  * \ingroup mconvert
  * \related v2i
@@ -41609,7 +41609,7 @@ float m2f_cvt_m8f(m8f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m2i_cvt_m8f(m8f a);
+m2i m2i_cvt_m8f(m8f a);
 /**
  * \ingroup mconvert
  * \related v2l
@@ -41619,7 +41619,7 @@ int32_t m2i_cvt_m8f(m8f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m2l_cvt_m8f(m8f a);
+m2l m2l_cvt_m8f(m8f a);
 /**
  * \ingroup mconvert
  * \related v4d
@@ -41629,7 +41629,7 @@ int64_t m2l_cvt_m8f(m8f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m4d_cvt_m8f(m8f a);
+m4d m4d_cvt_m8f(m8f a);
 /**
  * \ingroup mconvert
  * \related v4f
@@ -41639,7 +41639,7 @@ double m4d_cvt_m8f(m8f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m4f_cvt_m8f(m8f a);
+m4f m4f_cvt_m8f(m8f a);
 /**
  * \ingroup mconvert
  * \related v4i
@@ -41649,7 +41649,7 @@ float m4f_cvt_m8f(m8f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m4i_cvt_m8f(m8f a);
+m4i m4i_cvt_m8f(m8f a);
 /**
  * \ingroup mconvert
  * \related v4l
@@ -41659,7 +41659,7 @@ int32_t m4i_cvt_m8f(m8f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m4l_cvt_m8f(m8f a);
+m4l m4l_cvt_m8f(m8f a);
 /**
  * \ingroup mconvert
  * \related v8d
@@ -41669,7 +41669,7 @@ int64_t m4l_cvt_m8f(m8f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m8d_cvt_m8f(m8f a);
+m8d m8d_cvt_m8f(m8f a);
 /**
  * \ingroup mconvert
  * \related v8f
@@ -41679,7 +41679,7 @@ double m8d_cvt_m8f(m8f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m8f_cvt_m8f(m8f a);
+m8f m8f_cvt_m8f(m8f a);
 /**
  * \ingroup mconvert
  * \related v8i
@@ -41689,7 +41689,7 @@ float m8f_cvt_m8f(m8f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m8i_cvt_m8f(m8f a);
+m8i m8i_cvt_m8f(m8f a);
 /**
  * \ingroup mconvert
  * \related v8l
@@ -41699,7 +41699,7 @@ int32_t m8i_cvt_m8f(m8f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m8l_cvt_m8f(m8f a);
+m8l m8l_cvt_m8f(m8f a);
 /**
  * \ingroup mconvert
  * \related v16f
@@ -41709,7 +41709,7 @@ int64_t m8l_cvt_m8f(m8f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m16f_cvt_m8f(m8f a);
+m16f m16f_cvt_m8f(m8f a);
 /**
  * \ingroup mconvert
  * \related v16i
@@ -41719,7 +41719,7 @@ float m16f_cvt_m8f(m8f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m16i_cvt_m8f(m8f a);
+m16i m16i_cvt_m8f(m8f a);
 /**
  * \ingroup mconvert
  * \related v1d
@@ -41729,7 +41729,7 @@ int32_t m16i_cvt_m8f(m8f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m1d_cvt_m8i(m8i a);
+m1d m1d_cvt_m8i(m8i a);
 /**
  * \ingroup mconvert
  * \related v1f
@@ -41739,7 +41739,7 @@ double m1d_cvt_m8i(m8i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m1f_cvt_m8i(m8i a);
+m1f m1f_cvt_m8i(m8i a);
 /**
  * \ingroup mconvert
  * \related v1i
@@ -41749,7 +41749,7 @@ float m1f_cvt_m8i(m8i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m1i_cvt_m8i(m8i a);
+m1i m1i_cvt_m8i(m8i a);
 /**
  * \ingroup mconvert
  * \related v1l
@@ -41759,7 +41759,7 @@ int32_t m1i_cvt_m8i(m8i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m1l_cvt_m8i(m8i a);
+m1l m1l_cvt_m8i(m8i a);
 /**
  * \ingroup mconvert
  * \related v2d
@@ -41769,7 +41769,7 @@ int64_t m1l_cvt_m8i(m8i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m2d_cvt_m8i(m8i a);
+m2d m2d_cvt_m8i(m8i a);
 /**
  * \ingroup mconvert
  * \related v2f
@@ -41779,7 +41779,7 @@ double m2d_cvt_m8i(m8i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m2f_cvt_m8i(m8i a);
+m2f m2f_cvt_m8i(m8i a);
 /**
  * \ingroup mconvert
  * \related v2i
@@ -41789,7 +41789,7 @@ float m2f_cvt_m8i(m8i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m2i_cvt_m8i(m8i a);
+m2i m2i_cvt_m8i(m8i a);
 /**
  * \ingroup mconvert
  * \related v2l
@@ -41799,7 +41799,7 @@ int32_t m2i_cvt_m8i(m8i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m2l_cvt_m8i(m8i a);
+m2l m2l_cvt_m8i(m8i a);
 /**
  * \ingroup mconvert
  * \related v4d
@@ -41809,7 +41809,7 @@ int64_t m2l_cvt_m8i(m8i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m4d_cvt_m8i(m8i a);
+m4d m4d_cvt_m8i(m8i a);
 /**
  * \ingroup mconvert
  * \related v4f
@@ -41819,7 +41819,7 @@ double m4d_cvt_m8i(m8i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m4f_cvt_m8i(m8i a);
+m4f m4f_cvt_m8i(m8i a);
 /**
  * \ingroup mconvert
  * \related v4i
@@ -41829,7 +41829,7 @@ float m4f_cvt_m8i(m8i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m4i_cvt_m8i(m8i a);
+m4i m4i_cvt_m8i(m8i a);
 /**
  * \ingroup mconvert
  * \related v4l
@@ -41839,7 +41839,7 @@ int32_t m4i_cvt_m8i(m8i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m4l_cvt_m8i(m8i a);
+m4l m4l_cvt_m8i(m8i a);
 /**
  * \ingroup mconvert
  * \related v8d
@@ -41849,7 +41849,7 @@ int64_t m4l_cvt_m8i(m8i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m8d_cvt_m8i(m8i a);
+m8d m8d_cvt_m8i(m8i a);
 /**
  * \ingroup mconvert
  * \related v8f
@@ -41859,7 +41859,7 @@ double m8d_cvt_m8i(m8i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m8f_cvt_m8i(m8i a);
+m8f m8f_cvt_m8i(m8i a);
 /**
  * \ingroup mconvert
  * \related v8i
@@ -41869,7 +41869,7 @@ float m8f_cvt_m8i(m8i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m8i_cvt_m8i(m8i a);
+m8i m8i_cvt_m8i(m8i a);
 /**
  * \ingroup mconvert
  * \related v8l
@@ -41879,7 +41879,7 @@ int32_t m8i_cvt_m8i(m8i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m8l_cvt_m8i(m8i a);
+m8l m8l_cvt_m8i(m8i a);
 /**
  * \ingroup mconvert
  * \related v16f
@@ -41889,7 +41889,7 @@ int64_t m8l_cvt_m8i(m8i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m16f_cvt_m8i(m8i a);
+m16f m16f_cvt_m8i(m8i a);
 /**
  * \ingroup mconvert
  * \related v16i
@@ -41899,7 +41899,7 @@ float m16f_cvt_m8i(m8i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m16i_cvt_m8i(m8i a);
+m16i m16i_cvt_m8i(m8i a);
 /**
  * \ingroup mconvert
  * \related v1d
@@ -41909,7 +41909,7 @@ int32_t m16i_cvt_m8i(m8i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m1d_cvt_m8l(m8l a);
+m1d m1d_cvt_m8l(m8l a);
 /**
  * \ingroup mconvert
  * \related v1f
@@ -41919,7 +41919,7 @@ double m1d_cvt_m8l(m8l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m1f_cvt_m8l(m8l a);
+m1f m1f_cvt_m8l(m8l a);
 /**
  * \ingroup mconvert
  * \related v1i
@@ -41929,7 +41929,7 @@ float m1f_cvt_m8l(m8l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m1i_cvt_m8l(m8l a);
+m1i m1i_cvt_m8l(m8l a);
 /**
  * \ingroup mconvert
  * \related v1l
@@ -41939,7 +41939,7 @@ int32_t m1i_cvt_m8l(m8l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m1l_cvt_m8l(m8l a);
+m1l m1l_cvt_m8l(m8l a);
 /**
  * \ingroup mconvert
  * \related v2d
@@ -41949,7 +41949,7 @@ int64_t m1l_cvt_m8l(m8l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m2d_cvt_m8l(m8l a);
+m2d m2d_cvt_m8l(m8l a);
 /**
  * \ingroup mconvert
  * \related v2f
@@ -41959,7 +41959,7 @@ double m2d_cvt_m8l(m8l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m2f_cvt_m8l(m8l a);
+m2f m2f_cvt_m8l(m8l a);
 /**
  * \ingroup mconvert
  * \related v2i
@@ -41969,7 +41969,7 @@ float m2f_cvt_m8l(m8l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m2i_cvt_m8l(m8l a);
+m2i m2i_cvt_m8l(m8l a);
 /**
  * \ingroup mconvert
  * \related v2l
@@ -41979,7 +41979,7 @@ int32_t m2i_cvt_m8l(m8l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m2l_cvt_m8l(m8l a);
+m2l m2l_cvt_m8l(m8l a);
 /**
  * \ingroup mconvert
  * \related v4d
@@ -41989,7 +41989,7 @@ int64_t m2l_cvt_m8l(m8l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m4d_cvt_m8l(m8l a);
+m4d m4d_cvt_m8l(m8l a);
 /**
  * \ingroup mconvert
  * \related v4f
@@ -41999,7 +41999,7 @@ double m4d_cvt_m8l(m8l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m4f_cvt_m8l(m8l a);
+m4f m4f_cvt_m8l(m8l a);
 /**
  * \ingroup mconvert
  * \related v4i
@@ -42009,7 +42009,7 @@ float m4f_cvt_m8l(m8l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m4i_cvt_m8l(m8l a);
+m4i m4i_cvt_m8l(m8l a);
 /**
  * \ingroup mconvert
  * \related v4l
@@ -42019,7 +42019,7 @@ int32_t m4i_cvt_m8l(m8l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m4l_cvt_m8l(m8l a);
+m4l m4l_cvt_m8l(m8l a);
 /**
  * \ingroup mconvert
  * \related v8d
@@ -42029,7 +42029,7 @@ int64_t m4l_cvt_m8l(m8l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m8d_cvt_m8l(m8l a);
+m8d m8d_cvt_m8l(m8l a);
 /**
  * \ingroup mconvert
  * \related v8f
@@ -42039,7 +42039,7 @@ double m8d_cvt_m8l(m8l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m8f_cvt_m8l(m8l a);
+m8f m8f_cvt_m8l(m8l a);
 /**
  * \ingroup mconvert
  * \related v8i
@@ -42049,7 +42049,7 @@ float m8f_cvt_m8l(m8l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m8i_cvt_m8l(m8l a);
+m8i m8i_cvt_m8l(m8l a);
 /**
  * \ingroup mconvert
  * \related v8l
@@ -42059,7 +42059,7 @@ int32_t m8i_cvt_m8l(m8l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m8l_cvt_m8l(m8l a);
+m8l m8l_cvt_m8l(m8l a);
 /**
  * \ingroup mconvert
  * \related v16f
@@ -42069,7 +42069,7 @@ int64_t m8l_cvt_m8l(m8l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m16f_cvt_m8l(m8l a);
+m16f m16f_cvt_m8l(m8l a);
 /**
  * \ingroup mconvert
  * \related v16i
@@ -42079,7 +42079,7 @@ float m16f_cvt_m8l(m8l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m16i_cvt_m8l(m8l a);
+m16i m16i_cvt_m8l(m8l a);
 /**
  * \ingroup mconvert
  * \related v1d
@@ -42089,7 +42089,7 @@ int32_t m16i_cvt_m8l(m8l a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m1d_cvt_m16f(m16f a);
+m1d m1d_cvt_m16f(m16f a);
 /**
  * \ingroup mconvert
  * \related v1f
@@ -42099,7 +42099,7 @@ double m1d_cvt_m16f(m16f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m1f_cvt_m16f(m16f a);
+m1f m1f_cvt_m16f(m16f a);
 /**
  * \ingroup mconvert
  * \related v1i
@@ -42109,7 +42109,7 @@ float m1f_cvt_m16f(m16f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m1i_cvt_m16f(m16f a);
+m1i m1i_cvt_m16f(m16f a);
 /**
  * \ingroup mconvert
  * \related v1l
@@ -42119,7 +42119,7 @@ int32_t m1i_cvt_m16f(m16f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m1l_cvt_m16f(m16f a);
+m1l m1l_cvt_m16f(m16f a);
 /**
  * \ingroup mconvert
  * \related v2d
@@ -42129,7 +42129,7 @@ int64_t m1l_cvt_m16f(m16f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m2d_cvt_m16f(m16f a);
+m2d m2d_cvt_m16f(m16f a);
 /**
  * \ingroup mconvert
  * \related v2f
@@ -42139,7 +42139,7 @@ double m2d_cvt_m16f(m16f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m2f_cvt_m16f(m16f a);
+m2f m2f_cvt_m16f(m16f a);
 /**
  * \ingroup mconvert
  * \related v2i
@@ -42149,7 +42149,7 @@ float m2f_cvt_m16f(m16f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m2i_cvt_m16f(m16f a);
+m2i m2i_cvt_m16f(m16f a);
 /**
  * \ingroup mconvert
  * \related v2l
@@ -42159,7 +42159,7 @@ int32_t m2i_cvt_m16f(m16f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m2l_cvt_m16f(m16f a);
+m2l m2l_cvt_m16f(m16f a);
 /**
  * \ingroup mconvert
  * \related v4d
@@ -42169,7 +42169,7 @@ int64_t m2l_cvt_m16f(m16f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m4d_cvt_m16f(m16f a);
+m4d m4d_cvt_m16f(m16f a);
 /**
  * \ingroup mconvert
  * \related v4f
@@ -42179,7 +42179,7 @@ double m4d_cvt_m16f(m16f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m4f_cvt_m16f(m16f a);
+m4f m4f_cvt_m16f(m16f a);
 /**
  * \ingroup mconvert
  * \related v4i
@@ -42189,7 +42189,7 @@ float m4f_cvt_m16f(m16f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m4i_cvt_m16f(m16f a);
+m4i m4i_cvt_m16f(m16f a);
 /**
  * \ingroup mconvert
  * \related v4l
@@ -42199,7 +42199,7 @@ int32_t m4i_cvt_m16f(m16f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m4l_cvt_m16f(m16f a);
+m4l m4l_cvt_m16f(m16f a);
 /**
  * \ingroup mconvert
  * \related v8d
@@ -42209,7 +42209,7 @@ int64_t m4l_cvt_m16f(m16f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m8d_cvt_m16f(m16f a);
+m8d m8d_cvt_m16f(m16f a);
 /**
  * \ingroup mconvert
  * \related v8f
@@ -42219,7 +42219,7 @@ double m8d_cvt_m16f(m16f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m8f_cvt_m16f(m16f a);
+m8f m8f_cvt_m16f(m16f a);
 /**
  * \ingroup mconvert
  * \related v8i
@@ -42229,7 +42229,7 @@ float m8f_cvt_m16f(m16f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m8i_cvt_m16f(m16f a);
+m8i m8i_cvt_m16f(m16f a);
 /**
  * \ingroup mconvert
  * \related v8l
@@ -42239,7 +42239,7 @@ int32_t m8i_cvt_m16f(m16f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m8l_cvt_m16f(m16f a);
+m8l m8l_cvt_m16f(m16f a);
 /**
  * \ingroup mconvert
  * \related v16f
@@ -42249,7 +42249,7 @@ int64_t m8l_cvt_m16f(m16f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m16f_cvt_m16f(m16f a);
+m16f m16f_cvt_m16f(m16f a);
 /**
  * \ingroup mconvert
  * \related v16i
@@ -42259,7 +42259,7 @@ float m16f_cvt_m16f(m16f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m16i_cvt_m16f(m16f a);
+m16i m16i_cvt_m16f(m16f a);
 /**
  * \ingroup mconvert
  * \related v1d
@@ -42269,7 +42269,7 @@ int32_t m16i_cvt_m16f(m16f a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m1d_cvt_m16i(m16i a);
+m1d m1d_cvt_m16i(m16i a);
 /**
  * \ingroup mconvert
  * \related v1f
@@ -42279,7 +42279,7 @@ double m1d_cvt_m16i(m16i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m1f_cvt_m16i(m16i a);
+m1f m1f_cvt_m16i(m16i a);
 /**
  * \ingroup mconvert
  * \related v1i
@@ -42289,7 +42289,7 @@ float m1f_cvt_m16i(m16i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m1i_cvt_m16i(m16i a);
+m1i m1i_cvt_m16i(m16i a);
 /**
  * \ingroup mconvert
  * \related v1l
@@ -42299,7 +42299,7 @@ int32_t m1i_cvt_m16i(m16i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m1l_cvt_m16i(m16i a);
+m1l m1l_cvt_m16i(m16i a);
 /**
  * \ingroup mconvert
  * \related v2d
@@ -42309,7 +42309,7 @@ int64_t m1l_cvt_m16i(m16i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m2d_cvt_m16i(m16i a);
+m2d m2d_cvt_m16i(m16i a);
 /**
  * \ingroup mconvert
  * \related v2f
@@ -42319,7 +42319,7 @@ double m2d_cvt_m16i(m16i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m2f_cvt_m16i(m16i a);
+m2f m2f_cvt_m16i(m16i a);
 /**
  * \ingroup mconvert
  * \related v2i
@@ -42329,7 +42329,7 @@ float m2f_cvt_m16i(m16i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m2i_cvt_m16i(m16i a);
+m2i m2i_cvt_m16i(m16i a);
 /**
  * \ingroup mconvert
  * \related v2l
@@ -42339,7 +42339,7 @@ int32_t m2i_cvt_m16i(m16i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m2l_cvt_m16i(m16i a);
+m2l m2l_cvt_m16i(m16i a);
 /**
  * \ingroup mconvert
  * \related v4d
@@ -42349,7 +42349,7 @@ int64_t m2l_cvt_m16i(m16i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m4d_cvt_m16i(m16i a);
+m4d m4d_cvt_m16i(m16i a);
 /**
  * \ingroup mconvert
  * \related v4f
@@ -42359,7 +42359,7 @@ double m4d_cvt_m16i(m16i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m4f_cvt_m16i(m16i a);
+m4f m4f_cvt_m16i(m16i a);
 /**
  * \ingroup mconvert
  * \related v4i
@@ -42369,7 +42369,7 @@ float m4f_cvt_m16i(m16i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m4i_cvt_m16i(m16i a);
+m4i m4i_cvt_m16i(m16i a);
 /**
  * \ingroup mconvert
  * \related v4l
@@ -42379,7 +42379,7 @@ int32_t m4i_cvt_m16i(m16i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m4l_cvt_m16i(m16i a);
+m4l m4l_cvt_m16i(m16i a);
 /**
  * \ingroup mconvert
  * \related v8d
@@ -42389,7 +42389,7 @@ int64_t m4l_cvt_m16i(m16i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-double m8d_cvt_m16i(m16i a);
+m8d m8d_cvt_m16i(m16i a);
 /**
  * \ingroup mconvert
  * \related v8f
@@ -42399,7 +42399,7 @@ double m8d_cvt_m16i(m16i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m8f_cvt_m16i(m16i a);
+m8f m8f_cvt_m16i(m16i a);
 /**
  * \ingroup mconvert
  * \related v8i
@@ -42409,7 +42409,7 @@ float m8f_cvt_m16i(m16i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m8i_cvt_m16i(m16i a);
+m8i m8i_cvt_m16i(m16i a);
 /**
  * \ingroup mconvert
  * \related v8l
@@ -42419,7 +42419,7 @@ int32_t m8i_cvt_m16i(m16i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int64_t m8l_cvt_m16i(m16i a);
+m8l m8l_cvt_m16i(m16i a);
 /**
  * \ingroup mconvert
  * \related v16f
@@ -42429,7 +42429,7 @@ int64_t m8l_cvt_m16i(m16i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-float m16f_cvt_m16i(m16i a);
+m16f m16f_cvt_m16i(m16i a);
 /**
  * \ingroup mconvert
  * \related v16i
@@ -42439,7 +42439,7 @@ float m16f_cvt_m16i(m16i a);
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-int32_t m16i_cvt_m16i(m16i a);
+m16i m16i_cvt_m16i(m16i a);
 
 /* compatible CONVERTS */
 

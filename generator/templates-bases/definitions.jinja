@@ -2343,7 +2343,7 @@ dst := CONVERT_FROM__%'t'__TO__%t(a[0])
 
 {#/* CONVERTS from mask to mask */#}
 {% call _.for_both() %}
-  {%- call(f) _.expandf("%t", "%M_cvt_%'M'", "%'M' a") %}
+  {%- call(f) _.expandf("%M", "%M_cvt_%'M'", "%'M' a") %}
     {%- call _.doc(f) %}
 /**
  * \ingroup mconvert
