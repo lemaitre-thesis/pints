@@ -67,10 +67,13 @@
   {%- endif -%}
 {%- endmacro %}
 
-{% macro doc_group(name, desc = "", shortname = "") %}
+{% macro doc_group(name, desc = "", shortname = "", ingroup = None) %}
 {% set sname = shortname or name.split(" ")[0] %}
 {% if DOCUMENTATION %}
 /** \defgroup {{sname}} {{name}}
+{% if ingroup %}
+ * \ingroup {{ingroup}}
+{% endif %}
  * {{desc}}
  */
 {% endif %}

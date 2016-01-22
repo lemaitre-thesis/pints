@@ -9,15 +9,20 @@
 //#ifdef PINTS_DOC_H
 #error "This file should not be included"
 
+/** \defgroup vectors Vector and Mask types */
+/** \defgroup maskop Primitives related to masks */
 {% for i in SIZES %}
-/** \defgroup v{{i}} {{i}} elements vectors */
+/**
+ * \defgroup v{{i}} {{i}} elements vectors
+ * \ingroup vectors
+ */
 {% endfor %}
 {% call _.expand_both() %}
 /**
  * \ingroup v%N
  * \brief Type for the manipulation of %N \c %t packed into one single vector.
  * \details Type for the manipulation of %N \c %t packed into one single vector.
- *  This structure does not actually exist. Depending on the target architecture, it can be:
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
  *  - A preprocessor alias
  *  - A typedef
  *  - A struct defined in another way
@@ -27,18 +32,32 @@
  *  - {{size1() * type1().size}} bytes
  *  - {{size1() * type1().size * 8}} bits
  *
- * \attention This definition does not correspond to any actual implementation and should never used directly.
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
  * \attention The actual implementation depends on the target architecture.
- * \attention Use PintS functions instead.
  */
-struct %T {
-  /**
-   * \brief Data of the vector.
-   * \details Data of the vector. The actual implementation depends on the target architecture.
-   * \attention As it is implementation dependant, you should never try to access it.
-   */
-  %t vector[%N];
-};
+struct %T {};
+/**
+ * \ingroup v%N
+ * \brief Type for the manipulation of vector-masks.
+ * \details Type for the manipulation of vector-masks.
+ * \details A \c %M vector-mask is a bitset of %N bits,
+ *  allowing to do an operation on the ith element of a \c %T vector only if the ith bit of the mask is set
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
+ *  - A preprocessor alias
+ *  - A typedef
+ *  - A struct defined in another way
+ *  - A union
+ *
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
+ * \attention The actual implementation depends on the target architecture.
+ * \attention the size of a \c %M mask depends also on the target architecture
+ *  and can be {{int(max([8, size1()])/8)}} byte{{ "s" if max([8, size1()])/8 > 1}},
+ *  or the size of a \c %T ({{size1() * type1().size}} bytes), or something else.
+ *  Nothing should rely on the size of a mask.
+ */
+struct %M {};
 {% endcall %}
 {% set DOCUMENTATION = True -%}
 {% include "definitions.jinja" with context %}

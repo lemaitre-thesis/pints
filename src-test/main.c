@@ -278,17 +278,17 @@ double C[N] = {1}, D[N] = {1};
 double dotprod_v2d(const double* a, const double* b, int n) {
   double r;
   int i;
-  v2l vmask;
+  m2d vmask;
   v2d va, vb, s = v2d_zero(), sp, add;
   for (i = 0; i < n - 2; i += 2) {
     va = v2d_loadu(&a[i]);
     vb = v2d_loadu(&b[i]);
     s = v2d_fmadd(va, vb, s);
   } /* remainder */ {
-    vmask = v2l_gt(v2l_set1(n-i), v2l_set(0, 1));
+    vmask = m2d_cvt_m2l(m2l_gt(v2l_set1(n-i), v2l_set(0, 1)));
     va = v2d_loadu(&a[i]);
     vb = v2d_loadu(&b[i]);
-    va = v2d_and(va, v2d_cast_v2l(vmask));
+    va = v2d_maskz_move(vmask, va);
     s = v2d_fmadd(va, vb, s);
   }
   // reduce s
@@ -301,17 +301,17 @@ double dotprod_v2d(const double* a, const double* b, int n) {
 float dotprod_v4f(const float* a, const float* b, int n) {
   float r;
   int i;
-  v4i vmask;
+  m4f vmask;
   v4f va, vb, s = v4f_zero(), sp, add1, add1p, add2;
   for (i = 0; i < n - 4; i += 4) {
     va = v4f_loadu(&a[i]);
     vb = v4f_loadu(&b[i]);
     s = v4f_fmadd(va, vb, s);
   } /* remainder */ {
-    vmask = v4i_gt(v4i_set1(n-i), v4i_set(0, 1, 2, 3));
+    vmask = m4f_cvt_m4i(m4i_gt(v4i_set1(n-i), v4i_set(0, 1, 2, 3)));
     va = v4f_loadu(&a[i]);
     vb = v4f_loadu(&b[i]);
-    va = v4f_and(va, v4f_cast_v4i(vmask));
+    va = v4f_maskz_move(vmask, va);
     s = v4f_fmadd(va, vb, s);
   }
   // reduce s
@@ -325,17 +325,17 @@ float dotprod_v4f(const float* a, const float* b, int n) {
 float dotprod_v8f(const float* a, const float* b, int n) {
   float r;
   int i;
-  v8i vmask;
+  m8f vmask;
   v8f va, vb, s = v8f_zero(), sp, add1, add1p, add2, add2p, add3;
   for (i = 0; i < n - 8; i += 8) {
     va = v8f_loadu(&a[i]);
     vb = v8f_loadu(&b[i]);
     s = v8f_fmadd(va, vb, s);
   } /* remainder */ {
-    vmask = v8i_gt(v8i_set1(n-i), v8i_set(0, 1, 2, 3, 4, 5, 6, 7));
+    vmask = m8f_cvt_m8i(m8i_gt(v8i_set1(n-i), v8i_set(0, 1, 2, 3, 4, 5, 6, 7)));
     va = v8f_loadu(&a[i]);
     vb = v8f_loadu(&b[i]);
-    va = v8f_and(va, v8f_cast_v8i(vmask));
+    va = v8f_maskz_move(vmask, va);
     s = v8f_fmadd(va, vb, s);
   }
   // reduce s
@@ -351,17 +351,17 @@ float dotprod_v8f(const float* a, const float* b, int n) {
 float dotprod_v16f(const float* a, const float* b, int n) {
   float r;
   int i;
-  v16i vmask;
+  m16f vmask;
   v16f va, vb, s = v16f_zero(), sp, add1, add1p, add2, add2p, add3, add3p, add4;
   for (i = 0; i < n - 16; i += 16) {
     va = v16f_loadu(&a[i]);
     vb = v16f_loadu(&b[i]);
     s = v16f_fmadd(va, vb, s);
   } /* remainder */ {
-    vmask = v16i_gt(v16i_set1(n-i), v16i_set(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15));
+    vmask = m16f_cvt_m16i(m16i_gt(v16i_set1(n-i), v16i_set(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)));
     va = v16f_loadu(&a[i]);
     vb = v16f_loadu(&b[i]);
-    va = v16f_and(va, v16f_cast_v16i(vmask));
+    va = v16f_maskz_move(vmask, va);
     s = v16f_fmadd(va, vb, s);
   }
   // reduce s

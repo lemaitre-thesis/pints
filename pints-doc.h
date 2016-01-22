@@ -8,16 +8,33 @@
 //#ifdef PINTS_DOC_H
 #error "This file should not be included"
 
-/** \defgroup v1 1 elements vectors */
-/** \defgroup v2 2 elements vectors */
-/** \defgroup v4 4 elements vectors */
-/** \defgroup v8 8 elements vectors */
-/** \defgroup v16 16 elements vectors */
+/** \defgroup vectors Vector and Mask types */
+/** \defgroup maskop Primitives related to masks */
+/**
+ * \defgroup v1 1 elements vectors
+ * \ingroup vectors
+ */
+/**
+ * \defgroup v2 2 elements vectors
+ * \ingroup vectors
+ */
+/**
+ * \defgroup v4 4 elements vectors
+ * \ingroup vectors
+ */
+/**
+ * \defgroup v8 8 elements vectors
+ * \ingroup vectors
+ */
+/**
+ * \defgroup v16 16 elements vectors
+ * \ingroup vectors
+ */
 /**
  * \ingroup v1
  * \brief Type for the manipulation of 1 \c double packed into one single vector.
  * \details Type for the manipulation of 1 \c double packed into one single vector.
- *  This structure does not actually exist. Depending on the target architecture, it can be:
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
  *  - A preprocessor alias
  *  - A typedef
  *  - A struct defined in another way
@@ -27,23 +44,37 @@
  *  - 8 bytes
  *  - 64 bits
  *
- * \attention This definition does not correspond to any actual implementation and should never used directly.
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
  * \attention The actual implementation depends on the target architecture.
- * \attention Use PintS functions instead.
  */
-struct v1d {
-  /**
-   * \brief Data of the vector.
-   * \details Data of the vector. The actual implementation depends on the target architecture.
-   * \attention As it is implementation dependant, you should never try to access it.
-   */
-  double vector[1];
-};
+struct v1d {};
+/**
+ * \ingroup v1
+ * \brief Type for the manipulation of vector-masks.
+ * \details Type for the manipulation of vector-masks.
+ * \details A \c m1d vector-mask is a bitset of 1 bits,
+ *  allowing to do an operation on the ith element of a \c v1d vector only if the ith bit of the mask is set
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
+ *  - A preprocessor alias
+ *  - A typedef
+ *  - A struct defined in another way
+ *  - A union
+ *
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
+ * \attention The actual implementation depends on the target architecture.
+ * \attention the size of a \c m1d mask depends also on the target architecture
+ *  and can be 1 byte,
+ *  or the size of a \c v1d (8 bytes), or something else.
+ *  Nothing should rely on the size of a mask.
+ */
+struct m1d {};
 /**
  * \ingroup v1
  * \brief Type for the manipulation of 1 \c float packed into one single vector.
  * \details Type for the manipulation of 1 \c float packed into one single vector.
- *  This structure does not actually exist. Depending on the target architecture, it can be:
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
  *  - A preprocessor alias
  *  - A typedef
  *  - A struct defined in another way
@@ -53,23 +84,37 @@ struct v1d {
  *  - 4 bytes
  *  - 32 bits
  *
- * \attention This definition does not correspond to any actual implementation and should never used directly.
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
  * \attention The actual implementation depends on the target architecture.
- * \attention Use PintS functions instead.
  */
-struct v1f {
-  /**
-   * \brief Data of the vector.
-   * \details Data of the vector. The actual implementation depends on the target architecture.
-   * \attention As it is implementation dependant, you should never try to access it.
-   */
-  float vector[1];
-};
+struct v1f {};
+/**
+ * \ingroup v1
+ * \brief Type for the manipulation of vector-masks.
+ * \details Type for the manipulation of vector-masks.
+ * \details A \c m1f vector-mask is a bitset of 1 bits,
+ *  allowing to do an operation on the ith element of a \c v1f vector only if the ith bit of the mask is set
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
+ *  - A preprocessor alias
+ *  - A typedef
+ *  - A struct defined in another way
+ *  - A union
+ *
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
+ * \attention The actual implementation depends on the target architecture.
+ * \attention the size of a \c m1f mask depends also on the target architecture
+ *  and can be 1 byte,
+ *  or the size of a \c v1f (4 bytes), or something else.
+ *  Nothing should rely on the size of a mask.
+ */
+struct m1f {};
 /**
  * \ingroup v1
  * \brief Type for the manipulation of 1 \c int32_t packed into one single vector.
  * \details Type for the manipulation of 1 \c int32_t packed into one single vector.
- *  This structure does not actually exist. Depending on the target architecture, it can be:
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
  *  - A preprocessor alias
  *  - A typedef
  *  - A struct defined in another way
@@ -79,23 +124,37 @@ struct v1f {
  *  - 4 bytes
  *  - 32 bits
  *
- * \attention This definition does not correspond to any actual implementation and should never used directly.
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
  * \attention The actual implementation depends on the target architecture.
- * \attention Use PintS functions instead.
  */
-struct v1i {
-  /**
-   * \brief Data of the vector.
-   * \details Data of the vector. The actual implementation depends on the target architecture.
-   * \attention As it is implementation dependant, you should never try to access it.
-   */
-  int32_t vector[1];
-};
+struct v1i {};
+/**
+ * \ingroup v1
+ * \brief Type for the manipulation of vector-masks.
+ * \details Type for the manipulation of vector-masks.
+ * \details A \c m1i vector-mask is a bitset of 1 bits,
+ *  allowing to do an operation on the ith element of a \c v1i vector only if the ith bit of the mask is set
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
+ *  - A preprocessor alias
+ *  - A typedef
+ *  - A struct defined in another way
+ *  - A union
+ *
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
+ * \attention The actual implementation depends on the target architecture.
+ * \attention the size of a \c m1i mask depends also on the target architecture
+ *  and can be 1 byte,
+ *  or the size of a \c v1i (4 bytes), or something else.
+ *  Nothing should rely on the size of a mask.
+ */
+struct m1i {};
 /**
  * \ingroup v1
  * \brief Type for the manipulation of 1 \c int64_t packed into one single vector.
  * \details Type for the manipulation of 1 \c int64_t packed into one single vector.
- *  This structure does not actually exist. Depending on the target architecture, it can be:
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
  *  - A preprocessor alias
  *  - A typedef
  *  - A struct defined in another way
@@ -105,23 +164,37 @@ struct v1i {
  *  - 8 bytes
  *  - 64 bits
  *
- * \attention This definition does not correspond to any actual implementation and should never used directly.
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
  * \attention The actual implementation depends on the target architecture.
- * \attention Use PintS functions instead.
  */
-struct v1l {
-  /**
-   * \brief Data of the vector.
-   * \details Data of the vector. The actual implementation depends on the target architecture.
-   * \attention As it is implementation dependant, you should never try to access it.
-   */
-  int64_t vector[1];
-};
+struct v1l {};
+/**
+ * \ingroup v1
+ * \brief Type for the manipulation of vector-masks.
+ * \details Type for the manipulation of vector-masks.
+ * \details A \c m1l vector-mask is a bitset of 1 bits,
+ *  allowing to do an operation on the ith element of a \c v1l vector only if the ith bit of the mask is set
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
+ *  - A preprocessor alias
+ *  - A typedef
+ *  - A struct defined in another way
+ *  - A union
+ *
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
+ * \attention The actual implementation depends on the target architecture.
+ * \attention the size of a \c m1l mask depends also on the target architecture
+ *  and can be 1 byte,
+ *  or the size of a \c v1l (8 bytes), or something else.
+ *  Nothing should rely on the size of a mask.
+ */
+struct m1l {};
 /**
  * \ingroup v2
  * \brief Type for the manipulation of 2 \c double packed into one single vector.
  * \details Type for the manipulation of 2 \c double packed into one single vector.
- *  This structure does not actually exist. Depending on the target architecture, it can be:
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
  *  - A preprocessor alias
  *  - A typedef
  *  - A struct defined in another way
@@ -131,23 +204,37 @@ struct v1l {
  *  - 16 bytes
  *  - 128 bits
  *
- * \attention This definition does not correspond to any actual implementation and should never used directly.
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
  * \attention The actual implementation depends on the target architecture.
- * \attention Use PintS functions instead.
  */
-struct v2d {
-  /**
-   * \brief Data of the vector.
-   * \details Data of the vector. The actual implementation depends on the target architecture.
-   * \attention As it is implementation dependant, you should never try to access it.
-   */
-  double vector[2];
-};
+struct v2d {};
+/**
+ * \ingroup v2
+ * \brief Type for the manipulation of vector-masks.
+ * \details Type for the manipulation of vector-masks.
+ * \details A \c m2d vector-mask is a bitset of 2 bits,
+ *  allowing to do an operation on the ith element of a \c v2d vector only if the ith bit of the mask is set
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
+ *  - A preprocessor alias
+ *  - A typedef
+ *  - A struct defined in another way
+ *  - A union
+ *
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
+ * \attention The actual implementation depends on the target architecture.
+ * \attention the size of a \c m2d mask depends also on the target architecture
+ *  and can be 1 byte,
+ *  or the size of a \c v2d (16 bytes), or something else.
+ *  Nothing should rely on the size of a mask.
+ */
+struct m2d {};
 /**
  * \ingroup v2
  * \brief Type for the manipulation of 2 \c float packed into one single vector.
  * \details Type for the manipulation of 2 \c float packed into one single vector.
- *  This structure does not actually exist. Depending on the target architecture, it can be:
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
  *  - A preprocessor alias
  *  - A typedef
  *  - A struct defined in another way
@@ -157,23 +244,37 @@ struct v2d {
  *  - 8 bytes
  *  - 64 bits
  *
- * \attention This definition does not correspond to any actual implementation and should never used directly.
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
  * \attention The actual implementation depends on the target architecture.
- * \attention Use PintS functions instead.
  */
-struct v2f {
-  /**
-   * \brief Data of the vector.
-   * \details Data of the vector. The actual implementation depends on the target architecture.
-   * \attention As it is implementation dependant, you should never try to access it.
-   */
-  float vector[2];
-};
+struct v2f {};
+/**
+ * \ingroup v2
+ * \brief Type for the manipulation of vector-masks.
+ * \details Type for the manipulation of vector-masks.
+ * \details A \c m2f vector-mask is a bitset of 2 bits,
+ *  allowing to do an operation on the ith element of a \c v2f vector only if the ith bit of the mask is set
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
+ *  - A preprocessor alias
+ *  - A typedef
+ *  - A struct defined in another way
+ *  - A union
+ *
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
+ * \attention The actual implementation depends on the target architecture.
+ * \attention the size of a \c m2f mask depends also on the target architecture
+ *  and can be 1 byte,
+ *  or the size of a \c v2f (8 bytes), or something else.
+ *  Nothing should rely on the size of a mask.
+ */
+struct m2f {};
 /**
  * \ingroup v2
  * \brief Type for the manipulation of 2 \c int32_t packed into one single vector.
  * \details Type for the manipulation of 2 \c int32_t packed into one single vector.
- *  This structure does not actually exist. Depending on the target architecture, it can be:
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
  *  - A preprocessor alias
  *  - A typedef
  *  - A struct defined in another way
@@ -183,23 +284,37 @@ struct v2f {
  *  - 8 bytes
  *  - 64 bits
  *
- * \attention This definition does not correspond to any actual implementation and should never used directly.
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
  * \attention The actual implementation depends on the target architecture.
- * \attention Use PintS functions instead.
  */
-struct v2i {
-  /**
-   * \brief Data of the vector.
-   * \details Data of the vector. The actual implementation depends on the target architecture.
-   * \attention As it is implementation dependant, you should never try to access it.
-   */
-  int32_t vector[2];
-};
+struct v2i {};
+/**
+ * \ingroup v2
+ * \brief Type for the manipulation of vector-masks.
+ * \details Type for the manipulation of vector-masks.
+ * \details A \c m2i vector-mask is a bitset of 2 bits,
+ *  allowing to do an operation on the ith element of a \c v2i vector only if the ith bit of the mask is set
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
+ *  - A preprocessor alias
+ *  - A typedef
+ *  - A struct defined in another way
+ *  - A union
+ *
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
+ * \attention The actual implementation depends on the target architecture.
+ * \attention the size of a \c m2i mask depends also on the target architecture
+ *  and can be 1 byte,
+ *  or the size of a \c v2i (8 bytes), or something else.
+ *  Nothing should rely on the size of a mask.
+ */
+struct m2i {};
 /**
  * \ingroup v2
  * \brief Type for the manipulation of 2 \c int64_t packed into one single vector.
  * \details Type for the manipulation of 2 \c int64_t packed into one single vector.
- *  This structure does not actually exist. Depending on the target architecture, it can be:
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
  *  - A preprocessor alias
  *  - A typedef
  *  - A struct defined in another way
@@ -209,23 +324,37 @@ struct v2i {
  *  - 16 bytes
  *  - 128 bits
  *
- * \attention This definition does not correspond to any actual implementation and should never used directly.
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
  * \attention The actual implementation depends on the target architecture.
- * \attention Use PintS functions instead.
  */
-struct v2l {
-  /**
-   * \brief Data of the vector.
-   * \details Data of the vector. The actual implementation depends on the target architecture.
-   * \attention As it is implementation dependant, you should never try to access it.
-   */
-  int64_t vector[2];
-};
+struct v2l {};
+/**
+ * \ingroup v2
+ * \brief Type for the manipulation of vector-masks.
+ * \details Type for the manipulation of vector-masks.
+ * \details A \c m2l vector-mask is a bitset of 2 bits,
+ *  allowing to do an operation on the ith element of a \c v2l vector only if the ith bit of the mask is set
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
+ *  - A preprocessor alias
+ *  - A typedef
+ *  - A struct defined in another way
+ *  - A union
+ *
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
+ * \attention The actual implementation depends on the target architecture.
+ * \attention the size of a \c m2l mask depends also on the target architecture
+ *  and can be 1 byte,
+ *  or the size of a \c v2l (16 bytes), or something else.
+ *  Nothing should rely on the size of a mask.
+ */
+struct m2l {};
 /**
  * \ingroup v4
  * \brief Type for the manipulation of 4 \c double packed into one single vector.
  * \details Type for the manipulation of 4 \c double packed into one single vector.
- *  This structure does not actually exist. Depending on the target architecture, it can be:
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
  *  - A preprocessor alias
  *  - A typedef
  *  - A struct defined in another way
@@ -235,23 +364,37 @@ struct v2l {
  *  - 32 bytes
  *  - 256 bits
  *
- * \attention This definition does not correspond to any actual implementation and should never used directly.
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
  * \attention The actual implementation depends on the target architecture.
- * \attention Use PintS functions instead.
  */
-struct v4d {
-  /**
-   * \brief Data of the vector.
-   * \details Data of the vector. The actual implementation depends on the target architecture.
-   * \attention As it is implementation dependant, you should never try to access it.
-   */
-  double vector[4];
-};
+struct v4d {};
+/**
+ * \ingroup v4
+ * \brief Type for the manipulation of vector-masks.
+ * \details Type for the manipulation of vector-masks.
+ * \details A \c m4d vector-mask is a bitset of 4 bits,
+ *  allowing to do an operation on the ith element of a \c v4d vector only if the ith bit of the mask is set
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
+ *  - A preprocessor alias
+ *  - A typedef
+ *  - A struct defined in another way
+ *  - A union
+ *
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
+ * \attention The actual implementation depends on the target architecture.
+ * \attention the size of a \c m4d mask depends also on the target architecture
+ *  and can be 1 byte,
+ *  or the size of a \c v4d (32 bytes), or something else.
+ *  Nothing should rely on the size of a mask.
+ */
+struct m4d {};
 /**
  * \ingroup v4
  * \brief Type for the manipulation of 4 \c float packed into one single vector.
  * \details Type for the manipulation of 4 \c float packed into one single vector.
- *  This structure does not actually exist. Depending on the target architecture, it can be:
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
  *  - A preprocessor alias
  *  - A typedef
  *  - A struct defined in another way
@@ -261,23 +404,37 @@ struct v4d {
  *  - 16 bytes
  *  - 128 bits
  *
- * \attention This definition does not correspond to any actual implementation and should never used directly.
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
  * \attention The actual implementation depends on the target architecture.
- * \attention Use PintS functions instead.
  */
-struct v4f {
-  /**
-   * \brief Data of the vector.
-   * \details Data of the vector. The actual implementation depends on the target architecture.
-   * \attention As it is implementation dependant, you should never try to access it.
-   */
-  float vector[4];
-};
+struct v4f {};
+/**
+ * \ingroup v4
+ * \brief Type for the manipulation of vector-masks.
+ * \details Type for the manipulation of vector-masks.
+ * \details A \c m4f vector-mask is a bitset of 4 bits,
+ *  allowing to do an operation on the ith element of a \c v4f vector only if the ith bit of the mask is set
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
+ *  - A preprocessor alias
+ *  - A typedef
+ *  - A struct defined in another way
+ *  - A union
+ *
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
+ * \attention The actual implementation depends on the target architecture.
+ * \attention the size of a \c m4f mask depends also on the target architecture
+ *  and can be 1 byte,
+ *  or the size of a \c v4f (16 bytes), or something else.
+ *  Nothing should rely on the size of a mask.
+ */
+struct m4f {};
 /**
  * \ingroup v4
  * \brief Type for the manipulation of 4 \c int32_t packed into one single vector.
  * \details Type for the manipulation of 4 \c int32_t packed into one single vector.
- *  This structure does not actually exist. Depending on the target architecture, it can be:
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
  *  - A preprocessor alias
  *  - A typedef
  *  - A struct defined in another way
@@ -287,23 +444,37 @@ struct v4f {
  *  - 16 bytes
  *  - 128 bits
  *
- * \attention This definition does not correspond to any actual implementation and should never used directly.
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
  * \attention The actual implementation depends on the target architecture.
- * \attention Use PintS functions instead.
  */
-struct v4i {
-  /**
-   * \brief Data of the vector.
-   * \details Data of the vector. The actual implementation depends on the target architecture.
-   * \attention As it is implementation dependant, you should never try to access it.
-   */
-  int32_t vector[4];
-};
+struct v4i {};
+/**
+ * \ingroup v4
+ * \brief Type for the manipulation of vector-masks.
+ * \details Type for the manipulation of vector-masks.
+ * \details A \c m4i vector-mask is a bitset of 4 bits,
+ *  allowing to do an operation on the ith element of a \c v4i vector only if the ith bit of the mask is set
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
+ *  - A preprocessor alias
+ *  - A typedef
+ *  - A struct defined in another way
+ *  - A union
+ *
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
+ * \attention The actual implementation depends on the target architecture.
+ * \attention the size of a \c m4i mask depends also on the target architecture
+ *  and can be 1 byte,
+ *  or the size of a \c v4i (16 bytes), or something else.
+ *  Nothing should rely on the size of a mask.
+ */
+struct m4i {};
 /**
  * \ingroup v4
  * \brief Type for the manipulation of 4 \c int64_t packed into one single vector.
  * \details Type for the manipulation of 4 \c int64_t packed into one single vector.
- *  This structure does not actually exist. Depending on the target architecture, it can be:
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
  *  - A preprocessor alias
  *  - A typedef
  *  - A struct defined in another way
@@ -313,23 +484,37 @@ struct v4i {
  *  - 32 bytes
  *  - 256 bits
  *
- * \attention This definition does not correspond to any actual implementation and should never used directly.
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
  * \attention The actual implementation depends on the target architecture.
- * \attention Use PintS functions instead.
  */
-struct v4l {
-  /**
-   * \brief Data of the vector.
-   * \details Data of the vector. The actual implementation depends on the target architecture.
-   * \attention As it is implementation dependant, you should never try to access it.
-   */
-  int64_t vector[4];
-};
+struct v4l {};
+/**
+ * \ingroup v4
+ * \brief Type for the manipulation of vector-masks.
+ * \details Type for the manipulation of vector-masks.
+ * \details A \c m4l vector-mask is a bitset of 4 bits,
+ *  allowing to do an operation on the ith element of a \c v4l vector only if the ith bit of the mask is set
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
+ *  - A preprocessor alias
+ *  - A typedef
+ *  - A struct defined in another way
+ *  - A union
+ *
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
+ * \attention The actual implementation depends on the target architecture.
+ * \attention the size of a \c m4l mask depends also on the target architecture
+ *  and can be 1 byte,
+ *  or the size of a \c v4l (32 bytes), or something else.
+ *  Nothing should rely on the size of a mask.
+ */
+struct m4l {};
 /**
  * \ingroup v8
  * \brief Type for the manipulation of 8 \c double packed into one single vector.
  * \details Type for the manipulation of 8 \c double packed into one single vector.
- *  This structure does not actually exist. Depending on the target architecture, it can be:
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
  *  - A preprocessor alias
  *  - A typedef
  *  - A struct defined in another way
@@ -339,23 +524,37 @@ struct v4l {
  *  - 64 bytes
  *  - 512 bits
  *
- * \attention This definition does not correspond to any actual implementation and should never used directly.
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
  * \attention The actual implementation depends on the target architecture.
- * \attention Use PintS functions instead.
  */
-struct v8d {
-  /**
-   * \brief Data of the vector.
-   * \details Data of the vector. The actual implementation depends on the target architecture.
-   * \attention As it is implementation dependant, you should never try to access it.
-   */
-  double vector[8];
-};
+struct v8d {};
+/**
+ * \ingroup v8
+ * \brief Type for the manipulation of vector-masks.
+ * \details Type for the manipulation of vector-masks.
+ * \details A \c m8d vector-mask is a bitset of 8 bits,
+ *  allowing to do an operation on the ith element of a \c v8d vector only if the ith bit of the mask is set
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
+ *  - A preprocessor alias
+ *  - A typedef
+ *  - A struct defined in another way
+ *  - A union
+ *
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
+ * \attention The actual implementation depends on the target architecture.
+ * \attention the size of a \c m8d mask depends also on the target architecture
+ *  and can be 1 byte,
+ *  or the size of a \c v8d (64 bytes), or something else.
+ *  Nothing should rely on the size of a mask.
+ */
+struct m8d {};
 /**
  * \ingroup v8
  * \brief Type for the manipulation of 8 \c float packed into one single vector.
  * \details Type for the manipulation of 8 \c float packed into one single vector.
- *  This structure does not actually exist. Depending on the target architecture, it can be:
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
  *  - A preprocessor alias
  *  - A typedef
  *  - A struct defined in another way
@@ -365,23 +564,37 @@ struct v8d {
  *  - 32 bytes
  *  - 256 bits
  *
- * \attention This definition does not correspond to any actual implementation and should never used directly.
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
  * \attention The actual implementation depends on the target architecture.
- * \attention Use PintS functions instead.
  */
-struct v8f {
-  /**
-   * \brief Data of the vector.
-   * \details Data of the vector. The actual implementation depends on the target architecture.
-   * \attention As it is implementation dependant, you should never try to access it.
-   */
-  float vector[8];
-};
+struct v8f {};
+/**
+ * \ingroup v8
+ * \brief Type for the manipulation of vector-masks.
+ * \details Type for the manipulation of vector-masks.
+ * \details A \c m8f vector-mask is a bitset of 8 bits,
+ *  allowing to do an operation on the ith element of a \c v8f vector only if the ith bit of the mask is set
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
+ *  - A preprocessor alias
+ *  - A typedef
+ *  - A struct defined in another way
+ *  - A union
+ *
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
+ * \attention The actual implementation depends on the target architecture.
+ * \attention the size of a \c m8f mask depends also on the target architecture
+ *  and can be 1 byte,
+ *  or the size of a \c v8f (32 bytes), or something else.
+ *  Nothing should rely on the size of a mask.
+ */
+struct m8f {};
 /**
  * \ingroup v8
  * \brief Type for the manipulation of 8 \c int32_t packed into one single vector.
  * \details Type for the manipulation of 8 \c int32_t packed into one single vector.
- *  This structure does not actually exist. Depending on the target architecture, it can be:
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
  *  - A preprocessor alias
  *  - A typedef
  *  - A struct defined in another way
@@ -391,23 +604,37 @@ struct v8f {
  *  - 32 bytes
  *  - 256 bits
  *
- * \attention This definition does not correspond to any actual implementation and should never used directly.
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
  * \attention The actual implementation depends on the target architecture.
- * \attention Use PintS functions instead.
  */
-struct v8i {
-  /**
-   * \brief Data of the vector.
-   * \details Data of the vector. The actual implementation depends on the target architecture.
-   * \attention As it is implementation dependant, you should never try to access it.
-   */
-  int32_t vector[8];
-};
+struct v8i {};
+/**
+ * \ingroup v8
+ * \brief Type for the manipulation of vector-masks.
+ * \details Type for the manipulation of vector-masks.
+ * \details A \c m8i vector-mask is a bitset of 8 bits,
+ *  allowing to do an operation on the ith element of a \c v8i vector only if the ith bit of the mask is set
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
+ *  - A preprocessor alias
+ *  - A typedef
+ *  - A struct defined in another way
+ *  - A union
+ *
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
+ * \attention The actual implementation depends on the target architecture.
+ * \attention the size of a \c m8i mask depends also on the target architecture
+ *  and can be 1 byte,
+ *  or the size of a \c v8i (32 bytes), or something else.
+ *  Nothing should rely on the size of a mask.
+ */
+struct m8i {};
 /**
  * \ingroup v8
  * \brief Type for the manipulation of 8 \c int64_t packed into one single vector.
  * \details Type for the manipulation of 8 \c int64_t packed into one single vector.
- *  This structure does not actually exist. Depending on the target architecture, it can be:
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
  *  - A preprocessor alias
  *  - A typedef
  *  - A struct defined in another way
@@ -417,23 +644,37 @@ struct v8i {
  *  - 64 bytes
  *  - 512 bits
  *
- * \attention This definition does not correspond to any actual implementation and should never used directly.
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
  * \attention The actual implementation depends on the target architecture.
- * \attention Use PintS functions instead.
  */
-struct v8l {
-  /**
-   * \brief Data of the vector.
-   * \details Data of the vector. The actual implementation depends on the target architecture.
-   * \attention As it is implementation dependant, you should never try to access it.
-   */
-  int64_t vector[8];
-};
+struct v8l {};
+/**
+ * \ingroup v8
+ * \brief Type for the manipulation of vector-masks.
+ * \details Type for the manipulation of vector-masks.
+ * \details A \c m8l vector-mask is a bitset of 8 bits,
+ *  allowing to do an operation on the ith element of a \c v8l vector only if the ith bit of the mask is set
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
+ *  - A preprocessor alias
+ *  - A typedef
+ *  - A struct defined in another way
+ *  - A union
+ *
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
+ * \attention The actual implementation depends on the target architecture.
+ * \attention the size of a \c m8l mask depends also on the target architecture
+ *  and can be 1 byte,
+ *  or the size of a \c v8l (64 bytes), or something else.
+ *  Nothing should rely on the size of a mask.
+ */
+struct m8l {};
 /**
  * \ingroup v16
  * \brief Type for the manipulation of 16 \c float packed into one single vector.
  * \details Type for the manipulation of 16 \c float packed into one single vector.
- *  This structure does not actually exist. Depending on the target architecture, it can be:
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
  *  - A preprocessor alias
  *  - A typedef
  *  - A struct defined in another way
@@ -443,23 +684,37 @@ struct v8l {
  *  - 64 bytes
  *  - 512 bits
  *
- * \attention This definition does not correspond to any actual implementation and should never used directly.
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
  * \attention The actual implementation depends on the target architecture.
- * \attention Use PintS functions instead.
  */
-struct v16f {
-  /**
-   * \brief Data of the vector.
-   * \details Data of the vector. The actual implementation depends on the target architecture.
-   * \attention As it is implementation dependant, you should never try to access it.
-   */
-  float vector[16];
-};
+struct v16f {};
+/**
+ * \ingroup v16
+ * \brief Type for the manipulation of vector-masks.
+ * \details Type for the manipulation of vector-masks.
+ * \details A \c m16f vector-mask is a bitset of 16 bits,
+ *  allowing to do an operation on the ith element of a \c v16f vector only if the ith bit of the mask is set
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
+ *  - A preprocessor alias
+ *  - A typedef
+ *  - A struct defined in another way
+ *  - A union
+ *
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
+ * \attention The actual implementation depends on the target architecture.
+ * \attention the size of a \c m16f mask depends also on the target architecture
+ *  and can be 2 bytes,
+ *  or the size of a \c v16f (64 bytes), or something else.
+ *  Nothing should rely on the size of a mask.
+ */
+struct m16f {};
 /**
  * \ingroup v16
  * \brief Type for the manipulation of 16 \c int32_t packed into one single vector.
  * \details Type for the manipulation of 16 \c int32_t packed into one single vector.
- *  This structure does not actually exist. Depending on the target architecture, it can be:
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
  *  - A preprocessor alias
  *  - A typedef
  *  - A struct defined in another way
@@ -469,18 +724,32 @@ struct v16f {
  *  - 64 bytes
  *  - 512 bits
  *
- * \attention This definition does not correspond to any actual implementation and should never used directly.
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
  * \attention The actual implementation depends on the target architecture.
- * \attention Use PintS functions instead.
  */
-struct v16i {
-  /**
-   * \brief Data of the vector.
-   * \details Data of the vector. The actual implementation depends on the target architecture.
-   * \attention As it is implementation dependant, you should never try to access it.
-   */
-  int32_t vector[16];
-};
+struct v16i {};
+/**
+ * \ingroup v16
+ * \brief Type for the manipulation of vector-masks.
+ * \details Type for the manipulation of vector-masks.
+ * \details A \c m16i vector-mask is a bitset of 16 bits,
+ *  allowing to do an operation on the ith element of a \c v16i vector only if the ith bit of the mask is set
+ * \details This structure does not actually exist. Depending on the target architecture, it can be:
+ *  - A preprocessor alias
+ *  - A typedef
+ *  - A struct defined in another way
+ *  - A union
+ *
+ * \attention This definition does not correspond to any actual implementation and should never be used directly.
+ *  Use PintS functions instead.
+ * \attention The actual implementation depends on the target architecture.
+ * \attention the size of a \c m16i mask depends also on the target architecture
+ *  and can be 2 bytes,
+ *  or the size of a \c v16i (64 bytes), or something else.
+ *  Nothing should rely on the size of a mask.
+ */
+struct m16i {};
 
 /* LOADS */
 /** \defgroup load load functions
@@ -3811,6 +4080,4787 @@ endfor
  * \returns v16i vector with all elements to 1
  */
 v16i v16i_one();
+
+
+/* COMPARISONS */
+/** \defgroup mcmp comparison to mask functions
+ * \ingroup maskop
+ * 
+ */
+
+/**
+ * \ingroup mcmp
+ * \related v1d
+ * \brief Compares the equality of the two input vectors
+ * \details Compares the equality of the \c v1d vectors \c a and \c b.
+ *  The result is a \c m1d vector-mask where the ith element is set iif \c `a[i] == b[i]`.
+ * \impl
+for i from 0 to 0
+  if a[i] == b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v1d input vector
+ * \param b second \c v1d input vector
+ * \returns \c v1d vector acting like a mask
+ */
+m1d m1d_eq(v1d a, v1d b);
+/**
+ * \ingroup mcmp
+ * \related v1f
+ * \brief Compares the equality of the two input vectors
+ * \details Compares the equality of the \c v1f vectors \c a and \c b.
+ *  The result is a \c m1f vector-mask where the ith element is set iif \c `a[i] == b[i]`.
+ * \impl
+for i from 0 to 0
+  if a[i] == b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v1f input vector
+ * \param b second \c v1f input vector
+ * \returns \c v1f vector acting like a mask
+ */
+m1f m1f_eq(v1f a, v1f b);
+/**
+ * \ingroup mcmp
+ * \related v1i
+ * \brief Compares the equality of the two input vectors
+ * \details Compares the equality of the \c v1i vectors \c a and \c b.
+ *  The result is a \c m1i vector-mask where the ith element is set iif \c `a[i] == b[i]`.
+ * \impl
+for i from 0 to 0
+  if a[i] == b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v1i input vector
+ * \param b second \c v1i input vector
+ * \returns \c v1i vector acting like a mask
+ */
+m1i m1i_eq(v1i a, v1i b);
+/**
+ * \ingroup mcmp
+ * \related v1l
+ * \brief Compares the equality of the two input vectors
+ * \details Compares the equality of the \c v1l vectors \c a and \c b.
+ *  The result is a \c m1l vector-mask where the ith element is set iif \c `a[i] == b[i]`.
+ * \impl
+for i from 0 to 0
+  if a[i] == b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v1l input vector
+ * \param b second \c v1l input vector
+ * \returns \c v1l vector acting like a mask
+ */
+m1l m1l_eq(v1l a, v1l b);
+/**
+ * \ingroup mcmp
+ * \related v2d
+ * \brief Compares the equality of the two input vectors
+ * \details Compares the equality of the \c v2d vectors \c a and \c b.
+ *  The result is a \c m2d vector-mask where the ith element is set iif \c `a[i] == b[i]`.
+ * \impl
+for i from 0 to 1
+  if a[i] == b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v2d input vector
+ * \param b second \c v2d input vector
+ * \returns \c v2d vector acting like a mask
+ */
+m2d m2d_eq(v2d a, v2d b);
+/**
+ * \ingroup mcmp
+ * \related v2f
+ * \brief Compares the equality of the two input vectors
+ * \details Compares the equality of the \c v2f vectors \c a and \c b.
+ *  The result is a \c m2f vector-mask where the ith element is set iif \c `a[i] == b[i]`.
+ * \impl
+for i from 0 to 1
+  if a[i] == b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v2f input vector
+ * \param b second \c v2f input vector
+ * \returns \c v2f vector acting like a mask
+ */
+m2f m2f_eq(v2f a, v2f b);
+/**
+ * \ingroup mcmp
+ * \related v2i
+ * \brief Compares the equality of the two input vectors
+ * \details Compares the equality of the \c v2i vectors \c a and \c b.
+ *  The result is a \c m2i vector-mask where the ith element is set iif \c `a[i] == b[i]`.
+ * \impl
+for i from 0 to 1
+  if a[i] == b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v2i input vector
+ * \param b second \c v2i input vector
+ * \returns \c v2i vector acting like a mask
+ */
+m2i m2i_eq(v2i a, v2i b);
+/**
+ * \ingroup mcmp
+ * \related v2l
+ * \brief Compares the equality of the two input vectors
+ * \details Compares the equality of the \c v2l vectors \c a and \c b.
+ *  The result is a \c m2l vector-mask where the ith element is set iif \c `a[i] == b[i]`.
+ * \impl
+for i from 0 to 1
+  if a[i] == b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v2l input vector
+ * \param b second \c v2l input vector
+ * \returns \c v2l vector acting like a mask
+ */
+m2l m2l_eq(v2l a, v2l b);
+/**
+ * \ingroup mcmp
+ * \related v4d
+ * \brief Compares the equality of the two input vectors
+ * \details Compares the equality of the \c v4d vectors \c a and \c b.
+ *  The result is a \c m4d vector-mask where the ith element is set iif \c `a[i] == b[i]`.
+ * \impl
+for i from 0 to 3
+  if a[i] == b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v4d input vector
+ * \param b second \c v4d input vector
+ * \returns \c v4d vector acting like a mask
+ */
+m4d m4d_eq(v4d a, v4d b);
+/**
+ * \ingroup mcmp
+ * \related v4f
+ * \brief Compares the equality of the two input vectors
+ * \details Compares the equality of the \c v4f vectors \c a and \c b.
+ *  The result is a \c m4f vector-mask where the ith element is set iif \c `a[i] == b[i]`.
+ * \impl
+for i from 0 to 3
+  if a[i] == b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v4f input vector
+ * \param b second \c v4f input vector
+ * \returns \c v4f vector acting like a mask
+ */
+m4f m4f_eq(v4f a, v4f b);
+/**
+ * \ingroup mcmp
+ * \related v4i
+ * \brief Compares the equality of the two input vectors
+ * \details Compares the equality of the \c v4i vectors \c a and \c b.
+ *  The result is a \c m4i vector-mask where the ith element is set iif \c `a[i] == b[i]`.
+ * \impl
+for i from 0 to 3
+  if a[i] == b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v4i input vector
+ * \param b second \c v4i input vector
+ * \returns \c v4i vector acting like a mask
+ */
+m4i m4i_eq(v4i a, v4i b);
+/**
+ * \ingroup mcmp
+ * \related v4l
+ * \brief Compares the equality of the two input vectors
+ * \details Compares the equality of the \c v4l vectors \c a and \c b.
+ *  The result is a \c m4l vector-mask where the ith element is set iif \c `a[i] == b[i]`.
+ * \impl
+for i from 0 to 3
+  if a[i] == b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v4l input vector
+ * \param b second \c v4l input vector
+ * \returns \c v4l vector acting like a mask
+ */
+m4l m4l_eq(v4l a, v4l b);
+/**
+ * \ingroup mcmp
+ * \related v8d
+ * \brief Compares the equality of the two input vectors
+ * \details Compares the equality of the \c v8d vectors \c a and \c b.
+ *  The result is a \c m8d vector-mask where the ith element is set iif \c `a[i] == b[i]`.
+ * \impl
+for i from 0 to 7
+  if a[i] == b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v8d input vector
+ * \param b second \c v8d input vector
+ * \returns \c v8d vector acting like a mask
+ */
+m8d m8d_eq(v8d a, v8d b);
+/**
+ * \ingroup mcmp
+ * \related v8f
+ * \brief Compares the equality of the two input vectors
+ * \details Compares the equality of the \c v8f vectors \c a and \c b.
+ *  The result is a \c m8f vector-mask where the ith element is set iif \c `a[i] == b[i]`.
+ * \impl
+for i from 0 to 7
+  if a[i] == b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v8f input vector
+ * \param b second \c v8f input vector
+ * \returns \c v8f vector acting like a mask
+ */
+m8f m8f_eq(v8f a, v8f b);
+/**
+ * \ingroup mcmp
+ * \related v8i
+ * \brief Compares the equality of the two input vectors
+ * \details Compares the equality of the \c v8i vectors \c a and \c b.
+ *  The result is a \c m8i vector-mask where the ith element is set iif \c `a[i] == b[i]`.
+ * \impl
+for i from 0 to 7
+  if a[i] == b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v8i input vector
+ * \param b second \c v8i input vector
+ * \returns \c v8i vector acting like a mask
+ */
+m8i m8i_eq(v8i a, v8i b);
+/**
+ * \ingroup mcmp
+ * \related v8l
+ * \brief Compares the equality of the two input vectors
+ * \details Compares the equality of the \c v8l vectors \c a and \c b.
+ *  The result is a \c m8l vector-mask where the ith element is set iif \c `a[i] == b[i]`.
+ * \impl
+for i from 0 to 7
+  if a[i] == b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v8l input vector
+ * \param b second \c v8l input vector
+ * \returns \c v8l vector acting like a mask
+ */
+m8l m8l_eq(v8l a, v8l b);
+/**
+ * \ingroup mcmp
+ * \related v16f
+ * \brief Compares the equality of the two input vectors
+ * \details Compares the equality of the \c v16f vectors \c a and \c b.
+ *  The result is a \c m16f vector-mask where the ith element is set iif \c `a[i] == b[i]`.
+ * \impl
+for i from 0 to 15
+  if a[i] == b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v16f input vector
+ * \param b second \c v16f input vector
+ * \returns \c v16f vector acting like a mask
+ */
+m16f m16f_eq(v16f a, v16f b);
+/**
+ * \ingroup mcmp
+ * \related v16i
+ * \brief Compares the equality of the two input vectors
+ * \details Compares the equality of the \c v16i vectors \c a and \c b.
+ *  The result is a \c m16i vector-mask where the ith element is set iif \c `a[i] == b[i]`.
+ * \impl
+for i from 0 to 15
+  if a[i] == b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v16i input vector
+ * \param b second \c v16i input vector
+ * \returns \c v16i vector acting like a mask
+ */
+m16i m16i_eq(v16i a, v16i b);
+
+/**
+ * \ingroup mcmp
+ * \related v1d
+ * \brief Compares the inequality of the two input vectors
+ * \details Compares the inequality of the \c v1d vectors \c a and \c b.
+ *  The result is a \c m1d vector-mask where the ith element is set iif \c `a[i] != b[i]`.
+ * \impl
+for i from 0 to 0
+  if a[i] != b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v1d input vector
+ * \param b second \c v1d input vector
+ * \returns \c v1d vector acting like a mask
+ */
+m1d m1d_neq(v1d a, v1d b);
+/**
+ * \ingroup mcmp
+ * \related v1f
+ * \brief Compares the inequality of the two input vectors
+ * \details Compares the inequality of the \c v1f vectors \c a and \c b.
+ *  The result is a \c m1f vector-mask where the ith element is set iif \c `a[i] != b[i]`.
+ * \impl
+for i from 0 to 0
+  if a[i] != b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v1f input vector
+ * \param b second \c v1f input vector
+ * \returns \c v1f vector acting like a mask
+ */
+m1f m1f_neq(v1f a, v1f b);
+/**
+ * \ingroup mcmp
+ * \related v1i
+ * \brief Compares the inequality of the two input vectors
+ * \details Compares the inequality of the \c v1i vectors \c a and \c b.
+ *  The result is a \c m1i vector-mask where the ith element is set iif \c `a[i] != b[i]`.
+ * \impl
+for i from 0 to 0
+  if a[i] != b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v1i input vector
+ * \param b second \c v1i input vector
+ * \returns \c v1i vector acting like a mask
+ */
+m1i m1i_neq(v1i a, v1i b);
+/**
+ * \ingroup mcmp
+ * \related v1l
+ * \brief Compares the inequality of the two input vectors
+ * \details Compares the inequality of the \c v1l vectors \c a and \c b.
+ *  The result is a \c m1l vector-mask where the ith element is set iif \c `a[i] != b[i]`.
+ * \impl
+for i from 0 to 0
+  if a[i] != b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v1l input vector
+ * \param b second \c v1l input vector
+ * \returns \c v1l vector acting like a mask
+ */
+m1l m1l_neq(v1l a, v1l b);
+/**
+ * \ingroup mcmp
+ * \related v2d
+ * \brief Compares the inequality of the two input vectors
+ * \details Compares the inequality of the \c v2d vectors \c a and \c b.
+ *  The result is a \c m2d vector-mask where the ith element is set iif \c `a[i] != b[i]`.
+ * \impl
+for i from 0 to 1
+  if a[i] != b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v2d input vector
+ * \param b second \c v2d input vector
+ * \returns \c v2d vector acting like a mask
+ */
+m2d m2d_neq(v2d a, v2d b);
+/**
+ * \ingroup mcmp
+ * \related v2f
+ * \brief Compares the inequality of the two input vectors
+ * \details Compares the inequality of the \c v2f vectors \c a and \c b.
+ *  The result is a \c m2f vector-mask where the ith element is set iif \c `a[i] != b[i]`.
+ * \impl
+for i from 0 to 1
+  if a[i] != b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v2f input vector
+ * \param b second \c v2f input vector
+ * \returns \c v2f vector acting like a mask
+ */
+m2f m2f_neq(v2f a, v2f b);
+/**
+ * \ingroup mcmp
+ * \related v2i
+ * \brief Compares the inequality of the two input vectors
+ * \details Compares the inequality of the \c v2i vectors \c a and \c b.
+ *  The result is a \c m2i vector-mask where the ith element is set iif \c `a[i] != b[i]`.
+ * \impl
+for i from 0 to 1
+  if a[i] != b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v2i input vector
+ * \param b second \c v2i input vector
+ * \returns \c v2i vector acting like a mask
+ */
+m2i m2i_neq(v2i a, v2i b);
+/**
+ * \ingroup mcmp
+ * \related v2l
+ * \brief Compares the inequality of the two input vectors
+ * \details Compares the inequality of the \c v2l vectors \c a and \c b.
+ *  The result is a \c m2l vector-mask where the ith element is set iif \c `a[i] != b[i]`.
+ * \impl
+for i from 0 to 1
+  if a[i] != b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v2l input vector
+ * \param b second \c v2l input vector
+ * \returns \c v2l vector acting like a mask
+ */
+m2l m2l_neq(v2l a, v2l b);
+/**
+ * \ingroup mcmp
+ * \related v4d
+ * \brief Compares the inequality of the two input vectors
+ * \details Compares the inequality of the \c v4d vectors \c a and \c b.
+ *  The result is a \c m4d vector-mask where the ith element is set iif \c `a[i] != b[i]`.
+ * \impl
+for i from 0 to 3
+  if a[i] != b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v4d input vector
+ * \param b second \c v4d input vector
+ * \returns \c v4d vector acting like a mask
+ */
+m4d m4d_neq(v4d a, v4d b);
+/**
+ * \ingroup mcmp
+ * \related v4f
+ * \brief Compares the inequality of the two input vectors
+ * \details Compares the inequality of the \c v4f vectors \c a and \c b.
+ *  The result is a \c m4f vector-mask where the ith element is set iif \c `a[i] != b[i]`.
+ * \impl
+for i from 0 to 3
+  if a[i] != b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v4f input vector
+ * \param b second \c v4f input vector
+ * \returns \c v4f vector acting like a mask
+ */
+m4f m4f_neq(v4f a, v4f b);
+/**
+ * \ingroup mcmp
+ * \related v4i
+ * \brief Compares the inequality of the two input vectors
+ * \details Compares the inequality of the \c v4i vectors \c a and \c b.
+ *  The result is a \c m4i vector-mask where the ith element is set iif \c `a[i] != b[i]`.
+ * \impl
+for i from 0 to 3
+  if a[i] != b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v4i input vector
+ * \param b second \c v4i input vector
+ * \returns \c v4i vector acting like a mask
+ */
+m4i m4i_neq(v4i a, v4i b);
+/**
+ * \ingroup mcmp
+ * \related v4l
+ * \brief Compares the inequality of the two input vectors
+ * \details Compares the inequality of the \c v4l vectors \c a and \c b.
+ *  The result is a \c m4l vector-mask where the ith element is set iif \c `a[i] != b[i]`.
+ * \impl
+for i from 0 to 3
+  if a[i] != b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v4l input vector
+ * \param b second \c v4l input vector
+ * \returns \c v4l vector acting like a mask
+ */
+m4l m4l_neq(v4l a, v4l b);
+/**
+ * \ingroup mcmp
+ * \related v8d
+ * \brief Compares the inequality of the two input vectors
+ * \details Compares the inequality of the \c v8d vectors \c a and \c b.
+ *  The result is a \c m8d vector-mask where the ith element is set iif \c `a[i] != b[i]`.
+ * \impl
+for i from 0 to 7
+  if a[i] != b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v8d input vector
+ * \param b second \c v8d input vector
+ * \returns \c v8d vector acting like a mask
+ */
+m8d m8d_neq(v8d a, v8d b);
+/**
+ * \ingroup mcmp
+ * \related v8f
+ * \brief Compares the inequality of the two input vectors
+ * \details Compares the inequality of the \c v8f vectors \c a and \c b.
+ *  The result is a \c m8f vector-mask where the ith element is set iif \c `a[i] != b[i]`.
+ * \impl
+for i from 0 to 7
+  if a[i] != b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v8f input vector
+ * \param b second \c v8f input vector
+ * \returns \c v8f vector acting like a mask
+ */
+m8f m8f_neq(v8f a, v8f b);
+/**
+ * \ingroup mcmp
+ * \related v8i
+ * \brief Compares the inequality of the two input vectors
+ * \details Compares the inequality of the \c v8i vectors \c a and \c b.
+ *  The result is a \c m8i vector-mask where the ith element is set iif \c `a[i] != b[i]`.
+ * \impl
+for i from 0 to 7
+  if a[i] != b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v8i input vector
+ * \param b second \c v8i input vector
+ * \returns \c v8i vector acting like a mask
+ */
+m8i m8i_neq(v8i a, v8i b);
+/**
+ * \ingroup mcmp
+ * \related v8l
+ * \brief Compares the inequality of the two input vectors
+ * \details Compares the inequality of the \c v8l vectors \c a and \c b.
+ *  The result is a \c m8l vector-mask where the ith element is set iif \c `a[i] != b[i]`.
+ * \impl
+for i from 0 to 7
+  if a[i] != b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v8l input vector
+ * \param b second \c v8l input vector
+ * \returns \c v8l vector acting like a mask
+ */
+m8l m8l_neq(v8l a, v8l b);
+/**
+ * \ingroup mcmp
+ * \related v16f
+ * \brief Compares the inequality of the two input vectors
+ * \details Compares the inequality of the \c v16f vectors \c a and \c b.
+ *  The result is a \c m16f vector-mask where the ith element is set iif \c `a[i] != b[i]`.
+ * \impl
+for i from 0 to 15
+  if a[i] != b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v16f input vector
+ * \param b second \c v16f input vector
+ * \returns \c v16f vector acting like a mask
+ */
+m16f m16f_neq(v16f a, v16f b);
+/**
+ * \ingroup mcmp
+ * \related v16i
+ * \brief Compares the inequality of the two input vectors
+ * \details Compares the inequality of the \c v16i vectors \c a and \c b.
+ *  The result is a \c m16i vector-mask where the ith element is set iif \c `a[i] != b[i]`.
+ * \impl
+for i from 0 to 15
+  if a[i] != b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v16i input vector
+ * \param b second \c v16i input vector
+ * \returns \c v16i vector acting like a mask
+ */
+m16i m16i_neq(v16i a, v16i b);
+
+/**
+ * \ingroup mcmp
+ * \related v1d
+ * \brief Compares if elements of \c a are greater than those of \c b.
+ * \details Compares if elements of \c a are greater than those of \c b.
+ *  The result is a \c m1d vector-mask where the ith element is set iif \c `a[i] > b[i]`.
+ * \impl
+for i from 0 to 0
+  if a[i] > b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v1d input vector
+ * \param b second \c v1d input vector
+ * \returns \c v1d vector acting like a mask
+ */
+m1d m1d_gt(v1d a, v1d b);
+/**
+ * \ingroup mcmp
+ * \related v1f
+ * \brief Compares if elements of \c a are greater than those of \c b.
+ * \details Compares if elements of \c a are greater than those of \c b.
+ *  The result is a \c m1f vector-mask where the ith element is set iif \c `a[i] > b[i]`.
+ * \impl
+for i from 0 to 0
+  if a[i] > b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v1f input vector
+ * \param b second \c v1f input vector
+ * \returns \c v1f vector acting like a mask
+ */
+m1f m1f_gt(v1f a, v1f b);
+/**
+ * \ingroup mcmp
+ * \related v1i
+ * \brief Compares if elements of \c a are greater than those of \c b.
+ * \details Compares if elements of \c a are greater than those of \c b.
+ *  The result is a \c m1i vector-mask where the ith element is set iif \c `a[i] > b[i]`.
+ * \impl
+for i from 0 to 0
+  if a[i] > b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v1i input vector
+ * \param b second \c v1i input vector
+ * \returns \c v1i vector acting like a mask
+ */
+m1i m1i_gt(v1i a, v1i b);
+/**
+ * \ingroup mcmp
+ * \related v1l
+ * \brief Compares if elements of \c a are greater than those of \c b.
+ * \details Compares if elements of \c a are greater than those of \c b.
+ *  The result is a \c m1l vector-mask where the ith element is set iif \c `a[i] > b[i]`.
+ * \impl
+for i from 0 to 0
+  if a[i] > b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v1l input vector
+ * \param b second \c v1l input vector
+ * \returns \c v1l vector acting like a mask
+ */
+m1l m1l_gt(v1l a, v1l b);
+/**
+ * \ingroup mcmp
+ * \related v2d
+ * \brief Compares if elements of \c a are greater than those of \c b.
+ * \details Compares if elements of \c a are greater than those of \c b.
+ *  The result is a \c m2d vector-mask where the ith element is set iif \c `a[i] > b[i]`.
+ * \impl
+for i from 0 to 1
+  if a[i] > b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v2d input vector
+ * \param b second \c v2d input vector
+ * \returns \c v2d vector acting like a mask
+ */
+m2d m2d_gt(v2d a, v2d b);
+/**
+ * \ingroup mcmp
+ * \related v2f
+ * \brief Compares if elements of \c a are greater than those of \c b.
+ * \details Compares if elements of \c a are greater than those of \c b.
+ *  The result is a \c m2f vector-mask where the ith element is set iif \c `a[i] > b[i]`.
+ * \impl
+for i from 0 to 1
+  if a[i] > b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v2f input vector
+ * \param b second \c v2f input vector
+ * \returns \c v2f vector acting like a mask
+ */
+m2f m2f_gt(v2f a, v2f b);
+/**
+ * \ingroup mcmp
+ * \related v2i
+ * \brief Compares if elements of \c a are greater than those of \c b.
+ * \details Compares if elements of \c a are greater than those of \c b.
+ *  The result is a \c m2i vector-mask where the ith element is set iif \c `a[i] > b[i]`.
+ * \impl
+for i from 0 to 1
+  if a[i] > b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v2i input vector
+ * \param b second \c v2i input vector
+ * \returns \c v2i vector acting like a mask
+ */
+m2i m2i_gt(v2i a, v2i b);
+/**
+ * \ingroup mcmp
+ * \related v2l
+ * \brief Compares if elements of \c a are greater than those of \c b.
+ * \details Compares if elements of \c a are greater than those of \c b.
+ *  The result is a \c m2l vector-mask where the ith element is set iif \c `a[i] > b[i]`.
+ * \impl
+for i from 0 to 1
+  if a[i] > b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v2l input vector
+ * \param b second \c v2l input vector
+ * \returns \c v2l vector acting like a mask
+ */
+m2l m2l_gt(v2l a, v2l b);
+/**
+ * \ingroup mcmp
+ * \related v4d
+ * \brief Compares if elements of \c a are greater than those of \c b.
+ * \details Compares if elements of \c a are greater than those of \c b.
+ *  The result is a \c m4d vector-mask where the ith element is set iif \c `a[i] > b[i]`.
+ * \impl
+for i from 0 to 3
+  if a[i] > b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v4d input vector
+ * \param b second \c v4d input vector
+ * \returns \c v4d vector acting like a mask
+ */
+m4d m4d_gt(v4d a, v4d b);
+/**
+ * \ingroup mcmp
+ * \related v4f
+ * \brief Compares if elements of \c a are greater than those of \c b.
+ * \details Compares if elements of \c a are greater than those of \c b.
+ *  The result is a \c m4f vector-mask where the ith element is set iif \c `a[i] > b[i]`.
+ * \impl
+for i from 0 to 3
+  if a[i] > b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v4f input vector
+ * \param b second \c v4f input vector
+ * \returns \c v4f vector acting like a mask
+ */
+m4f m4f_gt(v4f a, v4f b);
+/**
+ * \ingroup mcmp
+ * \related v4i
+ * \brief Compares if elements of \c a are greater than those of \c b.
+ * \details Compares if elements of \c a are greater than those of \c b.
+ *  The result is a \c m4i vector-mask where the ith element is set iif \c `a[i] > b[i]`.
+ * \impl
+for i from 0 to 3
+  if a[i] > b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v4i input vector
+ * \param b second \c v4i input vector
+ * \returns \c v4i vector acting like a mask
+ */
+m4i m4i_gt(v4i a, v4i b);
+/**
+ * \ingroup mcmp
+ * \related v4l
+ * \brief Compares if elements of \c a are greater than those of \c b.
+ * \details Compares if elements of \c a are greater than those of \c b.
+ *  The result is a \c m4l vector-mask where the ith element is set iif \c `a[i] > b[i]`.
+ * \impl
+for i from 0 to 3
+  if a[i] > b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v4l input vector
+ * \param b second \c v4l input vector
+ * \returns \c v4l vector acting like a mask
+ */
+m4l m4l_gt(v4l a, v4l b);
+/**
+ * \ingroup mcmp
+ * \related v8d
+ * \brief Compares if elements of \c a are greater than those of \c b.
+ * \details Compares if elements of \c a are greater than those of \c b.
+ *  The result is a \c m8d vector-mask where the ith element is set iif \c `a[i] > b[i]`.
+ * \impl
+for i from 0 to 7
+  if a[i] > b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v8d input vector
+ * \param b second \c v8d input vector
+ * \returns \c v8d vector acting like a mask
+ */
+m8d m8d_gt(v8d a, v8d b);
+/**
+ * \ingroup mcmp
+ * \related v8f
+ * \brief Compares if elements of \c a are greater than those of \c b.
+ * \details Compares if elements of \c a are greater than those of \c b.
+ *  The result is a \c m8f vector-mask where the ith element is set iif \c `a[i] > b[i]`.
+ * \impl
+for i from 0 to 7
+  if a[i] > b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v8f input vector
+ * \param b second \c v8f input vector
+ * \returns \c v8f vector acting like a mask
+ */
+m8f m8f_gt(v8f a, v8f b);
+/**
+ * \ingroup mcmp
+ * \related v8i
+ * \brief Compares if elements of \c a are greater than those of \c b.
+ * \details Compares if elements of \c a are greater than those of \c b.
+ *  The result is a \c m8i vector-mask where the ith element is set iif \c `a[i] > b[i]`.
+ * \impl
+for i from 0 to 7
+  if a[i] > b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v8i input vector
+ * \param b second \c v8i input vector
+ * \returns \c v8i vector acting like a mask
+ */
+m8i m8i_gt(v8i a, v8i b);
+/**
+ * \ingroup mcmp
+ * \related v8l
+ * \brief Compares if elements of \c a are greater than those of \c b.
+ * \details Compares if elements of \c a are greater than those of \c b.
+ *  The result is a \c m8l vector-mask where the ith element is set iif \c `a[i] > b[i]`.
+ * \impl
+for i from 0 to 7
+  if a[i] > b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v8l input vector
+ * \param b second \c v8l input vector
+ * \returns \c v8l vector acting like a mask
+ */
+m8l m8l_gt(v8l a, v8l b);
+/**
+ * \ingroup mcmp
+ * \related v16f
+ * \brief Compares if elements of \c a are greater than those of \c b.
+ * \details Compares if elements of \c a are greater than those of \c b.
+ *  The result is a \c m16f vector-mask where the ith element is set iif \c `a[i] > b[i]`.
+ * \impl
+for i from 0 to 15
+  if a[i] > b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v16f input vector
+ * \param b second \c v16f input vector
+ * \returns \c v16f vector acting like a mask
+ */
+m16f m16f_gt(v16f a, v16f b);
+/**
+ * \ingroup mcmp
+ * \related v16i
+ * \brief Compares if elements of \c a are greater than those of \c b.
+ * \details Compares if elements of \c a are greater than those of \c b.
+ *  The result is a \c m16i vector-mask where the ith element is set iif \c `a[i] > b[i]`.
+ * \impl
+for i from 0 to 15
+  if a[i] > b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v16i input vector
+ * \param b second \c v16i input vector
+ * \returns \c v16i vector acting like a mask
+ */
+m16i m16i_gt(v16i a, v16i b);
+
+/**
+ * \ingroup mcmp
+ * \related v1d
+ * \brief Compares if elements of \c a are greater than or equal to those of \c b.
+ * \details Compares if elements of \c a are greater than or equal to those of \c b.
+ *  The result is a \c m1d vector-mask where the ith element is set iif \c `a[i] >= b[i]`.
+ * \impl
+for i from 0 to 0
+  if a[i] >= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v1d input vector
+ * \param b second \c v1d input vector
+ * \returns \c v1d vector acting like a mask
+ */
+m1d m1d_geq(v1d a, v1d b);
+/**
+ * \ingroup mcmp
+ * \related v1f
+ * \brief Compares if elements of \c a are greater than or equal to those of \c b.
+ * \details Compares if elements of \c a are greater than or equal to those of \c b.
+ *  The result is a \c m1f vector-mask where the ith element is set iif \c `a[i] >= b[i]`.
+ * \impl
+for i from 0 to 0
+  if a[i] >= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v1f input vector
+ * \param b second \c v1f input vector
+ * \returns \c v1f vector acting like a mask
+ */
+m1f m1f_geq(v1f a, v1f b);
+/**
+ * \ingroup mcmp
+ * \related v1i
+ * \brief Compares if elements of \c a are greater than or equal to those of \c b.
+ * \details Compares if elements of \c a are greater than or equal to those of \c b.
+ *  The result is a \c m1i vector-mask where the ith element is set iif \c `a[i] >= b[i]`.
+ * \impl
+for i from 0 to 0
+  if a[i] >= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v1i input vector
+ * \param b second \c v1i input vector
+ * \returns \c v1i vector acting like a mask
+ */
+m1i m1i_geq(v1i a, v1i b);
+/**
+ * \ingroup mcmp
+ * \related v1l
+ * \brief Compares if elements of \c a are greater than or equal to those of \c b.
+ * \details Compares if elements of \c a are greater than or equal to those of \c b.
+ *  The result is a \c m1l vector-mask where the ith element is set iif \c `a[i] >= b[i]`.
+ * \impl
+for i from 0 to 0
+  if a[i] >= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v1l input vector
+ * \param b second \c v1l input vector
+ * \returns \c v1l vector acting like a mask
+ */
+m1l m1l_geq(v1l a, v1l b);
+/**
+ * \ingroup mcmp
+ * \related v2d
+ * \brief Compares if elements of \c a are greater than or equal to those of \c b.
+ * \details Compares if elements of \c a are greater than or equal to those of \c b.
+ *  The result is a \c m2d vector-mask where the ith element is set iif \c `a[i] >= b[i]`.
+ * \impl
+for i from 0 to 1
+  if a[i] >= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v2d input vector
+ * \param b second \c v2d input vector
+ * \returns \c v2d vector acting like a mask
+ */
+m2d m2d_geq(v2d a, v2d b);
+/**
+ * \ingroup mcmp
+ * \related v2f
+ * \brief Compares if elements of \c a are greater than or equal to those of \c b.
+ * \details Compares if elements of \c a are greater than or equal to those of \c b.
+ *  The result is a \c m2f vector-mask where the ith element is set iif \c `a[i] >= b[i]`.
+ * \impl
+for i from 0 to 1
+  if a[i] >= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v2f input vector
+ * \param b second \c v2f input vector
+ * \returns \c v2f vector acting like a mask
+ */
+m2f m2f_geq(v2f a, v2f b);
+/**
+ * \ingroup mcmp
+ * \related v2i
+ * \brief Compares if elements of \c a are greater than or equal to those of \c b.
+ * \details Compares if elements of \c a are greater than or equal to those of \c b.
+ *  The result is a \c m2i vector-mask where the ith element is set iif \c `a[i] >= b[i]`.
+ * \impl
+for i from 0 to 1
+  if a[i] >= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v2i input vector
+ * \param b second \c v2i input vector
+ * \returns \c v2i vector acting like a mask
+ */
+m2i m2i_geq(v2i a, v2i b);
+/**
+ * \ingroup mcmp
+ * \related v2l
+ * \brief Compares if elements of \c a are greater than or equal to those of \c b.
+ * \details Compares if elements of \c a are greater than or equal to those of \c b.
+ *  The result is a \c m2l vector-mask where the ith element is set iif \c `a[i] >= b[i]`.
+ * \impl
+for i from 0 to 1
+  if a[i] >= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v2l input vector
+ * \param b second \c v2l input vector
+ * \returns \c v2l vector acting like a mask
+ */
+m2l m2l_geq(v2l a, v2l b);
+/**
+ * \ingroup mcmp
+ * \related v4d
+ * \brief Compares if elements of \c a are greater than or equal to those of \c b.
+ * \details Compares if elements of \c a are greater than or equal to those of \c b.
+ *  The result is a \c m4d vector-mask where the ith element is set iif \c `a[i] >= b[i]`.
+ * \impl
+for i from 0 to 3
+  if a[i] >= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v4d input vector
+ * \param b second \c v4d input vector
+ * \returns \c v4d vector acting like a mask
+ */
+m4d m4d_geq(v4d a, v4d b);
+/**
+ * \ingroup mcmp
+ * \related v4f
+ * \brief Compares if elements of \c a are greater than or equal to those of \c b.
+ * \details Compares if elements of \c a are greater than or equal to those of \c b.
+ *  The result is a \c m4f vector-mask where the ith element is set iif \c `a[i] >= b[i]`.
+ * \impl
+for i from 0 to 3
+  if a[i] >= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v4f input vector
+ * \param b second \c v4f input vector
+ * \returns \c v4f vector acting like a mask
+ */
+m4f m4f_geq(v4f a, v4f b);
+/**
+ * \ingroup mcmp
+ * \related v4i
+ * \brief Compares if elements of \c a are greater than or equal to those of \c b.
+ * \details Compares if elements of \c a are greater than or equal to those of \c b.
+ *  The result is a \c m4i vector-mask where the ith element is set iif \c `a[i] >= b[i]`.
+ * \impl
+for i from 0 to 3
+  if a[i] >= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v4i input vector
+ * \param b second \c v4i input vector
+ * \returns \c v4i vector acting like a mask
+ */
+m4i m4i_geq(v4i a, v4i b);
+/**
+ * \ingroup mcmp
+ * \related v4l
+ * \brief Compares if elements of \c a are greater than or equal to those of \c b.
+ * \details Compares if elements of \c a are greater than or equal to those of \c b.
+ *  The result is a \c m4l vector-mask where the ith element is set iif \c `a[i] >= b[i]`.
+ * \impl
+for i from 0 to 3
+  if a[i] >= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v4l input vector
+ * \param b second \c v4l input vector
+ * \returns \c v4l vector acting like a mask
+ */
+m4l m4l_geq(v4l a, v4l b);
+/**
+ * \ingroup mcmp
+ * \related v8d
+ * \brief Compares if elements of \c a are greater than or equal to those of \c b.
+ * \details Compares if elements of \c a are greater than or equal to those of \c b.
+ *  The result is a \c m8d vector-mask where the ith element is set iif \c `a[i] >= b[i]`.
+ * \impl
+for i from 0 to 7
+  if a[i] >= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v8d input vector
+ * \param b second \c v8d input vector
+ * \returns \c v8d vector acting like a mask
+ */
+m8d m8d_geq(v8d a, v8d b);
+/**
+ * \ingroup mcmp
+ * \related v8f
+ * \brief Compares if elements of \c a are greater than or equal to those of \c b.
+ * \details Compares if elements of \c a are greater than or equal to those of \c b.
+ *  The result is a \c m8f vector-mask where the ith element is set iif \c `a[i] >= b[i]`.
+ * \impl
+for i from 0 to 7
+  if a[i] >= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v8f input vector
+ * \param b second \c v8f input vector
+ * \returns \c v8f vector acting like a mask
+ */
+m8f m8f_geq(v8f a, v8f b);
+/**
+ * \ingroup mcmp
+ * \related v8i
+ * \brief Compares if elements of \c a are greater than or equal to those of \c b.
+ * \details Compares if elements of \c a are greater than or equal to those of \c b.
+ *  The result is a \c m8i vector-mask where the ith element is set iif \c `a[i] >= b[i]`.
+ * \impl
+for i from 0 to 7
+  if a[i] >= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v8i input vector
+ * \param b second \c v8i input vector
+ * \returns \c v8i vector acting like a mask
+ */
+m8i m8i_geq(v8i a, v8i b);
+/**
+ * \ingroup mcmp
+ * \related v8l
+ * \brief Compares if elements of \c a are greater than or equal to those of \c b.
+ * \details Compares if elements of \c a are greater than or equal to those of \c b.
+ *  The result is a \c m8l vector-mask where the ith element is set iif \c `a[i] >= b[i]`.
+ * \impl
+for i from 0 to 7
+  if a[i] >= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v8l input vector
+ * \param b second \c v8l input vector
+ * \returns \c v8l vector acting like a mask
+ */
+m8l m8l_geq(v8l a, v8l b);
+/**
+ * \ingroup mcmp
+ * \related v16f
+ * \brief Compares if elements of \c a are greater than or equal to those of \c b.
+ * \details Compares if elements of \c a are greater than or equal to those of \c b.
+ *  The result is a \c m16f vector-mask where the ith element is set iif \c `a[i] >= b[i]`.
+ * \impl
+for i from 0 to 15
+  if a[i] >= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v16f input vector
+ * \param b second \c v16f input vector
+ * \returns \c v16f vector acting like a mask
+ */
+m16f m16f_geq(v16f a, v16f b);
+/**
+ * \ingroup mcmp
+ * \related v16i
+ * \brief Compares if elements of \c a are greater than or equal to those of \c b.
+ * \details Compares if elements of \c a are greater than or equal to those of \c b.
+ *  The result is a \c m16i vector-mask where the ith element is set iif \c `a[i] >= b[i]`.
+ * \impl
+for i from 0 to 15
+  if a[i] >= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v16i input vector
+ * \param b second \c v16i input vector
+ * \returns \c v16i vector acting like a mask
+ */
+m16i m16i_geq(v16i a, v16i b);
+
+/**
+ * \ingroup mcmp
+ * \related v1d
+ * \brief Compares if elements of \c a are less than those of \c b.
+ * \details Compares if elements of \c a are less than those of \c b.
+ *  The result is a \c m1d vector-mask where the ith element is set iif \c `a[i] < b[i]`.
+ * \impl
+for i from 0 to 0
+  if a[i] < b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v1d input vector
+ * \param b second \c v1d input vector
+ * \returns \c v1d vector acting like a mask
+ */
+m1d m1d_lt(v1d a, v1d b);
+/**
+ * \ingroup mcmp
+ * \related v1f
+ * \brief Compares if elements of \c a are less than those of \c b.
+ * \details Compares if elements of \c a are less than those of \c b.
+ *  The result is a \c m1f vector-mask where the ith element is set iif \c `a[i] < b[i]`.
+ * \impl
+for i from 0 to 0
+  if a[i] < b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v1f input vector
+ * \param b second \c v1f input vector
+ * \returns \c v1f vector acting like a mask
+ */
+m1f m1f_lt(v1f a, v1f b);
+/**
+ * \ingroup mcmp
+ * \related v1i
+ * \brief Compares if elements of \c a are less than those of \c b.
+ * \details Compares if elements of \c a are less than those of \c b.
+ *  The result is a \c m1i vector-mask where the ith element is set iif \c `a[i] < b[i]`.
+ * \impl
+for i from 0 to 0
+  if a[i] < b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v1i input vector
+ * \param b second \c v1i input vector
+ * \returns \c v1i vector acting like a mask
+ */
+m1i m1i_lt(v1i a, v1i b);
+/**
+ * \ingroup mcmp
+ * \related v1l
+ * \brief Compares if elements of \c a are less than those of \c b.
+ * \details Compares if elements of \c a are less than those of \c b.
+ *  The result is a \c m1l vector-mask where the ith element is set iif \c `a[i] < b[i]`.
+ * \impl
+for i from 0 to 0
+  if a[i] < b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v1l input vector
+ * \param b second \c v1l input vector
+ * \returns \c v1l vector acting like a mask
+ */
+m1l m1l_lt(v1l a, v1l b);
+/**
+ * \ingroup mcmp
+ * \related v2d
+ * \brief Compares if elements of \c a are less than those of \c b.
+ * \details Compares if elements of \c a are less than those of \c b.
+ *  The result is a \c m2d vector-mask where the ith element is set iif \c `a[i] < b[i]`.
+ * \impl
+for i from 0 to 1
+  if a[i] < b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v2d input vector
+ * \param b second \c v2d input vector
+ * \returns \c v2d vector acting like a mask
+ */
+m2d m2d_lt(v2d a, v2d b);
+/**
+ * \ingroup mcmp
+ * \related v2f
+ * \brief Compares if elements of \c a are less than those of \c b.
+ * \details Compares if elements of \c a are less than those of \c b.
+ *  The result is a \c m2f vector-mask where the ith element is set iif \c `a[i] < b[i]`.
+ * \impl
+for i from 0 to 1
+  if a[i] < b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v2f input vector
+ * \param b second \c v2f input vector
+ * \returns \c v2f vector acting like a mask
+ */
+m2f m2f_lt(v2f a, v2f b);
+/**
+ * \ingroup mcmp
+ * \related v2i
+ * \brief Compares if elements of \c a are less than those of \c b.
+ * \details Compares if elements of \c a are less than those of \c b.
+ *  The result is a \c m2i vector-mask where the ith element is set iif \c `a[i] < b[i]`.
+ * \impl
+for i from 0 to 1
+  if a[i] < b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v2i input vector
+ * \param b second \c v2i input vector
+ * \returns \c v2i vector acting like a mask
+ */
+m2i m2i_lt(v2i a, v2i b);
+/**
+ * \ingroup mcmp
+ * \related v2l
+ * \brief Compares if elements of \c a are less than those of \c b.
+ * \details Compares if elements of \c a are less than those of \c b.
+ *  The result is a \c m2l vector-mask where the ith element is set iif \c `a[i] < b[i]`.
+ * \impl
+for i from 0 to 1
+  if a[i] < b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v2l input vector
+ * \param b second \c v2l input vector
+ * \returns \c v2l vector acting like a mask
+ */
+m2l m2l_lt(v2l a, v2l b);
+/**
+ * \ingroup mcmp
+ * \related v4d
+ * \brief Compares if elements of \c a are less than those of \c b.
+ * \details Compares if elements of \c a are less than those of \c b.
+ *  The result is a \c m4d vector-mask where the ith element is set iif \c `a[i] < b[i]`.
+ * \impl
+for i from 0 to 3
+  if a[i] < b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v4d input vector
+ * \param b second \c v4d input vector
+ * \returns \c v4d vector acting like a mask
+ */
+m4d m4d_lt(v4d a, v4d b);
+/**
+ * \ingroup mcmp
+ * \related v4f
+ * \brief Compares if elements of \c a are less than those of \c b.
+ * \details Compares if elements of \c a are less than those of \c b.
+ *  The result is a \c m4f vector-mask where the ith element is set iif \c `a[i] < b[i]`.
+ * \impl
+for i from 0 to 3
+  if a[i] < b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v4f input vector
+ * \param b second \c v4f input vector
+ * \returns \c v4f vector acting like a mask
+ */
+m4f m4f_lt(v4f a, v4f b);
+/**
+ * \ingroup mcmp
+ * \related v4i
+ * \brief Compares if elements of \c a are less than those of \c b.
+ * \details Compares if elements of \c a are less than those of \c b.
+ *  The result is a \c m4i vector-mask where the ith element is set iif \c `a[i] < b[i]`.
+ * \impl
+for i from 0 to 3
+  if a[i] < b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v4i input vector
+ * \param b second \c v4i input vector
+ * \returns \c v4i vector acting like a mask
+ */
+m4i m4i_lt(v4i a, v4i b);
+/**
+ * \ingroup mcmp
+ * \related v4l
+ * \brief Compares if elements of \c a are less than those of \c b.
+ * \details Compares if elements of \c a are less than those of \c b.
+ *  The result is a \c m4l vector-mask where the ith element is set iif \c `a[i] < b[i]`.
+ * \impl
+for i from 0 to 3
+  if a[i] < b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v4l input vector
+ * \param b second \c v4l input vector
+ * \returns \c v4l vector acting like a mask
+ */
+m4l m4l_lt(v4l a, v4l b);
+/**
+ * \ingroup mcmp
+ * \related v8d
+ * \brief Compares if elements of \c a are less than those of \c b.
+ * \details Compares if elements of \c a are less than those of \c b.
+ *  The result is a \c m8d vector-mask where the ith element is set iif \c `a[i] < b[i]`.
+ * \impl
+for i from 0 to 7
+  if a[i] < b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v8d input vector
+ * \param b second \c v8d input vector
+ * \returns \c v8d vector acting like a mask
+ */
+m8d m8d_lt(v8d a, v8d b);
+/**
+ * \ingroup mcmp
+ * \related v8f
+ * \brief Compares if elements of \c a are less than those of \c b.
+ * \details Compares if elements of \c a are less than those of \c b.
+ *  The result is a \c m8f vector-mask where the ith element is set iif \c `a[i] < b[i]`.
+ * \impl
+for i from 0 to 7
+  if a[i] < b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v8f input vector
+ * \param b second \c v8f input vector
+ * \returns \c v8f vector acting like a mask
+ */
+m8f m8f_lt(v8f a, v8f b);
+/**
+ * \ingroup mcmp
+ * \related v8i
+ * \brief Compares if elements of \c a are less than those of \c b.
+ * \details Compares if elements of \c a are less than those of \c b.
+ *  The result is a \c m8i vector-mask where the ith element is set iif \c `a[i] < b[i]`.
+ * \impl
+for i from 0 to 7
+  if a[i] < b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v8i input vector
+ * \param b second \c v8i input vector
+ * \returns \c v8i vector acting like a mask
+ */
+m8i m8i_lt(v8i a, v8i b);
+/**
+ * \ingroup mcmp
+ * \related v8l
+ * \brief Compares if elements of \c a are less than those of \c b.
+ * \details Compares if elements of \c a are less than those of \c b.
+ *  The result is a \c m8l vector-mask where the ith element is set iif \c `a[i] < b[i]`.
+ * \impl
+for i from 0 to 7
+  if a[i] < b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v8l input vector
+ * \param b second \c v8l input vector
+ * \returns \c v8l vector acting like a mask
+ */
+m8l m8l_lt(v8l a, v8l b);
+/**
+ * \ingroup mcmp
+ * \related v16f
+ * \brief Compares if elements of \c a are less than those of \c b.
+ * \details Compares if elements of \c a are less than those of \c b.
+ *  The result is a \c m16f vector-mask where the ith element is set iif \c `a[i] < b[i]`.
+ * \impl
+for i from 0 to 15
+  if a[i] < b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v16f input vector
+ * \param b second \c v16f input vector
+ * \returns \c v16f vector acting like a mask
+ */
+m16f m16f_lt(v16f a, v16f b);
+/**
+ * \ingroup mcmp
+ * \related v16i
+ * \brief Compares if elements of \c a are less than those of \c b.
+ * \details Compares if elements of \c a are less than those of \c b.
+ *  The result is a \c m16i vector-mask where the ith element is set iif \c `a[i] < b[i]`.
+ * \impl
+for i from 0 to 15
+  if a[i] < b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v16i input vector
+ * \param b second \c v16i input vector
+ * \returns \c v16i vector acting like a mask
+ */
+m16i m16i_lt(v16i a, v16i b);
+
+/**
+ * \ingroup mcmp
+ * \related v1d
+ * \brief Compares if elements of \c a are less than or equal to those of \c b.
+ * \details Compares if elements of \c a are less than or equal to those of \c b.
+ *  The result is a \c m1d vector-mask where the ith element is set iif \c `a[i] <= b[i]`.
+ * \impl
+for i from 0 to 0
+  if a[i] <= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v1d input vector
+ * \param b second \c v1d input vector
+ * \returns \c v1d vector acting like a mask
+ */
+m1d m1d_leq(v1d a, v1d b);
+/**
+ * \ingroup mcmp
+ * \related v1f
+ * \brief Compares if elements of \c a are less than or equal to those of \c b.
+ * \details Compares if elements of \c a are less than or equal to those of \c b.
+ *  The result is a \c m1f vector-mask where the ith element is set iif \c `a[i] <= b[i]`.
+ * \impl
+for i from 0 to 0
+  if a[i] <= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v1f input vector
+ * \param b second \c v1f input vector
+ * \returns \c v1f vector acting like a mask
+ */
+m1f m1f_leq(v1f a, v1f b);
+/**
+ * \ingroup mcmp
+ * \related v1i
+ * \brief Compares if elements of \c a are less than or equal to those of \c b.
+ * \details Compares if elements of \c a are less than or equal to those of \c b.
+ *  The result is a \c m1i vector-mask where the ith element is set iif \c `a[i] <= b[i]`.
+ * \impl
+for i from 0 to 0
+  if a[i] <= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v1i input vector
+ * \param b second \c v1i input vector
+ * \returns \c v1i vector acting like a mask
+ */
+m1i m1i_leq(v1i a, v1i b);
+/**
+ * \ingroup mcmp
+ * \related v1l
+ * \brief Compares if elements of \c a are less than or equal to those of \c b.
+ * \details Compares if elements of \c a are less than or equal to those of \c b.
+ *  The result is a \c m1l vector-mask where the ith element is set iif \c `a[i] <= b[i]`.
+ * \impl
+for i from 0 to 0
+  if a[i] <= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v1l input vector
+ * \param b second \c v1l input vector
+ * \returns \c v1l vector acting like a mask
+ */
+m1l m1l_leq(v1l a, v1l b);
+/**
+ * \ingroup mcmp
+ * \related v2d
+ * \brief Compares if elements of \c a are less than or equal to those of \c b.
+ * \details Compares if elements of \c a are less than or equal to those of \c b.
+ *  The result is a \c m2d vector-mask where the ith element is set iif \c `a[i] <= b[i]`.
+ * \impl
+for i from 0 to 1
+  if a[i] <= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v2d input vector
+ * \param b second \c v2d input vector
+ * \returns \c v2d vector acting like a mask
+ */
+m2d m2d_leq(v2d a, v2d b);
+/**
+ * \ingroup mcmp
+ * \related v2f
+ * \brief Compares if elements of \c a are less than or equal to those of \c b.
+ * \details Compares if elements of \c a are less than or equal to those of \c b.
+ *  The result is a \c m2f vector-mask where the ith element is set iif \c `a[i] <= b[i]`.
+ * \impl
+for i from 0 to 1
+  if a[i] <= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v2f input vector
+ * \param b second \c v2f input vector
+ * \returns \c v2f vector acting like a mask
+ */
+m2f m2f_leq(v2f a, v2f b);
+/**
+ * \ingroup mcmp
+ * \related v2i
+ * \brief Compares if elements of \c a are less than or equal to those of \c b.
+ * \details Compares if elements of \c a are less than or equal to those of \c b.
+ *  The result is a \c m2i vector-mask where the ith element is set iif \c `a[i] <= b[i]`.
+ * \impl
+for i from 0 to 1
+  if a[i] <= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v2i input vector
+ * \param b second \c v2i input vector
+ * \returns \c v2i vector acting like a mask
+ */
+m2i m2i_leq(v2i a, v2i b);
+/**
+ * \ingroup mcmp
+ * \related v2l
+ * \brief Compares if elements of \c a are less than or equal to those of \c b.
+ * \details Compares if elements of \c a are less than or equal to those of \c b.
+ *  The result is a \c m2l vector-mask where the ith element is set iif \c `a[i] <= b[i]`.
+ * \impl
+for i from 0 to 1
+  if a[i] <= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v2l input vector
+ * \param b second \c v2l input vector
+ * \returns \c v2l vector acting like a mask
+ */
+m2l m2l_leq(v2l a, v2l b);
+/**
+ * \ingroup mcmp
+ * \related v4d
+ * \brief Compares if elements of \c a are less than or equal to those of \c b.
+ * \details Compares if elements of \c a are less than or equal to those of \c b.
+ *  The result is a \c m4d vector-mask where the ith element is set iif \c `a[i] <= b[i]`.
+ * \impl
+for i from 0 to 3
+  if a[i] <= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v4d input vector
+ * \param b second \c v4d input vector
+ * \returns \c v4d vector acting like a mask
+ */
+m4d m4d_leq(v4d a, v4d b);
+/**
+ * \ingroup mcmp
+ * \related v4f
+ * \brief Compares if elements of \c a are less than or equal to those of \c b.
+ * \details Compares if elements of \c a are less than or equal to those of \c b.
+ *  The result is a \c m4f vector-mask where the ith element is set iif \c `a[i] <= b[i]`.
+ * \impl
+for i from 0 to 3
+  if a[i] <= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v4f input vector
+ * \param b second \c v4f input vector
+ * \returns \c v4f vector acting like a mask
+ */
+m4f m4f_leq(v4f a, v4f b);
+/**
+ * \ingroup mcmp
+ * \related v4i
+ * \brief Compares if elements of \c a are less than or equal to those of \c b.
+ * \details Compares if elements of \c a are less than or equal to those of \c b.
+ *  The result is a \c m4i vector-mask where the ith element is set iif \c `a[i] <= b[i]`.
+ * \impl
+for i from 0 to 3
+  if a[i] <= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v4i input vector
+ * \param b second \c v4i input vector
+ * \returns \c v4i vector acting like a mask
+ */
+m4i m4i_leq(v4i a, v4i b);
+/**
+ * \ingroup mcmp
+ * \related v4l
+ * \brief Compares if elements of \c a are less than or equal to those of \c b.
+ * \details Compares if elements of \c a are less than or equal to those of \c b.
+ *  The result is a \c m4l vector-mask where the ith element is set iif \c `a[i] <= b[i]`.
+ * \impl
+for i from 0 to 3
+  if a[i] <= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v4l input vector
+ * \param b second \c v4l input vector
+ * \returns \c v4l vector acting like a mask
+ */
+m4l m4l_leq(v4l a, v4l b);
+/**
+ * \ingroup mcmp
+ * \related v8d
+ * \brief Compares if elements of \c a are less than or equal to those of \c b.
+ * \details Compares if elements of \c a are less than or equal to those of \c b.
+ *  The result is a \c m8d vector-mask where the ith element is set iif \c `a[i] <= b[i]`.
+ * \impl
+for i from 0 to 7
+  if a[i] <= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v8d input vector
+ * \param b second \c v8d input vector
+ * \returns \c v8d vector acting like a mask
+ */
+m8d m8d_leq(v8d a, v8d b);
+/**
+ * \ingroup mcmp
+ * \related v8f
+ * \brief Compares if elements of \c a are less than or equal to those of \c b.
+ * \details Compares if elements of \c a are less than or equal to those of \c b.
+ *  The result is a \c m8f vector-mask where the ith element is set iif \c `a[i] <= b[i]`.
+ * \impl
+for i from 0 to 7
+  if a[i] <= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v8f input vector
+ * \param b second \c v8f input vector
+ * \returns \c v8f vector acting like a mask
+ */
+m8f m8f_leq(v8f a, v8f b);
+/**
+ * \ingroup mcmp
+ * \related v8i
+ * \brief Compares if elements of \c a are less than or equal to those of \c b.
+ * \details Compares if elements of \c a are less than or equal to those of \c b.
+ *  The result is a \c m8i vector-mask where the ith element is set iif \c `a[i] <= b[i]`.
+ * \impl
+for i from 0 to 7
+  if a[i] <= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v8i input vector
+ * \param b second \c v8i input vector
+ * \returns \c v8i vector acting like a mask
+ */
+m8i m8i_leq(v8i a, v8i b);
+/**
+ * \ingroup mcmp
+ * \related v8l
+ * \brief Compares if elements of \c a are less than or equal to those of \c b.
+ * \details Compares if elements of \c a are less than or equal to those of \c b.
+ *  The result is a \c m8l vector-mask where the ith element is set iif \c `a[i] <= b[i]`.
+ * \impl
+for i from 0 to 7
+  if a[i] <= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v8l input vector
+ * \param b second \c v8l input vector
+ * \returns \c v8l vector acting like a mask
+ */
+m8l m8l_leq(v8l a, v8l b);
+/**
+ * \ingroup mcmp
+ * \related v16f
+ * \brief Compares if elements of \c a are less than or equal to those of \c b.
+ * \details Compares if elements of \c a are less than or equal to those of \c b.
+ *  The result is a \c m16f vector-mask where the ith element is set iif \c `a[i] <= b[i]`.
+ * \impl
+for i from 0 to 15
+  if a[i] <= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v16f input vector
+ * \param b second \c v16f input vector
+ * \returns \c v16f vector acting like a mask
+ */
+m16f m16f_leq(v16f a, v16f b);
+/**
+ * \ingroup mcmp
+ * \related v16i
+ * \brief Compares if elements of \c a are less than or equal to those of \c b.
+ * \details Compares if elements of \c a are less than or equal to those of \c b.
+ *  The result is a \c m16i vector-mask where the ith element is set iif \c `a[i] <= b[i]`.
+ * \impl
+for i from 0 to 15
+  if a[i] <= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c v16i input vector
+ * \param b second \c v16i input vector
+ * \returns \c v16i vector acting like a mask
+ */
+m16i m16i_leq(v16i a, v16i b);
+
+
+/* LOGIC */
+/** \defgroup mlogic logical mask functions
+ * \ingroup maskop
+ * 
+ */
+
+/**
+ * \ingroup mlogic
+ * \related v1d
+ * \brief Bitwise and ( \c `a & b` )
+ * \details Performs the bitwise and on the two \c m1d input vector-masks \c a and \c b.
+ * \impl
+dst[0] = a[0] & b[0]
+\endimpl
+ * \param a first \c m1d input vector-mask
+ * \param b second \c m1d input vector-mask
+ * \returns "bitwise and"ed \c m1d vector-mask
+ */
+m1d m1d_and(m1d a, m1d b);
+/**
+ * \ingroup mlogic
+ * \related v1f
+ * \brief Bitwise and ( \c `a & b` )
+ * \details Performs the bitwise and on the two \c m1f input vector-masks \c a and \c b.
+ * \impl
+dst[0] = a[0] & b[0]
+\endimpl
+ * \param a first \c m1f input vector-mask
+ * \param b second \c m1f input vector-mask
+ * \returns "bitwise and"ed \c m1f vector-mask
+ */
+m1f m1f_and(m1f a, m1f b);
+/**
+ * \ingroup mlogic
+ * \related v1i
+ * \brief Bitwise and ( \c `a & b` )
+ * \details Performs the bitwise and on the two \c m1i input vector-masks \c a and \c b.
+ * \impl
+dst[0] = a[0] & b[0]
+\endimpl
+ * \param a first \c m1i input vector-mask
+ * \param b second \c m1i input vector-mask
+ * \returns "bitwise and"ed \c m1i vector-mask
+ */
+m1i m1i_and(m1i a, m1i b);
+/**
+ * \ingroup mlogic
+ * \related v1l
+ * \brief Bitwise and ( \c `a & b` )
+ * \details Performs the bitwise and on the two \c m1l input vector-masks \c a and \c b.
+ * \impl
+dst[0] = a[0] & b[0]
+\endimpl
+ * \param a first \c m1l input vector-mask
+ * \param b second \c m1l input vector-mask
+ * \returns "bitwise and"ed \c m1l vector-mask
+ */
+m1l m1l_and(m1l a, m1l b);
+/**
+ * \ingroup mlogic
+ * \related v2d
+ * \brief Bitwise and ( \c `a & b` )
+ * \details Performs the bitwise and on the two \c m2d input vector-masks \c a and \c b.
+ * \impl
+dst[0:1] = a[0:1] & b[0:1]
+\endimpl
+ * \param a first \c m2d input vector-mask
+ * \param b second \c m2d input vector-mask
+ * \returns "bitwise and"ed \c m2d vector-mask
+ */
+m2d m2d_and(m2d a, m2d b);
+/**
+ * \ingroup mlogic
+ * \related v2f
+ * \brief Bitwise and ( \c `a & b` )
+ * \details Performs the bitwise and on the two \c m2f input vector-masks \c a and \c b.
+ * \impl
+dst[0:1] = a[0:1] & b[0:1]
+\endimpl
+ * \param a first \c m2f input vector-mask
+ * \param b second \c m2f input vector-mask
+ * \returns "bitwise and"ed \c m2f vector-mask
+ */
+m2f m2f_and(m2f a, m2f b);
+/**
+ * \ingroup mlogic
+ * \related v2i
+ * \brief Bitwise and ( \c `a & b` )
+ * \details Performs the bitwise and on the two \c m2i input vector-masks \c a and \c b.
+ * \impl
+dst[0:1] = a[0:1] & b[0:1]
+\endimpl
+ * \param a first \c m2i input vector-mask
+ * \param b second \c m2i input vector-mask
+ * \returns "bitwise and"ed \c m2i vector-mask
+ */
+m2i m2i_and(m2i a, m2i b);
+/**
+ * \ingroup mlogic
+ * \related v2l
+ * \brief Bitwise and ( \c `a & b` )
+ * \details Performs the bitwise and on the two \c m2l input vector-masks \c a and \c b.
+ * \impl
+dst[0:1] = a[0:1] & b[0:1]
+\endimpl
+ * \param a first \c m2l input vector-mask
+ * \param b second \c m2l input vector-mask
+ * \returns "bitwise and"ed \c m2l vector-mask
+ */
+m2l m2l_and(m2l a, m2l b);
+/**
+ * \ingroup mlogic
+ * \related v4d
+ * \brief Bitwise and ( \c `a & b` )
+ * \details Performs the bitwise and on the two \c m4d input vector-masks \c a and \c b.
+ * \impl
+dst[0:3] = a[0:3] & b[0:3]
+\endimpl
+ * \param a first \c m4d input vector-mask
+ * \param b second \c m4d input vector-mask
+ * \returns "bitwise and"ed \c m4d vector-mask
+ */
+m4d m4d_and(m4d a, m4d b);
+/**
+ * \ingroup mlogic
+ * \related v4f
+ * \brief Bitwise and ( \c `a & b` )
+ * \details Performs the bitwise and on the two \c m4f input vector-masks \c a and \c b.
+ * \impl
+dst[0:3] = a[0:3] & b[0:3]
+\endimpl
+ * \param a first \c m4f input vector-mask
+ * \param b second \c m4f input vector-mask
+ * \returns "bitwise and"ed \c m4f vector-mask
+ */
+m4f m4f_and(m4f a, m4f b);
+/**
+ * \ingroup mlogic
+ * \related v4i
+ * \brief Bitwise and ( \c `a & b` )
+ * \details Performs the bitwise and on the two \c m4i input vector-masks \c a and \c b.
+ * \impl
+dst[0:3] = a[0:3] & b[0:3]
+\endimpl
+ * \param a first \c m4i input vector-mask
+ * \param b second \c m4i input vector-mask
+ * \returns "bitwise and"ed \c m4i vector-mask
+ */
+m4i m4i_and(m4i a, m4i b);
+/**
+ * \ingroup mlogic
+ * \related v4l
+ * \brief Bitwise and ( \c `a & b` )
+ * \details Performs the bitwise and on the two \c m4l input vector-masks \c a and \c b.
+ * \impl
+dst[0:3] = a[0:3] & b[0:3]
+\endimpl
+ * \param a first \c m4l input vector-mask
+ * \param b second \c m4l input vector-mask
+ * \returns "bitwise and"ed \c m4l vector-mask
+ */
+m4l m4l_and(m4l a, m4l b);
+/**
+ * \ingroup mlogic
+ * \related v8d
+ * \brief Bitwise and ( \c `a & b` )
+ * \details Performs the bitwise and on the two \c m8d input vector-masks \c a and \c b.
+ * \impl
+dst[0:7] = a[0:7] & b[0:7]
+\endimpl
+ * \param a first \c m8d input vector-mask
+ * \param b second \c m8d input vector-mask
+ * \returns "bitwise and"ed \c m8d vector-mask
+ */
+m8d m8d_and(m8d a, m8d b);
+/**
+ * \ingroup mlogic
+ * \related v8f
+ * \brief Bitwise and ( \c `a & b` )
+ * \details Performs the bitwise and on the two \c m8f input vector-masks \c a and \c b.
+ * \impl
+dst[0:7] = a[0:7] & b[0:7]
+\endimpl
+ * \param a first \c m8f input vector-mask
+ * \param b second \c m8f input vector-mask
+ * \returns "bitwise and"ed \c m8f vector-mask
+ */
+m8f m8f_and(m8f a, m8f b);
+/**
+ * \ingroup mlogic
+ * \related v8i
+ * \brief Bitwise and ( \c `a & b` )
+ * \details Performs the bitwise and on the two \c m8i input vector-masks \c a and \c b.
+ * \impl
+dst[0:7] = a[0:7] & b[0:7]
+\endimpl
+ * \param a first \c m8i input vector-mask
+ * \param b second \c m8i input vector-mask
+ * \returns "bitwise and"ed \c m8i vector-mask
+ */
+m8i m8i_and(m8i a, m8i b);
+/**
+ * \ingroup mlogic
+ * \related v8l
+ * \brief Bitwise and ( \c `a & b` )
+ * \details Performs the bitwise and on the two \c m8l input vector-masks \c a and \c b.
+ * \impl
+dst[0:7] = a[0:7] & b[0:7]
+\endimpl
+ * \param a first \c m8l input vector-mask
+ * \param b second \c m8l input vector-mask
+ * \returns "bitwise and"ed \c m8l vector-mask
+ */
+m8l m8l_and(m8l a, m8l b);
+/**
+ * \ingroup mlogic
+ * \related v16f
+ * \brief Bitwise and ( \c `a & b` )
+ * \details Performs the bitwise and on the two \c m16f input vector-masks \c a and \c b.
+ * \impl
+dst[0:15] = a[0:15] & b[0:15]
+\endimpl
+ * \param a first \c m16f input vector-mask
+ * \param b second \c m16f input vector-mask
+ * \returns "bitwise and"ed \c m16f vector-mask
+ */
+m16f m16f_and(m16f a, m16f b);
+/**
+ * \ingroup mlogic
+ * \related v16i
+ * \brief Bitwise and ( \c `a & b` )
+ * \details Performs the bitwise and on the two \c m16i input vector-masks \c a and \c b.
+ * \impl
+dst[0:15] = a[0:15] & b[0:15]
+\endimpl
+ * \param a first \c m16i input vector-mask
+ * \param b second \c m16i input vector-mask
+ * \returns "bitwise and"ed \c m16i vector-mask
+ */
+m16i m16i_and(m16i a, m16i b);
+
+/**
+ * \ingroup mlogic
+ * \related v1d
+ * \brief Bitwise or ( \c `a | b` )
+ * \details Performs the bitwise or on the two \c m1d input vector-masks \c a and \c b.
+ * \impl
+dst[0] = a[0] | b[0]
+\endimpl
+ * \param a first \c m1d input vector-mask
+ * \param b second \c m1d input vector-mask
+ * \returns "bitwise or"ed \c m1d vector-mask
+ */
+m1d m1d_or(m1d a, m1d b);
+/**
+ * \ingroup mlogic
+ * \related v1f
+ * \brief Bitwise or ( \c `a | b` )
+ * \details Performs the bitwise or on the two \c m1f input vector-masks \c a and \c b.
+ * \impl
+dst[0] = a[0] | b[0]
+\endimpl
+ * \param a first \c m1f input vector-mask
+ * \param b second \c m1f input vector-mask
+ * \returns "bitwise or"ed \c m1f vector-mask
+ */
+m1f m1f_or(m1f a, m1f b);
+/**
+ * \ingroup mlogic
+ * \related v1i
+ * \brief Bitwise or ( \c `a | b` )
+ * \details Performs the bitwise or on the two \c m1i input vector-masks \c a and \c b.
+ * \impl
+dst[0] = a[0] | b[0]
+\endimpl
+ * \param a first \c m1i input vector-mask
+ * \param b second \c m1i input vector-mask
+ * \returns "bitwise or"ed \c m1i vector-mask
+ */
+m1i m1i_or(m1i a, m1i b);
+/**
+ * \ingroup mlogic
+ * \related v1l
+ * \brief Bitwise or ( \c `a | b` )
+ * \details Performs the bitwise or on the two \c m1l input vector-masks \c a and \c b.
+ * \impl
+dst[0] = a[0] | b[0]
+\endimpl
+ * \param a first \c m1l input vector-mask
+ * \param b second \c m1l input vector-mask
+ * \returns "bitwise or"ed \c m1l vector-mask
+ */
+m1l m1l_or(m1l a, m1l b);
+/**
+ * \ingroup mlogic
+ * \related v2d
+ * \brief Bitwise or ( \c `a | b` )
+ * \details Performs the bitwise or on the two \c m2d input vector-masks \c a and \c b.
+ * \impl
+dst[0:1] = a[0:1] | b[0:1]
+\endimpl
+ * \param a first \c m2d input vector-mask
+ * \param b second \c m2d input vector-mask
+ * \returns "bitwise or"ed \c m2d vector-mask
+ */
+m2d m2d_or(m2d a, m2d b);
+/**
+ * \ingroup mlogic
+ * \related v2f
+ * \brief Bitwise or ( \c `a | b` )
+ * \details Performs the bitwise or on the two \c m2f input vector-masks \c a and \c b.
+ * \impl
+dst[0:1] = a[0:1] | b[0:1]
+\endimpl
+ * \param a first \c m2f input vector-mask
+ * \param b second \c m2f input vector-mask
+ * \returns "bitwise or"ed \c m2f vector-mask
+ */
+m2f m2f_or(m2f a, m2f b);
+/**
+ * \ingroup mlogic
+ * \related v2i
+ * \brief Bitwise or ( \c `a | b` )
+ * \details Performs the bitwise or on the two \c m2i input vector-masks \c a and \c b.
+ * \impl
+dst[0:1] = a[0:1] | b[0:1]
+\endimpl
+ * \param a first \c m2i input vector-mask
+ * \param b second \c m2i input vector-mask
+ * \returns "bitwise or"ed \c m2i vector-mask
+ */
+m2i m2i_or(m2i a, m2i b);
+/**
+ * \ingroup mlogic
+ * \related v2l
+ * \brief Bitwise or ( \c `a | b` )
+ * \details Performs the bitwise or on the two \c m2l input vector-masks \c a and \c b.
+ * \impl
+dst[0:1] = a[0:1] | b[0:1]
+\endimpl
+ * \param a first \c m2l input vector-mask
+ * \param b second \c m2l input vector-mask
+ * \returns "bitwise or"ed \c m2l vector-mask
+ */
+m2l m2l_or(m2l a, m2l b);
+/**
+ * \ingroup mlogic
+ * \related v4d
+ * \brief Bitwise or ( \c `a | b` )
+ * \details Performs the bitwise or on the two \c m4d input vector-masks \c a and \c b.
+ * \impl
+dst[0:3] = a[0:3] | b[0:3]
+\endimpl
+ * \param a first \c m4d input vector-mask
+ * \param b second \c m4d input vector-mask
+ * \returns "bitwise or"ed \c m4d vector-mask
+ */
+m4d m4d_or(m4d a, m4d b);
+/**
+ * \ingroup mlogic
+ * \related v4f
+ * \brief Bitwise or ( \c `a | b` )
+ * \details Performs the bitwise or on the two \c m4f input vector-masks \c a and \c b.
+ * \impl
+dst[0:3] = a[0:3] | b[0:3]
+\endimpl
+ * \param a first \c m4f input vector-mask
+ * \param b second \c m4f input vector-mask
+ * \returns "bitwise or"ed \c m4f vector-mask
+ */
+m4f m4f_or(m4f a, m4f b);
+/**
+ * \ingroup mlogic
+ * \related v4i
+ * \brief Bitwise or ( \c `a | b` )
+ * \details Performs the bitwise or on the two \c m4i input vector-masks \c a and \c b.
+ * \impl
+dst[0:3] = a[0:3] | b[0:3]
+\endimpl
+ * \param a first \c m4i input vector-mask
+ * \param b second \c m4i input vector-mask
+ * \returns "bitwise or"ed \c m4i vector-mask
+ */
+m4i m4i_or(m4i a, m4i b);
+/**
+ * \ingroup mlogic
+ * \related v4l
+ * \brief Bitwise or ( \c `a | b` )
+ * \details Performs the bitwise or on the two \c m4l input vector-masks \c a and \c b.
+ * \impl
+dst[0:3] = a[0:3] | b[0:3]
+\endimpl
+ * \param a first \c m4l input vector-mask
+ * \param b second \c m4l input vector-mask
+ * \returns "bitwise or"ed \c m4l vector-mask
+ */
+m4l m4l_or(m4l a, m4l b);
+/**
+ * \ingroup mlogic
+ * \related v8d
+ * \brief Bitwise or ( \c `a | b` )
+ * \details Performs the bitwise or on the two \c m8d input vector-masks \c a and \c b.
+ * \impl
+dst[0:7] = a[0:7] | b[0:7]
+\endimpl
+ * \param a first \c m8d input vector-mask
+ * \param b second \c m8d input vector-mask
+ * \returns "bitwise or"ed \c m8d vector-mask
+ */
+m8d m8d_or(m8d a, m8d b);
+/**
+ * \ingroup mlogic
+ * \related v8f
+ * \brief Bitwise or ( \c `a | b` )
+ * \details Performs the bitwise or on the two \c m8f input vector-masks \c a and \c b.
+ * \impl
+dst[0:7] = a[0:7] | b[0:7]
+\endimpl
+ * \param a first \c m8f input vector-mask
+ * \param b second \c m8f input vector-mask
+ * \returns "bitwise or"ed \c m8f vector-mask
+ */
+m8f m8f_or(m8f a, m8f b);
+/**
+ * \ingroup mlogic
+ * \related v8i
+ * \brief Bitwise or ( \c `a | b` )
+ * \details Performs the bitwise or on the two \c m8i input vector-masks \c a and \c b.
+ * \impl
+dst[0:7] = a[0:7] | b[0:7]
+\endimpl
+ * \param a first \c m8i input vector-mask
+ * \param b second \c m8i input vector-mask
+ * \returns "bitwise or"ed \c m8i vector-mask
+ */
+m8i m8i_or(m8i a, m8i b);
+/**
+ * \ingroup mlogic
+ * \related v8l
+ * \brief Bitwise or ( \c `a | b` )
+ * \details Performs the bitwise or on the two \c m8l input vector-masks \c a and \c b.
+ * \impl
+dst[0:7] = a[0:7] | b[0:7]
+\endimpl
+ * \param a first \c m8l input vector-mask
+ * \param b second \c m8l input vector-mask
+ * \returns "bitwise or"ed \c m8l vector-mask
+ */
+m8l m8l_or(m8l a, m8l b);
+/**
+ * \ingroup mlogic
+ * \related v16f
+ * \brief Bitwise or ( \c `a | b` )
+ * \details Performs the bitwise or on the two \c m16f input vector-masks \c a and \c b.
+ * \impl
+dst[0:15] = a[0:15] | b[0:15]
+\endimpl
+ * \param a first \c m16f input vector-mask
+ * \param b second \c m16f input vector-mask
+ * \returns "bitwise or"ed \c m16f vector-mask
+ */
+m16f m16f_or(m16f a, m16f b);
+/**
+ * \ingroup mlogic
+ * \related v16i
+ * \brief Bitwise or ( \c `a | b` )
+ * \details Performs the bitwise or on the two \c m16i input vector-masks \c a and \c b.
+ * \impl
+dst[0:15] = a[0:15] | b[0:15]
+\endimpl
+ * \param a first \c m16i input vector-mask
+ * \param b second \c m16i input vector-mask
+ * \returns "bitwise or"ed \c m16i vector-mask
+ */
+m16i m16i_or(m16i a, m16i b);
+
+/**
+ * \ingroup mlogic
+ * \related v1d
+ * \brief Bitwise xor ( \c `a ^ b` )
+ * \details Performs the bitwise xor on the two \c m1d input vector-masks \c a and \c b.
+ * \impl
+dst[0] = a[0] ^ b[0]
+\endimpl
+ * \param a first \c m1d input vector-mask
+ * \param b second \c m1d input vector-mask
+ * \returns "bitwise xor"ed \c m1d vector-mask
+ */
+m1d m1d_xor(m1d a, m1d b);
+/**
+ * \ingroup mlogic
+ * \related v1f
+ * \brief Bitwise xor ( \c `a ^ b` )
+ * \details Performs the bitwise xor on the two \c m1f input vector-masks \c a and \c b.
+ * \impl
+dst[0] = a[0] ^ b[0]
+\endimpl
+ * \param a first \c m1f input vector-mask
+ * \param b second \c m1f input vector-mask
+ * \returns "bitwise xor"ed \c m1f vector-mask
+ */
+m1f m1f_xor(m1f a, m1f b);
+/**
+ * \ingroup mlogic
+ * \related v1i
+ * \brief Bitwise xor ( \c `a ^ b` )
+ * \details Performs the bitwise xor on the two \c m1i input vector-masks \c a and \c b.
+ * \impl
+dst[0] = a[0] ^ b[0]
+\endimpl
+ * \param a first \c m1i input vector-mask
+ * \param b second \c m1i input vector-mask
+ * \returns "bitwise xor"ed \c m1i vector-mask
+ */
+m1i m1i_xor(m1i a, m1i b);
+/**
+ * \ingroup mlogic
+ * \related v1l
+ * \brief Bitwise xor ( \c `a ^ b` )
+ * \details Performs the bitwise xor on the two \c m1l input vector-masks \c a and \c b.
+ * \impl
+dst[0] = a[0] ^ b[0]
+\endimpl
+ * \param a first \c m1l input vector-mask
+ * \param b second \c m1l input vector-mask
+ * \returns "bitwise xor"ed \c m1l vector-mask
+ */
+m1l m1l_xor(m1l a, m1l b);
+/**
+ * \ingroup mlogic
+ * \related v2d
+ * \brief Bitwise xor ( \c `a ^ b` )
+ * \details Performs the bitwise xor on the two \c m2d input vector-masks \c a and \c b.
+ * \impl
+dst[0:1] = a[0:1] ^ b[0:1]
+\endimpl
+ * \param a first \c m2d input vector-mask
+ * \param b second \c m2d input vector-mask
+ * \returns "bitwise xor"ed \c m2d vector-mask
+ */
+m2d m2d_xor(m2d a, m2d b);
+/**
+ * \ingroup mlogic
+ * \related v2f
+ * \brief Bitwise xor ( \c `a ^ b` )
+ * \details Performs the bitwise xor on the two \c m2f input vector-masks \c a and \c b.
+ * \impl
+dst[0:1] = a[0:1] ^ b[0:1]
+\endimpl
+ * \param a first \c m2f input vector-mask
+ * \param b second \c m2f input vector-mask
+ * \returns "bitwise xor"ed \c m2f vector-mask
+ */
+m2f m2f_xor(m2f a, m2f b);
+/**
+ * \ingroup mlogic
+ * \related v2i
+ * \brief Bitwise xor ( \c `a ^ b` )
+ * \details Performs the bitwise xor on the two \c m2i input vector-masks \c a and \c b.
+ * \impl
+dst[0:1] = a[0:1] ^ b[0:1]
+\endimpl
+ * \param a first \c m2i input vector-mask
+ * \param b second \c m2i input vector-mask
+ * \returns "bitwise xor"ed \c m2i vector-mask
+ */
+m2i m2i_xor(m2i a, m2i b);
+/**
+ * \ingroup mlogic
+ * \related v2l
+ * \brief Bitwise xor ( \c `a ^ b` )
+ * \details Performs the bitwise xor on the two \c m2l input vector-masks \c a and \c b.
+ * \impl
+dst[0:1] = a[0:1] ^ b[0:1]
+\endimpl
+ * \param a first \c m2l input vector-mask
+ * \param b second \c m2l input vector-mask
+ * \returns "bitwise xor"ed \c m2l vector-mask
+ */
+m2l m2l_xor(m2l a, m2l b);
+/**
+ * \ingroup mlogic
+ * \related v4d
+ * \brief Bitwise xor ( \c `a ^ b` )
+ * \details Performs the bitwise xor on the two \c m4d input vector-masks \c a and \c b.
+ * \impl
+dst[0:3] = a[0:3] ^ b[0:3]
+\endimpl
+ * \param a first \c m4d input vector-mask
+ * \param b second \c m4d input vector-mask
+ * \returns "bitwise xor"ed \c m4d vector-mask
+ */
+m4d m4d_xor(m4d a, m4d b);
+/**
+ * \ingroup mlogic
+ * \related v4f
+ * \brief Bitwise xor ( \c `a ^ b` )
+ * \details Performs the bitwise xor on the two \c m4f input vector-masks \c a and \c b.
+ * \impl
+dst[0:3] = a[0:3] ^ b[0:3]
+\endimpl
+ * \param a first \c m4f input vector-mask
+ * \param b second \c m4f input vector-mask
+ * \returns "bitwise xor"ed \c m4f vector-mask
+ */
+m4f m4f_xor(m4f a, m4f b);
+/**
+ * \ingroup mlogic
+ * \related v4i
+ * \brief Bitwise xor ( \c `a ^ b` )
+ * \details Performs the bitwise xor on the two \c m4i input vector-masks \c a and \c b.
+ * \impl
+dst[0:3] = a[0:3] ^ b[0:3]
+\endimpl
+ * \param a first \c m4i input vector-mask
+ * \param b second \c m4i input vector-mask
+ * \returns "bitwise xor"ed \c m4i vector-mask
+ */
+m4i m4i_xor(m4i a, m4i b);
+/**
+ * \ingroup mlogic
+ * \related v4l
+ * \brief Bitwise xor ( \c `a ^ b` )
+ * \details Performs the bitwise xor on the two \c m4l input vector-masks \c a and \c b.
+ * \impl
+dst[0:3] = a[0:3] ^ b[0:3]
+\endimpl
+ * \param a first \c m4l input vector-mask
+ * \param b second \c m4l input vector-mask
+ * \returns "bitwise xor"ed \c m4l vector-mask
+ */
+m4l m4l_xor(m4l a, m4l b);
+/**
+ * \ingroup mlogic
+ * \related v8d
+ * \brief Bitwise xor ( \c `a ^ b` )
+ * \details Performs the bitwise xor on the two \c m8d input vector-masks \c a and \c b.
+ * \impl
+dst[0:7] = a[0:7] ^ b[0:7]
+\endimpl
+ * \param a first \c m8d input vector-mask
+ * \param b second \c m8d input vector-mask
+ * \returns "bitwise xor"ed \c m8d vector-mask
+ */
+m8d m8d_xor(m8d a, m8d b);
+/**
+ * \ingroup mlogic
+ * \related v8f
+ * \brief Bitwise xor ( \c `a ^ b` )
+ * \details Performs the bitwise xor on the two \c m8f input vector-masks \c a and \c b.
+ * \impl
+dst[0:7] = a[0:7] ^ b[0:7]
+\endimpl
+ * \param a first \c m8f input vector-mask
+ * \param b second \c m8f input vector-mask
+ * \returns "bitwise xor"ed \c m8f vector-mask
+ */
+m8f m8f_xor(m8f a, m8f b);
+/**
+ * \ingroup mlogic
+ * \related v8i
+ * \brief Bitwise xor ( \c `a ^ b` )
+ * \details Performs the bitwise xor on the two \c m8i input vector-masks \c a and \c b.
+ * \impl
+dst[0:7] = a[0:7] ^ b[0:7]
+\endimpl
+ * \param a first \c m8i input vector-mask
+ * \param b second \c m8i input vector-mask
+ * \returns "bitwise xor"ed \c m8i vector-mask
+ */
+m8i m8i_xor(m8i a, m8i b);
+/**
+ * \ingroup mlogic
+ * \related v8l
+ * \brief Bitwise xor ( \c `a ^ b` )
+ * \details Performs the bitwise xor on the two \c m8l input vector-masks \c a and \c b.
+ * \impl
+dst[0:7] = a[0:7] ^ b[0:7]
+\endimpl
+ * \param a first \c m8l input vector-mask
+ * \param b second \c m8l input vector-mask
+ * \returns "bitwise xor"ed \c m8l vector-mask
+ */
+m8l m8l_xor(m8l a, m8l b);
+/**
+ * \ingroup mlogic
+ * \related v16f
+ * \brief Bitwise xor ( \c `a ^ b` )
+ * \details Performs the bitwise xor on the two \c m16f input vector-masks \c a and \c b.
+ * \impl
+dst[0:15] = a[0:15] ^ b[0:15]
+\endimpl
+ * \param a first \c m16f input vector-mask
+ * \param b second \c m16f input vector-mask
+ * \returns "bitwise xor"ed \c m16f vector-mask
+ */
+m16f m16f_xor(m16f a, m16f b);
+/**
+ * \ingroup mlogic
+ * \related v16i
+ * \brief Bitwise xor ( \c `a ^ b` )
+ * \details Performs the bitwise xor on the two \c m16i input vector-masks \c a and \c b.
+ * \impl
+dst[0:15] = a[0:15] ^ b[0:15]
+\endimpl
+ * \param a first \c m16i input vector-mask
+ * \param b second \c m16i input vector-mask
+ * \returns "bitwise xor"ed \c m16i vector-mask
+ */
+m16i m16i_xor(m16i a, m16i b);
+
+/**
+ * \ingroup mlogic
+ * \related v1d
+ * \brief Bitwise not ( \c `~a` )
+ * \details Performs the bitwise not on the \c m1d input vector-mask \c a.
+ * \impl
+dst[0] = ~a[0]
+\endimpl
+ * \param a \c m1d input vector-mask
+ * \returns "bitwise not"ed \c m1d vector-mask
+ */
+m1d m1d_not(m1d a);
+/**
+ * \ingroup mlogic
+ * \related v1f
+ * \brief Bitwise not ( \c `~a` )
+ * \details Performs the bitwise not on the \c m1f input vector-mask \c a.
+ * \impl
+dst[0] = ~a[0]
+\endimpl
+ * \param a \c m1f input vector-mask
+ * \returns "bitwise not"ed \c m1f vector-mask
+ */
+m1f m1f_not(m1f a);
+/**
+ * \ingroup mlogic
+ * \related v1i
+ * \brief Bitwise not ( \c `~a` )
+ * \details Performs the bitwise not on the \c m1i input vector-mask \c a.
+ * \impl
+dst[0] = ~a[0]
+\endimpl
+ * \param a \c m1i input vector-mask
+ * \returns "bitwise not"ed \c m1i vector-mask
+ */
+m1i m1i_not(m1i a);
+/**
+ * \ingroup mlogic
+ * \related v1l
+ * \brief Bitwise not ( \c `~a` )
+ * \details Performs the bitwise not on the \c m1l input vector-mask \c a.
+ * \impl
+dst[0] = ~a[0]
+\endimpl
+ * \param a \c m1l input vector-mask
+ * \returns "bitwise not"ed \c m1l vector-mask
+ */
+m1l m1l_not(m1l a);
+/**
+ * \ingroup mlogic
+ * \related v2d
+ * \brief Bitwise not ( \c `~a` )
+ * \details Performs the bitwise not on the \c m2d input vector-mask \c a.
+ * \impl
+dst[0:1] = ~a[0:1]
+\endimpl
+ * \param a \c m2d input vector-mask
+ * \returns "bitwise not"ed \c m2d vector-mask
+ */
+m2d m2d_not(m2d a);
+/**
+ * \ingroup mlogic
+ * \related v2f
+ * \brief Bitwise not ( \c `~a` )
+ * \details Performs the bitwise not on the \c m2f input vector-mask \c a.
+ * \impl
+dst[0:1] = ~a[0:1]
+\endimpl
+ * \param a \c m2f input vector-mask
+ * \returns "bitwise not"ed \c m2f vector-mask
+ */
+m2f m2f_not(m2f a);
+/**
+ * \ingroup mlogic
+ * \related v2i
+ * \brief Bitwise not ( \c `~a` )
+ * \details Performs the bitwise not on the \c m2i input vector-mask \c a.
+ * \impl
+dst[0:1] = ~a[0:1]
+\endimpl
+ * \param a \c m2i input vector-mask
+ * \returns "bitwise not"ed \c m2i vector-mask
+ */
+m2i m2i_not(m2i a);
+/**
+ * \ingroup mlogic
+ * \related v2l
+ * \brief Bitwise not ( \c `~a` )
+ * \details Performs the bitwise not on the \c m2l input vector-mask \c a.
+ * \impl
+dst[0:1] = ~a[0:1]
+\endimpl
+ * \param a \c m2l input vector-mask
+ * \returns "bitwise not"ed \c m2l vector-mask
+ */
+m2l m2l_not(m2l a);
+/**
+ * \ingroup mlogic
+ * \related v4d
+ * \brief Bitwise not ( \c `~a` )
+ * \details Performs the bitwise not on the \c m4d input vector-mask \c a.
+ * \impl
+dst[0:3] = ~a[0:3]
+\endimpl
+ * \param a \c m4d input vector-mask
+ * \returns "bitwise not"ed \c m4d vector-mask
+ */
+m4d m4d_not(m4d a);
+/**
+ * \ingroup mlogic
+ * \related v4f
+ * \brief Bitwise not ( \c `~a` )
+ * \details Performs the bitwise not on the \c m4f input vector-mask \c a.
+ * \impl
+dst[0:3] = ~a[0:3]
+\endimpl
+ * \param a \c m4f input vector-mask
+ * \returns "bitwise not"ed \c m4f vector-mask
+ */
+m4f m4f_not(m4f a);
+/**
+ * \ingroup mlogic
+ * \related v4i
+ * \brief Bitwise not ( \c `~a` )
+ * \details Performs the bitwise not on the \c m4i input vector-mask \c a.
+ * \impl
+dst[0:3] = ~a[0:3]
+\endimpl
+ * \param a \c m4i input vector-mask
+ * \returns "bitwise not"ed \c m4i vector-mask
+ */
+m4i m4i_not(m4i a);
+/**
+ * \ingroup mlogic
+ * \related v4l
+ * \brief Bitwise not ( \c `~a` )
+ * \details Performs the bitwise not on the \c m4l input vector-mask \c a.
+ * \impl
+dst[0:3] = ~a[0:3]
+\endimpl
+ * \param a \c m4l input vector-mask
+ * \returns "bitwise not"ed \c m4l vector-mask
+ */
+m4l m4l_not(m4l a);
+/**
+ * \ingroup mlogic
+ * \related v8d
+ * \brief Bitwise not ( \c `~a` )
+ * \details Performs the bitwise not on the \c m8d input vector-mask \c a.
+ * \impl
+dst[0:7] = ~a[0:7]
+\endimpl
+ * \param a \c m8d input vector-mask
+ * \returns "bitwise not"ed \c m8d vector-mask
+ */
+m8d m8d_not(m8d a);
+/**
+ * \ingroup mlogic
+ * \related v8f
+ * \brief Bitwise not ( \c `~a` )
+ * \details Performs the bitwise not on the \c m8f input vector-mask \c a.
+ * \impl
+dst[0:7] = ~a[0:7]
+\endimpl
+ * \param a \c m8f input vector-mask
+ * \returns "bitwise not"ed \c m8f vector-mask
+ */
+m8f m8f_not(m8f a);
+/**
+ * \ingroup mlogic
+ * \related v8i
+ * \brief Bitwise not ( \c `~a` )
+ * \details Performs the bitwise not on the \c m8i input vector-mask \c a.
+ * \impl
+dst[0:7] = ~a[0:7]
+\endimpl
+ * \param a \c m8i input vector-mask
+ * \returns "bitwise not"ed \c m8i vector-mask
+ */
+m8i m8i_not(m8i a);
+/**
+ * \ingroup mlogic
+ * \related v8l
+ * \brief Bitwise not ( \c `~a` )
+ * \details Performs the bitwise not on the \c m8l input vector-mask \c a.
+ * \impl
+dst[0:7] = ~a[0:7]
+\endimpl
+ * \param a \c m8l input vector-mask
+ * \returns "bitwise not"ed \c m8l vector-mask
+ */
+m8l m8l_not(m8l a);
+/**
+ * \ingroup mlogic
+ * \related v16f
+ * \brief Bitwise not ( \c `~a` )
+ * \details Performs the bitwise not on the \c m16f input vector-mask \c a.
+ * \impl
+dst[0:15] = ~a[0:15]
+\endimpl
+ * \param a \c m16f input vector-mask
+ * \returns "bitwise not"ed \c m16f vector-mask
+ */
+m16f m16f_not(m16f a);
+/**
+ * \ingroup mlogic
+ * \related v16i
+ * \brief Bitwise not ( \c `~a` )
+ * \details Performs the bitwise not on the \c m16i input vector-mask \c a.
+ * \impl
+dst[0:15] = ~a[0:15]
+\endimpl
+ * \param a \c m16i input vector-mask
+ * \returns "bitwise not"ed \c m16i vector-mask
+ */
+m16i m16i_not(m16i a);
+
+/**
+ * \ingroup mlogic
+ * \related v1d
+ * \brief Bitwise nand ( \c `~(a & b)` )
+ * \details Performs the bitwise nand on the two \c m1d input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m1d_not(m1d_and(a, b))`
+ * \attention This function should not be confused with m1d_andnot(m1d a, m1d b).
+ * \impl
+dst[0] = ~(a[0] & b[0])
+\endimpl
+ * \see m1d_and(m1d a, m1d b)
+ * \see m1d_not(m1d a)
+ * \see m1d_andnot(m1d a, m1d b)
+ * \param a first \c m1d input vector-mask
+ * \param b second \c m1d input vector-mask
+ * \returns "bitwise nand"ed \c m1d vector-mask
+ */
+m1d m1d_nand(m1d a, m1d b);
+/**
+ * \ingroup mlogic
+ * \related v1f
+ * \brief Bitwise nand ( \c `~(a & b)` )
+ * \details Performs the bitwise nand on the two \c m1f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m1f_not(m1f_and(a, b))`
+ * \attention This function should not be confused with m1f_andnot(m1f a, m1f b).
+ * \impl
+dst[0] = ~(a[0] & b[0])
+\endimpl
+ * \see m1f_and(m1f a, m1f b)
+ * \see m1f_not(m1f a)
+ * \see m1f_andnot(m1f a, m1f b)
+ * \param a first \c m1f input vector-mask
+ * \param b second \c m1f input vector-mask
+ * \returns "bitwise nand"ed \c m1f vector-mask
+ */
+m1f m1f_nand(m1f a, m1f b);
+/**
+ * \ingroup mlogic
+ * \related v1i
+ * \brief Bitwise nand ( \c `~(a & b)` )
+ * \details Performs the bitwise nand on the two \c m1i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m1i_not(m1i_and(a, b))`
+ * \attention This function should not be confused with m1i_andnot(m1i a, m1i b).
+ * \impl
+dst[0] = ~(a[0] & b[0])
+\endimpl
+ * \see m1i_and(m1i a, m1i b)
+ * \see m1i_not(m1i a)
+ * \see m1i_andnot(m1i a, m1i b)
+ * \param a first \c m1i input vector-mask
+ * \param b second \c m1i input vector-mask
+ * \returns "bitwise nand"ed \c m1i vector-mask
+ */
+m1i m1i_nand(m1i a, m1i b);
+/**
+ * \ingroup mlogic
+ * \related v1l
+ * \brief Bitwise nand ( \c `~(a & b)` )
+ * \details Performs the bitwise nand on the two \c m1l input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m1l_not(m1l_and(a, b))`
+ * \attention This function should not be confused with m1l_andnot(m1l a, m1l b).
+ * \impl
+dst[0] = ~(a[0] & b[0])
+\endimpl
+ * \see m1l_and(m1l a, m1l b)
+ * \see m1l_not(m1l a)
+ * \see m1l_andnot(m1l a, m1l b)
+ * \param a first \c m1l input vector-mask
+ * \param b second \c m1l input vector-mask
+ * \returns "bitwise nand"ed \c m1l vector-mask
+ */
+m1l m1l_nand(m1l a, m1l b);
+/**
+ * \ingroup mlogic
+ * \related v2d
+ * \brief Bitwise nand ( \c `~(a & b)` )
+ * \details Performs the bitwise nand on the two \c m2d input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m2d_not(m2d_and(a, b))`
+ * \attention This function should not be confused with m2d_andnot(m2d a, m2d b).
+ * \impl
+dst[0:1] = ~(a[0:1] & b[0:1])
+\endimpl
+ * \see m2d_and(m2d a, m2d b)
+ * \see m2d_not(m2d a)
+ * \see m2d_andnot(m2d a, m2d b)
+ * \param a first \c m2d input vector-mask
+ * \param b second \c m2d input vector-mask
+ * \returns "bitwise nand"ed \c m2d vector-mask
+ */
+m2d m2d_nand(m2d a, m2d b);
+/**
+ * \ingroup mlogic
+ * \related v2f
+ * \brief Bitwise nand ( \c `~(a & b)` )
+ * \details Performs the bitwise nand on the two \c m2f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m2f_not(m2f_and(a, b))`
+ * \attention This function should not be confused with m2f_andnot(m2f a, m2f b).
+ * \impl
+dst[0:1] = ~(a[0:1] & b[0:1])
+\endimpl
+ * \see m2f_and(m2f a, m2f b)
+ * \see m2f_not(m2f a)
+ * \see m2f_andnot(m2f a, m2f b)
+ * \param a first \c m2f input vector-mask
+ * \param b second \c m2f input vector-mask
+ * \returns "bitwise nand"ed \c m2f vector-mask
+ */
+m2f m2f_nand(m2f a, m2f b);
+/**
+ * \ingroup mlogic
+ * \related v2i
+ * \brief Bitwise nand ( \c `~(a & b)` )
+ * \details Performs the bitwise nand on the two \c m2i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m2i_not(m2i_and(a, b))`
+ * \attention This function should not be confused with m2i_andnot(m2i a, m2i b).
+ * \impl
+dst[0:1] = ~(a[0:1] & b[0:1])
+\endimpl
+ * \see m2i_and(m2i a, m2i b)
+ * \see m2i_not(m2i a)
+ * \see m2i_andnot(m2i a, m2i b)
+ * \param a first \c m2i input vector-mask
+ * \param b second \c m2i input vector-mask
+ * \returns "bitwise nand"ed \c m2i vector-mask
+ */
+m2i m2i_nand(m2i a, m2i b);
+/**
+ * \ingroup mlogic
+ * \related v2l
+ * \brief Bitwise nand ( \c `~(a & b)` )
+ * \details Performs the bitwise nand on the two \c m2l input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m2l_not(m2l_and(a, b))`
+ * \attention This function should not be confused with m2l_andnot(m2l a, m2l b).
+ * \impl
+dst[0:1] = ~(a[0:1] & b[0:1])
+\endimpl
+ * \see m2l_and(m2l a, m2l b)
+ * \see m2l_not(m2l a)
+ * \see m2l_andnot(m2l a, m2l b)
+ * \param a first \c m2l input vector-mask
+ * \param b second \c m2l input vector-mask
+ * \returns "bitwise nand"ed \c m2l vector-mask
+ */
+m2l m2l_nand(m2l a, m2l b);
+/**
+ * \ingroup mlogic
+ * \related v4d
+ * \brief Bitwise nand ( \c `~(a & b)` )
+ * \details Performs the bitwise nand on the two \c m4d input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m4d_not(m4d_and(a, b))`
+ * \attention This function should not be confused with m4d_andnot(m4d a, m4d b).
+ * \impl
+dst[0:3] = ~(a[0:3] & b[0:3])
+\endimpl
+ * \see m4d_and(m4d a, m4d b)
+ * \see m4d_not(m4d a)
+ * \see m4d_andnot(m4d a, m4d b)
+ * \param a first \c m4d input vector-mask
+ * \param b second \c m4d input vector-mask
+ * \returns "bitwise nand"ed \c m4d vector-mask
+ */
+m4d m4d_nand(m4d a, m4d b);
+/**
+ * \ingroup mlogic
+ * \related v4f
+ * \brief Bitwise nand ( \c `~(a & b)` )
+ * \details Performs the bitwise nand on the two \c m4f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m4f_not(m4f_and(a, b))`
+ * \attention This function should not be confused with m4f_andnot(m4f a, m4f b).
+ * \impl
+dst[0:3] = ~(a[0:3] & b[0:3])
+\endimpl
+ * \see m4f_and(m4f a, m4f b)
+ * \see m4f_not(m4f a)
+ * \see m4f_andnot(m4f a, m4f b)
+ * \param a first \c m4f input vector-mask
+ * \param b second \c m4f input vector-mask
+ * \returns "bitwise nand"ed \c m4f vector-mask
+ */
+m4f m4f_nand(m4f a, m4f b);
+/**
+ * \ingroup mlogic
+ * \related v4i
+ * \brief Bitwise nand ( \c `~(a & b)` )
+ * \details Performs the bitwise nand on the two \c m4i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m4i_not(m4i_and(a, b))`
+ * \attention This function should not be confused with m4i_andnot(m4i a, m4i b).
+ * \impl
+dst[0:3] = ~(a[0:3] & b[0:3])
+\endimpl
+ * \see m4i_and(m4i a, m4i b)
+ * \see m4i_not(m4i a)
+ * \see m4i_andnot(m4i a, m4i b)
+ * \param a first \c m4i input vector-mask
+ * \param b second \c m4i input vector-mask
+ * \returns "bitwise nand"ed \c m4i vector-mask
+ */
+m4i m4i_nand(m4i a, m4i b);
+/**
+ * \ingroup mlogic
+ * \related v4l
+ * \brief Bitwise nand ( \c `~(a & b)` )
+ * \details Performs the bitwise nand on the two \c m4l input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m4l_not(m4l_and(a, b))`
+ * \attention This function should not be confused with m4l_andnot(m4l a, m4l b).
+ * \impl
+dst[0:3] = ~(a[0:3] & b[0:3])
+\endimpl
+ * \see m4l_and(m4l a, m4l b)
+ * \see m4l_not(m4l a)
+ * \see m4l_andnot(m4l a, m4l b)
+ * \param a first \c m4l input vector-mask
+ * \param b second \c m4l input vector-mask
+ * \returns "bitwise nand"ed \c m4l vector-mask
+ */
+m4l m4l_nand(m4l a, m4l b);
+/**
+ * \ingroup mlogic
+ * \related v8d
+ * \brief Bitwise nand ( \c `~(a & b)` )
+ * \details Performs the bitwise nand on the two \c m8d input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m8d_not(m8d_and(a, b))`
+ * \attention This function should not be confused with m8d_andnot(m8d a, m8d b).
+ * \impl
+dst[0:7] = ~(a[0:7] & b[0:7])
+\endimpl
+ * \see m8d_and(m8d a, m8d b)
+ * \see m8d_not(m8d a)
+ * \see m8d_andnot(m8d a, m8d b)
+ * \param a first \c m8d input vector-mask
+ * \param b second \c m8d input vector-mask
+ * \returns "bitwise nand"ed \c m8d vector-mask
+ */
+m8d m8d_nand(m8d a, m8d b);
+/**
+ * \ingroup mlogic
+ * \related v8f
+ * \brief Bitwise nand ( \c `~(a & b)` )
+ * \details Performs the bitwise nand on the two \c m8f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m8f_not(m8f_and(a, b))`
+ * \attention This function should not be confused with m8f_andnot(m8f a, m8f b).
+ * \impl
+dst[0:7] = ~(a[0:7] & b[0:7])
+\endimpl
+ * \see m8f_and(m8f a, m8f b)
+ * \see m8f_not(m8f a)
+ * \see m8f_andnot(m8f a, m8f b)
+ * \param a first \c m8f input vector-mask
+ * \param b second \c m8f input vector-mask
+ * \returns "bitwise nand"ed \c m8f vector-mask
+ */
+m8f m8f_nand(m8f a, m8f b);
+/**
+ * \ingroup mlogic
+ * \related v8i
+ * \brief Bitwise nand ( \c `~(a & b)` )
+ * \details Performs the bitwise nand on the two \c m8i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m8i_not(m8i_and(a, b))`
+ * \attention This function should not be confused with m8i_andnot(m8i a, m8i b).
+ * \impl
+dst[0:7] = ~(a[0:7] & b[0:7])
+\endimpl
+ * \see m8i_and(m8i a, m8i b)
+ * \see m8i_not(m8i a)
+ * \see m8i_andnot(m8i a, m8i b)
+ * \param a first \c m8i input vector-mask
+ * \param b second \c m8i input vector-mask
+ * \returns "bitwise nand"ed \c m8i vector-mask
+ */
+m8i m8i_nand(m8i a, m8i b);
+/**
+ * \ingroup mlogic
+ * \related v8l
+ * \brief Bitwise nand ( \c `~(a & b)` )
+ * \details Performs the bitwise nand on the two \c m8l input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m8l_not(m8l_and(a, b))`
+ * \attention This function should not be confused with m8l_andnot(m8l a, m8l b).
+ * \impl
+dst[0:7] = ~(a[0:7] & b[0:7])
+\endimpl
+ * \see m8l_and(m8l a, m8l b)
+ * \see m8l_not(m8l a)
+ * \see m8l_andnot(m8l a, m8l b)
+ * \param a first \c m8l input vector-mask
+ * \param b second \c m8l input vector-mask
+ * \returns "bitwise nand"ed \c m8l vector-mask
+ */
+m8l m8l_nand(m8l a, m8l b);
+/**
+ * \ingroup mlogic
+ * \related v16f
+ * \brief Bitwise nand ( \c `~(a & b)` )
+ * \details Performs the bitwise nand on the two \c m16f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m16f_not(m16f_and(a, b))`
+ * \attention This function should not be confused with m16f_andnot(m16f a, m16f b).
+ * \impl
+dst[0:15] = ~(a[0:15] & b[0:15])
+\endimpl
+ * \see m16f_and(m16f a, m16f b)
+ * \see m16f_not(m16f a)
+ * \see m16f_andnot(m16f a, m16f b)
+ * \param a first \c m16f input vector-mask
+ * \param b second \c m16f input vector-mask
+ * \returns "bitwise nand"ed \c m16f vector-mask
+ */
+m16f m16f_nand(m16f a, m16f b);
+/**
+ * \ingroup mlogic
+ * \related v16i
+ * \brief Bitwise nand ( \c `~(a & b)` )
+ * \details Performs the bitwise nand on the two \c m16i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m16i_not(m16i_and(a, b))`
+ * \attention This function should not be confused with m16i_andnot(m16i a, m16i b).
+ * \impl
+dst[0:15] = ~(a[0:15] & b[0:15])
+\endimpl
+ * \see m16i_and(m16i a, m16i b)
+ * \see m16i_not(m16i a)
+ * \see m16i_andnot(m16i a, m16i b)
+ * \param a first \c m16i input vector-mask
+ * \param b second \c m16i input vector-mask
+ * \returns "bitwise nand"ed \c m16i vector-mask
+ */
+m16i m16i_nand(m16i a, m16i b);
+
+/**
+ * \ingroup mlogic
+ * \related v1d
+ * \brief Bitwise nor ( \c `~(a | b)` )
+ * \details Performs the bitwise nor on the two \c m1d input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m1d_not(m1d_or(a, b))`
+ * \attention This function should not be confused with m1d_ornot(m1d a, m1d b).
+ * \impl
+dst[0] = ~(a[0] | b[0])
+\endimpl
+ * \see m1d_or(m1d a, m1d b)
+ * \see m1d_not(m1d a)
+ * \see m1d_ornot(m1d a, m1d b)
+ * \param a first \c m1d input vector-mask
+ * \param b second \c m1d input vector-mask
+ * \returns "bitwise nor"ed \c m1d vector-mask
+ */
+m1d m1d_nor(m1d a, m1d b);
+/**
+ * \ingroup mlogic
+ * \related v1f
+ * \brief Bitwise nor ( \c `~(a | b)` )
+ * \details Performs the bitwise nor on the two \c m1f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m1f_not(m1f_or(a, b))`
+ * \attention This function should not be confused with m1f_ornot(m1f a, m1f b).
+ * \impl
+dst[0] = ~(a[0] | b[0])
+\endimpl
+ * \see m1f_or(m1f a, m1f b)
+ * \see m1f_not(m1f a)
+ * \see m1f_ornot(m1f a, m1f b)
+ * \param a first \c m1f input vector-mask
+ * \param b second \c m1f input vector-mask
+ * \returns "bitwise nor"ed \c m1f vector-mask
+ */
+m1f m1f_nor(m1f a, m1f b);
+/**
+ * \ingroup mlogic
+ * \related v1i
+ * \brief Bitwise nor ( \c `~(a | b)` )
+ * \details Performs the bitwise nor on the two \c m1i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m1i_not(m1i_or(a, b))`
+ * \attention This function should not be confused with m1i_ornot(m1i a, m1i b).
+ * \impl
+dst[0] = ~(a[0] | b[0])
+\endimpl
+ * \see m1i_or(m1i a, m1i b)
+ * \see m1i_not(m1i a)
+ * \see m1i_ornot(m1i a, m1i b)
+ * \param a first \c m1i input vector-mask
+ * \param b second \c m1i input vector-mask
+ * \returns "bitwise nor"ed \c m1i vector-mask
+ */
+m1i m1i_nor(m1i a, m1i b);
+/**
+ * \ingroup mlogic
+ * \related v1l
+ * \brief Bitwise nor ( \c `~(a | b)` )
+ * \details Performs the bitwise nor on the two \c m1l input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m1l_not(m1l_or(a, b))`
+ * \attention This function should not be confused with m1l_ornot(m1l a, m1l b).
+ * \impl
+dst[0] = ~(a[0] | b[0])
+\endimpl
+ * \see m1l_or(m1l a, m1l b)
+ * \see m1l_not(m1l a)
+ * \see m1l_ornot(m1l a, m1l b)
+ * \param a first \c m1l input vector-mask
+ * \param b second \c m1l input vector-mask
+ * \returns "bitwise nor"ed \c m1l vector-mask
+ */
+m1l m1l_nor(m1l a, m1l b);
+/**
+ * \ingroup mlogic
+ * \related v2d
+ * \brief Bitwise nor ( \c `~(a | b)` )
+ * \details Performs the bitwise nor on the two \c m2d input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m2d_not(m2d_or(a, b))`
+ * \attention This function should not be confused with m2d_ornot(m2d a, m2d b).
+ * \impl
+dst[0:1] = ~(a[0:1] | b[0:1])
+\endimpl
+ * \see m2d_or(m2d a, m2d b)
+ * \see m2d_not(m2d a)
+ * \see m2d_ornot(m2d a, m2d b)
+ * \param a first \c m2d input vector-mask
+ * \param b second \c m2d input vector-mask
+ * \returns "bitwise nor"ed \c m2d vector-mask
+ */
+m2d m2d_nor(m2d a, m2d b);
+/**
+ * \ingroup mlogic
+ * \related v2f
+ * \brief Bitwise nor ( \c `~(a | b)` )
+ * \details Performs the bitwise nor on the two \c m2f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m2f_not(m2f_or(a, b))`
+ * \attention This function should not be confused with m2f_ornot(m2f a, m2f b).
+ * \impl
+dst[0:1] = ~(a[0:1] | b[0:1])
+\endimpl
+ * \see m2f_or(m2f a, m2f b)
+ * \see m2f_not(m2f a)
+ * \see m2f_ornot(m2f a, m2f b)
+ * \param a first \c m2f input vector-mask
+ * \param b second \c m2f input vector-mask
+ * \returns "bitwise nor"ed \c m2f vector-mask
+ */
+m2f m2f_nor(m2f a, m2f b);
+/**
+ * \ingroup mlogic
+ * \related v2i
+ * \brief Bitwise nor ( \c `~(a | b)` )
+ * \details Performs the bitwise nor on the two \c m2i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m2i_not(m2i_or(a, b))`
+ * \attention This function should not be confused with m2i_ornot(m2i a, m2i b).
+ * \impl
+dst[0:1] = ~(a[0:1] | b[0:1])
+\endimpl
+ * \see m2i_or(m2i a, m2i b)
+ * \see m2i_not(m2i a)
+ * \see m2i_ornot(m2i a, m2i b)
+ * \param a first \c m2i input vector-mask
+ * \param b second \c m2i input vector-mask
+ * \returns "bitwise nor"ed \c m2i vector-mask
+ */
+m2i m2i_nor(m2i a, m2i b);
+/**
+ * \ingroup mlogic
+ * \related v2l
+ * \brief Bitwise nor ( \c `~(a | b)` )
+ * \details Performs the bitwise nor on the two \c m2l input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m2l_not(m2l_or(a, b))`
+ * \attention This function should not be confused with m2l_ornot(m2l a, m2l b).
+ * \impl
+dst[0:1] = ~(a[0:1] | b[0:1])
+\endimpl
+ * \see m2l_or(m2l a, m2l b)
+ * \see m2l_not(m2l a)
+ * \see m2l_ornot(m2l a, m2l b)
+ * \param a first \c m2l input vector-mask
+ * \param b second \c m2l input vector-mask
+ * \returns "bitwise nor"ed \c m2l vector-mask
+ */
+m2l m2l_nor(m2l a, m2l b);
+/**
+ * \ingroup mlogic
+ * \related v4d
+ * \brief Bitwise nor ( \c `~(a | b)` )
+ * \details Performs the bitwise nor on the two \c m4d input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m4d_not(m4d_or(a, b))`
+ * \attention This function should not be confused with m4d_ornot(m4d a, m4d b).
+ * \impl
+dst[0:3] = ~(a[0:3] | b[0:3])
+\endimpl
+ * \see m4d_or(m4d a, m4d b)
+ * \see m4d_not(m4d a)
+ * \see m4d_ornot(m4d a, m4d b)
+ * \param a first \c m4d input vector-mask
+ * \param b second \c m4d input vector-mask
+ * \returns "bitwise nor"ed \c m4d vector-mask
+ */
+m4d m4d_nor(m4d a, m4d b);
+/**
+ * \ingroup mlogic
+ * \related v4f
+ * \brief Bitwise nor ( \c `~(a | b)` )
+ * \details Performs the bitwise nor on the two \c m4f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m4f_not(m4f_or(a, b))`
+ * \attention This function should not be confused with m4f_ornot(m4f a, m4f b).
+ * \impl
+dst[0:3] = ~(a[0:3] | b[0:3])
+\endimpl
+ * \see m4f_or(m4f a, m4f b)
+ * \see m4f_not(m4f a)
+ * \see m4f_ornot(m4f a, m4f b)
+ * \param a first \c m4f input vector-mask
+ * \param b second \c m4f input vector-mask
+ * \returns "bitwise nor"ed \c m4f vector-mask
+ */
+m4f m4f_nor(m4f a, m4f b);
+/**
+ * \ingroup mlogic
+ * \related v4i
+ * \brief Bitwise nor ( \c `~(a | b)` )
+ * \details Performs the bitwise nor on the two \c m4i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m4i_not(m4i_or(a, b))`
+ * \attention This function should not be confused with m4i_ornot(m4i a, m4i b).
+ * \impl
+dst[0:3] = ~(a[0:3] | b[0:3])
+\endimpl
+ * \see m4i_or(m4i a, m4i b)
+ * \see m4i_not(m4i a)
+ * \see m4i_ornot(m4i a, m4i b)
+ * \param a first \c m4i input vector-mask
+ * \param b second \c m4i input vector-mask
+ * \returns "bitwise nor"ed \c m4i vector-mask
+ */
+m4i m4i_nor(m4i a, m4i b);
+/**
+ * \ingroup mlogic
+ * \related v4l
+ * \brief Bitwise nor ( \c `~(a | b)` )
+ * \details Performs the bitwise nor on the two \c m4l input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m4l_not(m4l_or(a, b))`
+ * \attention This function should not be confused with m4l_ornot(m4l a, m4l b).
+ * \impl
+dst[0:3] = ~(a[0:3] | b[0:3])
+\endimpl
+ * \see m4l_or(m4l a, m4l b)
+ * \see m4l_not(m4l a)
+ * \see m4l_ornot(m4l a, m4l b)
+ * \param a first \c m4l input vector-mask
+ * \param b second \c m4l input vector-mask
+ * \returns "bitwise nor"ed \c m4l vector-mask
+ */
+m4l m4l_nor(m4l a, m4l b);
+/**
+ * \ingroup mlogic
+ * \related v8d
+ * \brief Bitwise nor ( \c `~(a | b)` )
+ * \details Performs the bitwise nor on the two \c m8d input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m8d_not(m8d_or(a, b))`
+ * \attention This function should not be confused with m8d_ornot(m8d a, m8d b).
+ * \impl
+dst[0:7] = ~(a[0:7] | b[0:7])
+\endimpl
+ * \see m8d_or(m8d a, m8d b)
+ * \see m8d_not(m8d a)
+ * \see m8d_ornot(m8d a, m8d b)
+ * \param a first \c m8d input vector-mask
+ * \param b second \c m8d input vector-mask
+ * \returns "bitwise nor"ed \c m8d vector-mask
+ */
+m8d m8d_nor(m8d a, m8d b);
+/**
+ * \ingroup mlogic
+ * \related v8f
+ * \brief Bitwise nor ( \c `~(a | b)` )
+ * \details Performs the bitwise nor on the two \c m8f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m8f_not(m8f_or(a, b))`
+ * \attention This function should not be confused with m8f_ornot(m8f a, m8f b).
+ * \impl
+dst[0:7] = ~(a[0:7] | b[0:7])
+\endimpl
+ * \see m8f_or(m8f a, m8f b)
+ * \see m8f_not(m8f a)
+ * \see m8f_ornot(m8f a, m8f b)
+ * \param a first \c m8f input vector-mask
+ * \param b second \c m8f input vector-mask
+ * \returns "bitwise nor"ed \c m8f vector-mask
+ */
+m8f m8f_nor(m8f a, m8f b);
+/**
+ * \ingroup mlogic
+ * \related v8i
+ * \brief Bitwise nor ( \c `~(a | b)` )
+ * \details Performs the bitwise nor on the two \c m8i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m8i_not(m8i_or(a, b))`
+ * \attention This function should not be confused with m8i_ornot(m8i a, m8i b).
+ * \impl
+dst[0:7] = ~(a[0:7] | b[0:7])
+\endimpl
+ * \see m8i_or(m8i a, m8i b)
+ * \see m8i_not(m8i a)
+ * \see m8i_ornot(m8i a, m8i b)
+ * \param a first \c m8i input vector-mask
+ * \param b second \c m8i input vector-mask
+ * \returns "bitwise nor"ed \c m8i vector-mask
+ */
+m8i m8i_nor(m8i a, m8i b);
+/**
+ * \ingroup mlogic
+ * \related v8l
+ * \brief Bitwise nor ( \c `~(a | b)` )
+ * \details Performs the bitwise nor on the two \c m8l input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m8l_not(m8l_or(a, b))`
+ * \attention This function should not be confused with m8l_ornot(m8l a, m8l b).
+ * \impl
+dst[0:7] = ~(a[0:7] | b[0:7])
+\endimpl
+ * \see m8l_or(m8l a, m8l b)
+ * \see m8l_not(m8l a)
+ * \see m8l_ornot(m8l a, m8l b)
+ * \param a first \c m8l input vector-mask
+ * \param b second \c m8l input vector-mask
+ * \returns "bitwise nor"ed \c m8l vector-mask
+ */
+m8l m8l_nor(m8l a, m8l b);
+/**
+ * \ingroup mlogic
+ * \related v16f
+ * \brief Bitwise nor ( \c `~(a | b)` )
+ * \details Performs the bitwise nor on the two \c m16f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m16f_not(m16f_or(a, b))`
+ * \attention This function should not be confused with m16f_ornot(m16f a, m16f b).
+ * \impl
+dst[0:15] = ~(a[0:15] | b[0:15])
+\endimpl
+ * \see m16f_or(m16f a, m16f b)
+ * \see m16f_not(m16f a)
+ * \see m16f_ornot(m16f a, m16f b)
+ * \param a first \c m16f input vector-mask
+ * \param b second \c m16f input vector-mask
+ * \returns "bitwise nor"ed \c m16f vector-mask
+ */
+m16f m16f_nor(m16f a, m16f b);
+/**
+ * \ingroup mlogic
+ * \related v16i
+ * \brief Bitwise nor ( \c `~(a | b)` )
+ * \details Performs the bitwise nor on the two \c m16i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m16i_not(m16i_or(a, b))`
+ * \attention This function should not be confused with m16i_ornot(m16i a, m16i b).
+ * \impl
+dst[0:15] = ~(a[0:15] | b[0:15])
+\endimpl
+ * \see m16i_or(m16i a, m16i b)
+ * \see m16i_not(m16i a)
+ * \see m16i_ornot(m16i a, m16i b)
+ * \param a first \c m16i input vector-mask
+ * \param b second \c m16i input vector-mask
+ * \returns "bitwise nor"ed \c m16i vector-mask
+ */
+m16i m16i_nor(m16i a, m16i b);
+
+/**
+ * \ingroup mlogic
+ * \related v1d
+ * \brief Bitwise nxor ( \c `~(a ^ b)` )
+ * \details Performs the bitwise nxor on the two \c m1d input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m1d_not(m1d_xor(a, b))`
+ * \impl
+dst[0] = ~(a[0] ^ b[0])
+\endimpl
+ * \see m1d_xor(m1d a, m1d b)
+ * \see m1d_not(m1d a)
+ * \param a first \c m1d input vector-mask
+ * \param b second \c m1d input vector-mask
+ * \returns "bitwise nxor"ed \c m1d vector-mask
+ */
+m1d m1d_nxor(m1d a, m1d b);
+/**
+ * \ingroup mlogic
+ * \related v1f
+ * \brief Bitwise nxor ( \c `~(a ^ b)` )
+ * \details Performs the bitwise nxor on the two \c m1f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m1f_not(m1f_xor(a, b))`
+ * \impl
+dst[0] = ~(a[0] ^ b[0])
+\endimpl
+ * \see m1f_xor(m1f a, m1f b)
+ * \see m1f_not(m1f a)
+ * \param a first \c m1f input vector-mask
+ * \param b second \c m1f input vector-mask
+ * \returns "bitwise nxor"ed \c m1f vector-mask
+ */
+m1f m1f_nxor(m1f a, m1f b);
+/**
+ * \ingroup mlogic
+ * \related v1i
+ * \brief Bitwise nxor ( \c `~(a ^ b)` )
+ * \details Performs the bitwise nxor on the two \c m1i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m1i_not(m1i_xor(a, b))`
+ * \impl
+dst[0] = ~(a[0] ^ b[0])
+\endimpl
+ * \see m1i_xor(m1i a, m1i b)
+ * \see m1i_not(m1i a)
+ * \param a first \c m1i input vector-mask
+ * \param b second \c m1i input vector-mask
+ * \returns "bitwise nxor"ed \c m1i vector-mask
+ */
+m1i m1i_nxor(m1i a, m1i b);
+/**
+ * \ingroup mlogic
+ * \related v1l
+ * \brief Bitwise nxor ( \c `~(a ^ b)` )
+ * \details Performs the bitwise nxor on the two \c m1l input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m1l_not(m1l_xor(a, b))`
+ * \impl
+dst[0] = ~(a[0] ^ b[0])
+\endimpl
+ * \see m1l_xor(m1l a, m1l b)
+ * \see m1l_not(m1l a)
+ * \param a first \c m1l input vector-mask
+ * \param b second \c m1l input vector-mask
+ * \returns "bitwise nxor"ed \c m1l vector-mask
+ */
+m1l m1l_nxor(m1l a, m1l b);
+/**
+ * \ingroup mlogic
+ * \related v2d
+ * \brief Bitwise nxor ( \c `~(a ^ b)` )
+ * \details Performs the bitwise nxor on the two \c m2d input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m2d_not(m2d_xor(a, b))`
+ * \impl
+dst[0:1] = ~(a[0:1] ^ b[0:1])
+\endimpl
+ * \see m2d_xor(m2d a, m2d b)
+ * \see m2d_not(m2d a)
+ * \param a first \c m2d input vector-mask
+ * \param b second \c m2d input vector-mask
+ * \returns "bitwise nxor"ed \c m2d vector-mask
+ */
+m2d m2d_nxor(m2d a, m2d b);
+/**
+ * \ingroup mlogic
+ * \related v2f
+ * \brief Bitwise nxor ( \c `~(a ^ b)` )
+ * \details Performs the bitwise nxor on the two \c m2f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m2f_not(m2f_xor(a, b))`
+ * \impl
+dst[0:1] = ~(a[0:1] ^ b[0:1])
+\endimpl
+ * \see m2f_xor(m2f a, m2f b)
+ * \see m2f_not(m2f a)
+ * \param a first \c m2f input vector-mask
+ * \param b second \c m2f input vector-mask
+ * \returns "bitwise nxor"ed \c m2f vector-mask
+ */
+m2f m2f_nxor(m2f a, m2f b);
+/**
+ * \ingroup mlogic
+ * \related v2i
+ * \brief Bitwise nxor ( \c `~(a ^ b)` )
+ * \details Performs the bitwise nxor on the two \c m2i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m2i_not(m2i_xor(a, b))`
+ * \impl
+dst[0:1] = ~(a[0:1] ^ b[0:1])
+\endimpl
+ * \see m2i_xor(m2i a, m2i b)
+ * \see m2i_not(m2i a)
+ * \param a first \c m2i input vector-mask
+ * \param b second \c m2i input vector-mask
+ * \returns "bitwise nxor"ed \c m2i vector-mask
+ */
+m2i m2i_nxor(m2i a, m2i b);
+/**
+ * \ingroup mlogic
+ * \related v2l
+ * \brief Bitwise nxor ( \c `~(a ^ b)` )
+ * \details Performs the bitwise nxor on the two \c m2l input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m2l_not(m2l_xor(a, b))`
+ * \impl
+dst[0:1] = ~(a[0:1] ^ b[0:1])
+\endimpl
+ * \see m2l_xor(m2l a, m2l b)
+ * \see m2l_not(m2l a)
+ * \param a first \c m2l input vector-mask
+ * \param b second \c m2l input vector-mask
+ * \returns "bitwise nxor"ed \c m2l vector-mask
+ */
+m2l m2l_nxor(m2l a, m2l b);
+/**
+ * \ingroup mlogic
+ * \related v4d
+ * \brief Bitwise nxor ( \c `~(a ^ b)` )
+ * \details Performs the bitwise nxor on the two \c m4d input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m4d_not(m4d_xor(a, b))`
+ * \impl
+dst[0:3] = ~(a[0:3] ^ b[0:3])
+\endimpl
+ * \see m4d_xor(m4d a, m4d b)
+ * \see m4d_not(m4d a)
+ * \param a first \c m4d input vector-mask
+ * \param b second \c m4d input vector-mask
+ * \returns "bitwise nxor"ed \c m4d vector-mask
+ */
+m4d m4d_nxor(m4d a, m4d b);
+/**
+ * \ingroup mlogic
+ * \related v4f
+ * \brief Bitwise nxor ( \c `~(a ^ b)` )
+ * \details Performs the bitwise nxor on the two \c m4f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m4f_not(m4f_xor(a, b))`
+ * \impl
+dst[0:3] = ~(a[0:3] ^ b[0:3])
+\endimpl
+ * \see m4f_xor(m4f a, m4f b)
+ * \see m4f_not(m4f a)
+ * \param a first \c m4f input vector-mask
+ * \param b second \c m4f input vector-mask
+ * \returns "bitwise nxor"ed \c m4f vector-mask
+ */
+m4f m4f_nxor(m4f a, m4f b);
+/**
+ * \ingroup mlogic
+ * \related v4i
+ * \brief Bitwise nxor ( \c `~(a ^ b)` )
+ * \details Performs the bitwise nxor on the two \c m4i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m4i_not(m4i_xor(a, b))`
+ * \impl
+dst[0:3] = ~(a[0:3] ^ b[0:3])
+\endimpl
+ * \see m4i_xor(m4i a, m4i b)
+ * \see m4i_not(m4i a)
+ * \param a first \c m4i input vector-mask
+ * \param b second \c m4i input vector-mask
+ * \returns "bitwise nxor"ed \c m4i vector-mask
+ */
+m4i m4i_nxor(m4i a, m4i b);
+/**
+ * \ingroup mlogic
+ * \related v4l
+ * \brief Bitwise nxor ( \c `~(a ^ b)` )
+ * \details Performs the bitwise nxor on the two \c m4l input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m4l_not(m4l_xor(a, b))`
+ * \impl
+dst[0:3] = ~(a[0:3] ^ b[0:3])
+\endimpl
+ * \see m4l_xor(m4l a, m4l b)
+ * \see m4l_not(m4l a)
+ * \param a first \c m4l input vector-mask
+ * \param b second \c m4l input vector-mask
+ * \returns "bitwise nxor"ed \c m4l vector-mask
+ */
+m4l m4l_nxor(m4l a, m4l b);
+/**
+ * \ingroup mlogic
+ * \related v8d
+ * \brief Bitwise nxor ( \c `~(a ^ b)` )
+ * \details Performs the bitwise nxor on the two \c m8d input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m8d_not(m8d_xor(a, b))`
+ * \impl
+dst[0:7] = ~(a[0:7] ^ b[0:7])
+\endimpl
+ * \see m8d_xor(m8d a, m8d b)
+ * \see m8d_not(m8d a)
+ * \param a first \c m8d input vector-mask
+ * \param b second \c m8d input vector-mask
+ * \returns "bitwise nxor"ed \c m8d vector-mask
+ */
+m8d m8d_nxor(m8d a, m8d b);
+/**
+ * \ingroup mlogic
+ * \related v8f
+ * \brief Bitwise nxor ( \c `~(a ^ b)` )
+ * \details Performs the bitwise nxor on the two \c m8f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m8f_not(m8f_xor(a, b))`
+ * \impl
+dst[0:7] = ~(a[0:7] ^ b[0:7])
+\endimpl
+ * \see m8f_xor(m8f a, m8f b)
+ * \see m8f_not(m8f a)
+ * \param a first \c m8f input vector-mask
+ * \param b second \c m8f input vector-mask
+ * \returns "bitwise nxor"ed \c m8f vector-mask
+ */
+m8f m8f_nxor(m8f a, m8f b);
+/**
+ * \ingroup mlogic
+ * \related v8i
+ * \brief Bitwise nxor ( \c `~(a ^ b)` )
+ * \details Performs the bitwise nxor on the two \c m8i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m8i_not(m8i_xor(a, b))`
+ * \impl
+dst[0:7] = ~(a[0:7] ^ b[0:7])
+\endimpl
+ * \see m8i_xor(m8i a, m8i b)
+ * \see m8i_not(m8i a)
+ * \param a first \c m8i input vector-mask
+ * \param b second \c m8i input vector-mask
+ * \returns "bitwise nxor"ed \c m8i vector-mask
+ */
+m8i m8i_nxor(m8i a, m8i b);
+/**
+ * \ingroup mlogic
+ * \related v8l
+ * \brief Bitwise nxor ( \c `~(a ^ b)` )
+ * \details Performs the bitwise nxor on the two \c m8l input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m8l_not(m8l_xor(a, b))`
+ * \impl
+dst[0:7] = ~(a[0:7] ^ b[0:7])
+\endimpl
+ * \see m8l_xor(m8l a, m8l b)
+ * \see m8l_not(m8l a)
+ * \param a first \c m8l input vector-mask
+ * \param b second \c m8l input vector-mask
+ * \returns "bitwise nxor"ed \c m8l vector-mask
+ */
+m8l m8l_nxor(m8l a, m8l b);
+/**
+ * \ingroup mlogic
+ * \related v16f
+ * \brief Bitwise nxor ( \c `~(a ^ b)` )
+ * \details Performs the bitwise nxor on the two \c m16f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m16f_not(m16f_xor(a, b))`
+ * \impl
+dst[0:15] = ~(a[0:15] ^ b[0:15])
+\endimpl
+ * \see m16f_xor(m16f a, m16f b)
+ * \see m16f_not(m16f a)
+ * \param a first \c m16f input vector-mask
+ * \param b second \c m16f input vector-mask
+ * \returns "bitwise nxor"ed \c m16f vector-mask
+ */
+m16f m16f_nxor(m16f a, m16f b);
+/**
+ * \ingroup mlogic
+ * \related v16i
+ * \brief Bitwise nxor ( \c `~(a ^ b)` )
+ * \details Performs the bitwise nxor on the two \c m16i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m16i_not(m16i_xor(a, b))`
+ * \impl
+dst[0:15] = ~(a[0:15] ^ b[0:15])
+\endimpl
+ * \see m16i_xor(m16i a, m16i b)
+ * \see m16i_not(m16i a)
+ * \param a first \c m16i input vector-mask
+ * \param b second \c m16i input vector-mask
+ * \returns "bitwise nxor"ed \c m16i vector-mask
+ */
+m16i m16i_nxor(m16i a, m16i b);
+
+/**
+ * \ingroup mlogic
+ * \related v1d
+ * \brief Bitwise andnot ( \c `a & ~b` )
+ * \details Performs the bitwise andnot on the two \c m1d input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m1d_and(a, m1d_not(b))`
+ * \attention This function should not be confused with m1d_nand(m1d a, m1d b).
+ * \impl
+dst[0] = a[0] & ~b[0]
+\endimpl
+ * \see m1d_and(m1d a, m1d b)
+ * \see m1d_not(m1d a)
+ * \see m1d_nand(m1d a, m1d b)
+ * \param a first \c m1d input vector-mask
+ * \param b second \c m1d input vector-mask
+ * \returns "bitwise andnot"ed \c m1d vector-mask
+ */
+m1d m1d_andnot(m1d a, m1d b);
+/**
+ * \ingroup mlogic
+ * \related v1f
+ * \brief Bitwise andnot ( \c `a & ~b` )
+ * \details Performs the bitwise andnot on the two \c m1f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m1f_and(a, m1f_not(b))`
+ * \attention This function should not be confused with m1f_nand(m1f a, m1f b).
+ * \impl
+dst[0] = a[0] & ~b[0]
+\endimpl
+ * \see m1f_and(m1f a, m1f b)
+ * \see m1f_not(m1f a)
+ * \see m1f_nand(m1f a, m1f b)
+ * \param a first \c m1f input vector-mask
+ * \param b second \c m1f input vector-mask
+ * \returns "bitwise andnot"ed \c m1f vector-mask
+ */
+m1f m1f_andnot(m1f a, m1f b);
+/**
+ * \ingroup mlogic
+ * \related v1i
+ * \brief Bitwise andnot ( \c `a & ~b` )
+ * \details Performs the bitwise andnot on the two \c m1i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m1i_and(a, m1i_not(b))`
+ * \attention This function should not be confused with m1i_nand(m1i a, m1i b).
+ * \impl
+dst[0] = a[0] & ~b[0]
+\endimpl
+ * \see m1i_and(m1i a, m1i b)
+ * \see m1i_not(m1i a)
+ * \see m1i_nand(m1i a, m1i b)
+ * \param a first \c m1i input vector-mask
+ * \param b second \c m1i input vector-mask
+ * \returns "bitwise andnot"ed \c m1i vector-mask
+ */
+m1i m1i_andnot(m1i a, m1i b);
+/**
+ * \ingroup mlogic
+ * \related v1l
+ * \brief Bitwise andnot ( \c `a & ~b` )
+ * \details Performs the bitwise andnot on the two \c m1l input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m1l_and(a, m1l_not(b))`
+ * \attention This function should not be confused with m1l_nand(m1l a, m1l b).
+ * \impl
+dst[0] = a[0] & ~b[0]
+\endimpl
+ * \see m1l_and(m1l a, m1l b)
+ * \see m1l_not(m1l a)
+ * \see m1l_nand(m1l a, m1l b)
+ * \param a first \c m1l input vector-mask
+ * \param b second \c m1l input vector-mask
+ * \returns "bitwise andnot"ed \c m1l vector-mask
+ */
+m1l m1l_andnot(m1l a, m1l b);
+/**
+ * \ingroup mlogic
+ * \related v2d
+ * \brief Bitwise andnot ( \c `a & ~b` )
+ * \details Performs the bitwise andnot on the two \c m2d input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m2d_and(a, m2d_not(b))`
+ * \attention This function should not be confused with m2d_nand(m2d a, m2d b).
+ * \impl
+dst[0:1] = a[0:1] & ~b[0:1]
+\endimpl
+ * \see m2d_and(m2d a, m2d b)
+ * \see m2d_not(m2d a)
+ * \see m2d_nand(m2d a, m2d b)
+ * \param a first \c m2d input vector-mask
+ * \param b second \c m2d input vector-mask
+ * \returns "bitwise andnot"ed \c m2d vector-mask
+ */
+m2d m2d_andnot(m2d a, m2d b);
+/**
+ * \ingroup mlogic
+ * \related v2f
+ * \brief Bitwise andnot ( \c `a & ~b` )
+ * \details Performs the bitwise andnot on the two \c m2f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m2f_and(a, m2f_not(b))`
+ * \attention This function should not be confused with m2f_nand(m2f a, m2f b).
+ * \impl
+dst[0:1] = a[0:1] & ~b[0:1]
+\endimpl
+ * \see m2f_and(m2f a, m2f b)
+ * \see m2f_not(m2f a)
+ * \see m2f_nand(m2f a, m2f b)
+ * \param a first \c m2f input vector-mask
+ * \param b second \c m2f input vector-mask
+ * \returns "bitwise andnot"ed \c m2f vector-mask
+ */
+m2f m2f_andnot(m2f a, m2f b);
+/**
+ * \ingroup mlogic
+ * \related v2i
+ * \brief Bitwise andnot ( \c `a & ~b` )
+ * \details Performs the bitwise andnot on the two \c m2i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m2i_and(a, m2i_not(b))`
+ * \attention This function should not be confused with m2i_nand(m2i a, m2i b).
+ * \impl
+dst[0:1] = a[0:1] & ~b[0:1]
+\endimpl
+ * \see m2i_and(m2i a, m2i b)
+ * \see m2i_not(m2i a)
+ * \see m2i_nand(m2i a, m2i b)
+ * \param a first \c m2i input vector-mask
+ * \param b second \c m2i input vector-mask
+ * \returns "bitwise andnot"ed \c m2i vector-mask
+ */
+m2i m2i_andnot(m2i a, m2i b);
+/**
+ * \ingroup mlogic
+ * \related v2l
+ * \brief Bitwise andnot ( \c `a & ~b` )
+ * \details Performs the bitwise andnot on the two \c m2l input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m2l_and(a, m2l_not(b))`
+ * \attention This function should not be confused with m2l_nand(m2l a, m2l b).
+ * \impl
+dst[0:1] = a[0:1] & ~b[0:1]
+\endimpl
+ * \see m2l_and(m2l a, m2l b)
+ * \see m2l_not(m2l a)
+ * \see m2l_nand(m2l a, m2l b)
+ * \param a first \c m2l input vector-mask
+ * \param b second \c m2l input vector-mask
+ * \returns "bitwise andnot"ed \c m2l vector-mask
+ */
+m2l m2l_andnot(m2l a, m2l b);
+/**
+ * \ingroup mlogic
+ * \related v4d
+ * \brief Bitwise andnot ( \c `a & ~b` )
+ * \details Performs the bitwise andnot on the two \c m4d input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m4d_and(a, m4d_not(b))`
+ * \attention This function should not be confused with m4d_nand(m4d a, m4d b).
+ * \impl
+dst[0:3] = a[0:3] & ~b[0:3]
+\endimpl
+ * \see m4d_and(m4d a, m4d b)
+ * \see m4d_not(m4d a)
+ * \see m4d_nand(m4d a, m4d b)
+ * \param a first \c m4d input vector-mask
+ * \param b second \c m4d input vector-mask
+ * \returns "bitwise andnot"ed \c m4d vector-mask
+ */
+m4d m4d_andnot(m4d a, m4d b);
+/**
+ * \ingroup mlogic
+ * \related v4f
+ * \brief Bitwise andnot ( \c `a & ~b` )
+ * \details Performs the bitwise andnot on the two \c m4f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m4f_and(a, m4f_not(b))`
+ * \attention This function should not be confused with m4f_nand(m4f a, m4f b).
+ * \impl
+dst[0:3] = a[0:3] & ~b[0:3]
+\endimpl
+ * \see m4f_and(m4f a, m4f b)
+ * \see m4f_not(m4f a)
+ * \see m4f_nand(m4f a, m4f b)
+ * \param a first \c m4f input vector-mask
+ * \param b second \c m4f input vector-mask
+ * \returns "bitwise andnot"ed \c m4f vector-mask
+ */
+m4f m4f_andnot(m4f a, m4f b);
+/**
+ * \ingroup mlogic
+ * \related v4i
+ * \brief Bitwise andnot ( \c `a & ~b` )
+ * \details Performs the bitwise andnot on the two \c m4i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m4i_and(a, m4i_not(b))`
+ * \attention This function should not be confused with m4i_nand(m4i a, m4i b).
+ * \impl
+dst[0:3] = a[0:3] & ~b[0:3]
+\endimpl
+ * \see m4i_and(m4i a, m4i b)
+ * \see m4i_not(m4i a)
+ * \see m4i_nand(m4i a, m4i b)
+ * \param a first \c m4i input vector-mask
+ * \param b second \c m4i input vector-mask
+ * \returns "bitwise andnot"ed \c m4i vector-mask
+ */
+m4i m4i_andnot(m4i a, m4i b);
+/**
+ * \ingroup mlogic
+ * \related v4l
+ * \brief Bitwise andnot ( \c `a & ~b` )
+ * \details Performs the bitwise andnot on the two \c m4l input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m4l_and(a, m4l_not(b))`
+ * \attention This function should not be confused with m4l_nand(m4l a, m4l b).
+ * \impl
+dst[0:3] = a[0:3] & ~b[0:3]
+\endimpl
+ * \see m4l_and(m4l a, m4l b)
+ * \see m4l_not(m4l a)
+ * \see m4l_nand(m4l a, m4l b)
+ * \param a first \c m4l input vector-mask
+ * \param b second \c m4l input vector-mask
+ * \returns "bitwise andnot"ed \c m4l vector-mask
+ */
+m4l m4l_andnot(m4l a, m4l b);
+/**
+ * \ingroup mlogic
+ * \related v8d
+ * \brief Bitwise andnot ( \c `a & ~b` )
+ * \details Performs the bitwise andnot on the two \c m8d input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m8d_and(a, m8d_not(b))`
+ * \attention This function should not be confused with m8d_nand(m8d a, m8d b).
+ * \impl
+dst[0:7] = a[0:7] & ~b[0:7]
+\endimpl
+ * \see m8d_and(m8d a, m8d b)
+ * \see m8d_not(m8d a)
+ * \see m8d_nand(m8d a, m8d b)
+ * \param a first \c m8d input vector-mask
+ * \param b second \c m8d input vector-mask
+ * \returns "bitwise andnot"ed \c m8d vector-mask
+ */
+m8d m8d_andnot(m8d a, m8d b);
+/**
+ * \ingroup mlogic
+ * \related v8f
+ * \brief Bitwise andnot ( \c `a & ~b` )
+ * \details Performs the bitwise andnot on the two \c m8f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m8f_and(a, m8f_not(b))`
+ * \attention This function should not be confused with m8f_nand(m8f a, m8f b).
+ * \impl
+dst[0:7] = a[0:7] & ~b[0:7]
+\endimpl
+ * \see m8f_and(m8f a, m8f b)
+ * \see m8f_not(m8f a)
+ * \see m8f_nand(m8f a, m8f b)
+ * \param a first \c m8f input vector-mask
+ * \param b second \c m8f input vector-mask
+ * \returns "bitwise andnot"ed \c m8f vector-mask
+ */
+m8f m8f_andnot(m8f a, m8f b);
+/**
+ * \ingroup mlogic
+ * \related v8i
+ * \brief Bitwise andnot ( \c `a & ~b` )
+ * \details Performs the bitwise andnot on the two \c m8i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m8i_and(a, m8i_not(b))`
+ * \attention This function should not be confused with m8i_nand(m8i a, m8i b).
+ * \impl
+dst[0:7] = a[0:7] & ~b[0:7]
+\endimpl
+ * \see m8i_and(m8i a, m8i b)
+ * \see m8i_not(m8i a)
+ * \see m8i_nand(m8i a, m8i b)
+ * \param a first \c m8i input vector-mask
+ * \param b second \c m8i input vector-mask
+ * \returns "bitwise andnot"ed \c m8i vector-mask
+ */
+m8i m8i_andnot(m8i a, m8i b);
+/**
+ * \ingroup mlogic
+ * \related v8l
+ * \brief Bitwise andnot ( \c `a & ~b` )
+ * \details Performs the bitwise andnot on the two \c m8l input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m8l_and(a, m8l_not(b))`
+ * \attention This function should not be confused with m8l_nand(m8l a, m8l b).
+ * \impl
+dst[0:7] = a[0:7] & ~b[0:7]
+\endimpl
+ * \see m8l_and(m8l a, m8l b)
+ * \see m8l_not(m8l a)
+ * \see m8l_nand(m8l a, m8l b)
+ * \param a first \c m8l input vector-mask
+ * \param b second \c m8l input vector-mask
+ * \returns "bitwise andnot"ed \c m8l vector-mask
+ */
+m8l m8l_andnot(m8l a, m8l b);
+/**
+ * \ingroup mlogic
+ * \related v16f
+ * \brief Bitwise andnot ( \c `a & ~b` )
+ * \details Performs the bitwise andnot on the two \c m16f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m16f_and(a, m16f_not(b))`
+ * \attention This function should not be confused with m16f_nand(m16f a, m16f b).
+ * \impl
+dst[0:15] = a[0:15] & ~b[0:15]
+\endimpl
+ * \see m16f_and(m16f a, m16f b)
+ * \see m16f_not(m16f a)
+ * \see m16f_nand(m16f a, m16f b)
+ * \param a first \c m16f input vector-mask
+ * \param b second \c m16f input vector-mask
+ * \returns "bitwise andnot"ed \c m16f vector-mask
+ */
+m16f m16f_andnot(m16f a, m16f b);
+/**
+ * \ingroup mlogic
+ * \related v16i
+ * \brief Bitwise andnot ( \c `a & ~b` )
+ * \details Performs the bitwise andnot on the two \c m16i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m16i_and(a, m16i_not(b))`
+ * \attention This function should not be confused with m16i_nand(m16i a, m16i b).
+ * \impl
+dst[0:15] = a[0:15] & ~b[0:15]
+\endimpl
+ * \see m16i_and(m16i a, m16i b)
+ * \see m16i_not(m16i a)
+ * \see m16i_nand(m16i a, m16i b)
+ * \param a first \c m16i input vector-mask
+ * \param b second \c m16i input vector-mask
+ * \returns "bitwise andnot"ed \c m16i vector-mask
+ */
+m16i m16i_andnot(m16i a, m16i b);
+
+/**
+ * \ingroup mlogic
+ * \related v1d
+ * \brief Bitwise ornot ( \c `a | ~b` )
+ * \details Performs the bitwise ornot on the two \c m1d input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m1d_or(a, m1d_not(b))`
+ * \attention This function should not be confused with m1d_nor(m1d a, m1d b).
+ * \impl
+dst[0] = a[0] | ~b[0]
+\endimpl
+ * \see m1d_or(m1d a, m1d b)
+ * \see m1d_not(m1d a)
+ * \see m1d_nor(m1d a, m1d b)
+ * \param a first \c m1d input vector-mask
+ * \param b second \c m1d input vector-mask
+ * \returns "bitwise ornot"ed \c m1d vector-mask
+ */
+m1d m1d_ornot(m1d a, m1d b);
+/**
+ * \ingroup mlogic
+ * \related v1f
+ * \brief Bitwise ornot ( \c `a | ~b` )
+ * \details Performs the bitwise ornot on the two \c m1f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m1f_or(a, m1f_not(b))`
+ * \attention This function should not be confused with m1f_nor(m1f a, m1f b).
+ * \impl
+dst[0] = a[0] | ~b[0]
+\endimpl
+ * \see m1f_or(m1f a, m1f b)
+ * \see m1f_not(m1f a)
+ * \see m1f_nor(m1f a, m1f b)
+ * \param a first \c m1f input vector-mask
+ * \param b second \c m1f input vector-mask
+ * \returns "bitwise ornot"ed \c m1f vector-mask
+ */
+m1f m1f_ornot(m1f a, m1f b);
+/**
+ * \ingroup mlogic
+ * \related v1i
+ * \brief Bitwise ornot ( \c `a | ~b` )
+ * \details Performs the bitwise ornot on the two \c m1i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m1i_or(a, m1i_not(b))`
+ * \attention This function should not be confused with m1i_nor(m1i a, m1i b).
+ * \impl
+dst[0] = a[0] | ~b[0]
+\endimpl
+ * \see m1i_or(m1i a, m1i b)
+ * \see m1i_not(m1i a)
+ * \see m1i_nor(m1i a, m1i b)
+ * \param a first \c m1i input vector-mask
+ * \param b second \c m1i input vector-mask
+ * \returns "bitwise ornot"ed \c m1i vector-mask
+ */
+m1i m1i_ornot(m1i a, m1i b);
+/**
+ * \ingroup mlogic
+ * \related v1l
+ * \brief Bitwise ornot ( \c `a | ~b` )
+ * \details Performs the bitwise ornot on the two \c m1l input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m1l_or(a, m1l_not(b))`
+ * \attention This function should not be confused with m1l_nor(m1l a, m1l b).
+ * \impl
+dst[0] = a[0] | ~b[0]
+\endimpl
+ * \see m1l_or(m1l a, m1l b)
+ * \see m1l_not(m1l a)
+ * \see m1l_nor(m1l a, m1l b)
+ * \param a first \c m1l input vector-mask
+ * \param b second \c m1l input vector-mask
+ * \returns "bitwise ornot"ed \c m1l vector-mask
+ */
+m1l m1l_ornot(m1l a, m1l b);
+/**
+ * \ingroup mlogic
+ * \related v2d
+ * \brief Bitwise ornot ( \c `a | ~b` )
+ * \details Performs the bitwise ornot on the two \c m2d input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m2d_or(a, m2d_not(b))`
+ * \attention This function should not be confused with m2d_nor(m2d a, m2d b).
+ * \impl
+dst[0:1] = a[0:1] | ~b[0:1]
+\endimpl
+ * \see m2d_or(m2d a, m2d b)
+ * \see m2d_not(m2d a)
+ * \see m2d_nor(m2d a, m2d b)
+ * \param a first \c m2d input vector-mask
+ * \param b second \c m2d input vector-mask
+ * \returns "bitwise ornot"ed \c m2d vector-mask
+ */
+m2d m2d_ornot(m2d a, m2d b);
+/**
+ * \ingroup mlogic
+ * \related v2f
+ * \brief Bitwise ornot ( \c `a | ~b` )
+ * \details Performs the bitwise ornot on the two \c m2f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m2f_or(a, m2f_not(b))`
+ * \attention This function should not be confused with m2f_nor(m2f a, m2f b).
+ * \impl
+dst[0:1] = a[0:1] | ~b[0:1]
+\endimpl
+ * \see m2f_or(m2f a, m2f b)
+ * \see m2f_not(m2f a)
+ * \see m2f_nor(m2f a, m2f b)
+ * \param a first \c m2f input vector-mask
+ * \param b second \c m2f input vector-mask
+ * \returns "bitwise ornot"ed \c m2f vector-mask
+ */
+m2f m2f_ornot(m2f a, m2f b);
+/**
+ * \ingroup mlogic
+ * \related v2i
+ * \brief Bitwise ornot ( \c `a | ~b` )
+ * \details Performs the bitwise ornot on the two \c m2i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m2i_or(a, m2i_not(b))`
+ * \attention This function should not be confused with m2i_nor(m2i a, m2i b).
+ * \impl
+dst[0:1] = a[0:1] | ~b[0:1]
+\endimpl
+ * \see m2i_or(m2i a, m2i b)
+ * \see m2i_not(m2i a)
+ * \see m2i_nor(m2i a, m2i b)
+ * \param a first \c m2i input vector-mask
+ * \param b second \c m2i input vector-mask
+ * \returns "bitwise ornot"ed \c m2i vector-mask
+ */
+m2i m2i_ornot(m2i a, m2i b);
+/**
+ * \ingroup mlogic
+ * \related v2l
+ * \brief Bitwise ornot ( \c `a | ~b` )
+ * \details Performs the bitwise ornot on the two \c m2l input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m2l_or(a, m2l_not(b))`
+ * \attention This function should not be confused with m2l_nor(m2l a, m2l b).
+ * \impl
+dst[0:1] = a[0:1] | ~b[0:1]
+\endimpl
+ * \see m2l_or(m2l a, m2l b)
+ * \see m2l_not(m2l a)
+ * \see m2l_nor(m2l a, m2l b)
+ * \param a first \c m2l input vector-mask
+ * \param b second \c m2l input vector-mask
+ * \returns "bitwise ornot"ed \c m2l vector-mask
+ */
+m2l m2l_ornot(m2l a, m2l b);
+/**
+ * \ingroup mlogic
+ * \related v4d
+ * \brief Bitwise ornot ( \c `a | ~b` )
+ * \details Performs the bitwise ornot on the two \c m4d input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m4d_or(a, m4d_not(b))`
+ * \attention This function should not be confused with m4d_nor(m4d a, m4d b).
+ * \impl
+dst[0:3] = a[0:3] | ~b[0:3]
+\endimpl
+ * \see m4d_or(m4d a, m4d b)
+ * \see m4d_not(m4d a)
+ * \see m4d_nor(m4d a, m4d b)
+ * \param a first \c m4d input vector-mask
+ * \param b second \c m4d input vector-mask
+ * \returns "bitwise ornot"ed \c m4d vector-mask
+ */
+m4d m4d_ornot(m4d a, m4d b);
+/**
+ * \ingroup mlogic
+ * \related v4f
+ * \brief Bitwise ornot ( \c `a | ~b` )
+ * \details Performs the bitwise ornot on the two \c m4f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m4f_or(a, m4f_not(b))`
+ * \attention This function should not be confused with m4f_nor(m4f a, m4f b).
+ * \impl
+dst[0:3] = a[0:3] | ~b[0:3]
+\endimpl
+ * \see m4f_or(m4f a, m4f b)
+ * \see m4f_not(m4f a)
+ * \see m4f_nor(m4f a, m4f b)
+ * \param a first \c m4f input vector-mask
+ * \param b second \c m4f input vector-mask
+ * \returns "bitwise ornot"ed \c m4f vector-mask
+ */
+m4f m4f_ornot(m4f a, m4f b);
+/**
+ * \ingroup mlogic
+ * \related v4i
+ * \brief Bitwise ornot ( \c `a | ~b` )
+ * \details Performs the bitwise ornot on the two \c m4i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m4i_or(a, m4i_not(b))`
+ * \attention This function should not be confused with m4i_nor(m4i a, m4i b).
+ * \impl
+dst[0:3] = a[0:3] | ~b[0:3]
+\endimpl
+ * \see m4i_or(m4i a, m4i b)
+ * \see m4i_not(m4i a)
+ * \see m4i_nor(m4i a, m4i b)
+ * \param a first \c m4i input vector-mask
+ * \param b second \c m4i input vector-mask
+ * \returns "bitwise ornot"ed \c m4i vector-mask
+ */
+m4i m4i_ornot(m4i a, m4i b);
+/**
+ * \ingroup mlogic
+ * \related v4l
+ * \brief Bitwise ornot ( \c `a | ~b` )
+ * \details Performs the bitwise ornot on the two \c m4l input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m4l_or(a, m4l_not(b))`
+ * \attention This function should not be confused with m4l_nor(m4l a, m4l b).
+ * \impl
+dst[0:3] = a[0:3] | ~b[0:3]
+\endimpl
+ * \see m4l_or(m4l a, m4l b)
+ * \see m4l_not(m4l a)
+ * \see m4l_nor(m4l a, m4l b)
+ * \param a first \c m4l input vector-mask
+ * \param b second \c m4l input vector-mask
+ * \returns "bitwise ornot"ed \c m4l vector-mask
+ */
+m4l m4l_ornot(m4l a, m4l b);
+/**
+ * \ingroup mlogic
+ * \related v8d
+ * \brief Bitwise ornot ( \c `a | ~b` )
+ * \details Performs the bitwise ornot on the two \c m8d input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m8d_or(a, m8d_not(b))`
+ * \attention This function should not be confused with m8d_nor(m8d a, m8d b).
+ * \impl
+dst[0:7] = a[0:7] | ~b[0:7]
+\endimpl
+ * \see m8d_or(m8d a, m8d b)
+ * \see m8d_not(m8d a)
+ * \see m8d_nor(m8d a, m8d b)
+ * \param a first \c m8d input vector-mask
+ * \param b second \c m8d input vector-mask
+ * \returns "bitwise ornot"ed \c m8d vector-mask
+ */
+m8d m8d_ornot(m8d a, m8d b);
+/**
+ * \ingroup mlogic
+ * \related v8f
+ * \brief Bitwise ornot ( \c `a | ~b` )
+ * \details Performs the bitwise ornot on the two \c m8f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m8f_or(a, m8f_not(b))`
+ * \attention This function should not be confused with m8f_nor(m8f a, m8f b).
+ * \impl
+dst[0:7] = a[0:7] | ~b[0:7]
+\endimpl
+ * \see m8f_or(m8f a, m8f b)
+ * \see m8f_not(m8f a)
+ * \see m8f_nor(m8f a, m8f b)
+ * \param a first \c m8f input vector-mask
+ * \param b second \c m8f input vector-mask
+ * \returns "bitwise ornot"ed \c m8f vector-mask
+ */
+m8f m8f_ornot(m8f a, m8f b);
+/**
+ * \ingroup mlogic
+ * \related v8i
+ * \brief Bitwise ornot ( \c `a | ~b` )
+ * \details Performs the bitwise ornot on the two \c m8i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m8i_or(a, m8i_not(b))`
+ * \attention This function should not be confused with m8i_nor(m8i a, m8i b).
+ * \impl
+dst[0:7] = a[0:7] | ~b[0:7]
+\endimpl
+ * \see m8i_or(m8i a, m8i b)
+ * \see m8i_not(m8i a)
+ * \see m8i_nor(m8i a, m8i b)
+ * \param a first \c m8i input vector-mask
+ * \param b second \c m8i input vector-mask
+ * \returns "bitwise ornot"ed \c m8i vector-mask
+ */
+m8i m8i_ornot(m8i a, m8i b);
+/**
+ * \ingroup mlogic
+ * \related v8l
+ * \brief Bitwise ornot ( \c `a | ~b` )
+ * \details Performs the bitwise ornot on the two \c m8l input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m8l_or(a, m8l_not(b))`
+ * \attention This function should not be confused with m8l_nor(m8l a, m8l b).
+ * \impl
+dst[0:7] = a[0:7] | ~b[0:7]
+\endimpl
+ * \see m8l_or(m8l a, m8l b)
+ * \see m8l_not(m8l a)
+ * \see m8l_nor(m8l a, m8l b)
+ * \param a first \c m8l input vector-mask
+ * \param b second \c m8l input vector-mask
+ * \returns "bitwise ornot"ed \c m8l vector-mask
+ */
+m8l m8l_ornot(m8l a, m8l b);
+/**
+ * \ingroup mlogic
+ * \related v16f
+ * \brief Bitwise ornot ( \c `a | ~b` )
+ * \details Performs the bitwise ornot on the two \c m16f input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m16f_or(a, m16f_not(b))`
+ * \attention This function should not be confused with m16f_nor(m16f a, m16f b).
+ * \impl
+dst[0:15] = a[0:15] | ~b[0:15]
+\endimpl
+ * \see m16f_or(m16f a, m16f b)
+ * \see m16f_not(m16f a)
+ * \see m16f_nor(m16f a, m16f b)
+ * \param a first \c m16f input vector-mask
+ * \param b second \c m16f input vector-mask
+ * \returns "bitwise ornot"ed \c m16f vector-mask
+ */
+m16f m16f_ornot(m16f a, m16f b);
+/**
+ * \ingroup mlogic
+ * \related v16i
+ * \brief Bitwise ornot ( \c `a | ~b` )
+ * \details Performs the bitwise ornot on the two \c m16i input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `m16i_or(a, m16i_not(b))`
+ * \attention This function should not be confused with m16i_nor(m16i a, m16i b).
+ * \impl
+dst[0:15] = a[0:15] | ~b[0:15]
+\endimpl
+ * \see m16i_or(m16i a, m16i b)
+ * \see m16i_not(m16i a)
+ * \see m16i_nor(m16i a, m16i b)
+ * \param a first \c m16i input vector-mask
+ * \param b second \c m16i input vector-mask
+ * \returns "bitwise ornot"ed \c m16i vector-mask
+ */
+m16i m16i_ornot(m16i a, m16i b);
 
 
 /* COMPARISONS */
@@ -34708,6 +39758,912 @@ v16f v16f_cast_v16i(v16i a);
  */
 v16i v16i_cast_v16i(v16i a);
 
+/** \defgroup mcast mask cast functions
+ * \ingroup maskop
+ * Functions for casting vectors into or from mask-vectors
+ */
+
+/**
+ * \ingroup mcast
+ * \related v1d
+ * \brief Casts a \c v1d vector into a \c m1d vector-mask.
+ * \details Casts a \c v1d vector into a \c m1d vector-mask.
+ * \details May be faster than m1d_cvt_v1d(v1d a) if \c a can act as a mask
+ *  (ie: every elements are either 0 or 0xFFFFFFFFFFFFFFFF).
+ *  Undefined behaviors otherwise.
+ * \details If \c a can act as a mask, the following statements are equivalent for every vector \c v1d \c vec:
+ *  - \c `v1d_and(a, vec)`
+ *  - \c `v1d_mask_move(m1d_cast_v1d(a), vec)`
+ *
+ * \impl
+for j from 0 to 0
+  i := j*64
+  if dst.bits[i:i+63] == 0xFFFFFFFFFFFFFFFF
+    mask[j] := 1
+  else if dst.bits[i:i+63] == 0
+    mask[j] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector to cast
+ * \returns vector-mask
+ */
+m1d m1d_cast_v1d(v1d a);
+/**
+ * \ingroup mcast
+ * \related v1f
+ * \brief Casts a \c v1f vector into a \c m1f vector-mask.
+ * \details Casts a \c v1f vector into a \c m1f vector-mask.
+ * \details May be faster than m1f_cvt_v1f(v1f a) if \c a can act as a mask
+ *  (ie: every elements are either 0 or 0xFFFFFFFF).
+ *  Undefined behaviors otherwise.
+ * \details If \c a can act as a mask, the following statements are equivalent for every vector \c v1f \c vec:
+ *  - \c `v1f_and(a, vec)`
+ *  - \c `v1f_mask_move(m1f_cast_v1f(a), vec)`
+ *
+ * \impl
+for j from 0 to 0
+  i := j*32
+  if dst.bits[i:i+31] == 0xFFFFFFFF
+    mask[j] := 1
+  else if dst.bits[i:i+31] == 0
+    mask[j] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector to cast
+ * \returns vector-mask
+ */
+m1f m1f_cast_v1f(v1f a);
+/**
+ * \ingroup mcast
+ * \related v1i
+ * \brief Casts a \c v1i vector into a \c m1i vector-mask.
+ * \details Casts a \c v1i vector into a \c m1i vector-mask.
+ * \details May be faster than m1i_cvt_v1i(v1i a) if \c a can act as a mask
+ *  (ie: every elements are either 0 or 0xFFFFFFFF).
+ *  Undefined behaviors otherwise.
+ * \details If \c a can act as a mask, the following statements are equivalent for every vector \c v1i \c vec:
+ *  - \c `v1i_and(a, vec)`
+ *  - \c `v1i_mask_move(m1i_cast_v1i(a), vec)`
+ *
+ * \impl
+for j from 0 to 0
+  i := j*32
+  if dst.bits[i:i+31] == 0xFFFFFFFF
+    mask[j] := 1
+  else if dst.bits[i:i+31] == 0
+    mask[j] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector to cast
+ * \returns vector-mask
+ */
+m1i m1i_cast_v1i(v1i a);
+/**
+ * \ingroup mcast
+ * \related v1l
+ * \brief Casts a \c v1l vector into a \c m1l vector-mask.
+ * \details Casts a \c v1l vector into a \c m1l vector-mask.
+ * \details May be faster than m1l_cvt_v1l(v1l a) if \c a can act as a mask
+ *  (ie: every elements are either 0 or 0xFFFFFFFFFFFFFFFF).
+ *  Undefined behaviors otherwise.
+ * \details If \c a can act as a mask, the following statements are equivalent for every vector \c v1l \c vec:
+ *  - \c `v1l_and(a, vec)`
+ *  - \c `v1l_mask_move(m1l_cast_v1l(a), vec)`
+ *
+ * \impl
+for j from 0 to 0
+  i := j*64
+  if dst.bits[i:i+63] == 0xFFFFFFFFFFFFFFFF
+    mask[j] := 1
+  else if dst.bits[i:i+63] == 0
+    mask[j] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector to cast
+ * \returns vector-mask
+ */
+m1l m1l_cast_v1l(v1l a);
+/**
+ * \ingroup mcast
+ * \related v2d
+ * \brief Casts a \c v2d vector into a \c m2d vector-mask.
+ * \details Casts a \c v2d vector into a \c m2d vector-mask.
+ * \details May be faster than m2d_cvt_v2d(v2d a) if \c a can act as a mask
+ *  (ie: every elements are either 0 or 0xFFFFFFFFFFFFFFFF).
+ *  Undefined behaviors otherwise.
+ * \details If \c a can act as a mask, the following statements are equivalent for every vector \c v2d \c vec:
+ *  - \c `v2d_and(a, vec)`
+ *  - \c `v2d_mask_move(m2d_cast_v2d(a), vec)`
+ *
+ * \impl
+for j from 0 to 1
+  i := j*64
+  if dst.bits[i:i+63] == 0xFFFFFFFFFFFFFFFF
+    mask[j] := 1
+  else if dst.bits[i:i+63] == 0
+    mask[j] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector to cast
+ * \returns vector-mask
+ */
+m2d m2d_cast_v2d(v2d a);
+/**
+ * \ingroup mcast
+ * \related v2f
+ * \brief Casts a \c v2f vector into a \c m2f vector-mask.
+ * \details Casts a \c v2f vector into a \c m2f vector-mask.
+ * \details May be faster than m2f_cvt_v2f(v2f a) if \c a can act as a mask
+ *  (ie: every elements are either 0 or 0xFFFFFFFF).
+ *  Undefined behaviors otherwise.
+ * \details If \c a can act as a mask, the following statements are equivalent for every vector \c v2f \c vec:
+ *  - \c `v2f_and(a, vec)`
+ *  - \c `v2f_mask_move(m2f_cast_v2f(a), vec)`
+ *
+ * \impl
+for j from 0 to 1
+  i := j*32
+  if dst.bits[i:i+31] == 0xFFFFFFFF
+    mask[j] := 1
+  else if dst.bits[i:i+31] == 0
+    mask[j] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector to cast
+ * \returns vector-mask
+ */
+m2f m2f_cast_v2f(v2f a);
+/**
+ * \ingroup mcast
+ * \related v2i
+ * \brief Casts a \c v2i vector into a \c m2i vector-mask.
+ * \details Casts a \c v2i vector into a \c m2i vector-mask.
+ * \details May be faster than m2i_cvt_v2i(v2i a) if \c a can act as a mask
+ *  (ie: every elements are either 0 or 0xFFFFFFFF).
+ *  Undefined behaviors otherwise.
+ * \details If \c a can act as a mask, the following statements are equivalent for every vector \c v2i \c vec:
+ *  - \c `v2i_and(a, vec)`
+ *  - \c `v2i_mask_move(m2i_cast_v2i(a), vec)`
+ *
+ * \impl
+for j from 0 to 1
+  i := j*32
+  if dst.bits[i:i+31] == 0xFFFFFFFF
+    mask[j] := 1
+  else if dst.bits[i:i+31] == 0
+    mask[j] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector to cast
+ * \returns vector-mask
+ */
+m2i m2i_cast_v2i(v2i a);
+/**
+ * \ingroup mcast
+ * \related v2l
+ * \brief Casts a \c v2l vector into a \c m2l vector-mask.
+ * \details Casts a \c v2l vector into a \c m2l vector-mask.
+ * \details May be faster than m2l_cvt_v2l(v2l a) if \c a can act as a mask
+ *  (ie: every elements are either 0 or 0xFFFFFFFFFFFFFFFF).
+ *  Undefined behaviors otherwise.
+ * \details If \c a can act as a mask, the following statements are equivalent for every vector \c v2l \c vec:
+ *  - \c `v2l_and(a, vec)`
+ *  - \c `v2l_mask_move(m2l_cast_v2l(a), vec)`
+ *
+ * \impl
+for j from 0 to 1
+  i := j*64
+  if dst.bits[i:i+63] == 0xFFFFFFFFFFFFFFFF
+    mask[j] := 1
+  else if dst.bits[i:i+63] == 0
+    mask[j] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector to cast
+ * \returns vector-mask
+ */
+m2l m2l_cast_v2l(v2l a);
+/**
+ * \ingroup mcast
+ * \related v4d
+ * \brief Casts a \c v4d vector into a \c m4d vector-mask.
+ * \details Casts a \c v4d vector into a \c m4d vector-mask.
+ * \details May be faster than m4d_cvt_v4d(v4d a) if \c a can act as a mask
+ *  (ie: every elements are either 0 or 0xFFFFFFFFFFFFFFFF).
+ *  Undefined behaviors otherwise.
+ * \details If \c a can act as a mask, the following statements are equivalent for every vector \c v4d \c vec:
+ *  - \c `v4d_and(a, vec)`
+ *  - \c `v4d_mask_move(m4d_cast_v4d(a), vec)`
+ *
+ * \impl
+for j from 0 to 3
+  i := j*64
+  if dst.bits[i:i+63] == 0xFFFFFFFFFFFFFFFF
+    mask[j] := 1
+  else if dst.bits[i:i+63] == 0
+    mask[j] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector to cast
+ * \returns vector-mask
+ */
+m4d m4d_cast_v4d(v4d a);
+/**
+ * \ingroup mcast
+ * \related v4f
+ * \brief Casts a \c v4f vector into a \c m4f vector-mask.
+ * \details Casts a \c v4f vector into a \c m4f vector-mask.
+ * \details May be faster than m4f_cvt_v4f(v4f a) if \c a can act as a mask
+ *  (ie: every elements are either 0 or 0xFFFFFFFF).
+ *  Undefined behaviors otherwise.
+ * \details If \c a can act as a mask, the following statements are equivalent for every vector \c v4f \c vec:
+ *  - \c `v4f_and(a, vec)`
+ *  - \c `v4f_mask_move(m4f_cast_v4f(a), vec)`
+ *
+ * \impl
+for j from 0 to 3
+  i := j*32
+  if dst.bits[i:i+31] == 0xFFFFFFFF
+    mask[j] := 1
+  else if dst.bits[i:i+31] == 0
+    mask[j] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector to cast
+ * \returns vector-mask
+ */
+m4f m4f_cast_v4f(v4f a);
+/**
+ * \ingroup mcast
+ * \related v4i
+ * \brief Casts a \c v4i vector into a \c m4i vector-mask.
+ * \details Casts a \c v4i vector into a \c m4i vector-mask.
+ * \details May be faster than m4i_cvt_v4i(v4i a) if \c a can act as a mask
+ *  (ie: every elements are either 0 or 0xFFFFFFFF).
+ *  Undefined behaviors otherwise.
+ * \details If \c a can act as a mask, the following statements are equivalent for every vector \c v4i \c vec:
+ *  - \c `v4i_and(a, vec)`
+ *  - \c `v4i_mask_move(m4i_cast_v4i(a), vec)`
+ *
+ * \impl
+for j from 0 to 3
+  i := j*32
+  if dst.bits[i:i+31] == 0xFFFFFFFF
+    mask[j] := 1
+  else if dst.bits[i:i+31] == 0
+    mask[j] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector to cast
+ * \returns vector-mask
+ */
+m4i m4i_cast_v4i(v4i a);
+/**
+ * \ingroup mcast
+ * \related v4l
+ * \brief Casts a \c v4l vector into a \c m4l vector-mask.
+ * \details Casts a \c v4l vector into a \c m4l vector-mask.
+ * \details May be faster than m4l_cvt_v4l(v4l a) if \c a can act as a mask
+ *  (ie: every elements are either 0 or 0xFFFFFFFFFFFFFFFF).
+ *  Undefined behaviors otherwise.
+ * \details If \c a can act as a mask, the following statements are equivalent for every vector \c v4l \c vec:
+ *  - \c `v4l_and(a, vec)`
+ *  - \c `v4l_mask_move(m4l_cast_v4l(a), vec)`
+ *
+ * \impl
+for j from 0 to 3
+  i := j*64
+  if dst.bits[i:i+63] == 0xFFFFFFFFFFFFFFFF
+    mask[j] := 1
+  else if dst.bits[i:i+63] == 0
+    mask[j] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector to cast
+ * \returns vector-mask
+ */
+m4l m4l_cast_v4l(v4l a);
+/**
+ * \ingroup mcast
+ * \related v8d
+ * \brief Casts a \c v8d vector into a \c m8d vector-mask.
+ * \details Casts a \c v8d vector into a \c m8d vector-mask.
+ * \details May be faster than m8d_cvt_v8d(v8d a) if \c a can act as a mask
+ *  (ie: every elements are either 0 or 0xFFFFFFFFFFFFFFFF).
+ *  Undefined behaviors otherwise.
+ * \details If \c a can act as a mask, the following statements are equivalent for every vector \c v8d \c vec:
+ *  - \c `v8d_and(a, vec)`
+ *  - \c `v8d_mask_move(m8d_cast_v8d(a), vec)`
+ *
+ * \impl
+for j from 0 to 7
+  i := j*64
+  if dst.bits[i:i+63] == 0xFFFFFFFFFFFFFFFF
+    mask[j] := 1
+  else if dst.bits[i:i+63] == 0
+    mask[j] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector to cast
+ * \returns vector-mask
+ */
+m8d m8d_cast_v8d(v8d a);
+/**
+ * \ingroup mcast
+ * \related v8f
+ * \brief Casts a \c v8f vector into a \c m8f vector-mask.
+ * \details Casts a \c v8f vector into a \c m8f vector-mask.
+ * \details May be faster than m8f_cvt_v8f(v8f a) if \c a can act as a mask
+ *  (ie: every elements are either 0 or 0xFFFFFFFF).
+ *  Undefined behaviors otherwise.
+ * \details If \c a can act as a mask, the following statements are equivalent for every vector \c v8f \c vec:
+ *  - \c `v8f_and(a, vec)`
+ *  - \c `v8f_mask_move(m8f_cast_v8f(a), vec)`
+ *
+ * \impl
+for j from 0 to 7
+  i := j*32
+  if dst.bits[i:i+31] == 0xFFFFFFFF
+    mask[j] := 1
+  else if dst.bits[i:i+31] == 0
+    mask[j] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector to cast
+ * \returns vector-mask
+ */
+m8f m8f_cast_v8f(v8f a);
+/**
+ * \ingroup mcast
+ * \related v8i
+ * \brief Casts a \c v8i vector into a \c m8i vector-mask.
+ * \details Casts a \c v8i vector into a \c m8i vector-mask.
+ * \details May be faster than m8i_cvt_v8i(v8i a) if \c a can act as a mask
+ *  (ie: every elements are either 0 or 0xFFFFFFFF).
+ *  Undefined behaviors otherwise.
+ * \details If \c a can act as a mask, the following statements are equivalent for every vector \c v8i \c vec:
+ *  - \c `v8i_and(a, vec)`
+ *  - \c `v8i_mask_move(m8i_cast_v8i(a), vec)`
+ *
+ * \impl
+for j from 0 to 7
+  i := j*32
+  if dst.bits[i:i+31] == 0xFFFFFFFF
+    mask[j] := 1
+  else if dst.bits[i:i+31] == 0
+    mask[j] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector to cast
+ * \returns vector-mask
+ */
+m8i m8i_cast_v8i(v8i a);
+/**
+ * \ingroup mcast
+ * \related v8l
+ * \brief Casts a \c v8l vector into a \c m8l vector-mask.
+ * \details Casts a \c v8l vector into a \c m8l vector-mask.
+ * \details May be faster than m8l_cvt_v8l(v8l a) if \c a can act as a mask
+ *  (ie: every elements are either 0 or 0xFFFFFFFFFFFFFFFF).
+ *  Undefined behaviors otherwise.
+ * \details If \c a can act as a mask, the following statements are equivalent for every vector \c v8l \c vec:
+ *  - \c `v8l_and(a, vec)`
+ *  - \c `v8l_mask_move(m8l_cast_v8l(a), vec)`
+ *
+ * \impl
+for j from 0 to 7
+  i := j*64
+  if dst.bits[i:i+63] == 0xFFFFFFFFFFFFFFFF
+    mask[j] := 1
+  else if dst.bits[i:i+63] == 0
+    mask[j] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector to cast
+ * \returns vector-mask
+ */
+m8l m8l_cast_v8l(v8l a);
+/**
+ * \ingroup mcast
+ * \related v16f
+ * \brief Casts a \c v16f vector into a \c m16f vector-mask.
+ * \details Casts a \c v16f vector into a \c m16f vector-mask.
+ * \details May be faster than m16f_cvt_v16f(v16f a) if \c a can act as a mask
+ *  (ie: every elements are either 0 or 0xFFFFFFFF).
+ *  Undefined behaviors otherwise.
+ * \details If \c a can act as a mask, the following statements are equivalent for every vector \c v16f \c vec:
+ *  - \c `v16f_and(a, vec)`
+ *  - \c `v16f_mask_move(m16f_cast_v16f(a), vec)`
+ *
+ * \impl
+for j from 0 to 15
+  i := j*32
+  if dst.bits[i:i+31] == 0xFFFFFFFF
+    mask[j] := 1
+  else if dst.bits[i:i+31] == 0
+    mask[j] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector to cast
+ * \returns vector-mask
+ */
+m16f m16f_cast_v16f(v16f a);
+/**
+ * \ingroup mcast
+ * \related v16i
+ * \brief Casts a \c v16i vector into a \c m16i vector-mask.
+ * \details Casts a \c v16i vector into a \c m16i vector-mask.
+ * \details May be faster than m16i_cvt_v16i(v16i a) if \c a can act as a mask
+ *  (ie: every elements are either 0 or 0xFFFFFFFF).
+ *  Undefined behaviors otherwise.
+ * \details If \c a can act as a mask, the following statements are equivalent for every vector \c v16i \c vec:
+ *  - \c `v16i_and(a, vec)`
+ *  - \c `v16i_mask_move(m16i_cast_v16i(a), vec)`
+ *
+ * \impl
+for j from 0 to 15
+  i := j*32
+  if dst.bits[i:i+31] == 0xFFFFFFFF
+    mask[j] := 1
+  else if dst.bits[i:i+31] == 0
+    mask[j] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector to cast
+ * \returns vector-mask
+ */
+m16i m16i_cast_v16i(v16i a);
+/**
+ * \ingroup mcast
+ * \related v1d
+ * \brief Casts a \c m1d vector-mask into a \c v1d vector.
+ * \details Casts a \c m1d vector-mask into a \c v1d vector.
+ * \details May be faster than m1d_cvt_v1d(v1d a). Undefined behaviors when the mask is not set properly (undefined).
+ * \details The following statements are equivalent for every vector \c v1d \c vec:
+ *  - \c `v1d_and(v1d_cast_m1d(a), vec)`
+ *  - \c `v1d_mask_move(a, vec)`
+ *
+ * \impl
+for j from 0 to 0
+  i := j*64
+  if mask[j]
+    dst.bits[i:i+63] := 0xFFFFFFFFFFFFFFFF
+  else
+    dst.bits[i:i+63] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to cast
+ * \returns vector
+ */
+v1d v1d_cast_m1d(m1d a);
+/**
+ * \ingroup mcast
+ * \related v1f
+ * \brief Casts a \c m1f vector-mask into a \c v1f vector.
+ * \details Casts a \c m1f vector-mask into a \c v1f vector.
+ * \details May be faster than m1f_cvt_v1f(v1f a). Undefined behaviors when the mask is not set properly (undefined).
+ * \details The following statements are equivalent for every vector \c v1f \c vec:
+ *  - \c `v1f_and(v1f_cast_m1f(a), vec)`
+ *  - \c `v1f_mask_move(a, vec)`
+ *
+ * \impl
+for j from 0 to 0
+  i := j*32
+  if mask[j]
+    dst.bits[i:i+31] := 0xFFFFFFFF
+  else
+    dst.bits[i:i+31] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to cast
+ * \returns vector
+ */
+v1f v1f_cast_m1f(m1f a);
+/**
+ * \ingroup mcast
+ * \related v1i
+ * \brief Casts a \c m1i vector-mask into a \c v1i vector.
+ * \details Casts a \c m1i vector-mask into a \c v1i vector.
+ * \details May be faster than m1i_cvt_v1i(v1i a). Undefined behaviors when the mask is not set properly (undefined).
+ * \details The following statements are equivalent for every vector \c v1i \c vec:
+ *  - \c `v1i_and(v1i_cast_m1i(a), vec)`
+ *  - \c `v1i_mask_move(a, vec)`
+ *
+ * \impl
+for j from 0 to 0
+  i := j*32
+  if mask[j]
+    dst.bits[i:i+31] := 0xFFFFFFFF
+  else
+    dst.bits[i:i+31] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to cast
+ * \returns vector
+ */
+v1i v1i_cast_m1i(m1i a);
+/**
+ * \ingroup mcast
+ * \related v1l
+ * \brief Casts a \c m1l vector-mask into a \c v1l vector.
+ * \details Casts a \c m1l vector-mask into a \c v1l vector.
+ * \details May be faster than m1l_cvt_v1l(v1l a). Undefined behaviors when the mask is not set properly (undefined).
+ * \details The following statements are equivalent for every vector \c v1l \c vec:
+ *  - \c `v1l_and(v1l_cast_m1l(a), vec)`
+ *  - \c `v1l_mask_move(a, vec)`
+ *
+ * \impl
+for j from 0 to 0
+  i := j*64
+  if mask[j]
+    dst.bits[i:i+63] := 0xFFFFFFFFFFFFFFFF
+  else
+    dst.bits[i:i+63] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to cast
+ * \returns vector
+ */
+v1l v1l_cast_m1l(m1l a);
+/**
+ * \ingroup mcast
+ * \related v2d
+ * \brief Casts a \c m2d vector-mask into a \c v2d vector.
+ * \details Casts a \c m2d vector-mask into a \c v2d vector.
+ * \details May be faster than m2d_cvt_v2d(v2d a). Undefined behaviors when the mask is not set properly (undefined).
+ * \details The following statements are equivalent for every vector \c v2d \c vec:
+ *  - \c `v2d_and(v2d_cast_m2d(a), vec)`
+ *  - \c `v2d_mask_move(a, vec)`
+ *
+ * \impl
+for j from 0 to 1
+  i := j*64
+  if mask[j]
+    dst.bits[i:i+63] := 0xFFFFFFFFFFFFFFFF
+  else
+    dst.bits[i:i+63] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to cast
+ * \returns vector
+ */
+v2d v2d_cast_m2d(m2d a);
+/**
+ * \ingroup mcast
+ * \related v2f
+ * \brief Casts a \c m2f vector-mask into a \c v2f vector.
+ * \details Casts a \c m2f vector-mask into a \c v2f vector.
+ * \details May be faster than m2f_cvt_v2f(v2f a). Undefined behaviors when the mask is not set properly (undefined).
+ * \details The following statements are equivalent for every vector \c v2f \c vec:
+ *  - \c `v2f_and(v2f_cast_m2f(a), vec)`
+ *  - \c `v2f_mask_move(a, vec)`
+ *
+ * \impl
+for j from 0 to 1
+  i := j*32
+  if mask[j]
+    dst.bits[i:i+31] := 0xFFFFFFFF
+  else
+    dst.bits[i:i+31] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to cast
+ * \returns vector
+ */
+v2f v2f_cast_m2f(m2f a);
+/**
+ * \ingroup mcast
+ * \related v2i
+ * \brief Casts a \c m2i vector-mask into a \c v2i vector.
+ * \details Casts a \c m2i vector-mask into a \c v2i vector.
+ * \details May be faster than m2i_cvt_v2i(v2i a). Undefined behaviors when the mask is not set properly (undefined).
+ * \details The following statements are equivalent for every vector \c v2i \c vec:
+ *  - \c `v2i_and(v2i_cast_m2i(a), vec)`
+ *  - \c `v2i_mask_move(a, vec)`
+ *
+ * \impl
+for j from 0 to 1
+  i := j*32
+  if mask[j]
+    dst.bits[i:i+31] := 0xFFFFFFFF
+  else
+    dst.bits[i:i+31] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to cast
+ * \returns vector
+ */
+v2i v2i_cast_m2i(m2i a);
+/**
+ * \ingroup mcast
+ * \related v2l
+ * \brief Casts a \c m2l vector-mask into a \c v2l vector.
+ * \details Casts a \c m2l vector-mask into a \c v2l vector.
+ * \details May be faster than m2l_cvt_v2l(v2l a). Undefined behaviors when the mask is not set properly (undefined).
+ * \details The following statements are equivalent for every vector \c v2l \c vec:
+ *  - \c `v2l_and(v2l_cast_m2l(a), vec)`
+ *  - \c `v2l_mask_move(a, vec)`
+ *
+ * \impl
+for j from 0 to 1
+  i := j*64
+  if mask[j]
+    dst.bits[i:i+63] := 0xFFFFFFFFFFFFFFFF
+  else
+    dst.bits[i:i+63] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to cast
+ * \returns vector
+ */
+v2l v2l_cast_m2l(m2l a);
+/**
+ * \ingroup mcast
+ * \related v4d
+ * \brief Casts a \c m4d vector-mask into a \c v4d vector.
+ * \details Casts a \c m4d vector-mask into a \c v4d vector.
+ * \details May be faster than m4d_cvt_v4d(v4d a). Undefined behaviors when the mask is not set properly (undefined).
+ * \details The following statements are equivalent for every vector \c v4d \c vec:
+ *  - \c `v4d_and(v4d_cast_m4d(a), vec)`
+ *  - \c `v4d_mask_move(a, vec)`
+ *
+ * \impl
+for j from 0 to 3
+  i := j*64
+  if mask[j]
+    dst.bits[i:i+63] := 0xFFFFFFFFFFFFFFFF
+  else
+    dst.bits[i:i+63] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to cast
+ * \returns vector
+ */
+v4d v4d_cast_m4d(m4d a);
+/**
+ * \ingroup mcast
+ * \related v4f
+ * \brief Casts a \c m4f vector-mask into a \c v4f vector.
+ * \details Casts a \c m4f vector-mask into a \c v4f vector.
+ * \details May be faster than m4f_cvt_v4f(v4f a). Undefined behaviors when the mask is not set properly (undefined).
+ * \details The following statements are equivalent for every vector \c v4f \c vec:
+ *  - \c `v4f_and(v4f_cast_m4f(a), vec)`
+ *  - \c `v4f_mask_move(a, vec)`
+ *
+ * \impl
+for j from 0 to 3
+  i := j*32
+  if mask[j]
+    dst.bits[i:i+31] := 0xFFFFFFFF
+  else
+    dst.bits[i:i+31] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to cast
+ * \returns vector
+ */
+v4f v4f_cast_m4f(m4f a);
+/**
+ * \ingroup mcast
+ * \related v4i
+ * \brief Casts a \c m4i vector-mask into a \c v4i vector.
+ * \details Casts a \c m4i vector-mask into a \c v4i vector.
+ * \details May be faster than m4i_cvt_v4i(v4i a). Undefined behaviors when the mask is not set properly (undefined).
+ * \details The following statements are equivalent for every vector \c v4i \c vec:
+ *  - \c `v4i_and(v4i_cast_m4i(a), vec)`
+ *  - \c `v4i_mask_move(a, vec)`
+ *
+ * \impl
+for j from 0 to 3
+  i := j*32
+  if mask[j]
+    dst.bits[i:i+31] := 0xFFFFFFFF
+  else
+    dst.bits[i:i+31] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to cast
+ * \returns vector
+ */
+v4i v4i_cast_m4i(m4i a);
+/**
+ * \ingroup mcast
+ * \related v4l
+ * \brief Casts a \c m4l vector-mask into a \c v4l vector.
+ * \details Casts a \c m4l vector-mask into a \c v4l vector.
+ * \details May be faster than m4l_cvt_v4l(v4l a). Undefined behaviors when the mask is not set properly (undefined).
+ * \details The following statements are equivalent for every vector \c v4l \c vec:
+ *  - \c `v4l_and(v4l_cast_m4l(a), vec)`
+ *  - \c `v4l_mask_move(a, vec)`
+ *
+ * \impl
+for j from 0 to 3
+  i := j*64
+  if mask[j]
+    dst.bits[i:i+63] := 0xFFFFFFFFFFFFFFFF
+  else
+    dst.bits[i:i+63] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to cast
+ * \returns vector
+ */
+v4l v4l_cast_m4l(m4l a);
+/**
+ * \ingroup mcast
+ * \related v8d
+ * \brief Casts a \c m8d vector-mask into a \c v8d vector.
+ * \details Casts a \c m8d vector-mask into a \c v8d vector.
+ * \details May be faster than m8d_cvt_v8d(v8d a). Undefined behaviors when the mask is not set properly (undefined).
+ * \details The following statements are equivalent for every vector \c v8d \c vec:
+ *  - \c `v8d_and(v8d_cast_m8d(a), vec)`
+ *  - \c `v8d_mask_move(a, vec)`
+ *
+ * \impl
+for j from 0 to 7
+  i := j*64
+  if mask[j]
+    dst.bits[i:i+63] := 0xFFFFFFFFFFFFFFFF
+  else
+    dst.bits[i:i+63] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to cast
+ * \returns vector
+ */
+v8d v8d_cast_m8d(m8d a);
+/**
+ * \ingroup mcast
+ * \related v8f
+ * \brief Casts a \c m8f vector-mask into a \c v8f vector.
+ * \details Casts a \c m8f vector-mask into a \c v8f vector.
+ * \details May be faster than m8f_cvt_v8f(v8f a). Undefined behaviors when the mask is not set properly (undefined).
+ * \details The following statements are equivalent for every vector \c v8f \c vec:
+ *  - \c `v8f_and(v8f_cast_m8f(a), vec)`
+ *  - \c `v8f_mask_move(a, vec)`
+ *
+ * \impl
+for j from 0 to 7
+  i := j*32
+  if mask[j]
+    dst.bits[i:i+31] := 0xFFFFFFFF
+  else
+    dst.bits[i:i+31] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to cast
+ * \returns vector
+ */
+v8f v8f_cast_m8f(m8f a);
+/**
+ * \ingroup mcast
+ * \related v8i
+ * \brief Casts a \c m8i vector-mask into a \c v8i vector.
+ * \details Casts a \c m8i vector-mask into a \c v8i vector.
+ * \details May be faster than m8i_cvt_v8i(v8i a). Undefined behaviors when the mask is not set properly (undefined).
+ * \details The following statements are equivalent for every vector \c v8i \c vec:
+ *  - \c `v8i_and(v8i_cast_m8i(a), vec)`
+ *  - \c `v8i_mask_move(a, vec)`
+ *
+ * \impl
+for j from 0 to 7
+  i := j*32
+  if mask[j]
+    dst.bits[i:i+31] := 0xFFFFFFFF
+  else
+    dst.bits[i:i+31] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to cast
+ * \returns vector
+ */
+v8i v8i_cast_m8i(m8i a);
+/**
+ * \ingroup mcast
+ * \related v8l
+ * \brief Casts a \c m8l vector-mask into a \c v8l vector.
+ * \details Casts a \c m8l vector-mask into a \c v8l vector.
+ * \details May be faster than m8l_cvt_v8l(v8l a). Undefined behaviors when the mask is not set properly (undefined).
+ * \details The following statements are equivalent for every vector \c v8l \c vec:
+ *  - \c `v8l_and(v8l_cast_m8l(a), vec)`
+ *  - \c `v8l_mask_move(a, vec)`
+ *
+ * \impl
+for j from 0 to 7
+  i := j*64
+  if mask[j]
+    dst.bits[i:i+63] := 0xFFFFFFFFFFFFFFFF
+  else
+    dst.bits[i:i+63] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to cast
+ * \returns vector
+ */
+v8l v8l_cast_m8l(m8l a);
+/**
+ * \ingroup mcast
+ * \related v16f
+ * \brief Casts a \c m16f vector-mask into a \c v16f vector.
+ * \details Casts a \c m16f vector-mask into a \c v16f vector.
+ * \details May be faster than m16f_cvt_v16f(v16f a). Undefined behaviors when the mask is not set properly (undefined).
+ * \details The following statements are equivalent for every vector \c v16f \c vec:
+ *  - \c `v16f_and(v16f_cast_m16f(a), vec)`
+ *  - \c `v16f_mask_move(a, vec)`
+ *
+ * \impl
+for j from 0 to 15
+  i := j*32
+  if mask[j]
+    dst.bits[i:i+31] := 0xFFFFFFFF
+  else
+    dst.bits[i:i+31] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to cast
+ * \returns vector
+ */
+v16f v16f_cast_m16f(m16f a);
+/**
+ * \ingroup mcast
+ * \related v16i
+ * \brief Casts a \c m16i vector-mask into a \c v16i vector.
+ * \details Casts a \c m16i vector-mask into a \c v16i vector.
+ * \details May be faster than m16i_cvt_v16i(v16i a). Undefined behaviors when the mask is not set properly (undefined).
+ * \details The following statements are equivalent for every vector \c v16i \c vec:
+ *  - \c `v16i_and(v16i_cast_m16i(a), vec)`
+ *  - \c `v16i_mask_move(a, vec)`
+ *
+ * \impl
+for j from 0 to 15
+  i := j*32
+  if mask[j]
+    dst.bits[i:i+31] := 0xFFFFFFFF
+  else
+    dst.bits[i:i+31] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to cast
+ * \returns vector
+ */
+v16i v16i_cast_m16i(m16i a);
+
 
 /* CONVERTS */
 /** \defgroup convert conversion functions
@@ -40377,6 +46333,7 @@ dst := CONVERT_FROM__int32_t__TO__int64_t(a[0])
 int64_t sl_cvt_v16i(v16i a);
 
 /** \defgroup mconvert mask conversion functions
+ * \ingroup maskop
  * Functions for converting vectors into and/or from mask-vectors
  */
 
@@ -40384,10 +46341,13 @@ int64_t sl_cvt_v16i(v16i a);
  * \ingroup mconvert
  * \related v1d
  * \brief Converts a \c v1d vector into a \c m1d vector-mask.
- * \details Converts a \c v1d vector into a \c m1d vector-mask such as the following statements are equivalent for every \c v1d vec:
- *  - \c `v1d_and(a, vec)`
- *  - \c `v1d_mask_move(m1d_cast_v1d(a), vec)`
- *
+ * \details Converts a \c v1d vector into a \c m1d vector-mask. Sets dst[i] if the Most Significant Bit of a[i] is set.
+ * \impl
+for j from 0 to 0
+  i := j*64
+  dst[j] := a.bits[i+63]
+endfor
+\endimpl
  * \param a the vector to convert
  * \returns vector-mask
  */
@@ -40396,10 +46356,13 @@ m1d m1d_cvt_v1d(v1d a);
  * \ingroup mconvert
  * \related v1f
  * \brief Converts a \c v1f vector into a \c m1f vector-mask.
- * \details Converts a \c v1f vector into a \c m1f vector-mask such as the following statements are equivalent for every \c v1f vec:
- *  - \c `v1f_and(a, vec)`
- *  - \c `v1f_mask_move(m1f_cast_v1f(a), vec)`
- *
+ * \details Converts a \c v1f vector into a \c m1f vector-mask. Sets dst[i] if the Most Significant Bit of a[i] is set.
+ * \impl
+for j from 0 to 0
+  i := j*32
+  dst[j] := a.bits[i+31]
+endfor
+\endimpl
  * \param a the vector to convert
  * \returns vector-mask
  */
@@ -40408,10 +46371,13 @@ m1f m1f_cvt_v1f(v1f a);
  * \ingroup mconvert
  * \related v1i
  * \brief Converts a \c v1i vector into a \c m1i vector-mask.
- * \details Converts a \c v1i vector into a \c m1i vector-mask such as the following statements are equivalent for every \c v1i vec:
- *  - \c `v1i_and(a, vec)`
- *  - \c `v1i_mask_move(m1i_cast_v1i(a), vec)`
- *
+ * \details Converts a \c v1i vector into a \c m1i vector-mask. Sets dst[i] if the Most Significant Bit of a[i] is set.
+ * \impl
+for j from 0 to 0
+  i := j*32
+  dst[j] := a.bits[i+31]
+endfor
+\endimpl
  * \param a the vector to convert
  * \returns vector-mask
  */
@@ -40420,10 +46386,13 @@ m1i m1i_cvt_v1i(v1i a);
  * \ingroup mconvert
  * \related v1l
  * \brief Converts a \c v1l vector into a \c m1l vector-mask.
- * \details Converts a \c v1l vector into a \c m1l vector-mask such as the following statements are equivalent for every \c v1l vec:
- *  - \c `v1l_and(a, vec)`
- *  - \c `v1l_mask_move(m1l_cast_v1l(a), vec)`
- *
+ * \details Converts a \c v1l vector into a \c m1l vector-mask. Sets dst[i] if the Most Significant Bit of a[i] is set.
+ * \impl
+for j from 0 to 0
+  i := j*64
+  dst[j] := a.bits[i+63]
+endfor
+\endimpl
  * \param a the vector to convert
  * \returns vector-mask
  */
@@ -40432,10 +46401,13 @@ m1l m1l_cvt_v1l(v1l a);
  * \ingroup mconvert
  * \related v2d
  * \brief Converts a \c v2d vector into a \c m2d vector-mask.
- * \details Converts a \c v2d vector into a \c m2d vector-mask such as the following statements are equivalent for every \c v2d vec:
- *  - \c `v2d_and(a, vec)`
- *  - \c `v2d_mask_move(m2d_cast_v2d(a), vec)`
- *
+ * \details Converts a \c v2d vector into a \c m2d vector-mask. Sets dst[i] if the Most Significant Bit of a[i] is set.
+ * \impl
+for j from 0 to 1
+  i := j*64
+  dst[j] := a.bits[i+63]
+endfor
+\endimpl
  * \param a the vector to convert
  * \returns vector-mask
  */
@@ -40444,10 +46416,13 @@ m2d m2d_cvt_v2d(v2d a);
  * \ingroup mconvert
  * \related v2f
  * \brief Converts a \c v2f vector into a \c m2f vector-mask.
- * \details Converts a \c v2f vector into a \c m2f vector-mask such as the following statements are equivalent for every \c v2f vec:
- *  - \c `v2f_and(a, vec)`
- *  - \c `v2f_mask_move(m2f_cast_v2f(a), vec)`
- *
+ * \details Converts a \c v2f vector into a \c m2f vector-mask. Sets dst[i] if the Most Significant Bit of a[i] is set.
+ * \impl
+for j from 0 to 1
+  i := j*32
+  dst[j] := a.bits[i+31]
+endfor
+\endimpl
  * \param a the vector to convert
  * \returns vector-mask
  */
@@ -40456,10 +46431,13 @@ m2f m2f_cvt_v2f(v2f a);
  * \ingroup mconvert
  * \related v2i
  * \brief Converts a \c v2i vector into a \c m2i vector-mask.
- * \details Converts a \c v2i vector into a \c m2i vector-mask such as the following statements are equivalent for every \c v2i vec:
- *  - \c `v2i_and(a, vec)`
- *  - \c `v2i_mask_move(m2i_cast_v2i(a), vec)`
- *
+ * \details Converts a \c v2i vector into a \c m2i vector-mask. Sets dst[i] if the Most Significant Bit of a[i] is set.
+ * \impl
+for j from 0 to 1
+  i := j*32
+  dst[j] := a.bits[i+31]
+endfor
+\endimpl
  * \param a the vector to convert
  * \returns vector-mask
  */
@@ -40468,10 +46446,13 @@ m2i m2i_cvt_v2i(v2i a);
  * \ingroup mconvert
  * \related v2l
  * \brief Converts a \c v2l vector into a \c m2l vector-mask.
- * \details Converts a \c v2l vector into a \c m2l vector-mask such as the following statements are equivalent for every \c v2l vec:
- *  - \c `v2l_and(a, vec)`
- *  - \c `v2l_mask_move(m2l_cast_v2l(a), vec)`
- *
+ * \details Converts a \c v2l vector into a \c m2l vector-mask. Sets dst[i] if the Most Significant Bit of a[i] is set.
+ * \impl
+for j from 0 to 1
+  i := j*64
+  dst[j] := a.bits[i+63]
+endfor
+\endimpl
  * \param a the vector to convert
  * \returns vector-mask
  */
@@ -40480,10 +46461,13 @@ m2l m2l_cvt_v2l(v2l a);
  * \ingroup mconvert
  * \related v4d
  * \brief Converts a \c v4d vector into a \c m4d vector-mask.
- * \details Converts a \c v4d vector into a \c m4d vector-mask such as the following statements are equivalent for every \c v4d vec:
- *  - \c `v4d_and(a, vec)`
- *  - \c `v4d_mask_move(m4d_cast_v4d(a), vec)`
- *
+ * \details Converts a \c v4d vector into a \c m4d vector-mask. Sets dst[i] if the Most Significant Bit of a[i] is set.
+ * \impl
+for j from 0 to 3
+  i := j*64
+  dst[j] := a.bits[i+63]
+endfor
+\endimpl
  * \param a the vector to convert
  * \returns vector-mask
  */
@@ -40492,10 +46476,13 @@ m4d m4d_cvt_v4d(v4d a);
  * \ingroup mconvert
  * \related v4f
  * \brief Converts a \c v4f vector into a \c m4f vector-mask.
- * \details Converts a \c v4f vector into a \c m4f vector-mask such as the following statements are equivalent for every \c v4f vec:
- *  - \c `v4f_and(a, vec)`
- *  - \c `v4f_mask_move(m4f_cast_v4f(a), vec)`
- *
+ * \details Converts a \c v4f vector into a \c m4f vector-mask. Sets dst[i] if the Most Significant Bit of a[i] is set.
+ * \impl
+for j from 0 to 3
+  i := j*32
+  dst[j] := a.bits[i+31]
+endfor
+\endimpl
  * \param a the vector to convert
  * \returns vector-mask
  */
@@ -40504,10 +46491,13 @@ m4f m4f_cvt_v4f(v4f a);
  * \ingroup mconvert
  * \related v4i
  * \brief Converts a \c v4i vector into a \c m4i vector-mask.
- * \details Converts a \c v4i vector into a \c m4i vector-mask such as the following statements are equivalent for every \c v4i vec:
- *  - \c `v4i_and(a, vec)`
- *  - \c `v4i_mask_move(m4i_cast_v4i(a), vec)`
- *
+ * \details Converts a \c v4i vector into a \c m4i vector-mask. Sets dst[i] if the Most Significant Bit of a[i] is set.
+ * \impl
+for j from 0 to 3
+  i := j*32
+  dst[j] := a.bits[i+31]
+endfor
+\endimpl
  * \param a the vector to convert
  * \returns vector-mask
  */
@@ -40516,10 +46506,13 @@ m4i m4i_cvt_v4i(v4i a);
  * \ingroup mconvert
  * \related v4l
  * \brief Converts a \c v4l vector into a \c m4l vector-mask.
- * \details Converts a \c v4l vector into a \c m4l vector-mask such as the following statements are equivalent for every \c v4l vec:
- *  - \c `v4l_and(a, vec)`
- *  - \c `v4l_mask_move(m4l_cast_v4l(a), vec)`
- *
+ * \details Converts a \c v4l vector into a \c m4l vector-mask. Sets dst[i] if the Most Significant Bit of a[i] is set.
+ * \impl
+for j from 0 to 3
+  i := j*64
+  dst[j] := a.bits[i+63]
+endfor
+\endimpl
  * \param a the vector to convert
  * \returns vector-mask
  */
@@ -40528,10 +46521,13 @@ m4l m4l_cvt_v4l(v4l a);
  * \ingroup mconvert
  * \related v8d
  * \brief Converts a \c v8d vector into a \c m8d vector-mask.
- * \details Converts a \c v8d vector into a \c m8d vector-mask such as the following statements are equivalent for every \c v8d vec:
- *  - \c `v8d_and(a, vec)`
- *  - \c `v8d_mask_move(m8d_cast_v8d(a), vec)`
- *
+ * \details Converts a \c v8d vector into a \c m8d vector-mask. Sets dst[i] if the Most Significant Bit of a[i] is set.
+ * \impl
+for j from 0 to 7
+  i := j*64
+  dst[j] := a.bits[i+63]
+endfor
+\endimpl
  * \param a the vector to convert
  * \returns vector-mask
  */
@@ -40540,10 +46536,13 @@ m8d m8d_cvt_v8d(v8d a);
  * \ingroup mconvert
  * \related v8f
  * \brief Converts a \c v8f vector into a \c m8f vector-mask.
- * \details Converts a \c v8f vector into a \c m8f vector-mask such as the following statements are equivalent for every \c v8f vec:
- *  - \c `v8f_and(a, vec)`
- *  - \c `v8f_mask_move(m8f_cast_v8f(a), vec)`
- *
+ * \details Converts a \c v8f vector into a \c m8f vector-mask. Sets dst[i] if the Most Significant Bit of a[i] is set.
+ * \impl
+for j from 0 to 7
+  i := j*32
+  dst[j] := a.bits[i+31]
+endfor
+\endimpl
  * \param a the vector to convert
  * \returns vector-mask
  */
@@ -40552,10 +46551,13 @@ m8f m8f_cvt_v8f(v8f a);
  * \ingroup mconvert
  * \related v8i
  * \brief Converts a \c v8i vector into a \c m8i vector-mask.
- * \details Converts a \c v8i vector into a \c m8i vector-mask such as the following statements are equivalent for every \c v8i vec:
- *  - \c `v8i_and(a, vec)`
- *  - \c `v8i_mask_move(m8i_cast_v8i(a), vec)`
- *
+ * \details Converts a \c v8i vector into a \c m8i vector-mask. Sets dst[i] if the Most Significant Bit of a[i] is set.
+ * \impl
+for j from 0 to 7
+  i := j*32
+  dst[j] := a.bits[i+31]
+endfor
+\endimpl
  * \param a the vector to convert
  * \returns vector-mask
  */
@@ -40564,10 +46566,13 @@ m8i m8i_cvt_v8i(v8i a);
  * \ingroup mconvert
  * \related v8l
  * \brief Converts a \c v8l vector into a \c m8l vector-mask.
- * \details Converts a \c v8l vector into a \c m8l vector-mask such as the following statements are equivalent for every \c v8l vec:
- *  - \c `v8l_and(a, vec)`
- *  - \c `v8l_mask_move(m8l_cast_v8l(a), vec)`
- *
+ * \details Converts a \c v8l vector into a \c m8l vector-mask. Sets dst[i] if the Most Significant Bit of a[i] is set.
+ * \impl
+for j from 0 to 7
+  i := j*64
+  dst[j] := a.bits[i+63]
+endfor
+\endimpl
  * \param a the vector to convert
  * \returns vector-mask
  */
@@ -40576,10 +46581,13 @@ m8l m8l_cvt_v8l(v8l a);
  * \ingroup mconvert
  * \related v16f
  * \brief Converts a \c v16f vector into a \c m16f vector-mask.
- * \details Converts a \c v16f vector into a \c m16f vector-mask such as the following statements are equivalent for every \c v16f vec:
- *  - \c `v16f_and(a, vec)`
- *  - \c `v16f_mask_move(m16f_cast_v16f(a), vec)`
- *
+ * \details Converts a \c v16f vector into a \c m16f vector-mask. Sets dst[i] if the Most Significant Bit of a[i] is set.
+ * \impl
+for j from 0 to 15
+  i := j*32
+  dst[j] := a.bits[i+31]
+endfor
+\endimpl
  * \param a the vector to convert
  * \returns vector-mask
  */
@@ -40588,10 +46596,13 @@ m16f m16f_cvt_v16f(v16f a);
  * \ingroup mconvert
  * \related v16i
  * \brief Converts a \c v16i vector into a \c m16i vector-mask.
- * \details Converts a \c v16i vector into a \c m16i vector-mask such as the following statements are equivalent for every \c v16i vec:
- *  - \c `v16i_and(a, vec)`
- *  - \c `v16i_mask_move(m16i_cast_v16i(a), vec)`
- *
+ * \details Converts a \c v16i vector into a \c m16i vector-mask. Sets dst[i] if the Most Significant Bit of a[i] is set.
+ * \impl
+for j from 0 to 15
+  i := j*32
+  dst[j] := a.bits[i+31]
+endfor
+\endimpl
  * \param a the vector to convert
  * \returns vector-mask
  */
@@ -40600,216 +46611,414 @@ m16i m16i_cvt_v16i(v16i a);
  * \ingroup mconvert
  * \related v1d
  * \brief Converts a \c m1d vector-mask into a \c v1d vector.
- * \details Converts a \c m1d vector-mask into a \c v1d vector such as the following statements are equivalent for every vector \c v1d \c vec:
+ * \details Converts a \c m1d vector-mask into a \c v1d vector.
+ * \details The following statements are equivalent for every vector \c v1d \c vec:
  *  - \c `v1d_and(v1d_cvt_m1d(a), vec)`
  *  - \c `v1d_mask_move(a, vec)`
  *
- * \param a the vector to convert
- * \returns vector-mask
+ * \impl
+for j from 0 to 0
+  i := j*64
+  if mask[j]
+    dst.bits[i:i+63] := 0xFFFFFFFFFFFFFFFF
+  else
+    dst.bits[i:i+63] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns vector
  */
 v1d v1d_cvt_m1d(m1d a);
 /**
  * \ingroup mconvert
  * \related v1f
  * \brief Converts a \c m1f vector-mask into a \c v1f vector.
- * \details Converts a \c m1f vector-mask into a \c v1f vector such as the following statements are equivalent for every vector \c v1f \c vec:
+ * \details Converts a \c m1f vector-mask into a \c v1f vector.
+ * \details The following statements are equivalent for every vector \c v1f \c vec:
  *  - \c `v1f_and(v1f_cvt_m1f(a), vec)`
  *  - \c `v1f_mask_move(a, vec)`
  *
- * \param a the vector to convert
- * \returns vector-mask
+ * \impl
+for j from 0 to 0
+  i := j*32
+  if mask[j]
+    dst.bits[i:i+31] := 0xFFFFFFFF
+  else
+    dst.bits[i:i+31] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns vector
  */
 v1f v1f_cvt_m1f(m1f a);
 /**
  * \ingroup mconvert
  * \related v1i
  * \brief Converts a \c m1i vector-mask into a \c v1i vector.
- * \details Converts a \c m1i vector-mask into a \c v1i vector such as the following statements are equivalent for every vector \c v1i \c vec:
+ * \details Converts a \c m1i vector-mask into a \c v1i vector.
+ * \details The following statements are equivalent for every vector \c v1i \c vec:
  *  - \c `v1i_and(v1i_cvt_m1i(a), vec)`
  *  - \c `v1i_mask_move(a, vec)`
  *
- * \param a the vector to convert
- * \returns vector-mask
+ * \impl
+for j from 0 to 0
+  i := j*32
+  if mask[j]
+    dst.bits[i:i+31] := 0xFFFFFFFF
+  else
+    dst.bits[i:i+31] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns vector
  */
 v1i v1i_cvt_m1i(m1i a);
 /**
  * \ingroup mconvert
  * \related v1l
  * \brief Converts a \c m1l vector-mask into a \c v1l vector.
- * \details Converts a \c m1l vector-mask into a \c v1l vector such as the following statements are equivalent for every vector \c v1l \c vec:
+ * \details Converts a \c m1l vector-mask into a \c v1l vector.
+ * \details The following statements are equivalent for every vector \c v1l \c vec:
  *  - \c `v1l_and(v1l_cvt_m1l(a), vec)`
  *  - \c `v1l_mask_move(a, vec)`
  *
- * \param a the vector to convert
- * \returns vector-mask
+ * \impl
+for j from 0 to 0
+  i := j*64
+  if mask[j]
+    dst.bits[i:i+63] := 0xFFFFFFFFFFFFFFFF
+  else
+    dst.bits[i:i+63] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns vector
  */
 v1l v1l_cvt_m1l(m1l a);
 /**
  * \ingroup mconvert
  * \related v2d
  * \brief Converts a \c m2d vector-mask into a \c v2d vector.
- * \details Converts a \c m2d vector-mask into a \c v2d vector such as the following statements are equivalent for every vector \c v2d \c vec:
+ * \details Converts a \c m2d vector-mask into a \c v2d vector.
+ * \details The following statements are equivalent for every vector \c v2d \c vec:
  *  - \c `v2d_and(v2d_cvt_m2d(a), vec)`
  *  - \c `v2d_mask_move(a, vec)`
  *
- * \param a the vector to convert
- * \returns vector-mask
+ * \impl
+for j from 0 to 1
+  i := j*64
+  if mask[j]
+    dst.bits[i:i+63] := 0xFFFFFFFFFFFFFFFF
+  else
+    dst.bits[i:i+63] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns vector
  */
 v2d v2d_cvt_m2d(m2d a);
 /**
  * \ingroup mconvert
  * \related v2f
  * \brief Converts a \c m2f vector-mask into a \c v2f vector.
- * \details Converts a \c m2f vector-mask into a \c v2f vector such as the following statements are equivalent for every vector \c v2f \c vec:
+ * \details Converts a \c m2f vector-mask into a \c v2f vector.
+ * \details The following statements are equivalent for every vector \c v2f \c vec:
  *  - \c `v2f_and(v2f_cvt_m2f(a), vec)`
  *  - \c `v2f_mask_move(a, vec)`
  *
- * \param a the vector to convert
- * \returns vector-mask
+ * \impl
+for j from 0 to 1
+  i := j*32
+  if mask[j]
+    dst.bits[i:i+31] := 0xFFFFFFFF
+  else
+    dst.bits[i:i+31] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns vector
  */
 v2f v2f_cvt_m2f(m2f a);
 /**
  * \ingroup mconvert
  * \related v2i
  * \brief Converts a \c m2i vector-mask into a \c v2i vector.
- * \details Converts a \c m2i vector-mask into a \c v2i vector such as the following statements are equivalent for every vector \c v2i \c vec:
+ * \details Converts a \c m2i vector-mask into a \c v2i vector.
+ * \details The following statements are equivalent for every vector \c v2i \c vec:
  *  - \c `v2i_and(v2i_cvt_m2i(a), vec)`
  *  - \c `v2i_mask_move(a, vec)`
  *
- * \param a the vector to convert
- * \returns vector-mask
+ * \impl
+for j from 0 to 1
+  i := j*32
+  if mask[j]
+    dst.bits[i:i+31] := 0xFFFFFFFF
+  else
+    dst.bits[i:i+31] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns vector
  */
 v2i v2i_cvt_m2i(m2i a);
 /**
  * \ingroup mconvert
  * \related v2l
  * \brief Converts a \c m2l vector-mask into a \c v2l vector.
- * \details Converts a \c m2l vector-mask into a \c v2l vector such as the following statements are equivalent for every vector \c v2l \c vec:
+ * \details Converts a \c m2l vector-mask into a \c v2l vector.
+ * \details The following statements are equivalent for every vector \c v2l \c vec:
  *  - \c `v2l_and(v2l_cvt_m2l(a), vec)`
  *  - \c `v2l_mask_move(a, vec)`
  *
- * \param a the vector to convert
- * \returns vector-mask
+ * \impl
+for j from 0 to 1
+  i := j*64
+  if mask[j]
+    dst.bits[i:i+63] := 0xFFFFFFFFFFFFFFFF
+  else
+    dst.bits[i:i+63] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns vector
  */
 v2l v2l_cvt_m2l(m2l a);
 /**
  * \ingroup mconvert
  * \related v4d
  * \brief Converts a \c m4d vector-mask into a \c v4d vector.
- * \details Converts a \c m4d vector-mask into a \c v4d vector such as the following statements are equivalent for every vector \c v4d \c vec:
+ * \details Converts a \c m4d vector-mask into a \c v4d vector.
+ * \details The following statements are equivalent for every vector \c v4d \c vec:
  *  - \c `v4d_and(v4d_cvt_m4d(a), vec)`
  *  - \c `v4d_mask_move(a, vec)`
  *
- * \param a the vector to convert
- * \returns vector-mask
+ * \impl
+for j from 0 to 3
+  i := j*64
+  if mask[j]
+    dst.bits[i:i+63] := 0xFFFFFFFFFFFFFFFF
+  else
+    dst.bits[i:i+63] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns vector
  */
 v4d v4d_cvt_m4d(m4d a);
 /**
  * \ingroup mconvert
  * \related v4f
  * \brief Converts a \c m4f vector-mask into a \c v4f vector.
- * \details Converts a \c m4f vector-mask into a \c v4f vector such as the following statements are equivalent for every vector \c v4f \c vec:
+ * \details Converts a \c m4f vector-mask into a \c v4f vector.
+ * \details The following statements are equivalent for every vector \c v4f \c vec:
  *  - \c `v4f_and(v4f_cvt_m4f(a), vec)`
  *  - \c `v4f_mask_move(a, vec)`
  *
- * \param a the vector to convert
- * \returns vector-mask
+ * \impl
+for j from 0 to 3
+  i := j*32
+  if mask[j]
+    dst.bits[i:i+31] := 0xFFFFFFFF
+  else
+    dst.bits[i:i+31] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns vector
  */
 v4f v4f_cvt_m4f(m4f a);
 /**
  * \ingroup mconvert
  * \related v4i
  * \brief Converts a \c m4i vector-mask into a \c v4i vector.
- * \details Converts a \c m4i vector-mask into a \c v4i vector such as the following statements are equivalent for every vector \c v4i \c vec:
+ * \details Converts a \c m4i vector-mask into a \c v4i vector.
+ * \details The following statements are equivalent for every vector \c v4i \c vec:
  *  - \c `v4i_and(v4i_cvt_m4i(a), vec)`
  *  - \c `v4i_mask_move(a, vec)`
  *
- * \param a the vector to convert
- * \returns vector-mask
+ * \impl
+for j from 0 to 3
+  i := j*32
+  if mask[j]
+    dst.bits[i:i+31] := 0xFFFFFFFF
+  else
+    dst.bits[i:i+31] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns vector
  */
 v4i v4i_cvt_m4i(m4i a);
 /**
  * \ingroup mconvert
  * \related v4l
  * \brief Converts a \c m4l vector-mask into a \c v4l vector.
- * \details Converts a \c m4l vector-mask into a \c v4l vector such as the following statements are equivalent for every vector \c v4l \c vec:
+ * \details Converts a \c m4l vector-mask into a \c v4l vector.
+ * \details The following statements are equivalent for every vector \c v4l \c vec:
  *  - \c `v4l_and(v4l_cvt_m4l(a), vec)`
  *  - \c `v4l_mask_move(a, vec)`
  *
- * \param a the vector to convert
- * \returns vector-mask
+ * \impl
+for j from 0 to 3
+  i := j*64
+  if mask[j]
+    dst.bits[i:i+63] := 0xFFFFFFFFFFFFFFFF
+  else
+    dst.bits[i:i+63] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns vector
  */
 v4l v4l_cvt_m4l(m4l a);
 /**
  * \ingroup mconvert
  * \related v8d
  * \brief Converts a \c m8d vector-mask into a \c v8d vector.
- * \details Converts a \c m8d vector-mask into a \c v8d vector such as the following statements are equivalent for every vector \c v8d \c vec:
+ * \details Converts a \c m8d vector-mask into a \c v8d vector.
+ * \details The following statements are equivalent for every vector \c v8d \c vec:
  *  - \c `v8d_and(v8d_cvt_m8d(a), vec)`
  *  - \c `v8d_mask_move(a, vec)`
  *
- * \param a the vector to convert
- * \returns vector-mask
+ * \impl
+for j from 0 to 7
+  i := j*64
+  if mask[j]
+    dst.bits[i:i+63] := 0xFFFFFFFFFFFFFFFF
+  else
+    dst.bits[i:i+63] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns vector
  */
 v8d v8d_cvt_m8d(m8d a);
 /**
  * \ingroup mconvert
  * \related v8f
  * \brief Converts a \c m8f vector-mask into a \c v8f vector.
- * \details Converts a \c m8f vector-mask into a \c v8f vector such as the following statements are equivalent for every vector \c v8f \c vec:
+ * \details Converts a \c m8f vector-mask into a \c v8f vector.
+ * \details The following statements are equivalent for every vector \c v8f \c vec:
  *  - \c `v8f_and(v8f_cvt_m8f(a), vec)`
  *  - \c `v8f_mask_move(a, vec)`
  *
- * \param a the vector to convert
- * \returns vector-mask
+ * \impl
+for j from 0 to 7
+  i := j*32
+  if mask[j]
+    dst.bits[i:i+31] := 0xFFFFFFFF
+  else
+    dst.bits[i:i+31] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns vector
  */
 v8f v8f_cvt_m8f(m8f a);
 /**
  * \ingroup mconvert
  * \related v8i
  * \brief Converts a \c m8i vector-mask into a \c v8i vector.
- * \details Converts a \c m8i vector-mask into a \c v8i vector such as the following statements are equivalent for every vector \c v8i \c vec:
+ * \details Converts a \c m8i vector-mask into a \c v8i vector.
+ * \details The following statements are equivalent for every vector \c v8i \c vec:
  *  - \c `v8i_and(v8i_cvt_m8i(a), vec)`
  *  - \c `v8i_mask_move(a, vec)`
  *
- * \param a the vector to convert
- * \returns vector-mask
+ * \impl
+for j from 0 to 7
+  i := j*32
+  if mask[j]
+    dst.bits[i:i+31] := 0xFFFFFFFF
+  else
+    dst.bits[i:i+31] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns vector
  */
 v8i v8i_cvt_m8i(m8i a);
 /**
  * \ingroup mconvert
  * \related v8l
  * \brief Converts a \c m8l vector-mask into a \c v8l vector.
- * \details Converts a \c m8l vector-mask into a \c v8l vector such as the following statements are equivalent for every vector \c v8l \c vec:
+ * \details Converts a \c m8l vector-mask into a \c v8l vector.
+ * \details The following statements are equivalent for every vector \c v8l \c vec:
  *  - \c `v8l_and(v8l_cvt_m8l(a), vec)`
  *  - \c `v8l_mask_move(a, vec)`
  *
- * \param a the vector to convert
- * \returns vector-mask
+ * \impl
+for j from 0 to 7
+  i := j*64
+  if mask[j]
+    dst.bits[i:i+63] := 0xFFFFFFFFFFFFFFFF
+  else
+    dst.bits[i:i+63] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns vector
  */
 v8l v8l_cvt_m8l(m8l a);
 /**
  * \ingroup mconvert
  * \related v16f
  * \brief Converts a \c m16f vector-mask into a \c v16f vector.
- * \details Converts a \c m16f vector-mask into a \c v16f vector such as the following statements are equivalent for every vector \c v16f \c vec:
+ * \details Converts a \c m16f vector-mask into a \c v16f vector.
+ * \details The following statements are equivalent for every vector \c v16f \c vec:
  *  - \c `v16f_and(v16f_cvt_m16f(a), vec)`
  *  - \c `v16f_mask_move(a, vec)`
  *
- * \param a the vector to convert
- * \returns vector-mask
+ * \impl
+for j from 0 to 15
+  i := j*32
+  if mask[j]
+    dst.bits[i:i+31] := 0xFFFFFFFF
+  else
+    dst.bits[i:i+31] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns vector
  */
 v16f v16f_cvt_m16f(m16f a);
 /**
  * \ingroup mconvert
  * \related v16i
  * \brief Converts a \c m16i vector-mask into a \c v16i vector.
- * \details Converts a \c m16i vector-mask into a \c v16i vector such as the following statements are equivalent for every vector \c v16i \c vec:
+ * \details Converts a \c m16i vector-mask into a \c v16i vector.
+ * \details The following statements are equivalent for every vector \c v16i \c vec:
  *  - \c `v16i_and(v16i_cvt_m16i(a), vec)`
  *  - \c `v16i_mask_move(a, vec)`
  *
- * \param a the vector to convert
- * \returns vector-mask
+ * \impl
+for j from 0 to 15
+  i := j*32
+  if mask[j]
+    dst.bits[i:i+31] := 0xFFFFFFFF
+  else
+    dst.bits[i:i+31] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns vector
  */
 v16i v16i_cvt_m16i(m16i a);
 
@@ -40819,6 +47028,11 @@ v16i v16i_cvt_m16i(m16i a);
  * \brief Converts a \c m1d vector-mask into a \c m1d vector-mask.
  * \details Converts a \c m1d vector-mask into a \c m1d vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 0
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
@@ -40829,6 +47043,11 @@ m1d m1d_cvt_m1d(m1d a);
  * \brief Converts a \c m1d vector-mask into a \c m1f vector-mask.
  * \details Converts a \c m1d vector-mask into a \c m1f vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 0
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
@@ -40839,6 +47058,11 @@ m1f m1f_cvt_m1d(m1d a);
  * \brief Converts a \c m1d vector-mask into a \c m1i vector-mask.
  * \details Converts a \c m1d vector-mask into a \c m1i vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 0
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
@@ -40849,6 +47073,11 @@ m1i m1i_cvt_m1d(m1d a);
  * \brief Converts a \c m1d vector-mask into a \c m1l vector-mask.
  * \details Converts a \c m1d vector-mask into a \c m1l vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 0
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
@@ -40856,729 +47085,14 @@ m1l m1l_cvt_m1d(m1d a);
 /**
  * \ingroup mconvert
  * \related v2d
- * \brief Converts a \c m1d vector-mask into a \c m2d vector-mask.
- * \details Converts a \c m1d vector-mask into a \c m2d vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2d m2d_cvt_m1d(m1d a);
-/**
- * \ingroup mconvert
- * \related v2f
- * \brief Converts a \c m1d vector-mask into a \c m2f vector-mask.
- * \details Converts a \c m1d vector-mask into a \c m2f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2f m2f_cvt_m1d(m1d a);
-/**
- * \ingroup mconvert
- * \related v2i
- * \brief Converts a \c m1d vector-mask into a \c m2i vector-mask.
- * \details Converts a \c m1d vector-mask into a \c m2i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2i m2i_cvt_m1d(m1d a);
-/**
- * \ingroup mconvert
- * \related v2l
- * \brief Converts a \c m1d vector-mask into a \c m2l vector-mask.
- * \details Converts a \c m1d vector-mask into a \c m2l vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2l m2l_cvt_m1d(m1d a);
-/**
- * \ingroup mconvert
- * \related v4d
- * \brief Converts a \c m1d vector-mask into a \c m4d vector-mask.
- * \details Converts a \c m1d vector-mask into a \c m4d vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4d m4d_cvt_m1d(m1d a);
-/**
- * \ingroup mconvert
- * \related v4f
- * \brief Converts a \c m1d vector-mask into a \c m4f vector-mask.
- * \details Converts a \c m1d vector-mask into a \c m4f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4f m4f_cvt_m1d(m1d a);
-/**
- * \ingroup mconvert
- * \related v4i
- * \brief Converts a \c m1d vector-mask into a \c m4i vector-mask.
- * \details Converts a \c m1d vector-mask into a \c m4i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4i m4i_cvt_m1d(m1d a);
-/**
- * \ingroup mconvert
- * \related v4l
- * \brief Converts a \c m1d vector-mask into a \c m4l vector-mask.
- * \details Converts a \c m1d vector-mask into a \c m4l vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4l m4l_cvt_m1d(m1d a);
-/**
- * \ingroup mconvert
- * \related v8d
- * \brief Converts a \c m1d vector-mask into a \c m8d vector-mask.
- * \details Converts a \c m1d vector-mask into a \c m8d vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8d m8d_cvt_m1d(m1d a);
-/**
- * \ingroup mconvert
- * \related v8f
- * \brief Converts a \c m1d vector-mask into a \c m8f vector-mask.
- * \details Converts a \c m1d vector-mask into a \c m8f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8f m8f_cvt_m1d(m1d a);
-/**
- * \ingroup mconvert
- * \related v8i
- * \brief Converts a \c m1d vector-mask into a \c m8i vector-mask.
- * \details Converts a \c m1d vector-mask into a \c m8i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8i m8i_cvt_m1d(m1d a);
-/**
- * \ingroup mconvert
- * \related v8l
- * \brief Converts a \c m1d vector-mask into a \c m8l vector-mask.
- * \details Converts a \c m1d vector-mask into a \c m8l vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8l m8l_cvt_m1d(m1d a);
-/**
- * \ingroup mconvert
- * \related v16f
- * \brief Converts a \c m1d vector-mask into a \c m16f vector-mask.
- * \details Converts a \c m1d vector-mask into a \c m16f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16f m16f_cvt_m1d(m1d a);
-/**
- * \ingroup mconvert
- * \related v16i
- * \brief Converts a \c m1d vector-mask into a \c m16i vector-mask.
- * \details Converts a \c m1d vector-mask into a \c m16i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16i m16i_cvt_m1d(m1d a);
-/**
- * \ingroup mconvert
- * \related v1d
- * \brief Converts a \c m1f vector-mask into a \c m1d vector-mask.
- * \details Converts a \c m1f vector-mask into a \c m1d vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1d m1d_cvt_m1f(m1f a);
-/**
- * \ingroup mconvert
- * \related v1f
- * \brief Converts a \c m1f vector-mask into a \c m1f vector-mask.
- * \details Converts a \c m1f vector-mask into a \c m1f vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1f m1f_cvt_m1f(m1f a);
-/**
- * \ingroup mconvert
- * \related v1i
- * \brief Converts a \c m1f vector-mask into a \c m1i vector-mask.
- * \details Converts a \c m1f vector-mask into a \c m1i vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1i m1i_cvt_m1f(m1f a);
-/**
- * \ingroup mconvert
- * \related v1l
- * \brief Converts a \c m1f vector-mask into a \c m1l vector-mask.
- * \details Converts a \c m1f vector-mask into a \c m1l vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1l m1l_cvt_m1f(m1f a);
-/**
- * \ingroup mconvert
- * \related v2d
- * \brief Converts a \c m1f vector-mask into a \c m2d vector-mask.
- * \details Converts a \c m1f vector-mask into a \c m2d vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2d m2d_cvt_m1f(m1f a);
-/**
- * \ingroup mconvert
- * \related v2f
- * \brief Converts a \c m1f vector-mask into a \c m2f vector-mask.
- * \details Converts a \c m1f vector-mask into a \c m2f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2f m2f_cvt_m1f(m1f a);
-/**
- * \ingroup mconvert
- * \related v2i
- * \brief Converts a \c m1f vector-mask into a \c m2i vector-mask.
- * \details Converts a \c m1f vector-mask into a \c m2i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2i m2i_cvt_m1f(m1f a);
-/**
- * \ingroup mconvert
- * \related v2l
- * \brief Converts a \c m1f vector-mask into a \c m2l vector-mask.
- * \details Converts a \c m1f vector-mask into a \c m2l vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2l m2l_cvt_m1f(m1f a);
-/**
- * \ingroup mconvert
- * \related v4d
- * \brief Converts a \c m1f vector-mask into a \c m4d vector-mask.
- * \details Converts a \c m1f vector-mask into a \c m4d vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4d m4d_cvt_m1f(m1f a);
-/**
- * \ingroup mconvert
- * \related v4f
- * \brief Converts a \c m1f vector-mask into a \c m4f vector-mask.
- * \details Converts a \c m1f vector-mask into a \c m4f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4f m4f_cvt_m1f(m1f a);
-/**
- * \ingroup mconvert
- * \related v4i
- * \brief Converts a \c m1f vector-mask into a \c m4i vector-mask.
- * \details Converts a \c m1f vector-mask into a \c m4i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4i m4i_cvt_m1f(m1f a);
-/**
- * \ingroup mconvert
- * \related v4l
- * \brief Converts a \c m1f vector-mask into a \c m4l vector-mask.
- * \details Converts a \c m1f vector-mask into a \c m4l vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4l m4l_cvt_m1f(m1f a);
-/**
- * \ingroup mconvert
- * \related v8d
- * \brief Converts a \c m1f vector-mask into a \c m8d vector-mask.
- * \details Converts a \c m1f vector-mask into a \c m8d vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8d m8d_cvt_m1f(m1f a);
-/**
- * \ingroup mconvert
- * \related v8f
- * \brief Converts a \c m1f vector-mask into a \c m8f vector-mask.
- * \details Converts a \c m1f vector-mask into a \c m8f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8f m8f_cvt_m1f(m1f a);
-/**
- * \ingroup mconvert
- * \related v8i
- * \brief Converts a \c m1f vector-mask into a \c m8i vector-mask.
- * \details Converts a \c m1f vector-mask into a \c m8i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8i m8i_cvt_m1f(m1f a);
-/**
- * \ingroup mconvert
- * \related v8l
- * \brief Converts a \c m1f vector-mask into a \c m8l vector-mask.
- * \details Converts a \c m1f vector-mask into a \c m8l vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8l m8l_cvt_m1f(m1f a);
-/**
- * \ingroup mconvert
- * \related v16f
- * \brief Converts a \c m1f vector-mask into a \c m16f vector-mask.
- * \details Converts a \c m1f vector-mask into a \c m16f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16f m16f_cvt_m1f(m1f a);
-/**
- * \ingroup mconvert
- * \related v16i
- * \brief Converts a \c m1f vector-mask into a \c m16i vector-mask.
- * \details Converts a \c m1f vector-mask into a \c m16i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16i m16i_cvt_m1f(m1f a);
-/**
- * \ingroup mconvert
- * \related v1d
- * \brief Converts a \c m1i vector-mask into a \c m1d vector-mask.
- * \details Converts a \c m1i vector-mask into a \c m1d vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1d m1d_cvt_m1i(m1i a);
-/**
- * \ingroup mconvert
- * \related v1f
- * \brief Converts a \c m1i vector-mask into a \c m1f vector-mask.
- * \details Converts a \c m1i vector-mask into a \c m1f vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1f m1f_cvt_m1i(m1i a);
-/**
- * \ingroup mconvert
- * \related v1i
- * \brief Converts a \c m1i vector-mask into a \c m1i vector-mask.
- * \details Converts a \c m1i vector-mask into a \c m1i vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1i m1i_cvt_m1i(m1i a);
-/**
- * \ingroup mconvert
- * \related v1l
- * \brief Converts a \c m1i vector-mask into a \c m1l vector-mask.
- * \details Converts a \c m1i vector-mask into a \c m1l vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1l m1l_cvt_m1i(m1i a);
-/**
- * \ingroup mconvert
- * \related v2d
- * \brief Converts a \c m1i vector-mask into a \c m2d vector-mask.
- * \details Converts a \c m1i vector-mask into a \c m2d vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2d m2d_cvt_m1i(m1i a);
-/**
- * \ingroup mconvert
- * \related v2f
- * \brief Converts a \c m1i vector-mask into a \c m2f vector-mask.
- * \details Converts a \c m1i vector-mask into a \c m2f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2f m2f_cvt_m1i(m1i a);
-/**
- * \ingroup mconvert
- * \related v2i
- * \brief Converts a \c m1i vector-mask into a \c m2i vector-mask.
- * \details Converts a \c m1i vector-mask into a \c m2i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2i m2i_cvt_m1i(m1i a);
-/**
- * \ingroup mconvert
- * \related v2l
- * \brief Converts a \c m1i vector-mask into a \c m2l vector-mask.
- * \details Converts a \c m1i vector-mask into a \c m2l vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2l m2l_cvt_m1i(m1i a);
-/**
- * \ingroup mconvert
- * \related v4d
- * \brief Converts a \c m1i vector-mask into a \c m4d vector-mask.
- * \details Converts a \c m1i vector-mask into a \c m4d vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4d m4d_cvt_m1i(m1i a);
-/**
- * \ingroup mconvert
- * \related v4f
- * \brief Converts a \c m1i vector-mask into a \c m4f vector-mask.
- * \details Converts a \c m1i vector-mask into a \c m4f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4f m4f_cvt_m1i(m1i a);
-/**
- * \ingroup mconvert
- * \related v4i
- * \brief Converts a \c m1i vector-mask into a \c m4i vector-mask.
- * \details Converts a \c m1i vector-mask into a \c m4i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4i m4i_cvt_m1i(m1i a);
-/**
- * \ingroup mconvert
- * \related v4l
- * \brief Converts a \c m1i vector-mask into a \c m4l vector-mask.
- * \details Converts a \c m1i vector-mask into a \c m4l vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4l m4l_cvt_m1i(m1i a);
-/**
- * \ingroup mconvert
- * \related v8d
- * \brief Converts a \c m1i vector-mask into a \c m8d vector-mask.
- * \details Converts a \c m1i vector-mask into a \c m8d vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8d m8d_cvt_m1i(m1i a);
-/**
- * \ingroup mconvert
- * \related v8f
- * \brief Converts a \c m1i vector-mask into a \c m8f vector-mask.
- * \details Converts a \c m1i vector-mask into a \c m8f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8f m8f_cvt_m1i(m1i a);
-/**
- * \ingroup mconvert
- * \related v8i
- * \brief Converts a \c m1i vector-mask into a \c m8i vector-mask.
- * \details Converts a \c m1i vector-mask into a \c m8i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8i m8i_cvt_m1i(m1i a);
-/**
- * \ingroup mconvert
- * \related v8l
- * \brief Converts a \c m1i vector-mask into a \c m8l vector-mask.
- * \details Converts a \c m1i vector-mask into a \c m8l vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8l m8l_cvt_m1i(m1i a);
-/**
- * \ingroup mconvert
- * \related v16f
- * \brief Converts a \c m1i vector-mask into a \c m16f vector-mask.
- * \details Converts a \c m1i vector-mask into a \c m16f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16f m16f_cvt_m1i(m1i a);
-/**
- * \ingroup mconvert
- * \related v16i
- * \brief Converts a \c m1i vector-mask into a \c m16i vector-mask.
- * \details Converts a \c m1i vector-mask into a \c m16i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16i m16i_cvt_m1i(m1i a);
-/**
- * \ingroup mconvert
- * \related v1d
- * \brief Converts a \c m1l vector-mask into a \c m1d vector-mask.
- * \details Converts a \c m1l vector-mask into a \c m1d vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1d m1d_cvt_m1l(m1l a);
-/**
- * \ingroup mconvert
- * \related v1f
- * \brief Converts a \c m1l vector-mask into a \c m1f vector-mask.
- * \details Converts a \c m1l vector-mask into a \c m1f vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1f m1f_cvt_m1l(m1l a);
-/**
- * \ingroup mconvert
- * \related v1i
- * \brief Converts a \c m1l vector-mask into a \c m1i vector-mask.
- * \details Converts a \c m1l vector-mask into a \c m1i vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1i m1i_cvt_m1l(m1l a);
-/**
- * \ingroup mconvert
- * \related v1l
- * \brief Converts a \c m1l vector-mask into a \c m1l vector-mask.
- * \details Converts a \c m1l vector-mask into a \c m1l vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1l m1l_cvt_m1l(m1l a);
-/**
- * \ingroup mconvert
- * \related v2d
- * \brief Converts a \c m1l vector-mask into a \c m2d vector-mask.
- * \details Converts a \c m1l vector-mask into a \c m2d vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2d m2d_cvt_m1l(m1l a);
-/**
- * \ingroup mconvert
- * \related v2f
- * \brief Converts a \c m1l vector-mask into a \c m2f vector-mask.
- * \details Converts a \c m1l vector-mask into a \c m2f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2f m2f_cvt_m1l(m1l a);
-/**
- * \ingroup mconvert
- * \related v2i
- * \brief Converts a \c m1l vector-mask into a \c m2i vector-mask.
- * \details Converts a \c m1l vector-mask into a \c m2i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2i m2i_cvt_m1l(m1l a);
-/**
- * \ingroup mconvert
- * \related v2l
- * \brief Converts a \c m1l vector-mask into a \c m2l vector-mask.
- * \details Converts a \c m1l vector-mask into a \c m2l vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2l m2l_cvt_m1l(m1l a);
-/**
- * \ingroup mconvert
- * \related v4d
- * \brief Converts a \c m1l vector-mask into a \c m4d vector-mask.
- * \details Converts a \c m1l vector-mask into a \c m4d vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4d m4d_cvt_m1l(m1l a);
-/**
- * \ingroup mconvert
- * \related v4f
- * \brief Converts a \c m1l vector-mask into a \c m4f vector-mask.
- * \details Converts a \c m1l vector-mask into a \c m4f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4f m4f_cvt_m1l(m1l a);
-/**
- * \ingroup mconvert
- * \related v4i
- * \brief Converts a \c m1l vector-mask into a \c m4i vector-mask.
- * \details Converts a \c m1l vector-mask into a \c m4i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4i m4i_cvt_m1l(m1l a);
-/**
- * \ingroup mconvert
- * \related v4l
- * \brief Converts a \c m1l vector-mask into a \c m4l vector-mask.
- * \details Converts a \c m1l vector-mask into a \c m4l vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4l m4l_cvt_m1l(m1l a);
-/**
- * \ingroup mconvert
- * \related v8d
- * \brief Converts a \c m1l vector-mask into a \c m8d vector-mask.
- * \details Converts a \c m1l vector-mask into a \c m8d vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8d m8d_cvt_m1l(m1l a);
-/**
- * \ingroup mconvert
- * \related v8f
- * \brief Converts a \c m1l vector-mask into a \c m8f vector-mask.
- * \details Converts a \c m1l vector-mask into a \c m8f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8f m8f_cvt_m1l(m1l a);
-/**
- * \ingroup mconvert
- * \related v8i
- * \brief Converts a \c m1l vector-mask into a \c m8i vector-mask.
- * \details Converts a \c m1l vector-mask into a \c m8i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8i m8i_cvt_m1l(m1l a);
-/**
- * \ingroup mconvert
- * \related v8l
- * \brief Converts a \c m1l vector-mask into a \c m8l vector-mask.
- * \details Converts a \c m1l vector-mask into a \c m8l vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8l m8l_cvt_m1l(m1l a);
-/**
- * \ingroup mconvert
- * \related v16f
- * \brief Converts a \c m1l vector-mask into a \c m16f vector-mask.
- * \details Converts a \c m1l vector-mask into a \c m16f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16f m16f_cvt_m1l(m1l a);
-/**
- * \ingroup mconvert
- * \related v16i
- * \brief Converts a \c m1l vector-mask into a \c m16i vector-mask.
- * \details Converts a \c m1l vector-mask into a \c m16i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16i m16i_cvt_m1l(m1l a);
-/**
- * \ingroup mconvert
- * \related v1d
- * \brief Converts a \c m2d vector-mask into a \c m1d vector-mask.
- * \details Converts a \c m2d vector-mask into a \c m1d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1d m1d_cvt_m2d(m2d a);
-/**
- * \ingroup mconvert
- * \related v1f
- * \brief Converts a \c m2d vector-mask into a \c m1f vector-mask.
- * \details Converts a \c m2d vector-mask into a \c m1f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1f m1f_cvt_m2d(m2d a);
-/**
- * \ingroup mconvert
- * \related v1i
- * \brief Converts a \c m2d vector-mask into a \c m1i vector-mask.
- * \details Converts a \c m2d vector-mask into a \c m1i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1i m1i_cvt_m2d(m2d a);
-/**
- * \ingroup mconvert
- * \related v1l
- * \brief Converts a \c m2d vector-mask into a \c m1l vector-mask.
- * \details Converts a \c m2d vector-mask into a \c m1l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1l m1l_cvt_m2d(m2d a);
-/**
- * \ingroup mconvert
- * \related v2d
  * \brief Converts a \c m2d vector-mask into a \c m2d vector-mask.
  * \details Converts a \c m2d vector-mask into a \c m2d vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 1
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
@@ -41589,6 +47103,11 @@ m2d m2d_cvt_m2d(m2d a);
  * \brief Converts a \c m2d vector-mask into a \c m2f vector-mask.
  * \details Converts a \c m2d vector-mask into a \c m2f vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 1
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
@@ -41599,6 +47118,11 @@ m2f m2f_cvt_m2d(m2d a);
  * \brief Converts a \c m2d vector-mask into a \c m2i vector-mask.
  * \details Converts a \c m2d vector-mask into a \c m2i vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 1
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
@@ -41609,6 +47133,11 @@ m2i m2i_cvt_m2d(m2d a);
  * \brief Converts a \c m2d vector-mask into a \c m2l vector-mask.
  * \details Converts a \c m2d vector-mask into a \c m2l vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 1
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
@@ -41616,729 +47145,14 @@ m2l m2l_cvt_m2d(m2d a);
 /**
  * \ingroup mconvert
  * \related v4d
- * \brief Converts a \c m2d vector-mask into a \c m4d vector-mask.
- * \details Converts a \c m2d vector-mask into a \c m4d vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4d m4d_cvt_m2d(m2d a);
-/**
- * \ingroup mconvert
- * \related v4f
- * \brief Converts a \c m2d vector-mask into a \c m4f vector-mask.
- * \details Converts a \c m2d vector-mask into a \c m4f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4f m4f_cvt_m2d(m2d a);
-/**
- * \ingroup mconvert
- * \related v4i
- * \brief Converts a \c m2d vector-mask into a \c m4i vector-mask.
- * \details Converts a \c m2d vector-mask into a \c m4i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4i m4i_cvt_m2d(m2d a);
-/**
- * \ingroup mconvert
- * \related v4l
- * \brief Converts a \c m2d vector-mask into a \c m4l vector-mask.
- * \details Converts a \c m2d vector-mask into a \c m4l vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4l m4l_cvt_m2d(m2d a);
-/**
- * \ingroup mconvert
- * \related v8d
- * \brief Converts a \c m2d vector-mask into a \c m8d vector-mask.
- * \details Converts a \c m2d vector-mask into a \c m8d vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8d m8d_cvt_m2d(m2d a);
-/**
- * \ingroup mconvert
- * \related v8f
- * \brief Converts a \c m2d vector-mask into a \c m8f vector-mask.
- * \details Converts a \c m2d vector-mask into a \c m8f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8f m8f_cvt_m2d(m2d a);
-/**
- * \ingroup mconvert
- * \related v8i
- * \brief Converts a \c m2d vector-mask into a \c m8i vector-mask.
- * \details Converts a \c m2d vector-mask into a \c m8i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8i m8i_cvt_m2d(m2d a);
-/**
- * \ingroup mconvert
- * \related v8l
- * \brief Converts a \c m2d vector-mask into a \c m8l vector-mask.
- * \details Converts a \c m2d vector-mask into a \c m8l vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8l m8l_cvt_m2d(m2d a);
-/**
- * \ingroup mconvert
- * \related v16f
- * \brief Converts a \c m2d vector-mask into a \c m16f vector-mask.
- * \details Converts a \c m2d vector-mask into a \c m16f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16f m16f_cvt_m2d(m2d a);
-/**
- * \ingroup mconvert
- * \related v16i
- * \brief Converts a \c m2d vector-mask into a \c m16i vector-mask.
- * \details Converts a \c m2d vector-mask into a \c m16i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16i m16i_cvt_m2d(m2d a);
-/**
- * \ingroup mconvert
- * \related v1d
- * \brief Converts a \c m2f vector-mask into a \c m1d vector-mask.
- * \details Converts a \c m2f vector-mask into a \c m1d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1d m1d_cvt_m2f(m2f a);
-/**
- * \ingroup mconvert
- * \related v1f
- * \brief Converts a \c m2f vector-mask into a \c m1f vector-mask.
- * \details Converts a \c m2f vector-mask into a \c m1f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1f m1f_cvt_m2f(m2f a);
-/**
- * \ingroup mconvert
- * \related v1i
- * \brief Converts a \c m2f vector-mask into a \c m1i vector-mask.
- * \details Converts a \c m2f vector-mask into a \c m1i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1i m1i_cvt_m2f(m2f a);
-/**
- * \ingroup mconvert
- * \related v1l
- * \brief Converts a \c m2f vector-mask into a \c m1l vector-mask.
- * \details Converts a \c m2f vector-mask into a \c m1l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1l m1l_cvt_m2f(m2f a);
-/**
- * \ingroup mconvert
- * \related v2d
- * \brief Converts a \c m2f vector-mask into a \c m2d vector-mask.
- * \details Converts a \c m2f vector-mask into a \c m2d vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2d m2d_cvt_m2f(m2f a);
-/**
- * \ingroup mconvert
- * \related v2f
- * \brief Converts a \c m2f vector-mask into a \c m2f vector-mask.
- * \details Converts a \c m2f vector-mask into a \c m2f vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2f m2f_cvt_m2f(m2f a);
-/**
- * \ingroup mconvert
- * \related v2i
- * \brief Converts a \c m2f vector-mask into a \c m2i vector-mask.
- * \details Converts a \c m2f vector-mask into a \c m2i vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2i m2i_cvt_m2f(m2f a);
-/**
- * \ingroup mconvert
- * \related v2l
- * \brief Converts a \c m2f vector-mask into a \c m2l vector-mask.
- * \details Converts a \c m2f vector-mask into a \c m2l vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2l m2l_cvt_m2f(m2f a);
-/**
- * \ingroup mconvert
- * \related v4d
- * \brief Converts a \c m2f vector-mask into a \c m4d vector-mask.
- * \details Converts a \c m2f vector-mask into a \c m4d vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4d m4d_cvt_m2f(m2f a);
-/**
- * \ingroup mconvert
- * \related v4f
- * \brief Converts a \c m2f vector-mask into a \c m4f vector-mask.
- * \details Converts a \c m2f vector-mask into a \c m4f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4f m4f_cvt_m2f(m2f a);
-/**
- * \ingroup mconvert
- * \related v4i
- * \brief Converts a \c m2f vector-mask into a \c m4i vector-mask.
- * \details Converts a \c m2f vector-mask into a \c m4i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4i m4i_cvt_m2f(m2f a);
-/**
- * \ingroup mconvert
- * \related v4l
- * \brief Converts a \c m2f vector-mask into a \c m4l vector-mask.
- * \details Converts a \c m2f vector-mask into a \c m4l vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4l m4l_cvt_m2f(m2f a);
-/**
- * \ingroup mconvert
- * \related v8d
- * \brief Converts a \c m2f vector-mask into a \c m8d vector-mask.
- * \details Converts a \c m2f vector-mask into a \c m8d vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8d m8d_cvt_m2f(m2f a);
-/**
- * \ingroup mconvert
- * \related v8f
- * \brief Converts a \c m2f vector-mask into a \c m8f vector-mask.
- * \details Converts a \c m2f vector-mask into a \c m8f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8f m8f_cvt_m2f(m2f a);
-/**
- * \ingroup mconvert
- * \related v8i
- * \brief Converts a \c m2f vector-mask into a \c m8i vector-mask.
- * \details Converts a \c m2f vector-mask into a \c m8i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8i m8i_cvt_m2f(m2f a);
-/**
- * \ingroup mconvert
- * \related v8l
- * \brief Converts a \c m2f vector-mask into a \c m8l vector-mask.
- * \details Converts a \c m2f vector-mask into a \c m8l vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8l m8l_cvt_m2f(m2f a);
-/**
- * \ingroup mconvert
- * \related v16f
- * \brief Converts a \c m2f vector-mask into a \c m16f vector-mask.
- * \details Converts a \c m2f vector-mask into a \c m16f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16f m16f_cvt_m2f(m2f a);
-/**
- * \ingroup mconvert
- * \related v16i
- * \brief Converts a \c m2f vector-mask into a \c m16i vector-mask.
- * \details Converts a \c m2f vector-mask into a \c m16i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16i m16i_cvt_m2f(m2f a);
-/**
- * \ingroup mconvert
- * \related v1d
- * \brief Converts a \c m2i vector-mask into a \c m1d vector-mask.
- * \details Converts a \c m2i vector-mask into a \c m1d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1d m1d_cvt_m2i(m2i a);
-/**
- * \ingroup mconvert
- * \related v1f
- * \brief Converts a \c m2i vector-mask into a \c m1f vector-mask.
- * \details Converts a \c m2i vector-mask into a \c m1f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1f m1f_cvt_m2i(m2i a);
-/**
- * \ingroup mconvert
- * \related v1i
- * \brief Converts a \c m2i vector-mask into a \c m1i vector-mask.
- * \details Converts a \c m2i vector-mask into a \c m1i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1i m1i_cvt_m2i(m2i a);
-/**
- * \ingroup mconvert
- * \related v1l
- * \brief Converts a \c m2i vector-mask into a \c m1l vector-mask.
- * \details Converts a \c m2i vector-mask into a \c m1l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1l m1l_cvt_m2i(m2i a);
-/**
- * \ingroup mconvert
- * \related v2d
- * \brief Converts a \c m2i vector-mask into a \c m2d vector-mask.
- * \details Converts a \c m2i vector-mask into a \c m2d vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2d m2d_cvt_m2i(m2i a);
-/**
- * \ingroup mconvert
- * \related v2f
- * \brief Converts a \c m2i vector-mask into a \c m2f vector-mask.
- * \details Converts a \c m2i vector-mask into a \c m2f vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2f m2f_cvt_m2i(m2i a);
-/**
- * \ingroup mconvert
- * \related v2i
- * \brief Converts a \c m2i vector-mask into a \c m2i vector-mask.
- * \details Converts a \c m2i vector-mask into a \c m2i vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2i m2i_cvt_m2i(m2i a);
-/**
- * \ingroup mconvert
- * \related v2l
- * \brief Converts a \c m2i vector-mask into a \c m2l vector-mask.
- * \details Converts a \c m2i vector-mask into a \c m2l vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2l m2l_cvt_m2i(m2i a);
-/**
- * \ingroup mconvert
- * \related v4d
- * \brief Converts a \c m2i vector-mask into a \c m4d vector-mask.
- * \details Converts a \c m2i vector-mask into a \c m4d vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4d m4d_cvt_m2i(m2i a);
-/**
- * \ingroup mconvert
- * \related v4f
- * \brief Converts a \c m2i vector-mask into a \c m4f vector-mask.
- * \details Converts a \c m2i vector-mask into a \c m4f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4f m4f_cvt_m2i(m2i a);
-/**
- * \ingroup mconvert
- * \related v4i
- * \brief Converts a \c m2i vector-mask into a \c m4i vector-mask.
- * \details Converts a \c m2i vector-mask into a \c m4i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4i m4i_cvt_m2i(m2i a);
-/**
- * \ingroup mconvert
- * \related v4l
- * \brief Converts a \c m2i vector-mask into a \c m4l vector-mask.
- * \details Converts a \c m2i vector-mask into a \c m4l vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4l m4l_cvt_m2i(m2i a);
-/**
- * \ingroup mconvert
- * \related v8d
- * \brief Converts a \c m2i vector-mask into a \c m8d vector-mask.
- * \details Converts a \c m2i vector-mask into a \c m8d vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8d m8d_cvt_m2i(m2i a);
-/**
- * \ingroup mconvert
- * \related v8f
- * \brief Converts a \c m2i vector-mask into a \c m8f vector-mask.
- * \details Converts a \c m2i vector-mask into a \c m8f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8f m8f_cvt_m2i(m2i a);
-/**
- * \ingroup mconvert
- * \related v8i
- * \brief Converts a \c m2i vector-mask into a \c m8i vector-mask.
- * \details Converts a \c m2i vector-mask into a \c m8i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8i m8i_cvt_m2i(m2i a);
-/**
- * \ingroup mconvert
- * \related v8l
- * \brief Converts a \c m2i vector-mask into a \c m8l vector-mask.
- * \details Converts a \c m2i vector-mask into a \c m8l vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8l m8l_cvt_m2i(m2i a);
-/**
- * \ingroup mconvert
- * \related v16f
- * \brief Converts a \c m2i vector-mask into a \c m16f vector-mask.
- * \details Converts a \c m2i vector-mask into a \c m16f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16f m16f_cvt_m2i(m2i a);
-/**
- * \ingroup mconvert
- * \related v16i
- * \brief Converts a \c m2i vector-mask into a \c m16i vector-mask.
- * \details Converts a \c m2i vector-mask into a \c m16i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16i m16i_cvt_m2i(m2i a);
-/**
- * \ingroup mconvert
- * \related v1d
- * \brief Converts a \c m2l vector-mask into a \c m1d vector-mask.
- * \details Converts a \c m2l vector-mask into a \c m1d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1d m1d_cvt_m2l(m2l a);
-/**
- * \ingroup mconvert
- * \related v1f
- * \brief Converts a \c m2l vector-mask into a \c m1f vector-mask.
- * \details Converts a \c m2l vector-mask into a \c m1f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1f m1f_cvt_m2l(m2l a);
-/**
- * \ingroup mconvert
- * \related v1i
- * \brief Converts a \c m2l vector-mask into a \c m1i vector-mask.
- * \details Converts a \c m2l vector-mask into a \c m1i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1i m1i_cvt_m2l(m2l a);
-/**
- * \ingroup mconvert
- * \related v1l
- * \brief Converts a \c m2l vector-mask into a \c m1l vector-mask.
- * \details Converts a \c m2l vector-mask into a \c m1l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1l m1l_cvt_m2l(m2l a);
-/**
- * \ingroup mconvert
- * \related v2d
- * \brief Converts a \c m2l vector-mask into a \c m2d vector-mask.
- * \details Converts a \c m2l vector-mask into a \c m2d vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2d m2d_cvt_m2l(m2l a);
-/**
- * \ingroup mconvert
- * \related v2f
- * \brief Converts a \c m2l vector-mask into a \c m2f vector-mask.
- * \details Converts a \c m2l vector-mask into a \c m2f vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2f m2f_cvt_m2l(m2l a);
-/**
- * \ingroup mconvert
- * \related v2i
- * \brief Converts a \c m2l vector-mask into a \c m2i vector-mask.
- * \details Converts a \c m2l vector-mask into a \c m2i vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2i m2i_cvt_m2l(m2l a);
-/**
- * \ingroup mconvert
- * \related v2l
- * \brief Converts a \c m2l vector-mask into a \c m2l vector-mask.
- * \details Converts a \c m2l vector-mask into a \c m2l vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2l m2l_cvt_m2l(m2l a);
-/**
- * \ingroup mconvert
- * \related v4d
- * \brief Converts a \c m2l vector-mask into a \c m4d vector-mask.
- * \details Converts a \c m2l vector-mask into a \c m4d vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4d m4d_cvt_m2l(m2l a);
-/**
- * \ingroup mconvert
- * \related v4f
- * \brief Converts a \c m2l vector-mask into a \c m4f vector-mask.
- * \details Converts a \c m2l vector-mask into a \c m4f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4f m4f_cvt_m2l(m2l a);
-/**
- * \ingroup mconvert
- * \related v4i
- * \brief Converts a \c m2l vector-mask into a \c m4i vector-mask.
- * \details Converts a \c m2l vector-mask into a \c m4i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4i m4i_cvt_m2l(m2l a);
-/**
- * \ingroup mconvert
- * \related v4l
- * \brief Converts a \c m2l vector-mask into a \c m4l vector-mask.
- * \details Converts a \c m2l vector-mask into a \c m4l vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4l m4l_cvt_m2l(m2l a);
-/**
- * \ingroup mconvert
- * \related v8d
- * \brief Converts a \c m2l vector-mask into a \c m8d vector-mask.
- * \details Converts a \c m2l vector-mask into a \c m8d vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8d m8d_cvt_m2l(m2l a);
-/**
- * \ingroup mconvert
- * \related v8f
- * \brief Converts a \c m2l vector-mask into a \c m8f vector-mask.
- * \details Converts a \c m2l vector-mask into a \c m8f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8f m8f_cvt_m2l(m2l a);
-/**
- * \ingroup mconvert
- * \related v8i
- * \brief Converts a \c m2l vector-mask into a \c m8i vector-mask.
- * \details Converts a \c m2l vector-mask into a \c m8i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8i m8i_cvt_m2l(m2l a);
-/**
- * \ingroup mconvert
- * \related v8l
- * \brief Converts a \c m2l vector-mask into a \c m8l vector-mask.
- * \details Converts a \c m2l vector-mask into a \c m8l vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8l m8l_cvt_m2l(m2l a);
-/**
- * \ingroup mconvert
- * \related v16f
- * \brief Converts a \c m2l vector-mask into a \c m16f vector-mask.
- * \details Converts a \c m2l vector-mask into a \c m16f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16f m16f_cvt_m2l(m2l a);
-/**
- * \ingroup mconvert
- * \related v16i
- * \brief Converts a \c m2l vector-mask into a \c m16i vector-mask.
- * \details Converts a \c m2l vector-mask into a \c m16i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16i m16i_cvt_m2l(m2l a);
-/**
- * \ingroup mconvert
- * \related v1d
- * \brief Converts a \c m4d vector-mask into a \c m1d vector-mask.
- * \details Converts a \c m4d vector-mask into a \c m1d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1d m1d_cvt_m4d(m4d a);
-/**
- * \ingroup mconvert
- * \related v1f
- * \brief Converts a \c m4d vector-mask into a \c m1f vector-mask.
- * \details Converts a \c m4d vector-mask into a \c m1f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1f m1f_cvt_m4d(m4d a);
-/**
- * \ingroup mconvert
- * \related v1i
- * \brief Converts a \c m4d vector-mask into a \c m1i vector-mask.
- * \details Converts a \c m4d vector-mask into a \c m1i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1i m1i_cvt_m4d(m4d a);
-/**
- * \ingroup mconvert
- * \related v1l
- * \brief Converts a \c m4d vector-mask into a \c m1l vector-mask.
- * \details Converts a \c m4d vector-mask into a \c m1l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1l m1l_cvt_m4d(m4d a);
-/**
- * \ingroup mconvert
- * \related v2d
- * \brief Converts a \c m4d vector-mask into a \c m2d vector-mask.
- * \details Converts a \c m4d vector-mask into a \c m2d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2d m2d_cvt_m4d(m4d a);
-/**
- * \ingroup mconvert
- * \related v2f
- * \brief Converts a \c m4d vector-mask into a \c m2f vector-mask.
- * \details Converts a \c m4d vector-mask into a \c m2f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2f m2f_cvt_m4d(m4d a);
-/**
- * \ingroup mconvert
- * \related v2i
- * \brief Converts a \c m4d vector-mask into a \c m2i vector-mask.
- * \details Converts a \c m4d vector-mask into a \c m2i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2i m2i_cvt_m4d(m4d a);
-/**
- * \ingroup mconvert
- * \related v2l
- * \brief Converts a \c m4d vector-mask into a \c m2l vector-mask.
- * \details Converts a \c m4d vector-mask into a \c m2l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2l m2l_cvt_m4d(m4d a);
-/**
- * \ingroup mconvert
- * \related v4d
  * \brief Converts a \c m4d vector-mask into a \c m4d vector-mask.
  * \details Converts a \c m4d vector-mask into a \c m4d vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 3
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
@@ -42349,6 +47163,11 @@ m4d m4d_cvt_m4d(m4d a);
  * \brief Converts a \c m4d vector-mask into a \c m4f vector-mask.
  * \details Converts a \c m4d vector-mask into a \c m4f vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 3
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
@@ -42359,6 +47178,11 @@ m4f m4f_cvt_m4d(m4d a);
  * \brief Converts a \c m4d vector-mask into a \c m4i vector-mask.
  * \details Converts a \c m4d vector-mask into a \c m4i vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 3
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
@@ -42369,6 +47193,11 @@ m4i m4i_cvt_m4d(m4d a);
  * \brief Converts a \c m4d vector-mask into a \c m4l vector-mask.
  * \details Converts a \c m4d vector-mask into a \c m4l vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 3
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
@@ -42376,729 +47205,14 @@ m4l m4l_cvt_m4d(m4d a);
 /**
  * \ingroup mconvert
  * \related v8d
- * \brief Converts a \c m4d vector-mask into a \c m8d vector-mask.
- * \details Converts a \c m4d vector-mask into a \c m8d vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8d m8d_cvt_m4d(m4d a);
-/**
- * \ingroup mconvert
- * \related v8f
- * \brief Converts a \c m4d vector-mask into a \c m8f vector-mask.
- * \details Converts a \c m4d vector-mask into a \c m8f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8f m8f_cvt_m4d(m4d a);
-/**
- * \ingroup mconvert
- * \related v8i
- * \brief Converts a \c m4d vector-mask into a \c m8i vector-mask.
- * \details Converts a \c m4d vector-mask into a \c m8i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8i m8i_cvt_m4d(m4d a);
-/**
- * \ingroup mconvert
- * \related v8l
- * \brief Converts a \c m4d vector-mask into a \c m8l vector-mask.
- * \details Converts a \c m4d vector-mask into a \c m8l vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8l m8l_cvt_m4d(m4d a);
-/**
- * \ingroup mconvert
- * \related v16f
- * \brief Converts a \c m4d vector-mask into a \c m16f vector-mask.
- * \details Converts a \c m4d vector-mask into a \c m16f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16f m16f_cvt_m4d(m4d a);
-/**
- * \ingroup mconvert
- * \related v16i
- * \brief Converts a \c m4d vector-mask into a \c m16i vector-mask.
- * \details Converts a \c m4d vector-mask into a \c m16i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16i m16i_cvt_m4d(m4d a);
-/**
- * \ingroup mconvert
- * \related v1d
- * \brief Converts a \c m4f vector-mask into a \c m1d vector-mask.
- * \details Converts a \c m4f vector-mask into a \c m1d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1d m1d_cvt_m4f(m4f a);
-/**
- * \ingroup mconvert
- * \related v1f
- * \brief Converts a \c m4f vector-mask into a \c m1f vector-mask.
- * \details Converts a \c m4f vector-mask into a \c m1f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1f m1f_cvt_m4f(m4f a);
-/**
- * \ingroup mconvert
- * \related v1i
- * \brief Converts a \c m4f vector-mask into a \c m1i vector-mask.
- * \details Converts a \c m4f vector-mask into a \c m1i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1i m1i_cvt_m4f(m4f a);
-/**
- * \ingroup mconvert
- * \related v1l
- * \brief Converts a \c m4f vector-mask into a \c m1l vector-mask.
- * \details Converts a \c m4f vector-mask into a \c m1l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1l m1l_cvt_m4f(m4f a);
-/**
- * \ingroup mconvert
- * \related v2d
- * \brief Converts a \c m4f vector-mask into a \c m2d vector-mask.
- * \details Converts a \c m4f vector-mask into a \c m2d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2d m2d_cvt_m4f(m4f a);
-/**
- * \ingroup mconvert
- * \related v2f
- * \brief Converts a \c m4f vector-mask into a \c m2f vector-mask.
- * \details Converts a \c m4f vector-mask into a \c m2f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2f m2f_cvt_m4f(m4f a);
-/**
- * \ingroup mconvert
- * \related v2i
- * \brief Converts a \c m4f vector-mask into a \c m2i vector-mask.
- * \details Converts a \c m4f vector-mask into a \c m2i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2i m2i_cvt_m4f(m4f a);
-/**
- * \ingroup mconvert
- * \related v2l
- * \brief Converts a \c m4f vector-mask into a \c m2l vector-mask.
- * \details Converts a \c m4f vector-mask into a \c m2l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2l m2l_cvt_m4f(m4f a);
-/**
- * \ingroup mconvert
- * \related v4d
- * \brief Converts a \c m4f vector-mask into a \c m4d vector-mask.
- * \details Converts a \c m4f vector-mask into a \c m4d vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4d m4d_cvt_m4f(m4f a);
-/**
- * \ingroup mconvert
- * \related v4f
- * \brief Converts a \c m4f vector-mask into a \c m4f vector-mask.
- * \details Converts a \c m4f vector-mask into a \c m4f vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4f m4f_cvt_m4f(m4f a);
-/**
- * \ingroup mconvert
- * \related v4i
- * \brief Converts a \c m4f vector-mask into a \c m4i vector-mask.
- * \details Converts a \c m4f vector-mask into a \c m4i vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4i m4i_cvt_m4f(m4f a);
-/**
- * \ingroup mconvert
- * \related v4l
- * \brief Converts a \c m4f vector-mask into a \c m4l vector-mask.
- * \details Converts a \c m4f vector-mask into a \c m4l vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4l m4l_cvt_m4f(m4f a);
-/**
- * \ingroup mconvert
- * \related v8d
- * \brief Converts a \c m4f vector-mask into a \c m8d vector-mask.
- * \details Converts a \c m4f vector-mask into a \c m8d vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8d m8d_cvt_m4f(m4f a);
-/**
- * \ingroup mconvert
- * \related v8f
- * \brief Converts a \c m4f vector-mask into a \c m8f vector-mask.
- * \details Converts a \c m4f vector-mask into a \c m8f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8f m8f_cvt_m4f(m4f a);
-/**
- * \ingroup mconvert
- * \related v8i
- * \brief Converts a \c m4f vector-mask into a \c m8i vector-mask.
- * \details Converts a \c m4f vector-mask into a \c m8i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8i m8i_cvt_m4f(m4f a);
-/**
- * \ingroup mconvert
- * \related v8l
- * \brief Converts a \c m4f vector-mask into a \c m8l vector-mask.
- * \details Converts a \c m4f vector-mask into a \c m8l vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8l m8l_cvt_m4f(m4f a);
-/**
- * \ingroup mconvert
- * \related v16f
- * \brief Converts a \c m4f vector-mask into a \c m16f vector-mask.
- * \details Converts a \c m4f vector-mask into a \c m16f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16f m16f_cvt_m4f(m4f a);
-/**
- * \ingroup mconvert
- * \related v16i
- * \brief Converts a \c m4f vector-mask into a \c m16i vector-mask.
- * \details Converts a \c m4f vector-mask into a \c m16i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16i m16i_cvt_m4f(m4f a);
-/**
- * \ingroup mconvert
- * \related v1d
- * \brief Converts a \c m4i vector-mask into a \c m1d vector-mask.
- * \details Converts a \c m4i vector-mask into a \c m1d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1d m1d_cvt_m4i(m4i a);
-/**
- * \ingroup mconvert
- * \related v1f
- * \brief Converts a \c m4i vector-mask into a \c m1f vector-mask.
- * \details Converts a \c m4i vector-mask into a \c m1f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1f m1f_cvt_m4i(m4i a);
-/**
- * \ingroup mconvert
- * \related v1i
- * \brief Converts a \c m4i vector-mask into a \c m1i vector-mask.
- * \details Converts a \c m4i vector-mask into a \c m1i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1i m1i_cvt_m4i(m4i a);
-/**
- * \ingroup mconvert
- * \related v1l
- * \brief Converts a \c m4i vector-mask into a \c m1l vector-mask.
- * \details Converts a \c m4i vector-mask into a \c m1l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1l m1l_cvt_m4i(m4i a);
-/**
- * \ingroup mconvert
- * \related v2d
- * \brief Converts a \c m4i vector-mask into a \c m2d vector-mask.
- * \details Converts a \c m4i vector-mask into a \c m2d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2d m2d_cvt_m4i(m4i a);
-/**
- * \ingroup mconvert
- * \related v2f
- * \brief Converts a \c m4i vector-mask into a \c m2f vector-mask.
- * \details Converts a \c m4i vector-mask into a \c m2f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2f m2f_cvt_m4i(m4i a);
-/**
- * \ingroup mconvert
- * \related v2i
- * \brief Converts a \c m4i vector-mask into a \c m2i vector-mask.
- * \details Converts a \c m4i vector-mask into a \c m2i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2i m2i_cvt_m4i(m4i a);
-/**
- * \ingroup mconvert
- * \related v2l
- * \brief Converts a \c m4i vector-mask into a \c m2l vector-mask.
- * \details Converts a \c m4i vector-mask into a \c m2l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2l m2l_cvt_m4i(m4i a);
-/**
- * \ingroup mconvert
- * \related v4d
- * \brief Converts a \c m4i vector-mask into a \c m4d vector-mask.
- * \details Converts a \c m4i vector-mask into a \c m4d vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4d m4d_cvt_m4i(m4i a);
-/**
- * \ingroup mconvert
- * \related v4f
- * \brief Converts a \c m4i vector-mask into a \c m4f vector-mask.
- * \details Converts a \c m4i vector-mask into a \c m4f vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4f m4f_cvt_m4i(m4i a);
-/**
- * \ingroup mconvert
- * \related v4i
- * \brief Converts a \c m4i vector-mask into a \c m4i vector-mask.
- * \details Converts a \c m4i vector-mask into a \c m4i vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4i m4i_cvt_m4i(m4i a);
-/**
- * \ingroup mconvert
- * \related v4l
- * \brief Converts a \c m4i vector-mask into a \c m4l vector-mask.
- * \details Converts a \c m4i vector-mask into a \c m4l vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4l m4l_cvt_m4i(m4i a);
-/**
- * \ingroup mconvert
- * \related v8d
- * \brief Converts a \c m4i vector-mask into a \c m8d vector-mask.
- * \details Converts a \c m4i vector-mask into a \c m8d vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8d m8d_cvt_m4i(m4i a);
-/**
- * \ingroup mconvert
- * \related v8f
- * \brief Converts a \c m4i vector-mask into a \c m8f vector-mask.
- * \details Converts a \c m4i vector-mask into a \c m8f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8f m8f_cvt_m4i(m4i a);
-/**
- * \ingroup mconvert
- * \related v8i
- * \brief Converts a \c m4i vector-mask into a \c m8i vector-mask.
- * \details Converts a \c m4i vector-mask into a \c m8i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8i m8i_cvt_m4i(m4i a);
-/**
- * \ingroup mconvert
- * \related v8l
- * \brief Converts a \c m4i vector-mask into a \c m8l vector-mask.
- * \details Converts a \c m4i vector-mask into a \c m8l vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8l m8l_cvt_m4i(m4i a);
-/**
- * \ingroup mconvert
- * \related v16f
- * \brief Converts a \c m4i vector-mask into a \c m16f vector-mask.
- * \details Converts a \c m4i vector-mask into a \c m16f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16f m16f_cvt_m4i(m4i a);
-/**
- * \ingroup mconvert
- * \related v16i
- * \brief Converts a \c m4i vector-mask into a \c m16i vector-mask.
- * \details Converts a \c m4i vector-mask into a \c m16i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16i m16i_cvt_m4i(m4i a);
-/**
- * \ingroup mconvert
- * \related v1d
- * \brief Converts a \c m4l vector-mask into a \c m1d vector-mask.
- * \details Converts a \c m4l vector-mask into a \c m1d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1d m1d_cvt_m4l(m4l a);
-/**
- * \ingroup mconvert
- * \related v1f
- * \brief Converts a \c m4l vector-mask into a \c m1f vector-mask.
- * \details Converts a \c m4l vector-mask into a \c m1f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1f m1f_cvt_m4l(m4l a);
-/**
- * \ingroup mconvert
- * \related v1i
- * \brief Converts a \c m4l vector-mask into a \c m1i vector-mask.
- * \details Converts a \c m4l vector-mask into a \c m1i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1i m1i_cvt_m4l(m4l a);
-/**
- * \ingroup mconvert
- * \related v1l
- * \brief Converts a \c m4l vector-mask into a \c m1l vector-mask.
- * \details Converts a \c m4l vector-mask into a \c m1l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1l m1l_cvt_m4l(m4l a);
-/**
- * \ingroup mconvert
- * \related v2d
- * \brief Converts a \c m4l vector-mask into a \c m2d vector-mask.
- * \details Converts a \c m4l vector-mask into a \c m2d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2d m2d_cvt_m4l(m4l a);
-/**
- * \ingroup mconvert
- * \related v2f
- * \brief Converts a \c m4l vector-mask into a \c m2f vector-mask.
- * \details Converts a \c m4l vector-mask into a \c m2f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2f m2f_cvt_m4l(m4l a);
-/**
- * \ingroup mconvert
- * \related v2i
- * \brief Converts a \c m4l vector-mask into a \c m2i vector-mask.
- * \details Converts a \c m4l vector-mask into a \c m2i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2i m2i_cvt_m4l(m4l a);
-/**
- * \ingroup mconvert
- * \related v2l
- * \brief Converts a \c m4l vector-mask into a \c m2l vector-mask.
- * \details Converts a \c m4l vector-mask into a \c m2l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2l m2l_cvt_m4l(m4l a);
-/**
- * \ingroup mconvert
- * \related v4d
- * \brief Converts a \c m4l vector-mask into a \c m4d vector-mask.
- * \details Converts a \c m4l vector-mask into a \c m4d vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4d m4d_cvt_m4l(m4l a);
-/**
- * \ingroup mconvert
- * \related v4f
- * \brief Converts a \c m4l vector-mask into a \c m4f vector-mask.
- * \details Converts a \c m4l vector-mask into a \c m4f vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4f m4f_cvt_m4l(m4l a);
-/**
- * \ingroup mconvert
- * \related v4i
- * \brief Converts a \c m4l vector-mask into a \c m4i vector-mask.
- * \details Converts a \c m4l vector-mask into a \c m4i vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4i m4i_cvt_m4l(m4l a);
-/**
- * \ingroup mconvert
- * \related v4l
- * \brief Converts a \c m4l vector-mask into a \c m4l vector-mask.
- * \details Converts a \c m4l vector-mask into a \c m4l vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4l m4l_cvt_m4l(m4l a);
-/**
- * \ingroup mconvert
- * \related v8d
- * \brief Converts a \c m4l vector-mask into a \c m8d vector-mask.
- * \details Converts a \c m4l vector-mask into a \c m8d vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8d m8d_cvt_m4l(m4l a);
-/**
- * \ingroup mconvert
- * \related v8f
- * \brief Converts a \c m4l vector-mask into a \c m8f vector-mask.
- * \details Converts a \c m4l vector-mask into a \c m8f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8f m8f_cvt_m4l(m4l a);
-/**
- * \ingroup mconvert
- * \related v8i
- * \brief Converts a \c m4l vector-mask into a \c m8i vector-mask.
- * \details Converts a \c m4l vector-mask into a \c m8i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8i m8i_cvt_m4l(m4l a);
-/**
- * \ingroup mconvert
- * \related v8l
- * \brief Converts a \c m4l vector-mask into a \c m8l vector-mask.
- * \details Converts a \c m4l vector-mask into a \c m8l vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8l m8l_cvt_m4l(m4l a);
-/**
- * \ingroup mconvert
- * \related v16f
- * \brief Converts a \c m4l vector-mask into a \c m16f vector-mask.
- * \details Converts a \c m4l vector-mask into a \c m16f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16f m16f_cvt_m4l(m4l a);
-/**
- * \ingroup mconvert
- * \related v16i
- * \brief Converts a \c m4l vector-mask into a \c m16i vector-mask.
- * \details Converts a \c m4l vector-mask into a \c m16i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16i m16i_cvt_m4l(m4l a);
-/**
- * \ingroup mconvert
- * \related v1d
- * \brief Converts a \c m8d vector-mask into a \c m1d vector-mask.
- * \details Converts a \c m8d vector-mask into a \c m1d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1d m1d_cvt_m8d(m8d a);
-/**
- * \ingroup mconvert
- * \related v1f
- * \brief Converts a \c m8d vector-mask into a \c m1f vector-mask.
- * \details Converts a \c m8d vector-mask into a \c m1f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1f m1f_cvt_m8d(m8d a);
-/**
- * \ingroup mconvert
- * \related v1i
- * \brief Converts a \c m8d vector-mask into a \c m1i vector-mask.
- * \details Converts a \c m8d vector-mask into a \c m1i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1i m1i_cvt_m8d(m8d a);
-/**
- * \ingroup mconvert
- * \related v1l
- * \brief Converts a \c m8d vector-mask into a \c m1l vector-mask.
- * \details Converts a \c m8d vector-mask into a \c m1l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1l m1l_cvt_m8d(m8d a);
-/**
- * \ingroup mconvert
- * \related v2d
- * \brief Converts a \c m8d vector-mask into a \c m2d vector-mask.
- * \details Converts a \c m8d vector-mask into a \c m2d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2d m2d_cvt_m8d(m8d a);
-/**
- * \ingroup mconvert
- * \related v2f
- * \brief Converts a \c m8d vector-mask into a \c m2f vector-mask.
- * \details Converts a \c m8d vector-mask into a \c m2f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2f m2f_cvt_m8d(m8d a);
-/**
- * \ingroup mconvert
- * \related v2i
- * \brief Converts a \c m8d vector-mask into a \c m2i vector-mask.
- * \details Converts a \c m8d vector-mask into a \c m2i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2i m2i_cvt_m8d(m8d a);
-/**
- * \ingroup mconvert
- * \related v2l
- * \brief Converts a \c m8d vector-mask into a \c m2l vector-mask.
- * \details Converts a \c m8d vector-mask into a \c m2l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2l m2l_cvt_m8d(m8d a);
-/**
- * \ingroup mconvert
- * \related v4d
- * \brief Converts a \c m8d vector-mask into a \c m4d vector-mask.
- * \details Converts a \c m8d vector-mask into a \c m4d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4d m4d_cvt_m8d(m8d a);
-/**
- * \ingroup mconvert
- * \related v4f
- * \brief Converts a \c m8d vector-mask into a \c m4f vector-mask.
- * \details Converts a \c m8d vector-mask into a \c m4f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4f m4f_cvt_m8d(m8d a);
-/**
- * \ingroup mconvert
- * \related v4i
- * \brief Converts a \c m8d vector-mask into a \c m4i vector-mask.
- * \details Converts a \c m8d vector-mask into a \c m4i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4i m4i_cvt_m8d(m8d a);
-/**
- * \ingroup mconvert
- * \related v4l
- * \brief Converts a \c m8d vector-mask into a \c m4l vector-mask.
- * \details Converts a \c m8d vector-mask into a \c m4l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4l m4l_cvt_m8d(m8d a);
-/**
- * \ingroup mconvert
- * \related v8d
  * \brief Converts a \c m8d vector-mask into a \c m8d vector-mask.
  * \details Converts a \c m8d vector-mask into a \c m8d vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 7
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
@@ -43109,6 +47223,11 @@ m8d m8d_cvt_m8d(m8d a);
  * \brief Converts a \c m8d vector-mask into a \c m8f vector-mask.
  * \details Converts a \c m8d vector-mask into a \c m8f vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 7
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
@@ -43119,6 +47238,11 @@ m8f m8f_cvt_m8d(m8d a);
  * \brief Converts a \c m8d vector-mask into a \c m8i vector-mask.
  * \details Converts a \c m8d vector-mask into a \c m8i vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 7
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
@@ -43129,156 +47253,206 @@ m8i m8i_cvt_m8d(m8d a);
  * \brief Converts a \c m8d vector-mask into a \c m8l vector-mask.
  * \details Converts a \c m8d vector-mask into a \c m8l vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 7
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
 m8l m8l_cvt_m8d(m8d a);
 /**
  * \ingroup mconvert
- * \related v16f
- * \brief Converts a \c m8d vector-mask into a \c m16f vector-mask.
- * \details Converts a \c m8d vector-mask into a \c m16f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16f m16f_cvt_m8d(m8d a);
-/**
- * \ingroup mconvert
- * \related v16i
- * \brief Converts a \c m8d vector-mask into a \c m16i vector-mask.
- * \details Converts a \c m8d vector-mask into a \c m16i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16i m16i_cvt_m8d(m8d a);
-/**
- * \ingroup mconvert
  * \related v1d
- * \brief Converts a \c m8f vector-mask into a \c m1d vector-mask.
- * \details Converts a \c m8f vector-mask into a \c m1d vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m1f vector-mask into a \c m1d vector-mask.
+ * \details Converts a \c m1f vector-mask into a \c m1d vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 0
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m1d m1d_cvt_m8f(m8f a);
+m1d m1d_cvt_m1f(m1f a);
 /**
  * \ingroup mconvert
  * \related v1f
- * \brief Converts a \c m8f vector-mask into a \c m1f vector-mask.
- * \details Converts a \c m8f vector-mask into a \c m1f vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m1f vector-mask into a \c m1f vector-mask.
+ * \details Converts a \c m1f vector-mask into a \c m1f vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 0
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m1f m1f_cvt_m8f(m8f a);
+m1f m1f_cvt_m1f(m1f a);
 /**
  * \ingroup mconvert
  * \related v1i
- * \brief Converts a \c m8f vector-mask into a \c m1i vector-mask.
- * \details Converts a \c m8f vector-mask into a \c m1i vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m1f vector-mask into a \c m1i vector-mask.
+ * \details Converts a \c m1f vector-mask into a \c m1i vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 0
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m1i m1i_cvt_m8f(m8f a);
+m1i m1i_cvt_m1f(m1f a);
 /**
  * \ingroup mconvert
  * \related v1l
- * \brief Converts a \c m8f vector-mask into a \c m1l vector-mask.
- * \details Converts a \c m8f vector-mask into a \c m1l vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m1f vector-mask into a \c m1l vector-mask.
+ * \details Converts a \c m1f vector-mask into a \c m1l vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 0
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m1l m1l_cvt_m8f(m8f a);
+m1l m1l_cvt_m1f(m1f a);
 /**
  * \ingroup mconvert
  * \related v2d
- * \brief Converts a \c m8f vector-mask into a \c m2d vector-mask.
- * \details Converts a \c m8f vector-mask into a \c m2d vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m2f vector-mask into a \c m2d vector-mask.
+ * \details Converts a \c m2f vector-mask into a \c m2d vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 1
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m2d m2d_cvt_m8f(m8f a);
+m2d m2d_cvt_m2f(m2f a);
 /**
  * \ingroup mconvert
  * \related v2f
- * \brief Converts a \c m8f vector-mask into a \c m2f vector-mask.
- * \details Converts a \c m8f vector-mask into a \c m2f vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m2f vector-mask into a \c m2f vector-mask.
+ * \details Converts a \c m2f vector-mask into a \c m2f vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 1
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m2f m2f_cvt_m8f(m8f a);
+m2f m2f_cvt_m2f(m2f a);
 /**
  * \ingroup mconvert
  * \related v2i
- * \brief Converts a \c m8f vector-mask into a \c m2i vector-mask.
- * \details Converts a \c m8f vector-mask into a \c m2i vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m2f vector-mask into a \c m2i vector-mask.
+ * \details Converts a \c m2f vector-mask into a \c m2i vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 1
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m2i m2i_cvt_m8f(m8f a);
+m2i m2i_cvt_m2f(m2f a);
 /**
  * \ingroup mconvert
  * \related v2l
- * \brief Converts a \c m8f vector-mask into a \c m2l vector-mask.
- * \details Converts a \c m8f vector-mask into a \c m2l vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m2f vector-mask into a \c m2l vector-mask.
+ * \details Converts a \c m2f vector-mask into a \c m2l vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 1
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m2l m2l_cvt_m8f(m8f a);
+m2l m2l_cvt_m2f(m2f a);
 /**
  * \ingroup mconvert
  * \related v4d
- * \brief Converts a \c m8f vector-mask into a \c m4d vector-mask.
- * \details Converts a \c m8f vector-mask into a \c m4d vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m4f vector-mask into a \c m4d vector-mask.
+ * \details Converts a \c m4f vector-mask into a \c m4d vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 3
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m4d m4d_cvt_m8f(m8f a);
+m4d m4d_cvt_m4f(m4f a);
 /**
  * \ingroup mconvert
  * \related v4f
- * \brief Converts a \c m8f vector-mask into a \c m4f vector-mask.
- * \details Converts a \c m8f vector-mask into a \c m4f vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m4f vector-mask into a \c m4f vector-mask.
+ * \details Converts a \c m4f vector-mask into a \c m4f vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 3
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m4f m4f_cvt_m8f(m8f a);
+m4f m4f_cvt_m4f(m4f a);
 /**
  * \ingroup mconvert
  * \related v4i
- * \brief Converts a \c m8f vector-mask into a \c m4i vector-mask.
- * \details Converts a \c m8f vector-mask into a \c m4i vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m4f vector-mask into a \c m4i vector-mask.
+ * \details Converts a \c m4f vector-mask into a \c m4i vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 3
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m4i m4i_cvt_m8f(m8f a);
+m4i m4i_cvt_m4f(m4f a);
 /**
  * \ingroup mconvert
  * \related v4l
- * \brief Converts a \c m8f vector-mask into a \c m4l vector-mask.
- * \details Converts a \c m8f vector-mask into a \c m4l vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m4f vector-mask into a \c m4l vector-mask.
+ * \details Converts a \c m4f vector-mask into a \c m4l vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 3
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m4l m4l_cvt_m8f(m8f a);
+m4l m4l_cvt_m4f(m4f a);
 /**
  * \ingroup mconvert
  * \related v8d
  * \brief Converts a \c m8f vector-mask into a \c m8d vector-mask.
  * \details Converts a \c m8f vector-mask into a \c m8d vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 7
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
@@ -43289,6 +47463,11 @@ m8d m8d_cvt_m8f(m8f a);
  * \brief Converts a \c m8f vector-mask into a \c m8f vector-mask.
  * \details Converts a \c m8f vector-mask into a \c m8f vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 7
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
@@ -43299,6 +47478,11 @@ m8f m8f_cvt_m8f(m8f a);
  * \brief Converts a \c m8f vector-mask into a \c m8i vector-mask.
  * \details Converts a \c m8f vector-mask into a \c m8i vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 7
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
@@ -43309,6 +47493,11 @@ m8i m8i_cvt_m8f(m8f a);
  * \brief Converts a \c m8f vector-mask into a \c m8l vector-mask.
  * \details Converts a \c m8f vector-mask into a \c m8l vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 7
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
@@ -43316,549 +47505,14 @@ m8l m8l_cvt_m8f(m8f a);
 /**
  * \ingroup mconvert
  * \related v16f
- * \brief Converts a \c m8f vector-mask into a \c m16f vector-mask.
- * \details Converts a \c m8f vector-mask into a \c m16f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16f m16f_cvt_m8f(m8f a);
-/**
- * \ingroup mconvert
- * \related v16i
- * \brief Converts a \c m8f vector-mask into a \c m16i vector-mask.
- * \details Converts a \c m8f vector-mask into a \c m16i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16i m16i_cvt_m8f(m8f a);
-/**
- * \ingroup mconvert
- * \related v1d
- * \brief Converts a \c m8i vector-mask into a \c m1d vector-mask.
- * \details Converts a \c m8i vector-mask into a \c m1d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1d m1d_cvt_m8i(m8i a);
-/**
- * \ingroup mconvert
- * \related v1f
- * \brief Converts a \c m8i vector-mask into a \c m1f vector-mask.
- * \details Converts a \c m8i vector-mask into a \c m1f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1f m1f_cvt_m8i(m8i a);
-/**
- * \ingroup mconvert
- * \related v1i
- * \brief Converts a \c m8i vector-mask into a \c m1i vector-mask.
- * \details Converts a \c m8i vector-mask into a \c m1i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1i m1i_cvt_m8i(m8i a);
-/**
- * \ingroup mconvert
- * \related v1l
- * \brief Converts a \c m8i vector-mask into a \c m1l vector-mask.
- * \details Converts a \c m8i vector-mask into a \c m1l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1l m1l_cvt_m8i(m8i a);
-/**
- * \ingroup mconvert
- * \related v2d
- * \brief Converts a \c m8i vector-mask into a \c m2d vector-mask.
- * \details Converts a \c m8i vector-mask into a \c m2d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2d m2d_cvt_m8i(m8i a);
-/**
- * \ingroup mconvert
- * \related v2f
- * \brief Converts a \c m8i vector-mask into a \c m2f vector-mask.
- * \details Converts a \c m8i vector-mask into a \c m2f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2f m2f_cvt_m8i(m8i a);
-/**
- * \ingroup mconvert
- * \related v2i
- * \brief Converts a \c m8i vector-mask into a \c m2i vector-mask.
- * \details Converts a \c m8i vector-mask into a \c m2i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2i m2i_cvt_m8i(m8i a);
-/**
- * \ingroup mconvert
- * \related v2l
- * \brief Converts a \c m8i vector-mask into a \c m2l vector-mask.
- * \details Converts a \c m8i vector-mask into a \c m2l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2l m2l_cvt_m8i(m8i a);
-/**
- * \ingroup mconvert
- * \related v4d
- * \brief Converts a \c m8i vector-mask into a \c m4d vector-mask.
- * \details Converts a \c m8i vector-mask into a \c m4d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4d m4d_cvt_m8i(m8i a);
-/**
- * \ingroup mconvert
- * \related v4f
- * \brief Converts a \c m8i vector-mask into a \c m4f vector-mask.
- * \details Converts a \c m8i vector-mask into a \c m4f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4f m4f_cvt_m8i(m8i a);
-/**
- * \ingroup mconvert
- * \related v4i
- * \brief Converts a \c m8i vector-mask into a \c m4i vector-mask.
- * \details Converts a \c m8i vector-mask into a \c m4i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4i m4i_cvt_m8i(m8i a);
-/**
- * \ingroup mconvert
- * \related v4l
- * \brief Converts a \c m8i vector-mask into a \c m4l vector-mask.
- * \details Converts a \c m8i vector-mask into a \c m4l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4l m4l_cvt_m8i(m8i a);
-/**
- * \ingroup mconvert
- * \related v8d
- * \brief Converts a \c m8i vector-mask into a \c m8d vector-mask.
- * \details Converts a \c m8i vector-mask into a \c m8d vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8d m8d_cvt_m8i(m8i a);
-/**
- * \ingroup mconvert
- * \related v8f
- * \brief Converts a \c m8i vector-mask into a \c m8f vector-mask.
- * \details Converts a \c m8i vector-mask into a \c m8f vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8f m8f_cvt_m8i(m8i a);
-/**
- * \ingroup mconvert
- * \related v8i
- * \brief Converts a \c m8i vector-mask into a \c m8i vector-mask.
- * \details Converts a \c m8i vector-mask into a \c m8i vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8i m8i_cvt_m8i(m8i a);
-/**
- * \ingroup mconvert
- * \related v8l
- * \brief Converts a \c m8i vector-mask into a \c m8l vector-mask.
- * \details Converts a \c m8i vector-mask into a \c m8l vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8l m8l_cvt_m8i(m8i a);
-/**
- * \ingroup mconvert
- * \related v16f
- * \brief Converts a \c m8i vector-mask into a \c m16f vector-mask.
- * \details Converts a \c m8i vector-mask into a \c m16f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16f m16f_cvt_m8i(m8i a);
-/**
- * \ingroup mconvert
- * \related v16i
- * \brief Converts a \c m8i vector-mask into a \c m16i vector-mask.
- * \details Converts a \c m8i vector-mask into a \c m16i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16i m16i_cvt_m8i(m8i a);
-/**
- * \ingroup mconvert
- * \related v1d
- * \brief Converts a \c m8l vector-mask into a \c m1d vector-mask.
- * \details Converts a \c m8l vector-mask into a \c m1d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1d m1d_cvt_m8l(m8l a);
-/**
- * \ingroup mconvert
- * \related v1f
- * \brief Converts a \c m8l vector-mask into a \c m1f vector-mask.
- * \details Converts a \c m8l vector-mask into a \c m1f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1f m1f_cvt_m8l(m8l a);
-/**
- * \ingroup mconvert
- * \related v1i
- * \brief Converts a \c m8l vector-mask into a \c m1i vector-mask.
- * \details Converts a \c m8l vector-mask into a \c m1i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1i m1i_cvt_m8l(m8l a);
-/**
- * \ingroup mconvert
- * \related v1l
- * \brief Converts a \c m8l vector-mask into a \c m1l vector-mask.
- * \details Converts a \c m8l vector-mask into a \c m1l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1l m1l_cvt_m8l(m8l a);
-/**
- * \ingroup mconvert
- * \related v2d
- * \brief Converts a \c m8l vector-mask into a \c m2d vector-mask.
- * \details Converts a \c m8l vector-mask into a \c m2d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2d m2d_cvt_m8l(m8l a);
-/**
- * \ingroup mconvert
- * \related v2f
- * \brief Converts a \c m8l vector-mask into a \c m2f vector-mask.
- * \details Converts a \c m8l vector-mask into a \c m2f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2f m2f_cvt_m8l(m8l a);
-/**
- * \ingroup mconvert
- * \related v2i
- * \brief Converts a \c m8l vector-mask into a \c m2i vector-mask.
- * \details Converts a \c m8l vector-mask into a \c m2i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2i m2i_cvt_m8l(m8l a);
-/**
- * \ingroup mconvert
- * \related v2l
- * \brief Converts a \c m8l vector-mask into a \c m2l vector-mask.
- * \details Converts a \c m8l vector-mask into a \c m2l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2l m2l_cvt_m8l(m8l a);
-/**
- * \ingroup mconvert
- * \related v4d
- * \brief Converts a \c m8l vector-mask into a \c m4d vector-mask.
- * \details Converts a \c m8l vector-mask into a \c m4d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4d m4d_cvt_m8l(m8l a);
-/**
- * \ingroup mconvert
- * \related v4f
- * \brief Converts a \c m8l vector-mask into a \c m4f vector-mask.
- * \details Converts a \c m8l vector-mask into a \c m4f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4f m4f_cvt_m8l(m8l a);
-/**
- * \ingroup mconvert
- * \related v4i
- * \brief Converts a \c m8l vector-mask into a \c m4i vector-mask.
- * \details Converts a \c m8l vector-mask into a \c m4i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4i m4i_cvt_m8l(m8l a);
-/**
- * \ingroup mconvert
- * \related v4l
- * \brief Converts a \c m8l vector-mask into a \c m4l vector-mask.
- * \details Converts a \c m8l vector-mask into a \c m4l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4l m4l_cvt_m8l(m8l a);
-/**
- * \ingroup mconvert
- * \related v8d
- * \brief Converts a \c m8l vector-mask into a \c m8d vector-mask.
- * \details Converts a \c m8l vector-mask into a \c m8d vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8d m8d_cvt_m8l(m8l a);
-/**
- * \ingroup mconvert
- * \related v8f
- * \brief Converts a \c m8l vector-mask into a \c m8f vector-mask.
- * \details Converts a \c m8l vector-mask into a \c m8f vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8f m8f_cvt_m8l(m8l a);
-/**
- * \ingroup mconvert
- * \related v8i
- * \brief Converts a \c m8l vector-mask into a \c m8i vector-mask.
- * \details Converts a \c m8l vector-mask into a \c m8i vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8i m8i_cvt_m8l(m8l a);
-/**
- * \ingroup mconvert
- * \related v8l
- * \brief Converts a \c m8l vector-mask into a \c m8l vector-mask.
- * \details Converts a \c m8l vector-mask into a \c m8l vector-mask. 
- *  The input vector-mask and the output vector-mask mask the same elements.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8l m8l_cvt_m8l(m8l a);
-/**
- * \ingroup mconvert
- * \related v16f
- * \brief Converts a \c m8l vector-mask into a \c m16f vector-mask.
- * \details Converts a \c m8l vector-mask into a \c m16f vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16f m16f_cvt_m8l(m8l a);
-/**
- * \ingroup mconvert
- * \related v16i
- * \brief Converts a \c m8l vector-mask into a \c m16i vector-mask.
- * \details Converts a \c m8l vector-mask into a \c m16i vector-mask. 
- *  The upper values of the result are undefined.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m16i m16i_cvt_m8l(m8l a);
-/**
- * \ingroup mconvert
- * \related v1d
- * \brief Converts a \c m16f vector-mask into a \c m1d vector-mask.
- * \details Converts a \c m16f vector-mask into a \c m1d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1d m1d_cvt_m16f(m16f a);
-/**
- * \ingroup mconvert
- * \related v1f
- * \brief Converts a \c m16f vector-mask into a \c m1f vector-mask.
- * \details Converts a \c m16f vector-mask into a \c m1f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1f m1f_cvt_m16f(m16f a);
-/**
- * \ingroup mconvert
- * \related v1i
- * \brief Converts a \c m16f vector-mask into a \c m1i vector-mask.
- * \details Converts a \c m16f vector-mask into a \c m1i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1i m1i_cvt_m16f(m16f a);
-/**
- * \ingroup mconvert
- * \related v1l
- * \brief Converts a \c m16f vector-mask into a \c m1l vector-mask.
- * \details Converts a \c m16f vector-mask into a \c m1l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m1l m1l_cvt_m16f(m16f a);
-/**
- * \ingroup mconvert
- * \related v2d
- * \brief Converts a \c m16f vector-mask into a \c m2d vector-mask.
- * \details Converts a \c m16f vector-mask into a \c m2d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2d m2d_cvt_m16f(m16f a);
-/**
- * \ingroup mconvert
- * \related v2f
- * \brief Converts a \c m16f vector-mask into a \c m2f vector-mask.
- * \details Converts a \c m16f vector-mask into a \c m2f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2f m2f_cvt_m16f(m16f a);
-/**
- * \ingroup mconvert
- * \related v2i
- * \brief Converts a \c m16f vector-mask into a \c m2i vector-mask.
- * \details Converts a \c m16f vector-mask into a \c m2i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2i m2i_cvt_m16f(m16f a);
-/**
- * \ingroup mconvert
- * \related v2l
- * \brief Converts a \c m16f vector-mask into a \c m2l vector-mask.
- * \details Converts a \c m16f vector-mask into a \c m2l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m2l m2l_cvt_m16f(m16f a);
-/**
- * \ingroup mconvert
- * \related v4d
- * \brief Converts a \c m16f vector-mask into a \c m4d vector-mask.
- * \details Converts a \c m16f vector-mask into a \c m4d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4d m4d_cvt_m16f(m16f a);
-/**
- * \ingroup mconvert
- * \related v4f
- * \brief Converts a \c m16f vector-mask into a \c m4f vector-mask.
- * \details Converts a \c m16f vector-mask into a \c m4f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4f m4f_cvt_m16f(m16f a);
-/**
- * \ingroup mconvert
- * \related v4i
- * \brief Converts a \c m16f vector-mask into a \c m4i vector-mask.
- * \details Converts a \c m16f vector-mask into a \c m4i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4i m4i_cvt_m16f(m16f a);
-/**
- * \ingroup mconvert
- * \related v4l
- * \brief Converts a \c m16f vector-mask into a \c m4l vector-mask.
- * \details Converts a \c m16f vector-mask into a \c m4l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m4l m4l_cvt_m16f(m16f a);
-/**
- * \ingroup mconvert
- * \related v8d
- * \brief Converts a \c m16f vector-mask into a \c m8d vector-mask.
- * \details Converts a \c m16f vector-mask into a \c m8d vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8d m8d_cvt_m16f(m16f a);
-/**
- * \ingroup mconvert
- * \related v8f
- * \brief Converts a \c m16f vector-mask into a \c m8f vector-mask.
- * \details Converts a \c m16f vector-mask into a \c m8f vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8f m8f_cvt_m16f(m16f a);
-/**
- * \ingroup mconvert
- * \related v8i
- * \brief Converts a \c m16f vector-mask into a \c m8i vector-mask.
- * \details Converts a \c m16f vector-mask into a \c m8i vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8i m8i_cvt_m16f(m16f a);
-/**
- * \ingroup mconvert
- * \related v8l
- * \brief Converts a \c m16f vector-mask into a \c m8l vector-mask.
- * \details Converts a \c m16f vector-mask into a \c m8l vector-mask. 
- *  The upper values of the input are discarded.
- * \param a the vector-mask to convert
- * \returns the converted vector-mask
- */
-m8l m8l_cvt_m16f(m16f a);
-/**
- * \ingroup mconvert
- * \related v16f
  * \brief Converts a \c m16f vector-mask into a \c m16f vector-mask.
  * \details Converts a \c m16f vector-mask into a \c m16f vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 15
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
@@ -43869,6 +47523,11 @@ m16f m16f_cvt_m16f(m16f a);
  * \brief Converts a \c m16f vector-mask into a \c m16i vector-mask.
  * \details Converts a \c m16f vector-mask into a \c m16i vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 15
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
@@ -43876,169 +47535,254 @@ m16i m16i_cvt_m16f(m16f a);
 /**
  * \ingroup mconvert
  * \related v1d
- * \brief Converts a \c m16i vector-mask into a \c m1d vector-mask.
- * \details Converts a \c m16i vector-mask into a \c m1d vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m1i vector-mask into a \c m1d vector-mask.
+ * \details Converts a \c m1i vector-mask into a \c m1d vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 0
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m1d m1d_cvt_m16i(m16i a);
+m1d m1d_cvt_m1i(m1i a);
 /**
  * \ingroup mconvert
  * \related v1f
- * \brief Converts a \c m16i vector-mask into a \c m1f vector-mask.
- * \details Converts a \c m16i vector-mask into a \c m1f vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m1i vector-mask into a \c m1f vector-mask.
+ * \details Converts a \c m1i vector-mask into a \c m1f vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 0
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m1f m1f_cvt_m16i(m16i a);
+m1f m1f_cvt_m1i(m1i a);
 /**
  * \ingroup mconvert
  * \related v1i
- * \brief Converts a \c m16i vector-mask into a \c m1i vector-mask.
- * \details Converts a \c m16i vector-mask into a \c m1i vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m1i vector-mask into a \c m1i vector-mask.
+ * \details Converts a \c m1i vector-mask into a \c m1i vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 0
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m1i m1i_cvt_m16i(m16i a);
+m1i m1i_cvt_m1i(m1i a);
 /**
  * \ingroup mconvert
  * \related v1l
- * \brief Converts a \c m16i vector-mask into a \c m1l vector-mask.
- * \details Converts a \c m16i vector-mask into a \c m1l vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m1i vector-mask into a \c m1l vector-mask.
+ * \details Converts a \c m1i vector-mask into a \c m1l vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 0
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m1l m1l_cvt_m16i(m16i a);
+m1l m1l_cvt_m1i(m1i a);
 /**
  * \ingroup mconvert
  * \related v2d
- * \brief Converts a \c m16i vector-mask into a \c m2d vector-mask.
- * \details Converts a \c m16i vector-mask into a \c m2d vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m2i vector-mask into a \c m2d vector-mask.
+ * \details Converts a \c m2i vector-mask into a \c m2d vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 1
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m2d m2d_cvt_m16i(m16i a);
+m2d m2d_cvt_m2i(m2i a);
 /**
  * \ingroup mconvert
  * \related v2f
- * \brief Converts a \c m16i vector-mask into a \c m2f vector-mask.
- * \details Converts a \c m16i vector-mask into a \c m2f vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m2i vector-mask into a \c m2f vector-mask.
+ * \details Converts a \c m2i vector-mask into a \c m2f vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 1
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m2f m2f_cvt_m16i(m16i a);
+m2f m2f_cvt_m2i(m2i a);
 /**
  * \ingroup mconvert
  * \related v2i
- * \brief Converts a \c m16i vector-mask into a \c m2i vector-mask.
- * \details Converts a \c m16i vector-mask into a \c m2i vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m2i vector-mask into a \c m2i vector-mask.
+ * \details Converts a \c m2i vector-mask into a \c m2i vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 1
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m2i m2i_cvt_m16i(m16i a);
+m2i m2i_cvt_m2i(m2i a);
 /**
  * \ingroup mconvert
  * \related v2l
- * \brief Converts a \c m16i vector-mask into a \c m2l vector-mask.
- * \details Converts a \c m16i vector-mask into a \c m2l vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m2i vector-mask into a \c m2l vector-mask.
+ * \details Converts a \c m2i vector-mask into a \c m2l vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 1
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m2l m2l_cvt_m16i(m16i a);
+m2l m2l_cvt_m2i(m2i a);
 /**
  * \ingroup mconvert
  * \related v4d
- * \brief Converts a \c m16i vector-mask into a \c m4d vector-mask.
- * \details Converts a \c m16i vector-mask into a \c m4d vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m4i vector-mask into a \c m4d vector-mask.
+ * \details Converts a \c m4i vector-mask into a \c m4d vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 3
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m4d m4d_cvt_m16i(m16i a);
+m4d m4d_cvt_m4i(m4i a);
 /**
  * \ingroup mconvert
  * \related v4f
- * \brief Converts a \c m16i vector-mask into a \c m4f vector-mask.
- * \details Converts a \c m16i vector-mask into a \c m4f vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m4i vector-mask into a \c m4f vector-mask.
+ * \details Converts a \c m4i vector-mask into a \c m4f vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 3
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m4f m4f_cvt_m16i(m16i a);
+m4f m4f_cvt_m4i(m4i a);
 /**
  * \ingroup mconvert
  * \related v4i
- * \brief Converts a \c m16i vector-mask into a \c m4i vector-mask.
- * \details Converts a \c m16i vector-mask into a \c m4i vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m4i vector-mask into a \c m4i vector-mask.
+ * \details Converts a \c m4i vector-mask into a \c m4i vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 3
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m4i m4i_cvt_m16i(m16i a);
+m4i m4i_cvt_m4i(m4i a);
 /**
  * \ingroup mconvert
  * \related v4l
- * \brief Converts a \c m16i vector-mask into a \c m4l vector-mask.
- * \details Converts a \c m16i vector-mask into a \c m4l vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m4i vector-mask into a \c m4l vector-mask.
+ * \details Converts a \c m4i vector-mask into a \c m4l vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 3
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m4l m4l_cvt_m16i(m16i a);
+m4l m4l_cvt_m4i(m4i a);
 /**
  * \ingroup mconvert
  * \related v8d
- * \brief Converts a \c m16i vector-mask into a \c m8d vector-mask.
- * \details Converts a \c m16i vector-mask into a \c m8d vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m8i vector-mask into a \c m8d vector-mask.
+ * \details Converts a \c m8i vector-mask into a \c m8d vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 7
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m8d m8d_cvt_m16i(m16i a);
+m8d m8d_cvt_m8i(m8i a);
 /**
  * \ingroup mconvert
  * \related v8f
- * \brief Converts a \c m16i vector-mask into a \c m8f vector-mask.
- * \details Converts a \c m16i vector-mask into a \c m8f vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m8i vector-mask into a \c m8f vector-mask.
+ * \details Converts a \c m8i vector-mask into a \c m8f vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 7
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m8f m8f_cvt_m16i(m16i a);
+m8f m8f_cvt_m8i(m8i a);
 /**
  * \ingroup mconvert
  * \related v8i
- * \brief Converts a \c m16i vector-mask into a \c m8i vector-mask.
- * \details Converts a \c m16i vector-mask into a \c m8i vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m8i vector-mask into a \c m8i vector-mask.
+ * \details Converts a \c m8i vector-mask into a \c m8i vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 7
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m8i m8i_cvt_m16i(m16i a);
+m8i m8i_cvt_m8i(m8i a);
 /**
  * \ingroup mconvert
  * \related v8l
- * \brief Converts a \c m16i vector-mask into a \c m8l vector-mask.
- * \details Converts a \c m16i vector-mask into a \c m8l vector-mask. 
- *  The upper values of the input are discarded.
+ * \brief Converts a \c m8i vector-mask into a \c m8l vector-mask.
+ * \details Converts a \c m8i vector-mask into a \c m8l vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 7
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
-m8l m8l_cvt_m16i(m16i a);
+m8l m8l_cvt_m8i(m8i a);
 /**
  * \ingroup mconvert
  * \related v16f
  * \brief Converts a \c m16i vector-mask into a \c m16f vector-mask.
  * \details Converts a \c m16i vector-mask into a \c m16f vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 15
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
@@ -44049,10 +47793,255 @@ m16f m16f_cvt_m16i(m16i a);
  * \brief Converts a \c m16i vector-mask into a \c m16i vector-mask.
  * \details Converts a \c m16i vector-mask into a \c m16i vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 15
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
 m16i m16i_cvt_m16i(m16i a);
+/**
+ * \ingroup mconvert
+ * \related v1d
+ * \brief Converts a \c m1l vector-mask into a \c m1d vector-mask.
+ * \details Converts a \c m1l vector-mask into a \c m1d vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 0
+  dst[i] := a[i]
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns the converted vector-mask
+ */
+m1d m1d_cvt_m1l(m1l a);
+/**
+ * \ingroup mconvert
+ * \related v1f
+ * \brief Converts a \c m1l vector-mask into a \c m1f vector-mask.
+ * \details Converts a \c m1l vector-mask into a \c m1f vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 0
+  dst[i] := a[i]
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns the converted vector-mask
+ */
+m1f m1f_cvt_m1l(m1l a);
+/**
+ * \ingroup mconvert
+ * \related v1i
+ * \brief Converts a \c m1l vector-mask into a \c m1i vector-mask.
+ * \details Converts a \c m1l vector-mask into a \c m1i vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 0
+  dst[i] := a[i]
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns the converted vector-mask
+ */
+m1i m1i_cvt_m1l(m1l a);
+/**
+ * \ingroup mconvert
+ * \related v1l
+ * \brief Converts a \c m1l vector-mask into a \c m1l vector-mask.
+ * \details Converts a \c m1l vector-mask into a \c m1l vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 0
+  dst[i] := a[i]
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns the converted vector-mask
+ */
+m1l m1l_cvt_m1l(m1l a);
+/**
+ * \ingroup mconvert
+ * \related v2d
+ * \brief Converts a \c m2l vector-mask into a \c m2d vector-mask.
+ * \details Converts a \c m2l vector-mask into a \c m2d vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 1
+  dst[i] := a[i]
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns the converted vector-mask
+ */
+m2d m2d_cvt_m2l(m2l a);
+/**
+ * \ingroup mconvert
+ * \related v2f
+ * \brief Converts a \c m2l vector-mask into a \c m2f vector-mask.
+ * \details Converts a \c m2l vector-mask into a \c m2f vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 1
+  dst[i] := a[i]
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns the converted vector-mask
+ */
+m2f m2f_cvt_m2l(m2l a);
+/**
+ * \ingroup mconvert
+ * \related v2i
+ * \brief Converts a \c m2l vector-mask into a \c m2i vector-mask.
+ * \details Converts a \c m2l vector-mask into a \c m2i vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 1
+  dst[i] := a[i]
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns the converted vector-mask
+ */
+m2i m2i_cvt_m2l(m2l a);
+/**
+ * \ingroup mconvert
+ * \related v2l
+ * \brief Converts a \c m2l vector-mask into a \c m2l vector-mask.
+ * \details Converts a \c m2l vector-mask into a \c m2l vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 1
+  dst[i] := a[i]
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns the converted vector-mask
+ */
+m2l m2l_cvt_m2l(m2l a);
+/**
+ * \ingroup mconvert
+ * \related v4d
+ * \brief Converts a \c m4l vector-mask into a \c m4d vector-mask.
+ * \details Converts a \c m4l vector-mask into a \c m4d vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 3
+  dst[i] := a[i]
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns the converted vector-mask
+ */
+m4d m4d_cvt_m4l(m4l a);
+/**
+ * \ingroup mconvert
+ * \related v4f
+ * \brief Converts a \c m4l vector-mask into a \c m4f vector-mask.
+ * \details Converts a \c m4l vector-mask into a \c m4f vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 3
+  dst[i] := a[i]
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns the converted vector-mask
+ */
+m4f m4f_cvt_m4l(m4l a);
+/**
+ * \ingroup mconvert
+ * \related v4i
+ * \brief Converts a \c m4l vector-mask into a \c m4i vector-mask.
+ * \details Converts a \c m4l vector-mask into a \c m4i vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 3
+  dst[i] := a[i]
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns the converted vector-mask
+ */
+m4i m4i_cvt_m4l(m4l a);
+/**
+ * \ingroup mconvert
+ * \related v4l
+ * \brief Converts a \c m4l vector-mask into a \c m4l vector-mask.
+ * \details Converts a \c m4l vector-mask into a \c m4l vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 3
+  dst[i] := a[i]
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns the converted vector-mask
+ */
+m4l m4l_cvt_m4l(m4l a);
+/**
+ * \ingroup mconvert
+ * \related v8d
+ * \brief Converts a \c m8l vector-mask into a \c m8d vector-mask.
+ * \details Converts a \c m8l vector-mask into a \c m8d vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 7
+  dst[i] := a[i]
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns the converted vector-mask
+ */
+m8d m8d_cvt_m8l(m8l a);
+/**
+ * \ingroup mconvert
+ * \related v8f
+ * \brief Converts a \c m8l vector-mask into a \c m8f vector-mask.
+ * \details Converts a \c m8l vector-mask into a \c m8f vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 7
+  dst[i] := a[i]
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns the converted vector-mask
+ */
+m8f m8f_cvt_m8l(m8l a);
+/**
+ * \ingroup mconvert
+ * \related v8i
+ * \brief Converts a \c m8l vector-mask into a \c m8i vector-mask.
+ * \details Converts a \c m8l vector-mask into a \c m8i vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 7
+  dst[i] := a[i]
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns the converted vector-mask
+ */
+m8i m8i_cvt_m8l(m8l a);
+/**
+ * \ingroup mconvert
+ * \related v8l
+ * \brief Converts a \c m8l vector-mask into a \c m8l vector-mask.
+ * \details Converts a \c m8l vector-mask into a \c m8l vector-mask. 
+ *  The input vector-mask and the output vector-mask mask the same elements.
+ * \impl
+for i from 0 to 7
+  dst[i] := a[i]
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns the converted vector-mask
+ */
+m8l m8l_cvt_m8l(m8l a);
 
 /* compatible CONVERTS */
 

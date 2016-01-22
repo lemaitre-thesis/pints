@@ -365,6 +365,396 @@ endfor
 
 
 /* COMPARISONS */
+{{ _.doc_group("comparison to mask functions", shortname = "mcmp", ingroup = "maskop") }}
+{#/* EQ */#}
+{% call(f) _.expandf("%M", "%M_eq", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup mcmp
+ * \related %T
+ * \brief Compares the equality of the two input vectors
+ * \details Compares the equality of the \c %T vectors \c a and \c b.
+ *  The result is a \c %M vector-mask where the ith element is set iif \c `a[i] == b[i]`.
+{% set length = type1().size * 8 %}
+ * \impl
+for i from 0 to {{size1()-1}}
+  if a[i] == b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \returns \c %T vector acting like a mask
+ */
+{% endcall %}
+  {%- call _.define(f) %} %M_cast_%P(%P_eq(a, b))
+  {%- endcall -%}
+{%- endcall %}
+
+{#/* NEQ */#}
+{% call(f) _.expandf("%M", "%M_neq", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup mcmp
+ * \related %T
+ * \brief Compares the inequality of the two input vectors
+ * \details Compares the inequality of the \c %T vectors \c a and \c b.
+ *  The result is a \c %M vector-mask where the ith element is set iif \c `a[i] != b[i]`.
+{% set length = type1().size * 8 %}
+ * \impl
+for i from 0 to {{size1()-1}}
+  if a[i] != b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \returns \c %T vector acting like a mask
+ */
+{% endcall %}
+  {%- call _.define(f) %} %M_cast_%P(%P_neq(a, b))
+  {%- endcall -%}
+{%- endcall %}
+
+{#/* GT */#}
+{% call(f) _.expandf("%M", "%M_gt", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup mcmp
+ * \related %T
+ * \brief Compares if elements of \c a are greater than those of \c b.
+ * \details Compares if elements of \c a are greater than those of \c b.
+ *  The result is a \c %M vector-mask where the ith element is set iif \c `a[i] > b[i]`.
+{% set length = type1().size * 8 %}
+ * \impl
+for i from 0 to {{size1()-1}}
+  if a[i] > b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \returns \c %T vector acting like a mask
+ */
+{% endcall %}
+  {%- call _.define(f) %} %M_cast_%P(%P_gt(a, b))
+  {%- endcall -%}
+{%- endcall %}
+
+{#/* GEQ */#}
+{% call(f) _.expandf("%M", "%M_geq", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup mcmp
+ * \related %T
+ * \brief Compares if elements of \c a are greater than or equal to those of \c b.
+ * \details Compares if elements of \c a are greater than or equal to those of \c b.
+ *  The result is a \c %M vector-mask where the ith element is set iif \c `a[i] >= b[i]`.
+{% set length = type1().size * 8 %}
+ * \impl
+for i from 0 to {{size1()-1}}
+  if a[i] >= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \returns \c %T vector acting like a mask
+ */
+{% endcall %}
+  {%- call _.define(f) %} %M_cast_%P(%P_geq(a, b))
+  {%- endcall -%}
+{%- endcall %}
+
+{#/* LT */#}
+{% call(f) _.expandf("%M", "%M_lt", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup mcmp
+ * \related %T
+ * \brief Compares if elements of \c a are less than those of \c b.
+ * \details Compares if elements of \c a are less than those of \c b.
+ *  The result is a \c %M vector-mask where the ith element is set iif \c `a[i] < b[i]`.
+{% set length = type1().size * 8 %}
+ * \impl
+for i from 0 to {{size1()-1}}
+  if a[i] < b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \returns \c %T vector acting like a mask
+ */
+{% endcall %}
+  {%- call _.define(f) %} %M_cast_%P(%P_lt(a, b))
+  {%- endcall -%}
+{%- endcall %}
+
+{#/* LEQ */#}
+{% call(f) _.expandf("%M", "%M_leq", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup mcmp
+ * \related %T
+ * \brief Compares if elements of \c a are less than or equal to those of \c b.
+ * \details Compares if elements of \c a are less than or equal to those of \c b.
+ *  The result is a \c %M vector-mask where the ith element is set iif \c `a[i] <= b[i]`.
+{% set length = type1().size * 8 %}
+ * \impl
+for i from 0 to {{size1()-1}}
+  if a[i] <= b[i]
+    dst[i] := 1
+  else
+    dst[i] := 0
+  endif
+endfor
+\endimpl
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
+ * \returns \c %T vector acting like a mask
+ */
+{% endcall %}
+  {%- call _.define(f) %} %M_cast_%P(%P_leq(a, b))
+  {%- endcall -%}
+{%- endcall %}
+
+
+/* LOGIC */
+{{ _.doc_group("logical mask functions", shortname = "mlogic", ingroup = "maskop") }}
+{#/* AND */#}
+{% call(f) _.expandf("%M", "%M_and", "%M a, %M b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup mlogic
+ * \related %T
+ * \brief Bitwise and ( \c `a & b` )
+ * \details Performs the bitwise and on the two \c %M input vector-masks \c a and \c b.
+{% set length = size1() %}
+ * \impl
+dst[{{RANGE(0, length)}}] = a[{{RANGE(0, length)}}] & b[{{RANGE(0, length)}}]
+\endimpl
+ * \param a first \c %M input vector-mask
+ * \param b second \c %M input vector-mask
+ * \returns "bitwise and"ed \c %M vector-mask
+ */
+{% endcall %}
+  {%- call _.define(f) %} %M_and(a, b)
+  {%- endcall %}
+{%- endcall %}
+
+{#/* OR */#}
+{% call(f) _.expandf("%M", "%M_or", "%M a, %M b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup mlogic
+ * \related %T
+ * \brief Bitwise or ( \c `a | b` )
+ * \details Performs the bitwise or on the two \c %M input vector-masks \c a and \c b.
+{% set length = size1() %}
+ * \impl
+dst[{{RANGE(0, length)}}] = a[{{RANGE(0, length)}}] | b[{{RANGE(0, length)}}]
+\endimpl
+ * \param a first \c %M input vector-mask
+ * \param b second \c %M input vector-mask
+ * \returns "bitwise or"ed \c %M vector-mask
+ */
+{% endcall %}
+  {%- call _.define(f) %} %M_or(a, b)
+  {%- endcall %}
+{%- endcall %}
+
+{#/* XOR */#}
+{% call(f) _.expandf("%M", "%M_xor", "%M a, %M b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup mlogic
+ * \related %T
+ * \brief Bitwise xor ( \c `a ^ b` )
+ * \details Performs the bitwise xor on the two \c %M input vector-masks \c a and \c b.
+{% set length = size1() %}
+ * \impl
+dst[{{RANGE(0, length)}}] = a[{{RANGE(0, length)}}] ^ b[{{RANGE(0, length)}}]
+\endimpl
+ * \param a first \c %M input vector-mask
+ * \param b second \c %M input vector-mask
+ * \returns "bitwise xor"ed \c %M vector-mask
+ */
+{% endcall %}
+  {%- call _.define(f) %} %M_xor(a, b)
+  {%- endcall %}
+{%- endcall %}
+
+{#/* NOT */#}
+{% call(f) _.macro("%M", "%M_not", "%M a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup mlogic
+ * \related %T
+ * \brief Bitwise not ( \c `~a` )
+ * \details Performs the bitwise not on the \c %M input vector-mask \c a.
+{% set length = size1() %}
+ * \impl
+dst[{{RANGE(0, length)}}] = ~a[{{RANGE(0, length)}}]
+\endimpl
+ * \param a \c %M input vector-mask
+ * \returns "bitwise not"ed \c %M vector-mask
+ */
+{% endcall %}
+  {%- call _.define(f) %} %M_not(a)
+  {%- endcall %}
+{%- endcall %}
+
+{#/* NAND */#}
+{% call(f) _.macro("%M", "%M_nand", "%M a, %M b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup mlogic
+ * \related %T
+ * \brief Bitwise nand ( \c `~(a & b)` )
+ * \details Performs the bitwise nand on the two \c %M input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `%M_not(%M_and(a, b))`
+ * \attention This function should not be confused with %M_andnot(%M a, %M b).
+{% set length = size1() %}
+ * \impl
+dst[{{RANGE(0, length)}}] = ~(a[{{RANGE(0, length)}}] & b[{{RANGE(0, length)}}])
+\endimpl
+ * \see %M_and(%M a, %M b)
+ * \see %M_not(%M a)
+ * \see %M_andnot(%M a, %M b)
+ * \param a first \c %M input vector-mask
+ * \param b second \c %M input vector-mask
+ * \returns "bitwise nand"ed \c %M vector-mask
+ */
+{% endcall %}
+  {%- call _.define(f) %} %M_nand(a, b)
+  {%- endcall %}
+{%- endcall %}
+
+{#/* NOR */#}
+{% call(f) _.macro("%M", "%M_nor", "%M a, %M b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup mlogic
+ * \related %T
+ * \brief Bitwise nor ( \c `~(a | b)` )
+ * \details Performs the bitwise nor on the two \c %M input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `%M_not(%M_or(a, b))`
+ * \attention This function should not be confused with %M_ornot(%M a, %M b).
+{% set length = size1() %}
+ * \impl
+dst[{{RANGE(0, length)}}] = ~(a[{{RANGE(0, length)}}] | b[{{RANGE(0, length)}}])
+\endimpl
+ * \see %M_or(%M a, %M b)
+ * \see %M_not(%M a)
+ * \see %M_ornot(%M a, %M b)
+ * \param a first \c %M input vector-mask
+ * \param b second \c %M input vector-mask
+ * \returns "bitwise nor"ed \c %M vector-mask
+ */
+{% endcall %}
+  {%- call _.define(f) %} %M_nor(a, b)
+  {%- endcall %}
+{%- endcall %}
+
+{#/* NXOR */#}
+{% call(f) _.macro("%M", "%M_nxor", "%M a, %M b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup mlogic
+ * \related %T
+ * \brief Bitwise nxor ( \c `~(a ^ b)` )
+ * \details Performs the bitwise nxor on the two \c %M input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `%M_not(%M_xor(a, b))`
+{% set length = size1() %}
+ * \impl
+dst[{{RANGE(0, length)}}] = ~(a[{{RANGE(0, length)}}] ^ b[{{RANGE(0, length)}}])
+\endimpl
+ * \see %M_xor(%M a, %M b)
+ * \see %M_not(%M a)
+ * \param a first \c %M input vector-mask
+ * \param b second \c %M input vector-mask
+ * \returns "bitwise nxor"ed \c %M vector-mask
+ */
+{% endcall %}
+  {%- call _.define(f) %} %M_nxor(a, b)
+  {%- endcall %}
+{%- endcall %}
+
+{#/* ANDNOT */#}
+{% call(f) _.macro("%M", "%M_andnot", "%M a, %M b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup mlogic
+ * \related %T
+ * \brief Bitwise andnot ( \c `a & ~b` )
+ * \details Performs the bitwise andnot on the two \c %M input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `%M_and(a, %M_not(b))`
+ * \attention This function should not be confused with %M_nand(%M a, %M b).
+{% set length = size1() %}
+ * \impl
+dst[{{RANGE(0, length)}}] = a[{{RANGE(0, length)}}] & ~b[{{RANGE(0, length)}}]
+\endimpl
+ * \see %M_and(%M a, %M b)
+ * \see %M_not(%M a)
+ * \see %M_nand(%M a, %M b)
+ * \param a first \c %M input vector-mask
+ * \param b second \c %M input vector-mask
+ * \returns "bitwise andnot"ed \c %M vector-mask
+ */
+{% endcall %}
+  {%- call _.define(f) %} %M_andnot(a, b)
+  {%- endcall %}
+{%- endcall %}
+
+{#/* ORNOT */#}
+{% call(f) _.macro("%M", "%M_ornot", "%M a, %M b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup mlogic
+ * \related %T
+ * \brief Bitwise ornot ( \c `a | ~b` )
+ * \details Performs the bitwise ornot on the two \c %M input vector-masks \c a and \c b.
+ *
+ * \details Functionally equivalent to: \c `%M_or(a, %M_not(b))`
+ * \attention This function should not be confused with %M_nor(%M a, %M b).
+{% set length = size1() %}
+ * \impl
+dst[{{RANGE(0, length)}}] = a[{{RANGE(0, length)}}] | ~b[{{RANGE(0, length)}}]
+\endimpl
+ * \see %M_or(%M a, %M b)
+ * \see %M_not(%M a)
+ * \see %M_nor(%M a, %M b)
+ * \param a first \c %M input vector-mask
+ * \param b second \c %M input vector-mask
+ * \returns "bitwise ornot"ed \c %M vector-mask
+ */
+{% endcall %}
+  {%- call _.define(f) %} %M_ornot(a, b)
+  {%- endcall %}
+{%- endcall %}
+
+
+/* COMPARISONS */
 {{ _.doc_group("comparison functions", shortname = "cmp") }}
 {#/* EQ */#}
 {% call(f) _.expandf("%T", "%P_eq", "%T a, %T b") %}
@@ -2355,6 +2745,72 @@ dst[{{i}}] := SELECT%'N((mask.bits[{{i}}] ? b : a), rule[{{RANGE(i*lln2, (i+1)*l
   {%- endcall %}
 {% endcall %}
 
+{{ _.doc_group("mask cast functions", "Functions for casting vectors into or from mask-vectors", "mcast", ingroup = "maskop") }}
+{#/* CASTS to mask */#}
+{% call(f) _.expandf("%M", "%M_cast_%P", "%T a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup mcast
+ * \related %T
+ * \brief Casts a \c %T vector into a \c %M vector-mask.
+ * \details Casts a \c %T vector into a \c %M vector-mask.
+ * \details May be faster than %M_cvt_%P(%T a) if \c a can act as a mask
+ *  (ie: every elements are either 0 or 0x{{"%X" % (2**(8*type1().size)-1)}}).
+ *  Undefined behaviors otherwise.
+ * \details If \c a can act as a mask, the following statements are equivalent for every vector \c %T \c vec:
+ *  - \c `%P_and(a, vec)`
+ *  - \c `%P_mask_move(%M_cast_%P(a), vec)`
+ *
+{% set length = type1().size * 8 %}
+ * \impl
+for j from 0 to {{size1()-1}}
+  i := j*{{length}}
+  if dst.bits[{{RANGE(0, length, pre="i+", pren="i")}}] == 0x{{"%X" % (2**length-1)}}
+    mask[j] := 1
+  else if dst.bits[{{RANGE(0, length, pre="i+", pren="i")}}] == 0
+    mask[j] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector to cast
+ * \returns vector-mask
+ */
+{% endcall %}
+  {%- call _.define(f) %} (a)
+  {%- endcall %}
+{% endcall %}
+{#/* CASTS from mask */#}
+{% call(f) _.expandf("%T", "%P_cast_%M", "%M a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup mcast
+ * \related %T
+ * \brief Casts a \c %M vector-mask into a \c %T vector.
+ * \details Casts a \c %M vector-mask into a \c %T vector.
+ * \details May be faster than %M_cvt_%P(%T a). Undefined behaviors when the mask is not set properly (undefined).
+ * \details The following statements are equivalent for every vector \c %T \c vec:
+ *  - \c `%P_and(%P_cast_%M(a), vec)`
+ *  - \c `%P_mask_move(a, vec)`
+ *
+{% set length = type1().size * 8 %}
+ * \impl
+for j from 0 to {{size1()-1}}
+  i := j*{{length}}
+  if mask[j]
+    dst.bits[{{RANGE(0, length, pre="i+", pren="i")}}] := 0x{{"%X" % (2**length-1)}}
+  else
+    dst.bits[{{RANGE(0, length, pre="i+", pren="i")}}] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to cast
+ * \returns vector
+ */
+{% endcall %}
+  {%- call _.define(f) %} (a)
+  {%- endcall %}
+{% endcall %}
+
 
 /* CONVERTS */
 {{ _.doc_group("conversion functions", "Functions for converting vectors", "convert") }}
@@ -2430,7 +2886,7 @@ dst := CONVERT_FROM__%'t'__TO__%t(a[0])
   {%- endcall %}
 {% endcall %}
 
-{{ _.doc_group("mask conversion functions", "Functions for converting vectors into and/or from mask-vectors", "mconvert") }}
+{{ _.doc_group("mask conversion functions", "Functions for converting vectors into and/or from mask-vectors", "mconvert", ingroup = "maskop") }}
 {#/* CONVERTS to mask */#}
 {% call(f) _.expandf("%M", "%M_cvt_%P", "%T a") %}
   {%- call _.doc(f) %}
@@ -2438,15 +2894,19 @@ dst := CONVERT_FROM__%'t'__TO__%t(a[0])
  * \ingroup mconvert
  * \related %T
  * \brief Converts a \c %T vector into a \c %M vector-mask.
- * \details Converts a \c %T vector into a \c %M vector-mask such as the following statements are equivalent for every \c %T vec:
- *  - \c `%P_and(a, vec)`
- *  - \c `%P_mask_move(%M_cast_%P(a), vec)`
- *
+ * \details Converts a \c %T vector into a \c %M vector-mask. Sets dst[i] if the Most Significant Bit of a[i] is set.
+{% set length = type1().size * 8 %}
+ * \impl
+for j from 0 to {{size1()-1}}
+  i := j*{{length}}
+  dst[j] := a.bits[i+{{length-1}}]
+endfor
+\endimpl
  * \param a the vector to convert
  * \returns vector-mask
  */
 {% endcall %}
-  {%- call _.define(f) %} (a)
+  {%- call _.define(f) %} %P_lt(a, %P_zero())
   {%- endcall %}
 {% endcall %}
 {#/* CONVERTS from mask */#}
@@ -2456,39 +2916,50 @@ dst := CONVERT_FROM__%'t'__TO__%t(a[0])
  * \ingroup mconvert
  * \related %T
  * \brief Converts a \c %M vector-mask into a \c %T vector.
- * \details Converts a \c %M vector-mask into a \c %T vector such as the following statements are equivalent for every vector \c %T \c vec:
+ * \details Converts a \c %M vector-mask into a \c %T vector.
+ * \details The following statements are equivalent for every vector \c %T \c vec:
  *  - \c `%P_and(%P_cvt_%M(a), vec)`
  *  - \c `%P_mask_move(a, vec)`
  *
- * \param a the vector to convert
- * \returns vector-mask
+{% set length = type1().size*8 %}
+ * \impl
+for j from 0 to {{size1()-1}}
+  i := j*{{length}}
+  if mask[j]
+    dst.bits[{{RANGE(0, length, pre="i+", pren="i")}}] := 0x{{"%X" % (2**length-1)}}
+  else
+    dst.bits[{{RANGE(0, length, pre="i+", pren="i")}}] := 0
+  endif
+endfor
+\endimpl
+ * \param a the vector-mask to convert
+ * \returns vector
  */
 {% endcall %}
-  {%- call _.define(f) %} (a)
+  {%- call _.define(f) %} %P_maskz_mov(a, %P_ones())
   {%- endcall %}
 {% endcall %}
 
 {#/* CONVERTS from mask to mask */#}
-{% call _.for_both() %}
-  {%- call(f) _.expandf("%M", "%M_cvt_%'M'", "%'M' a") %}
+{% call _.for_types() %}
+  {%- call(f) _.expandf("%M", "%M_cvt_%M'", "%M' a") %}
     {%- call _.doc(f) %}
 /**
  * \ingroup mconvert
  * \related %T
- * \brief Converts a \c %'M' vector-mask into a \c %M vector-mask.
- * \details Converts a \c %'M' vector-mask into a \c %M vector-mask. 
-{% if size1() > size2() %}
- *  The upper values of the result are undefined.
-{% elif size1() < size2() %}
- *  The upper values of the input are discarded.
-{% else %}
+ * \brief Converts a \c %M' vector-mask into a \c %M vector-mask.
+ * \details Converts a \c %M' vector-mask into a \c %M vector-mask. 
  *  The input vector-mask and the output vector-mask mask the same elements.
-{% endif %}
+ * \impl
+for i from 0 to {{size1()-1}}
+  dst[i] := a[i]
+endfor
+\endimpl
  * \param a the vector-mask to convert
  * \returns the converted vector-mask
  */
 {% endcall %}
-    {%- call _.define(f) %} %M_cvt_%P(%P_cast_%iP(%iP_cvt_%'iP'(%'iP'_cast_%'P'(%'P'_cvt_%'M'(a)))))
+    {%- call _.define(f) %} %M_cast_%P(%P_cast_%iP(%iP_cvt_%'iP'(%'iP'_cast_%'P'(%'P'_cast_%'M'(a)))))
     {%- endcall %}
   {%- endcall %}
 {% endcall %}

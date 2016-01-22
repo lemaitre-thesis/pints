@@ -196,6 +196,27 @@ static inline v16i __v16i_set1(int32_t v);
 
 /* COMPARISONS */
 
+
+
+
+
+
+
+
+/* LOGIC */
+
+
+
+
+
+
+
+
+
+
+
+/* COMPARISONS */
+
 static inline union __v1d __v1d_eq(union __v1d a, union __v1d b);
 static inline union __v1f __v1f_eq(union __v1f a, union __v1f b);
 static inline union __v1i __v1i_eq(union __v1i a, union __v1i b);
@@ -665,6 +686,8 @@ static inline struct __v16i __v16i_cast_v8i(v8i a);
 static inline v4l __v4l_cast_v8l(struct __v8l a);
 static inline v8f __v8f_cast_v16f(struct __v16f a);
 static inline v8i __v8i_cast_v16i(struct __v16i a);
+
+
 
 
 /* CONVERTS */
@@ -1350,6 +1373,27 @@ static inline v16f __v16f_set1(float v) { v8f a = v8f_set1(v); return v16f_merge
 static inline v16i __v16i_set1(int32_t v) { v8i a = v8i_set1(v); return v16i_merge2_v8i(a, a); }
 
 /* CONSTANTS */
+
+
+/* COMPARISONS */
+
+
+
+
+
+
+
+
+/* LOGIC */
+
+
+
+
+
+
+
+
+
 
 
 /* COMPARISONS */
@@ -2329,6 +2373,8 @@ static inline struct __v16i __v16i_cast_v8i(v8i a) { struct __v16i r = { .a = a 
 static inline v4l __v4l_cast_v8l(struct __v8l a) { return a.a; }
 static inline v8f __v8f_cast_v16f(struct __v16f a) { return a.a; }
 static inline v8i __v8i_cast_v16i(struct __v16i a) { return a.a; }
+
+
 
 
 /* CONVERTS */
