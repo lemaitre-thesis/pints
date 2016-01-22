@@ -533,7 +533,7 @@ typedef __m512i v8l;
 #define v4i_blend4(a, b, mask) _mm_blend_epi32(a, b, mask)
 
 #undef v8i_hshuffle4x2
-#define v8i_hshuffle4x2(a, b, rule) v8f_fshuffle4x2(v8f_cast_v8i(a), v8f_cast_v8i(b), rule, 0xC)
+#define v8i_hshuffle4x2(a, b, rule) v8i_cast_v8f(v8f_fshuffle4x2(v8f_cast_v8i(a), v8f_cast_v8i(b), rule, 0xC))
 
 #undef v8i_permute4x2
 #define v8i_permute4x2(a, rule) _mm256_shuffle_epi32(a, rule)

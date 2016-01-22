@@ -1970,6 +1970,121 @@
 #define v16f_fshuffle v16f_fshuffle16
 #define v16i_fshuffle v16i_fshuffle16
 
+/* REDUCTIONS */
+
+#define __PINTS_REDUCE1(func, vec_t, input, output) do { \
+    output = input; \
+  } while(0)
+#define __PINTS_REDUCE2(func, vec_t, input, output) do { \
+    vec_t __input, __p; \
+    __input = (input); \
+    __p = vec_t##_permute2(__input, PINTS_SHUFFLE(1, 0)); \
+    output = func(__input, __p); \
+  } while(0)
+#define __PINTS_REDUCE4(func, vec_t, input, output) do { \
+    vec_t __input, __p, __r, __rp; \
+    __input = (input); \
+    __p = vec_t##_permute2(__input, PINTS_SHUFFLE(1, 0)); \
+    __r = func(__input, __p); \
+    __rp = vec_t##_permute2x2(__r, PINTS_SHUFFLE(1, 0)); \
+    output = func(__r, __rp); \
+  } while(0)
+#define __PINTS_REDUCE8(func, vec_t, input, output) do { \
+    vec_t __input, __p, __r1, __rp1, __r2, __rp2; \
+    __input = (input); \
+    __p = vec_t##_permute2(__input, PINTS_SHUFFLE(1, 0)); \
+    __r1 = func(__input, __p); \
+    __rp1 = vec_t##_permute4x2(__r1, PINTS_SHUFFLE(2, 3, 0, 1)); \
+    __r2 = func(__r1, __rp1); \
+    __rp2 = vec_t##_permute2x4(__r2, PINTS_SHUFFLE(1, 0)); \
+    output = func(__r2, __rp2); \
+  } while(0)
+#define __PINTS_REDUCE16(func, vec_t, input, output) do { \
+    vec_t __input, __p, __r1, __rp1, __r2, __rp2, __r3, __rp3; \
+    __input = (input); \
+    __p = vec_t##_permute2(__input, PINTS_SHUFFLE(1, 0)); \
+    __r1 = func(__input, __p); \
+    __rp1 = vec_t##_permute4(__r1, PINTS_SHUFFLE(1, 0, 3, 2)); \
+    __r2 = func(__r1, __rp1); \
+    __rp2 = vec_t##_permute4x4(__r2, PINTS_SHUFFLE(2, 3, 0, 1)); \
+    __r3 = func(__r2, __rp2); \
+    __rp3 = vec_t##_permute2x8(__r3, PINTS_SHUFFLE(1, 0)); \
+    output = func(__r3, __rp3); \
+  } while(0)
+#define v1d_reduce_add __v1d_reduce_add
+#define v1f_reduce_add __v1f_reduce_add
+#define v1i_reduce_add __v1i_reduce_add
+#define v1l_reduce_add __v1l_reduce_add
+#define v2d_reduce_add __v2d_reduce_add
+#define v2f_reduce_add __v2f_reduce_add
+#define v2i_reduce_add __v2i_reduce_add
+#define v2l_reduce_add __v2l_reduce_add
+#define v4d_reduce_add __v4d_reduce_add
+#define v4f_reduce_add __v4f_reduce_add
+#define v4i_reduce_add __v4i_reduce_add
+#define v4l_reduce_add __v4l_reduce_add
+#define v8d_reduce_add __v8d_reduce_add
+#define v8f_reduce_add __v8f_reduce_add
+#define v8i_reduce_add __v8i_reduce_add
+#define v8l_reduce_add __v8l_reduce_add
+#define v16f_reduce_add __v16f_reduce_add
+#define v16i_reduce_add __v16i_reduce_add
+#define v1d_reduce_mul __v1d_reduce_mul
+#define v1f_reduce_mul __v1f_reduce_mul
+#define v1i_reduce_mul __v1i_reduce_mul
+#define v1l_reduce_mul __v1l_reduce_mul
+#define v2d_reduce_mul __v2d_reduce_mul
+#define v2f_reduce_mul __v2f_reduce_mul
+#define v2i_reduce_mul __v2i_reduce_mul
+#define v2l_reduce_mul __v2l_reduce_mul
+#define v4d_reduce_mul __v4d_reduce_mul
+#define v4f_reduce_mul __v4f_reduce_mul
+#define v4i_reduce_mul __v4i_reduce_mul
+#define v4l_reduce_mul __v4l_reduce_mul
+#define v8d_reduce_mul __v8d_reduce_mul
+#define v8f_reduce_mul __v8f_reduce_mul
+#define v8i_reduce_mul __v8i_reduce_mul
+#define v8l_reduce_mul __v8l_reduce_mul
+#define v16f_reduce_mul __v16f_reduce_mul
+#define v16i_reduce_mul __v16i_reduce_mul
+#define v1d_reduce_and __v1d_reduce_and
+#define v1f_reduce_and __v1f_reduce_and
+#define v1i_reduce_and __v1i_reduce_and
+#define v1l_reduce_and __v1l_reduce_and
+#define v2d_reduce_and __v2d_reduce_and
+#define v2f_reduce_and __v2f_reduce_and
+#define v2i_reduce_and __v2i_reduce_and
+#define v2l_reduce_and __v2l_reduce_and
+#define v4d_reduce_and __v4d_reduce_and
+#define v4f_reduce_and __v4f_reduce_and
+#define v4i_reduce_and __v4i_reduce_and
+#define v4l_reduce_and __v4l_reduce_and
+#define v8d_reduce_and __v8d_reduce_and
+#define v8f_reduce_and __v8f_reduce_and
+#define v8i_reduce_and __v8i_reduce_and
+#define v8l_reduce_and __v8l_reduce_and
+#define v16f_reduce_and __v16f_reduce_and
+#define v16i_reduce_and __v16i_reduce_and
+#define v1d_reduce_or __v1d_reduce_or
+#define v1f_reduce_or __v1f_reduce_or
+#define v1i_reduce_or __v1i_reduce_or
+#define v1l_reduce_or __v1l_reduce_or
+#define v2d_reduce_or __v2d_reduce_or
+#define v2f_reduce_or __v2f_reduce_or
+#define v2i_reduce_or __v2i_reduce_or
+#define v2l_reduce_or __v2l_reduce_or
+#define v4d_reduce_or __v4d_reduce_or
+#define v4f_reduce_or __v4f_reduce_or
+#define v4i_reduce_or __v4i_reduce_or
+#define v4l_reduce_or __v4l_reduce_or
+#define v8d_reduce_or __v8d_reduce_or
+#define v8f_reduce_or __v8f_reduce_or
+#define v8i_reduce_or __v8i_reduce_or
+#define v8l_reduce_or __v8l_reduce_or
+#define v16f_reduce_or __v16f_reduce_or
+#define v16i_reduce_or __v16i_reduce_or
+
+
 /* MOVES */
 
 #define v1d_move(a)  (a)

@@ -29,9 +29,8 @@ given by the compiler and loads automatically the required header files.
 float dotprod_v8f(const float* a, const float* b, int n) {
   // Local var declarations
   int i;
-  v8i vmask;
-  v8f va, vb, s,
-      sp, add1, add1p, add2, add2p, add3; // used only for the final reduction
+  v8f va, vb, s;
+  m8f vmask;
 
   // initialization
   s = v8f_zero();
@@ -43,23 +42,18 @@ float dotprod_v8f(const float* a, const float* b, int n) {
     s = v8f_fmadd(va, vb, s);
 
   } /* remainder */ {
-    vmask = v8i_gt(v8i_set1(n-i), v8i_set(0, 1, 2, 3, 4, 5, 6, 7));
+    vmask = m8f_cvt_m8i(m8i_gt(v8i_set1(n-i), v8i_set(0, 1, 2, 3, 4, 5, 6, 7)));
     va = v8f_loadu(&a[i]);
     vb = v8f_loadu(&b[i]);
-    va = v8f_and(va, v8f_cast_v8i(vmask));
+    va = v8f_maskz_move(vmask, va);
     s = v8f_fmadd(va, vb, s);
   }
 
   // reduce s
-  sp = v8f_permute2(s, PINTS_SHUFFLE(1, 0));
-  add1 = v8f_add(s, sp);
-  add1p = v8f_permute4x2(add1, PINTS_SHUFFLE(2, 3, 0, 1));
-  add2 = v8f_add(add1, add1p);
-  add2p = v8f_permute2x4(add2, PINTS_SHUFFLE(1, 0));
-  add3 = v8f_add(add2, add2p);
+  s = v8f_reduce_add(s);
 
-  // convert 1st element of add3 to float
-  return sf_cvt_v8f(add3);
+  // convert 1st element of s to float
+  return sf_cvt_v8f(s);
 }
 ~~~
 

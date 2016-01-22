@@ -32598,6 +32598,1341 @@ dst[15] := SELECT16((mask.bits[15] ? b : a), rule[60:63])
  */
 v16i v16i_fshuffle(v16i a, v16i b, uint_fast64_t rule, uint_fast16_t  mask);
 
+/* REDUCTIONS */
+/** \defgroup red reductions functions
+ * 
+ */
+
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1d v1d_reduce_add(v1d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1f v1f_reduce_add(v1f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1i v1i_reduce_add(v1i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1l v1l_reduce_add(v1l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2d v2d_reduce_add(v2d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2f v2f_reduce_add(v2f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2i v2i_reduce_add(v2i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2l v2l_reduce_add(v2l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4d v4d_reduce_add(v4d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4f v4f_reduce_add(v4f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4i v4i_reduce_add(v4i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4l v4l_reduce_add(v4l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8d v8d_reduce_add(v8d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8f v8f_reduce_add(v8f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8i v8i_reduce_add(v8i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8l v8l_reduce_add(v8l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v16f v16f_reduce_add(v16f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v16i v16i_reduce_add(v16i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1d v1d_reduce_mul(v1d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1f v1f_reduce_mul(v1f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1i v1i_reduce_mul(v1i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1l v1l_reduce_mul(v1l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2d v2d_reduce_mul(v2d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2f v2f_reduce_mul(v2f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2i v2i_reduce_mul(v2i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2l v2l_reduce_mul(v2l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4d v4d_reduce_mul(v4d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4f v4f_reduce_mul(v4f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4i v4i_reduce_mul(v4i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4l v4l_reduce_mul(v4l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8d v8d_reduce_mul(v8d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8f v8f_reduce_mul(v8f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8i v8i_reduce_mul(v8i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8l v8l_reduce_mul(v8l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v16f v16f_reduce_mul(v16f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v16i v16i_reduce_mul(v16i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1d v1d_reduce_and(v1d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1f v1f_reduce_and(v1f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1i v1i_reduce_and(v1i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1l v1l_reduce_and(v1l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2d v2d_reduce_and(v2d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2f v2f_reduce_and(v2f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2i v2i_reduce_and(v2i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2l v2l_reduce_and(v2l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4d v4d_reduce_and(v4d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4f v4f_reduce_and(v4f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4i v4i_reduce_and(v4i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4l v4l_reduce_and(v4l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8d v8d_reduce_and(v8d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8f v8f_reduce_and(v8f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8i v8i_reduce_and(v8i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8l v8l_reduce_and(v8l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v16f v16f_reduce_and(v16f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v16i v16i_reduce_and(v16i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1d v1d_reduce_or(v1d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1f v1f_reduce_or(v1f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1i v1i_reduce_or(v1i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1l v1l_reduce_or(v1l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2d v2d_reduce_or(v2d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2f v2f_reduce_or(v2f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2i v2i_reduce_or(v2i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2l v2l_reduce_or(v2l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4d v4d_reduce_or(v4d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4f v4f_reduce_or(v4f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4i v4i_reduce_or(v4i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4l v4l_reduce_or(v4l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8d v8d_reduce_or(v8d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8f v8f_reduce_or(v8f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8i v8i_reduce_or(v8i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8l v8l_reduce_or(v8l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v16f v16f_reduce_or(v16f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v16i v16i_reduce_or(v16i a);
+
+
 /* MOVES */
 /** \defgroup mov move functions
  * 

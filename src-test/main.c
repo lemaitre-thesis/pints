@@ -292,10 +292,13 @@ double dotprod_v2d(const double* a, const double* b, int n) {
     s = v2d_fmadd(va, vb, s);
   }
   // reduce s
+  return sd_cvt_v2d(v2d_reduce_add(s));
+#if 0
   sp = v2d_permute(s, PINTS_SHUFFLE(1, 0));
   add = v2d_add(s, sp);
   //v1d_store(&r, v1d_cast_v2d(add));
   return sd_cvt_v2d(add);
+#endif
 }
 
 float dotprod_v4f(const float* a, const float* b, int n) {
@@ -315,12 +318,15 @@ float dotprod_v4f(const float* a, const float* b, int n) {
     s = v4f_fmadd(va, vb, s);
   }
   // reduce s
+  return sf_cvt_v4f(v4f_reduce_add(s));
+#if 0
   sp = v4f_permute2(s, PINTS_SHUFFLE(1, 0));
   add1 = v4f_add(s, sp);
   add1p = v4f_permute2x2(add1, PINTS_SHUFFLE(1, 0));
   add2 = v4f_add(add1, add1p);
   //v1f_store(&r, v1f_cast_v4f(add2));
   return sf_cvt_v4f(add2);
+#endif
 }
 float dotprod_v8f(const float* a, const float* b, int n) {
   float r;
@@ -339,6 +345,8 @@ float dotprod_v8f(const float* a, const float* b, int n) {
     s = v8f_fmadd(va, vb, s);
   }
   // reduce s
+  return sf_cvt_v8f(v8f_reduce_add(s));
+#if 0
   sp = v8f_permute2(s, PINTS_SHUFFLE(1, 0));
   add1 = v8f_add(s, sp);
   add1p = v8f_permute4x2(add1, PINTS_SHUFFLE(2, 3, 0, 1)/*0x4E*/);
@@ -347,6 +355,7 @@ float dotprod_v8f(const float* a, const float* b, int n) {
   add3 = v8f_add(add2, add2p);
   //v1f_store(&r, v1f_cast_v8f(add3));
   return sf_cvt_v8f(add3);
+#endif
 }
 float dotprod_v16f(const float* a, const float* b, int n) {
   float r;
@@ -365,6 +374,8 @@ float dotprod_v16f(const float* a, const float* b, int n) {
     s = v16f_fmadd(va, vb, s);
   }
   // reduce s
+  return sf_cvt_v16f(v16f_reduce_add(s));
+#if 0
   sp = v16f_permute2(s, PINTS_SHUFFLE(1, 0));
   add1 = v16f_add(s, sp);
   add1p = v16f_permute4(add1, PINTS_SHUFFLE(1, 0, 3, 2)/*0xB1*/);
@@ -374,6 +385,7 @@ float dotprod_v16f(const float* a, const float* b, int n) {
   add3p = v16f_permute2x8(add3, PINTS_SHUFFLE(1, 0));
   add4 = v16f_add(add3, add3p);
   return sf_cvt_v16f(add4);
+#endif
 }
 
 int main() {

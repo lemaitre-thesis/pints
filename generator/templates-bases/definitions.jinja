@@ -2473,6 +2473,90 @@ dst[{{i}}] := SELECT%'N((mask.bits[{{i}}] ? b : a), rule[{{RANGE(i*lln2, (i+1)*l
   {%- endcall %}
 {%- endcall %}
 
+/* REDUCTIONS */
+{{ _.doc_group("reductions functions", shortname = "red") }}
+{% call _.define() %}
+#define __PINTS_REDUCE1(func, vec_t, input, output) do {
+    output = input;
+  } while(0)
+{% endcall %}
+{% call _.define() %}
+#define __PINTS_REDUCE2(func, vec_t, input, output) do {
+    vec_t __input, __p;
+    __input = (input);
+    __p = vec_t##_permute2(__input, PINTS_SHUFFLE(1, 0));
+    output = func(__input, __p);
+  } while(0)
+{% endcall %}
+{% call _.define() %}
+#define __PINTS_REDUCE4(func, vec_t, input, output) do {
+    vec_t __input, __p, __r, __rp;
+    __input = (input);
+    __p = vec_t##_permute2(__input, PINTS_SHUFFLE(1, 0));
+    __r = func(__input, __p);
+    __rp = vec_t##_permute2x2(__r, PINTS_SHUFFLE(1, 0));
+    output = func(__r, __rp);
+  } while(0)
+{% endcall %}
+{% call _.define() %}
+#define __PINTS_REDUCE8(func, vec_t, input, output) do {
+    vec_t __input, __p, __r1, __rp1, __r2, __rp2;
+    __input = (input);
+    __p = vec_t##_permute2(__input, PINTS_SHUFFLE(1, 0));
+    __r1 = func(__input, __p);
+    __rp1 = vec_t##_permute4x2(__r1, PINTS_SHUFFLE(2, 3, 0, 1));
+    __r2 = func(__r1, __rp1);
+    __rp2 = vec_t##_permute2x4(__r2, PINTS_SHUFFLE(1, 0));
+    output = func(__r2, __rp2);
+  } while(0)
+{% endcall %}
+{% call _.define() %}
+#define __PINTS_REDUCE16(func, vec_t, input, output) do {
+    vec_t __input, __p, __r1, __rp1, __r2, __rp2, __r3, __rp3;
+    __input = (input);
+    __p = vec_t##_permute2(__input, PINTS_SHUFFLE(1, 0));
+    __r1 = func(__input, __p);
+    __rp1 = vec_t##_permute4(__r1, PINTS_SHUFFLE(1, 0, 3, 2));
+    __r2 = func(__r1, __rp1);
+    __rp2 = vec_t##_permute4x4(__r2, PINTS_SHUFFLE(2, 3, 0, 1));
+    __r3 = func(__r2, __rp2);
+    __rp3 = vec_t##_permute2x8(__r3, PINTS_SHUFFLE(1, 0));
+    output = func(__r3, __rp3);
+  } while(0)
+{% endcall %}
+{% for fn, op in [["add", "+"], ["mul", "*"], ["and", "&"], ["or", "|"]] %}
+  {%- call(f) _.func("%T", "%P_reduce_" + fn, "%T a") %}
+    {%- call _.doc(f) %}
+/**
+ * \ingroup red
+ * \related %T
+ * \brief Reduction \c {{fn}} ( {{op}} )
+ * \details Reduces the operation \c {{fn}} ( {{op}} ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+{% if size1() == 1 %}
+dst := a
+{% else %}
+tmp := a[0]
+for i from 1 to {{size1()-1}}
+  tmp := tmp {{op}} a[i]
+endfor
+
+for i from 0 to {{size1()-1}}
+  dst[i] := tmp
+endfor
+{% endif %}
+\endimpl
+ * \param a input
+ * \returns reduce{{op}}(input)
+ */
+{% endcall %}
+    {%- call _.impl(f) %} { %T red; __PINTS_REDUCE{{size1()}}({{"%P_" + fn}}, %P, a, red); return red; }
+    {%- endcall %}
+  {%- endcall %}
+{% endfor %}
+
+
 /* MOVES */
 {{ _.doc_group("move functions", shortname = "mov") }}
 {#/* Regular move */#}
