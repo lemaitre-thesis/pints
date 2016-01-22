@@ -100,6 +100,15 @@ typedef __m64 __m64fu __attribute__((aligned(4)));
 #undef v4f_sub
 #define v4f_sub(a, b) _mm_sub_ps(a, b)
 
+#undef v4f_min
+#define v4f_min(a) _mm_min_ps(a, b)
+
+#undef v4f_max
+#define v4f_max(a) _mm_max_ps(a, b)
+
+#undef v4f_abs
+#define v4f_abs(a) _mm_andnot_ps(_mm_set1_ps(-0.f), a)
+
 #undef v4f_mul
 #define v4f_mul(a, b) _mm_mul_ps(a, b)
 
@@ -187,6 +196,15 @@ typedef __m64 __m64fu __attribute__((aligned(4)));
 #undef v1f_sub
 #define v1f_sub(a, b) _mm_sub_ss(a, b)
 
+#undef v1f_min
+#define v1f_min(a) v4f_min(a)
+
+#undef v1f_max
+#define v1f_max(a) v4f_max(a)
+
+#undef v1f_abs
+#define v1f_abs(a) v4f_abs(a)
+
 #undef v1f_mul
 #define v1f_mul(a, b) _mm_mul_ss(a, b)
 
@@ -265,6 +283,15 @@ typedef __m64 __m64fu __attribute__((aligned(4)));
 
 #undef v2f_sub
 #define v2f_sub(a, b) _mm_sub_ps(a, b)
+
+#undef v2f_min
+#define v2f_min(a) v4f_min(a)
+
+#undef v2f_max
+#define v2f_max(a) v4f_max(a)
+
+#undef v2f_abs
+#define v2f_abs(a) v4f_abs(a)
 
 #undef v2f_mul
 #define v2f_mul(a, b) _mm_mul_ps(a, b)
@@ -433,10 +460,10 @@ typedef __m64 __m64fu __attribute__((aligned(4)));
 #undef v4f_ones
 #undef v4i_ones
 #undef v2l_ones
-#define v2d_ones() __sse2_mm_setones_pd()
-#define v4f_ones() __sse2_mm_setones_ps()
-#define v4i_ones() __sse2_mm_setones_si128()
-#define v2l_ones() __sse2_mm_setones_si128()
+#define v2d_ones() v2d_cast_v2l(v2l_ones())
+#define v4f_ones() v4f_cast_v4i(v4i_ones())
+#define v4i_ones() _mm_cmpeq_epi32(_mm_setzero_si128(), _mm_setzero_si128())
+#define v2l_ones() _mm_cmpeq_epi32(_mm_setzero_si128(), _mm_setzero_si128())
 
 #undef v2d_is_zero
 #undef v4f_is_zero
@@ -554,6 +581,26 @@ typedef __m64 __m64fu __attribute__((aligned(4)));
 #define v4f_sub(a, b) _mm_sub_ps(a, b)
 #define v4i_sub(a, b) _mm_sub_epi32(a, b)
 #define v2l_sub(a, b) _mm_sub_epi64(a, b)
+
+#undef v2d_neg
+#undef v4f_neg
+#define v2d_neg(a) _mm_xor_pd(_mm_set1_pd(-0.0), a)
+#define v4f_neg(a) _mm_xor_ps(_mm_set1_ps(-0.f), a)
+
+#undef v2d_min
+#undef v4f_min
+#define v2d_min(a) _mm_min_pd(a, b)
+#define v4f_min(a) _mm_min_ps(a, b)
+
+#undef v2d_max
+#undef v4f_max
+#define v2d_max(a) _mm_max_pd(a, b)
+#define v4f_max(a) _mm_max_ps(a, b)
+
+#undef v2d_abs
+#undef v4f_abs
+#define v2d_abs(a) _mm_andnot_pd(_mm_set1_pd(-0.0), a)
+#define v4f_abs(a) _mm_andnot_ps(_mm_set1_ps(-0.f), a)
 
 #undef v2d_mul
 #undef v4f_mul
@@ -822,6 +869,26 @@ typedef __m64 __m64fu __attribute__((aligned(4)));
 #define v1i_sub(a, b) _mm_sub_epi32(a, b)
 #define v1l_sub(a, b) _mm_sub_epi64(a, b)
 
+#undef v1d_neg
+#undef v1f_neg
+#define v1d_neg(a) v2d_neg(a)
+#define v1f_neg(a) v4f_neg(a)
+
+#undef v1d_min
+#undef v1f_min
+#define v1d_min(a) v2d_min(a)
+#define v1f_min(a) v4f_min(a)
+
+#undef v1d_max
+#undef v1f_max
+#define v1d_max(a) v2d_max(a)
+#define v1f_max(a) v4f_max(a)
+
+#undef v1d_abs
+#undef v1f_abs
+#define v1d_abs(a) v2d_abs(a)
+#define v1f_abs(a) v4f_abs(a)
+
 #undef v1d_mul
 #undef v1f_mul
 #undef v1i_mul
@@ -966,6 +1033,18 @@ typedef __m64 __m64fu __attribute__((aligned(4)));
 #undef v2i_sub
 #define v2f_sub(a, b) _mm_sub_ps(a, b)
 #define v2i_sub(a, b) _mm_sub_epi32(a, b)
+
+#undef v2f_neg
+#define v2f_neg(a) v4f_neg(a)
+
+#undef v2f_min
+#define v2f_min(a) v4f_min(a)
+
+#undef v2f_max
+#define v2f_max(a) v4f_max(a)
+
+#undef v2f_abs
+#define v2f_abs(a) v4f_abs(a)
 
 #undef v2f_mul
 #undef v2i_mul
@@ -1280,24 +1359,11 @@ static inline v2l __sse2_v2l_lt(v2l a, v2l b) {
   return v2l_cast_v4i(v4i_or(high_lt, v4i_and(high_eq, low_lt)));
 }
 
-static inline __m128 __sse2_mm_setones_ps() {
-  __m128 ones;
-  __asm__ ("cmpeqps %0, %0" : "=x"(ones));
-  return ones;
-}
+#endif
 
-static inline __m128d __sse2_mm_setones_pd() {
-  __m128d ones;
-  __asm__ ("cmpeqpd %0, %0" : "=x"(ones));
-  return ones;
-}
-
-static inline __m128i __sse2_mm_setones_si128() {
-  __m128i ones;
-  __asm__ ("pcmpeqd %0, %0" : "=x"(ones));
-  return ones;
-}
-
+#ifdef SSSE3
+#undef v4i_abs
+#define v4i_abs(a) _mm_abs_epi32(a, b)
 #endif
 
 #ifdef SSE41
@@ -1313,7 +1379,33 @@ static inline __m128i __sse2_mm_setones_si128() {
 #undef v2l_eq
 #define v2l_eq(a, b) _mm_cmpeq_epi64(a, b)
 
+#undef v4i_min
+#define v4i_min(a) _mm_min_epi32(a, b)
 
+#undef v4i_max
+#define v4i_max(a) _mm_max_epi32(a, b)
+
+#undef v1d_mask_move
+#undef v2d_mask_move
+#undef v1f_mask_move
+#undef v2f_mask_move
+#undef v4f_mask_move
+#undef v1i_mask_move
+#undef v2i_mask_move
+#undef v4i_mask_move
+#undef v1l_mask_move
+#undef v2l_mask_move
+
+#define v1d_mask_move(mask, src, a) v2d_mask_move(mask, src, a)
+#define v2d_mask_move(mask, src, a) _mm_blendv_pd(src, a, mask)
+#define v1f_mask_move(mask, src, a) v4f_mask_move(mask, src, a)
+#define v2f_mask_move(mask, src, a) v4f_mask_move(mask, src, a)
+#define v4f_mask_move(mask, src, a) _mm_blendv_ps(src, a, mask)
+#define v1i_mask_move(mask, src, a) v4i_mask_move(mask, src, a)
+#define v2i_mask_move(mask, src, a) v4i_mask_move(mask, src, a)
+#define v4i_mask_move(mask, src, a) v4i_cast_v4f(v4f_cast_v4i(mask), v4f_cast_v4i(src), v4f_cast_v4i(a))
+#define v1l_mask_move(mask, src, a) v2l_mask_move(mask, src, a)
+#define v2l_mask_move(mask, src, a) v2l_cast_v2d(v2d_cast_v2l(mask), v2d_cast_v2l(src), v2d_cast_v2l(a))
 
 #undef v2d_blend2
 #undef v4f_blend2
@@ -1324,9 +1416,9 @@ static inline __m128i __sse2_mm_setones_si128() {
 #define v2d_blend2(a, b, mask) _mm_blend_pd(a, b, mask)
 #define v4f_blend2(a, b, mask) v4f_blend4(a, b, (((mask) & 3) << 2) | ((mask) & 3))
 #define v4f_blend4(a, b, mask) _mm_blend_ps(a, b, mask)
-#define v4i_blend2(a, b, mask) v4i_blend2(a, b, (((mask) & 3) << 2) | ((mask) & 3))
+#define v4i_blend2(a, b, mask) v4i_blend4(a, b, (((mask) & 3) << 2) | ((mask) & 3))
 #define v4i_blend4(a, b, mask) _mm_blend_epi16(a, b, ((mask) & 1)|(((mask) & 1) << 1)|((((mask) >> 1) & 1) << 2)|((((mask) >> 1) & 1) << 3)|((((mask) >> 2) & 1) << 4)|((((mask) >> 2) & 1) << 5)|((((mask) >> 3) & 1) << 6)|((((mask) >> 3) & 1) << 7))
-#define v2l_blend2(a, b, mask) v2l_blend2(a, b, (((mask) & 3) << 2) | ((mask) & 3))
+#define v2l_blend2(a, b, mask) v4i_blend4(a, b, (((mask) & 3) << 2) | ((mask) & 3))
 
 #endif
 

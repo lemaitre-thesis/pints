@@ -108,23 +108,14 @@ typedef __m512i v8l;
 #define v8i_zeros() _mm256_setzero_si256()
 #define v4l_zeros() _mm256_setzero_si256()
 
-#undef v2d_ones
-#undef v4f_ones
-#undef v4i_ones
-#undef v2l_ones
-#define v2d_ones() __avx_mm_setones_pd()
-#define v4f_ones() __avx_mm_setones_ps()
-#define v4i_ones() __avx_mm_setones_si128()
-#define v2l_ones() __avx_mm_setones_si128()
-
 #undef v4d_ones
 #undef v8f_ones
 #undef v8i_ones
 #undef v4l_ones
-#define v4d_ones() __avx_mm256_setones_pd()
-#define v8f_ones() __avx_mm256_setones_ps()
-#define v8i_ones() __avx_mm256_setones_si256()
-#define v4l_ones() __avx_mm256_setones_si256()
+#define v4d_ones() v4d_cast_v4l(v4l_ones())
+#define v8f_ones() v8f_cast_v8i(v8i_ones())
+#define v8i_ones() _mm256_cmpeq_epi32(_mm256_setzero_si256(), _mm256_setzero_si256())
+#define v4l_ones() _mm256_cmpeq_epi32(_mm256_setzero_si256(), _mm256_setzero_si256())
 
 #undef v4d_is_zero
 #undef v8f_is_zero
@@ -211,6 +202,26 @@ typedef __m512i v8l;
 #define v4d_sub(a, b) _mm256_sub_pd(a, b)
 #define v8f_sub(a, b) _mm256_sub_ps(a, b)
 
+#undef v4d_neg
+#undef v8f_neg
+#define v4d_neg(a) _mm256_xor_pd(_mm256_set1_pd(-0.0), a)
+#define v8f_neg(a) _mm256_xor_ps(_mm256_set1_ps(-0.f), a)
+
+#undef v4d_min
+#undef v8f_min
+#define v4d_min(a) _mm256_min_pd(a, b)
+#define v8f_min(a) _mm256_min_ps(a, b)
+
+#undef v4d_max
+#undef v8f_max
+#define v4d_max(a) _mm256_max_pd(a, b)
+#define v8f_max(a) _mm256_max_ps(a, b)
+
+#undef v4d_abs
+#undef v8f_abs
+#define v4d_abs(a) _mm256_andnot_pd(_mm256_set1_pd(-0.0), a)
+#define v8f_abs(a) _mm256_andnot_ps(_mm256_set1_ps(-0.f), a)
+
 #undef v4d_mul
 #undef v8f_mul
 #undef v4l_mul
@@ -235,6 +246,16 @@ typedef __m512i v8l;
 #define v8f_sqrt(a) _mm256_sqrt_ps(a)
 #define v8i_sqrt(a) v8i_cvt_v8f(v8f_sqrt(v8f_cvt_v8i(a)))
 #define v4l_sqrt(a) v4l_cvt_v4d(v4d_sqrt(v4d_cvt_v4l(a)))
+
+#undef v4d_mask_move
+#undef v8f_mask_move
+#undef v8i_mask_move
+#undef v4l_mask_move
+
+#define v4d_mask_move(mask, src, a) _mm256_blendv_pd(src, a, mask)
+#define v8f_mask_move(mask, src, a) _mm256_blendv_ps(src, a, mask)
+#define v8i_mask_move(mask, src, a) v8i_cast_v8f(v8f_cast_v8i(mask), v8f_cast_v8i(src), v8f_cast_v8i(a))
+#define v4l_mask_move(mask, src, a) v4l_cast_v4d(v4d_cast_v4l(mask), v4d_cast_v4l(src), v4d_cast_v4l(a))
 
 #undef v4d_blend2
 #undef v4d_blend4
@@ -447,42 +468,6 @@ typedef __m512i v8l;
 #define v8f_merge2_v4f(a, b)      _mm256_insertf128_ps(_mm256_castps128_ps256(a), b, 1)
 #define v8i_merge2_v4i(a, b)      _mm256_insertf128_si256(_mm256_castsi128_si256(a), b, 1)
 #define v4l_merge2_v2l(a, b)      _mm256_insertf128_si256(_mm256_castsi128_si256(a), b, 1)
-
-static inline __m128 __avx_mm_setones_ps() {
-  __m128 ones;
-  __asm__ ("vcmpeqps %0, %0, %0" : "=x"(ones));
-  return ones;
-}
-
-static inline __m128d __avx_mm_setones_pd() {
-  __m128d ones;
-  __asm__ ("vcmpeqpd %0, %0, %0" : "=x"(ones));
-  return ones;
-}
-
-static inline __m128i __avx_mm_setones_si128() {
-  __m128i ones;
-  __asm__ ("vpcmpeqd %0, %0, %0" : "=x"(ones));
-  return ones;
-}
-
-static inline __m256 __avx_mm256_setones_ps() {
-  __m256 ones;
-  __asm__ ("vcmpeqps %0, %0, %0" : "=x"(ones));
-  return ones;
-}
-
-static inline __m256d __avx_mm256_setones_pd() {
-  __m256d ones;
-  __asm__ ("vcmpeqpd %0, %0, %0" : "=x"(ones));
-  return ones;
-}
-
-static inline __m256i __avx_mm256_setones_si256() {
-  __m256i ones;
-  __asm__ ("vpcmpeqd %0, %0, %0" : "=x"(ones));
-  return ones;
-}
 
 #endif
 

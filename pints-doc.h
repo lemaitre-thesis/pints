@@ -9632,6 +9632,981 @@ v16i v16i_neg(v16i a);
 /**
  * \ingroup arith
  * \related v1d
+ * \brief Elementwise min ( \c `a < b ? a : b` )
+ * \details Copy the minimum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 0
+  if a[i] < b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v1d input vector
+ * \returns Absolute value of \c a
+ */
+v1d v1d_min(v1d a, v1d b);
+/**
+ * \ingroup arith
+ * \related v1f
+ * \brief Elementwise min ( \c `a < b ? a : b` )
+ * \details Copy the minimum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 0
+  if a[i] < b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v1f input vector
+ * \returns Absolute value of \c a
+ */
+v1f v1f_min(v1f a, v1f b);
+/**
+ * \ingroup arith
+ * \related v1i
+ * \brief Elementwise min ( \c `a < b ? a : b` )
+ * \details Copy the minimum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 0
+  if a[i] < b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v1i input vector
+ * \returns Absolute value of \c a
+ */
+v1i v1i_min(v1i a, v1i b);
+/**
+ * \ingroup arith
+ * \related v1l
+ * \brief Elementwise min ( \c `a < b ? a : b` )
+ * \details Copy the minimum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 0
+  if a[i] < b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v1l input vector
+ * \returns Absolute value of \c a
+ */
+v1l v1l_min(v1l a, v1l b);
+/**
+ * \ingroup arith
+ * \related v2d
+ * \brief Elementwise min ( \c `a < b ? a : b` )
+ * \details Copy the minimum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 1
+  if a[i] < b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v2d input vector
+ * \returns Absolute value of \c a
+ */
+v2d v2d_min(v2d a, v2d b);
+/**
+ * \ingroup arith
+ * \related v2f
+ * \brief Elementwise min ( \c `a < b ? a : b` )
+ * \details Copy the minimum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 1
+  if a[i] < b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v2f input vector
+ * \returns Absolute value of \c a
+ */
+v2f v2f_min(v2f a, v2f b);
+/**
+ * \ingroup arith
+ * \related v2i
+ * \brief Elementwise min ( \c `a < b ? a : b` )
+ * \details Copy the minimum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 1
+  if a[i] < b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v2i input vector
+ * \returns Absolute value of \c a
+ */
+v2i v2i_min(v2i a, v2i b);
+/**
+ * \ingroup arith
+ * \related v2l
+ * \brief Elementwise min ( \c `a < b ? a : b` )
+ * \details Copy the minimum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 1
+  if a[i] < b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v2l input vector
+ * \returns Absolute value of \c a
+ */
+v2l v2l_min(v2l a, v2l b);
+/**
+ * \ingroup arith
+ * \related v4d
+ * \brief Elementwise min ( \c `a < b ? a : b` )
+ * \details Copy the minimum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 3
+  if a[i] < b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v4d input vector
+ * \returns Absolute value of \c a
+ */
+v4d v4d_min(v4d a, v4d b);
+/**
+ * \ingroup arith
+ * \related v4f
+ * \brief Elementwise min ( \c `a < b ? a : b` )
+ * \details Copy the minimum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 3
+  if a[i] < b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v4f input vector
+ * \returns Absolute value of \c a
+ */
+v4f v4f_min(v4f a, v4f b);
+/**
+ * \ingroup arith
+ * \related v4i
+ * \brief Elementwise min ( \c `a < b ? a : b` )
+ * \details Copy the minimum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 3
+  if a[i] < b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v4i input vector
+ * \returns Absolute value of \c a
+ */
+v4i v4i_min(v4i a, v4i b);
+/**
+ * \ingroup arith
+ * \related v4l
+ * \brief Elementwise min ( \c `a < b ? a : b` )
+ * \details Copy the minimum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 3
+  if a[i] < b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v4l input vector
+ * \returns Absolute value of \c a
+ */
+v4l v4l_min(v4l a, v4l b);
+/**
+ * \ingroup arith
+ * \related v8d
+ * \brief Elementwise min ( \c `a < b ? a : b` )
+ * \details Copy the minimum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 7
+  if a[i] < b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v8d input vector
+ * \returns Absolute value of \c a
+ */
+v8d v8d_min(v8d a, v8d b);
+/**
+ * \ingroup arith
+ * \related v8f
+ * \brief Elementwise min ( \c `a < b ? a : b` )
+ * \details Copy the minimum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 7
+  if a[i] < b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v8f input vector
+ * \returns Absolute value of \c a
+ */
+v8f v8f_min(v8f a, v8f b);
+/**
+ * \ingroup arith
+ * \related v8i
+ * \brief Elementwise min ( \c `a < b ? a : b` )
+ * \details Copy the minimum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 7
+  if a[i] < b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v8i input vector
+ * \returns Absolute value of \c a
+ */
+v8i v8i_min(v8i a, v8i b);
+/**
+ * \ingroup arith
+ * \related v8l
+ * \brief Elementwise min ( \c `a < b ? a : b` )
+ * \details Copy the minimum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 7
+  if a[i] < b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v8l input vector
+ * \returns Absolute value of \c a
+ */
+v8l v8l_min(v8l a, v8l b);
+/**
+ * \ingroup arith
+ * \related v16f
+ * \brief Elementwise min ( \c `a < b ? a : b` )
+ * \details Copy the minimum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 15
+  if a[i] < b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v16f input vector
+ * \returns Absolute value of \c a
+ */
+v16f v16f_min(v16f a, v16f b);
+/**
+ * \ingroup arith
+ * \related v16i
+ * \brief Elementwise min ( \c `a < b ? a : b` )
+ * \details Copy the minimum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 15
+  if a[i] < b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v16i input vector
+ * \returns Absolute value of \c a
+ */
+v16i v16i_min(v16i a, v16i b);
+
+/**
+ * \ingroup arith
+ * \related v1d
+ * \brief Elementwise max ( \c `a > b ? a : b` )
+ * \details Copy the maximum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 0
+  if a[i] > b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v1d input vector
+ * \returns Absolute value of \c a
+ */
+v1d v1d_max(v1d a, v1d b);
+/**
+ * \ingroup arith
+ * \related v1f
+ * \brief Elementwise max ( \c `a > b ? a : b` )
+ * \details Copy the maximum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 0
+  if a[i] > b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v1f input vector
+ * \returns Absolute value of \c a
+ */
+v1f v1f_max(v1f a, v1f b);
+/**
+ * \ingroup arith
+ * \related v1i
+ * \brief Elementwise max ( \c `a > b ? a : b` )
+ * \details Copy the maximum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 0
+  if a[i] > b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v1i input vector
+ * \returns Absolute value of \c a
+ */
+v1i v1i_max(v1i a, v1i b);
+/**
+ * \ingroup arith
+ * \related v1l
+ * \brief Elementwise max ( \c `a > b ? a : b` )
+ * \details Copy the maximum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 0
+  if a[i] > b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v1l input vector
+ * \returns Absolute value of \c a
+ */
+v1l v1l_max(v1l a, v1l b);
+/**
+ * \ingroup arith
+ * \related v2d
+ * \brief Elementwise max ( \c `a > b ? a : b` )
+ * \details Copy the maximum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 1
+  if a[i] > b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v2d input vector
+ * \returns Absolute value of \c a
+ */
+v2d v2d_max(v2d a, v2d b);
+/**
+ * \ingroup arith
+ * \related v2f
+ * \brief Elementwise max ( \c `a > b ? a : b` )
+ * \details Copy the maximum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 1
+  if a[i] > b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v2f input vector
+ * \returns Absolute value of \c a
+ */
+v2f v2f_max(v2f a, v2f b);
+/**
+ * \ingroup arith
+ * \related v2i
+ * \brief Elementwise max ( \c `a > b ? a : b` )
+ * \details Copy the maximum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 1
+  if a[i] > b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v2i input vector
+ * \returns Absolute value of \c a
+ */
+v2i v2i_max(v2i a, v2i b);
+/**
+ * \ingroup arith
+ * \related v2l
+ * \brief Elementwise max ( \c `a > b ? a : b` )
+ * \details Copy the maximum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 1
+  if a[i] > b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v2l input vector
+ * \returns Absolute value of \c a
+ */
+v2l v2l_max(v2l a, v2l b);
+/**
+ * \ingroup arith
+ * \related v4d
+ * \brief Elementwise max ( \c `a > b ? a : b` )
+ * \details Copy the maximum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 3
+  if a[i] > b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v4d input vector
+ * \returns Absolute value of \c a
+ */
+v4d v4d_max(v4d a, v4d b);
+/**
+ * \ingroup arith
+ * \related v4f
+ * \brief Elementwise max ( \c `a > b ? a : b` )
+ * \details Copy the maximum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 3
+  if a[i] > b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v4f input vector
+ * \returns Absolute value of \c a
+ */
+v4f v4f_max(v4f a, v4f b);
+/**
+ * \ingroup arith
+ * \related v4i
+ * \brief Elementwise max ( \c `a > b ? a : b` )
+ * \details Copy the maximum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 3
+  if a[i] > b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v4i input vector
+ * \returns Absolute value of \c a
+ */
+v4i v4i_max(v4i a, v4i b);
+/**
+ * \ingroup arith
+ * \related v4l
+ * \brief Elementwise max ( \c `a > b ? a : b` )
+ * \details Copy the maximum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 3
+  if a[i] > b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v4l input vector
+ * \returns Absolute value of \c a
+ */
+v4l v4l_max(v4l a, v4l b);
+/**
+ * \ingroup arith
+ * \related v8d
+ * \brief Elementwise max ( \c `a > b ? a : b` )
+ * \details Copy the maximum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 7
+  if a[i] > b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v8d input vector
+ * \returns Absolute value of \c a
+ */
+v8d v8d_max(v8d a, v8d b);
+/**
+ * \ingroup arith
+ * \related v8f
+ * \brief Elementwise max ( \c `a > b ? a : b` )
+ * \details Copy the maximum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 7
+  if a[i] > b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v8f input vector
+ * \returns Absolute value of \c a
+ */
+v8f v8f_max(v8f a, v8f b);
+/**
+ * \ingroup arith
+ * \related v8i
+ * \brief Elementwise max ( \c `a > b ? a : b` )
+ * \details Copy the maximum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 7
+  if a[i] > b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v8i input vector
+ * \returns Absolute value of \c a
+ */
+v8i v8i_max(v8i a, v8i b);
+/**
+ * \ingroup arith
+ * \related v8l
+ * \brief Elementwise max ( \c `a > b ? a : b` )
+ * \details Copy the maximum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 7
+  if a[i] > b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v8l input vector
+ * \returns Absolute value of \c a
+ */
+v8l v8l_max(v8l a, v8l b);
+/**
+ * \ingroup arith
+ * \related v16f
+ * \brief Elementwise max ( \c `a > b ? a : b` )
+ * \details Copy the maximum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 15
+  if a[i] > b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v16f input vector
+ * \returns Absolute value of \c a
+ */
+v16f v16f_max(v16f a, v16f b);
+/**
+ * \ingroup arith
+ * \related v16i
+ * \brief Elementwise max ( \c `a > b ? a : b` )
+ * \details Copy the maximum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to 15
+  if a[i] > b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v16i input vector
+ * \returns Absolute value of \c a
+ */
+v16i v16i_max(v16i a, v16i b);
+
+/**
+ * \ingroup arith
+ * \related v1d
+ * \brief Elementwise absolute value ( \c `a > 0 ? a : -a` )
+ * \details Computes the absolute value of every element of hte \c v1d vector \c a.
+ * \impl
+for i from 0 to 0
+  if a[i] > 0
+    dst[i] := a[i]
+  else
+    dst[i] := -a[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v1d input vector
+ * \returns Absolute value of \c a
+ */
+v1d v1d_abs(v1d a);
+/**
+ * \ingroup arith
+ * \related v1f
+ * \brief Elementwise absolute value ( \c `a > 0 ? a : -a` )
+ * \details Computes the absolute value of every element of hte \c v1f vector \c a.
+ * \impl
+for i from 0 to 0
+  if a[i] > 0
+    dst[i] := a[i]
+  else
+    dst[i] := -a[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v1f input vector
+ * \returns Absolute value of \c a
+ */
+v1f v1f_abs(v1f a);
+/**
+ * \ingroup arith
+ * \related v1i
+ * \brief Elementwise absolute value ( \c `a > 0 ? a : -a` )
+ * \details Computes the absolute value of every element of hte \c v1i vector \c a.
+ * \impl
+for i from 0 to 0
+  if a[i] > 0
+    dst[i] := a[i]
+  else
+    dst[i] := -a[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v1i input vector
+ * \returns Absolute value of \c a
+ */
+v1i v1i_abs(v1i a);
+/**
+ * \ingroup arith
+ * \related v1l
+ * \brief Elementwise absolute value ( \c `a > 0 ? a : -a` )
+ * \details Computes the absolute value of every element of hte \c v1l vector \c a.
+ * \impl
+for i from 0 to 0
+  if a[i] > 0
+    dst[i] := a[i]
+  else
+    dst[i] := -a[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v1l input vector
+ * \returns Absolute value of \c a
+ */
+v1l v1l_abs(v1l a);
+/**
+ * \ingroup arith
+ * \related v2d
+ * \brief Elementwise absolute value ( \c `a > 0 ? a : -a` )
+ * \details Computes the absolute value of every element of hte \c v2d vector \c a.
+ * \impl
+for i from 0 to 1
+  if a[i] > 0
+    dst[i] := a[i]
+  else
+    dst[i] := -a[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v2d input vector
+ * \returns Absolute value of \c a
+ */
+v2d v2d_abs(v2d a);
+/**
+ * \ingroup arith
+ * \related v2f
+ * \brief Elementwise absolute value ( \c `a > 0 ? a : -a` )
+ * \details Computes the absolute value of every element of hte \c v2f vector \c a.
+ * \impl
+for i from 0 to 1
+  if a[i] > 0
+    dst[i] := a[i]
+  else
+    dst[i] := -a[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v2f input vector
+ * \returns Absolute value of \c a
+ */
+v2f v2f_abs(v2f a);
+/**
+ * \ingroup arith
+ * \related v2i
+ * \brief Elementwise absolute value ( \c `a > 0 ? a : -a` )
+ * \details Computes the absolute value of every element of hte \c v2i vector \c a.
+ * \impl
+for i from 0 to 1
+  if a[i] > 0
+    dst[i] := a[i]
+  else
+    dst[i] := -a[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v2i input vector
+ * \returns Absolute value of \c a
+ */
+v2i v2i_abs(v2i a);
+/**
+ * \ingroup arith
+ * \related v2l
+ * \brief Elementwise absolute value ( \c `a > 0 ? a : -a` )
+ * \details Computes the absolute value of every element of hte \c v2l vector \c a.
+ * \impl
+for i from 0 to 1
+  if a[i] > 0
+    dst[i] := a[i]
+  else
+    dst[i] := -a[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v2l input vector
+ * \returns Absolute value of \c a
+ */
+v2l v2l_abs(v2l a);
+/**
+ * \ingroup arith
+ * \related v4d
+ * \brief Elementwise absolute value ( \c `a > 0 ? a : -a` )
+ * \details Computes the absolute value of every element of hte \c v4d vector \c a.
+ * \impl
+for i from 0 to 3
+  if a[i] > 0
+    dst[i] := a[i]
+  else
+    dst[i] := -a[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v4d input vector
+ * \returns Absolute value of \c a
+ */
+v4d v4d_abs(v4d a);
+/**
+ * \ingroup arith
+ * \related v4f
+ * \brief Elementwise absolute value ( \c `a > 0 ? a : -a` )
+ * \details Computes the absolute value of every element of hte \c v4f vector \c a.
+ * \impl
+for i from 0 to 3
+  if a[i] > 0
+    dst[i] := a[i]
+  else
+    dst[i] := -a[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v4f input vector
+ * \returns Absolute value of \c a
+ */
+v4f v4f_abs(v4f a);
+/**
+ * \ingroup arith
+ * \related v4i
+ * \brief Elementwise absolute value ( \c `a > 0 ? a : -a` )
+ * \details Computes the absolute value of every element of hte \c v4i vector \c a.
+ * \impl
+for i from 0 to 3
+  if a[i] > 0
+    dst[i] := a[i]
+  else
+    dst[i] := -a[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v4i input vector
+ * \returns Absolute value of \c a
+ */
+v4i v4i_abs(v4i a);
+/**
+ * \ingroup arith
+ * \related v4l
+ * \brief Elementwise absolute value ( \c `a > 0 ? a : -a` )
+ * \details Computes the absolute value of every element of hte \c v4l vector \c a.
+ * \impl
+for i from 0 to 3
+  if a[i] > 0
+    dst[i] := a[i]
+  else
+    dst[i] := -a[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v4l input vector
+ * \returns Absolute value of \c a
+ */
+v4l v4l_abs(v4l a);
+/**
+ * \ingroup arith
+ * \related v8d
+ * \brief Elementwise absolute value ( \c `a > 0 ? a : -a` )
+ * \details Computes the absolute value of every element of hte \c v8d vector \c a.
+ * \impl
+for i from 0 to 7
+  if a[i] > 0
+    dst[i] := a[i]
+  else
+    dst[i] := -a[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v8d input vector
+ * \returns Absolute value of \c a
+ */
+v8d v8d_abs(v8d a);
+/**
+ * \ingroup arith
+ * \related v8f
+ * \brief Elementwise absolute value ( \c `a > 0 ? a : -a` )
+ * \details Computes the absolute value of every element of hte \c v8f vector \c a.
+ * \impl
+for i from 0 to 7
+  if a[i] > 0
+    dst[i] := a[i]
+  else
+    dst[i] := -a[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v8f input vector
+ * \returns Absolute value of \c a
+ */
+v8f v8f_abs(v8f a);
+/**
+ * \ingroup arith
+ * \related v8i
+ * \brief Elementwise absolute value ( \c `a > 0 ? a : -a` )
+ * \details Computes the absolute value of every element of hte \c v8i vector \c a.
+ * \impl
+for i from 0 to 7
+  if a[i] > 0
+    dst[i] := a[i]
+  else
+    dst[i] := -a[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v8i input vector
+ * \returns Absolute value of \c a
+ */
+v8i v8i_abs(v8i a);
+/**
+ * \ingroup arith
+ * \related v8l
+ * \brief Elementwise absolute value ( \c `a > 0 ? a : -a` )
+ * \details Computes the absolute value of every element of hte \c v8l vector \c a.
+ * \impl
+for i from 0 to 7
+  if a[i] > 0
+    dst[i] := a[i]
+  else
+    dst[i] := -a[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v8l input vector
+ * \returns Absolute value of \c a
+ */
+v8l v8l_abs(v8l a);
+/**
+ * \ingroup arith
+ * \related v16f
+ * \brief Elementwise absolute value ( \c `a > 0 ? a : -a` )
+ * \details Computes the absolute value of every element of hte \c v16f vector \c a.
+ * \impl
+for i from 0 to 15
+  if a[i] > 0
+    dst[i] := a[i]
+  else
+    dst[i] := -a[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v16f input vector
+ * \returns Absolute value of \c a
+ */
+v16f v16f_abs(v16f a);
+/**
+ * \ingroup arith
+ * \related v16i
+ * \brief Elementwise absolute value ( \c `a > 0 ? a : -a` )
+ * \details Computes the absolute value of every element of hte \c v16i vector \c a.
+ * \impl
+for i from 0 to 15
+  if a[i] > 0
+    dst[i] := a[i]
+  else
+    dst[i] := -a[i]
+  endif
+endfor
+\endimpl
+ * \param a \c v16i input vector
+ * \returns Absolute value of \c a
+ */
+v16i v16i_abs(v16i a);
+
+/**
+ * \ingroup arith
+ * \related v1d
  * \brief Elementwise multiplication ( \c `a * b` )
  * \details Performs the multiplication element by element of the two \c v1d input vectors \c a and \c b.
  * \impl
@@ -26536,6 +27511,536 @@ dst[15] := SELECT16((mask.bits[15] ? b : a), rule[60:63])
  * \returns shuffled vector
  */
 v16i v16i_fshuffle(v16i a, v16i b, uint_fast64_t rule, uint_fast16_t  mask);
+
+/* MOVES */
+/** \defgroup mov move functions
+ * 
+ */
+
+/**
+ * \ingroup mov
+ * \related v1d
+ * \brief Forwards the input.
+ * \details Forwards the input vector to the output: does nothing.
+ * \param a input
+ * \returns input
+ */
+v1d v1d_move(v1d a);
+/**
+ * \ingroup mov
+ * \related v1f
+ * \brief Forwards the input.
+ * \details Forwards the input vector to the output: does nothing.
+ * \param a input
+ * \returns input
+ */
+v1f v1f_move(v1f a);
+/**
+ * \ingroup mov
+ * \related v1i
+ * \brief Forwards the input.
+ * \details Forwards the input vector to the output: does nothing.
+ * \param a input
+ * \returns input
+ */
+v1i v1i_move(v1i a);
+/**
+ * \ingroup mov
+ * \related v1l
+ * \brief Forwards the input.
+ * \details Forwards the input vector to the output: does nothing.
+ * \param a input
+ * \returns input
+ */
+v1l v1l_move(v1l a);
+/**
+ * \ingroup mov
+ * \related v2d
+ * \brief Forwards the input.
+ * \details Forwards the input vector to the output: does nothing.
+ * \param a input
+ * \returns input
+ */
+v2d v2d_move(v2d a);
+/**
+ * \ingroup mov
+ * \related v2f
+ * \brief Forwards the input.
+ * \details Forwards the input vector to the output: does nothing.
+ * \param a input
+ * \returns input
+ */
+v2f v2f_move(v2f a);
+/**
+ * \ingroup mov
+ * \related v2i
+ * \brief Forwards the input.
+ * \details Forwards the input vector to the output: does nothing.
+ * \param a input
+ * \returns input
+ */
+v2i v2i_move(v2i a);
+/**
+ * \ingroup mov
+ * \related v2l
+ * \brief Forwards the input.
+ * \details Forwards the input vector to the output: does nothing.
+ * \param a input
+ * \returns input
+ */
+v2l v2l_move(v2l a);
+/**
+ * \ingroup mov
+ * \related v4d
+ * \brief Forwards the input.
+ * \details Forwards the input vector to the output: does nothing.
+ * \param a input
+ * \returns input
+ */
+v4d v4d_move(v4d a);
+/**
+ * \ingroup mov
+ * \related v4f
+ * \brief Forwards the input.
+ * \details Forwards the input vector to the output: does nothing.
+ * \param a input
+ * \returns input
+ */
+v4f v4f_move(v4f a);
+/**
+ * \ingroup mov
+ * \related v4i
+ * \brief Forwards the input.
+ * \details Forwards the input vector to the output: does nothing.
+ * \param a input
+ * \returns input
+ */
+v4i v4i_move(v4i a);
+/**
+ * \ingroup mov
+ * \related v4l
+ * \brief Forwards the input.
+ * \details Forwards the input vector to the output: does nothing.
+ * \param a input
+ * \returns input
+ */
+v4l v4l_move(v4l a);
+/**
+ * \ingroup mov
+ * \related v8d
+ * \brief Forwards the input.
+ * \details Forwards the input vector to the output: does nothing.
+ * \param a input
+ * \returns input
+ */
+v8d v8d_move(v8d a);
+/**
+ * \ingroup mov
+ * \related v8f
+ * \brief Forwards the input.
+ * \details Forwards the input vector to the output: does nothing.
+ * \param a input
+ * \returns input
+ */
+v8f v8f_move(v8f a);
+/**
+ * \ingroup mov
+ * \related v8i
+ * \brief Forwards the input.
+ * \details Forwards the input vector to the output: does nothing.
+ * \param a input
+ * \returns input
+ */
+v8i v8i_move(v8i a);
+/**
+ * \ingroup mov
+ * \related v8l
+ * \brief Forwards the input.
+ * \details Forwards the input vector to the output: does nothing.
+ * \param a input
+ * \returns input
+ */
+v8l v8l_move(v8l a);
+/**
+ * \ingroup mov
+ * \related v16f
+ * \brief Forwards the input.
+ * \details Forwards the input vector to the output: does nothing.
+ * \param a input
+ * \returns input
+ */
+v16f v16f_move(v16f a);
+/**
+ * \ingroup mov
+ * \related v16i
+ * \brief Forwards the input.
+ * \details Forwards the input vector to the output: does nothing.
+ * \param a input
+ * \returns input
+ */
+v16i v16i_move(v16i a);
+
+/**
+ * \ingroup mov
+ * \related v1d
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, 0 otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v1d v1d_maskz_move(m1d mask, v1d a);
+/**
+ * \ingroup mov
+ * \related v1f
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, 0 otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v1f v1f_maskz_move(m1f mask, v1f a);
+/**
+ * \ingroup mov
+ * \related v1i
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, 0 otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v1i v1i_maskz_move(m1i mask, v1i a);
+/**
+ * \ingroup mov
+ * \related v1l
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, 0 otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v1l v1l_maskz_move(m1l mask, v1l a);
+/**
+ * \ingroup mov
+ * \related v2d
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, 0 otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v2d v2d_maskz_move(m2d mask, v2d a);
+/**
+ * \ingroup mov
+ * \related v2f
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, 0 otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v2f v2f_maskz_move(m2f mask, v2f a);
+/**
+ * \ingroup mov
+ * \related v2i
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, 0 otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v2i v2i_maskz_move(m2i mask, v2i a);
+/**
+ * \ingroup mov
+ * \related v2l
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, 0 otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v2l v2l_maskz_move(m2l mask, v2l a);
+/**
+ * \ingroup mov
+ * \related v4d
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, 0 otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v4d v4d_maskz_move(m4d mask, v4d a);
+/**
+ * \ingroup mov
+ * \related v4f
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, 0 otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v4f v4f_maskz_move(m4f mask, v4f a);
+/**
+ * \ingroup mov
+ * \related v4i
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, 0 otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v4i v4i_maskz_move(m4i mask, v4i a);
+/**
+ * \ingroup mov
+ * \related v4l
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, 0 otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v4l v4l_maskz_move(m4l mask, v4l a);
+/**
+ * \ingroup mov
+ * \related v8d
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, 0 otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v8d v8d_maskz_move(m8d mask, v8d a);
+/**
+ * \ingroup mov
+ * \related v8f
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, 0 otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v8f v8f_maskz_move(m8f mask, v8f a);
+/**
+ * \ingroup mov
+ * \related v8i
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, 0 otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v8i v8i_maskz_move(m8i mask, v8i a);
+/**
+ * \ingroup mov
+ * \related v8l
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, 0 otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v8l v8l_maskz_move(m8l mask, v8l a);
+/**
+ * \ingroup mov
+ * \related v16f
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, 0 otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v16f v16f_maskz_move(m16f mask, v16f a);
+/**
+ * \ingroup mov
+ * \related v16i
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, 0 otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v16i v16i_maskz_move(m16i mask, v16i a);
+
+/**
+ * \ingroup mov
+ * \related v1d
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v1d v1d_mask_move(m1d mask, v1d src, v1d a);
+/**
+ * \ingroup mov
+ * \related v1f
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v1f v1f_mask_move(m1f mask, v1f src, v1f a);
+/**
+ * \ingroup mov
+ * \related v1i
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v1i v1i_mask_move(m1i mask, v1i src, v1i a);
+/**
+ * \ingroup mov
+ * \related v1l
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v1l v1l_mask_move(m1l mask, v1l src, v1l a);
+/**
+ * \ingroup mov
+ * \related v2d
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v2d v2d_mask_move(m2d mask, v2d src, v2d a);
+/**
+ * \ingroup mov
+ * \related v2f
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v2f v2f_mask_move(m2f mask, v2f src, v2f a);
+/**
+ * \ingroup mov
+ * \related v2i
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v2i v2i_mask_move(m2i mask, v2i src, v2i a);
+/**
+ * \ingroup mov
+ * \related v2l
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v2l v2l_mask_move(m2l mask, v2l src, v2l a);
+/**
+ * \ingroup mov
+ * \related v4d
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v4d v4d_mask_move(m4d mask, v4d src, v4d a);
+/**
+ * \ingroup mov
+ * \related v4f
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v4f v4f_mask_move(m4f mask, v4f src, v4f a);
+/**
+ * \ingroup mov
+ * \related v4i
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v4i v4i_mask_move(m4i mask, v4i src, v4i a);
+/**
+ * \ingroup mov
+ * \related v4l
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v4l v4l_mask_move(m4l mask, v4l src, v4l a);
+/**
+ * \ingroup mov
+ * \related v8d
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v8d v8d_mask_move(m8d mask, v8d src, v8d a);
+/**
+ * \ingroup mov
+ * \related v8f
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v8f v8f_mask_move(m8f mask, v8f src, v8f a);
+/**
+ * \ingroup mov
+ * \related v8i
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v8i v8i_mask_move(m8i mask, v8i src, v8i a);
+/**
+ * \ingroup mov
+ * \related v8l
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v8l v8l_mask_move(m8l mask, v8l src, v8l a);
+/**
+ * \ingroup mov
+ * \related v16f
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v16f v16f_mask_move(m16f mask, v16f src, v16f a);
+/**
+ * \ingroup mov
+ * \related v16i
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+v16i v16i_mask_move(m16i mask, v16i src, v16i a);
 
 
 /* PRINTS */

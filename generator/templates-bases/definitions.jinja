@@ -900,6 +900,81 @@ endfor
   {%- endcall %}
 {%- endcall %}
 
+{#/* MIN */#}
+{% call(f) _.expandf("%T", "%P_min", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup arith
+ * \related %T
+ * \brief Elementwise min ( \c `a < b ? a : b` )
+ * \details Copy the minimum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to {{size1()-1}}
+  if a[i] < b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c %T input vector
+ * \returns Absolute value of \c a
+ */
+{% endcall %}
+  {%- call _.define(f) %} %P_mask_move(%P_lt(a, b), b, a)
+  {%- endcall %}
+{%- endcall %}
+
+{#/* MAX */#}
+{% call(f) _.expandf("%T", "%P_max", "%T a, %T b") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup arith
+ * \related %T
+ * \brief Elementwise max ( \c `a > b ? a : b` )
+ * \details Copy the maximum element of \c a and \c b for every elements.
+ * \impl
+for i from 0 to {{size1()-1}}
+  if a[i] > b[i]
+    dst[i] := a[i]
+  else
+    dst[i] := b[i]
+  endif
+endfor
+\endimpl
+ * \param a \c %T input vector
+ * \returns Absolute value of \c a
+ */
+{% endcall %}
+  {%- call _.define(f) %} %P_mask_move(%P_gt(a, b), b, a)
+  {%- endcall %}
+{%- endcall %}
+
+{#/* ABS */#}
+{% call(f) _.expandf("%T", "%P_abs", "%T a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup arith
+ * \related %T
+ * \brief Elementwise absolute value ( \c `a > 0 ? a : -a` )
+ * \details Computes the absolute value of every element of hte \c %T vector \c a.
+ * \impl
+for i from 0 to {{size1()-1}}
+  if a[i] > 0
+    dst[i] := a[i]
+  else
+    dst[i] := -a[i]
+  endif
+endfor
+\endimpl
+ * \param a \c %T input vector
+ * \returns Absolute value of \c a
+ */
+{% endcall %}
+  {%- call _.define(f) %} %P_max((a), %P_neg(a))
+  {%- endcall %}
+{%- endcall %}
+
 {#/* MUL */#}
 {% call(f) _.expandf("%T", "%P_mul", "%T a, %T b") %}
   {%- call _.doc(f) %}
@@ -2006,6 +2081,58 @@ dst[{{i}}] := SELECT%'N((mask.bits[{{i}}] ? b : a), rule[{{RANGE(i*lln2, (i+1)*l
   {%- endcall %}
 {%- endcall %}
 
+/* MOVES */
+{{ _.doc_group("move functions", shortname = "mov") }}
+{#/* Regular move */#}
+{% call(f) _.macro("%T", "%P_move", "%T a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup mov
+ * \related %T
+ * \brief Forwards the input.
+ * \details Forwards the input vector to the output: does nothing.
+ * \param a input
+ * \returns input
+ */
+{% endcall %}
+  {%- call _.define(f) %} (a)
+  {%- endcall %}
+{% endcall %}
+
+{#/* Masked move with zero */#}
+{% call(f) _.macro("%T", "%P_maskz_move", "%M mask, %T a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup mov
+ * \related %T
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, 0 otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+{% endcall %}
+  {%- call _.define(f) %} %P_and(mask, a)
+  {%- endcall %}
+{% endcall %}
+
+{#/* Masked move with src */#}
+{% call(f) _.macro("%T", "%P_mask_move", "%M mask, %T src, %T a") %}
+  {%- call _.doc(f) %}
+/**
+ * \ingroup mov
+ * \related %T
+ * \brief Mask the input.
+ * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
+ * \param mask 
+ * \param a input
+ * \returns masked input
+ */
+{% endcall %}
+  {%- call _.define(f) %} %P_or(%P_and(a, mask), %P_andnot(a, mask))
+  {%- endcall %}
+{% endcall %}
+
 
 /* PRINTS */
 {{ _.doc_group("print functions", shortname = "print") }}
@@ -2316,7 +2443,7 @@ dst := CONVERT_FROM__%'t'__TO__%t(a[0])
  * \returns vector-mask
  */
 {% endcall %}
-  {%- call _.define(f) %} %iP_cast_%P(a)
+  {%- call _.define(f) %} (a)
   {%- endcall %}
 {% endcall %}
 {#/* CONVERTS from mask */#}
@@ -2334,7 +2461,7 @@ dst := CONVERT_FROM__%'t'__TO__%t(a[0])
  * \returns vector-mask
  */
 {% endcall %}
-  {%- call _.define(f) %} %P_cast_%iP(a)
+  {%- call _.define(f) %} (a)
   {%- endcall %}
 {% endcall %}
 
@@ -2358,7 +2485,7 @@ dst := CONVERT_FROM__%'t'__TO__%t(a[0])
  * \returns the converted vector-mask
  */
 {% endcall %}
-    {%- call _.define(f) %} %iP_cast_%'iP'(a)
+    {%- call _.define(f) %} %M_cvt_%P(%P_cast_%iP(%iP_cvt_%'iP'(%'iP'_cast_%'P'(%'P'_cvt_%'M'(a)))))
     {%- endcall %}
   {%- endcall %}
 {% endcall %}

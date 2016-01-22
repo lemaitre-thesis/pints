@@ -418,6 +418,9 @@ static inline v16f __v16f_sub(v16f a, v16f b);
 static inline v16i __v16i_sub(v16i a, v16i b);
 
 
+
+
+
 static inline union __v1d __v1d_mul(union __v1d a, union __v1d b);
 static inline union __v1f __v1f_mul(union __v1f a, union __v1f b);
 static inline union __v1i __v1i_mul(union __v1i a, union __v1i b);
@@ -576,6 +579,11 @@ static inline v8i compatible_v8i_get_high_v16i(v16i a);
 
 
 
+
+
+
+
+/* MOVES */
 
 
 
@@ -1568,6 +1576,9 @@ static inline v16f __v16f_sub(v16f a, v16f b) { return v16f_merge2_v8f(v8f_sub(v
 static inline v16i __v16i_sub(v16i a, v16i b) { return v16i_merge2_v8i(v8i_sub(v8i_get_low_v16i(a), v8i_get_low_v16i(b)), v8i_sub(v8i_get_high_v16i(a), v8i_get_high_v16i(b))); }
 
 
+
+
+
 static inline union __v1d __v1d_mul(union __v1d a, union __v1d b) { union __v1d r = { .v = a.v * b.v }; return r; }
 static inline union __v1f __v1f_mul(union __v1f a, union __v1f b) { union __v1f r = { .v = a.v * b.v }; return r; }
 static inline union __v1i __v1i_mul(union __v1i a, union __v1i b) { union __v1i r = { .v = a.v * b.v }; return r; }
@@ -1908,6 +1919,11 @@ static inline v8i compatible_v8i_get_high_v16i(v16i a) {
 
 
 
+
+
+
+
+/* MOVES */
 
 
 
