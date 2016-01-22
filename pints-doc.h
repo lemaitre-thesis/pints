@@ -9643,7 +9643,8 @@ for i from 0 to 0
   endif
 endfor
 \endimpl
- * \param a \c v1d input vector
+ * \param a first \c v1d input vector
+ * \param b second \c v1d input vector
  * \returns Absolute value of \c a
  */
 v1d v1d_min(v1d a, v1d b);
@@ -9661,7 +9662,8 @@ for i from 0 to 0
   endif
 endfor
 \endimpl
- * \param a \c v1f input vector
+ * \param a first \c v1f input vector
+ * \param b second \c v1f input vector
  * \returns Absolute value of \c a
  */
 v1f v1f_min(v1f a, v1f b);
@@ -9679,7 +9681,8 @@ for i from 0 to 0
   endif
 endfor
 \endimpl
- * \param a \c v1i input vector
+ * \param a first \c v1i input vector
+ * \param b second \c v1i input vector
  * \returns Absolute value of \c a
  */
 v1i v1i_min(v1i a, v1i b);
@@ -9697,7 +9700,8 @@ for i from 0 to 0
   endif
 endfor
 \endimpl
- * \param a \c v1l input vector
+ * \param a first \c v1l input vector
+ * \param b second \c v1l input vector
  * \returns Absolute value of \c a
  */
 v1l v1l_min(v1l a, v1l b);
@@ -9715,7 +9719,8 @@ for i from 0 to 1
   endif
 endfor
 \endimpl
- * \param a \c v2d input vector
+ * \param a first \c v2d input vector
+ * \param b second \c v2d input vector
  * \returns Absolute value of \c a
  */
 v2d v2d_min(v2d a, v2d b);
@@ -9733,7 +9738,8 @@ for i from 0 to 1
   endif
 endfor
 \endimpl
- * \param a \c v2f input vector
+ * \param a first \c v2f input vector
+ * \param b second \c v2f input vector
  * \returns Absolute value of \c a
  */
 v2f v2f_min(v2f a, v2f b);
@@ -9751,7 +9757,8 @@ for i from 0 to 1
   endif
 endfor
 \endimpl
- * \param a \c v2i input vector
+ * \param a first \c v2i input vector
+ * \param b second \c v2i input vector
  * \returns Absolute value of \c a
  */
 v2i v2i_min(v2i a, v2i b);
@@ -9769,7 +9776,8 @@ for i from 0 to 1
   endif
 endfor
 \endimpl
- * \param a \c v2l input vector
+ * \param a first \c v2l input vector
+ * \param b second \c v2l input vector
  * \returns Absolute value of \c a
  */
 v2l v2l_min(v2l a, v2l b);
@@ -9787,7 +9795,8 @@ for i from 0 to 3
   endif
 endfor
 \endimpl
- * \param a \c v4d input vector
+ * \param a first \c v4d input vector
+ * \param b second \c v4d input vector
  * \returns Absolute value of \c a
  */
 v4d v4d_min(v4d a, v4d b);
@@ -9805,7 +9814,8 @@ for i from 0 to 3
   endif
 endfor
 \endimpl
- * \param a \c v4f input vector
+ * \param a first \c v4f input vector
+ * \param b second \c v4f input vector
  * \returns Absolute value of \c a
  */
 v4f v4f_min(v4f a, v4f b);
@@ -9823,7 +9833,8 @@ for i from 0 to 3
   endif
 endfor
 \endimpl
- * \param a \c v4i input vector
+ * \param a first \c v4i input vector
+ * \param b second \c v4i input vector
  * \returns Absolute value of \c a
  */
 v4i v4i_min(v4i a, v4i b);
@@ -9841,7 +9852,8 @@ for i from 0 to 3
   endif
 endfor
 \endimpl
- * \param a \c v4l input vector
+ * \param a first \c v4l input vector
+ * \param b second \c v4l input vector
  * \returns Absolute value of \c a
  */
 v4l v4l_min(v4l a, v4l b);
@@ -9859,7 +9871,8 @@ for i from 0 to 7
   endif
 endfor
 \endimpl
- * \param a \c v8d input vector
+ * \param a first \c v8d input vector
+ * \param b second \c v8d input vector
  * \returns Absolute value of \c a
  */
 v8d v8d_min(v8d a, v8d b);
@@ -9877,7 +9890,8 @@ for i from 0 to 7
   endif
 endfor
 \endimpl
- * \param a \c v8f input vector
+ * \param a first \c v8f input vector
+ * \param b second \c v8f input vector
  * \returns Absolute value of \c a
  */
 v8f v8f_min(v8f a, v8f b);
@@ -9895,7 +9909,8 @@ for i from 0 to 7
   endif
 endfor
 \endimpl
- * \param a \c v8i input vector
+ * \param a first \c v8i input vector
+ * \param b second \c v8i input vector
  * \returns Absolute value of \c a
  */
 v8i v8i_min(v8i a, v8i b);
@@ -9913,7 +9928,8 @@ for i from 0 to 7
   endif
 endfor
 \endimpl
- * \param a \c v8l input vector
+ * \param a first \c v8l input vector
+ * \param b second \c v8l input vector
  * \returns Absolute value of \c a
  */
 v8l v8l_min(v8l a, v8l b);
@@ -9931,7 +9947,8 @@ for i from 0 to 15
   endif
 endfor
 \endimpl
- * \param a \c v16f input vector
+ * \param a first \c v16f input vector
+ * \param b second \c v16f input vector
  * \returns Absolute value of \c a
  */
 v16f v16f_min(v16f a, v16f b);
@@ -9949,7 +9966,8 @@ for i from 0 to 15
   endif
 endfor
 \endimpl
- * \param a \c v16i input vector
+ * \param a first \c v16i input vector
+ * \param b second \c v16i input vector
  * \returns Absolute value of \c a
  */
 v16i v16i_min(v16i a, v16i b);
@@ -9968,7 +9986,8 @@ for i from 0 to 0
   endif
 endfor
 \endimpl
- * \param a \c v1d input vector
+ * \param a first \c v1d input vector
+ * \param b second \c v1d input vector
  * \returns Absolute value of \c a
  */
 v1d v1d_max(v1d a, v1d b);
@@ -9986,7 +10005,8 @@ for i from 0 to 0
   endif
 endfor
 \endimpl
- * \param a \c v1f input vector
+ * \param a first \c v1f input vector
+ * \param b second \c v1f input vector
  * \returns Absolute value of \c a
  */
 v1f v1f_max(v1f a, v1f b);
@@ -10004,7 +10024,8 @@ for i from 0 to 0
   endif
 endfor
 \endimpl
- * \param a \c v1i input vector
+ * \param a first \c v1i input vector
+ * \param b second \c v1i input vector
  * \returns Absolute value of \c a
  */
 v1i v1i_max(v1i a, v1i b);
@@ -10022,7 +10043,8 @@ for i from 0 to 0
   endif
 endfor
 \endimpl
- * \param a \c v1l input vector
+ * \param a first \c v1l input vector
+ * \param b second \c v1l input vector
  * \returns Absolute value of \c a
  */
 v1l v1l_max(v1l a, v1l b);
@@ -10040,7 +10062,8 @@ for i from 0 to 1
   endif
 endfor
 \endimpl
- * \param a \c v2d input vector
+ * \param a first \c v2d input vector
+ * \param b second \c v2d input vector
  * \returns Absolute value of \c a
  */
 v2d v2d_max(v2d a, v2d b);
@@ -10058,7 +10081,8 @@ for i from 0 to 1
   endif
 endfor
 \endimpl
- * \param a \c v2f input vector
+ * \param a first \c v2f input vector
+ * \param b second \c v2f input vector
  * \returns Absolute value of \c a
  */
 v2f v2f_max(v2f a, v2f b);
@@ -10076,7 +10100,8 @@ for i from 0 to 1
   endif
 endfor
 \endimpl
- * \param a \c v2i input vector
+ * \param a first \c v2i input vector
+ * \param b second \c v2i input vector
  * \returns Absolute value of \c a
  */
 v2i v2i_max(v2i a, v2i b);
@@ -10094,7 +10119,8 @@ for i from 0 to 1
   endif
 endfor
 \endimpl
- * \param a \c v2l input vector
+ * \param a first \c v2l input vector
+ * \param b second \c v2l input vector
  * \returns Absolute value of \c a
  */
 v2l v2l_max(v2l a, v2l b);
@@ -10112,7 +10138,8 @@ for i from 0 to 3
   endif
 endfor
 \endimpl
- * \param a \c v4d input vector
+ * \param a first \c v4d input vector
+ * \param b second \c v4d input vector
  * \returns Absolute value of \c a
  */
 v4d v4d_max(v4d a, v4d b);
@@ -10130,7 +10157,8 @@ for i from 0 to 3
   endif
 endfor
 \endimpl
- * \param a \c v4f input vector
+ * \param a first \c v4f input vector
+ * \param b second \c v4f input vector
  * \returns Absolute value of \c a
  */
 v4f v4f_max(v4f a, v4f b);
@@ -10148,7 +10176,8 @@ for i from 0 to 3
   endif
 endfor
 \endimpl
- * \param a \c v4i input vector
+ * \param a first \c v4i input vector
+ * \param b second \c v4i input vector
  * \returns Absolute value of \c a
  */
 v4i v4i_max(v4i a, v4i b);
@@ -10166,7 +10195,8 @@ for i from 0 to 3
   endif
 endfor
 \endimpl
- * \param a \c v4l input vector
+ * \param a first \c v4l input vector
+ * \param b second \c v4l input vector
  * \returns Absolute value of \c a
  */
 v4l v4l_max(v4l a, v4l b);
@@ -10184,7 +10214,8 @@ for i from 0 to 7
   endif
 endfor
 \endimpl
- * \param a \c v8d input vector
+ * \param a first \c v8d input vector
+ * \param b second \c v8d input vector
  * \returns Absolute value of \c a
  */
 v8d v8d_max(v8d a, v8d b);
@@ -10202,7 +10233,8 @@ for i from 0 to 7
   endif
 endfor
 \endimpl
- * \param a \c v8f input vector
+ * \param a first \c v8f input vector
+ * \param b second \c v8f input vector
  * \returns Absolute value of \c a
  */
 v8f v8f_max(v8f a, v8f b);
@@ -10220,7 +10252,8 @@ for i from 0 to 7
   endif
 endfor
 \endimpl
- * \param a \c v8i input vector
+ * \param a first \c v8i input vector
+ * \param b second \c v8i input vector
  * \returns Absolute value of \c a
  */
 v8i v8i_max(v8i a, v8i b);
@@ -10238,7 +10271,8 @@ for i from 0 to 7
   endif
 endfor
 \endimpl
- * \param a \c v8l input vector
+ * \param a first \c v8l input vector
+ * \param b second \c v8l input vector
  * \returns Absolute value of \c a
  */
 v8l v8l_max(v8l a, v8l b);
@@ -10256,7 +10290,8 @@ for i from 0 to 15
   endif
 endfor
 \endimpl
- * \param a \c v16f input vector
+ * \param a first \c v16f input vector
+ * \param b second \c v16f input vector
  * \returns Absolute value of \c a
  */
 v16f v16f_max(v16f a, v16f b);
@@ -10274,7 +10309,8 @@ for i from 0 to 15
   endif
 endfor
 \endimpl
- * \param a \c v16i input vector
+ * \param a first \c v16i input vector
+ * \param b second \c v16i input vector
  * \returns Absolute value of \c a
  */
 v16i v16i_max(v16i a, v16i b);
@@ -27866,7 +27902,8 @@ v16i v16i_maskz_move(m16i mask, v16i a);
  * \related v1d
  * \brief Mask the input.
  * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
- * \param mask 
+ * \param mask chooses between \c src and \c a
+ * \param src elements when mask is not set
  * \param a input
  * \returns masked input
  */
@@ -27876,7 +27913,8 @@ v1d v1d_mask_move(m1d mask, v1d src, v1d a);
  * \related v1f
  * \brief Mask the input.
  * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
- * \param mask 
+ * \param mask chooses between \c src and \c a
+ * \param src elements when mask is not set
  * \param a input
  * \returns masked input
  */
@@ -27886,7 +27924,8 @@ v1f v1f_mask_move(m1f mask, v1f src, v1f a);
  * \related v1i
  * \brief Mask the input.
  * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
- * \param mask 
+ * \param mask chooses between \c src and \c a
+ * \param src elements when mask is not set
  * \param a input
  * \returns masked input
  */
@@ -27896,7 +27935,8 @@ v1i v1i_mask_move(m1i mask, v1i src, v1i a);
  * \related v1l
  * \brief Mask the input.
  * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
- * \param mask 
+ * \param mask chooses between \c src and \c a
+ * \param src elements when mask is not set
  * \param a input
  * \returns masked input
  */
@@ -27906,7 +27946,8 @@ v1l v1l_mask_move(m1l mask, v1l src, v1l a);
  * \related v2d
  * \brief Mask the input.
  * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
- * \param mask 
+ * \param mask chooses between \c src and \c a
+ * \param src elements when mask is not set
  * \param a input
  * \returns masked input
  */
@@ -27916,7 +27957,8 @@ v2d v2d_mask_move(m2d mask, v2d src, v2d a);
  * \related v2f
  * \brief Mask the input.
  * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
- * \param mask 
+ * \param mask chooses between \c src and \c a
+ * \param src elements when mask is not set
  * \param a input
  * \returns masked input
  */
@@ -27926,7 +27968,8 @@ v2f v2f_mask_move(m2f mask, v2f src, v2f a);
  * \related v2i
  * \brief Mask the input.
  * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
- * \param mask 
+ * \param mask chooses between \c src and \c a
+ * \param src elements when mask is not set
  * \param a input
  * \returns masked input
  */
@@ -27936,7 +27979,8 @@ v2i v2i_mask_move(m2i mask, v2i src, v2i a);
  * \related v2l
  * \brief Mask the input.
  * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
- * \param mask 
+ * \param mask chooses between \c src and \c a
+ * \param src elements when mask is not set
  * \param a input
  * \returns masked input
  */
@@ -27946,7 +27990,8 @@ v2l v2l_mask_move(m2l mask, v2l src, v2l a);
  * \related v4d
  * \brief Mask the input.
  * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
- * \param mask 
+ * \param mask chooses between \c src and \c a
+ * \param src elements when mask is not set
  * \param a input
  * \returns masked input
  */
@@ -27956,7 +28001,8 @@ v4d v4d_mask_move(m4d mask, v4d src, v4d a);
  * \related v4f
  * \brief Mask the input.
  * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
- * \param mask 
+ * \param mask chooses between \c src and \c a
+ * \param src elements when mask is not set
  * \param a input
  * \returns masked input
  */
@@ -27966,7 +28012,8 @@ v4f v4f_mask_move(m4f mask, v4f src, v4f a);
  * \related v4i
  * \brief Mask the input.
  * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
- * \param mask 
+ * \param mask chooses between \c src and \c a
+ * \param src elements when mask is not set
  * \param a input
  * \returns masked input
  */
@@ -27976,7 +28023,8 @@ v4i v4i_mask_move(m4i mask, v4i src, v4i a);
  * \related v4l
  * \brief Mask the input.
  * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
- * \param mask 
+ * \param mask chooses between \c src and \c a
+ * \param src elements when mask is not set
  * \param a input
  * \returns masked input
  */
@@ -27986,7 +28034,8 @@ v4l v4l_mask_move(m4l mask, v4l src, v4l a);
  * \related v8d
  * \brief Mask the input.
  * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
- * \param mask 
+ * \param mask chooses between \c src and \c a
+ * \param src elements when mask is not set
  * \param a input
  * \returns masked input
  */
@@ -27996,7 +28045,8 @@ v8d v8d_mask_move(m8d mask, v8d src, v8d a);
  * \related v8f
  * \brief Mask the input.
  * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
- * \param mask 
+ * \param mask chooses between \c src and \c a
+ * \param src elements when mask is not set
  * \param a input
  * \returns masked input
  */
@@ -28006,7 +28056,8 @@ v8f v8f_mask_move(m8f mask, v8f src, v8f a);
  * \related v8i
  * \brief Mask the input.
  * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
- * \param mask 
+ * \param mask chooses between \c src and \c a
+ * \param src elements when mask is not set
  * \param a input
  * \returns masked input
  */
@@ -28016,7 +28067,8 @@ v8i v8i_mask_move(m8i mask, v8i src, v8i a);
  * \related v8l
  * \brief Mask the input.
  * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
- * \param mask 
+ * \param mask chooses between \c src and \c a
+ * \param src elements when mask is not set
  * \param a input
  * \returns masked input
  */
@@ -28026,7 +28078,8 @@ v8l v8l_mask_move(m8l mask, v8l src, v8l a);
  * \related v16f
  * \brief Mask the input.
  * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
- * \param mask 
+ * \param mask chooses between \c src and \c a
+ * \param src elements when mask is not set
  * \param a input
  * \returns masked input
  */
@@ -28036,7 +28089,8 @@ v16f v16f_mask_move(m16f mask, v16f src, v16f a);
  * \related v16i
  * \brief Mask the input.
  * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
- * \param mask 
+ * \param mask chooses between \c src and \c a
+ * \param src elements when mask is not set
  * \param a input
  * \returns masked input
  */

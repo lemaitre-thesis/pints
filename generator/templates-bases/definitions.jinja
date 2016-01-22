@@ -917,7 +917,8 @@ for i from 0 to {{size1()-1}}
   endif
 endfor
 \endimpl
- * \param a \c %T input vector
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
  * \returns Absolute value of \c a
  */
 {% endcall %}
@@ -942,7 +943,8 @@ for i from 0 to {{size1()-1}}
   endif
 endfor
 \endimpl
- * \param a \c %T input vector
+ * \param a first \c %T input vector
+ * \param b second \c %T input vector
  * \returns Absolute value of \c a
  */
 {% endcall %}
@@ -2124,7 +2126,8 @@ dst[{{i}}] := SELECT%'N((mask.bits[{{i}}] ? b : a), rule[{{RANGE(i*lln2, (i+1)*l
  * \related %T
  * \brief Mask the input.
  * \details Copy the input elements to the output if mask[i] is set, src[i] otherwise
- * \param mask 
+ * \param mask chooses between \c src and \c a
+ * \param src elements when mask is not set
  * \param a input
  * \returns masked input
  */
