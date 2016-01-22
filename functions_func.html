@@ -71,7 +71,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="functions.html"><span>All</span></a></li>
       <li class="current"><a href="functions_func.html"><span>Functions</span></a></li>
-      <li><a href="functions_vars.html"><span>Variables</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
@@ -87,7 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Groups</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -100,62 +99,71 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 &#160;
 
 <h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
+<li>m16f_and()
+: <a class="el" href="group__mlogic.html#gaa8aac28ab75e6d990f443f94a79551da">v16f</a>
+</li>
+<li>m16f_andnot()
+: <a class="el" href="group__mlogic.html#ga3d91c389d7408578d8b23e0c9a08deee">v16f</a>
+</li>
+<li>m16f_cast_v16f()
+: <a class="el" href="group__mcast.html#ga2dc3cfc16776b23657667181d87fe74d">v16f</a>
+</li>
 <li>m16f_cvt_m16f()
 : <a class="el" href="group__mconvert.html#gabe3c157c9c771557f9c4b6f6e176504d">v16f</a>
 </li>
 <li>m16f_cvt_m16i()
 : <a class="el" href="group__mconvert.html#ga19d5a4689abeaff4d586d42793ce0f6b">v16f</a>
 </li>
-<li>m16f_cvt_m1d()
-: <a class="el" href="group__mconvert.html#ga40341f5ad78481fc37bb1bfb606fb96e">v16f</a>
-</li>
-<li>m16f_cvt_m1f()
-: <a class="el" href="group__mconvert.html#ga759da837b6b0a9655952f62bd72c71de">v16f</a>
-</li>
-<li>m16f_cvt_m1i()
-: <a class="el" href="group__mconvert.html#ga75846f791d4a078526aab64a37154394">v16f</a>
-</li>
-<li>m16f_cvt_m1l()
-: <a class="el" href="group__mconvert.html#ga31127810fb7310b7473813d27b8699c6">v16f</a>
-</li>
-<li>m16f_cvt_m2d()
-: <a class="el" href="group__mconvert.html#ga946c0a04b437b23e01ccd01c2470ea6e">v16f</a>
-</li>
-<li>m16f_cvt_m2f()
-: <a class="el" href="group__mconvert.html#gaad6a0fc304823d63ba264cb69b9c27c2">v16f</a>
-</li>
-<li>m16f_cvt_m2i()
-: <a class="el" href="group__mconvert.html#ga543a19d96bd8b7d93f9317dba99898d3">v16f</a>
-</li>
-<li>m16f_cvt_m2l()
-: <a class="el" href="group__mconvert.html#ga25fab44cf116ec5395ed3f6cd218d2cf">v16f</a>
-</li>
-<li>m16f_cvt_m4d()
-: <a class="el" href="group__mconvert.html#ga41fe6d68f9cdb0a0ff81faf041981451">v16f</a>
-</li>
-<li>m16f_cvt_m4f()
-: <a class="el" href="group__mconvert.html#ga75571b7296c5c3bb7982620bfa68a40c">v16f</a>
-</li>
-<li>m16f_cvt_m4i()
-: <a class="el" href="group__mconvert.html#ga74cf44b7dc9b82e5adc43c154e967621">v16f</a>
-</li>
-<li>m16f_cvt_m4l()
-: <a class="el" href="group__mconvert.html#ga5ba8b5bb37fc2a6cd35d31c3931860ee">v16f</a>
-</li>
-<li>m16f_cvt_m8d()
-: <a class="el" href="group__mconvert.html#gae7f0d6235f52aeeacef79623709d48bd">v16f</a>
-</li>
-<li>m16f_cvt_m8f()
-: <a class="el" href="group__mconvert.html#ga314e448dcfde3eb3eff5cd8f834708cd">v16f</a>
-</li>
-<li>m16f_cvt_m8i()
-: <a class="el" href="group__mconvert.html#gace4f6c9a430887b6572c071b3e87a08d">v16f</a>
-</li>
-<li>m16f_cvt_m8l()
-: <a class="el" href="group__mconvert.html#ga4786ce9e27f2fe1966b47aef7cf57220">v16f</a>
-</li>
 <li>m16f_cvt_v16f()
 : <a class="el" href="group__mconvert.html#ga08c123ac72f64f677782f23d0dee3889">v16f</a>
+</li>
+<li>m16f_eq()
+: <a class="el" href="group__mcmp.html#gad8bdaa2ea31b82ddc1637533a14cf5f3">v16f</a>
+</li>
+<li>m16f_geq()
+: <a class="el" href="group__mcmp.html#ga31a11bdfc7e4f0635919643cb0e477a8">v16f</a>
+</li>
+<li>m16f_gt()
+: <a class="el" href="group__mcmp.html#ga7c0f75c6d63e7c477a911482bd3e6e3e">v16f</a>
+</li>
+<li>m16f_leq()
+: <a class="el" href="group__mcmp.html#ga2181d494750aa30c3f3ebab4c3687c36">v16f</a>
+</li>
+<li>m16f_lt()
+: <a class="el" href="group__mcmp.html#ga575fb60ceefd2544be56766c15f59f4d">v16f</a>
+</li>
+<li>m16f_nand()
+: <a class="el" href="group__mlogic.html#ga5c98241b8448062d5d36f442442c0553">v16f</a>
+</li>
+<li>m16f_neq()
+: <a class="el" href="group__mcmp.html#ga8a664515d86d20f4bbee77658a0216e3">v16f</a>
+</li>
+<li>m16f_nor()
+: <a class="el" href="group__mlogic.html#ga3a2244c0e53d75ecede913ac4e3feee3">v16f</a>
+</li>
+<li>m16f_not()
+: <a class="el" href="group__mlogic.html#ga956747c0be28d45d6161ef3d0488db66">v16f</a>
+</li>
+<li>m16f_nxor()
+: <a class="el" href="group__mlogic.html#gaa31c8cdc59aa9bb6e31e9a4bf117e392">v16f</a>
+</li>
+<li>m16f_or()
+: <a class="el" href="group__mlogic.html#gae73f1a235a72435fbcfc06d936820523">v16f</a>
+</li>
+<li>m16f_ornot()
+: <a class="el" href="group__mlogic.html#gacb2e87553fff429fe475725ecb9773e8">v16f</a>
+</li>
+<li>m16f_xor()
+: <a class="el" href="group__mlogic.html#ga809814704461b281321ffed14d16ae81">v16f</a>
+</li>
+<li>m16i_and()
+: <a class="el" href="group__mlogic.html#ga33a19ec6e85d33ef384e3fca4cc551f2">v16i</a>
+</li>
+<li>m16i_andnot()
+: <a class="el" href="group__mlogic.html#gaa202b664c2806282c862652af2a7a10d">v16i</a>
+</li>
+<li>m16i_cast_v16i()
+: <a class="el" href="group__mcast.html#gab353d47cf291e5ab53a224eac0cae708">v16i</a>
 </li>
 <li>m16i_cvt_m16f()
 : <a class="el" href="group__mconvert.html#ga3303000a39e79877e61934c3d33f7cc9">v16i</a>
@@ -163,62 +171,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m16i_cvt_m16i()
 : <a class="el" href="group__mconvert.html#gaa4acb0cab9d0ebd7ba8ff6f79cb5d566">v16i</a>
 </li>
-<li>m16i_cvt_m1d()
-: <a class="el" href="group__mconvert.html#ga0ac3438972468aaf0016a9839cc794b3">v16i</a>
-</li>
-<li>m16i_cvt_m1f()
-: <a class="el" href="group__mconvert.html#ga5d49e2abb0f5e1cd6a2e58ed7a2a5d70">v16i</a>
-</li>
-<li>m16i_cvt_m1i()
-: <a class="el" href="group__mconvert.html#ga5cde1878c3a8192b40614b5f96dc97d6">v16i</a>
-</li>
-<li>m16i_cvt_m1l()
-: <a class="el" href="group__mconvert.html#ga8ccbbe3d2d101d3b790a608a1c810344">v16i</a>
-</li>
-<li>m16i_cvt_m2d()
-: <a class="el" href="group__mconvert.html#gab9ab35675e1f64108aa5ef9f5ab35f63">v16i</a>
-</li>
-<li>m16i_cvt_m2f()
-: <a class="el" href="group__mconvert.html#gad511e7f187317abdad2e0e8357e39e9c">v16i</a>
-</li>
-<li>m16i_cvt_m2i()
-: <a class="el" href="group__mconvert.html#gabbc04a3232faea632190083e1d95593f">v16i</a>
-</li>
-<li>m16i_cvt_m2l()
-: <a class="el" href="group__mconvert.html#gad3ede321967583490aa87f301b1bfe1c">v16i</a>
-</li>
-<li>m16i_cvt_m4d()
-: <a class="el" href="group__mconvert.html#ga0fac94491aeebd059334e4eafd7fee6c">v16i</a>
-</li>
-<li>m16i_cvt_m4f()
-: <a class="el" href="group__mconvert.html#gace4e3f5e93caf71a544060e06d1799b2">v16i</a>
-</li>
-<li>m16i_cvt_m4i()
-: <a class="el" href="group__mconvert.html#ga9e293635d5b61469dbd5ad6910e09977">v16i</a>
-</li>
-<li>m16i_cvt_m4l()
-: <a class="el" href="group__mconvert.html#ga3eefb1477e69a51a1fcb1aa634a914a2">v16i</a>
-</li>
-<li>m16i_cvt_m8d()
-: <a class="el" href="group__mconvert.html#ga140e65c604d045ded04b1898b6865dcd">v16i</a>
-</li>
-<li>m16i_cvt_m8f()
-: <a class="el" href="group__mconvert.html#ga8708218b94d76c0f6cfd71c0028827cd">v16i</a>
-</li>
-<li>m16i_cvt_m8i()
-: <a class="el" href="group__mconvert.html#gabeab023df930b23c4893ae0241398304">v16i</a>
-</li>
-<li>m16i_cvt_m8l()
-: <a class="el" href="group__mconvert.html#gafca4c7c27264853c040ce0896b16845b">v16i</a>
-</li>
 <li>m16i_cvt_v16i()
 : <a class="el" href="group__mconvert.html#ga4c86a77ee9d57edbad391df33dc3fa3f">v16i</a>
 </li>
-<li>m1d_cvt_m16f()
-: <a class="el" href="group__mconvert.html#gaf1bb51ae55f1e6e10f4bda806105146f">v1d</a>
+<li>m16i_eq()
+: <a class="el" href="group__mcmp.html#ga5f05b4bf9d0b066570b2ca11241035ad">v16i</a>
 </li>
-<li>m1d_cvt_m16i()
-: <a class="el" href="group__mconvert.html#ga1330d51604cde623f03abdbedb80468b">v1d</a>
+<li>m16i_geq()
+: <a class="el" href="group__mcmp.html#ga931a0cb3fbcb2d1d780785ae65b03afc">v16i</a>
+</li>
+<li>m16i_gt()
+: <a class="el" href="group__mcmp.html#gabd95ec828c8c8d59857d200460e8dc67">v16i</a>
+</li>
+<li>m16i_leq()
+: <a class="el" href="group__mcmp.html#ga4728afeb3e8e59c3ac127ab87a3d97ea">v16i</a>
+</li>
+<li>m16i_lt()
+: <a class="el" href="group__mcmp.html#ga6ed5991e9f3d96e47ec4a3a9ab835b61">v16i</a>
+</li>
+<li>m16i_nand()
+: <a class="el" href="group__mlogic.html#gac98805302f1ef0bd2a8b3e9fb2e597ff">v16i</a>
+</li>
+<li>m16i_neq()
+: <a class="el" href="group__mcmp.html#ga3dd65d0f5cbcf523a0fa32120642e4d4">v16i</a>
+</li>
+<li>m16i_nor()
+: <a class="el" href="group__mlogic.html#gae879d89cc4e6fb567e01289a54b81857">v16i</a>
+</li>
+<li>m16i_not()
+: <a class="el" href="group__mlogic.html#gabc9ed801777d13b40c4cdb9a049d0fea">v16i</a>
+</li>
+<li>m16i_nxor()
+: <a class="el" href="group__mlogic.html#ga2af9054cd7e5332ef732bab11953efcb">v16i</a>
+</li>
+<li>m16i_or()
+: <a class="el" href="group__mlogic.html#gaedc9991f894e297f98e7cdb6e4b82210">v16i</a>
+</li>
+<li>m16i_ornot()
+: <a class="el" href="group__mlogic.html#gac7ed0d2dc4b3ecdd9cccf373fc089fb0">v16i</a>
+</li>
+<li>m16i_xor()
+: <a class="el" href="group__mlogic.html#gaf40713472731f3e7d0a79c14ddaf0e60">v16i</a>
+</li>
+<li>m1d_and()
+: <a class="el" href="group__mlogic.html#gaaac0eb5a4370303801ed109145c8ff53">v1d</a>
+</li>
+<li>m1d_andnot()
+: <a class="el" href="group__mlogic.html#ga9f7b9acb8a5fb07db50ec288d20dd164">v1d</a>
+</li>
+<li>m1d_cast_v1d()
+: <a class="el" href="group__mcast.html#gad85f0f11110d481a24a119fb5696378c">v1d</a>
 </li>
 <li>m1d_cvt_m1d()
 : <a class="el" href="group__mconvert.html#ga56082bd7610a19144608df64466c6baf">v1d</a>
@@ -232,50 +234,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m1d_cvt_m1l()
 : <a class="el" href="group__mconvert.html#ga59f6e25230864595b02e60b9119395b6">v1d</a>
 </li>
-<li>m1d_cvt_m2d()
-: <a class="el" href="group__mconvert.html#ga9b6bacf439cdb497ea56afb54f53d68a">v1d</a>
-</li>
-<li>m1d_cvt_m2f()
-: <a class="el" href="group__mconvert.html#ga23a07e56cc1ca744e6eb75f69b141416">v1d</a>
-</li>
-<li>m1d_cvt_m2i()
-: <a class="el" href="group__mconvert.html#ga4bf4485fb4ef18dbca6de7d3b4e1b507">v1d</a>
-</li>
-<li>m1d_cvt_m2l()
-: <a class="el" href="group__mconvert.html#ga1aad95f76b6180e3c5d9fbdc2208b897">v1d</a>
-</li>
-<li>m1d_cvt_m4d()
-: <a class="el" href="group__mconvert.html#gaff24ad12d2053a7aae4a089032f40fb4">v1d</a>
-</li>
-<li>m1d_cvt_m4f()
-: <a class="el" href="group__mconvert.html#gab21dc5ef3090232c4945b2b344d50593">v1d</a>
-</li>
-<li>m1d_cvt_m4i()
-: <a class="el" href="group__mconvert.html#ga7098c244cfc065fefd5b070b53c0186a">v1d</a>
-</li>
-<li>m1d_cvt_m4l()
-: <a class="el" href="group__mconvert.html#ga8d6fdfc5c81211b01f877ea969cc744f">v1d</a>
-</li>
-<li>m1d_cvt_m8d()
-: <a class="el" href="group__mconvert.html#ga21e51ef234c6207714b51ad8b0f11101">v1d</a>
-</li>
-<li>m1d_cvt_m8f()
-: <a class="el" href="group__mconvert.html#gabb8d08d6b2cb5e6d5ff763f4cf683586">v1d</a>
-</li>
-<li>m1d_cvt_m8i()
-: <a class="el" href="group__mconvert.html#gad662d0685d3d5f4ec821452860cd9c9c">v1d</a>
-</li>
-<li>m1d_cvt_m8l()
-: <a class="el" href="group__mconvert.html#gaa00b0f6945cb398741acfca973dd7679">v1d</a>
-</li>
 <li>m1d_cvt_v1d()
 : <a class="el" href="group__mconvert.html#gac0ab795503a3e18c3eebc2efa1fc2357">v1d</a>
 </li>
-<li>m1f_cvt_m16f()
-: <a class="el" href="group__mconvert.html#gada76543604bae3267f3d63b920cbf613">v1f</a>
+<li>m1d_eq()
+: <a class="el" href="group__mcmp.html#ga37862c8ad7fa04aa5e0eecc647932023">v1d</a>
 </li>
-<li>m1f_cvt_m16i()
-: <a class="el" href="group__mconvert.html#gad89e2161f2f766334a0ec85e2567f064">v1f</a>
+<li>m1d_geq()
+: <a class="el" href="group__mcmp.html#ga108346a5b8353e8a87a204a37c22bfa0">v1d</a>
+</li>
+<li>m1d_gt()
+: <a class="el" href="group__mcmp.html#ga8b1607d33721b6ea113086e85ad9a8eb">v1d</a>
+</li>
+<li>m1d_leq()
+: <a class="el" href="group__mcmp.html#gac52c55082829fbb6a311b08fae1b789f">v1d</a>
+</li>
+<li>m1d_lt()
+: <a class="el" href="group__mcmp.html#gada5b12c17949c689df54f44b6a25ee0e">v1d</a>
+</li>
+<li>m1d_nand()
+: <a class="el" href="group__mlogic.html#gad202f631e1ed8c61f5d889d99dd7b183">v1d</a>
+</li>
+<li>m1d_neq()
+: <a class="el" href="group__mcmp.html#ga51b604f6936d6bc64d76926bb79f0766">v1d</a>
+</li>
+<li>m1d_nor()
+: <a class="el" href="group__mlogic.html#ga7866b8797bfd830d0ee3130718b8f5b1">v1d</a>
+</li>
+<li>m1d_not()
+: <a class="el" href="group__mlogic.html#ga775a337689c306d6b1ebb85dd24167fb">v1d</a>
+</li>
+<li>m1d_nxor()
+: <a class="el" href="group__mlogic.html#ga99b1d43084c155472f20ea1e78376838">v1d</a>
+</li>
+<li>m1d_or()
+: <a class="el" href="group__mlogic.html#gaf617c9c552794e03c3cc472f080fb7c2">v1d</a>
+</li>
+<li>m1d_ornot()
+: <a class="el" href="group__mlogic.html#ga13960553f9798fd9599b18de8772385a">v1d</a>
+</li>
+<li>m1d_xor()
+: <a class="el" href="group__mlogic.html#ga854827670f52d8de53b26da773efe423">v1d</a>
+</li>
+<li>m1f_and()
+: <a class="el" href="group__mlogic.html#ga6adf5fe3b970161c67971214af3c3cf4">v1f</a>
+</li>
+<li>m1f_andnot()
+: <a class="el" href="group__mlogic.html#gae6ec7d643542f315f480f505a34720a9">v1f</a>
+</li>
+<li>m1f_cast_v1f()
+: <a class="el" href="group__mcast.html#ga8763f53bcfcb2ada0c9a1f090e706364">v1f</a>
 </li>
 <li>m1f_cvt_m1d()
 : <a class="el" href="group__mconvert.html#ga910000c60e36d488c26e65e19f31931c">v1f</a>
@@ -289,50 +297,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m1f_cvt_m1l()
 : <a class="el" href="group__mconvert.html#ga92e7d09dfa04e5a52a40a0f367e4f054">v1f</a>
 </li>
-<li>m1f_cvt_m2d()
-: <a class="el" href="group__mconvert.html#gac1d6a4bdfb4b258386ad35bff62d4f7f">v1f</a>
-</li>
-<li>m1f_cvt_m2f()
-: <a class="el" href="group__mconvert.html#gacf4a669ef19881cabb2d2846c698a639">v1f</a>
-</li>
-<li>m1f_cvt_m2i()
-: <a class="el" href="group__mconvert.html#gae01dcdcea96f79ade7d5d990d4a4dffb">v1f</a>
-</li>
-<li>m1f_cvt_m2l()
-: <a class="el" href="group__mconvert.html#ga4e74cf60dc7d7d54b5f3dad15eae78ce">v1f</a>
-</li>
-<li>m1f_cvt_m4d()
-: <a class="el" href="group__mconvert.html#ga6f1bf81c5947edd1b0005a1e13f00ad7">v1f</a>
-</li>
-<li>m1f_cvt_m4f()
-: <a class="el" href="group__mconvert.html#gafac10a96725e3738305c59433baaf144">v1f</a>
-</li>
-<li>m1f_cvt_m4i()
-: <a class="el" href="group__mconvert.html#ga54d3cc253ae6ccf17604cecf99a42a1d">v1f</a>
-</li>
-<li>m1f_cvt_m4l()
-: <a class="el" href="group__mconvert.html#ga4c5a7ea45121faa7e27e9cddaec4b308">v1f</a>
-</li>
-<li>m1f_cvt_m8d()
-: <a class="el" href="group__mconvert.html#gaccfdce56a07ab87793a54bcbf97b3d88">v1f</a>
-</li>
-<li>m1f_cvt_m8f()
-: <a class="el" href="group__mconvert.html#ga9e1cb0d173f3dc7f49d015320583de13">v1f</a>
-</li>
-<li>m1f_cvt_m8i()
-: <a class="el" href="group__mconvert.html#gad523f71e7d1f415a01a2805e21d77c18">v1f</a>
-</li>
-<li>m1f_cvt_m8l()
-: <a class="el" href="group__mconvert.html#ga668b60201147d8b97a85222dd9e01e17">v1f</a>
-</li>
 <li>m1f_cvt_v1f()
 : <a class="el" href="group__mconvert.html#gad1c42bf69cff101dcf78296be0590971">v1f</a>
 </li>
-<li>m1i_cvt_m16f()
-: <a class="el" href="group__mconvert.html#ga5efe7b3432d87807ed9367f471866ead">v1i</a>
+<li>m1f_eq()
+: <a class="el" href="group__mcmp.html#gac7e69e10b14c1f362863b656e85c0bb2">v1f</a>
 </li>
-<li>m1i_cvt_m16i()
-: <a class="el" href="group__mconvert.html#ga8bbc3604a00e642bb5094a22622f6e36">v1i</a>
+<li>m1f_geq()
+: <a class="el" href="group__mcmp.html#ga9322e4907d59eac00d81f51439b9d3b7">v1f</a>
+</li>
+<li>m1f_gt()
+: <a class="el" href="group__mcmp.html#ga75c637a42d9ecf8531d28397e273fe58">v1f</a>
+</li>
+<li>m1f_leq()
+: <a class="el" href="group__mcmp.html#gac6f7c8532438f52c54cc23cc9c29820e">v1f</a>
+</li>
+<li>m1f_lt()
+: <a class="el" href="group__mcmp.html#gae784a772f251a11c37b4bf2d42e2756a">v1f</a>
+</li>
+<li>m1f_nand()
+: <a class="el" href="group__mlogic.html#gaac3c9b23d3e2f1338190e7c7dfb8c84c">v1f</a>
+</li>
+<li>m1f_neq()
+: <a class="el" href="group__mcmp.html#ga32b45807eb94f57401e49a219ab1e821">v1f</a>
+</li>
+<li>m1f_nor()
+: <a class="el" href="group__mlogic.html#ga785320ce01edd8c6298146f90f7a2ce5">v1f</a>
+</li>
+<li>m1f_not()
+: <a class="el" href="group__mlogic.html#ga15a2ff823392a23695346366e3fe7ea2">v1f</a>
+</li>
+<li>m1f_nxor()
+: <a class="el" href="group__mlogic.html#ga530ddc1ead84b335b23f4d8bef5e6fe7">v1f</a>
+</li>
+<li>m1f_or()
+: <a class="el" href="group__mlogic.html#ga404e0706807d3ac21bebfd594f56df78">v1f</a>
+</li>
+<li>m1f_ornot()
+: <a class="el" href="group__mlogic.html#gabb9cc25e9201ab0e8a6bd50fe681d16c">v1f</a>
+</li>
+<li>m1f_xor()
+: <a class="el" href="group__mlogic.html#ga15c7585c115d1b8ecbbe85beeaf59a85">v1f</a>
+</li>
+<li>m1i_and()
+: <a class="el" href="group__mlogic.html#gaeb9629f0852dc69a6ff9f0d41fd1c9a7">v1i</a>
+</li>
+<li>m1i_andnot()
+: <a class="el" href="group__mlogic.html#ga0cb01c5c113f92107fcad6d8953c1e8e">v1i</a>
+</li>
+<li>m1i_cast_v1i()
+: <a class="el" href="group__mcast.html#gaef544a40f2b9e57a3c3669eadd54fbfc">v1i</a>
 </li>
 <li>m1i_cvt_m1d()
 : <a class="el" href="group__mconvert.html#gae2c0b30bacdd7ff7b7573103163eccd8">v1i</a>
@@ -346,50 +360,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m1i_cvt_m1l()
 : <a class="el" href="group__mconvert.html#ga0134aef4fbd3555e974dd3a751bcb471">v1i</a>
 </li>
-<li>m1i_cvt_m2d()
-: <a class="el" href="group__mconvert.html#gad56de8eaf52b06aba3cf8ff35f167503">v1i</a>
-</li>
-<li>m1i_cvt_m2f()
-: <a class="el" href="group__mconvert.html#ga106150af30c78f3ab9eb7d4f9cc04fe0">v1i</a>
-</li>
-<li>m1i_cvt_m2i()
-: <a class="el" href="group__mconvert.html#gacc9ca966cb054a0ab58b82da4df7858f">v1i</a>
-</li>
-<li>m1i_cvt_m2l()
-: <a class="el" href="group__mconvert.html#gad1e35a63ba7f1662069e53873edf0538">v1i</a>
-</li>
-<li>m1i_cvt_m4d()
-: <a class="el" href="group__mconvert.html#ga0736770cb614a9c157e2e5a3398d3a5d">v1i</a>
-</li>
-<li>m1i_cvt_m4f()
-: <a class="el" href="group__mconvert.html#ga843d2a9b78aae0e6e02f36007607fd44">v1i</a>
-</li>
-<li>m1i_cvt_m4i()
-: <a class="el" href="group__mconvert.html#gad35a44cea53e32a407995484e144a7d5">v1i</a>
-</li>
-<li>m1i_cvt_m4l()
-: <a class="el" href="group__mconvert.html#gaeaad5ec0936f169a8cf41281e5608fe4">v1i</a>
-</li>
-<li>m1i_cvt_m8d()
-: <a class="el" href="group__mconvert.html#ga62c6f23629603ff2587afc46b2ffccf1">v1i</a>
-</li>
-<li>m1i_cvt_m8f()
-: <a class="el" href="group__mconvert.html#ga357160bdd4a05b43a49e71a790043df6">v1i</a>
-</li>
-<li>m1i_cvt_m8i()
-: <a class="el" href="group__mconvert.html#ga4ee16fb27b81876c21548ab274081361">v1i</a>
-</li>
-<li>m1i_cvt_m8l()
-: <a class="el" href="group__mconvert.html#ga9f38a4938024a9cfeb60611892cfbb46">v1i</a>
-</li>
 <li>m1i_cvt_v1i()
 : <a class="el" href="group__mconvert.html#ga66be63f2f161a19deb0f25a221e54bee">v1i</a>
 </li>
-<li>m1l_cvt_m16f()
-: <a class="el" href="group__mconvert.html#gaafcc16af84dcdba130cbd3f5ab291c66">v1l</a>
+<li>m1i_eq()
+: <a class="el" href="group__mcmp.html#gabd2dd4af8e071a8068aebbe3086cd62a">v1i</a>
 </li>
-<li>m1l_cvt_m16i()
-: <a class="el" href="group__mconvert.html#ga02717baa0be1051329de516b98e12c34">v1l</a>
+<li>m1i_geq()
+: <a class="el" href="group__mcmp.html#gaa3457314f5612a7d2c3baf2502c29929">v1i</a>
+</li>
+<li>m1i_gt()
+: <a class="el" href="group__mcmp.html#ga790e98ae82e26ed5b59de22e64bbf2a3">v1i</a>
+</li>
+<li>m1i_leq()
+: <a class="el" href="group__mcmp.html#ga72d60d1141027dd58786a61060929df9">v1i</a>
+</li>
+<li>m1i_lt()
+: <a class="el" href="group__mcmp.html#ga1fd33202653afc1ee28a43d446db49ae">v1i</a>
+</li>
+<li>m1i_nand()
+: <a class="el" href="group__mlogic.html#gae7f9d441457a3b462baaa3435b1ab807">v1i</a>
+</li>
+<li>m1i_neq()
+: <a class="el" href="group__mcmp.html#ga28fde0e48d4e3e8f3f83e25d96140686">v1i</a>
+</li>
+<li>m1i_nor()
+: <a class="el" href="group__mlogic.html#ga3e18d02f64b42599694570655993bb93">v1i</a>
+</li>
+<li>m1i_not()
+: <a class="el" href="group__mlogic.html#ga63b17485358b24f0ace6e23eea5bdc90">v1i</a>
+</li>
+<li>m1i_nxor()
+: <a class="el" href="group__mlogic.html#gae7986791a6fa6e0875fbe3bb7269c739">v1i</a>
+</li>
+<li>m1i_or()
+: <a class="el" href="group__mlogic.html#ga656718875564dde7f64679fff29e1ef3">v1i</a>
+</li>
+<li>m1i_ornot()
+: <a class="el" href="group__mlogic.html#ga6642ca706b880f0644dcce128bb2cda4">v1i</a>
+</li>
+<li>m1i_xor()
+: <a class="el" href="group__mlogic.html#ga5c9061e53f4a31995658ed50426c0222">v1i</a>
+</li>
+<li>m1l_and()
+: <a class="el" href="group__mlogic.html#ga654f55b9fad720f8f4013826f9ca5f91">v1l</a>
+</li>
+<li>m1l_andnot()
+: <a class="el" href="group__mlogic.html#ga5f6c786f31f47a899808045ad253af62">v1l</a>
+</li>
+<li>m1l_cast_v1l()
+: <a class="el" href="group__mcast.html#ga9853599a0784a80857814054c3d41f66">v1l</a>
 </li>
 <li>m1l_cvt_m1d()
 : <a class="el" href="group__mconvert.html#gafe7b56121ba46953f1a357af44292c2c">v1l</a>
@@ -403,62 +423,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m1l_cvt_m1l()
 : <a class="el" href="group__mconvert.html#gaa070cc17ed60a2fc350445412de17e60">v1l</a>
 </li>
-<li>m1l_cvt_m2d()
-: <a class="el" href="group__mconvert.html#gaa2c477503ec0353e8250424c20e295d5">v1l</a>
-</li>
-<li>m1l_cvt_m2f()
-: <a class="el" href="group__mconvert.html#ga6111b5d832fd67895f508cddddb90da0">v1l</a>
-</li>
-<li>m1l_cvt_m2i()
-: <a class="el" href="group__mconvert.html#ga4d065b94c54ffe26afb796e312c1c08e">v1l</a>
-</li>
-<li>m1l_cvt_m2l()
-: <a class="el" href="group__mconvert.html#ga980c4cdf249c104f26af81c683c61efa">v1l</a>
-</li>
-<li>m1l_cvt_m4d()
-: <a class="el" href="group__mconvert.html#ga4a8cd7f1307ee9266a875766665f26ef">v1l</a>
-</li>
-<li>m1l_cvt_m4f()
-: <a class="el" href="group__mconvert.html#gaafdbdd208b822a5c276a957e0a265f0e">v1l</a>
-</li>
-<li>m1l_cvt_m4i()
-: <a class="el" href="group__mconvert.html#ga2a2146ab077a498e6005439e499ddf64">v1l</a>
-</li>
-<li>m1l_cvt_m4l()
-: <a class="el" href="group__mconvert.html#gaa8eabfc3c0c715dbbde09e24ad6e560f">v1l</a>
-</li>
-<li>m1l_cvt_m8d()
-: <a class="el" href="group__mconvert.html#ga3dc21f927a0f16d3c57b2e9482675ac3">v1l</a>
-</li>
-<li>m1l_cvt_m8f()
-: <a class="el" href="group__mconvert.html#gabe9c3431832dfd14d81b73c1fece95e3">v1l</a>
-</li>
-<li>m1l_cvt_m8i()
-: <a class="el" href="group__mconvert.html#ga2234d7405a64c799b0e57fb683bf9f44">v1l</a>
-</li>
-<li>m1l_cvt_m8l()
-: <a class="el" href="group__mconvert.html#ga9f480fac97b7d150b0bcf6a45b9baee7">v1l</a>
-</li>
 <li>m1l_cvt_v1l()
 : <a class="el" href="group__mconvert.html#gafe63cceb0a905bbfa8f8bf5992b06612">v1l</a>
 </li>
-<li>m2d_cvt_m16f()
-: <a class="el" href="group__mconvert.html#ga76c229e5e2476eabed6ef8e5a6034bd9">v2d</a>
+<li>m1l_eq()
+: <a class="el" href="group__mcmp.html#ga6588410b577acb9ccdaf486deb4e5e89">v1l</a>
 </li>
-<li>m2d_cvt_m16i()
-: <a class="el" href="group__mconvert.html#gaf7c2aa95f467033fe6932f8005fa0500">v2d</a>
+<li>m1l_geq()
+: <a class="el" href="group__mcmp.html#gab6f39f8f50a2a9aa3718e297d24edb30">v1l</a>
 </li>
-<li>m2d_cvt_m1d()
-: <a class="el" href="group__mconvert.html#ga9e340b0a7b9dc52138d8a4da4f7a300c">v2d</a>
+<li>m1l_gt()
+: <a class="el" href="group__mcmp.html#gab731a259496f83bc7fd3b5c2e13c2b3f">v1l</a>
 </li>
-<li>m2d_cvt_m1f()
-: <a class="el" href="group__mconvert.html#ga9f04a656dee9ca0677b1707877fff441">v2d</a>
+<li>m1l_leq()
+: <a class="el" href="group__mcmp.html#ga178f6e686cf79be07f4eddef59199b88">v1l</a>
 </li>
-<li>m2d_cvt_m1i()
-: <a class="el" href="group__mconvert.html#gab5323b867c8ff1b0e9378d4c4a7d1319">v2d</a>
+<li>m1l_lt()
+: <a class="el" href="group__mcmp.html#ga62b7375b2c73f5fe8a218447b1a1d132">v1l</a>
 </li>
-<li>m2d_cvt_m1l()
-: <a class="el" href="group__mconvert.html#ga334ba90caebd884c17917af26cc11d5e">v2d</a>
+<li>m1l_nand()
+: <a class="el" href="group__mlogic.html#ga71976f48af9f88b752796e28fb9e2844">v1l</a>
+</li>
+<li>m1l_neq()
+: <a class="el" href="group__mcmp.html#ga2433520cdd32fd37f0706d4dab2beed2">v1l</a>
+</li>
+<li>m1l_nor()
+: <a class="el" href="group__mlogic.html#ga15435d90b66955108cec1f66e7dfdad0">v1l</a>
+</li>
+<li>m1l_not()
+: <a class="el" href="group__mlogic.html#ga5c040b7ec4e90bafee0b102ef7b3cd1e">v1l</a>
+</li>
+<li>m1l_nxor()
+: <a class="el" href="group__mlogic.html#ga72f360b5afe76a6e0410a72eb955ac5c">v1l</a>
+</li>
+<li>m1l_or()
+: <a class="el" href="group__mlogic.html#ga4c59e736ec4140053a392fc2de52e396">v1l</a>
+</li>
+<li>m1l_ornot()
+: <a class="el" href="group__mlogic.html#ga240c8c5f6a49510cb6a8ca5bf9182658">v1l</a>
+</li>
+<li>m1l_xor()
+: <a class="el" href="group__mlogic.html#ga0508db5b4ecc78c0149aa81ad331235e">v1l</a>
+</li>
+<li>m2d_and()
+: <a class="el" href="group__mlogic.html#ga08e23eb24155f6668b594a0d81feff36">v2d</a>
+</li>
+<li>m2d_andnot()
+: <a class="el" href="group__mlogic.html#gacd88a976269a0d3affa95a7e5ecf3e59">v2d</a>
+</li>
+<li>m2d_cast_v2d()
+: <a class="el" href="group__mcast.html#ga540f6152c9420471a78e1625e647429b">v2d</a>
 </li>
 <li>m2d_cvt_m2d()
 : <a class="el" href="group__mconvert.html#gad0ce373cc50b06e1892b3b4c3d211fe5">v2d</a>
@@ -472,50 +486,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m2d_cvt_m2l()
 : <a class="el" href="group__mconvert.html#gacce02689220380fb694165d26f0f9199">v2d</a>
 </li>
-<li>m2d_cvt_m4d()
-: <a class="el" href="group__mconvert.html#ga8be6e605467fe36d2f15d6cfddb67862">v2d</a>
-</li>
-<li>m2d_cvt_m4f()
-: <a class="el" href="group__mconvert.html#ga0e7d5ec6e48f37906831af958c2651ae">v2d</a>
-</li>
-<li>m2d_cvt_m4i()
-: <a class="el" href="group__mconvert.html#ga5ffaae1f80ad116f9f280aa5f6368161">v2d</a>
-</li>
-<li>m2d_cvt_m4l()
-: <a class="el" href="group__mconvert.html#ga2fc97fdcbfc0fc6d4d74d1d01b1473c9">v2d</a>
-</li>
-<li>m2d_cvt_m8d()
-: <a class="el" href="group__mconvert.html#gad6d4e383d414c2652f5967801b6af6ee">v2d</a>
-</li>
-<li>m2d_cvt_m8f()
-: <a class="el" href="group__mconvert.html#ga56761527983012f7186a8e4b4b5336ee">v2d</a>
-</li>
-<li>m2d_cvt_m8i()
-: <a class="el" href="group__mconvert.html#gaf4c0999f53edd83d90b851a30a389156">v2d</a>
-</li>
-<li>m2d_cvt_m8l()
-: <a class="el" href="group__mconvert.html#ga6ffa98088055cd29387f0bdbd414a01b">v2d</a>
-</li>
 <li>m2d_cvt_v2d()
 : <a class="el" href="group__mconvert.html#ga671029c1bdc511fba1901c939e6b5770">v2d</a>
 </li>
-<li>m2f_cvt_m16f()
-: <a class="el" href="group__mconvert.html#ga3075547f934bf7005300f918d4aff4df">v2f</a>
+<li>m2d_eq()
+: <a class="el" href="group__mcmp.html#ga7f24f558b324f456862ab48f7de4dad7">v2d</a>
 </li>
-<li>m2f_cvt_m16i()
-: <a class="el" href="group__mconvert.html#gaa34ee25c61074f03885d103a6f76fc51">v2f</a>
+<li>m2d_geq()
+: <a class="el" href="group__mcmp.html#gad4446e1ad81b8283c2ae5c58e1620bad">v2d</a>
 </li>
-<li>m2f_cvt_m1d()
-: <a class="el" href="group__mconvert.html#ga4c172cf47285cbf73545e2bcd9e134ac">v2f</a>
+<li>m2d_gt()
+: <a class="el" href="group__mcmp.html#ga8fbbaf48d19271186c4d652d1107da07">v2d</a>
 </li>
-<li>m2f_cvt_m1f()
-: <a class="el" href="group__mconvert.html#ga852dea26436de579eca82adfb53f1f65">v2f</a>
+<li>m2d_leq()
+: <a class="el" href="group__mcmp.html#ga6d154f2f4aa1defe9ff6b614e3b7abe7">v2d</a>
 </li>
-<li>m2f_cvt_m1i()
-: <a class="el" href="group__mconvert.html#ga9c511ae3f6f759851d24a7cc167e1f5e">v2f</a>
+<li>m2d_lt()
+: <a class="el" href="group__mcmp.html#gac06a6fb5f2588c3774f20c73f49688fe">v2d</a>
 </li>
-<li>m2f_cvt_m1l()
-: <a class="el" href="group__mconvert.html#gaee9a61b4859793c36eb938b4e717708f">v2f</a>
+<li>m2d_nand()
+: <a class="el" href="group__mlogic.html#ga03a384b78cc2fc7a6e63d454dc99418d">v2d</a>
+</li>
+<li>m2d_neq()
+: <a class="el" href="group__mcmp.html#ga82a78768e0d516a03e5a9603e2b45075">v2d</a>
+</li>
+<li>m2d_nor()
+: <a class="el" href="group__mlogic.html#ga95b8173c8c4db3aca47552118d301a11">v2d</a>
+</li>
+<li>m2d_not()
+: <a class="el" href="group__mlogic.html#ga2aba4e06c6011d76f5119daf95a22d06">v2d</a>
+</li>
+<li>m2d_nxor()
+: <a class="el" href="group__mlogic.html#gab8d41bed84488598f1b512b526a27d02">v2d</a>
+</li>
+<li>m2d_or()
+: <a class="el" href="group__mlogic.html#gac9bf2c323c83ce3131dc61ca8d2e50bc">v2d</a>
+</li>
+<li>m2d_ornot()
+: <a class="el" href="group__mlogic.html#gaf0b3b02691d26f5e4bf4f0a156daa896">v2d</a>
+</li>
+<li>m2d_xor()
+: <a class="el" href="group__mlogic.html#gaa1e2a060ae922c0009fa6b9f6ef5e9aa">v2d</a>
+</li>
+<li>m2f_and()
+: <a class="el" href="group__mlogic.html#gadae7144b8614b22ff0355220b55237b8">v2f</a>
+</li>
+<li>m2f_andnot()
+: <a class="el" href="group__mlogic.html#ga1d147fbd97cbe44692a41e6032b89249">v2f</a>
+</li>
+<li>m2f_cast_v2f()
+: <a class="el" href="group__mcast.html#ga940f56f6298f64ab8b15d9329abf2189">v2f</a>
 </li>
 <li>m2f_cvt_m2d()
 : <a class="el" href="group__mconvert.html#gae8773fd84e7f4da5902444d8a04f1aab">v2f</a>
@@ -529,50 +549,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m2f_cvt_m2l()
 : <a class="el" href="group__mconvert.html#gad6ae01d1fd5ae5a2ab67429729782435">v2f</a>
 </li>
-<li>m2f_cvt_m4d()
-: <a class="el" href="group__mconvert.html#ga982cf9bdc9b3d4760c8fa5fbd0a64eee">v2f</a>
-</li>
-<li>m2f_cvt_m4f()
-: <a class="el" href="group__mconvert.html#ga3c109e06bb8d00ecad305997fd47c8f3">v2f</a>
-</li>
-<li>m2f_cvt_m4i()
-: <a class="el" href="group__mconvert.html#gad237234b4c0e066c6f114527db6c9437">v2f</a>
-</li>
-<li>m2f_cvt_m4l()
-: <a class="el" href="group__mconvert.html#ga6a1972789c262d203c7890f7df3d3909">v2f</a>
-</li>
-<li>m2f_cvt_m8d()
-: <a class="el" href="group__mconvert.html#gaa1e992b35a6754fc58940f10009bca83">v2f</a>
-</li>
-<li>m2f_cvt_m8f()
-: <a class="el" href="group__mconvert.html#ga82ca47f643a726eb2ab3f264a280d8c9">v2f</a>
-</li>
-<li>m2f_cvt_m8i()
-: <a class="el" href="group__mconvert.html#ga152841131127825a72502ed06f90435e">v2f</a>
-</li>
-<li>m2f_cvt_m8l()
-: <a class="el" href="group__mconvert.html#ga7bed81f7f63052d5fee5cfc635735a1f">v2f</a>
-</li>
 <li>m2f_cvt_v2f()
 : <a class="el" href="group__mconvert.html#ga5c51dc280fe080248f9552454872c2fa">v2f</a>
 </li>
-<li>m2i_cvt_m16f()
-: <a class="el" href="group__mconvert.html#ga779a6feccef7b74c8446c745c69366b6">v2i</a>
+<li>m2f_eq()
+: <a class="el" href="group__mcmp.html#gab86498402cf29dbe468ba111d8101510">v2f</a>
 </li>
-<li>m2i_cvt_m16i()
-: <a class="el" href="group__mconvert.html#ga4e1bd320784bee53b0ea98bbdb21cee1">v2i</a>
+<li>m2f_geq()
+: <a class="el" href="group__mcmp.html#gab62fc99d3c077349a1c03f3581410054">v2f</a>
 </li>
-<li>m2i_cvt_m1d()
-: <a class="el" href="group__mconvert.html#ga52570d48926659b463aa232810e52222">v2i</a>
+<li>m2f_gt()
+: <a class="el" href="group__mcmp.html#gac0de842ac9401a8502dd57787c1a3957">v2f</a>
 </li>
-<li>m2i_cvt_m1f()
-: <a class="el" href="group__mconvert.html#gad3f15b613229e18c8833a5008f81c0d4">v2i</a>
+<li>m2f_leq()
+: <a class="el" href="group__mcmp.html#gaa94057c75f7eb64bcd8af8808866fac0">v2f</a>
 </li>
-<li>m2i_cvt_m1i()
-: <a class="el" href="group__mconvert.html#gab0f2cd19cb087032508042acf3419037">v2i</a>
+<li>m2f_lt()
+: <a class="el" href="group__mcmp.html#ga5a157d205d85924dce12ede621457c5a">v2f</a>
 </li>
-<li>m2i_cvt_m1l()
-: <a class="el" href="group__mconvert.html#gad50872ad1b61970f0122706ff00daee4">v2i</a>
+<li>m2f_nand()
+: <a class="el" href="group__mlogic.html#gac56feb48fcf67714ecc109fb6d280a24">v2f</a>
+</li>
+<li>m2f_neq()
+: <a class="el" href="group__mcmp.html#ga77b7888a37dbcbe9cf7e017705787178">v2f</a>
+</li>
+<li>m2f_nor()
+: <a class="el" href="group__mlogic.html#gac8672d1e04efb86059dd58ea4b2e4b5f">v2f</a>
+</li>
+<li>m2f_not()
+: <a class="el" href="group__mlogic.html#gac3c2b69e4ffa8c5fce28e1e65761fdeb">v2f</a>
+</li>
+<li>m2f_nxor()
+: <a class="el" href="group__mlogic.html#ga928c2615c338b9ea079caf07b83b7124">v2f</a>
+</li>
+<li>m2f_or()
+: <a class="el" href="group__mlogic.html#ga6bc7aa091c6c0d4304fd8b57a6a87a8c">v2f</a>
+</li>
+<li>m2f_ornot()
+: <a class="el" href="group__mlogic.html#gadecc17a49d7ea467ab8da909b304fa0d">v2f</a>
+</li>
+<li>m2f_xor()
+: <a class="el" href="group__mlogic.html#ga1a14c002d39403b073838aad7946420d">v2f</a>
+</li>
+<li>m2i_and()
+: <a class="el" href="group__mlogic.html#gaae4aba3c132c199606546cd67abeb444">v2i</a>
+</li>
+<li>m2i_andnot()
+: <a class="el" href="group__mlogic.html#ga60237dcbee486ba7d4cc7cade62549f0">v2i</a>
+</li>
+<li>m2i_cast_v2i()
+: <a class="el" href="group__mcast.html#ga8e0f885bbd69c1e6dac4398808c3126b">v2i</a>
 </li>
 <li>m2i_cvt_m2d()
 : <a class="el" href="group__mconvert.html#gaea281a1dea8458c151cc8ae805fe5e25">v2i</a>
@@ -586,50 +612,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m2i_cvt_m2l()
 : <a class="el" href="group__mconvert.html#gab18a37bae6e2c5cfd6c295d098ea82f6">v2i</a>
 </li>
-<li>m2i_cvt_m4d()
-: <a class="el" href="group__mconvert.html#ga8947fb80ff049952ecb4b48dd84d0e42">v2i</a>
-</li>
-<li>m2i_cvt_m4f()
-: <a class="el" href="group__mconvert.html#ga811f677f797801a21d13e1d777fd8bee">v2i</a>
-</li>
-<li>m2i_cvt_m4i()
-: <a class="el" href="group__mconvert.html#ga32bcaaf52688490e558ac27dc2b0b7bf">v2i</a>
-</li>
-<li>m2i_cvt_m4l()
-: <a class="el" href="group__mconvert.html#ga50c542ddaff82b0196219b7a30a6680d">v2i</a>
-</li>
-<li>m2i_cvt_m8d()
-: <a class="el" href="group__mconvert.html#gae0793f9e57e55e1d94e7b626d47a2b5f">v2i</a>
-</li>
-<li>m2i_cvt_m8f()
-: <a class="el" href="group__mconvert.html#gace9d5abf0d78f81cfd977a5fdad196fe">v2i</a>
-</li>
-<li>m2i_cvt_m8i()
-: <a class="el" href="group__mconvert.html#gaf1e62b152a7ef6b0eb4b6c976e874092">v2i</a>
-</li>
-<li>m2i_cvt_m8l()
-: <a class="el" href="group__mconvert.html#ga2afbf4cba93bd52a566a27c2d83bcdc0">v2i</a>
-</li>
 <li>m2i_cvt_v2i()
 : <a class="el" href="group__mconvert.html#ga52da12ed5c5aa5cf75fda69060aa6065">v2i</a>
 </li>
-<li>m2l_cvt_m16f()
-: <a class="el" href="group__mconvert.html#ga5160e453e8250886fb29e144ca2f2252">v2l</a>
+<li>m2i_eq()
+: <a class="el" href="group__mcmp.html#ga3f9f4d11c16946325f1b5ffb4c09d6e8">v2i</a>
 </li>
-<li>m2l_cvt_m16i()
-: <a class="el" href="group__mconvert.html#ga4d3bffa723059573f81c6609a1f96053">v2l</a>
+<li>m2i_geq()
+: <a class="el" href="group__mcmp.html#gac9f377cb42f5d7d1bb0c4c6e5b490544">v2i</a>
 </li>
-<li>m2l_cvt_m1d()
-: <a class="el" href="group__mconvert.html#gaa21d80227558e43d5fd77d09052e33f2">v2l</a>
+<li>m2i_gt()
+: <a class="el" href="group__mcmp.html#ga42706531e4b79a95ccb0aefd5be261f5">v2i</a>
 </li>
-<li>m2l_cvt_m1f()
-: <a class="el" href="group__mconvert.html#ga31ffbc4acee1e3ddf95e6c6c43b2797a">v2l</a>
+<li>m2i_leq()
+: <a class="el" href="group__mcmp.html#ga803e4d5eda4c193db8beaf0da9acd74f">v2i</a>
 </li>
-<li>m2l_cvt_m1i()
-: <a class="el" href="group__mconvert.html#gaaec7fe7158587e912239dda2c3f7b1fa">v2l</a>
+<li>m2i_lt()
+: <a class="el" href="group__mcmp.html#ga8ca1e983762108f348d1e914dbdb898f">v2i</a>
 </li>
-<li>m2l_cvt_m1l()
-: <a class="el" href="group__mconvert.html#ga525d3ac58fea1675ba836ab637f775c3">v2l</a>
+<li>m2i_nand()
+: <a class="el" href="group__mlogic.html#gadfbcfe524206e1770a07b42a4d4f5f6a">v2i</a>
+</li>
+<li>m2i_neq()
+: <a class="el" href="group__mcmp.html#ga3cd3606dd0ad12312f9b19ad67668ff6">v2i</a>
+</li>
+<li>m2i_nor()
+: <a class="el" href="group__mlogic.html#gaa97973e140a6528aac74f3aa47c50d20">v2i</a>
+</li>
+<li>m2i_not()
+: <a class="el" href="group__mlogic.html#ga77f3a80d909f87a950648b5bb8dff4f5">v2i</a>
+</li>
+<li>m2i_nxor()
+: <a class="el" href="group__mlogic.html#ga2d6d06743628e56d7465930d7764f55b">v2i</a>
+</li>
+<li>m2i_or()
+: <a class="el" href="group__mlogic.html#ga0870468f130b488de39e3a59754f0b95">v2i</a>
+</li>
+<li>m2i_ornot()
+: <a class="el" href="group__mlogic.html#ga51ee71d7fc5e77e0f1819fadace01444">v2i</a>
+</li>
+<li>m2i_xor()
+: <a class="el" href="group__mlogic.html#gac9a1ef6abe49b1e65cd5e950803bf5ec">v2i</a>
+</li>
+<li>m2l_and()
+: <a class="el" href="group__mlogic.html#ga41332616ab30e4e387d7ee5d75029f20">v2l</a>
+</li>
+<li>m2l_andnot()
+: <a class="el" href="group__mlogic.html#gabc980740437c47b45075741da88cf53a">v2l</a>
+</li>
+<li>m2l_cast_v2l()
+: <a class="el" href="group__mcast.html#gab50661f6d37f9f1dd30e6a7a50792c24">v2l</a>
 </li>
 <li>m2l_cvt_m2d()
 : <a class="el" href="group__mconvert.html#ga2a0c1d50de0ed3f4dc7c32d47c31a6e3">v2l</a>
@@ -643,62 +675,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m2l_cvt_m2l()
 : <a class="el" href="group__mconvert.html#ga957b67ace4c27ffd133b99e1847da934">v2l</a>
 </li>
-<li>m2l_cvt_m4d()
-: <a class="el" href="group__mconvert.html#gaa841141511b774ecb28f4b68012b3aac">v2l</a>
-</li>
-<li>m2l_cvt_m4f()
-: <a class="el" href="group__mconvert.html#ga5d0ca99e3227f0c407df364e1f70d6d3">v2l</a>
-</li>
-<li>m2l_cvt_m4i()
-: <a class="el" href="group__mconvert.html#gacfe0a201056c58c5f76d4d87648083c5">v2l</a>
-</li>
-<li>m2l_cvt_m4l()
-: <a class="el" href="group__mconvert.html#gae86ef3896fa857ce8c476e2c5007834a">v2l</a>
-</li>
-<li>m2l_cvt_m8d()
-: <a class="el" href="group__mconvert.html#gae5b6adfc4668a56583c6479399c7ae08">v2l</a>
-</li>
-<li>m2l_cvt_m8f()
-: <a class="el" href="group__mconvert.html#ga37579657fbb69dbed53ebdbf86c5e938">v2l</a>
-</li>
-<li>m2l_cvt_m8i()
-: <a class="el" href="group__mconvert.html#gac280b9dbd47a36fd403766e62cda5275">v2l</a>
-</li>
-<li>m2l_cvt_m8l()
-: <a class="el" href="group__mconvert.html#ga313c60aa15b383ae365f83cbabf54024">v2l</a>
-</li>
 <li>m2l_cvt_v2l()
 : <a class="el" href="group__mconvert.html#ga3a8980157ab19b9a83d0f55cbab89963">v2l</a>
 </li>
-<li>m4d_cvt_m16f()
-: <a class="el" href="group__mconvert.html#ga5948f649b4f87b99e42c4b1d0d907a2f">v4d</a>
+<li>m2l_eq()
+: <a class="el" href="group__mcmp.html#ga016319fd9107e630f27f36d158a576f7">v2l</a>
 </li>
-<li>m4d_cvt_m16i()
-: <a class="el" href="group__mconvert.html#ga67992173db8ccbf10d03f00b4814940d">v4d</a>
+<li>m2l_geq()
+: <a class="el" href="group__mcmp.html#ga4068156068e07bae5d066a8020d61e1b">v2l</a>
 </li>
-<li>m4d_cvt_m1d()
-: <a class="el" href="group__mconvert.html#ga3f7199e47e79dc8cdec327ae56f083a5">v4d</a>
+<li>m2l_gt()
+: <a class="el" href="group__mcmp.html#gad98889b4093d6cb6107c571bc1671994">v2l</a>
 </li>
-<li>m4d_cvt_m1f()
-: <a class="el" href="group__mconvert.html#gae793e1059b28cd4ee325297e31ac426d">v4d</a>
+<li>m2l_leq()
+: <a class="el" href="group__mcmp.html#ga790b673a05f90a3d2b40d2da7194805f">v2l</a>
 </li>
-<li>m4d_cvt_m1i()
-: <a class="el" href="group__mconvert.html#ga539ded2f3cec705d0f0c89b1824247ad">v4d</a>
+<li>m2l_lt()
+: <a class="el" href="group__mcmp.html#gac506efc57b60269b84b6e4dcbe40cd26">v2l</a>
 </li>
-<li>m4d_cvt_m1l()
-: <a class="el" href="group__mconvert.html#ga3cc2f3dce01ebebb9140bca514d39bf4">v4d</a>
+<li>m2l_nand()
+: <a class="el" href="group__mlogic.html#ga338979d2857bcb1d19a676796ffba105">v2l</a>
 </li>
-<li>m4d_cvt_m2d()
-: <a class="el" href="group__mconvert.html#ga035204a820d2c84e27328de4f67ebfea">v4d</a>
+<li>m2l_neq()
+: <a class="el" href="group__mcmp.html#ga08583315f7eea00ffed1fdd7fea53b62">v2l</a>
 </li>
-<li>m4d_cvt_m2f()
-: <a class="el" href="group__mconvert.html#gaedf0de34f463464d9515b30531ea3edf">v4d</a>
+<li>m2l_nor()
+: <a class="el" href="group__mlogic.html#ga59163a4ac41a2d9c3ab3c0318a0d53ff">v2l</a>
 </li>
-<li>m4d_cvt_m2i()
-: <a class="el" href="group__mconvert.html#ga176e238b53ce0dac441cff496c4e68f9">v4d</a>
+<li>m2l_not()
+: <a class="el" href="group__mlogic.html#ga2d37dd8c8add29c49cbd86fdc4e046c0">v2l</a>
 </li>
-<li>m4d_cvt_m2l()
-: <a class="el" href="group__mconvert.html#gadd0816562a1dff718028b79b6fa11663">v4d</a>
+<li>m2l_nxor()
+: <a class="el" href="group__mlogic.html#ga58ba3c76a63f20811dc698f2dde8369d">v2l</a>
+</li>
+<li>m2l_or()
+: <a class="el" href="group__mlogic.html#ga57055131863b64073cc7a03f48c54e02">v2l</a>
+</li>
+<li>m2l_ornot()
+: <a class="el" href="group__mlogic.html#gaf5bba7e8ad6e2669a6b07dd07bc596ca">v2l</a>
+</li>
+<li>m2l_xor()
+: <a class="el" href="group__mlogic.html#gadb0b9cd3cd374edfeec10d1578515194">v2l</a>
+</li>
+<li>m4d_and()
+: <a class="el" href="group__mlogic.html#ga253db0f34c18eb9cc3e651877741740e">v4d</a>
+</li>
+<li>m4d_andnot()
+: <a class="el" href="group__mlogic.html#ga62378ed5e21d2bf8950bb77860a18e32">v4d</a>
+</li>
+<li>m4d_cast_v4d()
+: <a class="el" href="group__mcast.html#ga4760019fed85c265e64fabb08f1c40f3">v4d</a>
 </li>
 <li>m4d_cvt_m4d()
 : <a class="el" href="group__mconvert.html#gae16338cf35c76b276790ec0159e021be">v4d</a>
@@ -712,50 +738,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m4d_cvt_m4l()
 : <a class="el" href="group__mconvert.html#gaa937f63b72de61ca414daf3fa89e18ce">v4d</a>
 </li>
-<li>m4d_cvt_m8d()
-: <a class="el" href="group__mconvert.html#ga9d776102a894fe67596d3303e0aa1b53">v4d</a>
-</li>
-<li>m4d_cvt_m8f()
-: <a class="el" href="group__mconvert.html#ga04bba10f51c1475aaa81e1423177a1a7">v4d</a>
-</li>
-<li>m4d_cvt_m8i()
-: <a class="el" href="group__mconvert.html#gab8a321216035ec50bd9e67eb977fb307">v4d</a>
-</li>
-<li>m4d_cvt_m8l()
-: <a class="el" href="group__mconvert.html#gaf1f9d2fea4e4963ba5a78dec25aadb62">v4d</a>
-</li>
 <li>m4d_cvt_v4d()
 : <a class="el" href="group__mconvert.html#gaf6c1a590daa6d8f4d198967cdc5c77e7">v4d</a>
 </li>
-<li>m4f_cvt_m16f()
-: <a class="el" href="group__mconvert.html#ga897c35bf0322dd76fb9d01dd9ebb660e">v4f</a>
+<li>m4d_eq()
+: <a class="el" href="group__mcmp.html#ga9b11677c4f255f5f16cd33de9f784f65">v4d</a>
 </li>
-<li>m4f_cvt_m16i()
-: <a class="el" href="group__mconvert.html#gac5254af4b3cce06c7cd6c64909e7814e">v4f</a>
+<li>m4d_geq()
+: <a class="el" href="group__mcmp.html#gaed58d6ebdd6e2f39948058dd9508bb98">v4d</a>
 </li>
-<li>m4f_cvt_m1d()
-: <a class="el" href="group__mconvert.html#gaf32a0da48067744fe01d5ac45b2f080d">v4f</a>
+<li>m4d_gt()
+: <a class="el" href="group__mcmp.html#gada8b2d68286ffb0d0866dfd48ae17aed">v4d</a>
 </li>
-<li>m4f_cvt_m1f()
-: <a class="el" href="group__mconvert.html#ga340ae66aa38efa08b1001bb13545c506">v4f</a>
+<li>m4d_leq()
+: <a class="el" href="group__mcmp.html#ga22e774254ce3981f628300c2d0a3942a">v4d</a>
 </li>
-<li>m4f_cvt_m1i()
-: <a class="el" href="group__mconvert.html#ga3f0b6e2f9a2ae2993407dda7be680485">v4f</a>
+<li>m4d_lt()
+: <a class="el" href="group__mcmp.html#ga12e91b56e99b4894582a400141192f5d">v4d</a>
 </li>
-<li>m4f_cvt_m1l()
-: <a class="el" href="group__mconvert.html#gaeff5bac9b9febe90a1d43318a8a43696">v4f</a>
+<li>m4d_nand()
+: <a class="el" href="group__mlogic.html#ga093063af30e61dec8f0970440ed84545">v4d</a>
 </li>
-<li>m4f_cvt_m2d()
-: <a class="el" href="group__mconvert.html#gaa2afa35d114eaa9a5baba5707773ed31">v4f</a>
+<li>m4d_neq()
+: <a class="el" href="group__mcmp.html#gaeb0c9628775bc296732d190c442cf18a">v4d</a>
 </li>
-<li>m4f_cvt_m2f()
-: <a class="el" href="group__mconvert.html#gab6c246492fd5b1d50476fafe3e46ecbc">v4f</a>
+<li>m4d_nor()
+: <a class="el" href="group__mlogic.html#ga9efbd19529026cac8dc1349fb17c7504">v4d</a>
 </li>
-<li>m4f_cvt_m2i()
-: <a class="el" href="group__mconvert.html#ga8e813f4cca274c29a5bd4dcfd864d323">v4f</a>
+<li>m4d_not()
+: <a class="el" href="group__mlogic.html#ga11778ff8ac6d53e3e0181cb69713cf64">v4d</a>
 </li>
-<li>m4f_cvt_m2l()
-: <a class="el" href="group__mconvert.html#ga0e03c96e891717171a14061c2c4211c4">v4f</a>
+<li>m4d_nxor()
+: <a class="el" href="group__mlogic.html#ga43a0f260e3c30fb8a1a7a262a5a8f9e7">v4d</a>
+</li>
+<li>m4d_or()
+: <a class="el" href="group__mlogic.html#ga39271bd677d5ffb59f1a9aaab817b5d6">v4d</a>
+</li>
+<li>m4d_ornot()
+: <a class="el" href="group__mlogic.html#ga6e4c81f10bf6dd2d5136c4baf56298cd">v4d</a>
+</li>
+<li>m4d_xor()
+: <a class="el" href="group__mlogic.html#ga01a4cd57ab5096eec5b399d258d76e9f">v4d</a>
+</li>
+<li>m4f_and()
+: <a class="el" href="group__mlogic.html#gaac3abc2e6c47753321883a71b8007e57">v4f</a>
+</li>
+<li>m4f_andnot()
+: <a class="el" href="group__mlogic.html#gacc1e6bfc8c4b139b6556fce9aa315b34">v4f</a>
+</li>
+<li>m4f_cast_v4f()
+: <a class="el" href="group__mcast.html#gaca485834dbd7ed2eaff07aeca3d17d5d">v4f</a>
 </li>
 <li>m4f_cvt_m4d()
 : <a class="el" href="group__mconvert.html#ga53c6d9e07bfb85e813be45a53fb49cef">v4f</a>
@@ -769,50 +801,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m4f_cvt_m4l()
 : <a class="el" href="group__mconvert.html#ga9946fdda3f05d1ee5a338f0ae44cfafa">v4f</a>
 </li>
-<li>m4f_cvt_m8d()
-: <a class="el" href="group__mconvert.html#gafdd7ddbe178d86ea32c50149249a395f">v4f</a>
-</li>
-<li>m4f_cvt_m8f()
-: <a class="el" href="group__mconvert.html#ga3d973041eb3536ffa589617fb6b2fdcd">v4f</a>
-</li>
-<li>m4f_cvt_m8i()
-: <a class="el" href="group__mconvert.html#ga1e2ee6164b5c7195a666f5b6a9643c4f">v4f</a>
-</li>
-<li>m4f_cvt_m8l()
-: <a class="el" href="group__mconvert.html#gaf22f7916c2d21b9bf96c21a694007f51">v4f</a>
-</li>
 <li>m4f_cvt_v4f()
 : <a class="el" href="group__mconvert.html#gae7f054c5541a1e6a100f93fd68ffe251">v4f</a>
 </li>
-<li>m4i_cvt_m16f()
-: <a class="el" href="group__mconvert.html#ga21889b149f8a5c7f8a5604cecd583ea4">v4i</a>
+<li>m4f_eq()
+: <a class="el" href="group__mcmp.html#ga3d982e5e75b41bc174da4142ff9e52ab">v4f</a>
 </li>
-<li>m4i_cvt_m16i()
-: <a class="el" href="group__mconvert.html#ga58e83b264fde35df8f7447d8f480fa3e">v4i</a>
+<li>m4f_geq()
+: <a class="el" href="group__mcmp.html#ga725ea46677158ca1181b97a956713331">v4f</a>
 </li>
-<li>m4i_cvt_m1d()
-: <a class="el" href="group__mconvert.html#ga363d94fdd54195dc278ca4138371463a">v4i</a>
+<li>m4f_gt()
+: <a class="el" href="group__mcmp.html#ga3238dd2d8d29bdb50f6ac30c811e08ff">v4f</a>
 </li>
-<li>m4i_cvt_m1f()
-: <a class="el" href="group__mconvert.html#gabf8a49a73eb742d0969e84150a563225">v4i</a>
+<li>m4f_leq()
+: <a class="el" href="group__mcmp.html#ga5fbabe0106e5909e45ab7a4e462648b2">v4f</a>
 </li>
-<li>m4i_cvt_m1i()
-: <a class="el" href="group__mconvert.html#gae58d4bd438779384577a7ba9ca3cdb9c">v4i</a>
+<li>m4f_lt()
+: <a class="el" href="group__mcmp.html#ga44e1201b4e0b52676ea520cb35d72348">v4f</a>
 </li>
-<li>m4i_cvt_m1l()
-: <a class="el" href="group__mconvert.html#ga2e7d30b526812960f8e8dbf6d2f4c71c">v4i</a>
+<li>m4f_nand()
+: <a class="el" href="group__mlogic.html#ga4283d81ce5ed85665b41de7d1eb0a9e2">v4f</a>
 </li>
-<li>m4i_cvt_m2d()
-: <a class="el" href="group__mconvert.html#gaa238db1d17aef1249fffb9be95f35097">v4i</a>
+<li>m4f_neq()
+: <a class="el" href="group__mcmp.html#ga005733eca80718e6c100386eff530aee">v4f</a>
 </li>
-<li>m4i_cvt_m2f()
-: <a class="el" href="group__mconvert.html#ga38941747c53278c79432872da09a653e">v4i</a>
+<li>m4f_nor()
+: <a class="el" href="group__mlogic.html#gae41711bb077bdd586be3e420651d0d8e">v4f</a>
 </li>
-<li>m4i_cvt_m2i()
-: <a class="el" href="group__mconvert.html#gac2d9ebd3dc2e43d8d96497eaf999621d">v4i</a>
+<li>m4f_not()
+: <a class="el" href="group__mlogic.html#gab810a067c7c8a63332d5c3b6b7643890">v4f</a>
 </li>
-<li>m4i_cvt_m2l()
-: <a class="el" href="group__mconvert.html#ga0341bac984c3798c0668355e8761bdd6">v4i</a>
+<li>m4f_nxor()
+: <a class="el" href="group__mlogic.html#gad9b574cf55fdb39760163e480d29f05e">v4f</a>
+</li>
+<li>m4f_or()
+: <a class="el" href="group__mlogic.html#ga8fbc99efc53e89883808a729b3679214">v4f</a>
+</li>
+<li>m4f_ornot()
+: <a class="el" href="group__mlogic.html#ga8439303acb155ad04a105ffc9140d308">v4f</a>
+</li>
+<li>m4f_xor()
+: <a class="el" href="group__mlogic.html#gaf66d11363a10665d0ab5807cdff454ec">v4f</a>
+</li>
+<li>m4i_and()
+: <a class="el" href="group__mlogic.html#ga1625b6112edafe9d94bd50dc36ffbb1d">v4i</a>
+</li>
+<li>m4i_andnot()
+: <a class="el" href="group__mlogic.html#ga6a95984f67595f53ca89c7c43dcbb7f6">v4i</a>
+</li>
+<li>m4i_cast_v4i()
+: <a class="el" href="group__mcast.html#ga0abe212f79e1644925f42f8878cb1039">v4i</a>
 </li>
 <li>m4i_cvt_m4d()
 : <a class="el" href="group__mconvert.html#gad41f2d24e13c44d1e9a98552c136b051">v4i</a>
@@ -826,50 +864,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m4i_cvt_m4l()
 : <a class="el" href="group__mconvert.html#gaa807a2913fe8a30f0278812af8ce5f11">v4i</a>
 </li>
-<li>m4i_cvt_m8d()
-: <a class="el" href="group__mconvert.html#ga37f925b449dc0d3620fba5c53d080544">v4i</a>
-</li>
-<li>m4i_cvt_m8f()
-: <a class="el" href="group__mconvert.html#ga06106be8d1563bf24dbcecf5f56a222d">v4i</a>
-</li>
-<li>m4i_cvt_m8i()
-: <a class="el" href="group__mconvert.html#ga1ce37463c93baebd39f3b277f78c5b1f">v4i</a>
-</li>
-<li>m4i_cvt_m8l()
-: <a class="el" href="group__mconvert.html#gaf470fa60c7642de615d607f11d971c87">v4i</a>
-</li>
 <li>m4i_cvt_v4i()
 : <a class="el" href="group__mconvert.html#gacd94b9a163ffd4182cae076f2cd77001">v4i</a>
 </li>
-<li>m4l_cvt_m16f()
-: <a class="el" href="group__mconvert.html#ga2f3b2abe811392fcf20b3ca107eeacb1">v4l</a>
+<li>m4i_eq()
+: <a class="el" href="group__mcmp.html#gadc13be72306a5b897d505cda713fc4b6">v4i</a>
 </li>
-<li>m4l_cvt_m16i()
-: <a class="el" href="group__mconvert.html#gacb6cd94bf5b569632789d1f9795bef9f">v4l</a>
+<li>m4i_geq()
+: <a class="el" href="group__mcmp.html#ga46b90c7da2154ecc59329fdf94ad2922">v4i</a>
 </li>
-<li>m4l_cvt_m1d()
-: <a class="el" href="group__mconvert.html#gae435a33290e7cead673093286c32435c">v4l</a>
+<li>m4i_gt()
+: <a class="el" href="group__mcmp.html#gaa0c3559094b0dd2faff58ee949554179">v4i</a>
 </li>
-<li>m4l_cvt_m1f()
-: <a class="el" href="group__mconvert.html#ga8c3462b56747a017e3c3ac54f0523237">v4l</a>
+<li>m4i_leq()
+: <a class="el" href="group__mcmp.html#gae861c867ae967400d97db0e4217a61bf">v4i</a>
 </li>
-<li>m4l_cvt_m1i()
-: <a class="el" href="group__mconvert.html#gafea35fe941ec32ca301d1492455ffc75">v4l</a>
+<li>m4i_lt()
+: <a class="el" href="group__mcmp.html#ga33d94d50a0251f264ad8bb545cbb9bfe">v4i</a>
 </li>
-<li>m4l_cvt_m1l()
-: <a class="el" href="group__mconvert.html#gaaed9d684baa11324af77b15fa2687bab">v4l</a>
+<li>m4i_nand()
+: <a class="el" href="group__mlogic.html#ga4510451934fa4bd5282b9aa92153b918">v4i</a>
 </li>
-<li>m4l_cvt_m2d()
-: <a class="el" href="group__mconvert.html#ga8be6a937fb9f70157d25cec8d6c673df">v4l</a>
+<li>m4i_neq()
+: <a class="el" href="group__mcmp.html#gae1ff47c89d3e080b0d396bcdd770d92f">v4i</a>
 </li>
-<li>m4l_cvt_m2f()
-: <a class="el" href="group__mconvert.html#gaaad6917f18b2f60ee3bb95ee0309777e">v4l</a>
+<li>m4i_nor()
+: <a class="el" href="group__mlogic.html#ga0487cdb045304dff51e24ec7901739f4">v4i</a>
 </li>
-<li>m4l_cvt_m2i()
-: <a class="el" href="group__mconvert.html#gac727cf463b633006c8e76e81c3e180e8">v4l</a>
+<li>m4i_not()
+: <a class="el" href="group__mlogic.html#ga6488bf632a66db9bfc8e5b8be9bd8550">v4i</a>
 </li>
-<li>m4l_cvt_m2l()
-: <a class="el" href="group__mconvert.html#ga3b4fed9a74498c9e2a4e31ad29beca70">v4l</a>
+<li>m4i_nxor()
+: <a class="el" href="group__mlogic.html#ga58a8d86de5282691a87c6e191f2e8829">v4i</a>
+</li>
+<li>m4i_or()
+: <a class="el" href="group__mlogic.html#gac94951eb53afc151ae5c2fbdd2d118b5">v4i</a>
+</li>
+<li>m4i_ornot()
+: <a class="el" href="group__mlogic.html#ga6cb3f6874d7aad548ac6040002936500">v4i</a>
+</li>
+<li>m4i_xor()
+: <a class="el" href="group__mlogic.html#ga2ed454d63a833167f80e1ebee902225e">v4i</a>
+</li>
+<li>m4l_and()
+: <a class="el" href="group__mlogic.html#gabef59a7b32ea472b99e67260cd9a856c">v4l</a>
+</li>
+<li>m4l_andnot()
+: <a class="el" href="group__mlogic.html#gae374d2bdff0f5eec3f4e34e103c64203">v4l</a>
+</li>
+<li>m4l_cast_v4l()
+: <a class="el" href="group__mcast.html#ga98ff9d463177eb83989ddbf0a36501a6">v4l</a>
 </li>
 <li>m4l_cvt_m4d()
 : <a class="el" href="group__mconvert.html#gae7501f0ac4ac21b2cf916505c66fc3f2">v4l</a>
@@ -883,62 +927,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m4l_cvt_m4l()
 : <a class="el" href="group__mconvert.html#ga0775af8dbe1c0b4107cada183a0d57a4">v4l</a>
 </li>
-<li>m4l_cvt_m8d()
-: <a class="el" href="group__mconvert.html#ga8051e56b60dd37790b78ce87aa4c6eb4">v4l</a>
-</li>
-<li>m4l_cvt_m8f()
-: <a class="el" href="group__mconvert.html#ga27f3b7fad5e434583a74facaffbfa035">v4l</a>
-</li>
-<li>m4l_cvt_m8i()
-: <a class="el" href="group__mconvert.html#gab054decf10eb29b7f657a07da5056d31">v4l</a>
-</li>
-<li>m4l_cvt_m8l()
-: <a class="el" href="group__mconvert.html#ga727932a9ed15dcc73dbfaafc8287d69a">v4l</a>
-</li>
 <li>m4l_cvt_v4l()
 : <a class="el" href="group__mconvert.html#gaa5339ce305f5dbf294548537b4f7f518">v4l</a>
 </li>
-<li>m8d_cvt_m16f()
-: <a class="el" href="group__mconvert.html#ga7e5968354e746bf63deb2da08f8095d1">v8d</a>
+<li>m4l_eq()
+: <a class="el" href="group__mcmp.html#ga5fe85c774fce7884788a16c88dad23ca">v4l</a>
 </li>
-<li>m8d_cvt_m16i()
-: <a class="el" href="group__mconvert.html#gaca0a175ec656c2c4a0c03778c7cb271b">v8d</a>
+<li>m4l_geq()
+: <a class="el" href="group__mcmp.html#ga250282afc5cef557ea6d035105723e2b">v4l</a>
 </li>
-<li>m8d_cvt_m1d()
-: <a class="el" href="group__mconvert.html#ga1207108e37d28ed520724422ac06ed6d">v8d</a>
+<li>m4l_gt()
+: <a class="el" href="group__mcmp.html#ga6d814763e0d897b675ceebbdb233d650">v4l</a>
 </li>
-<li>m8d_cvt_m1f()
-: <a class="el" href="group__mconvert.html#ga291fc43b3468f0f3fc506e76f2c4ec21">v8d</a>
+<li>m4l_leq()
+: <a class="el" href="group__mcmp.html#ga1bcec6e54a01b656c3231da2892e8cbb">v4l</a>
 </li>
-<li>m8d_cvt_m1i()
-: <a class="el" href="group__mconvert.html#ga79da2963d70ce34c659b6fdf3481e60c">v8d</a>
+<li>m4l_lt()
+: <a class="el" href="group__mcmp.html#ga0bb05f43851b444e4e801b8abce0cc7f">v4l</a>
 </li>
-<li>m8d_cvt_m1l()
-: <a class="el" href="group__mconvert.html#ga3e5e2fa2e5050a3a28606f4660e2aaea">v8d</a>
+<li>m4l_nand()
+: <a class="el" href="group__mlogic.html#ga7804e15f1a66fcbe9e11802792659400">v4l</a>
 </li>
-<li>m8d_cvt_m2d()
-: <a class="el" href="group__mconvert.html#gae772676b0f2b55fd79a7c07c80720f06">v8d</a>
+<li>m4l_neq()
+: <a class="el" href="group__mcmp.html#gad8f53e833c6be6c24186ffdfad800847">v4l</a>
 </li>
-<li>m8d_cvt_m2f()
-: <a class="el" href="group__mconvert.html#gac920695136ccdb606433487062485032">v8d</a>
+<li>m4l_nor()
+: <a class="el" href="group__mlogic.html#gab06ee5f6557c0959376d3ad008f73a50">v4l</a>
 </li>
-<li>m8d_cvt_m2i()
-: <a class="el" href="group__mconvert.html#gacea86ce7bbd5c6e7fe75dcbfe5f20a00">v8d</a>
+<li>m4l_not()
+: <a class="el" href="group__mlogic.html#ga451848f0c6f25e94a85fccdaf4e33688">v4l</a>
 </li>
-<li>m8d_cvt_m2l()
-: <a class="el" href="group__mconvert.html#ga66f637f71aa282cd571edf14d35f9210">v8d</a>
+<li>m4l_nxor()
+: <a class="el" href="group__mlogic.html#gab294c65dd89ddcbde7b07b92f2e1b718">v4l</a>
 </li>
-<li>m8d_cvt_m4d()
-: <a class="el" href="group__mconvert.html#ga7c340867900bb7be8ef69453c264e762">v8d</a>
+<li>m4l_or()
+: <a class="el" href="group__mlogic.html#ga1a6ae725fcfd62d3192c833f9b710e82">v4l</a>
 </li>
-<li>m8d_cvt_m4f()
-: <a class="el" href="group__mconvert.html#ga855bcb9aa135c235696f9a59e185f873">v8d</a>
+<li>m4l_ornot()
+: <a class="el" href="group__mlogic.html#ga6e33c63cdee071165c3a8c08fb8cc154">v4l</a>
 </li>
-<li>m8d_cvt_m4i()
-: <a class="el" href="group__mconvert.html#gab9ddae526c17a536817b562434b69691">v8d</a>
+<li>m4l_xor()
+: <a class="el" href="group__mlogic.html#ga8950352a5c50302bee912be5b6a38cfb">v4l</a>
 </li>
-<li>m8d_cvt_m4l()
-: <a class="el" href="group__mconvert.html#ga3299672a71739295b7b215771587a064">v8d</a>
+<li>m8d_and()
+: <a class="el" href="group__mlogic.html#ga55c612994d1d737f36be21f70bcb45f0">v8d</a>
+</li>
+<li>m8d_andnot()
+: <a class="el" href="group__mlogic.html#ga45eb8b4877f944c9bbd617091eebd4b6">v8d</a>
+</li>
+<li>m8d_cast_v8d()
+: <a class="el" href="group__mcast.html#ga6496cd280c1975a4c39cf3d019bd68e0">v8d</a>
 </li>
 <li>m8d_cvt_m8d()
 : <a class="el" href="group__mconvert.html#ga68841c5ca879200277f244ce10b72547">v8d</a>
@@ -955,47 +993,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m8d_cvt_v8d()
 : <a class="el" href="group__mconvert.html#gaf47bca452518ff711a7414409ae1f24f">v8d</a>
 </li>
-<li>m8f_cvt_m16f()
-: <a class="el" href="group__mconvert.html#ga017102e163d221a9412ad9140bdf84d7">v8f</a>
+<li>m8d_eq()
+: <a class="el" href="group__mcmp.html#ga414109861f1789c08b8142628864eef5">v8d</a>
 </li>
-<li>m8f_cvt_m16i()
-: <a class="el" href="group__mconvert.html#ga6ef979f5585b702ebda467ccd50858c1">v8f</a>
+<li>m8d_geq()
+: <a class="el" href="group__mcmp.html#ga17b8eef3cd351f066bc872c4d3926bd1">v8d</a>
 </li>
-<li>m8f_cvt_m1d()
-: <a class="el" href="group__mconvert.html#ga64efe2b4df90be266693490361f73ac8">v8f</a>
+<li>m8d_gt()
+: <a class="el" href="group__mcmp.html#gaf006162ec57d36a7cb8b3d6b6dad4e50">v8d</a>
 </li>
-<li>m8f_cvt_m1f()
-: <a class="el" href="group__mconvert.html#ga9e2ab9ab7519fb051a6c3d9a08880cd7">v8f</a>
+<li>m8d_leq()
+: <a class="el" href="group__mcmp.html#ga73713548ae0f00dd863d82023b94ad79">v8d</a>
 </li>
-<li>m8f_cvt_m1i()
-: <a class="el" href="group__mconvert.html#ga382c437e89240956cd357a22e78a92c3">v8f</a>
+<li>m8d_lt()
+: <a class="el" href="group__mcmp.html#ga19c26bf21e4626f599119d378742c8b1">v8d</a>
 </li>
-<li>m8f_cvt_m1l()
-: <a class="el" href="group__mconvert.html#gaf12dc49994cd2f6999afae3b85fd9161">v8f</a>
+<li>m8d_nand()
+: <a class="el" href="group__mlogic.html#gaefc43c36b2361b4644b5a6df7d8aa8b9">v8d</a>
 </li>
-<li>m8f_cvt_m2d()
-: <a class="el" href="group__mconvert.html#gafeacedaecffd7cc69f3f25ddbcabb6a4">v8f</a>
+<li>m8d_neq()
+: <a class="el" href="group__mcmp.html#ga012e74f1e347a4ef1034d492b3bb9e10">v8d</a>
 </li>
-<li>m8f_cvt_m2f()
-: <a class="el" href="group__mconvert.html#ga715b16420d88df344c0e7fdf4ab75324">v8f</a>
+<li>m8d_nor()
+: <a class="el" href="group__mlogic.html#ga21bbfa3e6ab29cfab8eeda2a18060933">v8d</a>
 </li>
-<li>m8f_cvt_m2i()
-: <a class="el" href="group__mconvert.html#ga61b44d7301428b4719110d82233924f1">v8f</a>
+<li>m8d_not()
+: <a class="el" href="group__mlogic.html#gad56531e2945a037ae9d5546db0c5d9cc">v8d</a>
 </li>
-<li>m8f_cvt_m2l()
-: <a class="el" href="group__mconvert.html#gad1af330e1719d7f6db0edb438f9effa9">v8f</a>
+<li>m8d_nxor()
+: <a class="el" href="group__mlogic.html#ga41f5ead9d4b406a0ffef8596790505c5">v8d</a>
 </li>
-<li>m8f_cvt_m4d()
-: <a class="el" href="group__mconvert.html#ga1b912cbb3c65c3a56e2d8f1947c3a8ba">v8f</a>
+<li>m8d_or()
+: <a class="el" href="group__mlogic.html#ga602516b5952e4a6b14d0dc3e64b4aa8d">v8d</a>
 </li>
-<li>m8f_cvt_m4f()
-: <a class="el" href="group__mconvert.html#ga920aac6af8cd081d4920575099a83ff9">v8f</a>
+<li>m8d_ornot()
+: <a class="el" href="group__mlogic.html#ga35758b6e27e003898578778b30aeead3">v8d</a>
 </li>
-<li>m8f_cvt_m4i()
-: <a class="el" href="group__mconvert.html#ga994b9d2529a20601da20dc564f36745f">v8f</a>
+<li>m8d_xor()
+: <a class="el" href="group__mlogic.html#ga4d23ac857ae5e9af35d154c8dbe17529">v8d</a>
 </li>
-<li>m8f_cvt_m4l()
-: <a class="el" href="group__mconvert.html#ga5ed27acb557198c674c395f0ef3c9721">v8f</a>
+<li>m8f_and()
+: <a class="el" href="group__mlogic.html#gad6d92397a3f1a7ade1ed592290858c9c">v8f</a>
+</li>
+<li>m8f_andnot()
+: <a class="el" href="group__mlogic.html#ga32461d51cc56b3341a8ca47e080b15ca">v8f</a>
+</li>
+<li>m8f_cast_v8f()
+: <a class="el" href="group__mcast.html#gac07b0276ee8e74464b238ed7aa86e924">v8f</a>
 </li>
 <li>m8f_cvt_m8d()
 : <a class="el" href="group__mconvert.html#gabedfedfa8084235fb3cb0b975f14e8eb">v8f</a>
@@ -1012,47 +1056,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m8f_cvt_v8f()
 : <a class="el" href="group__mconvert.html#ga91add5cfe93fcef1c736fba48c72b8a2">v8f</a>
 </li>
-<li>m8i_cvt_m16f()
-: <a class="el" href="group__mconvert.html#gaee7b34e0c35525821a4966e050f9404e">v8i</a>
+<li>m8f_eq()
+: <a class="el" href="group__mcmp.html#ga6b564cff6987917608a80162dfd9167f">v8f</a>
 </li>
-<li>m8i_cvt_m16i()
-: <a class="el" href="group__mconvert.html#ga6fd72b2af1773156599d2964d8b8fb27">v8i</a>
+<li>m8f_geq()
+: <a class="el" href="group__mcmp.html#gae58e41314074c9459222f13e6e98bf20">v8f</a>
 </li>
-<li>m8i_cvt_m1d()
-: <a class="el" href="group__mconvert.html#ga97fea981eb1effefe4b3396dd9c2bda9">v8i</a>
+<li>m8f_gt()
+: <a class="el" href="group__mcmp.html#gabb6979e3345d578e6f6237f2cd661b22">v8f</a>
 </li>
-<li>m8i_cvt_m1f()
-: <a class="el" href="group__mconvert.html#ga84e345382bf1a5a2643dab65e2663015">v8i</a>
+<li>m8f_leq()
+: <a class="el" href="group__mcmp.html#gabc1d3dc69fd34f507d94b21900b7f2d4">v8f</a>
 </li>
-<li>m8i_cvt_m1i()
-: <a class="el" href="group__mconvert.html#ga53ad3b9dec02e487edb2e05a12eff7a7">v8i</a>
+<li>m8f_lt()
+: <a class="el" href="group__mcmp.html#ga78b3565d2442723be9ac729241ba81d8">v8f</a>
 </li>
-<li>m8i_cvt_m1l()
-: <a class="el" href="group__mconvert.html#gaa0e2cc9148a5b4be642992f85a3ac524">v8i</a>
+<li>m8f_nand()
+: <a class="el" href="group__mlogic.html#gac173657b24605b8d67c99db91bfcf26d">v8f</a>
 </li>
-<li>m8i_cvt_m2d()
-: <a class="el" href="group__mconvert.html#ga24f51b5ca85c07c04e7d6ffbbb126e55">v8i</a>
+<li>m8f_neq()
+: <a class="el" href="group__mcmp.html#ga0abc94ed1a42c348ffd183068c81fd3d">v8f</a>
 </li>
-<li>m8i_cvt_m2f()
-: <a class="el" href="group__mconvert.html#gaf74c4be3bfbcfbe2ded2c6954130e987">v8i</a>
+<li>m8f_nor()
+: <a class="el" href="group__mlogic.html#ga5452bd37f7ea54484d69e8837c108d2c">v8f</a>
 </li>
-<li>m8i_cvt_m2i()
-: <a class="el" href="group__mconvert.html#ga3cc7137da5343e648cd1cf224beb65b5">v8i</a>
+<li>m8f_not()
+: <a class="el" href="group__mlogic.html#gaf97ff259775e8ac09e1d03afc2f281bc">v8f</a>
 </li>
-<li>m8i_cvt_m2l()
-: <a class="el" href="group__mconvert.html#gace02c61f8e0d6c5a839454b4ddba0589">v8i</a>
+<li>m8f_nxor()
+: <a class="el" href="group__mlogic.html#ga19e25150c5bdeb8278ff1745779f24da">v8f</a>
 </li>
-<li>m8i_cvt_m4d()
-: <a class="el" href="group__mconvert.html#ga93e8144d60429ed1d5488e17b724bbd7">v8i</a>
+<li>m8f_or()
+: <a class="el" href="group__mlogic.html#gad5e43d43113879eeaea5149d6f728cc1">v8f</a>
 </li>
-<li>m8i_cvt_m4f()
-: <a class="el" href="group__mconvert.html#ga15558bcfb43d68bab0d69d8c878831cd">v8i</a>
+<li>m8f_ornot()
+: <a class="el" href="group__mlogic.html#ga26f81fd711fc9e2c1512a3deed5ec013">v8f</a>
 </li>
-<li>m8i_cvt_m4i()
-: <a class="el" href="group__mconvert.html#ga8dfd078aa43826065d961ecc716fd3c8">v8i</a>
+<li>m8f_xor()
+: <a class="el" href="group__mlogic.html#ga9a460fcf2ac2fbdd23e5c36cd305e0bf">v8f</a>
 </li>
-<li>m8i_cvt_m4l()
-: <a class="el" href="group__mconvert.html#gaf56e87b97cf5361d59d6eceb5ae569f0">v8i</a>
+<li>m8i_and()
+: <a class="el" href="group__mlogic.html#ga75af0ae836fe294491aa1aad5e0fedc3">v8i</a>
+</li>
+<li>m8i_andnot()
+: <a class="el" href="group__mlogic.html#ga1702b5d0c0c80b7961bcc984d049f7b5">v8i</a>
+</li>
+<li>m8i_cast_v8i()
+: <a class="el" href="group__mcast.html#ga89a15cf947c80b4fd616807875068b92">v8i</a>
 </li>
 <li>m8i_cvt_m8d()
 : <a class="el" href="group__mconvert.html#gaaf2728a90cc36b32bcf64143864f4c0e">v8i</a>
@@ -1069,47 +1119,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m8i_cvt_v8i()
 : <a class="el" href="group__mconvert.html#gaae677543f53cdb077108c910a996653d">v8i</a>
 </li>
-<li>m8l_cvt_m16f()
-: <a class="el" href="group__mconvert.html#ga816ee7208c293b8ef8a166d3cd7ebf9b">v8l</a>
+<li>m8i_eq()
+: <a class="el" href="group__mcmp.html#gac9ed895fc83b9a60e626192b7ce595b1">v8i</a>
 </li>
-<li>m8l_cvt_m16i()
-: <a class="el" href="group__mconvert.html#gaefd6645236b445af06de0c71a1df9b87">v8l</a>
+<li>m8i_geq()
+: <a class="el" href="group__mcmp.html#gaa3ee6ff8b51a167812ba9a425e24796d">v8i</a>
 </li>
-<li>m8l_cvt_m1d()
-: <a class="el" href="group__mconvert.html#gade25772552a1220d76360e360a10f1a2">v8l</a>
+<li>m8i_gt()
+: <a class="el" href="group__mcmp.html#ga9a6884f8015ade89f2166fff09bb569f">v8i</a>
 </li>
-<li>m8l_cvt_m1f()
-: <a class="el" href="group__mconvert.html#gad6e575e662232afd3dbe9c154c8d9d39">v8l</a>
+<li>m8i_leq()
+: <a class="el" href="group__mcmp.html#gae9079fe0b4cbac28f25492762f050525">v8i</a>
 </li>
-<li>m8l_cvt_m1i()
-: <a class="el" href="group__mconvert.html#ga191c9685530009cb25b5b964c5510eff">v8l</a>
+<li>m8i_lt()
+: <a class="el" href="group__mcmp.html#ga08e39b1547a6baf1dc57b07f10974513">v8i</a>
 </li>
-<li>m8l_cvt_m1l()
-: <a class="el" href="group__mconvert.html#gac1a75dd7ddec7164f349883b1028e3cb">v8l</a>
+<li>m8i_nand()
+: <a class="el" href="group__mlogic.html#ga7df62338aaca4c01054cebe164b8c717">v8i</a>
 </li>
-<li>m8l_cvt_m2d()
-: <a class="el" href="group__mconvert.html#gaa5b99fe1273b9a86915aed98ee25b5fe">v8l</a>
+<li>m8i_neq()
+: <a class="el" href="group__mcmp.html#ga0d89e9dee93570d6cb6f3442fb75782e">v8i</a>
 </li>
-<li>m8l_cvt_m2f()
-: <a class="el" href="group__mconvert.html#gaa2361576f3491ea3186956129696a2c7">v8l</a>
+<li>m8i_nor()
+: <a class="el" href="group__mlogic.html#gafb6db488f797c8c29e317138c05ab467">v8i</a>
 </li>
-<li>m8l_cvt_m2i()
-: <a class="el" href="group__mconvert.html#ga3b3a52ddff053db30cbf0ba86680f3b3">v8l</a>
+<li>m8i_not()
+: <a class="el" href="group__mlogic.html#ga9d914eb9e7bad779fb1a33834a0ce04c">v8i</a>
 </li>
-<li>m8l_cvt_m2l()
-: <a class="el" href="group__mconvert.html#gaf61054c14b317d0c9c8d743867573442">v8l</a>
+<li>m8i_nxor()
+: <a class="el" href="group__mlogic.html#ga9cf713cadec400d4afa2c9883465c164">v8i</a>
 </li>
-<li>m8l_cvt_m4d()
-: <a class="el" href="group__mconvert.html#gad182a311c90b2f61084f906cf82d58a1">v8l</a>
+<li>m8i_or()
+: <a class="el" href="group__mlogic.html#gacd684a19818d74d0cd533b64f9f8addd">v8i</a>
 </li>
-<li>m8l_cvt_m4f()
-: <a class="el" href="group__mconvert.html#ga4f1a06ff26f444883973af14e51666b0">v8l</a>
+<li>m8i_ornot()
+: <a class="el" href="group__mlogic.html#ga070d9b099c7ec956a3a2fc814e1ef327">v8i</a>
 </li>
-<li>m8l_cvt_m4i()
-: <a class="el" href="group__mconvert.html#ga63b319a55ca19d332afd7425587147e9">v8l</a>
+<li>m8i_xor()
+: <a class="el" href="group__mlogic.html#ga10900f08a31523289c5fe4d8d6619577">v8i</a>
 </li>
-<li>m8l_cvt_m4l()
-: <a class="el" href="group__mconvert.html#ga7ee3dde999c2d609e58319d55ed205d2">v8l</a>
+<li>m8l_and()
+: <a class="el" href="group__mlogic.html#ga3a709d7daf89ede7019de30d78684e39">v8l</a>
+</li>
+<li>m8l_andnot()
+: <a class="el" href="group__mlogic.html#ga4196e7497ab35ccc4d909fa7ae604d85">v8l</a>
+</li>
+<li>m8l_cast_v8l()
+: <a class="el" href="group__mcast.html#ga39974d23cb8f8c01734bf1c29605982a">v8l</a>
 </li>
 <li>m8l_cvt_m8d()
 : <a class="el" href="group__mconvert.html#ga0b8e3df7d9a98619c07e4cc9cd04475a">v8l</a>
@@ -1125,6 +1181,45 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>m8l_cvt_v8l()
 : <a class="el" href="group__mconvert.html#ga54163e2a4c953320abc40d21e9608417">v8l</a>
+</li>
+<li>m8l_eq()
+: <a class="el" href="group__mcmp.html#ga0079854c377c96758552f9252def0848">v8l</a>
+</li>
+<li>m8l_geq()
+: <a class="el" href="group__mcmp.html#ga75163e7b57d8e2ca0ba60869c0bbfdd1">v8l</a>
+</li>
+<li>m8l_gt()
+: <a class="el" href="group__mcmp.html#gad70bde45079b91910f0bbd9200fdbf71">v8l</a>
+</li>
+<li>m8l_leq()
+: <a class="el" href="group__mcmp.html#gaed64e5c0016e3d17ea476b59ef40d016">v8l</a>
+</li>
+<li>m8l_lt()
+: <a class="el" href="group__mcmp.html#gab8a73b8b57f9c19e21d28708ab353d73">v8l</a>
+</li>
+<li>m8l_nand()
+: <a class="el" href="group__mlogic.html#ga777b5318628a1054e54201e0ff0b0350">v8l</a>
+</li>
+<li>m8l_neq()
+: <a class="el" href="group__mcmp.html#ga4b6cd09a710768880a0b90108ef5944a">v8l</a>
+</li>
+<li>m8l_nor()
+: <a class="el" href="group__mlogic.html#ga625f3ce52f2b4b6d9a08e445017890fb">v8l</a>
+</li>
+<li>m8l_not()
+: <a class="el" href="group__mlogic.html#ga1c4bed789197440f7d6943ca3c7e8bb8">v8l</a>
+</li>
+<li>m8l_nxor()
+: <a class="el" href="group__mlogic.html#ga84a32896f1e18e233898704b7b846d73">v8l</a>
+</li>
+<li>m8l_or()
+: <a class="el" href="group__mlogic.html#gab3c8fbb344a330664198ba118bf41ceb">v8l</a>
+</li>
+<li>m8l_ornot()
+: <a class="el" href="group__mlogic.html#ga2b4bb2657c0e007b3abac0cf15e7612a">v8l</a>
+</li>
+<li>m8l_xor()
+: <a class="el" href="group__mlogic.html#gad2f47e2a6faa245e168a36e2c83eca6e">v8l</a>
 </li>
 </ul>
 </div><!-- contents -->

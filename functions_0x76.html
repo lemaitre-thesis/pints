@@ -71,7 +71,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li class="current"><a href="functions.html"><span>All</span></a></li>
       <li><a href="functions_func.html"><span>Functions</span></a></li>
-      <li><a href="functions_vars.html"><span>Variables</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
@@ -87,7 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Groups</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -144,6 +143,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>v16f_blend8x2()
 : <a class="el" href="group__blend.html#ga7e8c7f4316eacce1f14a8fca34edbe8c">v16f</a>
+</li>
+<li>v16f_cast_m16f()
+: <a class="el" href="group__mcast.html#gadbf49eb38bdebe063513654136bd9e23">v16f</a>
 </li>
 <li>v16f_cast_v16f()
 : <a class="el" href="group__cast.html#ga82ff4c8adf07c7170d732d5a18aae6ac">v16f</a>
@@ -577,6 +579,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>v16i_blend8x2()
 : <a class="el" href="group__blend.html#ga0a4fb64f3f7c5683317fee6689326f09">v16i</a>
 </li>
+<li>v16i_cast_m16i()
+: <a class="el" href="group__mcast.html#gab02e38213db8d3bea9d68dd6f9cba6f7">v16i</a>
+</li>
 <li>v16i_cast_v16f()
 : <a class="el" href="group__cast.html#ga7d43cec8387d18d6497193aa495c8e8a">v16i</a>
 </li>
@@ -985,6 +990,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>v1d_blend1x1()
 : <a class="el" href="group__blend.html#gaf796d43121d5274ae3414f67427a108b">v1d</a>
 </li>
+<li>v1d_cast_m1d()
+: <a class="el" href="group__mcast.html#ga27dd67a79ad83e55565adf31e79ac132">v1d</a>
+</li>
 <li>v1d_cast_v16f()
 : <a class="el" href="group__cast.html#ga4e674f3287d6e2e18e42af0c40208a31">v1d</a>
 </li>
@@ -1290,6 +1298,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>v1f_blend1x1()
 : <a class="el" href="group__blend.html#ga3d8155123bc634e285885676096cf63b">v1f</a>
+</li>
+<li>v1f_cast_m1f()
+: <a class="el" href="group__mcast.html#ga1b831f02008c11811b9cd024cb83c160">v1f</a>
 </li>
 <li>v1f_cast_v16f()
 : <a class="el" href="group__cast.html#ga652966ac1f0989da9a7342c170e89b05">v1f</a>
@@ -1597,6 +1608,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>v1i_blend1x1()
 : <a class="el" href="group__blend.html#gae27565867430d39c74ef27a3acad2f0c">v1i</a>
 </li>
+<li>v1i_cast_m1i()
+: <a class="el" href="group__mcast.html#gaa047826a2e2be28dbec626647efaa77b">v1i</a>
+</li>
 <li>v1i_cast_v16f()
 : <a class="el" href="group__cast.html#ga057aee38a285cb8f7d8a649fc4cb9f57">v1i</a>
 </li>
@@ -1902,6 +1916,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>v1l_blend1x1()
 : <a class="el" href="group__blend.html#ga41288cd7ccaa829b55f94c243ddfa6f4">v1l</a>
+</li>
+<li>v1l_cast_m1l()
+: <a class="el" href="group__mcast.html#ga47add1db4f05e3ffb8c5c41476768a32">v1l</a>
 </li>
 <li>v1l_cast_v16f()
 : <a class="el" href="group__cast.html#ga38f121117f9dd05322d739e82474b827">v1l</a>
@@ -2214,6 +2231,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>v2d_blend2x1()
 : <a class="el" href="group__blend.html#ga1a60a47dbd897709db9038e1056737c5">v2d</a>
+</li>
+<li>v2d_cast_m2d()
+: <a class="el" href="group__mcast.html#ga54206e16210aac467fdfe62d43577ecc">v2d</a>
 </li>
 <li>v2d_cast_v16f()
 : <a class="el" href="group__cast.html#gaf2912155fe74090344e7e9145025265f">v2d</a>
@@ -2566,6 +2586,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>v2f_blend2x1()
 : <a class="el" href="group__blend.html#ga858cce193d28c33886375683474d3373">v2f</a>
 </li>
+<li>v2f_cast_m2f()
+: <a class="el" href="group__mcast.html#ga11c4bc412214de424f93bb9b38bbe196">v2f</a>
+</li>
 <li>v2f_cast_v16f()
 : <a class="el" href="group__cast.html#gab7ae797ac5c6e5957b7415f4bb11b9fe">v2f</a>
 </li>
@@ -2917,6 +2940,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>v2i_blend2x1()
 : <a class="el" href="group__blend.html#gae03ba4f9d29e2fa71c47a65d94f9cb95">v2i</a>
 </li>
+<li>v2i_cast_m2i()
+: <a class="el" href="group__mcast.html#gaffbba5265defef2bc8d34edd64043e69">v2i</a>
+</li>
 <li>v2i_cast_v16f()
 : <a class="el" href="group__cast.html#ga1464fb7bf4e0ce5e2001caa6468056fd">v2i</a>
 </li>
@@ -3267,6 +3293,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>v2l_blend2x1()
 : <a class="el" href="group__blend.html#ga01f3664212245861d2a83fa8296ecc77">v2l</a>
+</li>
+<li>v2l_cast_m2l()
+: <a class="el" href="group__mcast.html#ga550030522ac2ae1ce388304560b81509">v2l</a>
 </li>
 <li>v2l_cast_v16f()
 : <a class="el" href="group__cast.html#ga48107a94e2ff6db1c6ec6310537c6b42">v2l</a>
@@ -3624,6 +3653,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>v4d_blend4x1()
 : <a class="el" href="group__blend.html#gac02e2993b0b351b7b16ab558693a5416">v4d</a>
+</li>
+<li>v4d_cast_m4d()
+: <a class="el" href="group__mcast.html#ga9b655e9de589604cfc3de7e4b6ca7dc9">v4d</a>
 </li>
 <li>v4d_cast_v16f()
 : <a class="el" href="group__cast.html#ga9c79be345e75c7eb0cc48d969e1cb247">v4d</a>
@@ -4006,6 +4038,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>v4f_blend4x1()
 : <a class="el" href="group__blend.html#ga38c2d07f2ba6d96f218026fcbe71088c">v4f</a>
 </li>
+<li>v4f_cast_m4f()
+: <a class="el" href="group__mcast.html#gac2b14043280bb708a6ed7ae24afe2ef9">v4f</a>
+</li>
 <li>v4f_cast_v16f()
 : <a class="el" href="group__cast.html#ga7d6ffaab6309a652cd1d3e80c2df5f53">v4f</a>
 </li>
@@ -4387,6 +4422,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>v4i_blend4x1()
 : <a class="el" href="group__blend.html#ga51749e83332f2c9d3f80a7a8f137c13d">v4i</a>
 </li>
+<li>v4i_cast_m4i()
+: <a class="el" href="group__mcast.html#ga15c490ae7a68f9dbf166c5d6203092f9">v4i</a>
+</li>
 <li>v4i_cast_v16f()
 : <a class="el" href="group__cast.html#ga28af576a068e23a8caf9bf9d1bb87355">v4i</a>
 </li>
@@ -4767,6 +4805,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>v4l_blend4x1()
 : <a class="el" href="group__blend.html#ga0dfceb44692e0725459656e91dff6d99">v4l</a>
+</li>
+<li>v4l_cast_m4l()
+: <a class="el" href="group__mcast.html#ga827694228d927dff83aebad35fb7c5d1">v4l</a>
 </li>
 <li>v4l_cast_v16f()
 : <a class="el" href="group__cast.html#ga08b208523f9923d99dcb89afdc027a0b">v4l</a>
@@ -5154,6 +5195,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>v8d_blend8x1()
 : <a class="el" href="group__blend.html#gad73da091c3a49026c1edd615743a97bf">v8d</a>
+</li>
+<li>v8d_cast_m8d()
+: <a class="el" href="group__mcast.html#ga9de64511fd41aade945002c1ca1d399f">v8d</a>
 </li>
 <li>v8d_cast_v16f()
 : <a class="el" href="group__cast.html#gabc7597684df37c33efe1fb70dfb09536">v8d</a>
@@ -5556,6 +5600,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>v8f_blend8x1()
 : <a class="el" href="group__blend.html#gae8f830cde162df0c1906fc64a15516b3">v8f</a>
+</li>
+<li>v8f_cast_m8f()
+: <a class="el" href="group__mcast.html#ga741c02f11fa719ab7016db665825e661">v8f</a>
 </li>
 <li>v8f_cast_v16f()
 : <a class="el" href="group__cast.html#gaba5f305cbd52299544d6727dd1e5add7">v8f</a>
@@ -5968,6 +6015,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>v8i_blend8x1()
 : <a class="el" href="group__blend.html#gabfe5e472367bcce4f99e7685bc478c7e">v8i</a>
 </li>
+<li>v8i_cast_m8i()
+: <a class="el" href="group__mcast.html#gac302a4edf4411cc5c3a2a5d56f43de47">v8i</a>
+</li>
 <li>v8i_cast_v16f()
 : <a class="el" href="group__cast.html#gaa2696e09a0d07c31858c4fa9db5016bc">v8i</a>
 </li>
@@ -6379,6 +6429,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>v8l_blend8x1()
 : <a class="el" href="group__blend.html#ga6ad593087ffa1854b2dcea37efd7ca9b">v8l</a>
 </li>
+<li>v8l_cast_m8l()
+: <a class="el" href="group__mcast.html#gaa1e15f89ee32cef5fa12e5f745d759eb">v8l</a>
+</li>
 <li>v8l_cast_v16f()
 : <a class="el" href="group__cast.html#ga369eaa4e017e3e698d02b0396f77c18a">v8l</a>
 </li>
@@ -6741,26 +6794,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>v8l_zeros()
 : <a class="el" href="group__set.html#ga0e00ae0739e8eadae879eefbb2cddce0">v8l</a>
-</li>
-<li>vector
-: <a class="el" href="structv4f.html#a3f3fcf27338fd572ba575d01fc31c80e">v4f</a>
-, <a class="el" href="structv2l.html#a73ab125080623391e4bd16c4d1433395">v2l</a>
-, <a class="el" href="structv2i.html#ad741feef1adbc15bc54c69b10cf86be9">v2i</a>
-, <a class="el" href="structv8i.html#ad304b16f199fe92f3517d79ac50c004a">v8i</a>
-, <a class="el" href="structv1d.html#a9947c1527958f5ff6f311d4e5d329c3f">v1d</a>
-, <a class="el" href="structv4l.html#a79f1d5d3b448cc2996a7b6eaa3aa45aa">v4l</a>
-, <a class="el" href="structv8l.html#a82566c17dc7d375abe7ee32954178b69">v8l</a>
-, <a class="el" href="structv1l.html#ac6931996db58733e60cbd83667c6cdc6">v1l</a>
-, <a class="el" href="structv4d.html#ad234eba0d713b7345b7eaddaa4426e84">v4d</a>
-, <a class="el" href="structv2f.html#a7331d25471c5acf243c9bb09c3317954">v2f</a>
-, <a class="el" href="structv8f.html#a4a74a820866cd8be62bb8505213cdb19">v8f</a>
-, <a class="el" href="structv1i.html#afd66242aed6747530501d5954bd4646a">v1i</a>
-, <a class="el" href="structv16f.html#a648bcc372c0be49671b6389ba43d63ba">v16f</a>
-, <a class="el" href="structv4i.html#a85fedfdc1c1dba214f3bd9eb0139f314">v4i</a>
-, <a class="el" href="structv8d.html#a7ef03fbdc097740d33826d4b4e4be27d">v8d</a>
-, <a class="el" href="structv2d.html#a99c57e40c166ebaadd60e337c571ab15">v2d</a>
-, <a class="el" href="structv16i.html#af1e0a489eec1fe19a50526c183c43e8b">v16i</a>
-, <a class="el" href="structv1f.html#a0d1867e7e2c2a40b9bd90e019a7ef594">v1f</a>
 </li>
 </ul>
 </div><!-- contents -->
