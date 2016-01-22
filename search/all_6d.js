@@ -344,5 +344,6 @@ var searchData=
   ['m8l_5fcvt_5fv8l',['m8l_cvt_v8l',['../group__mconvert.html#ga54163e2a4c953320abc40d21e9608417',1,'v8l']]],
   ['math_20functions',['math functions',['../group__math.html',1,'']]],
   ['mask_20conversion_20functions',['mask conversion functions',['../group__mconvert.html',1,'']]],
-  ['merge_20functions',['merge functions',['../group__merge.html',1,'']]]
+  ['merge_20functions',['merge functions',['../group__merge.html',1,'']]],
+  ['move_20functions',['move functions',['../group__mov.html',1,'']]]
 ];
