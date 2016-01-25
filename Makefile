@@ -73,13 +73,12 @@ $(OBJ_PATH)/%$(SUFFIX).o : $(SRC_PATH)/%.c $(DEP_PATH)/%.d
 $(EXE_PATH)/$(PRODUCT): $(OBJ)
 	$(CC) -o $@ $^ $(LDFLAGS) $(OPTFLAGS) $(CFG) $(INC)
 #-----Generator rules-----
-include/%.h : generator/templates/include/%.h.jinja generator/template.py generator/templates-bases/definitions.jinja
-	generator/template.py
-
 generate:
+include/%.h : generator/templates/include/%.h.jinja generator/template.py generator/templates-bases/definitions.jinja
+include-test/%.h : generator/templates/include-test/%.h.jinja generator/template.py generator/templates-bases/definitions.jinja
+src-test/%.c : generator/templates/src-test/%.c.jinja generator/template.py generator/templates-bases/definitions.jinja
+pints-doc.h : generator/templates/pints-doc.h.jinja generator/template.py generator/templates-bases/definitions.jinja
 	generator/template.py
-
-
 
 #-----Dependencies--------
 $(DEP_PATH)/%.d: ;
