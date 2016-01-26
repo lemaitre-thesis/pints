@@ -101,10 +101,10 @@ typedef __m64 __m64fu __attribute__((aligned(4)));
 #define v4f_sub(a, b) _mm_sub_ps(a, b)
 
 #undef v4f_min
-#define v4f_min(a) _mm_min_ps(a, b)
+#define v4f_min(a, b) _mm_min_ps(a, b)
 
 #undef v4f_max
-#define v4f_max(a) _mm_max_ps(a, b)
+#define v4f_max(a, b) _mm_max_ps(a, b)
 
 #undef v4f_abs
 #define v4f_abs(a) _mm_andnot_ps(_mm_set1_ps(-0.f), a)
@@ -197,10 +197,10 @@ typedef __m64 __m64fu __attribute__((aligned(4)));
 #define v1f_sub(a, b) _mm_sub_ss(a, b)
 
 #undef v1f_min
-#define v1f_min(a) v4f_min(a)
+#define v1f_min(a, b) v4f_min(a, b)
 
 #undef v1f_max
-#define v1f_max(a) v4f_max(a)
+#define v1f_max(a, b) v4f_max(a, b)
 
 #undef v1f_abs
 #define v1f_abs(a) v4f_abs(a)
@@ -285,10 +285,10 @@ typedef __m64 __m64fu __attribute__((aligned(4)));
 #define v2f_sub(a, b) _mm_sub_ps(a, b)
 
 #undef v2f_min
-#define v2f_min(a) v4f_min(a)
+#define v2f_min(a, b) v4f_min(a, b)
 
 #undef v2f_max
-#define v2f_max(a) v4f_max(a)
+#define v2f_max(a, b) v4f_max(a, b)
 
 #undef v2f_abs
 #define v2f_abs(a) v4f_abs(a)
@@ -589,13 +589,13 @@ typedef __m64 __m64fu __attribute__((aligned(4)));
 
 #undef v2d_min
 #undef v4f_min
-#define v2d_min(a) _mm_min_pd(a, b)
-#define v4f_min(a) _mm_min_ps(a, b)
+#define v2d_min(a, b) _mm_min_pd(a, b)
+#define v4f_min(a, b) _mm_min_ps(a, b)
 
 #undef v2d_max
 #undef v4f_max
-#define v2d_max(a) _mm_max_pd(a, b)
-#define v4f_max(a) _mm_max_ps(a, b)
+#define v2d_max(a, b) _mm_max_pd(a, b)
+#define v4f_max(a, b) _mm_max_ps(a, b)
 
 #undef v2d_abs
 #undef v4f_abs
@@ -876,13 +876,13 @@ typedef __m64 __m64fu __attribute__((aligned(4)));
 
 #undef v1d_min
 #undef v1f_min
-#define v1d_min(a) v2d_min(a)
-#define v1f_min(a) v4f_min(a)
+#define v1d_min(a, b) v2d_min(a, b)
+#define v1f_min(a, b) v4f_min(a, b)
 
 #undef v1d_max
 #undef v1f_max
-#define v1d_max(a) v2d_max(a)
-#define v1f_max(a) v4f_max(a)
+#define v1d_max(a, b) v2d_max(a, b)
+#define v1f_max(a, b) v4f_max(a, b)
 
 #undef v1d_abs
 #undef v1f_abs
@@ -1038,10 +1038,10 @@ typedef __m64 __m64fu __attribute__((aligned(4)));
 #define v2f_neg(a) v4f_neg(a)
 
 #undef v2f_min
-#define v2f_min(a) v4f_min(a)
+#define v2f_min(a, b) v4f_min(a, b)
 
 #undef v2f_max
-#define v2f_max(a) v4f_max(a)
+#define v2f_max(a, b) v4f_max(a, b)
 
 #undef v2f_abs
 #define v2f_abs(a) v4f_abs(a)
@@ -1380,10 +1380,10 @@ static inline v2l __sse2_v2l_lt(v2l a, v2l b) {
 #define v2l_eq(a, b) _mm_cmpeq_epi64(a, b)
 
 #undef v4i_min
-#define v4i_min(a) _mm_min_epi32(a, b)
+#define v4i_min(a, b) _mm_min_epi32(a, b)
 
 #undef v4i_max
-#define v4i_max(a) _mm_max_epi32(a, b)
+#define v4i_max(a, b) _mm_max_epi32(a, b)
 
 #undef v1d_mask_move
 #undef v2d_mask_move
@@ -1403,9 +1403,9 @@ static inline v2l __sse2_v2l_lt(v2l a, v2l b) {
 #define v4f_mask_move(mask, src, a) _mm_blendv_ps(src, a, mask)
 #define v1i_mask_move(mask, src, a) v4i_mask_move(mask, src, a)
 #define v2i_mask_move(mask, src, a) v4i_mask_move(mask, src, a)
-#define v4i_mask_move(mask, src, a) v4i_cast_v4f(v4f_cast_v4i(mask), v4f_cast_v4i(src), v4f_cast_v4i(a))
+#define v4i_mask_move(mask, src, a) v4i_cast_v4f(v4f_mask_move(v4f_cast_v4i(mask), v4f_cast_v4i(src), v4f_cast_v4i(a)))
 #define v1l_mask_move(mask, src, a) v2l_mask_move(mask, src, a)
-#define v2l_mask_move(mask, src, a) v2l_cast_v2d(v2d_cast_v2l(mask), v2d_cast_v2l(src), v2d_cast_v2l(a))
+#define v2l_mask_move(mask, src, a) v2l_cast_v2d(v2d_mask_move(v2d_cast_v2l(mask), v2d_cast_v2l(src), v2d_cast_v2l(a)))
 
 #undef v2d_blend2
 #undef v4f_blend2

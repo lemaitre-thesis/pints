@@ -74,9 +74,13 @@ $(EXE_PATH)/$(PRODUCT): $(OBJ)
 	$(CC) -o $@ $^ $(LDFLAGS) $(OPTFLAGS) $(CFG) $(INC)
 #-----Generator rules-----
 generate:
+	generator/template.py
 include/%.h : generator/templates/include/%.h.jinja generator/template.py generator/templates-bases/definitions.jinja
+	generator/template.py
 include-test/%.h : generator/templates/include-test/%.h.jinja generator/template.py generator/templates-bases/definitions.jinja
+	generator/template.py
 src-test/%.c : generator/templates/src-test/%.c.jinja generator/template.py generator/templates-bases/definitions.jinja
+	generator/template.py
 pints-doc.h : generator/templates/pints-doc.h.jinja generator/template.py generator/templates-bases/definitions.jinja
 	generator/template.py
 

@@ -50,10 +50,7 @@ float dotprod_v8f(const float* a, const float* b, int n) {
   }
 
   // reduce s
-  s = v8f_reduce_add(s);
-
-  // convert 1st element of s to float
-  return sf_cvt_v8f(s);
+  return sf_reduce_add_v8f(s);
 }
 ~~~
 

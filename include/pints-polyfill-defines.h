@@ -1979,38 +1979,183 @@
     vec_t __input, __p; \
     __input = (input); \
     __p = vec_t##_permute2(__input, PINTS_SHUFFLE(1, 0)); \
-    output = func(__input, __p); \
+    output = vec_t##_##func (__input, __p); \
   } while(0)
 #define __PINTS_REDUCE4(func, vec_t, input, output) do { \
     vec_t __input, __p, __r, __rp; \
     __input = (input); \
     __p = vec_t##_permute2(__input, PINTS_SHUFFLE(1, 0)); \
-    __r = func(__input, __p); \
+    __r = vec_t##_##func (__input, __p); \
     __rp = vec_t##_permute2x2(__r, PINTS_SHUFFLE(1, 0)); \
-    output = func(__r, __rp); \
+    output = vec_t##_##func (__r, __rp); \
   } while(0)
 #define __PINTS_REDUCE8(func, vec_t, input, output) do { \
     vec_t __input, __p, __r1, __rp1, __r2, __rp2; \
     __input = (input); \
     __p = vec_t##_permute2(__input, PINTS_SHUFFLE(1, 0)); \
-    __r1 = func(__input, __p); \
+    __r1 = vec_t##_##func (__input, __p); \
     __rp1 = vec_t##_permute4x2(__r1, PINTS_SHUFFLE(2, 3, 0, 1)); \
-    __r2 = func(__r1, __rp1); \
+    __r2 = vec_t##_##func (__r1, __rp1); \
     __rp2 = vec_t##_permute2x4(__r2, PINTS_SHUFFLE(1, 0)); \
-    output = func(__r2, __rp2); \
+    output = vec_t##_##func (__r2, __rp2); \
   } while(0)
 #define __PINTS_REDUCE16(func, vec_t, input, output) do { \
     vec_t __input, __p, __r1, __rp1, __r2, __rp2, __r3, __rp3; \
     __input = (input); \
     __p = vec_t##_permute2(__input, PINTS_SHUFFLE(1, 0)); \
-    __r1 = func(__input, __p); \
+    __r1 = vec_t##_##func (__input, __p); \
     __rp1 = vec_t##_permute4(__r1, PINTS_SHUFFLE(1, 0, 3, 2)); \
-    __r2 = func(__r1, __rp1); \
+    __r2 = vec_t##_##func (__r1, __rp1); \
     __rp2 = vec_t##_permute4x4(__r2, PINTS_SHUFFLE(2, 3, 0, 1)); \
-    __r3 = func(__r2, __rp2); \
+    __r3 = vec_t##_##func (__r2, __rp2); \
     __rp3 = vec_t##_permute2x8(__r3, PINTS_SHUFFLE(1, 0)); \
-    output = func(__r3, __rp3); \
+    output = vec_t##_##func (__r3, __rp3); \
   } while(0)
+#define __PINTS_1REDUCE1(func, suffix_t, input, output) __PINTS_REDUCE1(func, v1##suffix_t, input, output)
+#define __PINTS_2REDUCE1(func, suffix_t, input, output) do { \
+    v1##suffix_t __temp1; \
+    __PINTS_1REDUCE1(func, suffix_t, input, __temp1); \
+    output = v2##suffix_t##_merge2_##v1##suffix_t(__temp1, __temp1); \
+  } while(0)
+#define __PINTS_4REDUCE1(func, suffix_t, input, output) do { \
+    v2##suffix_t __temp2; \
+    __PINTS_2REDUCE1(func, suffix_t, input, __temp2); \
+    output = v4##suffix_t##_merge2_##v2##suffix_t(__temp2, __temp2); \
+  } while(0)
+#define __PINTS_8REDUCE1(func, suffix_t, input, output) do { \
+    v4##suffix_t __temp4; \
+    __PINTS_4REDUCE1(func, suffix_t, input, __temp4); \
+    output = v8##suffix_t##_merge2_##v4##suffix_t(__temp4, __temp4); \
+  } while(0)
+#define __PINTS_16REDUCE1(func, suffix_t, input, output) do { \
+    v8##suffix_t __temp8; \
+    __PINTS_8REDUCE1(func, suffix_t, input, __temp8); \
+    output = v16##suffix_t##_merge2_##v8##suffix_t(__temp8, __temp8); \
+  } while(0)
+#define __PINTS_1REDUCE2(func, suffix_t, input, output) do { \
+    v2##suffix_t __input2; \
+    v1##suffix_t __low1, __high1, __temp1; \
+    __input2 = (input); \
+    __low1 = v1##suffix_t##_get_low_##v2##suffix_t(__input2); \
+    __high1 = v1##suffix_t##_get_high_##v2##suffix_t(__input2); \
+    __temp1 = v1##suffix_t##_##func(__low1, __high1); \
+    __PINTS_1REDUCE1(func, suffix_t, __temp1, output); \
+  } while(0)
+#define __PINTS_2REDUCE2(func, suffix_t, input, output) __PINTS_REDUCE2(func, v2##suffix_t, input, output)
+#define __PINTS_4REDUCE2(func, suffix_t, input, output) do { \
+    v2##suffix_t __temp2; \
+    __PINTS_2REDUCE2(func, suffix_t, input, __temp2); \
+    output = v4##suffix_t##_merge2_##v2##suffix_t(__temp2, __temp2); \
+  } while(0)
+#define __PINTS_8REDUCE2(func, suffix_t, input, output) do { \
+    v4##suffix_t __temp4; \
+    __PINTS_4REDUCE2(func, suffix_t, input, __temp4); \
+    output = v8##suffix_t##_merge2_##v4##suffix_t(__temp4, __temp4); \
+  } while(0)
+#define __PINTS_16REDUCE2(func, suffix_t, input, output) do { \
+    v8##suffix_t __temp8; \
+    __PINTS_8REDUCE2(func, suffix_t, input, __temp8); \
+    output = v16##suffix_t##_merge2_##v8##suffix_t(__temp8, __temp8); \
+  } while(0)
+#define __PINTS_1REDUCE4(func, suffix_t, input, output) do { \
+    v4##suffix_t __input4; \
+    v2##suffix_t __low2, __high2, __temp2; \
+    __input4 = (input); \
+    __low2 = v2##suffix_t##_get_low_##v4##suffix_t(__input4); \
+    __high2 = v2##suffix_t##_get_high_##v4##suffix_t(__input4); \
+    __temp2 = v2##suffix_t##_##func(__low2, __high2); \
+    __PINTS_1REDUCE2(func, suffix_t, __temp2, output); \
+  } while(0)
+#define __PINTS_2REDUCE4(func, suffix_t, input, output) do { \
+    v4##suffix_t __input4; \
+    v2##suffix_t __low2, __high2, __temp2; \
+    __input4 = (input); \
+    __low2 = v2##suffix_t##_get_low_##v4##suffix_t(__input4); \
+    __high2 = v2##suffix_t##_get_high_##v4##suffix_t(__input4); \
+    __temp2 = v2##suffix_t##_##func(__low2, __high2); \
+    __PINTS_2REDUCE2(func, suffix_t, __temp2, output); \
+  } while(0)
+#define __PINTS_4REDUCE4(func, suffix_t, input, output) __PINTS_REDUCE4(func, v4##suffix_t, input, output)
+#define __PINTS_8REDUCE4(func, suffix_t, input, output) do { \
+    v4##suffix_t __temp4; \
+    __PINTS_4REDUCE4(func, suffix_t, input, __temp4); \
+    output = v8##suffix_t##_merge2_##v4##suffix_t(__temp4, __temp4); \
+  } while(0)
+#define __PINTS_16REDUCE4(func, suffix_t, input, output) do { \
+    v8##suffix_t __temp8; \
+    __PINTS_8REDUCE4(func, suffix_t, input, __temp8); \
+    output = v16##suffix_t##_merge2_##v8##suffix_t(__temp8, __temp8); \
+  } while(0)
+#define __PINTS_1REDUCE8(func, suffix_t, input, output) do { \
+    v8##suffix_t __input8; \
+    v4##suffix_t __low4, __high4, __temp4; \
+    __input8 = (input); \
+    __low4 = v4##suffix_t##_get_low_##v8##suffix_t(__input8); \
+    __high4 = v4##suffix_t##_get_high_##v8##suffix_t(__input8); \
+    __temp4 = v4##suffix_t##_##func(__low4, __high4); \
+    __PINTS_1REDUCE4(func, suffix_t, __temp4, output); \
+  } while(0)
+#define __PINTS_2REDUCE8(func, suffix_t, input, output) do { \
+    v8##suffix_t __input8; \
+    v4##suffix_t __low4, __high4, __temp4; \
+    __input8 = (input); \
+    __low4 = v4##suffix_t##_get_low_##v8##suffix_t(__input8); \
+    __high4 = v4##suffix_t##_get_high_##v8##suffix_t(__input8); \
+    __temp4 = v4##suffix_t##_##func(__low4, __high4); \
+    __PINTS_2REDUCE4(func, suffix_t, __temp4, output); \
+  } while(0)
+#define __PINTS_4REDUCE8(func, suffix_t, input, output) do { \
+    v8##suffix_t __input8; \
+    v4##suffix_t __low4, __high4, __temp4; \
+    __input8 = (input); \
+    __low4 = v4##suffix_t##_get_low_##v8##suffix_t(__input8); \
+    __high4 = v4##suffix_t##_get_high_##v8##suffix_t(__input8); \
+    __temp4 = v4##suffix_t##_##func(__low4, __high4); \
+    __PINTS_4REDUCE4(func, suffix_t, __temp4, output); \
+  } while(0)
+#define __PINTS_8REDUCE8(func, suffix_t, input, output) __PINTS_REDUCE8(func, v8##suffix_t, input, output)
+#define __PINTS_16REDUCE8(func, suffix_t, input, output) do { \
+    v8##suffix_t __temp8; \
+    __PINTS_8REDUCE8(func, suffix_t, input, __temp8); \
+    output = v16##suffix_t##_merge2_##v8##suffix_t(__temp8, __temp8); \
+  } while(0)
+#define __PINTS_1REDUCE16(func, suffix_t, input, output) do { \
+    v16##suffix_t __input16; \
+    v8##suffix_t __low8, __high8, __temp8; \
+    __input16 = (input); \
+    __low8 = v8##suffix_t##_get_low_##v16##suffix_t(__input16); \
+    __high8 = v8##suffix_t##_get_high_##v16##suffix_t(__input16); \
+    __temp8 = v8##suffix_t##_##func(__low8, __high8); \
+    __PINTS_1REDUCE8(func, suffix_t, __temp8, output); \
+  } while(0)
+#define __PINTS_2REDUCE16(func, suffix_t, input, output) do { \
+    v16##suffix_t __input16; \
+    v8##suffix_t __low8, __high8, __temp8; \
+    __input16 = (input); \
+    __low8 = v8##suffix_t##_get_low_##v16##suffix_t(__input16); \
+    __high8 = v8##suffix_t##_get_high_##v16##suffix_t(__input16); \
+    __temp8 = v8##suffix_t##_##func(__low8, __high8); \
+    __PINTS_2REDUCE8(func, suffix_t, __temp8, output); \
+  } while(0)
+#define __PINTS_4REDUCE16(func, suffix_t, input, output) do { \
+    v16##suffix_t __input16; \
+    v8##suffix_t __low8, __high8, __temp8; \
+    __input16 = (input); \
+    __low8 = v8##suffix_t##_get_low_##v16##suffix_t(__input16); \
+    __high8 = v8##suffix_t##_get_high_##v16##suffix_t(__input16); \
+    __temp8 = v8##suffix_t##_##func(__low8, __high8); \
+    __PINTS_4REDUCE8(func, suffix_t, __temp8, output); \
+  } while(0)
+#define __PINTS_8REDUCE16(func, suffix_t, input, output) do { \
+    v16##suffix_t __input16; \
+    v8##suffix_t __low8, __high8, __temp8; \
+    __input16 = (input); \
+    __low8 = v8##suffix_t##_get_low_##v16##suffix_t(__input16); \
+    __high8 = v8##suffix_t##_get_high_##v16##suffix_t(__input16); \
+    __temp8 = v8##suffix_t##_##func(__low8, __high8); \
+    __PINTS_8REDUCE8(func, suffix_t, __temp8, output); \
+  } while(0)
+#define __PINTS_16REDUCE16(func, suffix_t, input, output) __PINTS_REDUCE16(func, v16##suffix_t, input, output)
 #define v1d_reduce_add __v1d_reduce_add
 #define v1f_reduce_add __v1f_reduce_add
 #define v1i_reduce_add __v1i_reduce_add
@@ -2029,6 +2174,106 @@
 #define v8l_reduce_add __v8l_reduce_add
 #define v16f_reduce_add __v16f_reduce_add
 #define v16i_reduce_add __v16i_reduce_add
+#define v1d_reduce_add_v1d __v1d_reduce_add_v1d
+#define v1f_reduce_add_v1f __v1f_reduce_add_v1f
+#define v1i_reduce_add_v1i __v1i_reduce_add_v1i
+#define v1l_reduce_add_v1l __v1l_reduce_add_v1l
+#define v2d_reduce_add_v1d __v2d_reduce_add_v1d
+#define v2f_reduce_add_v1f __v2f_reduce_add_v1f
+#define v2i_reduce_add_v1i __v2i_reduce_add_v1i
+#define v2l_reduce_add_v1l __v2l_reduce_add_v1l
+#define v4d_reduce_add_v1d __v4d_reduce_add_v1d
+#define v4f_reduce_add_v1f __v4f_reduce_add_v1f
+#define v4i_reduce_add_v1i __v4i_reduce_add_v1i
+#define v4l_reduce_add_v1l __v4l_reduce_add_v1l
+#define v8d_reduce_add_v1d __v8d_reduce_add_v1d
+#define v8f_reduce_add_v1f __v8f_reduce_add_v1f
+#define v8i_reduce_add_v1i __v8i_reduce_add_v1i
+#define v8l_reduce_add_v1l __v8l_reduce_add_v1l
+#define v16f_reduce_add_v1f __v16f_reduce_add_v1f
+#define v16i_reduce_add_v1i __v16i_reduce_add_v1i
+#define v1d_reduce_add_v2d __v1d_reduce_add_v2d
+#define v1f_reduce_add_v2f __v1f_reduce_add_v2f
+#define v1i_reduce_add_v2i __v1i_reduce_add_v2i
+#define v1l_reduce_add_v2l __v1l_reduce_add_v2l
+#define v2d_reduce_add_v2d __v2d_reduce_add_v2d
+#define v2f_reduce_add_v2f __v2f_reduce_add_v2f
+#define v2i_reduce_add_v2i __v2i_reduce_add_v2i
+#define v2l_reduce_add_v2l __v2l_reduce_add_v2l
+#define v4d_reduce_add_v2d __v4d_reduce_add_v2d
+#define v4f_reduce_add_v2f __v4f_reduce_add_v2f
+#define v4i_reduce_add_v2i __v4i_reduce_add_v2i
+#define v4l_reduce_add_v2l __v4l_reduce_add_v2l
+#define v8d_reduce_add_v2d __v8d_reduce_add_v2d
+#define v8f_reduce_add_v2f __v8f_reduce_add_v2f
+#define v8i_reduce_add_v2i __v8i_reduce_add_v2i
+#define v8l_reduce_add_v2l __v8l_reduce_add_v2l
+#define v16f_reduce_add_v2f __v16f_reduce_add_v2f
+#define v16i_reduce_add_v2i __v16i_reduce_add_v2i
+#define v1d_reduce_add_v4d __v1d_reduce_add_v4d
+#define v1f_reduce_add_v4f __v1f_reduce_add_v4f
+#define v1i_reduce_add_v4i __v1i_reduce_add_v4i
+#define v1l_reduce_add_v4l __v1l_reduce_add_v4l
+#define v2d_reduce_add_v4d __v2d_reduce_add_v4d
+#define v2f_reduce_add_v4f __v2f_reduce_add_v4f
+#define v2i_reduce_add_v4i __v2i_reduce_add_v4i
+#define v2l_reduce_add_v4l __v2l_reduce_add_v4l
+#define v4d_reduce_add_v4d __v4d_reduce_add_v4d
+#define v4f_reduce_add_v4f __v4f_reduce_add_v4f
+#define v4i_reduce_add_v4i __v4i_reduce_add_v4i
+#define v4l_reduce_add_v4l __v4l_reduce_add_v4l
+#define v8d_reduce_add_v4d __v8d_reduce_add_v4d
+#define v8f_reduce_add_v4f __v8f_reduce_add_v4f
+#define v8i_reduce_add_v4i __v8i_reduce_add_v4i
+#define v8l_reduce_add_v4l __v8l_reduce_add_v4l
+#define v16f_reduce_add_v4f __v16f_reduce_add_v4f
+#define v16i_reduce_add_v4i __v16i_reduce_add_v4i
+#define v1d_reduce_add_v8d __v1d_reduce_add_v8d
+#define v1f_reduce_add_v8f __v1f_reduce_add_v8f
+#define v1i_reduce_add_v8i __v1i_reduce_add_v8i
+#define v1l_reduce_add_v8l __v1l_reduce_add_v8l
+#define v2d_reduce_add_v8d __v2d_reduce_add_v8d
+#define v2f_reduce_add_v8f __v2f_reduce_add_v8f
+#define v2i_reduce_add_v8i __v2i_reduce_add_v8i
+#define v2l_reduce_add_v8l __v2l_reduce_add_v8l
+#define v4d_reduce_add_v8d __v4d_reduce_add_v8d
+#define v4f_reduce_add_v8f __v4f_reduce_add_v8f
+#define v4i_reduce_add_v8i __v4i_reduce_add_v8i
+#define v4l_reduce_add_v8l __v4l_reduce_add_v8l
+#define v8d_reduce_add_v8d __v8d_reduce_add_v8d
+#define v8f_reduce_add_v8f __v8f_reduce_add_v8f
+#define v8i_reduce_add_v8i __v8i_reduce_add_v8i
+#define v8l_reduce_add_v8l __v8l_reduce_add_v8l
+#define v16f_reduce_add_v8f __v16f_reduce_add_v8f
+#define v16i_reduce_add_v8i __v16i_reduce_add_v8i
+#define v1f_reduce_add_v16f __v1f_reduce_add_v16f
+#define v1i_reduce_add_v16i __v1i_reduce_add_v16i
+#define v2f_reduce_add_v16f __v2f_reduce_add_v16f
+#define v2i_reduce_add_v16i __v2i_reduce_add_v16i
+#define v4f_reduce_add_v16f __v4f_reduce_add_v16f
+#define v4i_reduce_add_v16i __v4i_reduce_add_v16i
+#define v8f_reduce_add_v16f __v8f_reduce_add_v16f
+#define v8i_reduce_add_v16i __v8i_reduce_add_v16i
+#define v16f_reduce_add_v16f __v16f_reduce_add_v16f
+#define v16i_reduce_add_v16i __v16i_reduce_add_v16i
+#define sd_reduce_add_v1d(a)  sd_cvt_v1d(v1d_reduce_add_v1d(a))
+#define sf_reduce_add_v1f(a)  sf_cvt_v1f(v1f_reduce_add_v1f(a))
+#define si_reduce_add_v1i(a)  si_cvt_v1i(v1i_reduce_add_v1i(a))
+#define sl_reduce_add_v1l(a)  sl_cvt_v1l(v1l_reduce_add_v1l(a))
+#define sd_reduce_add_v2d(a)  sd_cvt_v1d(v1d_reduce_add_v2d(a))
+#define sf_reduce_add_v2f(a)  sf_cvt_v1f(v1f_reduce_add_v2f(a))
+#define si_reduce_add_v2i(a)  si_cvt_v1i(v1i_reduce_add_v2i(a))
+#define sl_reduce_add_v2l(a)  sl_cvt_v1l(v1l_reduce_add_v2l(a))
+#define sd_reduce_add_v4d(a)  sd_cvt_v1d(v1d_reduce_add_v4d(a))
+#define sf_reduce_add_v4f(a)  sf_cvt_v1f(v1f_reduce_add_v4f(a))
+#define si_reduce_add_v4i(a)  si_cvt_v1i(v1i_reduce_add_v4i(a))
+#define sl_reduce_add_v4l(a)  sl_cvt_v1l(v1l_reduce_add_v4l(a))
+#define sd_reduce_add_v8d(a)  sd_cvt_v1d(v1d_reduce_add_v8d(a))
+#define sf_reduce_add_v8f(a)  sf_cvt_v1f(v1f_reduce_add_v8f(a))
+#define si_reduce_add_v8i(a)  si_cvt_v1i(v1i_reduce_add_v8i(a))
+#define sl_reduce_add_v8l(a)  sl_cvt_v1l(v1l_reduce_add_v8l(a))
+#define sf_reduce_add_v16f(a)  sf_cvt_v1f(v1f_reduce_add_v16f(a))
+#define si_reduce_add_v16i(a)  si_cvt_v1i(v1i_reduce_add_v16i(a))
 #define v1d_reduce_mul __v1d_reduce_mul
 #define v1f_reduce_mul __v1f_reduce_mul
 #define v1i_reduce_mul __v1i_reduce_mul
@@ -2047,6 +2292,106 @@
 #define v8l_reduce_mul __v8l_reduce_mul
 #define v16f_reduce_mul __v16f_reduce_mul
 #define v16i_reduce_mul __v16i_reduce_mul
+#define v1d_reduce_mul_v1d __v1d_reduce_mul_v1d
+#define v1f_reduce_mul_v1f __v1f_reduce_mul_v1f
+#define v1i_reduce_mul_v1i __v1i_reduce_mul_v1i
+#define v1l_reduce_mul_v1l __v1l_reduce_mul_v1l
+#define v2d_reduce_mul_v1d __v2d_reduce_mul_v1d
+#define v2f_reduce_mul_v1f __v2f_reduce_mul_v1f
+#define v2i_reduce_mul_v1i __v2i_reduce_mul_v1i
+#define v2l_reduce_mul_v1l __v2l_reduce_mul_v1l
+#define v4d_reduce_mul_v1d __v4d_reduce_mul_v1d
+#define v4f_reduce_mul_v1f __v4f_reduce_mul_v1f
+#define v4i_reduce_mul_v1i __v4i_reduce_mul_v1i
+#define v4l_reduce_mul_v1l __v4l_reduce_mul_v1l
+#define v8d_reduce_mul_v1d __v8d_reduce_mul_v1d
+#define v8f_reduce_mul_v1f __v8f_reduce_mul_v1f
+#define v8i_reduce_mul_v1i __v8i_reduce_mul_v1i
+#define v8l_reduce_mul_v1l __v8l_reduce_mul_v1l
+#define v16f_reduce_mul_v1f __v16f_reduce_mul_v1f
+#define v16i_reduce_mul_v1i __v16i_reduce_mul_v1i
+#define v1d_reduce_mul_v2d __v1d_reduce_mul_v2d
+#define v1f_reduce_mul_v2f __v1f_reduce_mul_v2f
+#define v1i_reduce_mul_v2i __v1i_reduce_mul_v2i
+#define v1l_reduce_mul_v2l __v1l_reduce_mul_v2l
+#define v2d_reduce_mul_v2d __v2d_reduce_mul_v2d
+#define v2f_reduce_mul_v2f __v2f_reduce_mul_v2f
+#define v2i_reduce_mul_v2i __v2i_reduce_mul_v2i
+#define v2l_reduce_mul_v2l __v2l_reduce_mul_v2l
+#define v4d_reduce_mul_v2d __v4d_reduce_mul_v2d
+#define v4f_reduce_mul_v2f __v4f_reduce_mul_v2f
+#define v4i_reduce_mul_v2i __v4i_reduce_mul_v2i
+#define v4l_reduce_mul_v2l __v4l_reduce_mul_v2l
+#define v8d_reduce_mul_v2d __v8d_reduce_mul_v2d
+#define v8f_reduce_mul_v2f __v8f_reduce_mul_v2f
+#define v8i_reduce_mul_v2i __v8i_reduce_mul_v2i
+#define v8l_reduce_mul_v2l __v8l_reduce_mul_v2l
+#define v16f_reduce_mul_v2f __v16f_reduce_mul_v2f
+#define v16i_reduce_mul_v2i __v16i_reduce_mul_v2i
+#define v1d_reduce_mul_v4d __v1d_reduce_mul_v4d
+#define v1f_reduce_mul_v4f __v1f_reduce_mul_v4f
+#define v1i_reduce_mul_v4i __v1i_reduce_mul_v4i
+#define v1l_reduce_mul_v4l __v1l_reduce_mul_v4l
+#define v2d_reduce_mul_v4d __v2d_reduce_mul_v4d
+#define v2f_reduce_mul_v4f __v2f_reduce_mul_v4f
+#define v2i_reduce_mul_v4i __v2i_reduce_mul_v4i
+#define v2l_reduce_mul_v4l __v2l_reduce_mul_v4l
+#define v4d_reduce_mul_v4d __v4d_reduce_mul_v4d
+#define v4f_reduce_mul_v4f __v4f_reduce_mul_v4f
+#define v4i_reduce_mul_v4i __v4i_reduce_mul_v4i
+#define v4l_reduce_mul_v4l __v4l_reduce_mul_v4l
+#define v8d_reduce_mul_v4d __v8d_reduce_mul_v4d
+#define v8f_reduce_mul_v4f __v8f_reduce_mul_v4f
+#define v8i_reduce_mul_v4i __v8i_reduce_mul_v4i
+#define v8l_reduce_mul_v4l __v8l_reduce_mul_v4l
+#define v16f_reduce_mul_v4f __v16f_reduce_mul_v4f
+#define v16i_reduce_mul_v4i __v16i_reduce_mul_v4i
+#define v1d_reduce_mul_v8d __v1d_reduce_mul_v8d
+#define v1f_reduce_mul_v8f __v1f_reduce_mul_v8f
+#define v1i_reduce_mul_v8i __v1i_reduce_mul_v8i
+#define v1l_reduce_mul_v8l __v1l_reduce_mul_v8l
+#define v2d_reduce_mul_v8d __v2d_reduce_mul_v8d
+#define v2f_reduce_mul_v8f __v2f_reduce_mul_v8f
+#define v2i_reduce_mul_v8i __v2i_reduce_mul_v8i
+#define v2l_reduce_mul_v8l __v2l_reduce_mul_v8l
+#define v4d_reduce_mul_v8d __v4d_reduce_mul_v8d
+#define v4f_reduce_mul_v8f __v4f_reduce_mul_v8f
+#define v4i_reduce_mul_v8i __v4i_reduce_mul_v8i
+#define v4l_reduce_mul_v8l __v4l_reduce_mul_v8l
+#define v8d_reduce_mul_v8d __v8d_reduce_mul_v8d
+#define v8f_reduce_mul_v8f __v8f_reduce_mul_v8f
+#define v8i_reduce_mul_v8i __v8i_reduce_mul_v8i
+#define v8l_reduce_mul_v8l __v8l_reduce_mul_v8l
+#define v16f_reduce_mul_v8f __v16f_reduce_mul_v8f
+#define v16i_reduce_mul_v8i __v16i_reduce_mul_v8i
+#define v1f_reduce_mul_v16f __v1f_reduce_mul_v16f
+#define v1i_reduce_mul_v16i __v1i_reduce_mul_v16i
+#define v2f_reduce_mul_v16f __v2f_reduce_mul_v16f
+#define v2i_reduce_mul_v16i __v2i_reduce_mul_v16i
+#define v4f_reduce_mul_v16f __v4f_reduce_mul_v16f
+#define v4i_reduce_mul_v16i __v4i_reduce_mul_v16i
+#define v8f_reduce_mul_v16f __v8f_reduce_mul_v16f
+#define v8i_reduce_mul_v16i __v8i_reduce_mul_v16i
+#define v16f_reduce_mul_v16f __v16f_reduce_mul_v16f
+#define v16i_reduce_mul_v16i __v16i_reduce_mul_v16i
+#define sd_reduce_mul_v1d(a)  sd_cvt_v1d(v1d_reduce_mul_v1d(a))
+#define sf_reduce_mul_v1f(a)  sf_cvt_v1f(v1f_reduce_mul_v1f(a))
+#define si_reduce_mul_v1i(a)  si_cvt_v1i(v1i_reduce_mul_v1i(a))
+#define sl_reduce_mul_v1l(a)  sl_cvt_v1l(v1l_reduce_mul_v1l(a))
+#define sd_reduce_mul_v2d(a)  sd_cvt_v1d(v1d_reduce_mul_v2d(a))
+#define sf_reduce_mul_v2f(a)  sf_cvt_v1f(v1f_reduce_mul_v2f(a))
+#define si_reduce_mul_v2i(a)  si_cvt_v1i(v1i_reduce_mul_v2i(a))
+#define sl_reduce_mul_v2l(a)  sl_cvt_v1l(v1l_reduce_mul_v2l(a))
+#define sd_reduce_mul_v4d(a)  sd_cvt_v1d(v1d_reduce_mul_v4d(a))
+#define sf_reduce_mul_v4f(a)  sf_cvt_v1f(v1f_reduce_mul_v4f(a))
+#define si_reduce_mul_v4i(a)  si_cvt_v1i(v1i_reduce_mul_v4i(a))
+#define sl_reduce_mul_v4l(a)  sl_cvt_v1l(v1l_reduce_mul_v4l(a))
+#define sd_reduce_mul_v8d(a)  sd_cvt_v1d(v1d_reduce_mul_v8d(a))
+#define sf_reduce_mul_v8f(a)  sf_cvt_v1f(v1f_reduce_mul_v8f(a))
+#define si_reduce_mul_v8i(a)  si_cvt_v1i(v1i_reduce_mul_v8i(a))
+#define sl_reduce_mul_v8l(a)  sl_cvt_v1l(v1l_reduce_mul_v8l(a))
+#define sf_reduce_mul_v16f(a)  sf_cvt_v1f(v1f_reduce_mul_v16f(a))
+#define si_reduce_mul_v16i(a)  si_cvt_v1i(v1i_reduce_mul_v16i(a))
 #define v1d_reduce_and __v1d_reduce_and
 #define v1f_reduce_and __v1f_reduce_and
 #define v1i_reduce_and __v1i_reduce_and
@@ -2065,6 +2410,106 @@
 #define v8l_reduce_and __v8l_reduce_and
 #define v16f_reduce_and __v16f_reduce_and
 #define v16i_reduce_and __v16i_reduce_and
+#define v1d_reduce_and_v1d __v1d_reduce_and_v1d
+#define v1f_reduce_and_v1f __v1f_reduce_and_v1f
+#define v1i_reduce_and_v1i __v1i_reduce_and_v1i
+#define v1l_reduce_and_v1l __v1l_reduce_and_v1l
+#define v2d_reduce_and_v1d __v2d_reduce_and_v1d
+#define v2f_reduce_and_v1f __v2f_reduce_and_v1f
+#define v2i_reduce_and_v1i __v2i_reduce_and_v1i
+#define v2l_reduce_and_v1l __v2l_reduce_and_v1l
+#define v4d_reduce_and_v1d __v4d_reduce_and_v1d
+#define v4f_reduce_and_v1f __v4f_reduce_and_v1f
+#define v4i_reduce_and_v1i __v4i_reduce_and_v1i
+#define v4l_reduce_and_v1l __v4l_reduce_and_v1l
+#define v8d_reduce_and_v1d __v8d_reduce_and_v1d
+#define v8f_reduce_and_v1f __v8f_reduce_and_v1f
+#define v8i_reduce_and_v1i __v8i_reduce_and_v1i
+#define v8l_reduce_and_v1l __v8l_reduce_and_v1l
+#define v16f_reduce_and_v1f __v16f_reduce_and_v1f
+#define v16i_reduce_and_v1i __v16i_reduce_and_v1i
+#define v1d_reduce_and_v2d __v1d_reduce_and_v2d
+#define v1f_reduce_and_v2f __v1f_reduce_and_v2f
+#define v1i_reduce_and_v2i __v1i_reduce_and_v2i
+#define v1l_reduce_and_v2l __v1l_reduce_and_v2l
+#define v2d_reduce_and_v2d __v2d_reduce_and_v2d
+#define v2f_reduce_and_v2f __v2f_reduce_and_v2f
+#define v2i_reduce_and_v2i __v2i_reduce_and_v2i
+#define v2l_reduce_and_v2l __v2l_reduce_and_v2l
+#define v4d_reduce_and_v2d __v4d_reduce_and_v2d
+#define v4f_reduce_and_v2f __v4f_reduce_and_v2f
+#define v4i_reduce_and_v2i __v4i_reduce_and_v2i
+#define v4l_reduce_and_v2l __v4l_reduce_and_v2l
+#define v8d_reduce_and_v2d __v8d_reduce_and_v2d
+#define v8f_reduce_and_v2f __v8f_reduce_and_v2f
+#define v8i_reduce_and_v2i __v8i_reduce_and_v2i
+#define v8l_reduce_and_v2l __v8l_reduce_and_v2l
+#define v16f_reduce_and_v2f __v16f_reduce_and_v2f
+#define v16i_reduce_and_v2i __v16i_reduce_and_v2i
+#define v1d_reduce_and_v4d __v1d_reduce_and_v4d
+#define v1f_reduce_and_v4f __v1f_reduce_and_v4f
+#define v1i_reduce_and_v4i __v1i_reduce_and_v4i
+#define v1l_reduce_and_v4l __v1l_reduce_and_v4l
+#define v2d_reduce_and_v4d __v2d_reduce_and_v4d
+#define v2f_reduce_and_v4f __v2f_reduce_and_v4f
+#define v2i_reduce_and_v4i __v2i_reduce_and_v4i
+#define v2l_reduce_and_v4l __v2l_reduce_and_v4l
+#define v4d_reduce_and_v4d __v4d_reduce_and_v4d
+#define v4f_reduce_and_v4f __v4f_reduce_and_v4f
+#define v4i_reduce_and_v4i __v4i_reduce_and_v4i
+#define v4l_reduce_and_v4l __v4l_reduce_and_v4l
+#define v8d_reduce_and_v4d __v8d_reduce_and_v4d
+#define v8f_reduce_and_v4f __v8f_reduce_and_v4f
+#define v8i_reduce_and_v4i __v8i_reduce_and_v4i
+#define v8l_reduce_and_v4l __v8l_reduce_and_v4l
+#define v16f_reduce_and_v4f __v16f_reduce_and_v4f
+#define v16i_reduce_and_v4i __v16i_reduce_and_v4i
+#define v1d_reduce_and_v8d __v1d_reduce_and_v8d
+#define v1f_reduce_and_v8f __v1f_reduce_and_v8f
+#define v1i_reduce_and_v8i __v1i_reduce_and_v8i
+#define v1l_reduce_and_v8l __v1l_reduce_and_v8l
+#define v2d_reduce_and_v8d __v2d_reduce_and_v8d
+#define v2f_reduce_and_v8f __v2f_reduce_and_v8f
+#define v2i_reduce_and_v8i __v2i_reduce_and_v8i
+#define v2l_reduce_and_v8l __v2l_reduce_and_v8l
+#define v4d_reduce_and_v8d __v4d_reduce_and_v8d
+#define v4f_reduce_and_v8f __v4f_reduce_and_v8f
+#define v4i_reduce_and_v8i __v4i_reduce_and_v8i
+#define v4l_reduce_and_v8l __v4l_reduce_and_v8l
+#define v8d_reduce_and_v8d __v8d_reduce_and_v8d
+#define v8f_reduce_and_v8f __v8f_reduce_and_v8f
+#define v8i_reduce_and_v8i __v8i_reduce_and_v8i
+#define v8l_reduce_and_v8l __v8l_reduce_and_v8l
+#define v16f_reduce_and_v8f __v16f_reduce_and_v8f
+#define v16i_reduce_and_v8i __v16i_reduce_and_v8i
+#define v1f_reduce_and_v16f __v1f_reduce_and_v16f
+#define v1i_reduce_and_v16i __v1i_reduce_and_v16i
+#define v2f_reduce_and_v16f __v2f_reduce_and_v16f
+#define v2i_reduce_and_v16i __v2i_reduce_and_v16i
+#define v4f_reduce_and_v16f __v4f_reduce_and_v16f
+#define v4i_reduce_and_v16i __v4i_reduce_and_v16i
+#define v8f_reduce_and_v16f __v8f_reduce_and_v16f
+#define v8i_reduce_and_v16i __v8i_reduce_and_v16i
+#define v16f_reduce_and_v16f __v16f_reduce_and_v16f
+#define v16i_reduce_and_v16i __v16i_reduce_and_v16i
+#define sd_reduce_and_v1d(a)  sd_cvt_v1d(v1d_reduce_and_v1d(a))
+#define sf_reduce_and_v1f(a)  sf_cvt_v1f(v1f_reduce_and_v1f(a))
+#define si_reduce_and_v1i(a)  si_cvt_v1i(v1i_reduce_and_v1i(a))
+#define sl_reduce_and_v1l(a)  sl_cvt_v1l(v1l_reduce_and_v1l(a))
+#define sd_reduce_and_v2d(a)  sd_cvt_v1d(v1d_reduce_and_v2d(a))
+#define sf_reduce_and_v2f(a)  sf_cvt_v1f(v1f_reduce_and_v2f(a))
+#define si_reduce_and_v2i(a)  si_cvt_v1i(v1i_reduce_and_v2i(a))
+#define sl_reduce_and_v2l(a)  sl_cvt_v1l(v1l_reduce_and_v2l(a))
+#define sd_reduce_and_v4d(a)  sd_cvt_v1d(v1d_reduce_and_v4d(a))
+#define sf_reduce_and_v4f(a)  sf_cvt_v1f(v1f_reduce_and_v4f(a))
+#define si_reduce_and_v4i(a)  si_cvt_v1i(v1i_reduce_and_v4i(a))
+#define sl_reduce_and_v4l(a)  sl_cvt_v1l(v1l_reduce_and_v4l(a))
+#define sd_reduce_and_v8d(a)  sd_cvt_v1d(v1d_reduce_and_v8d(a))
+#define sf_reduce_and_v8f(a)  sf_cvt_v1f(v1f_reduce_and_v8f(a))
+#define si_reduce_and_v8i(a)  si_cvt_v1i(v1i_reduce_and_v8i(a))
+#define sl_reduce_and_v8l(a)  sl_cvt_v1l(v1l_reduce_and_v8l(a))
+#define sf_reduce_and_v16f(a)  sf_cvt_v1f(v1f_reduce_and_v16f(a))
+#define si_reduce_and_v16i(a)  si_cvt_v1i(v1i_reduce_and_v16i(a))
 #define v1d_reduce_or __v1d_reduce_or
 #define v1f_reduce_or __v1f_reduce_or
 #define v1i_reduce_or __v1i_reduce_or
@@ -2083,6 +2528,342 @@
 #define v8l_reduce_or __v8l_reduce_or
 #define v16f_reduce_or __v16f_reduce_or
 #define v16i_reduce_or __v16i_reduce_or
+#define v1d_reduce_or_v1d __v1d_reduce_or_v1d
+#define v1f_reduce_or_v1f __v1f_reduce_or_v1f
+#define v1i_reduce_or_v1i __v1i_reduce_or_v1i
+#define v1l_reduce_or_v1l __v1l_reduce_or_v1l
+#define v2d_reduce_or_v1d __v2d_reduce_or_v1d
+#define v2f_reduce_or_v1f __v2f_reduce_or_v1f
+#define v2i_reduce_or_v1i __v2i_reduce_or_v1i
+#define v2l_reduce_or_v1l __v2l_reduce_or_v1l
+#define v4d_reduce_or_v1d __v4d_reduce_or_v1d
+#define v4f_reduce_or_v1f __v4f_reduce_or_v1f
+#define v4i_reduce_or_v1i __v4i_reduce_or_v1i
+#define v4l_reduce_or_v1l __v4l_reduce_or_v1l
+#define v8d_reduce_or_v1d __v8d_reduce_or_v1d
+#define v8f_reduce_or_v1f __v8f_reduce_or_v1f
+#define v8i_reduce_or_v1i __v8i_reduce_or_v1i
+#define v8l_reduce_or_v1l __v8l_reduce_or_v1l
+#define v16f_reduce_or_v1f __v16f_reduce_or_v1f
+#define v16i_reduce_or_v1i __v16i_reduce_or_v1i
+#define v1d_reduce_or_v2d __v1d_reduce_or_v2d
+#define v1f_reduce_or_v2f __v1f_reduce_or_v2f
+#define v1i_reduce_or_v2i __v1i_reduce_or_v2i
+#define v1l_reduce_or_v2l __v1l_reduce_or_v2l
+#define v2d_reduce_or_v2d __v2d_reduce_or_v2d
+#define v2f_reduce_or_v2f __v2f_reduce_or_v2f
+#define v2i_reduce_or_v2i __v2i_reduce_or_v2i
+#define v2l_reduce_or_v2l __v2l_reduce_or_v2l
+#define v4d_reduce_or_v2d __v4d_reduce_or_v2d
+#define v4f_reduce_or_v2f __v4f_reduce_or_v2f
+#define v4i_reduce_or_v2i __v4i_reduce_or_v2i
+#define v4l_reduce_or_v2l __v4l_reduce_or_v2l
+#define v8d_reduce_or_v2d __v8d_reduce_or_v2d
+#define v8f_reduce_or_v2f __v8f_reduce_or_v2f
+#define v8i_reduce_or_v2i __v8i_reduce_or_v2i
+#define v8l_reduce_or_v2l __v8l_reduce_or_v2l
+#define v16f_reduce_or_v2f __v16f_reduce_or_v2f
+#define v16i_reduce_or_v2i __v16i_reduce_or_v2i
+#define v1d_reduce_or_v4d __v1d_reduce_or_v4d
+#define v1f_reduce_or_v4f __v1f_reduce_or_v4f
+#define v1i_reduce_or_v4i __v1i_reduce_or_v4i
+#define v1l_reduce_or_v4l __v1l_reduce_or_v4l
+#define v2d_reduce_or_v4d __v2d_reduce_or_v4d
+#define v2f_reduce_or_v4f __v2f_reduce_or_v4f
+#define v2i_reduce_or_v4i __v2i_reduce_or_v4i
+#define v2l_reduce_or_v4l __v2l_reduce_or_v4l
+#define v4d_reduce_or_v4d __v4d_reduce_or_v4d
+#define v4f_reduce_or_v4f __v4f_reduce_or_v4f
+#define v4i_reduce_or_v4i __v4i_reduce_or_v4i
+#define v4l_reduce_or_v4l __v4l_reduce_or_v4l
+#define v8d_reduce_or_v4d __v8d_reduce_or_v4d
+#define v8f_reduce_or_v4f __v8f_reduce_or_v4f
+#define v8i_reduce_or_v4i __v8i_reduce_or_v4i
+#define v8l_reduce_or_v4l __v8l_reduce_or_v4l
+#define v16f_reduce_or_v4f __v16f_reduce_or_v4f
+#define v16i_reduce_or_v4i __v16i_reduce_or_v4i
+#define v1d_reduce_or_v8d __v1d_reduce_or_v8d
+#define v1f_reduce_or_v8f __v1f_reduce_or_v8f
+#define v1i_reduce_or_v8i __v1i_reduce_or_v8i
+#define v1l_reduce_or_v8l __v1l_reduce_or_v8l
+#define v2d_reduce_or_v8d __v2d_reduce_or_v8d
+#define v2f_reduce_or_v8f __v2f_reduce_or_v8f
+#define v2i_reduce_or_v8i __v2i_reduce_or_v8i
+#define v2l_reduce_or_v8l __v2l_reduce_or_v8l
+#define v4d_reduce_or_v8d __v4d_reduce_or_v8d
+#define v4f_reduce_or_v8f __v4f_reduce_or_v8f
+#define v4i_reduce_or_v8i __v4i_reduce_or_v8i
+#define v4l_reduce_or_v8l __v4l_reduce_or_v8l
+#define v8d_reduce_or_v8d __v8d_reduce_or_v8d
+#define v8f_reduce_or_v8f __v8f_reduce_or_v8f
+#define v8i_reduce_or_v8i __v8i_reduce_or_v8i
+#define v8l_reduce_or_v8l __v8l_reduce_or_v8l
+#define v16f_reduce_or_v8f __v16f_reduce_or_v8f
+#define v16i_reduce_or_v8i __v16i_reduce_or_v8i
+#define v1f_reduce_or_v16f __v1f_reduce_or_v16f
+#define v1i_reduce_or_v16i __v1i_reduce_or_v16i
+#define v2f_reduce_or_v16f __v2f_reduce_or_v16f
+#define v2i_reduce_or_v16i __v2i_reduce_or_v16i
+#define v4f_reduce_or_v16f __v4f_reduce_or_v16f
+#define v4i_reduce_or_v16i __v4i_reduce_or_v16i
+#define v8f_reduce_or_v16f __v8f_reduce_or_v16f
+#define v8i_reduce_or_v16i __v8i_reduce_or_v16i
+#define v16f_reduce_or_v16f __v16f_reduce_or_v16f
+#define v16i_reduce_or_v16i __v16i_reduce_or_v16i
+#define sd_reduce_or_v1d(a)  sd_cvt_v1d(v1d_reduce_or_v1d(a))
+#define sf_reduce_or_v1f(a)  sf_cvt_v1f(v1f_reduce_or_v1f(a))
+#define si_reduce_or_v1i(a)  si_cvt_v1i(v1i_reduce_or_v1i(a))
+#define sl_reduce_or_v1l(a)  sl_cvt_v1l(v1l_reduce_or_v1l(a))
+#define sd_reduce_or_v2d(a)  sd_cvt_v1d(v1d_reduce_or_v2d(a))
+#define sf_reduce_or_v2f(a)  sf_cvt_v1f(v1f_reduce_or_v2f(a))
+#define si_reduce_or_v2i(a)  si_cvt_v1i(v1i_reduce_or_v2i(a))
+#define sl_reduce_or_v2l(a)  sl_cvt_v1l(v1l_reduce_or_v2l(a))
+#define sd_reduce_or_v4d(a)  sd_cvt_v1d(v1d_reduce_or_v4d(a))
+#define sf_reduce_or_v4f(a)  sf_cvt_v1f(v1f_reduce_or_v4f(a))
+#define si_reduce_or_v4i(a)  si_cvt_v1i(v1i_reduce_or_v4i(a))
+#define sl_reduce_or_v4l(a)  sl_cvt_v1l(v1l_reduce_or_v4l(a))
+#define sd_reduce_or_v8d(a)  sd_cvt_v1d(v1d_reduce_or_v8d(a))
+#define sf_reduce_or_v8f(a)  sf_cvt_v1f(v1f_reduce_or_v8f(a))
+#define si_reduce_or_v8i(a)  si_cvt_v1i(v1i_reduce_or_v8i(a))
+#define sl_reduce_or_v8l(a)  sl_cvt_v1l(v1l_reduce_or_v8l(a))
+#define sf_reduce_or_v16f(a)  sf_cvt_v1f(v1f_reduce_or_v16f(a))
+#define si_reduce_or_v16i(a)  si_cvt_v1i(v1i_reduce_or_v16i(a))
+#define v1d_reduce_min __v1d_reduce_min
+#define v1f_reduce_min __v1f_reduce_min
+#define v1i_reduce_min __v1i_reduce_min
+#define v1l_reduce_min __v1l_reduce_min
+#define v2d_reduce_min __v2d_reduce_min
+#define v2f_reduce_min __v2f_reduce_min
+#define v2i_reduce_min __v2i_reduce_min
+#define v2l_reduce_min __v2l_reduce_min
+#define v4d_reduce_min __v4d_reduce_min
+#define v4f_reduce_min __v4f_reduce_min
+#define v4i_reduce_min __v4i_reduce_min
+#define v4l_reduce_min __v4l_reduce_min
+#define v8d_reduce_min __v8d_reduce_min
+#define v8f_reduce_min __v8f_reduce_min
+#define v8i_reduce_min __v8i_reduce_min
+#define v8l_reduce_min __v8l_reduce_min
+#define v16f_reduce_min __v16f_reduce_min
+#define v16i_reduce_min __v16i_reduce_min
+#define v1d_reduce_min_v1d __v1d_reduce_min_v1d
+#define v1f_reduce_min_v1f __v1f_reduce_min_v1f
+#define v1i_reduce_min_v1i __v1i_reduce_min_v1i
+#define v1l_reduce_min_v1l __v1l_reduce_min_v1l
+#define v2d_reduce_min_v1d __v2d_reduce_min_v1d
+#define v2f_reduce_min_v1f __v2f_reduce_min_v1f
+#define v2i_reduce_min_v1i __v2i_reduce_min_v1i
+#define v2l_reduce_min_v1l __v2l_reduce_min_v1l
+#define v4d_reduce_min_v1d __v4d_reduce_min_v1d
+#define v4f_reduce_min_v1f __v4f_reduce_min_v1f
+#define v4i_reduce_min_v1i __v4i_reduce_min_v1i
+#define v4l_reduce_min_v1l __v4l_reduce_min_v1l
+#define v8d_reduce_min_v1d __v8d_reduce_min_v1d
+#define v8f_reduce_min_v1f __v8f_reduce_min_v1f
+#define v8i_reduce_min_v1i __v8i_reduce_min_v1i
+#define v8l_reduce_min_v1l __v8l_reduce_min_v1l
+#define v16f_reduce_min_v1f __v16f_reduce_min_v1f
+#define v16i_reduce_min_v1i __v16i_reduce_min_v1i
+#define v1d_reduce_min_v2d __v1d_reduce_min_v2d
+#define v1f_reduce_min_v2f __v1f_reduce_min_v2f
+#define v1i_reduce_min_v2i __v1i_reduce_min_v2i
+#define v1l_reduce_min_v2l __v1l_reduce_min_v2l
+#define v2d_reduce_min_v2d __v2d_reduce_min_v2d
+#define v2f_reduce_min_v2f __v2f_reduce_min_v2f
+#define v2i_reduce_min_v2i __v2i_reduce_min_v2i
+#define v2l_reduce_min_v2l __v2l_reduce_min_v2l
+#define v4d_reduce_min_v2d __v4d_reduce_min_v2d
+#define v4f_reduce_min_v2f __v4f_reduce_min_v2f
+#define v4i_reduce_min_v2i __v4i_reduce_min_v2i
+#define v4l_reduce_min_v2l __v4l_reduce_min_v2l
+#define v8d_reduce_min_v2d __v8d_reduce_min_v2d
+#define v8f_reduce_min_v2f __v8f_reduce_min_v2f
+#define v8i_reduce_min_v2i __v8i_reduce_min_v2i
+#define v8l_reduce_min_v2l __v8l_reduce_min_v2l
+#define v16f_reduce_min_v2f __v16f_reduce_min_v2f
+#define v16i_reduce_min_v2i __v16i_reduce_min_v2i
+#define v1d_reduce_min_v4d __v1d_reduce_min_v4d
+#define v1f_reduce_min_v4f __v1f_reduce_min_v4f
+#define v1i_reduce_min_v4i __v1i_reduce_min_v4i
+#define v1l_reduce_min_v4l __v1l_reduce_min_v4l
+#define v2d_reduce_min_v4d __v2d_reduce_min_v4d
+#define v2f_reduce_min_v4f __v2f_reduce_min_v4f
+#define v2i_reduce_min_v4i __v2i_reduce_min_v4i
+#define v2l_reduce_min_v4l __v2l_reduce_min_v4l
+#define v4d_reduce_min_v4d __v4d_reduce_min_v4d
+#define v4f_reduce_min_v4f __v4f_reduce_min_v4f
+#define v4i_reduce_min_v4i __v4i_reduce_min_v4i
+#define v4l_reduce_min_v4l __v4l_reduce_min_v4l
+#define v8d_reduce_min_v4d __v8d_reduce_min_v4d
+#define v8f_reduce_min_v4f __v8f_reduce_min_v4f
+#define v8i_reduce_min_v4i __v8i_reduce_min_v4i
+#define v8l_reduce_min_v4l __v8l_reduce_min_v4l
+#define v16f_reduce_min_v4f __v16f_reduce_min_v4f
+#define v16i_reduce_min_v4i __v16i_reduce_min_v4i
+#define v1d_reduce_min_v8d __v1d_reduce_min_v8d
+#define v1f_reduce_min_v8f __v1f_reduce_min_v8f
+#define v1i_reduce_min_v8i __v1i_reduce_min_v8i
+#define v1l_reduce_min_v8l __v1l_reduce_min_v8l
+#define v2d_reduce_min_v8d __v2d_reduce_min_v8d
+#define v2f_reduce_min_v8f __v2f_reduce_min_v8f
+#define v2i_reduce_min_v8i __v2i_reduce_min_v8i
+#define v2l_reduce_min_v8l __v2l_reduce_min_v8l
+#define v4d_reduce_min_v8d __v4d_reduce_min_v8d
+#define v4f_reduce_min_v8f __v4f_reduce_min_v8f
+#define v4i_reduce_min_v8i __v4i_reduce_min_v8i
+#define v4l_reduce_min_v8l __v4l_reduce_min_v8l
+#define v8d_reduce_min_v8d __v8d_reduce_min_v8d
+#define v8f_reduce_min_v8f __v8f_reduce_min_v8f
+#define v8i_reduce_min_v8i __v8i_reduce_min_v8i
+#define v8l_reduce_min_v8l __v8l_reduce_min_v8l
+#define v16f_reduce_min_v8f __v16f_reduce_min_v8f
+#define v16i_reduce_min_v8i __v16i_reduce_min_v8i
+#define v1f_reduce_min_v16f __v1f_reduce_min_v16f
+#define v1i_reduce_min_v16i __v1i_reduce_min_v16i
+#define v2f_reduce_min_v16f __v2f_reduce_min_v16f
+#define v2i_reduce_min_v16i __v2i_reduce_min_v16i
+#define v4f_reduce_min_v16f __v4f_reduce_min_v16f
+#define v4i_reduce_min_v16i __v4i_reduce_min_v16i
+#define v8f_reduce_min_v16f __v8f_reduce_min_v16f
+#define v8i_reduce_min_v16i __v8i_reduce_min_v16i
+#define v16f_reduce_min_v16f __v16f_reduce_min_v16f
+#define v16i_reduce_min_v16i __v16i_reduce_min_v16i
+#define sd_reduce_min_v1d(a)  sd_cvt_v1d(v1d_reduce_min_v1d(a))
+#define sf_reduce_min_v1f(a)  sf_cvt_v1f(v1f_reduce_min_v1f(a))
+#define si_reduce_min_v1i(a)  si_cvt_v1i(v1i_reduce_min_v1i(a))
+#define sl_reduce_min_v1l(a)  sl_cvt_v1l(v1l_reduce_min_v1l(a))
+#define sd_reduce_min_v2d(a)  sd_cvt_v1d(v1d_reduce_min_v2d(a))
+#define sf_reduce_min_v2f(a)  sf_cvt_v1f(v1f_reduce_min_v2f(a))
+#define si_reduce_min_v2i(a)  si_cvt_v1i(v1i_reduce_min_v2i(a))
+#define sl_reduce_min_v2l(a)  sl_cvt_v1l(v1l_reduce_min_v2l(a))
+#define sd_reduce_min_v4d(a)  sd_cvt_v1d(v1d_reduce_min_v4d(a))
+#define sf_reduce_min_v4f(a)  sf_cvt_v1f(v1f_reduce_min_v4f(a))
+#define si_reduce_min_v4i(a)  si_cvt_v1i(v1i_reduce_min_v4i(a))
+#define sl_reduce_min_v4l(a)  sl_cvt_v1l(v1l_reduce_min_v4l(a))
+#define sd_reduce_min_v8d(a)  sd_cvt_v1d(v1d_reduce_min_v8d(a))
+#define sf_reduce_min_v8f(a)  sf_cvt_v1f(v1f_reduce_min_v8f(a))
+#define si_reduce_min_v8i(a)  si_cvt_v1i(v1i_reduce_min_v8i(a))
+#define sl_reduce_min_v8l(a)  sl_cvt_v1l(v1l_reduce_min_v8l(a))
+#define sf_reduce_min_v16f(a)  sf_cvt_v1f(v1f_reduce_min_v16f(a))
+#define si_reduce_min_v16i(a)  si_cvt_v1i(v1i_reduce_min_v16i(a))
+#define v1d_reduce_max __v1d_reduce_max
+#define v1f_reduce_max __v1f_reduce_max
+#define v1i_reduce_max __v1i_reduce_max
+#define v1l_reduce_max __v1l_reduce_max
+#define v2d_reduce_max __v2d_reduce_max
+#define v2f_reduce_max __v2f_reduce_max
+#define v2i_reduce_max __v2i_reduce_max
+#define v2l_reduce_max __v2l_reduce_max
+#define v4d_reduce_max __v4d_reduce_max
+#define v4f_reduce_max __v4f_reduce_max
+#define v4i_reduce_max __v4i_reduce_max
+#define v4l_reduce_max __v4l_reduce_max
+#define v8d_reduce_max __v8d_reduce_max
+#define v8f_reduce_max __v8f_reduce_max
+#define v8i_reduce_max __v8i_reduce_max
+#define v8l_reduce_max __v8l_reduce_max
+#define v16f_reduce_max __v16f_reduce_max
+#define v16i_reduce_max __v16i_reduce_max
+#define v1d_reduce_max_v1d __v1d_reduce_max_v1d
+#define v1f_reduce_max_v1f __v1f_reduce_max_v1f
+#define v1i_reduce_max_v1i __v1i_reduce_max_v1i
+#define v1l_reduce_max_v1l __v1l_reduce_max_v1l
+#define v2d_reduce_max_v1d __v2d_reduce_max_v1d
+#define v2f_reduce_max_v1f __v2f_reduce_max_v1f
+#define v2i_reduce_max_v1i __v2i_reduce_max_v1i
+#define v2l_reduce_max_v1l __v2l_reduce_max_v1l
+#define v4d_reduce_max_v1d __v4d_reduce_max_v1d
+#define v4f_reduce_max_v1f __v4f_reduce_max_v1f
+#define v4i_reduce_max_v1i __v4i_reduce_max_v1i
+#define v4l_reduce_max_v1l __v4l_reduce_max_v1l
+#define v8d_reduce_max_v1d __v8d_reduce_max_v1d
+#define v8f_reduce_max_v1f __v8f_reduce_max_v1f
+#define v8i_reduce_max_v1i __v8i_reduce_max_v1i
+#define v8l_reduce_max_v1l __v8l_reduce_max_v1l
+#define v16f_reduce_max_v1f __v16f_reduce_max_v1f
+#define v16i_reduce_max_v1i __v16i_reduce_max_v1i
+#define v1d_reduce_max_v2d __v1d_reduce_max_v2d
+#define v1f_reduce_max_v2f __v1f_reduce_max_v2f
+#define v1i_reduce_max_v2i __v1i_reduce_max_v2i
+#define v1l_reduce_max_v2l __v1l_reduce_max_v2l
+#define v2d_reduce_max_v2d __v2d_reduce_max_v2d
+#define v2f_reduce_max_v2f __v2f_reduce_max_v2f
+#define v2i_reduce_max_v2i __v2i_reduce_max_v2i
+#define v2l_reduce_max_v2l __v2l_reduce_max_v2l
+#define v4d_reduce_max_v2d __v4d_reduce_max_v2d
+#define v4f_reduce_max_v2f __v4f_reduce_max_v2f
+#define v4i_reduce_max_v2i __v4i_reduce_max_v2i
+#define v4l_reduce_max_v2l __v4l_reduce_max_v2l
+#define v8d_reduce_max_v2d __v8d_reduce_max_v2d
+#define v8f_reduce_max_v2f __v8f_reduce_max_v2f
+#define v8i_reduce_max_v2i __v8i_reduce_max_v2i
+#define v8l_reduce_max_v2l __v8l_reduce_max_v2l
+#define v16f_reduce_max_v2f __v16f_reduce_max_v2f
+#define v16i_reduce_max_v2i __v16i_reduce_max_v2i
+#define v1d_reduce_max_v4d __v1d_reduce_max_v4d
+#define v1f_reduce_max_v4f __v1f_reduce_max_v4f
+#define v1i_reduce_max_v4i __v1i_reduce_max_v4i
+#define v1l_reduce_max_v4l __v1l_reduce_max_v4l
+#define v2d_reduce_max_v4d __v2d_reduce_max_v4d
+#define v2f_reduce_max_v4f __v2f_reduce_max_v4f
+#define v2i_reduce_max_v4i __v2i_reduce_max_v4i
+#define v2l_reduce_max_v4l __v2l_reduce_max_v4l
+#define v4d_reduce_max_v4d __v4d_reduce_max_v4d
+#define v4f_reduce_max_v4f __v4f_reduce_max_v4f
+#define v4i_reduce_max_v4i __v4i_reduce_max_v4i
+#define v4l_reduce_max_v4l __v4l_reduce_max_v4l
+#define v8d_reduce_max_v4d __v8d_reduce_max_v4d
+#define v8f_reduce_max_v4f __v8f_reduce_max_v4f
+#define v8i_reduce_max_v4i __v8i_reduce_max_v4i
+#define v8l_reduce_max_v4l __v8l_reduce_max_v4l
+#define v16f_reduce_max_v4f __v16f_reduce_max_v4f
+#define v16i_reduce_max_v4i __v16i_reduce_max_v4i
+#define v1d_reduce_max_v8d __v1d_reduce_max_v8d
+#define v1f_reduce_max_v8f __v1f_reduce_max_v8f
+#define v1i_reduce_max_v8i __v1i_reduce_max_v8i
+#define v1l_reduce_max_v8l __v1l_reduce_max_v8l
+#define v2d_reduce_max_v8d __v2d_reduce_max_v8d
+#define v2f_reduce_max_v8f __v2f_reduce_max_v8f
+#define v2i_reduce_max_v8i __v2i_reduce_max_v8i
+#define v2l_reduce_max_v8l __v2l_reduce_max_v8l
+#define v4d_reduce_max_v8d __v4d_reduce_max_v8d
+#define v4f_reduce_max_v8f __v4f_reduce_max_v8f
+#define v4i_reduce_max_v8i __v4i_reduce_max_v8i
+#define v4l_reduce_max_v8l __v4l_reduce_max_v8l
+#define v8d_reduce_max_v8d __v8d_reduce_max_v8d
+#define v8f_reduce_max_v8f __v8f_reduce_max_v8f
+#define v8i_reduce_max_v8i __v8i_reduce_max_v8i
+#define v8l_reduce_max_v8l __v8l_reduce_max_v8l
+#define v16f_reduce_max_v8f __v16f_reduce_max_v8f
+#define v16i_reduce_max_v8i __v16i_reduce_max_v8i
+#define v1f_reduce_max_v16f __v1f_reduce_max_v16f
+#define v1i_reduce_max_v16i __v1i_reduce_max_v16i
+#define v2f_reduce_max_v16f __v2f_reduce_max_v16f
+#define v2i_reduce_max_v16i __v2i_reduce_max_v16i
+#define v4f_reduce_max_v16f __v4f_reduce_max_v16f
+#define v4i_reduce_max_v16i __v4i_reduce_max_v16i
+#define v8f_reduce_max_v16f __v8f_reduce_max_v16f
+#define v8i_reduce_max_v16i __v8i_reduce_max_v16i
+#define v16f_reduce_max_v16f __v16f_reduce_max_v16f
+#define v16i_reduce_max_v16i __v16i_reduce_max_v16i
+#define sd_reduce_max_v1d(a)  sd_cvt_v1d(v1d_reduce_max_v1d(a))
+#define sf_reduce_max_v1f(a)  sf_cvt_v1f(v1f_reduce_max_v1f(a))
+#define si_reduce_max_v1i(a)  si_cvt_v1i(v1i_reduce_max_v1i(a))
+#define sl_reduce_max_v1l(a)  sl_cvt_v1l(v1l_reduce_max_v1l(a))
+#define sd_reduce_max_v2d(a)  sd_cvt_v1d(v1d_reduce_max_v2d(a))
+#define sf_reduce_max_v2f(a)  sf_cvt_v1f(v1f_reduce_max_v2f(a))
+#define si_reduce_max_v2i(a)  si_cvt_v1i(v1i_reduce_max_v2i(a))
+#define sl_reduce_max_v2l(a)  sl_cvt_v1l(v1l_reduce_max_v2l(a))
+#define sd_reduce_max_v4d(a)  sd_cvt_v1d(v1d_reduce_max_v4d(a))
+#define sf_reduce_max_v4f(a)  sf_cvt_v1f(v1f_reduce_max_v4f(a))
+#define si_reduce_max_v4i(a)  si_cvt_v1i(v1i_reduce_max_v4i(a))
+#define sl_reduce_max_v4l(a)  sl_cvt_v1l(v1l_reduce_max_v4l(a))
+#define sd_reduce_max_v8d(a)  sd_cvt_v1d(v1d_reduce_max_v8d(a))
+#define sf_reduce_max_v8f(a)  sf_cvt_v1f(v1f_reduce_max_v8f(a))
+#define si_reduce_max_v8i(a)  si_cvt_v1i(v1i_reduce_max_v8i(a))
+#define sl_reduce_max_v8l(a)  sl_cvt_v1l(v1l_reduce_max_v8l(a))
+#define sf_reduce_max_v16f(a)  sf_cvt_v1f(v1f_reduce_max_v16f(a))
+#define si_reduce_max_v16i(a)  si_cvt_v1i(v1i_reduce_max_v16i(a))
 
 
 /* MOVES */

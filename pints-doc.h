@@ -32938,6 +32938,1796 @@ v16i v16i_reduce_add(v16i a);
 /**
  * \ingroup red
  * \related v1d
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1d v1d_reduce_add_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1f v1f_reduce_add_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1i v1i_reduce_add_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1l v1l_reduce_add_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2d v2d_reduce_add_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2f v2f_reduce_add_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2i v2i_reduce_add_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2l v2l_reduce_add_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4d v4d_reduce_add_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4f v4f_reduce_add_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4i v4i_reduce_add_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4l v4l_reduce_add_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8d v8d_reduce_add_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8f v8f_reduce_add_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8i v8i_reduce_add_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8l v8l_reduce_add_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v16f v16f_reduce_add_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v16i v16i_reduce_add_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1d v1d_reduce_add_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1f v1f_reduce_add_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1i v1i_reduce_add_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1l v1l_reduce_add_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2d v2d_reduce_add_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2f v2f_reduce_add_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2i v2i_reduce_add_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2l v2l_reduce_add_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4d v4d_reduce_add_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4f v4f_reduce_add_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4i v4i_reduce_add_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4l v4l_reduce_add_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8d v8d_reduce_add_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8f v8f_reduce_add_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8i v8i_reduce_add_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8l v8l_reduce_add_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v16f v16f_reduce_add_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v16i v16i_reduce_add_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1d v1d_reduce_add_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1f v1f_reduce_add_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1i v1i_reduce_add_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1l v1l_reduce_add_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2d v2d_reduce_add_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2f v2f_reduce_add_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2i v2i_reduce_add_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2l v2l_reduce_add_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4d v4d_reduce_add_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4f v4f_reduce_add_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4i v4i_reduce_add_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4l v4l_reduce_add_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8d v8d_reduce_add_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8f v8f_reduce_add_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8i v8i_reduce_add_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8l v8l_reduce_add_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v16f v16f_reduce_add_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v16i v16i_reduce_add_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1d v1d_reduce_add_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1f v1f_reduce_add_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1i v1i_reduce_add_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1l v1l_reduce_add_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2d v2d_reduce_add_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2f v2f_reduce_add_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2i v2i_reduce_add_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2l v2l_reduce_add_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4d v4d_reduce_add_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4f v4f_reduce_add_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4i v4i_reduce_add_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4l v4l_reduce_add_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8d v8d_reduce_add_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8f v8f_reduce_add_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8i v8i_reduce_add_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8l v8l_reduce_add_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v16f v16f_reduce_add_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v16i v16i_reduce_add_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1f v1f_reduce_add_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1i v1i_reduce_add_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2f v2f_reduce_add_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2i v2i_reduce_add_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4f v4f_reduce_add_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4i v4i_reduce_add_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8f v8f_reduce_add_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8i v8i_reduce_add_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v16f v16f_reduce_add_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp + a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v16i v16i_reduce_add_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1d sd_reduce_add_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1f sf_reduce_add_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1i si_reduce_add_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v1l sl_reduce_add_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 1
+  dst := dst + a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2d sd_reduce_add_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 1
+  dst := dst + a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2f sf_reduce_add_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 1
+  dst := dst + a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2i si_reduce_add_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 1
+  dst := dst + a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v2l sl_reduce_add_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 3
+  dst := dst + a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4d sd_reduce_add_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 3
+  dst := dst + a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4f sf_reduce_add_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 3
+  dst := dst + a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4i si_reduce_add_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 3
+  dst := dst + a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v4l sl_reduce_add_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 7
+  dst := dst + a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8d sd_reduce_add_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 7
+  dst := dst + a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8f sf_reduce_add_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 7
+  dst := dst + a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8i si_reduce_add_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 7
+  dst := dst + a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v8l sl_reduce_add_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 15
+  dst := dst + a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v16f sf_reduce_add_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c add ( + )
+ * \details Reduces the operation \c add ( + ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 15
+  dst := dst + a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce+(input)
+ */
+v16i si_reduce_add_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v1d
  * \brief Reduction \c mul ( * )
  * \details Reduces the operation \c mul ( * ) over every elements of the input.
  *  Stores the result in every elements of the vector.
@@ -33267,6 +35057,1796 @@ endfor
  * \returns reduce*(input)
  */
 v16i v16i_reduce_mul(v16i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1d v1d_reduce_mul_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1f v1f_reduce_mul_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1i v1i_reduce_mul_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1l v1l_reduce_mul_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2d v2d_reduce_mul_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2f v2f_reduce_mul_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2i v2i_reduce_mul_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2l v2l_reduce_mul_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4d v4d_reduce_mul_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4f v4f_reduce_mul_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4i v4i_reduce_mul_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4l v4l_reduce_mul_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8d v8d_reduce_mul_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8f v8f_reduce_mul_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8i v8i_reduce_mul_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8l v8l_reduce_mul_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v16f v16f_reduce_mul_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v16i v16i_reduce_mul_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1d v1d_reduce_mul_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1f v1f_reduce_mul_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1i v1i_reduce_mul_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1l v1l_reduce_mul_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2d v2d_reduce_mul_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2f v2f_reduce_mul_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2i v2i_reduce_mul_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2l v2l_reduce_mul_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4d v4d_reduce_mul_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4f v4f_reduce_mul_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4i v4i_reduce_mul_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4l v4l_reduce_mul_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8d v8d_reduce_mul_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8f v8f_reduce_mul_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8i v8i_reduce_mul_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8l v8l_reduce_mul_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v16f v16f_reduce_mul_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v16i v16i_reduce_mul_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1d v1d_reduce_mul_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1f v1f_reduce_mul_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1i v1i_reduce_mul_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1l v1l_reduce_mul_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2d v2d_reduce_mul_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2f v2f_reduce_mul_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2i v2i_reduce_mul_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2l v2l_reduce_mul_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4d v4d_reduce_mul_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4f v4f_reduce_mul_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4i v4i_reduce_mul_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4l v4l_reduce_mul_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8d v8d_reduce_mul_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8f v8f_reduce_mul_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8i v8i_reduce_mul_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8l v8l_reduce_mul_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v16f v16f_reduce_mul_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v16i v16i_reduce_mul_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1d v1d_reduce_mul_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1f v1f_reduce_mul_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1i v1i_reduce_mul_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1l v1l_reduce_mul_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2d v2d_reduce_mul_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2f v2f_reduce_mul_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2i v2i_reduce_mul_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2l v2l_reduce_mul_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4d v4d_reduce_mul_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4f v4f_reduce_mul_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4i v4i_reduce_mul_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4l v4l_reduce_mul_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8d v8d_reduce_mul_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8f v8f_reduce_mul_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8i v8i_reduce_mul_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8l v8l_reduce_mul_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v16f v16f_reduce_mul_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v16i v16i_reduce_mul_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1f v1f_reduce_mul_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1i v1i_reduce_mul_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2f v2f_reduce_mul_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2i v2i_reduce_mul_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4f v4f_reduce_mul_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4i v4i_reduce_mul_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8f v8f_reduce_mul_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8i v8i_reduce_mul_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v16f v16f_reduce_mul_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp * a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v16i v16i_reduce_mul_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1d sd_reduce_mul_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1f sf_reduce_mul_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1i si_reduce_mul_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v1l sl_reduce_mul_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 1
+  dst := dst * a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2d sd_reduce_mul_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 1
+  dst := dst * a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2f sf_reduce_mul_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 1
+  dst := dst * a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2i si_reduce_mul_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 1
+  dst := dst * a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v2l sl_reduce_mul_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 3
+  dst := dst * a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4d sd_reduce_mul_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 3
+  dst := dst * a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4f sf_reduce_mul_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 3
+  dst := dst * a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4i si_reduce_mul_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 3
+  dst := dst * a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v4l sl_reduce_mul_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 7
+  dst := dst * a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8d sd_reduce_mul_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 7
+  dst := dst * a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8f sf_reduce_mul_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 7
+  dst := dst * a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8i si_reduce_mul_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 7
+  dst := dst * a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v8l sl_reduce_mul_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 15
+  dst := dst * a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v16f sf_reduce_mul_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c mul ( * )
+ * \details Reduces the operation \c mul ( * ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 15
+  dst := dst * a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce*(input)
+ */
+v16i si_reduce_mul_v16i(v16i a);
 /**
  * \ingroup red
  * \related v1d
@@ -33602,6 +37182,1796 @@ v16i v16i_reduce_and(v16i a);
 /**
  * \ingroup red
  * \related v1d
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1d v1d_reduce_and_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1f v1f_reduce_and_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1i v1i_reduce_and_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1l v1l_reduce_and_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2d v2d_reduce_and_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2f v2f_reduce_and_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2i v2i_reduce_and_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2l v2l_reduce_and_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4d v4d_reduce_and_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4f v4f_reduce_and_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4i v4i_reduce_and_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4l v4l_reduce_and_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8d v8d_reduce_and_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8f v8f_reduce_and_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8i v8i_reduce_and_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8l v8l_reduce_and_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v16f v16f_reduce_and_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v16i v16i_reduce_and_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1d v1d_reduce_and_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1f v1f_reduce_and_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1i v1i_reduce_and_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1l v1l_reduce_and_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2d v2d_reduce_and_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2f v2f_reduce_and_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2i v2i_reduce_and_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2l v2l_reduce_and_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4d v4d_reduce_and_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4f v4f_reduce_and_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4i v4i_reduce_and_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4l v4l_reduce_and_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8d v8d_reduce_and_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8f v8f_reduce_and_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8i v8i_reduce_and_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8l v8l_reduce_and_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v16f v16f_reduce_and_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v16i v16i_reduce_and_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1d v1d_reduce_and_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1f v1f_reduce_and_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1i v1i_reduce_and_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1l v1l_reduce_and_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2d v2d_reduce_and_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2f v2f_reduce_and_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2i v2i_reduce_and_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2l v2l_reduce_and_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4d v4d_reduce_and_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4f v4f_reduce_and_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4i v4i_reduce_and_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4l v4l_reduce_and_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8d v8d_reduce_and_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8f v8f_reduce_and_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8i v8i_reduce_and_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8l v8l_reduce_and_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v16f v16f_reduce_and_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v16i v16i_reduce_and_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1d v1d_reduce_and_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1f v1f_reduce_and_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1i v1i_reduce_and_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1l v1l_reduce_and_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2d v2d_reduce_and_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2f v2f_reduce_and_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2i v2i_reduce_and_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2l v2l_reduce_and_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4d v4d_reduce_and_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4f v4f_reduce_and_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4i v4i_reduce_and_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4l v4l_reduce_and_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8d v8d_reduce_and_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8f v8f_reduce_and_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8i v8i_reduce_and_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8l v8l_reduce_and_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v16f v16f_reduce_and_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v16i v16i_reduce_and_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1f v1f_reduce_and_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1i v1i_reduce_and_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2f v2f_reduce_and_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2i v2i_reduce_and_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4f v4f_reduce_and_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4i v4i_reduce_and_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8f v8f_reduce_and_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8i v8i_reduce_and_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v16f v16f_reduce_and_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp & a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v16i v16i_reduce_and_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1d sd_reduce_and_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1f sf_reduce_and_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1i si_reduce_and_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v1l sl_reduce_and_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 1
+  dst := dst & a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2d sd_reduce_and_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 1
+  dst := dst & a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2f sf_reduce_and_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 1
+  dst := dst & a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2i si_reduce_and_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 1
+  dst := dst & a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v2l sl_reduce_and_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 3
+  dst := dst & a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4d sd_reduce_and_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 3
+  dst := dst & a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4f sf_reduce_and_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 3
+  dst := dst & a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4i si_reduce_and_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 3
+  dst := dst & a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v4l sl_reduce_and_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 7
+  dst := dst & a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8d sd_reduce_and_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 7
+  dst := dst & a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8f sf_reduce_and_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 7
+  dst := dst & a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8i si_reduce_and_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 7
+  dst := dst & a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v8l sl_reduce_and_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 15
+  dst := dst & a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v16f sf_reduce_and_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c and ( & )
+ * \details Reduces the operation \c and ( & ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 15
+  dst := dst & a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce&(input)
+ */
+v16i si_reduce_and_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v1d
  * \brief Reduction \c or ( | )
  * \details Reduces the operation \c or ( | ) over every elements of the input.
  *  Stores the result in every elements of the vector.
@@ -33931,6 +39301,6040 @@ endfor
  * \returns reduce|(input)
  */
 v16i v16i_reduce_or(v16i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1d v1d_reduce_or_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1f v1f_reduce_or_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1i v1i_reduce_or_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1l v1l_reduce_or_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2d v2d_reduce_or_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2f v2f_reduce_or_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2i v2i_reduce_or_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2l v2l_reduce_or_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4d v4d_reduce_or_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4f v4f_reduce_or_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4i v4i_reduce_or_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4l v4l_reduce_or_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8d v8d_reduce_or_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8f v8f_reduce_or_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8i v8i_reduce_or_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8l v8l_reduce_or_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v16f v16f_reduce_or_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v16i v16i_reduce_or_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1d v1d_reduce_or_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1f v1f_reduce_or_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1i v1i_reduce_or_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1l v1l_reduce_or_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2d v2d_reduce_or_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2f v2f_reduce_or_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2i v2i_reduce_or_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2l v2l_reduce_or_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4d v4d_reduce_or_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4f v4f_reduce_or_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4i v4i_reduce_or_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4l v4l_reduce_or_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8d v8d_reduce_or_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8f v8f_reduce_or_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8i v8i_reduce_or_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8l v8l_reduce_or_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v16f v16f_reduce_or_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v16i v16i_reduce_or_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1d v1d_reduce_or_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1f v1f_reduce_or_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1i v1i_reduce_or_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1l v1l_reduce_or_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2d v2d_reduce_or_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2f v2f_reduce_or_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2i v2i_reduce_or_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2l v2l_reduce_or_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4d v4d_reduce_or_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4f v4f_reduce_or_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4i v4i_reduce_or_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4l v4l_reduce_or_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8d v8d_reduce_or_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8f v8f_reduce_or_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8i v8i_reduce_or_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8l v8l_reduce_or_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v16f v16f_reduce_or_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v16i v16i_reduce_or_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1d v1d_reduce_or_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1f v1f_reduce_or_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1i v1i_reduce_or_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1l v1l_reduce_or_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2d v2d_reduce_or_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2f v2f_reduce_or_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2i v2i_reduce_or_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2l v2l_reduce_or_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4d v4d_reduce_or_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4f v4f_reduce_or_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4i v4i_reduce_or_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4l v4l_reduce_or_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8d v8d_reduce_or_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8f v8f_reduce_or_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8i v8i_reduce_or_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8l v8l_reduce_or_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v16f v16f_reduce_or_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v16i v16i_reduce_or_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1f v1f_reduce_or_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1i v1i_reduce_or_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2f v2f_reduce_or_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2i v2i_reduce_or_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4f v4f_reduce_or_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4i v4i_reduce_or_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8f v8f_reduce_or_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8i v8i_reduce_or_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v16f v16f_reduce_or_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp | a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v16i v16i_reduce_or_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1d sd_reduce_or_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1f sf_reduce_or_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1i si_reduce_or_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v1l sl_reduce_or_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 1
+  dst := dst | a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2d sd_reduce_or_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 1
+  dst := dst | a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2f sf_reduce_or_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 1
+  dst := dst | a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2i si_reduce_or_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 1
+  dst := dst | a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v2l sl_reduce_or_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 3
+  dst := dst | a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4d sd_reduce_or_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 3
+  dst := dst | a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4f sf_reduce_or_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 3
+  dst := dst | a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4i si_reduce_or_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 3
+  dst := dst | a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v4l sl_reduce_or_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 7
+  dst := dst | a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8d sd_reduce_or_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 7
+  dst := dst | a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8f sf_reduce_or_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 7
+  dst := dst | a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8i si_reduce_or_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 7
+  dst := dst | a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v8l sl_reduce_or_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 15
+  dst := dst | a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v16f sf_reduce_or_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c or ( | )
+ * \details Reduces the operation \c or ( | ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 15
+  dst := dst | a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reduce|(input)
+ */
+v16i si_reduce_or_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1d v1d_reduce_min(v1d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1f v1f_reduce_min(v1f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1i v1i_reduce_min(v1i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1l v1l_reduce_min(v1l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2d v2d_reduce_min(v2d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2f v2f_reduce_min(v2f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2i v2i_reduce_min(v2i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2l v2l_reduce_min(v2l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4d v4d_reduce_min(v4d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4f v4f_reduce_min(v4f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4i v4i_reduce_min(v4i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4l v4l_reduce_min(v4l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8d v8d_reduce_min(v8d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8f v8f_reduce_min(v8f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8i v8i_reduce_min(v8i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8l v8l_reduce_min(v8l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v16f v16f_reduce_min(v16f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v16i v16i_reduce_min(v16i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1d v1d_reduce_min_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1f v1f_reduce_min_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1i v1i_reduce_min_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1l v1l_reduce_min_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2d v2d_reduce_min_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2f v2f_reduce_min_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2i v2i_reduce_min_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2l v2l_reduce_min_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4d v4d_reduce_min_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4f v4f_reduce_min_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4i v4i_reduce_min_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4l v4l_reduce_min_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8d v8d_reduce_min_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8f v8f_reduce_min_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8i v8i_reduce_min_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8l v8l_reduce_min_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v16f v16f_reduce_min_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v16i v16i_reduce_min_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1d v1d_reduce_min_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1f v1f_reduce_min_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1i v1i_reduce_min_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1l v1l_reduce_min_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2d v2d_reduce_min_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2f v2f_reduce_min_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2i v2i_reduce_min_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2l v2l_reduce_min_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4d v4d_reduce_min_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4f v4f_reduce_min_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4i v4i_reduce_min_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4l v4l_reduce_min_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8d v8d_reduce_min_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8f v8f_reduce_min_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8i v8i_reduce_min_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8l v8l_reduce_min_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v16f v16f_reduce_min_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v16i v16i_reduce_min_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1d v1d_reduce_min_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1f v1f_reduce_min_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1i v1i_reduce_min_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1l v1l_reduce_min_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2d v2d_reduce_min_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2f v2f_reduce_min_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2i v2i_reduce_min_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2l v2l_reduce_min_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4d v4d_reduce_min_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4f v4f_reduce_min_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4i v4i_reduce_min_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4l v4l_reduce_min_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8d v8d_reduce_min_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8f v8f_reduce_min_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8i v8i_reduce_min_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8l v8l_reduce_min_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v16f v16f_reduce_min_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v16i v16i_reduce_min_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1d v1d_reduce_min_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1f v1f_reduce_min_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1i v1i_reduce_min_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1l v1l_reduce_min_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2d v2d_reduce_min_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2f v2f_reduce_min_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2i v2i_reduce_min_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2l v2l_reduce_min_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4d v4d_reduce_min_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4f v4f_reduce_min_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4i v4i_reduce_min_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4l v4l_reduce_min_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8d v8d_reduce_min_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8f v8f_reduce_min_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8i v8i_reduce_min_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8l v8l_reduce_min_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v16f v16f_reduce_min_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v16i v16i_reduce_min_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1f v1f_reduce_min_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1i v1i_reduce_min_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2f v2f_reduce_min_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2i v2i_reduce_min_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4f v4f_reduce_min_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4i v4i_reduce_min_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8f v8f_reduce_min_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8i v8i_reduce_min_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v16f v16f_reduce_min_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp min a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v16i v16i_reduce_min_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1d sd_reduce_min_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1f sf_reduce_min_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1i si_reduce_min_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v1l sl_reduce_min_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 1
+  dst := dst min a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2d sd_reduce_min_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 1
+  dst := dst min a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2f sf_reduce_min_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 1
+  dst := dst min a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2i si_reduce_min_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 1
+  dst := dst min a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v2l sl_reduce_min_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 3
+  dst := dst min a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4d sd_reduce_min_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 3
+  dst := dst min a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4f sf_reduce_min_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 3
+  dst := dst min a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4i si_reduce_min_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 3
+  dst := dst min a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v4l sl_reduce_min_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 7
+  dst := dst min a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8d sd_reduce_min_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 7
+  dst := dst min a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8f sf_reduce_min_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 7
+  dst := dst min a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8i si_reduce_min_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 7
+  dst := dst min a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v8l sl_reduce_min_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 15
+  dst := dst min a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v16f sf_reduce_min_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c min ( min )
+ * \details Reduces the operation \c min ( min ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 15
+  dst := dst min a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemin(input)
+ */
+v16i si_reduce_min_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1d v1d_reduce_max(v1d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1f v1f_reduce_max(v1f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1i v1i_reduce_max(v1i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1l v1l_reduce_max(v1l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2d v2d_reduce_max(v2d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2f v2f_reduce_max(v2f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2i v2i_reduce_max(v2i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2l v2l_reduce_max(v2l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4d v4d_reduce_max(v4d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4f v4f_reduce_max(v4f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4i v4i_reduce_max(v4i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4l v4l_reduce_max(v4l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8d v8d_reduce_max(v8d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8f v8f_reduce_max(v8f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8i v8i_reduce_max(v8i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8l v8l_reduce_max(v8l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v16f v16f_reduce_max(v16f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v16i v16i_reduce_max(v16i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1d v1d_reduce_max_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1f v1f_reduce_max_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1i v1i_reduce_max_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1l v1l_reduce_max_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2d v2d_reduce_max_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2f v2f_reduce_max_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2i v2i_reduce_max_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2l v2l_reduce_max_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4d v4d_reduce_max_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4f v4f_reduce_max_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4i v4i_reduce_max_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4l v4l_reduce_max_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8d v8d_reduce_max_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8f v8f_reduce_max_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8i v8i_reduce_max_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8l v8l_reduce_max_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v16f v16f_reduce_max_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 0
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v16i v16i_reduce_max_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1d v1d_reduce_max_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1f v1f_reduce_max_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1i v1i_reduce_max_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1l v1l_reduce_max_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2d v2d_reduce_max_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2f v2f_reduce_max_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2i v2i_reduce_max_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2l v2l_reduce_max_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4d v4d_reduce_max_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4f v4f_reduce_max_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4i v4i_reduce_max_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4l v4l_reduce_max_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8d v8d_reduce_max_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8f v8f_reduce_max_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8i v8i_reduce_max_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8l v8l_reduce_max_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v16f v16f_reduce_max_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 1
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v16i v16i_reduce_max_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1d v1d_reduce_max_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1f v1f_reduce_max_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1i v1i_reduce_max_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1l v1l_reduce_max_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2d v2d_reduce_max_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2f v2f_reduce_max_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2i v2i_reduce_max_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2l v2l_reduce_max_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4d v4d_reduce_max_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4f v4f_reduce_max_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4i v4i_reduce_max_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4l v4l_reduce_max_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8d v8d_reduce_max_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8f v8f_reduce_max_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8i v8i_reduce_max_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8l v8l_reduce_max_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v16f v16f_reduce_max_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 3
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v16i v16i_reduce_max_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1d v1d_reduce_max_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1f v1f_reduce_max_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1i v1i_reduce_max_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1l v1l_reduce_max_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2d v2d_reduce_max_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2f v2f_reduce_max_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2i v2i_reduce_max_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2l v2l_reduce_max_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4d v4d_reduce_max_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4f v4f_reduce_max_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4i v4i_reduce_max_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4l v4l_reduce_max_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8d v8d_reduce_max_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8f v8f_reduce_max_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8i v8i_reduce_max_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8l v8l_reduce_max_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v16f v16f_reduce_max_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 7
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v16i v16i_reduce_max_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1f v1f_reduce_max_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+dst := a
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1i v1i_reduce_max_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2f v2f_reduce_max_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 1
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2i v2i_reduce_max_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4f v4f_reduce_max_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 3
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4i v4i_reduce_max_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8f v8f_reduce_max_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 7
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8i v8i_reduce_max_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v16f v16f_reduce_max_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Stores the result in every elements of the vector.
+ * \impl
+tmp := a[0]
+for i from 1 to 15
+  tmp := tmp max a[i]
+endfor
+
+for i from 0 to 15
+  dst[i] := tmp
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v16i v16i_reduce_max_v16i(v16i a);
+/**
+ * \ingroup red
+ * \related v1d
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1d sd_reduce_max_v1d(v1d a);
+/**
+ * \ingroup red
+ * \related v1f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1f sf_reduce_max_v1f(v1f a);
+/**
+ * \ingroup red
+ * \related v1i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1i si_reduce_max_v1i(v1i a);
+/**
+ * \ingroup red
+ * \related v1l
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v1l sl_reduce_max_v1l(v1l a);
+/**
+ * \ingroup red
+ * \related v2d
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 1
+  dst := dst max a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2d sd_reduce_max_v2d(v2d a);
+/**
+ * \ingroup red
+ * \related v2f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 1
+  dst := dst max a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2f sf_reduce_max_v2f(v2f a);
+/**
+ * \ingroup red
+ * \related v2i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 1
+  dst := dst max a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2i si_reduce_max_v2i(v2i a);
+/**
+ * \ingroup red
+ * \related v2l
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 1
+  dst := dst max a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v2l sl_reduce_max_v2l(v2l a);
+/**
+ * \ingroup red
+ * \related v4d
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 3
+  dst := dst max a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4d sd_reduce_max_v4d(v4d a);
+/**
+ * \ingroup red
+ * \related v4f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 3
+  dst := dst max a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4f sf_reduce_max_v4f(v4f a);
+/**
+ * \ingroup red
+ * \related v4i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 3
+  dst := dst max a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4i si_reduce_max_v4i(v4i a);
+/**
+ * \ingroup red
+ * \related v4l
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 3
+  dst := dst max a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v4l sl_reduce_max_v4l(v4l a);
+/**
+ * \ingroup red
+ * \related v8d
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 7
+  dst := dst max a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8d sd_reduce_max_v8d(v8d a);
+/**
+ * \ingroup red
+ * \related v8f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 7
+  dst := dst max a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8f sf_reduce_max_v8f(v8f a);
+/**
+ * \ingroup red
+ * \related v8i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 7
+  dst := dst max a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8i si_reduce_max_v8i(v8i a);
+/**
+ * \ingroup red
+ * \related v8l
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 7
+  dst := dst max a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v8l sl_reduce_max_v8l(v8l a);
+/**
+ * \ingroup red
+ * \related v16f
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 15
+  dst := dst max a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v16f sf_reduce_max_v16f(v16f a);
+/**
+ * \ingroup red
+ * \related v16i
+ * \brief Reduction \c max ( max )
+ * \details Reduces the operation \c max ( max ) over every elements of the input.
+ *  Return the result of the reduction into a scalar
+ * \impl
+dst := a[0]
+for i from 1 to 15
+  dst := dst max a[i]
+endfor
+\endimpl
+ * \param a input
+ * \returns reducemax(input)
+ */
+v16i si_reduce_max_v16i(v16i a);
 
 
 /* MOVES */

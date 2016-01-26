@@ -209,13 +209,13 @@ typedef __m512i v8l;
 
 #undef v4d_min
 #undef v8f_min
-#define v4d_min(a) _mm256_min_pd(a, b)
-#define v8f_min(a) _mm256_min_ps(a, b)
+#define v4d_min(a, b) _mm256_min_pd(a, b)
+#define v8f_min(a, b) _mm256_min_ps(a, b)
 
 #undef v4d_max
 #undef v8f_max
-#define v4d_max(a) _mm256_max_pd(a, b)
-#define v8f_max(a) _mm256_max_ps(a, b)
+#define v4d_max(a, b) _mm256_max_pd(a, b)
+#define v8f_max(a, b) _mm256_max_ps(a, b)
 
 #undef v4d_abs
 #undef v8f_abs
@@ -254,8 +254,8 @@ typedef __m512i v8l;
 
 #define v4d_mask_move(mask, src, a) _mm256_blendv_pd(src, a, mask)
 #define v8f_mask_move(mask, src, a) _mm256_blendv_ps(src, a, mask)
-#define v8i_mask_move(mask, src, a) v8i_cast_v8f(v8f_cast_v8i(mask), v8f_cast_v8i(src), v8f_cast_v8i(a))
-#define v4l_mask_move(mask, src, a) v4l_cast_v4d(v4d_cast_v4l(mask), v4d_cast_v4l(src), v4d_cast_v4l(a))
+#define v8i_mask_move(mask, src, a) v8i_cast_v8f(v8f_mask_move(v8f_cast_v8i(mask), v8f_cast_v8i(src), v8f_cast_v8i(a)))
+#define v4l_mask_move(mask, src, a) v4l_cast_v4d(v4d_mask_move(v4d_cast_v4l(mask), v4d_cast_v4l(src), v4d_cast_v4l(a)))
 
 #undef v4d_blend2
 #undef v4d_blend4

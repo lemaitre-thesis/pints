@@ -292,7 +292,7 @@ double dotprod_v2d(const double* a, const double* b, int n) {
     s = v2d_fmadd(va, vb, s);
   }
   // reduce s
-  return sd_cvt_v2d(v2d_reduce_add(s));
+  return sd_reduce_add_v2d(s);
 #if 0
   sp = v2d_permute(s, PINTS_SHUFFLE(1, 0));
   add = v2d_add(s, sp);
@@ -318,7 +318,7 @@ float dotprod_v4f(const float* a, const float* b, int n) {
     s = v4f_fmadd(va, vb, s);
   }
   // reduce s
-  return sf_cvt_v4f(v4f_reduce_add(s));
+  return sf_reduce_add_v4f(s);
 #if 0
   sp = v4f_permute2(s, PINTS_SHUFFLE(1, 0));
   add1 = v4f_add(s, sp);
@@ -345,7 +345,7 @@ float dotprod_v8f(const float* a, const float* b, int n) {
     s = v8f_fmadd(va, vb, s);
   }
   // reduce s
-  return sf_cvt_v8f(v8f_reduce_add(s));
+  return sf_reduce_add_v8f(s);
 #if 0
   sp = v8f_permute2(s, PINTS_SHUFFLE(1, 0));
   add1 = v8f_add(s, sp);
@@ -374,7 +374,7 @@ float dotprod_v16f(const float* a, const float* b, int n) {
     s = v16f_fmadd(va, vb, s);
   }
   // reduce s
-  return sf_cvt_v16f(v16f_reduce_add(s));
+  return sf_reduce_add_v16f(s);
 #if 0
   sp = v16f_permute2(s, PINTS_SHUFFLE(1, 0));
   add1 = v16f_add(s, sp);

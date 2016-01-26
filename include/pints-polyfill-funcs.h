@@ -624,6 +624,88 @@ static inline v8i __v8i_reduce_add(v8i a);
 static inline v8l __v8l_reduce_add(v8l a);
 static inline v16f __v16f_reduce_add(v16f a);
 static inline v16i __v16i_reduce_add(v16i a);
+static inline v1d __v1d_reduce_add_v1d(v1d a);
+static inline v1f __v1f_reduce_add_v1f(v1f a);
+static inline v1i __v1i_reduce_add_v1i(v1i a);
+static inline v1l __v1l_reduce_add_v1l(v1l a);
+static inline v2d __v2d_reduce_add_v1d(v1d a);
+static inline v2f __v2f_reduce_add_v1f(v1f a);
+static inline v2i __v2i_reduce_add_v1i(v1i a);
+static inline v2l __v2l_reduce_add_v1l(v1l a);
+static inline v4d __v4d_reduce_add_v1d(v1d a);
+static inline v4f __v4f_reduce_add_v1f(v1f a);
+static inline v4i __v4i_reduce_add_v1i(v1i a);
+static inline v4l __v4l_reduce_add_v1l(v1l a);
+static inline v8d __v8d_reduce_add_v1d(v1d a);
+static inline v8f __v8f_reduce_add_v1f(v1f a);
+static inline v8i __v8i_reduce_add_v1i(v1i a);
+static inline v8l __v8l_reduce_add_v1l(v1l a);
+static inline v16f __v16f_reduce_add_v1f(v1f a);
+static inline v16i __v16i_reduce_add_v1i(v1i a);
+static inline v1d __v1d_reduce_add_v2d(v2d a);
+static inline v1f __v1f_reduce_add_v2f(v2f a);
+static inline v1i __v1i_reduce_add_v2i(v2i a);
+static inline v1l __v1l_reduce_add_v2l(v2l a);
+static inline v2d __v2d_reduce_add_v2d(v2d a);
+static inline v2f __v2f_reduce_add_v2f(v2f a);
+static inline v2i __v2i_reduce_add_v2i(v2i a);
+static inline v2l __v2l_reduce_add_v2l(v2l a);
+static inline v4d __v4d_reduce_add_v2d(v2d a);
+static inline v4f __v4f_reduce_add_v2f(v2f a);
+static inline v4i __v4i_reduce_add_v2i(v2i a);
+static inline v4l __v4l_reduce_add_v2l(v2l a);
+static inline v8d __v8d_reduce_add_v2d(v2d a);
+static inline v8f __v8f_reduce_add_v2f(v2f a);
+static inline v8i __v8i_reduce_add_v2i(v2i a);
+static inline v8l __v8l_reduce_add_v2l(v2l a);
+static inline v16f __v16f_reduce_add_v2f(v2f a);
+static inline v16i __v16i_reduce_add_v2i(v2i a);
+static inline v1d __v1d_reduce_add_v4d(v4d a);
+static inline v1f __v1f_reduce_add_v4f(v4f a);
+static inline v1i __v1i_reduce_add_v4i(v4i a);
+static inline v1l __v1l_reduce_add_v4l(v4l a);
+static inline v2d __v2d_reduce_add_v4d(v4d a);
+static inline v2f __v2f_reduce_add_v4f(v4f a);
+static inline v2i __v2i_reduce_add_v4i(v4i a);
+static inline v2l __v2l_reduce_add_v4l(v4l a);
+static inline v4d __v4d_reduce_add_v4d(v4d a);
+static inline v4f __v4f_reduce_add_v4f(v4f a);
+static inline v4i __v4i_reduce_add_v4i(v4i a);
+static inline v4l __v4l_reduce_add_v4l(v4l a);
+static inline v8d __v8d_reduce_add_v4d(v4d a);
+static inline v8f __v8f_reduce_add_v4f(v4f a);
+static inline v8i __v8i_reduce_add_v4i(v4i a);
+static inline v8l __v8l_reduce_add_v4l(v4l a);
+static inline v16f __v16f_reduce_add_v4f(v4f a);
+static inline v16i __v16i_reduce_add_v4i(v4i a);
+static inline v1d __v1d_reduce_add_v8d(v8d a);
+static inline v1f __v1f_reduce_add_v8f(v8f a);
+static inline v1i __v1i_reduce_add_v8i(v8i a);
+static inline v1l __v1l_reduce_add_v8l(v8l a);
+static inline v2d __v2d_reduce_add_v8d(v8d a);
+static inline v2f __v2f_reduce_add_v8f(v8f a);
+static inline v2i __v2i_reduce_add_v8i(v8i a);
+static inline v2l __v2l_reduce_add_v8l(v8l a);
+static inline v4d __v4d_reduce_add_v8d(v8d a);
+static inline v4f __v4f_reduce_add_v8f(v8f a);
+static inline v4i __v4i_reduce_add_v8i(v8i a);
+static inline v4l __v4l_reduce_add_v8l(v8l a);
+static inline v8d __v8d_reduce_add_v8d(v8d a);
+static inline v8f __v8f_reduce_add_v8f(v8f a);
+static inline v8i __v8i_reduce_add_v8i(v8i a);
+static inline v8l __v8l_reduce_add_v8l(v8l a);
+static inline v16f __v16f_reduce_add_v8f(v8f a);
+static inline v16i __v16i_reduce_add_v8i(v8i a);
+static inline v1f __v1f_reduce_add_v16f(v16f a);
+static inline v1i __v1i_reduce_add_v16i(v16i a);
+static inline v2f __v2f_reduce_add_v16f(v16f a);
+static inline v2i __v2i_reduce_add_v16i(v16i a);
+static inline v4f __v4f_reduce_add_v16f(v16f a);
+static inline v4i __v4i_reduce_add_v16i(v16i a);
+static inline v8f __v8f_reduce_add_v16f(v16f a);
+static inline v8i __v8i_reduce_add_v16i(v16i a);
+static inline v16f __v16f_reduce_add_v16f(v16f a);
+static inline v16i __v16i_reduce_add_v16i(v16i a);
 static inline v1d __v1d_reduce_mul(v1d a);
 static inline v1f __v1f_reduce_mul(v1f a);
 static inline v1i __v1i_reduce_mul(v1i a);
@@ -642,6 +724,88 @@ static inline v8i __v8i_reduce_mul(v8i a);
 static inline v8l __v8l_reduce_mul(v8l a);
 static inline v16f __v16f_reduce_mul(v16f a);
 static inline v16i __v16i_reduce_mul(v16i a);
+static inline v1d __v1d_reduce_mul_v1d(v1d a);
+static inline v1f __v1f_reduce_mul_v1f(v1f a);
+static inline v1i __v1i_reduce_mul_v1i(v1i a);
+static inline v1l __v1l_reduce_mul_v1l(v1l a);
+static inline v2d __v2d_reduce_mul_v1d(v1d a);
+static inline v2f __v2f_reduce_mul_v1f(v1f a);
+static inline v2i __v2i_reduce_mul_v1i(v1i a);
+static inline v2l __v2l_reduce_mul_v1l(v1l a);
+static inline v4d __v4d_reduce_mul_v1d(v1d a);
+static inline v4f __v4f_reduce_mul_v1f(v1f a);
+static inline v4i __v4i_reduce_mul_v1i(v1i a);
+static inline v4l __v4l_reduce_mul_v1l(v1l a);
+static inline v8d __v8d_reduce_mul_v1d(v1d a);
+static inline v8f __v8f_reduce_mul_v1f(v1f a);
+static inline v8i __v8i_reduce_mul_v1i(v1i a);
+static inline v8l __v8l_reduce_mul_v1l(v1l a);
+static inline v16f __v16f_reduce_mul_v1f(v1f a);
+static inline v16i __v16i_reduce_mul_v1i(v1i a);
+static inline v1d __v1d_reduce_mul_v2d(v2d a);
+static inline v1f __v1f_reduce_mul_v2f(v2f a);
+static inline v1i __v1i_reduce_mul_v2i(v2i a);
+static inline v1l __v1l_reduce_mul_v2l(v2l a);
+static inline v2d __v2d_reduce_mul_v2d(v2d a);
+static inline v2f __v2f_reduce_mul_v2f(v2f a);
+static inline v2i __v2i_reduce_mul_v2i(v2i a);
+static inline v2l __v2l_reduce_mul_v2l(v2l a);
+static inline v4d __v4d_reduce_mul_v2d(v2d a);
+static inline v4f __v4f_reduce_mul_v2f(v2f a);
+static inline v4i __v4i_reduce_mul_v2i(v2i a);
+static inline v4l __v4l_reduce_mul_v2l(v2l a);
+static inline v8d __v8d_reduce_mul_v2d(v2d a);
+static inline v8f __v8f_reduce_mul_v2f(v2f a);
+static inline v8i __v8i_reduce_mul_v2i(v2i a);
+static inline v8l __v8l_reduce_mul_v2l(v2l a);
+static inline v16f __v16f_reduce_mul_v2f(v2f a);
+static inline v16i __v16i_reduce_mul_v2i(v2i a);
+static inline v1d __v1d_reduce_mul_v4d(v4d a);
+static inline v1f __v1f_reduce_mul_v4f(v4f a);
+static inline v1i __v1i_reduce_mul_v4i(v4i a);
+static inline v1l __v1l_reduce_mul_v4l(v4l a);
+static inline v2d __v2d_reduce_mul_v4d(v4d a);
+static inline v2f __v2f_reduce_mul_v4f(v4f a);
+static inline v2i __v2i_reduce_mul_v4i(v4i a);
+static inline v2l __v2l_reduce_mul_v4l(v4l a);
+static inline v4d __v4d_reduce_mul_v4d(v4d a);
+static inline v4f __v4f_reduce_mul_v4f(v4f a);
+static inline v4i __v4i_reduce_mul_v4i(v4i a);
+static inline v4l __v4l_reduce_mul_v4l(v4l a);
+static inline v8d __v8d_reduce_mul_v4d(v4d a);
+static inline v8f __v8f_reduce_mul_v4f(v4f a);
+static inline v8i __v8i_reduce_mul_v4i(v4i a);
+static inline v8l __v8l_reduce_mul_v4l(v4l a);
+static inline v16f __v16f_reduce_mul_v4f(v4f a);
+static inline v16i __v16i_reduce_mul_v4i(v4i a);
+static inline v1d __v1d_reduce_mul_v8d(v8d a);
+static inline v1f __v1f_reduce_mul_v8f(v8f a);
+static inline v1i __v1i_reduce_mul_v8i(v8i a);
+static inline v1l __v1l_reduce_mul_v8l(v8l a);
+static inline v2d __v2d_reduce_mul_v8d(v8d a);
+static inline v2f __v2f_reduce_mul_v8f(v8f a);
+static inline v2i __v2i_reduce_mul_v8i(v8i a);
+static inline v2l __v2l_reduce_mul_v8l(v8l a);
+static inline v4d __v4d_reduce_mul_v8d(v8d a);
+static inline v4f __v4f_reduce_mul_v8f(v8f a);
+static inline v4i __v4i_reduce_mul_v8i(v8i a);
+static inline v4l __v4l_reduce_mul_v8l(v8l a);
+static inline v8d __v8d_reduce_mul_v8d(v8d a);
+static inline v8f __v8f_reduce_mul_v8f(v8f a);
+static inline v8i __v8i_reduce_mul_v8i(v8i a);
+static inline v8l __v8l_reduce_mul_v8l(v8l a);
+static inline v16f __v16f_reduce_mul_v8f(v8f a);
+static inline v16i __v16i_reduce_mul_v8i(v8i a);
+static inline v1f __v1f_reduce_mul_v16f(v16f a);
+static inline v1i __v1i_reduce_mul_v16i(v16i a);
+static inline v2f __v2f_reduce_mul_v16f(v16f a);
+static inline v2i __v2i_reduce_mul_v16i(v16i a);
+static inline v4f __v4f_reduce_mul_v16f(v16f a);
+static inline v4i __v4i_reduce_mul_v16i(v16i a);
+static inline v8f __v8f_reduce_mul_v16f(v16f a);
+static inline v8i __v8i_reduce_mul_v16i(v16i a);
+static inline v16f __v16f_reduce_mul_v16f(v16f a);
+static inline v16i __v16i_reduce_mul_v16i(v16i a);
 static inline v1d __v1d_reduce_and(v1d a);
 static inline v1f __v1f_reduce_and(v1f a);
 static inline v1i __v1i_reduce_and(v1i a);
@@ -660,6 +824,88 @@ static inline v8i __v8i_reduce_and(v8i a);
 static inline v8l __v8l_reduce_and(v8l a);
 static inline v16f __v16f_reduce_and(v16f a);
 static inline v16i __v16i_reduce_and(v16i a);
+static inline v1d __v1d_reduce_and_v1d(v1d a);
+static inline v1f __v1f_reduce_and_v1f(v1f a);
+static inline v1i __v1i_reduce_and_v1i(v1i a);
+static inline v1l __v1l_reduce_and_v1l(v1l a);
+static inline v2d __v2d_reduce_and_v1d(v1d a);
+static inline v2f __v2f_reduce_and_v1f(v1f a);
+static inline v2i __v2i_reduce_and_v1i(v1i a);
+static inline v2l __v2l_reduce_and_v1l(v1l a);
+static inline v4d __v4d_reduce_and_v1d(v1d a);
+static inline v4f __v4f_reduce_and_v1f(v1f a);
+static inline v4i __v4i_reduce_and_v1i(v1i a);
+static inline v4l __v4l_reduce_and_v1l(v1l a);
+static inline v8d __v8d_reduce_and_v1d(v1d a);
+static inline v8f __v8f_reduce_and_v1f(v1f a);
+static inline v8i __v8i_reduce_and_v1i(v1i a);
+static inline v8l __v8l_reduce_and_v1l(v1l a);
+static inline v16f __v16f_reduce_and_v1f(v1f a);
+static inline v16i __v16i_reduce_and_v1i(v1i a);
+static inline v1d __v1d_reduce_and_v2d(v2d a);
+static inline v1f __v1f_reduce_and_v2f(v2f a);
+static inline v1i __v1i_reduce_and_v2i(v2i a);
+static inline v1l __v1l_reduce_and_v2l(v2l a);
+static inline v2d __v2d_reduce_and_v2d(v2d a);
+static inline v2f __v2f_reduce_and_v2f(v2f a);
+static inline v2i __v2i_reduce_and_v2i(v2i a);
+static inline v2l __v2l_reduce_and_v2l(v2l a);
+static inline v4d __v4d_reduce_and_v2d(v2d a);
+static inline v4f __v4f_reduce_and_v2f(v2f a);
+static inline v4i __v4i_reduce_and_v2i(v2i a);
+static inline v4l __v4l_reduce_and_v2l(v2l a);
+static inline v8d __v8d_reduce_and_v2d(v2d a);
+static inline v8f __v8f_reduce_and_v2f(v2f a);
+static inline v8i __v8i_reduce_and_v2i(v2i a);
+static inline v8l __v8l_reduce_and_v2l(v2l a);
+static inline v16f __v16f_reduce_and_v2f(v2f a);
+static inline v16i __v16i_reduce_and_v2i(v2i a);
+static inline v1d __v1d_reduce_and_v4d(v4d a);
+static inline v1f __v1f_reduce_and_v4f(v4f a);
+static inline v1i __v1i_reduce_and_v4i(v4i a);
+static inline v1l __v1l_reduce_and_v4l(v4l a);
+static inline v2d __v2d_reduce_and_v4d(v4d a);
+static inline v2f __v2f_reduce_and_v4f(v4f a);
+static inline v2i __v2i_reduce_and_v4i(v4i a);
+static inline v2l __v2l_reduce_and_v4l(v4l a);
+static inline v4d __v4d_reduce_and_v4d(v4d a);
+static inline v4f __v4f_reduce_and_v4f(v4f a);
+static inline v4i __v4i_reduce_and_v4i(v4i a);
+static inline v4l __v4l_reduce_and_v4l(v4l a);
+static inline v8d __v8d_reduce_and_v4d(v4d a);
+static inline v8f __v8f_reduce_and_v4f(v4f a);
+static inline v8i __v8i_reduce_and_v4i(v4i a);
+static inline v8l __v8l_reduce_and_v4l(v4l a);
+static inline v16f __v16f_reduce_and_v4f(v4f a);
+static inline v16i __v16i_reduce_and_v4i(v4i a);
+static inline v1d __v1d_reduce_and_v8d(v8d a);
+static inline v1f __v1f_reduce_and_v8f(v8f a);
+static inline v1i __v1i_reduce_and_v8i(v8i a);
+static inline v1l __v1l_reduce_and_v8l(v8l a);
+static inline v2d __v2d_reduce_and_v8d(v8d a);
+static inline v2f __v2f_reduce_and_v8f(v8f a);
+static inline v2i __v2i_reduce_and_v8i(v8i a);
+static inline v2l __v2l_reduce_and_v8l(v8l a);
+static inline v4d __v4d_reduce_and_v8d(v8d a);
+static inline v4f __v4f_reduce_and_v8f(v8f a);
+static inline v4i __v4i_reduce_and_v8i(v8i a);
+static inline v4l __v4l_reduce_and_v8l(v8l a);
+static inline v8d __v8d_reduce_and_v8d(v8d a);
+static inline v8f __v8f_reduce_and_v8f(v8f a);
+static inline v8i __v8i_reduce_and_v8i(v8i a);
+static inline v8l __v8l_reduce_and_v8l(v8l a);
+static inline v16f __v16f_reduce_and_v8f(v8f a);
+static inline v16i __v16i_reduce_and_v8i(v8i a);
+static inline v1f __v1f_reduce_and_v16f(v16f a);
+static inline v1i __v1i_reduce_and_v16i(v16i a);
+static inline v2f __v2f_reduce_and_v16f(v16f a);
+static inline v2i __v2i_reduce_and_v16i(v16i a);
+static inline v4f __v4f_reduce_and_v16f(v16f a);
+static inline v4i __v4i_reduce_and_v16i(v16i a);
+static inline v8f __v8f_reduce_and_v16f(v16f a);
+static inline v8i __v8i_reduce_and_v16i(v16i a);
+static inline v16f __v16f_reduce_and_v16f(v16f a);
+static inline v16i __v16i_reduce_and_v16i(v16i a);
 static inline v1d __v1d_reduce_or(v1d a);
 static inline v1f __v1f_reduce_or(v1f a);
 static inline v1i __v1i_reduce_or(v1i a);
@@ -678,6 +924,288 @@ static inline v8i __v8i_reduce_or(v8i a);
 static inline v8l __v8l_reduce_or(v8l a);
 static inline v16f __v16f_reduce_or(v16f a);
 static inline v16i __v16i_reduce_or(v16i a);
+static inline v1d __v1d_reduce_or_v1d(v1d a);
+static inline v1f __v1f_reduce_or_v1f(v1f a);
+static inline v1i __v1i_reduce_or_v1i(v1i a);
+static inline v1l __v1l_reduce_or_v1l(v1l a);
+static inline v2d __v2d_reduce_or_v1d(v1d a);
+static inline v2f __v2f_reduce_or_v1f(v1f a);
+static inline v2i __v2i_reduce_or_v1i(v1i a);
+static inline v2l __v2l_reduce_or_v1l(v1l a);
+static inline v4d __v4d_reduce_or_v1d(v1d a);
+static inline v4f __v4f_reduce_or_v1f(v1f a);
+static inline v4i __v4i_reduce_or_v1i(v1i a);
+static inline v4l __v4l_reduce_or_v1l(v1l a);
+static inline v8d __v8d_reduce_or_v1d(v1d a);
+static inline v8f __v8f_reduce_or_v1f(v1f a);
+static inline v8i __v8i_reduce_or_v1i(v1i a);
+static inline v8l __v8l_reduce_or_v1l(v1l a);
+static inline v16f __v16f_reduce_or_v1f(v1f a);
+static inline v16i __v16i_reduce_or_v1i(v1i a);
+static inline v1d __v1d_reduce_or_v2d(v2d a);
+static inline v1f __v1f_reduce_or_v2f(v2f a);
+static inline v1i __v1i_reduce_or_v2i(v2i a);
+static inline v1l __v1l_reduce_or_v2l(v2l a);
+static inline v2d __v2d_reduce_or_v2d(v2d a);
+static inline v2f __v2f_reduce_or_v2f(v2f a);
+static inline v2i __v2i_reduce_or_v2i(v2i a);
+static inline v2l __v2l_reduce_or_v2l(v2l a);
+static inline v4d __v4d_reduce_or_v2d(v2d a);
+static inline v4f __v4f_reduce_or_v2f(v2f a);
+static inline v4i __v4i_reduce_or_v2i(v2i a);
+static inline v4l __v4l_reduce_or_v2l(v2l a);
+static inline v8d __v8d_reduce_or_v2d(v2d a);
+static inline v8f __v8f_reduce_or_v2f(v2f a);
+static inline v8i __v8i_reduce_or_v2i(v2i a);
+static inline v8l __v8l_reduce_or_v2l(v2l a);
+static inline v16f __v16f_reduce_or_v2f(v2f a);
+static inline v16i __v16i_reduce_or_v2i(v2i a);
+static inline v1d __v1d_reduce_or_v4d(v4d a);
+static inline v1f __v1f_reduce_or_v4f(v4f a);
+static inline v1i __v1i_reduce_or_v4i(v4i a);
+static inline v1l __v1l_reduce_or_v4l(v4l a);
+static inline v2d __v2d_reduce_or_v4d(v4d a);
+static inline v2f __v2f_reduce_or_v4f(v4f a);
+static inline v2i __v2i_reduce_or_v4i(v4i a);
+static inline v2l __v2l_reduce_or_v4l(v4l a);
+static inline v4d __v4d_reduce_or_v4d(v4d a);
+static inline v4f __v4f_reduce_or_v4f(v4f a);
+static inline v4i __v4i_reduce_or_v4i(v4i a);
+static inline v4l __v4l_reduce_or_v4l(v4l a);
+static inline v8d __v8d_reduce_or_v4d(v4d a);
+static inline v8f __v8f_reduce_or_v4f(v4f a);
+static inline v8i __v8i_reduce_or_v4i(v4i a);
+static inline v8l __v8l_reduce_or_v4l(v4l a);
+static inline v16f __v16f_reduce_or_v4f(v4f a);
+static inline v16i __v16i_reduce_or_v4i(v4i a);
+static inline v1d __v1d_reduce_or_v8d(v8d a);
+static inline v1f __v1f_reduce_or_v8f(v8f a);
+static inline v1i __v1i_reduce_or_v8i(v8i a);
+static inline v1l __v1l_reduce_or_v8l(v8l a);
+static inline v2d __v2d_reduce_or_v8d(v8d a);
+static inline v2f __v2f_reduce_or_v8f(v8f a);
+static inline v2i __v2i_reduce_or_v8i(v8i a);
+static inline v2l __v2l_reduce_or_v8l(v8l a);
+static inline v4d __v4d_reduce_or_v8d(v8d a);
+static inline v4f __v4f_reduce_or_v8f(v8f a);
+static inline v4i __v4i_reduce_or_v8i(v8i a);
+static inline v4l __v4l_reduce_or_v8l(v8l a);
+static inline v8d __v8d_reduce_or_v8d(v8d a);
+static inline v8f __v8f_reduce_or_v8f(v8f a);
+static inline v8i __v8i_reduce_or_v8i(v8i a);
+static inline v8l __v8l_reduce_or_v8l(v8l a);
+static inline v16f __v16f_reduce_or_v8f(v8f a);
+static inline v16i __v16i_reduce_or_v8i(v8i a);
+static inline v1f __v1f_reduce_or_v16f(v16f a);
+static inline v1i __v1i_reduce_or_v16i(v16i a);
+static inline v2f __v2f_reduce_or_v16f(v16f a);
+static inline v2i __v2i_reduce_or_v16i(v16i a);
+static inline v4f __v4f_reduce_or_v16f(v16f a);
+static inline v4i __v4i_reduce_or_v16i(v16i a);
+static inline v8f __v8f_reduce_or_v16f(v16f a);
+static inline v8i __v8i_reduce_or_v16i(v16i a);
+static inline v16f __v16f_reduce_or_v16f(v16f a);
+static inline v16i __v16i_reduce_or_v16i(v16i a);
+static inline v1d __v1d_reduce_min(v1d a);
+static inline v1f __v1f_reduce_min(v1f a);
+static inline v1i __v1i_reduce_min(v1i a);
+static inline v1l __v1l_reduce_min(v1l a);
+static inline v2d __v2d_reduce_min(v2d a);
+static inline v2f __v2f_reduce_min(v2f a);
+static inline v2i __v2i_reduce_min(v2i a);
+static inline v2l __v2l_reduce_min(v2l a);
+static inline v4d __v4d_reduce_min(v4d a);
+static inline v4f __v4f_reduce_min(v4f a);
+static inline v4i __v4i_reduce_min(v4i a);
+static inline v4l __v4l_reduce_min(v4l a);
+static inline v8d __v8d_reduce_min(v8d a);
+static inline v8f __v8f_reduce_min(v8f a);
+static inline v8i __v8i_reduce_min(v8i a);
+static inline v8l __v8l_reduce_min(v8l a);
+static inline v16f __v16f_reduce_min(v16f a);
+static inline v16i __v16i_reduce_min(v16i a);
+static inline v1d __v1d_reduce_min_v1d(v1d a);
+static inline v1f __v1f_reduce_min_v1f(v1f a);
+static inline v1i __v1i_reduce_min_v1i(v1i a);
+static inline v1l __v1l_reduce_min_v1l(v1l a);
+static inline v2d __v2d_reduce_min_v1d(v1d a);
+static inline v2f __v2f_reduce_min_v1f(v1f a);
+static inline v2i __v2i_reduce_min_v1i(v1i a);
+static inline v2l __v2l_reduce_min_v1l(v1l a);
+static inline v4d __v4d_reduce_min_v1d(v1d a);
+static inline v4f __v4f_reduce_min_v1f(v1f a);
+static inline v4i __v4i_reduce_min_v1i(v1i a);
+static inline v4l __v4l_reduce_min_v1l(v1l a);
+static inline v8d __v8d_reduce_min_v1d(v1d a);
+static inline v8f __v8f_reduce_min_v1f(v1f a);
+static inline v8i __v8i_reduce_min_v1i(v1i a);
+static inline v8l __v8l_reduce_min_v1l(v1l a);
+static inline v16f __v16f_reduce_min_v1f(v1f a);
+static inline v16i __v16i_reduce_min_v1i(v1i a);
+static inline v1d __v1d_reduce_min_v2d(v2d a);
+static inline v1f __v1f_reduce_min_v2f(v2f a);
+static inline v1i __v1i_reduce_min_v2i(v2i a);
+static inline v1l __v1l_reduce_min_v2l(v2l a);
+static inline v2d __v2d_reduce_min_v2d(v2d a);
+static inline v2f __v2f_reduce_min_v2f(v2f a);
+static inline v2i __v2i_reduce_min_v2i(v2i a);
+static inline v2l __v2l_reduce_min_v2l(v2l a);
+static inline v4d __v4d_reduce_min_v2d(v2d a);
+static inline v4f __v4f_reduce_min_v2f(v2f a);
+static inline v4i __v4i_reduce_min_v2i(v2i a);
+static inline v4l __v4l_reduce_min_v2l(v2l a);
+static inline v8d __v8d_reduce_min_v2d(v2d a);
+static inline v8f __v8f_reduce_min_v2f(v2f a);
+static inline v8i __v8i_reduce_min_v2i(v2i a);
+static inline v8l __v8l_reduce_min_v2l(v2l a);
+static inline v16f __v16f_reduce_min_v2f(v2f a);
+static inline v16i __v16i_reduce_min_v2i(v2i a);
+static inline v1d __v1d_reduce_min_v4d(v4d a);
+static inline v1f __v1f_reduce_min_v4f(v4f a);
+static inline v1i __v1i_reduce_min_v4i(v4i a);
+static inline v1l __v1l_reduce_min_v4l(v4l a);
+static inline v2d __v2d_reduce_min_v4d(v4d a);
+static inline v2f __v2f_reduce_min_v4f(v4f a);
+static inline v2i __v2i_reduce_min_v4i(v4i a);
+static inline v2l __v2l_reduce_min_v4l(v4l a);
+static inline v4d __v4d_reduce_min_v4d(v4d a);
+static inline v4f __v4f_reduce_min_v4f(v4f a);
+static inline v4i __v4i_reduce_min_v4i(v4i a);
+static inline v4l __v4l_reduce_min_v4l(v4l a);
+static inline v8d __v8d_reduce_min_v4d(v4d a);
+static inline v8f __v8f_reduce_min_v4f(v4f a);
+static inline v8i __v8i_reduce_min_v4i(v4i a);
+static inline v8l __v8l_reduce_min_v4l(v4l a);
+static inline v16f __v16f_reduce_min_v4f(v4f a);
+static inline v16i __v16i_reduce_min_v4i(v4i a);
+static inline v1d __v1d_reduce_min_v8d(v8d a);
+static inline v1f __v1f_reduce_min_v8f(v8f a);
+static inline v1i __v1i_reduce_min_v8i(v8i a);
+static inline v1l __v1l_reduce_min_v8l(v8l a);
+static inline v2d __v2d_reduce_min_v8d(v8d a);
+static inline v2f __v2f_reduce_min_v8f(v8f a);
+static inline v2i __v2i_reduce_min_v8i(v8i a);
+static inline v2l __v2l_reduce_min_v8l(v8l a);
+static inline v4d __v4d_reduce_min_v8d(v8d a);
+static inline v4f __v4f_reduce_min_v8f(v8f a);
+static inline v4i __v4i_reduce_min_v8i(v8i a);
+static inline v4l __v4l_reduce_min_v8l(v8l a);
+static inline v8d __v8d_reduce_min_v8d(v8d a);
+static inline v8f __v8f_reduce_min_v8f(v8f a);
+static inline v8i __v8i_reduce_min_v8i(v8i a);
+static inline v8l __v8l_reduce_min_v8l(v8l a);
+static inline v16f __v16f_reduce_min_v8f(v8f a);
+static inline v16i __v16i_reduce_min_v8i(v8i a);
+static inline v1f __v1f_reduce_min_v16f(v16f a);
+static inline v1i __v1i_reduce_min_v16i(v16i a);
+static inline v2f __v2f_reduce_min_v16f(v16f a);
+static inline v2i __v2i_reduce_min_v16i(v16i a);
+static inline v4f __v4f_reduce_min_v16f(v16f a);
+static inline v4i __v4i_reduce_min_v16i(v16i a);
+static inline v8f __v8f_reduce_min_v16f(v16f a);
+static inline v8i __v8i_reduce_min_v16i(v16i a);
+static inline v16f __v16f_reduce_min_v16f(v16f a);
+static inline v16i __v16i_reduce_min_v16i(v16i a);
+static inline v1d __v1d_reduce_max(v1d a);
+static inline v1f __v1f_reduce_max(v1f a);
+static inline v1i __v1i_reduce_max(v1i a);
+static inline v1l __v1l_reduce_max(v1l a);
+static inline v2d __v2d_reduce_max(v2d a);
+static inline v2f __v2f_reduce_max(v2f a);
+static inline v2i __v2i_reduce_max(v2i a);
+static inline v2l __v2l_reduce_max(v2l a);
+static inline v4d __v4d_reduce_max(v4d a);
+static inline v4f __v4f_reduce_max(v4f a);
+static inline v4i __v4i_reduce_max(v4i a);
+static inline v4l __v4l_reduce_max(v4l a);
+static inline v8d __v8d_reduce_max(v8d a);
+static inline v8f __v8f_reduce_max(v8f a);
+static inline v8i __v8i_reduce_max(v8i a);
+static inline v8l __v8l_reduce_max(v8l a);
+static inline v16f __v16f_reduce_max(v16f a);
+static inline v16i __v16i_reduce_max(v16i a);
+static inline v1d __v1d_reduce_max_v1d(v1d a);
+static inline v1f __v1f_reduce_max_v1f(v1f a);
+static inline v1i __v1i_reduce_max_v1i(v1i a);
+static inline v1l __v1l_reduce_max_v1l(v1l a);
+static inline v2d __v2d_reduce_max_v1d(v1d a);
+static inline v2f __v2f_reduce_max_v1f(v1f a);
+static inline v2i __v2i_reduce_max_v1i(v1i a);
+static inline v2l __v2l_reduce_max_v1l(v1l a);
+static inline v4d __v4d_reduce_max_v1d(v1d a);
+static inline v4f __v4f_reduce_max_v1f(v1f a);
+static inline v4i __v4i_reduce_max_v1i(v1i a);
+static inline v4l __v4l_reduce_max_v1l(v1l a);
+static inline v8d __v8d_reduce_max_v1d(v1d a);
+static inline v8f __v8f_reduce_max_v1f(v1f a);
+static inline v8i __v8i_reduce_max_v1i(v1i a);
+static inline v8l __v8l_reduce_max_v1l(v1l a);
+static inline v16f __v16f_reduce_max_v1f(v1f a);
+static inline v16i __v16i_reduce_max_v1i(v1i a);
+static inline v1d __v1d_reduce_max_v2d(v2d a);
+static inline v1f __v1f_reduce_max_v2f(v2f a);
+static inline v1i __v1i_reduce_max_v2i(v2i a);
+static inline v1l __v1l_reduce_max_v2l(v2l a);
+static inline v2d __v2d_reduce_max_v2d(v2d a);
+static inline v2f __v2f_reduce_max_v2f(v2f a);
+static inline v2i __v2i_reduce_max_v2i(v2i a);
+static inline v2l __v2l_reduce_max_v2l(v2l a);
+static inline v4d __v4d_reduce_max_v2d(v2d a);
+static inline v4f __v4f_reduce_max_v2f(v2f a);
+static inline v4i __v4i_reduce_max_v2i(v2i a);
+static inline v4l __v4l_reduce_max_v2l(v2l a);
+static inline v8d __v8d_reduce_max_v2d(v2d a);
+static inline v8f __v8f_reduce_max_v2f(v2f a);
+static inline v8i __v8i_reduce_max_v2i(v2i a);
+static inline v8l __v8l_reduce_max_v2l(v2l a);
+static inline v16f __v16f_reduce_max_v2f(v2f a);
+static inline v16i __v16i_reduce_max_v2i(v2i a);
+static inline v1d __v1d_reduce_max_v4d(v4d a);
+static inline v1f __v1f_reduce_max_v4f(v4f a);
+static inline v1i __v1i_reduce_max_v4i(v4i a);
+static inline v1l __v1l_reduce_max_v4l(v4l a);
+static inline v2d __v2d_reduce_max_v4d(v4d a);
+static inline v2f __v2f_reduce_max_v4f(v4f a);
+static inline v2i __v2i_reduce_max_v4i(v4i a);
+static inline v2l __v2l_reduce_max_v4l(v4l a);
+static inline v4d __v4d_reduce_max_v4d(v4d a);
+static inline v4f __v4f_reduce_max_v4f(v4f a);
+static inline v4i __v4i_reduce_max_v4i(v4i a);
+static inline v4l __v4l_reduce_max_v4l(v4l a);
+static inline v8d __v8d_reduce_max_v4d(v4d a);
+static inline v8f __v8f_reduce_max_v4f(v4f a);
+static inline v8i __v8i_reduce_max_v4i(v4i a);
+static inline v8l __v8l_reduce_max_v4l(v4l a);
+static inline v16f __v16f_reduce_max_v4f(v4f a);
+static inline v16i __v16i_reduce_max_v4i(v4i a);
+static inline v1d __v1d_reduce_max_v8d(v8d a);
+static inline v1f __v1f_reduce_max_v8f(v8f a);
+static inline v1i __v1i_reduce_max_v8i(v8i a);
+static inline v1l __v1l_reduce_max_v8l(v8l a);
+static inline v2d __v2d_reduce_max_v8d(v8d a);
+static inline v2f __v2f_reduce_max_v8f(v8f a);
+static inline v2i __v2i_reduce_max_v8i(v8i a);
+static inline v2l __v2l_reduce_max_v8l(v8l a);
+static inline v4d __v4d_reduce_max_v8d(v8d a);
+static inline v4f __v4f_reduce_max_v8f(v8f a);
+static inline v4i __v4i_reduce_max_v8i(v8i a);
+static inline v4l __v4l_reduce_max_v8l(v8l a);
+static inline v8d __v8d_reduce_max_v8d(v8d a);
+static inline v8f __v8f_reduce_max_v8f(v8f a);
+static inline v8i __v8i_reduce_max_v8i(v8i a);
+static inline v8l __v8l_reduce_max_v8l(v8l a);
+static inline v16f __v16f_reduce_max_v8f(v8f a);
+static inline v16i __v16i_reduce_max_v8i(v8i a);
+static inline v1f __v1f_reduce_max_v16f(v16f a);
+static inline v1i __v1i_reduce_max_v16i(v16i a);
+static inline v2f __v2f_reduce_max_v16f(v16f a);
+static inline v2i __v2i_reduce_max_v16i(v16i a);
+static inline v4f __v4f_reduce_max_v16f(v16f a);
+static inline v4i __v4i_reduce_max_v16i(v16i a);
+static inline v8f __v8f_reduce_max_v16f(v16f a);
+static inline v8i __v8i_reduce_max_v16i(v16i a);
+static inline v16f __v16f_reduce_max_v16f(v16f a);
+static inline v16i __v16i_reduce_max_v16i(v16i a);
 
 
 /* MOVES */
@@ -2045,78 +2573,606 @@ static inline v8i compatible_v8i_get_high_v16i(v16i a) {
 
 /* REDUCTIONS */
 
-static inline v1d __v1d_reduce_add(v1d a) { v1d red; __PINTS_REDUCE1(v1d_add, v1d, a, red); return red; }
-static inline v1f __v1f_reduce_add(v1f a) { v1f red; __PINTS_REDUCE1(v1f_add, v1f, a, red); return red; }
-static inline v1i __v1i_reduce_add(v1i a) { v1i red; __PINTS_REDUCE1(v1i_add, v1i, a, red); return red; }
-static inline v1l __v1l_reduce_add(v1l a) { v1l red; __PINTS_REDUCE1(v1l_add, v1l, a, red); return red; }
-static inline v2d __v2d_reduce_add(v2d a) { v2d red; __PINTS_REDUCE2(v2d_add, v2d, a, red); return red; }
-static inline v2f __v2f_reduce_add(v2f a) { v2f red; __PINTS_REDUCE2(v2f_add, v2f, a, red); return red; }
-static inline v2i __v2i_reduce_add(v2i a) { v2i red; __PINTS_REDUCE2(v2i_add, v2i, a, red); return red; }
-static inline v2l __v2l_reduce_add(v2l a) { v2l red; __PINTS_REDUCE2(v2l_add, v2l, a, red); return red; }
-static inline v4d __v4d_reduce_add(v4d a) { v4d red; __PINTS_REDUCE4(v4d_add, v4d, a, red); return red; }
-static inline v4f __v4f_reduce_add(v4f a) { v4f red; __PINTS_REDUCE4(v4f_add, v4f, a, red); return red; }
-static inline v4i __v4i_reduce_add(v4i a) { v4i red; __PINTS_REDUCE4(v4i_add, v4i, a, red); return red; }
-static inline v4l __v4l_reduce_add(v4l a) { v4l red; __PINTS_REDUCE4(v4l_add, v4l, a, red); return red; }
-static inline v8d __v8d_reduce_add(v8d a) { v8d red; __PINTS_REDUCE8(v8d_add, v8d, a, red); return red; }
-static inline v8f __v8f_reduce_add(v8f a) { v8f red; __PINTS_REDUCE8(v8f_add, v8f, a, red); return red; }
-static inline v8i __v8i_reduce_add(v8i a) { v8i red; __PINTS_REDUCE8(v8i_add, v8i, a, red); return red; }
-static inline v8l __v8l_reduce_add(v8l a) { v8l red; __PINTS_REDUCE8(v8l_add, v8l, a, red); return red; }
-static inline v16f __v16f_reduce_add(v16f a) { v16f red; __PINTS_REDUCE16(v16f_add, v16f, a, red); return red; }
-static inline v16i __v16i_reduce_add(v16i a) { v16i red; __PINTS_REDUCE16(v16i_add, v16i, a, red); return red; }
-static inline v1d __v1d_reduce_mul(v1d a) { v1d red; __PINTS_REDUCE1(v1d_mul, v1d, a, red); return red; }
-static inline v1f __v1f_reduce_mul(v1f a) { v1f red; __PINTS_REDUCE1(v1f_mul, v1f, a, red); return red; }
-static inline v1i __v1i_reduce_mul(v1i a) { v1i red; __PINTS_REDUCE1(v1i_mul, v1i, a, red); return red; }
-static inline v1l __v1l_reduce_mul(v1l a) { v1l red; __PINTS_REDUCE1(v1l_mul, v1l, a, red); return red; }
-static inline v2d __v2d_reduce_mul(v2d a) { v2d red; __PINTS_REDUCE2(v2d_mul, v2d, a, red); return red; }
-static inline v2f __v2f_reduce_mul(v2f a) { v2f red; __PINTS_REDUCE2(v2f_mul, v2f, a, red); return red; }
-static inline v2i __v2i_reduce_mul(v2i a) { v2i red; __PINTS_REDUCE2(v2i_mul, v2i, a, red); return red; }
-static inline v2l __v2l_reduce_mul(v2l a) { v2l red; __PINTS_REDUCE2(v2l_mul, v2l, a, red); return red; }
-static inline v4d __v4d_reduce_mul(v4d a) { v4d red; __PINTS_REDUCE4(v4d_mul, v4d, a, red); return red; }
-static inline v4f __v4f_reduce_mul(v4f a) { v4f red; __PINTS_REDUCE4(v4f_mul, v4f, a, red); return red; }
-static inline v4i __v4i_reduce_mul(v4i a) { v4i red; __PINTS_REDUCE4(v4i_mul, v4i, a, red); return red; }
-static inline v4l __v4l_reduce_mul(v4l a) { v4l red; __PINTS_REDUCE4(v4l_mul, v4l, a, red); return red; }
-static inline v8d __v8d_reduce_mul(v8d a) { v8d red; __PINTS_REDUCE8(v8d_mul, v8d, a, red); return red; }
-static inline v8f __v8f_reduce_mul(v8f a) { v8f red; __PINTS_REDUCE8(v8f_mul, v8f, a, red); return red; }
-static inline v8i __v8i_reduce_mul(v8i a) { v8i red; __PINTS_REDUCE8(v8i_mul, v8i, a, red); return red; }
-static inline v8l __v8l_reduce_mul(v8l a) { v8l red; __PINTS_REDUCE8(v8l_mul, v8l, a, red); return red; }
-static inline v16f __v16f_reduce_mul(v16f a) { v16f red; __PINTS_REDUCE16(v16f_mul, v16f, a, red); return red; }
-static inline v16i __v16i_reduce_mul(v16i a) { v16i red; __PINTS_REDUCE16(v16i_mul, v16i, a, red); return red; }
-static inline v1d __v1d_reduce_and(v1d a) { v1d red; __PINTS_REDUCE1(v1d_and, v1d, a, red); return red; }
-static inline v1f __v1f_reduce_and(v1f a) { v1f red; __PINTS_REDUCE1(v1f_and, v1f, a, red); return red; }
-static inline v1i __v1i_reduce_and(v1i a) { v1i red; __PINTS_REDUCE1(v1i_and, v1i, a, red); return red; }
-static inline v1l __v1l_reduce_and(v1l a) { v1l red; __PINTS_REDUCE1(v1l_and, v1l, a, red); return red; }
-static inline v2d __v2d_reduce_and(v2d a) { v2d red; __PINTS_REDUCE2(v2d_and, v2d, a, red); return red; }
-static inline v2f __v2f_reduce_and(v2f a) { v2f red; __PINTS_REDUCE2(v2f_and, v2f, a, red); return red; }
-static inline v2i __v2i_reduce_and(v2i a) { v2i red; __PINTS_REDUCE2(v2i_and, v2i, a, red); return red; }
-static inline v2l __v2l_reduce_and(v2l a) { v2l red; __PINTS_REDUCE2(v2l_and, v2l, a, red); return red; }
-static inline v4d __v4d_reduce_and(v4d a) { v4d red; __PINTS_REDUCE4(v4d_and, v4d, a, red); return red; }
-static inline v4f __v4f_reduce_and(v4f a) { v4f red; __PINTS_REDUCE4(v4f_and, v4f, a, red); return red; }
-static inline v4i __v4i_reduce_and(v4i a) { v4i red; __PINTS_REDUCE4(v4i_and, v4i, a, red); return red; }
-static inline v4l __v4l_reduce_and(v4l a) { v4l red; __PINTS_REDUCE4(v4l_and, v4l, a, red); return red; }
-static inline v8d __v8d_reduce_and(v8d a) { v8d red; __PINTS_REDUCE8(v8d_and, v8d, a, red); return red; }
-static inline v8f __v8f_reduce_and(v8f a) { v8f red; __PINTS_REDUCE8(v8f_and, v8f, a, red); return red; }
-static inline v8i __v8i_reduce_and(v8i a) { v8i red; __PINTS_REDUCE8(v8i_and, v8i, a, red); return red; }
-static inline v8l __v8l_reduce_and(v8l a) { v8l red; __PINTS_REDUCE8(v8l_and, v8l, a, red); return red; }
-static inline v16f __v16f_reduce_and(v16f a) { v16f red; __PINTS_REDUCE16(v16f_and, v16f, a, red); return red; }
-static inline v16i __v16i_reduce_and(v16i a) { v16i red; __PINTS_REDUCE16(v16i_and, v16i, a, red); return red; }
-static inline v1d __v1d_reduce_or(v1d a) { v1d red; __PINTS_REDUCE1(v1d_or, v1d, a, red); return red; }
-static inline v1f __v1f_reduce_or(v1f a) { v1f red; __PINTS_REDUCE1(v1f_or, v1f, a, red); return red; }
-static inline v1i __v1i_reduce_or(v1i a) { v1i red; __PINTS_REDUCE1(v1i_or, v1i, a, red); return red; }
-static inline v1l __v1l_reduce_or(v1l a) { v1l red; __PINTS_REDUCE1(v1l_or, v1l, a, red); return red; }
-static inline v2d __v2d_reduce_or(v2d a) { v2d red; __PINTS_REDUCE2(v2d_or, v2d, a, red); return red; }
-static inline v2f __v2f_reduce_or(v2f a) { v2f red; __PINTS_REDUCE2(v2f_or, v2f, a, red); return red; }
-static inline v2i __v2i_reduce_or(v2i a) { v2i red; __PINTS_REDUCE2(v2i_or, v2i, a, red); return red; }
-static inline v2l __v2l_reduce_or(v2l a) { v2l red; __PINTS_REDUCE2(v2l_or, v2l, a, red); return red; }
-static inline v4d __v4d_reduce_or(v4d a) { v4d red; __PINTS_REDUCE4(v4d_or, v4d, a, red); return red; }
-static inline v4f __v4f_reduce_or(v4f a) { v4f red; __PINTS_REDUCE4(v4f_or, v4f, a, red); return red; }
-static inline v4i __v4i_reduce_or(v4i a) { v4i red; __PINTS_REDUCE4(v4i_or, v4i, a, red); return red; }
-static inline v4l __v4l_reduce_or(v4l a) { v4l red; __PINTS_REDUCE4(v4l_or, v4l, a, red); return red; }
-static inline v8d __v8d_reduce_or(v8d a) { v8d red; __PINTS_REDUCE8(v8d_or, v8d, a, red); return red; }
-static inline v8f __v8f_reduce_or(v8f a) { v8f red; __PINTS_REDUCE8(v8f_or, v8f, a, red); return red; }
-static inline v8i __v8i_reduce_or(v8i a) { v8i red; __PINTS_REDUCE8(v8i_or, v8i, a, red); return red; }
-static inline v8l __v8l_reduce_or(v8l a) { v8l red; __PINTS_REDUCE8(v8l_or, v8l, a, red); return red; }
-static inline v16f __v16f_reduce_or(v16f a) { v16f red; __PINTS_REDUCE16(v16f_or, v16f, a, red); return red; }
-static inline v16i __v16i_reduce_or(v16i a) { v16i red; __PINTS_REDUCE16(v16i_or, v16i, a, red); return red; }
+static inline v1d __v1d_reduce_add(v1d a) { v1d red; __PINTS_REDUCE1(add, v1d, a, red); return red; }
+static inline v1f __v1f_reduce_add(v1f a) { v1f red; __PINTS_REDUCE1(add, v1f, a, red); return red; }
+static inline v1i __v1i_reduce_add(v1i a) { v1i red; __PINTS_REDUCE1(add, v1i, a, red); return red; }
+static inline v1l __v1l_reduce_add(v1l a) { v1l red; __PINTS_REDUCE1(add, v1l, a, red); return red; }
+static inline v2d __v2d_reduce_add(v2d a) { v2d red; __PINTS_REDUCE2(add, v2d, a, red); return red; }
+static inline v2f __v2f_reduce_add(v2f a) { v2f red; __PINTS_REDUCE2(add, v2f, a, red); return red; }
+static inline v2i __v2i_reduce_add(v2i a) { v2i red; __PINTS_REDUCE2(add, v2i, a, red); return red; }
+static inline v2l __v2l_reduce_add(v2l a) { v2l red; __PINTS_REDUCE2(add, v2l, a, red); return red; }
+static inline v4d __v4d_reduce_add(v4d a) { v4d red; __PINTS_REDUCE4(add, v4d, a, red); return red; }
+static inline v4f __v4f_reduce_add(v4f a) { v4f red; __PINTS_REDUCE4(add, v4f, a, red); return red; }
+static inline v4i __v4i_reduce_add(v4i a) { v4i red; __PINTS_REDUCE4(add, v4i, a, red); return red; }
+static inline v4l __v4l_reduce_add(v4l a) { v4l red; __PINTS_REDUCE4(add, v4l, a, red); return red; }
+static inline v8d __v8d_reduce_add(v8d a) { v8d red; __PINTS_REDUCE8(add, v8d, a, red); return red; }
+static inline v8f __v8f_reduce_add(v8f a) { v8f red; __PINTS_REDUCE8(add, v8f, a, red); return red; }
+static inline v8i __v8i_reduce_add(v8i a) { v8i red; __PINTS_REDUCE8(add, v8i, a, red); return red; }
+static inline v8l __v8l_reduce_add(v8l a) { v8l red; __PINTS_REDUCE8(add, v8l, a, red); return red; }
+static inline v16f __v16f_reduce_add(v16f a) { v16f red; __PINTS_REDUCE16(add, v16f, a, red); return red; }
+static inline v16i __v16i_reduce_add(v16i a) { v16i red; __PINTS_REDUCE16(add, v16i, a, red); return red; }
+static inline v1d __v1d_reduce_add_v1d(v1d a) { v1d red; __PINTS_1REDUCE1(add, d, a, red); return red; }
+static inline v1f __v1f_reduce_add_v1f(v1f a) { v1f red; __PINTS_1REDUCE1(add, f, a, red); return red; }
+static inline v1i __v1i_reduce_add_v1i(v1i a) { v1i red; __PINTS_1REDUCE1(add, i, a, red); return red; }
+static inline v1l __v1l_reduce_add_v1l(v1l a) { v1l red; __PINTS_1REDUCE1(add, l, a, red); return red; }
+static inline v2d __v2d_reduce_add_v1d(v1d a) { v2d red; __PINTS_2REDUCE1(add, d, a, red); return red; }
+static inline v2f __v2f_reduce_add_v1f(v1f a) { v2f red; __PINTS_2REDUCE1(add, f, a, red); return red; }
+static inline v2i __v2i_reduce_add_v1i(v1i a) { v2i red; __PINTS_2REDUCE1(add, i, a, red); return red; }
+static inline v2l __v2l_reduce_add_v1l(v1l a) { v2l red; __PINTS_2REDUCE1(add, l, a, red); return red; }
+static inline v4d __v4d_reduce_add_v1d(v1d a) { v4d red; __PINTS_4REDUCE1(add, d, a, red); return red; }
+static inline v4f __v4f_reduce_add_v1f(v1f a) { v4f red; __PINTS_4REDUCE1(add, f, a, red); return red; }
+static inline v4i __v4i_reduce_add_v1i(v1i a) { v4i red; __PINTS_4REDUCE1(add, i, a, red); return red; }
+static inline v4l __v4l_reduce_add_v1l(v1l a) { v4l red; __PINTS_4REDUCE1(add, l, a, red); return red; }
+static inline v8d __v8d_reduce_add_v1d(v1d a) { v8d red; __PINTS_8REDUCE1(add, d, a, red); return red; }
+static inline v8f __v8f_reduce_add_v1f(v1f a) { v8f red; __PINTS_8REDUCE1(add, f, a, red); return red; }
+static inline v8i __v8i_reduce_add_v1i(v1i a) { v8i red; __PINTS_8REDUCE1(add, i, a, red); return red; }
+static inline v8l __v8l_reduce_add_v1l(v1l a) { v8l red; __PINTS_8REDUCE1(add, l, a, red); return red; }
+static inline v16f __v16f_reduce_add_v1f(v1f a) { v16f red; __PINTS_16REDUCE1(add, f, a, red); return red; }
+static inline v16i __v16i_reduce_add_v1i(v1i a) { v16i red; __PINTS_16REDUCE1(add, i, a, red); return red; }
+static inline v1d __v1d_reduce_add_v2d(v2d a) { v1d red; __PINTS_1REDUCE2(add, d, a, red); return red; }
+static inline v1f __v1f_reduce_add_v2f(v2f a) { v1f red; __PINTS_1REDUCE2(add, f, a, red); return red; }
+static inline v1i __v1i_reduce_add_v2i(v2i a) { v1i red; __PINTS_1REDUCE2(add, i, a, red); return red; }
+static inline v1l __v1l_reduce_add_v2l(v2l a) { v1l red; __PINTS_1REDUCE2(add, l, a, red); return red; }
+static inline v2d __v2d_reduce_add_v2d(v2d a) { v2d red; __PINTS_2REDUCE2(add, d, a, red); return red; }
+static inline v2f __v2f_reduce_add_v2f(v2f a) { v2f red; __PINTS_2REDUCE2(add, f, a, red); return red; }
+static inline v2i __v2i_reduce_add_v2i(v2i a) { v2i red; __PINTS_2REDUCE2(add, i, a, red); return red; }
+static inline v2l __v2l_reduce_add_v2l(v2l a) { v2l red; __PINTS_2REDUCE2(add, l, a, red); return red; }
+static inline v4d __v4d_reduce_add_v2d(v2d a) { v4d red; __PINTS_4REDUCE2(add, d, a, red); return red; }
+static inline v4f __v4f_reduce_add_v2f(v2f a) { v4f red; __PINTS_4REDUCE2(add, f, a, red); return red; }
+static inline v4i __v4i_reduce_add_v2i(v2i a) { v4i red; __PINTS_4REDUCE2(add, i, a, red); return red; }
+static inline v4l __v4l_reduce_add_v2l(v2l a) { v4l red; __PINTS_4REDUCE2(add, l, a, red); return red; }
+static inline v8d __v8d_reduce_add_v2d(v2d a) { v8d red; __PINTS_8REDUCE2(add, d, a, red); return red; }
+static inline v8f __v8f_reduce_add_v2f(v2f a) { v8f red; __PINTS_8REDUCE2(add, f, a, red); return red; }
+static inline v8i __v8i_reduce_add_v2i(v2i a) { v8i red; __PINTS_8REDUCE2(add, i, a, red); return red; }
+static inline v8l __v8l_reduce_add_v2l(v2l a) { v8l red; __PINTS_8REDUCE2(add, l, a, red); return red; }
+static inline v16f __v16f_reduce_add_v2f(v2f a) { v16f red; __PINTS_16REDUCE2(add, f, a, red); return red; }
+static inline v16i __v16i_reduce_add_v2i(v2i a) { v16i red; __PINTS_16REDUCE2(add, i, a, red); return red; }
+static inline v1d __v1d_reduce_add_v4d(v4d a) { v1d red; __PINTS_1REDUCE4(add, d, a, red); return red; }
+static inline v1f __v1f_reduce_add_v4f(v4f a) { v1f red; __PINTS_1REDUCE4(add, f, a, red); return red; }
+static inline v1i __v1i_reduce_add_v4i(v4i a) { v1i red; __PINTS_1REDUCE4(add, i, a, red); return red; }
+static inline v1l __v1l_reduce_add_v4l(v4l a) { v1l red; __PINTS_1REDUCE4(add, l, a, red); return red; }
+static inline v2d __v2d_reduce_add_v4d(v4d a) { v2d red; __PINTS_2REDUCE4(add, d, a, red); return red; }
+static inline v2f __v2f_reduce_add_v4f(v4f a) { v2f red; __PINTS_2REDUCE4(add, f, a, red); return red; }
+static inline v2i __v2i_reduce_add_v4i(v4i a) { v2i red; __PINTS_2REDUCE4(add, i, a, red); return red; }
+static inline v2l __v2l_reduce_add_v4l(v4l a) { v2l red; __PINTS_2REDUCE4(add, l, a, red); return red; }
+static inline v4d __v4d_reduce_add_v4d(v4d a) { v4d red; __PINTS_4REDUCE4(add, d, a, red); return red; }
+static inline v4f __v4f_reduce_add_v4f(v4f a) { v4f red; __PINTS_4REDUCE4(add, f, a, red); return red; }
+static inline v4i __v4i_reduce_add_v4i(v4i a) { v4i red; __PINTS_4REDUCE4(add, i, a, red); return red; }
+static inline v4l __v4l_reduce_add_v4l(v4l a) { v4l red; __PINTS_4REDUCE4(add, l, a, red); return red; }
+static inline v8d __v8d_reduce_add_v4d(v4d a) { v8d red; __PINTS_8REDUCE4(add, d, a, red); return red; }
+static inline v8f __v8f_reduce_add_v4f(v4f a) { v8f red; __PINTS_8REDUCE4(add, f, a, red); return red; }
+static inline v8i __v8i_reduce_add_v4i(v4i a) { v8i red; __PINTS_8REDUCE4(add, i, a, red); return red; }
+static inline v8l __v8l_reduce_add_v4l(v4l a) { v8l red; __PINTS_8REDUCE4(add, l, a, red); return red; }
+static inline v16f __v16f_reduce_add_v4f(v4f a) { v16f red; __PINTS_16REDUCE4(add, f, a, red); return red; }
+static inline v16i __v16i_reduce_add_v4i(v4i a) { v16i red; __PINTS_16REDUCE4(add, i, a, red); return red; }
+static inline v1d __v1d_reduce_add_v8d(v8d a) { v1d red; __PINTS_1REDUCE8(add, d, a, red); return red; }
+static inline v1f __v1f_reduce_add_v8f(v8f a) { v1f red; __PINTS_1REDUCE8(add, f, a, red); return red; }
+static inline v1i __v1i_reduce_add_v8i(v8i a) { v1i red; __PINTS_1REDUCE8(add, i, a, red); return red; }
+static inline v1l __v1l_reduce_add_v8l(v8l a) { v1l red; __PINTS_1REDUCE8(add, l, a, red); return red; }
+static inline v2d __v2d_reduce_add_v8d(v8d a) { v2d red; __PINTS_2REDUCE8(add, d, a, red); return red; }
+static inline v2f __v2f_reduce_add_v8f(v8f a) { v2f red; __PINTS_2REDUCE8(add, f, a, red); return red; }
+static inline v2i __v2i_reduce_add_v8i(v8i a) { v2i red; __PINTS_2REDUCE8(add, i, a, red); return red; }
+static inline v2l __v2l_reduce_add_v8l(v8l a) { v2l red; __PINTS_2REDUCE8(add, l, a, red); return red; }
+static inline v4d __v4d_reduce_add_v8d(v8d a) { v4d red; __PINTS_4REDUCE8(add, d, a, red); return red; }
+static inline v4f __v4f_reduce_add_v8f(v8f a) { v4f red; __PINTS_4REDUCE8(add, f, a, red); return red; }
+static inline v4i __v4i_reduce_add_v8i(v8i a) { v4i red; __PINTS_4REDUCE8(add, i, a, red); return red; }
+static inline v4l __v4l_reduce_add_v8l(v8l a) { v4l red; __PINTS_4REDUCE8(add, l, a, red); return red; }
+static inline v8d __v8d_reduce_add_v8d(v8d a) { v8d red; __PINTS_8REDUCE8(add, d, a, red); return red; }
+static inline v8f __v8f_reduce_add_v8f(v8f a) { v8f red; __PINTS_8REDUCE8(add, f, a, red); return red; }
+static inline v8i __v8i_reduce_add_v8i(v8i a) { v8i red; __PINTS_8REDUCE8(add, i, a, red); return red; }
+static inline v8l __v8l_reduce_add_v8l(v8l a) { v8l red; __PINTS_8REDUCE8(add, l, a, red); return red; }
+static inline v16f __v16f_reduce_add_v8f(v8f a) { v16f red; __PINTS_16REDUCE8(add, f, a, red); return red; }
+static inline v16i __v16i_reduce_add_v8i(v8i a) { v16i red; __PINTS_16REDUCE8(add, i, a, red); return red; }
+static inline v1f __v1f_reduce_add_v16f(v16f a) { v1f red; __PINTS_1REDUCE16(add, f, a, red); return red; }
+static inline v1i __v1i_reduce_add_v16i(v16i a) { v1i red; __PINTS_1REDUCE16(add, i, a, red); return red; }
+static inline v2f __v2f_reduce_add_v16f(v16f a) { v2f red; __PINTS_2REDUCE16(add, f, a, red); return red; }
+static inline v2i __v2i_reduce_add_v16i(v16i a) { v2i red; __PINTS_2REDUCE16(add, i, a, red); return red; }
+static inline v4f __v4f_reduce_add_v16f(v16f a) { v4f red; __PINTS_4REDUCE16(add, f, a, red); return red; }
+static inline v4i __v4i_reduce_add_v16i(v16i a) { v4i red; __PINTS_4REDUCE16(add, i, a, red); return red; }
+static inline v8f __v8f_reduce_add_v16f(v16f a) { v8f red; __PINTS_8REDUCE16(add, f, a, red); return red; }
+static inline v8i __v8i_reduce_add_v16i(v16i a) { v8i red; __PINTS_8REDUCE16(add, i, a, red); return red; }
+static inline v16f __v16f_reduce_add_v16f(v16f a) { v16f red; __PINTS_16REDUCE16(add, f, a, red); return red; }
+static inline v16i __v16i_reduce_add_v16i(v16i a) { v16i red; __PINTS_16REDUCE16(add, i, a, red); return red; }
+static inline v1d __v1d_reduce_mul(v1d a) { v1d red; __PINTS_REDUCE1(mul, v1d, a, red); return red; }
+static inline v1f __v1f_reduce_mul(v1f a) { v1f red; __PINTS_REDUCE1(mul, v1f, a, red); return red; }
+static inline v1i __v1i_reduce_mul(v1i a) { v1i red; __PINTS_REDUCE1(mul, v1i, a, red); return red; }
+static inline v1l __v1l_reduce_mul(v1l a) { v1l red; __PINTS_REDUCE1(mul, v1l, a, red); return red; }
+static inline v2d __v2d_reduce_mul(v2d a) { v2d red; __PINTS_REDUCE2(mul, v2d, a, red); return red; }
+static inline v2f __v2f_reduce_mul(v2f a) { v2f red; __PINTS_REDUCE2(mul, v2f, a, red); return red; }
+static inline v2i __v2i_reduce_mul(v2i a) { v2i red; __PINTS_REDUCE2(mul, v2i, a, red); return red; }
+static inline v2l __v2l_reduce_mul(v2l a) { v2l red; __PINTS_REDUCE2(mul, v2l, a, red); return red; }
+static inline v4d __v4d_reduce_mul(v4d a) { v4d red; __PINTS_REDUCE4(mul, v4d, a, red); return red; }
+static inline v4f __v4f_reduce_mul(v4f a) { v4f red; __PINTS_REDUCE4(mul, v4f, a, red); return red; }
+static inline v4i __v4i_reduce_mul(v4i a) { v4i red; __PINTS_REDUCE4(mul, v4i, a, red); return red; }
+static inline v4l __v4l_reduce_mul(v4l a) { v4l red; __PINTS_REDUCE4(mul, v4l, a, red); return red; }
+static inline v8d __v8d_reduce_mul(v8d a) { v8d red; __PINTS_REDUCE8(mul, v8d, a, red); return red; }
+static inline v8f __v8f_reduce_mul(v8f a) { v8f red; __PINTS_REDUCE8(mul, v8f, a, red); return red; }
+static inline v8i __v8i_reduce_mul(v8i a) { v8i red; __PINTS_REDUCE8(mul, v8i, a, red); return red; }
+static inline v8l __v8l_reduce_mul(v8l a) { v8l red; __PINTS_REDUCE8(mul, v8l, a, red); return red; }
+static inline v16f __v16f_reduce_mul(v16f a) { v16f red; __PINTS_REDUCE16(mul, v16f, a, red); return red; }
+static inline v16i __v16i_reduce_mul(v16i a) { v16i red; __PINTS_REDUCE16(mul, v16i, a, red); return red; }
+static inline v1d __v1d_reduce_mul_v1d(v1d a) { v1d red; __PINTS_1REDUCE1(mul, d, a, red); return red; }
+static inline v1f __v1f_reduce_mul_v1f(v1f a) { v1f red; __PINTS_1REDUCE1(mul, f, a, red); return red; }
+static inline v1i __v1i_reduce_mul_v1i(v1i a) { v1i red; __PINTS_1REDUCE1(mul, i, a, red); return red; }
+static inline v1l __v1l_reduce_mul_v1l(v1l a) { v1l red; __PINTS_1REDUCE1(mul, l, a, red); return red; }
+static inline v2d __v2d_reduce_mul_v1d(v1d a) { v2d red; __PINTS_2REDUCE1(mul, d, a, red); return red; }
+static inline v2f __v2f_reduce_mul_v1f(v1f a) { v2f red; __PINTS_2REDUCE1(mul, f, a, red); return red; }
+static inline v2i __v2i_reduce_mul_v1i(v1i a) { v2i red; __PINTS_2REDUCE1(mul, i, a, red); return red; }
+static inline v2l __v2l_reduce_mul_v1l(v1l a) { v2l red; __PINTS_2REDUCE1(mul, l, a, red); return red; }
+static inline v4d __v4d_reduce_mul_v1d(v1d a) { v4d red; __PINTS_4REDUCE1(mul, d, a, red); return red; }
+static inline v4f __v4f_reduce_mul_v1f(v1f a) { v4f red; __PINTS_4REDUCE1(mul, f, a, red); return red; }
+static inline v4i __v4i_reduce_mul_v1i(v1i a) { v4i red; __PINTS_4REDUCE1(mul, i, a, red); return red; }
+static inline v4l __v4l_reduce_mul_v1l(v1l a) { v4l red; __PINTS_4REDUCE1(mul, l, a, red); return red; }
+static inline v8d __v8d_reduce_mul_v1d(v1d a) { v8d red; __PINTS_8REDUCE1(mul, d, a, red); return red; }
+static inline v8f __v8f_reduce_mul_v1f(v1f a) { v8f red; __PINTS_8REDUCE1(mul, f, a, red); return red; }
+static inline v8i __v8i_reduce_mul_v1i(v1i a) { v8i red; __PINTS_8REDUCE1(mul, i, a, red); return red; }
+static inline v8l __v8l_reduce_mul_v1l(v1l a) { v8l red; __PINTS_8REDUCE1(mul, l, a, red); return red; }
+static inline v16f __v16f_reduce_mul_v1f(v1f a) { v16f red; __PINTS_16REDUCE1(mul, f, a, red); return red; }
+static inline v16i __v16i_reduce_mul_v1i(v1i a) { v16i red; __PINTS_16REDUCE1(mul, i, a, red); return red; }
+static inline v1d __v1d_reduce_mul_v2d(v2d a) { v1d red; __PINTS_1REDUCE2(mul, d, a, red); return red; }
+static inline v1f __v1f_reduce_mul_v2f(v2f a) { v1f red; __PINTS_1REDUCE2(mul, f, a, red); return red; }
+static inline v1i __v1i_reduce_mul_v2i(v2i a) { v1i red; __PINTS_1REDUCE2(mul, i, a, red); return red; }
+static inline v1l __v1l_reduce_mul_v2l(v2l a) { v1l red; __PINTS_1REDUCE2(mul, l, a, red); return red; }
+static inline v2d __v2d_reduce_mul_v2d(v2d a) { v2d red; __PINTS_2REDUCE2(mul, d, a, red); return red; }
+static inline v2f __v2f_reduce_mul_v2f(v2f a) { v2f red; __PINTS_2REDUCE2(mul, f, a, red); return red; }
+static inline v2i __v2i_reduce_mul_v2i(v2i a) { v2i red; __PINTS_2REDUCE2(mul, i, a, red); return red; }
+static inline v2l __v2l_reduce_mul_v2l(v2l a) { v2l red; __PINTS_2REDUCE2(mul, l, a, red); return red; }
+static inline v4d __v4d_reduce_mul_v2d(v2d a) { v4d red; __PINTS_4REDUCE2(mul, d, a, red); return red; }
+static inline v4f __v4f_reduce_mul_v2f(v2f a) { v4f red; __PINTS_4REDUCE2(mul, f, a, red); return red; }
+static inline v4i __v4i_reduce_mul_v2i(v2i a) { v4i red; __PINTS_4REDUCE2(mul, i, a, red); return red; }
+static inline v4l __v4l_reduce_mul_v2l(v2l a) { v4l red; __PINTS_4REDUCE2(mul, l, a, red); return red; }
+static inline v8d __v8d_reduce_mul_v2d(v2d a) { v8d red; __PINTS_8REDUCE2(mul, d, a, red); return red; }
+static inline v8f __v8f_reduce_mul_v2f(v2f a) { v8f red; __PINTS_8REDUCE2(mul, f, a, red); return red; }
+static inline v8i __v8i_reduce_mul_v2i(v2i a) { v8i red; __PINTS_8REDUCE2(mul, i, a, red); return red; }
+static inline v8l __v8l_reduce_mul_v2l(v2l a) { v8l red; __PINTS_8REDUCE2(mul, l, a, red); return red; }
+static inline v16f __v16f_reduce_mul_v2f(v2f a) { v16f red; __PINTS_16REDUCE2(mul, f, a, red); return red; }
+static inline v16i __v16i_reduce_mul_v2i(v2i a) { v16i red; __PINTS_16REDUCE2(mul, i, a, red); return red; }
+static inline v1d __v1d_reduce_mul_v4d(v4d a) { v1d red; __PINTS_1REDUCE4(mul, d, a, red); return red; }
+static inline v1f __v1f_reduce_mul_v4f(v4f a) { v1f red; __PINTS_1REDUCE4(mul, f, a, red); return red; }
+static inline v1i __v1i_reduce_mul_v4i(v4i a) { v1i red; __PINTS_1REDUCE4(mul, i, a, red); return red; }
+static inline v1l __v1l_reduce_mul_v4l(v4l a) { v1l red; __PINTS_1REDUCE4(mul, l, a, red); return red; }
+static inline v2d __v2d_reduce_mul_v4d(v4d a) { v2d red; __PINTS_2REDUCE4(mul, d, a, red); return red; }
+static inline v2f __v2f_reduce_mul_v4f(v4f a) { v2f red; __PINTS_2REDUCE4(mul, f, a, red); return red; }
+static inline v2i __v2i_reduce_mul_v4i(v4i a) { v2i red; __PINTS_2REDUCE4(mul, i, a, red); return red; }
+static inline v2l __v2l_reduce_mul_v4l(v4l a) { v2l red; __PINTS_2REDUCE4(mul, l, a, red); return red; }
+static inline v4d __v4d_reduce_mul_v4d(v4d a) { v4d red; __PINTS_4REDUCE4(mul, d, a, red); return red; }
+static inline v4f __v4f_reduce_mul_v4f(v4f a) { v4f red; __PINTS_4REDUCE4(mul, f, a, red); return red; }
+static inline v4i __v4i_reduce_mul_v4i(v4i a) { v4i red; __PINTS_4REDUCE4(mul, i, a, red); return red; }
+static inline v4l __v4l_reduce_mul_v4l(v4l a) { v4l red; __PINTS_4REDUCE4(mul, l, a, red); return red; }
+static inline v8d __v8d_reduce_mul_v4d(v4d a) { v8d red; __PINTS_8REDUCE4(mul, d, a, red); return red; }
+static inline v8f __v8f_reduce_mul_v4f(v4f a) { v8f red; __PINTS_8REDUCE4(mul, f, a, red); return red; }
+static inline v8i __v8i_reduce_mul_v4i(v4i a) { v8i red; __PINTS_8REDUCE4(mul, i, a, red); return red; }
+static inline v8l __v8l_reduce_mul_v4l(v4l a) { v8l red; __PINTS_8REDUCE4(mul, l, a, red); return red; }
+static inline v16f __v16f_reduce_mul_v4f(v4f a) { v16f red; __PINTS_16REDUCE4(mul, f, a, red); return red; }
+static inline v16i __v16i_reduce_mul_v4i(v4i a) { v16i red; __PINTS_16REDUCE4(mul, i, a, red); return red; }
+static inline v1d __v1d_reduce_mul_v8d(v8d a) { v1d red; __PINTS_1REDUCE8(mul, d, a, red); return red; }
+static inline v1f __v1f_reduce_mul_v8f(v8f a) { v1f red; __PINTS_1REDUCE8(mul, f, a, red); return red; }
+static inline v1i __v1i_reduce_mul_v8i(v8i a) { v1i red; __PINTS_1REDUCE8(mul, i, a, red); return red; }
+static inline v1l __v1l_reduce_mul_v8l(v8l a) { v1l red; __PINTS_1REDUCE8(mul, l, a, red); return red; }
+static inline v2d __v2d_reduce_mul_v8d(v8d a) { v2d red; __PINTS_2REDUCE8(mul, d, a, red); return red; }
+static inline v2f __v2f_reduce_mul_v8f(v8f a) { v2f red; __PINTS_2REDUCE8(mul, f, a, red); return red; }
+static inline v2i __v2i_reduce_mul_v8i(v8i a) { v2i red; __PINTS_2REDUCE8(mul, i, a, red); return red; }
+static inline v2l __v2l_reduce_mul_v8l(v8l a) { v2l red; __PINTS_2REDUCE8(mul, l, a, red); return red; }
+static inline v4d __v4d_reduce_mul_v8d(v8d a) { v4d red; __PINTS_4REDUCE8(mul, d, a, red); return red; }
+static inline v4f __v4f_reduce_mul_v8f(v8f a) { v4f red; __PINTS_4REDUCE8(mul, f, a, red); return red; }
+static inline v4i __v4i_reduce_mul_v8i(v8i a) { v4i red; __PINTS_4REDUCE8(mul, i, a, red); return red; }
+static inline v4l __v4l_reduce_mul_v8l(v8l a) { v4l red; __PINTS_4REDUCE8(mul, l, a, red); return red; }
+static inline v8d __v8d_reduce_mul_v8d(v8d a) { v8d red; __PINTS_8REDUCE8(mul, d, a, red); return red; }
+static inline v8f __v8f_reduce_mul_v8f(v8f a) { v8f red; __PINTS_8REDUCE8(mul, f, a, red); return red; }
+static inline v8i __v8i_reduce_mul_v8i(v8i a) { v8i red; __PINTS_8REDUCE8(mul, i, a, red); return red; }
+static inline v8l __v8l_reduce_mul_v8l(v8l a) { v8l red; __PINTS_8REDUCE8(mul, l, a, red); return red; }
+static inline v16f __v16f_reduce_mul_v8f(v8f a) { v16f red; __PINTS_16REDUCE8(mul, f, a, red); return red; }
+static inline v16i __v16i_reduce_mul_v8i(v8i a) { v16i red; __PINTS_16REDUCE8(mul, i, a, red); return red; }
+static inline v1f __v1f_reduce_mul_v16f(v16f a) { v1f red; __PINTS_1REDUCE16(mul, f, a, red); return red; }
+static inline v1i __v1i_reduce_mul_v16i(v16i a) { v1i red; __PINTS_1REDUCE16(mul, i, a, red); return red; }
+static inline v2f __v2f_reduce_mul_v16f(v16f a) { v2f red; __PINTS_2REDUCE16(mul, f, a, red); return red; }
+static inline v2i __v2i_reduce_mul_v16i(v16i a) { v2i red; __PINTS_2REDUCE16(mul, i, a, red); return red; }
+static inline v4f __v4f_reduce_mul_v16f(v16f a) { v4f red; __PINTS_4REDUCE16(mul, f, a, red); return red; }
+static inline v4i __v4i_reduce_mul_v16i(v16i a) { v4i red; __PINTS_4REDUCE16(mul, i, a, red); return red; }
+static inline v8f __v8f_reduce_mul_v16f(v16f a) { v8f red; __PINTS_8REDUCE16(mul, f, a, red); return red; }
+static inline v8i __v8i_reduce_mul_v16i(v16i a) { v8i red; __PINTS_8REDUCE16(mul, i, a, red); return red; }
+static inline v16f __v16f_reduce_mul_v16f(v16f a) { v16f red; __PINTS_16REDUCE16(mul, f, a, red); return red; }
+static inline v16i __v16i_reduce_mul_v16i(v16i a) { v16i red; __PINTS_16REDUCE16(mul, i, a, red); return red; }
+static inline v1d __v1d_reduce_and(v1d a) { v1d red; __PINTS_REDUCE1(and, v1d, a, red); return red; }
+static inline v1f __v1f_reduce_and(v1f a) { v1f red; __PINTS_REDUCE1(and, v1f, a, red); return red; }
+static inline v1i __v1i_reduce_and(v1i a) { v1i red; __PINTS_REDUCE1(and, v1i, a, red); return red; }
+static inline v1l __v1l_reduce_and(v1l a) { v1l red; __PINTS_REDUCE1(and, v1l, a, red); return red; }
+static inline v2d __v2d_reduce_and(v2d a) { v2d red; __PINTS_REDUCE2(and, v2d, a, red); return red; }
+static inline v2f __v2f_reduce_and(v2f a) { v2f red; __PINTS_REDUCE2(and, v2f, a, red); return red; }
+static inline v2i __v2i_reduce_and(v2i a) { v2i red; __PINTS_REDUCE2(and, v2i, a, red); return red; }
+static inline v2l __v2l_reduce_and(v2l a) { v2l red; __PINTS_REDUCE2(and, v2l, a, red); return red; }
+static inline v4d __v4d_reduce_and(v4d a) { v4d red; __PINTS_REDUCE4(and, v4d, a, red); return red; }
+static inline v4f __v4f_reduce_and(v4f a) { v4f red; __PINTS_REDUCE4(and, v4f, a, red); return red; }
+static inline v4i __v4i_reduce_and(v4i a) { v4i red; __PINTS_REDUCE4(and, v4i, a, red); return red; }
+static inline v4l __v4l_reduce_and(v4l a) { v4l red; __PINTS_REDUCE4(and, v4l, a, red); return red; }
+static inline v8d __v8d_reduce_and(v8d a) { v8d red; __PINTS_REDUCE8(and, v8d, a, red); return red; }
+static inline v8f __v8f_reduce_and(v8f a) { v8f red; __PINTS_REDUCE8(and, v8f, a, red); return red; }
+static inline v8i __v8i_reduce_and(v8i a) { v8i red; __PINTS_REDUCE8(and, v8i, a, red); return red; }
+static inline v8l __v8l_reduce_and(v8l a) { v8l red; __PINTS_REDUCE8(and, v8l, a, red); return red; }
+static inline v16f __v16f_reduce_and(v16f a) { v16f red; __PINTS_REDUCE16(and, v16f, a, red); return red; }
+static inline v16i __v16i_reduce_and(v16i a) { v16i red; __PINTS_REDUCE16(and, v16i, a, red); return red; }
+static inline v1d __v1d_reduce_and_v1d(v1d a) { v1d red; __PINTS_1REDUCE1(and, d, a, red); return red; }
+static inline v1f __v1f_reduce_and_v1f(v1f a) { v1f red; __PINTS_1REDUCE1(and, f, a, red); return red; }
+static inline v1i __v1i_reduce_and_v1i(v1i a) { v1i red; __PINTS_1REDUCE1(and, i, a, red); return red; }
+static inline v1l __v1l_reduce_and_v1l(v1l a) { v1l red; __PINTS_1REDUCE1(and, l, a, red); return red; }
+static inline v2d __v2d_reduce_and_v1d(v1d a) { v2d red; __PINTS_2REDUCE1(and, d, a, red); return red; }
+static inline v2f __v2f_reduce_and_v1f(v1f a) { v2f red; __PINTS_2REDUCE1(and, f, a, red); return red; }
+static inline v2i __v2i_reduce_and_v1i(v1i a) { v2i red; __PINTS_2REDUCE1(and, i, a, red); return red; }
+static inline v2l __v2l_reduce_and_v1l(v1l a) { v2l red; __PINTS_2REDUCE1(and, l, a, red); return red; }
+static inline v4d __v4d_reduce_and_v1d(v1d a) { v4d red; __PINTS_4REDUCE1(and, d, a, red); return red; }
+static inline v4f __v4f_reduce_and_v1f(v1f a) { v4f red; __PINTS_4REDUCE1(and, f, a, red); return red; }
+static inline v4i __v4i_reduce_and_v1i(v1i a) { v4i red; __PINTS_4REDUCE1(and, i, a, red); return red; }
+static inline v4l __v4l_reduce_and_v1l(v1l a) { v4l red; __PINTS_4REDUCE1(and, l, a, red); return red; }
+static inline v8d __v8d_reduce_and_v1d(v1d a) { v8d red; __PINTS_8REDUCE1(and, d, a, red); return red; }
+static inline v8f __v8f_reduce_and_v1f(v1f a) { v8f red; __PINTS_8REDUCE1(and, f, a, red); return red; }
+static inline v8i __v8i_reduce_and_v1i(v1i a) { v8i red; __PINTS_8REDUCE1(and, i, a, red); return red; }
+static inline v8l __v8l_reduce_and_v1l(v1l a) { v8l red; __PINTS_8REDUCE1(and, l, a, red); return red; }
+static inline v16f __v16f_reduce_and_v1f(v1f a) { v16f red; __PINTS_16REDUCE1(and, f, a, red); return red; }
+static inline v16i __v16i_reduce_and_v1i(v1i a) { v16i red; __PINTS_16REDUCE1(and, i, a, red); return red; }
+static inline v1d __v1d_reduce_and_v2d(v2d a) { v1d red; __PINTS_1REDUCE2(and, d, a, red); return red; }
+static inline v1f __v1f_reduce_and_v2f(v2f a) { v1f red; __PINTS_1REDUCE2(and, f, a, red); return red; }
+static inline v1i __v1i_reduce_and_v2i(v2i a) { v1i red; __PINTS_1REDUCE2(and, i, a, red); return red; }
+static inline v1l __v1l_reduce_and_v2l(v2l a) { v1l red; __PINTS_1REDUCE2(and, l, a, red); return red; }
+static inline v2d __v2d_reduce_and_v2d(v2d a) { v2d red; __PINTS_2REDUCE2(and, d, a, red); return red; }
+static inline v2f __v2f_reduce_and_v2f(v2f a) { v2f red; __PINTS_2REDUCE2(and, f, a, red); return red; }
+static inline v2i __v2i_reduce_and_v2i(v2i a) { v2i red; __PINTS_2REDUCE2(and, i, a, red); return red; }
+static inline v2l __v2l_reduce_and_v2l(v2l a) { v2l red; __PINTS_2REDUCE2(and, l, a, red); return red; }
+static inline v4d __v4d_reduce_and_v2d(v2d a) { v4d red; __PINTS_4REDUCE2(and, d, a, red); return red; }
+static inline v4f __v4f_reduce_and_v2f(v2f a) { v4f red; __PINTS_4REDUCE2(and, f, a, red); return red; }
+static inline v4i __v4i_reduce_and_v2i(v2i a) { v4i red; __PINTS_4REDUCE2(and, i, a, red); return red; }
+static inline v4l __v4l_reduce_and_v2l(v2l a) { v4l red; __PINTS_4REDUCE2(and, l, a, red); return red; }
+static inline v8d __v8d_reduce_and_v2d(v2d a) { v8d red; __PINTS_8REDUCE2(and, d, a, red); return red; }
+static inline v8f __v8f_reduce_and_v2f(v2f a) { v8f red; __PINTS_8REDUCE2(and, f, a, red); return red; }
+static inline v8i __v8i_reduce_and_v2i(v2i a) { v8i red; __PINTS_8REDUCE2(and, i, a, red); return red; }
+static inline v8l __v8l_reduce_and_v2l(v2l a) { v8l red; __PINTS_8REDUCE2(and, l, a, red); return red; }
+static inline v16f __v16f_reduce_and_v2f(v2f a) { v16f red; __PINTS_16REDUCE2(and, f, a, red); return red; }
+static inline v16i __v16i_reduce_and_v2i(v2i a) { v16i red; __PINTS_16REDUCE2(and, i, a, red); return red; }
+static inline v1d __v1d_reduce_and_v4d(v4d a) { v1d red; __PINTS_1REDUCE4(and, d, a, red); return red; }
+static inline v1f __v1f_reduce_and_v4f(v4f a) { v1f red; __PINTS_1REDUCE4(and, f, a, red); return red; }
+static inline v1i __v1i_reduce_and_v4i(v4i a) { v1i red; __PINTS_1REDUCE4(and, i, a, red); return red; }
+static inline v1l __v1l_reduce_and_v4l(v4l a) { v1l red; __PINTS_1REDUCE4(and, l, a, red); return red; }
+static inline v2d __v2d_reduce_and_v4d(v4d a) { v2d red; __PINTS_2REDUCE4(and, d, a, red); return red; }
+static inline v2f __v2f_reduce_and_v4f(v4f a) { v2f red; __PINTS_2REDUCE4(and, f, a, red); return red; }
+static inline v2i __v2i_reduce_and_v4i(v4i a) { v2i red; __PINTS_2REDUCE4(and, i, a, red); return red; }
+static inline v2l __v2l_reduce_and_v4l(v4l a) { v2l red; __PINTS_2REDUCE4(and, l, a, red); return red; }
+static inline v4d __v4d_reduce_and_v4d(v4d a) { v4d red; __PINTS_4REDUCE4(and, d, a, red); return red; }
+static inline v4f __v4f_reduce_and_v4f(v4f a) { v4f red; __PINTS_4REDUCE4(and, f, a, red); return red; }
+static inline v4i __v4i_reduce_and_v4i(v4i a) { v4i red; __PINTS_4REDUCE4(and, i, a, red); return red; }
+static inline v4l __v4l_reduce_and_v4l(v4l a) { v4l red; __PINTS_4REDUCE4(and, l, a, red); return red; }
+static inline v8d __v8d_reduce_and_v4d(v4d a) { v8d red; __PINTS_8REDUCE4(and, d, a, red); return red; }
+static inline v8f __v8f_reduce_and_v4f(v4f a) { v8f red; __PINTS_8REDUCE4(and, f, a, red); return red; }
+static inline v8i __v8i_reduce_and_v4i(v4i a) { v8i red; __PINTS_8REDUCE4(and, i, a, red); return red; }
+static inline v8l __v8l_reduce_and_v4l(v4l a) { v8l red; __PINTS_8REDUCE4(and, l, a, red); return red; }
+static inline v16f __v16f_reduce_and_v4f(v4f a) { v16f red; __PINTS_16REDUCE4(and, f, a, red); return red; }
+static inline v16i __v16i_reduce_and_v4i(v4i a) { v16i red; __PINTS_16REDUCE4(and, i, a, red); return red; }
+static inline v1d __v1d_reduce_and_v8d(v8d a) { v1d red; __PINTS_1REDUCE8(and, d, a, red); return red; }
+static inline v1f __v1f_reduce_and_v8f(v8f a) { v1f red; __PINTS_1REDUCE8(and, f, a, red); return red; }
+static inline v1i __v1i_reduce_and_v8i(v8i a) { v1i red; __PINTS_1REDUCE8(and, i, a, red); return red; }
+static inline v1l __v1l_reduce_and_v8l(v8l a) { v1l red; __PINTS_1REDUCE8(and, l, a, red); return red; }
+static inline v2d __v2d_reduce_and_v8d(v8d a) { v2d red; __PINTS_2REDUCE8(and, d, a, red); return red; }
+static inline v2f __v2f_reduce_and_v8f(v8f a) { v2f red; __PINTS_2REDUCE8(and, f, a, red); return red; }
+static inline v2i __v2i_reduce_and_v8i(v8i a) { v2i red; __PINTS_2REDUCE8(and, i, a, red); return red; }
+static inline v2l __v2l_reduce_and_v8l(v8l a) { v2l red; __PINTS_2REDUCE8(and, l, a, red); return red; }
+static inline v4d __v4d_reduce_and_v8d(v8d a) { v4d red; __PINTS_4REDUCE8(and, d, a, red); return red; }
+static inline v4f __v4f_reduce_and_v8f(v8f a) { v4f red; __PINTS_4REDUCE8(and, f, a, red); return red; }
+static inline v4i __v4i_reduce_and_v8i(v8i a) { v4i red; __PINTS_4REDUCE8(and, i, a, red); return red; }
+static inline v4l __v4l_reduce_and_v8l(v8l a) { v4l red; __PINTS_4REDUCE8(and, l, a, red); return red; }
+static inline v8d __v8d_reduce_and_v8d(v8d a) { v8d red; __PINTS_8REDUCE8(and, d, a, red); return red; }
+static inline v8f __v8f_reduce_and_v8f(v8f a) { v8f red; __PINTS_8REDUCE8(and, f, a, red); return red; }
+static inline v8i __v8i_reduce_and_v8i(v8i a) { v8i red; __PINTS_8REDUCE8(and, i, a, red); return red; }
+static inline v8l __v8l_reduce_and_v8l(v8l a) { v8l red; __PINTS_8REDUCE8(and, l, a, red); return red; }
+static inline v16f __v16f_reduce_and_v8f(v8f a) { v16f red; __PINTS_16REDUCE8(and, f, a, red); return red; }
+static inline v16i __v16i_reduce_and_v8i(v8i a) { v16i red; __PINTS_16REDUCE8(and, i, a, red); return red; }
+static inline v1f __v1f_reduce_and_v16f(v16f a) { v1f red; __PINTS_1REDUCE16(and, f, a, red); return red; }
+static inline v1i __v1i_reduce_and_v16i(v16i a) { v1i red; __PINTS_1REDUCE16(and, i, a, red); return red; }
+static inline v2f __v2f_reduce_and_v16f(v16f a) { v2f red; __PINTS_2REDUCE16(and, f, a, red); return red; }
+static inline v2i __v2i_reduce_and_v16i(v16i a) { v2i red; __PINTS_2REDUCE16(and, i, a, red); return red; }
+static inline v4f __v4f_reduce_and_v16f(v16f a) { v4f red; __PINTS_4REDUCE16(and, f, a, red); return red; }
+static inline v4i __v4i_reduce_and_v16i(v16i a) { v4i red; __PINTS_4REDUCE16(and, i, a, red); return red; }
+static inline v8f __v8f_reduce_and_v16f(v16f a) { v8f red; __PINTS_8REDUCE16(and, f, a, red); return red; }
+static inline v8i __v8i_reduce_and_v16i(v16i a) { v8i red; __PINTS_8REDUCE16(and, i, a, red); return red; }
+static inline v16f __v16f_reduce_and_v16f(v16f a) { v16f red; __PINTS_16REDUCE16(and, f, a, red); return red; }
+static inline v16i __v16i_reduce_and_v16i(v16i a) { v16i red; __PINTS_16REDUCE16(and, i, a, red); return red; }
+static inline v1d __v1d_reduce_or(v1d a) { v1d red; __PINTS_REDUCE1(or, v1d, a, red); return red; }
+static inline v1f __v1f_reduce_or(v1f a) { v1f red; __PINTS_REDUCE1(or, v1f, a, red); return red; }
+static inline v1i __v1i_reduce_or(v1i a) { v1i red; __PINTS_REDUCE1(or, v1i, a, red); return red; }
+static inline v1l __v1l_reduce_or(v1l a) { v1l red; __PINTS_REDUCE1(or, v1l, a, red); return red; }
+static inline v2d __v2d_reduce_or(v2d a) { v2d red; __PINTS_REDUCE2(or, v2d, a, red); return red; }
+static inline v2f __v2f_reduce_or(v2f a) { v2f red; __PINTS_REDUCE2(or, v2f, a, red); return red; }
+static inline v2i __v2i_reduce_or(v2i a) { v2i red; __PINTS_REDUCE2(or, v2i, a, red); return red; }
+static inline v2l __v2l_reduce_or(v2l a) { v2l red; __PINTS_REDUCE2(or, v2l, a, red); return red; }
+static inline v4d __v4d_reduce_or(v4d a) { v4d red; __PINTS_REDUCE4(or, v4d, a, red); return red; }
+static inline v4f __v4f_reduce_or(v4f a) { v4f red; __PINTS_REDUCE4(or, v4f, a, red); return red; }
+static inline v4i __v4i_reduce_or(v4i a) { v4i red; __PINTS_REDUCE4(or, v4i, a, red); return red; }
+static inline v4l __v4l_reduce_or(v4l a) { v4l red; __PINTS_REDUCE4(or, v4l, a, red); return red; }
+static inline v8d __v8d_reduce_or(v8d a) { v8d red; __PINTS_REDUCE8(or, v8d, a, red); return red; }
+static inline v8f __v8f_reduce_or(v8f a) { v8f red; __PINTS_REDUCE8(or, v8f, a, red); return red; }
+static inline v8i __v8i_reduce_or(v8i a) { v8i red; __PINTS_REDUCE8(or, v8i, a, red); return red; }
+static inline v8l __v8l_reduce_or(v8l a) { v8l red; __PINTS_REDUCE8(or, v8l, a, red); return red; }
+static inline v16f __v16f_reduce_or(v16f a) { v16f red; __PINTS_REDUCE16(or, v16f, a, red); return red; }
+static inline v16i __v16i_reduce_or(v16i a) { v16i red; __PINTS_REDUCE16(or, v16i, a, red); return red; }
+static inline v1d __v1d_reduce_or_v1d(v1d a) { v1d red; __PINTS_1REDUCE1(or, d, a, red); return red; }
+static inline v1f __v1f_reduce_or_v1f(v1f a) { v1f red; __PINTS_1REDUCE1(or, f, a, red); return red; }
+static inline v1i __v1i_reduce_or_v1i(v1i a) { v1i red; __PINTS_1REDUCE1(or, i, a, red); return red; }
+static inline v1l __v1l_reduce_or_v1l(v1l a) { v1l red; __PINTS_1REDUCE1(or, l, a, red); return red; }
+static inline v2d __v2d_reduce_or_v1d(v1d a) { v2d red; __PINTS_2REDUCE1(or, d, a, red); return red; }
+static inline v2f __v2f_reduce_or_v1f(v1f a) { v2f red; __PINTS_2REDUCE1(or, f, a, red); return red; }
+static inline v2i __v2i_reduce_or_v1i(v1i a) { v2i red; __PINTS_2REDUCE1(or, i, a, red); return red; }
+static inline v2l __v2l_reduce_or_v1l(v1l a) { v2l red; __PINTS_2REDUCE1(or, l, a, red); return red; }
+static inline v4d __v4d_reduce_or_v1d(v1d a) { v4d red; __PINTS_4REDUCE1(or, d, a, red); return red; }
+static inline v4f __v4f_reduce_or_v1f(v1f a) { v4f red; __PINTS_4REDUCE1(or, f, a, red); return red; }
+static inline v4i __v4i_reduce_or_v1i(v1i a) { v4i red; __PINTS_4REDUCE1(or, i, a, red); return red; }
+static inline v4l __v4l_reduce_or_v1l(v1l a) { v4l red; __PINTS_4REDUCE1(or, l, a, red); return red; }
+static inline v8d __v8d_reduce_or_v1d(v1d a) { v8d red; __PINTS_8REDUCE1(or, d, a, red); return red; }
+static inline v8f __v8f_reduce_or_v1f(v1f a) { v8f red; __PINTS_8REDUCE1(or, f, a, red); return red; }
+static inline v8i __v8i_reduce_or_v1i(v1i a) { v8i red; __PINTS_8REDUCE1(or, i, a, red); return red; }
+static inline v8l __v8l_reduce_or_v1l(v1l a) { v8l red; __PINTS_8REDUCE1(or, l, a, red); return red; }
+static inline v16f __v16f_reduce_or_v1f(v1f a) { v16f red; __PINTS_16REDUCE1(or, f, a, red); return red; }
+static inline v16i __v16i_reduce_or_v1i(v1i a) { v16i red; __PINTS_16REDUCE1(or, i, a, red); return red; }
+static inline v1d __v1d_reduce_or_v2d(v2d a) { v1d red; __PINTS_1REDUCE2(or, d, a, red); return red; }
+static inline v1f __v1f_reduce_or_v2f(v2f a) { v1f red; __PINTS_1REDUCE2(or, f, a, red); return red; }
+static inline v1i __v1i_reduce_or_v2i(v2i a) { v1i red; __PINTS_1REDUCE2(or, i, a, red); return red; }
+static inline v1l __v1l_reduce_or_v2l(v2l a) { v1l red; __PINTS_1REDUCE2(or, l, a, red); return red; }
+static inline v2d __v2d_reduce_or_v2d(v2d a) { v2d red; __PINTS_2REDUCE2(or, d, a, red); return red; }
+static inline v2f __v2f_reduce_or_v2f(v2f a) { v2f red; __PINTS_2REDUCE2(or, f, a, red); return red; }
+static inline v2i __v2i_reduce_or_v2i(v2i a) { v2i red; __PINTS_2REDUCE2(or, i, a, red); return red; }
+static inline v2l __v2l_reduce_or_v2l(v2l a) { v2l red; __PINTS_2REDUCE2(or, l, a, red); return red; }
+static inline v4d __v4d_reduce_or_v2d(v2d a) { v4d red; __PINTS_4REDUCE2(or, d, a, red); return red; }
+static inline v4f __v4f_reduce_or_v2f(v2f a) { v4f red; __PINTS_4REDUCE2(or, f, a, red); return red; }
+static inline v4i __v4i_reduce_or_v2i(v2i a) { v4i red; __PINTS_4REDUCE2(or, i, a, red); return red; }
+static inline v4l __v4l_reduce_or_v2l(v2l a) { v4l red; __PINTS_4REDUCE2(or, l, a, red); return red; }
+static inline v8d __v8d_reduce_or_v2d(v2d a) { v8d red; __PINTS_8REDUCE2(or, d, a, red); return red; }
+static inline v8f __v8f_reduce_or_v2f(v2f a) { v8f red; __PINTS_8REDUCE2(or, f, a, red); return red; }
+static inline v8i __v8i_reduce_or_v2i(v2i a) { v8i red; __PINTS_8REDUCE2(or, i, a, red); return red; }
+static inline v8l __v8l_reduce_or_v2l(v2l a) { v8l red; __PINTS_8REDUCE2(or, l, a, red); return red; }
+static inline v16f __v16f_reduce_or_v2f(v2f a) { v16f red; __PINTS_16REDUCE2(or, f, a, red); return red; }
+static inline v16i __v16i_reduce_or_v2i(v2i a) { v16i red; __PINTS_16REDUCE2(or, i, a, red); return red; }
+static inline v1d __v1d_reduce_or_v4d(v4d a) { v1d red; __PINTS_1REDUCE4(or, d, a, red); return red; }
+static inline v1f __v1f_reduce_or_v4f(v4f a) { v1f red; __PINTS_1REDUCE4(or, f, a, red); return red; }
+static inline v1i __v1i_reduce_or_v4i(v4i a) { v1i red; __PINTS_1REDUCE4(or, i, a, red); return red; }
+static inline v1l __v1l_reduce_or_v4l(v4l a) { v1l red; __PINTS_1REDUCE4(or, l, a, red); return red; }
+static inline v2d __v2d_reduce_or_v4d(v4d a) { v2d red; __PINTS_2REDUCE4(or, d, a, red); return red; }
+static inline v2f __v2f_reduce_or_v4f(v4f a) { v2f red; __PINTS_2REDUCE4(or, f, a, red); return red; }
+static inline v2i __v2i_reduce_or_v4i(v4i a) { v2i red; __PINTS_2REDUCE4(or, i, a, red); return red; }
+static inline v2l __v2l_reduce_or_v4l(v4l a) { v2l red; __PINTS_2REDUCE4(or, l, a, red); return red; }
+static inline v4d __v4d_reduce_or_v4d(v4d a) { v4d red; __PINTS_4REDUCE4(or, d, a, red); return red; }
+static inline v4f __v4f_reduce_or_v4f(v4f a) { v4f red; __PINTS_4REDUCE4(or, f, a, red); return red; }
+static inline v4i __v4i_reduce_or_v4i(v4i a) { v4i red; __PINTS_4REDUCE4(or, i, a, red); return red; }
+static inline v4l __v4l_reduce_or_v4l(v4l a) { v4l red; __PINTS_4REDUCE4(or, l, a, red); return red; }
+static inline v8d __v8d_reduce_or_v4d(v4d a) { v8d red; __PINTS_8REDUCE4(or, d, a, red); return red; }
+static inline v8f __v8f_reduce_or_v4f(v4f a) { v8f red; __PINTS_8REDUCE4(or, f, a, red); return red; }
+static inline v8i __v8i_reduce_or_v4i(v4i a) { v8i red; __PINTS_8REDUCE4(or, i, a, red); return red; }
+static inline v8l __v8l_reduce_or_v4l(v4l a) { v8l red; __PINTS_8REDUCE4(or, l, a, red); return red; }
+static inline v16f __v16f_reduce_or_v4f(v4f a) { v16f red; __PINTS_16REDUCE4(or, f, a, red); return red; }
+static inline v16i __v16i_reduce_or_v4i(v4i a) { v16i red; __PINTS_16REDUCE4(or, i, a, red); return red; }
+static inline v1d __v1d_reduce_or_v8d(v8d a) { v1d red; __PINTS_1REDUCE8(or, d, a, red); return red; }
+static inline v1f __v1f_reduce_or_v8f(v8f a) { v1f red; __PINTS_1REDUCE8(or, f, a, red); return red; }
+static inline v1i __v1i_reduce_or_v8i(v8i a) { v1i red; __PINTS_1REDUCE8(or, i, a, red); return red; }
+static inline v1l __v1l_reduce_or_v8l(v8l a) { v1l red; __PINTS_1REDUCE8(or, l, a, red); return red; }
+static inline v2d __v2d_reduce_or_v8d(v8d a) { v2d red; __PINTS_2REDUCE8(or, d, a, red); return red; }
+static inline v2f __v2f_reduce_or_v8f(v8f a) { v2f red; __PINTS_2REDUCE8(or, f, a, red); return red; }
+static inline v2i __v2i_reduce_or_v8i(v8i a) { v2i red; __PINTS_2REDUCE8(or, i, a, red); return red; }
+static inline v2l __v2l_reduce_or_v8l(v8l a) { v2l red; __PINTS_2REDUCE8(or, l, a, red); return red; }
+static inline v4d __v4d_reduce_or_v8d(v8d a) { v4d red; __PINTS_4REDUCE8(or, d, a, red); return red; }
+static inline v4f __v4f_reduce_or_v8f(v8f a) { v4f red; __PINTS_4REDUCE8(or, f, a, red); return red; }
+static inline v4i __v4i_reduce_or_v8i(v8i a) { v4i red; __PINTS_4REDUCE8(or, i, a, red); return red; }
+static inline v4l __v4l_reduce_or_v8l(v8l a) { v4l red; __PINTS_4REDUCE8(or, l, a, red); return red; }
+static inline v8d __v8d_reduce_or_v8d(v8d a) { v8d red; __PINTS_8REDUCE8(or, d, a, red); return red; }
+static inline v8f __v8f_reduce_or_v8f(v8f a) { v8f red; __PINTS_8REDUCE8(or, f, a, red); return red; }
+static inline v8i __v8i_reduce_or_v8i(v8i a) { v8i red; __PINTS_8REDUCE8(or, i, a, red); return red; }
+static inline v8l __v8l_reduce_or_v8l(v8l a) { v8l red; __PINTS_8REDUCE8(or, l, a, red); return red; }
+static inline v16f __v16f_reduce_or_v8f(v8f a) { v16f red; __PINTS_16REDUCE8(or, f, a, red); return red; }
+static inline v16i __v16i_reduce_or_v8i(v8i a) { v16i red; __PINTS_16REDUCE8(or, i, a, red); return red; }
+static inline v1f __v1f_reduce_or_v16f(v16f a) { v1f red; __PINTS_1REDUCE16(or, f, a, red); return red; }
+static inline v1i __v1i_reduce_or_v16i(v16i a) { v1i red; __PINTS_1REDUCE16(or, i, a, red); return red; }
+static inline v2f __v2f_reduce_or_v16f(v16f a) { v2f red; __PINTS_2REDUCE16(or, f, a, red); return red; }
+static inline v2i __v2i_reduce_or_v16i(v16i a) { v2i red; __PINTS_2REDUCE16(or, i, a, red); return red; }
+static inline v4f __v4f_reduce_or_v16f(v16f a) { v4f red; __PINTS_4REDUCE16(or, f, a, red); return red; }
+static inline v4i __v4i_reduce_or_v16i(v16i a) { v4i red; __PINTS_4REDUCE16(or, i, a, red); return red; }
+static inline v8f __v8f_reduce_or_v16f(v16f a) { v8f red; __PINTS_8REDUCE16(or, f, a, red); return red; }
+static inline v8i __v8i_reduce_or_v16i(v16i a) { v8i red; __PINTS_8REDUCE16(or, i, a, red); return red; }
+static inline v16f __v16f_reduce_or_v16f(v16f a) { v16f red; __PINTS_16REDUCE16(or, f, a, red); return red; }
+static inline v16i __v16i_reduce_or_v16i(v16i a) { v16i red; __PINTS_16REDUCE16(or, i, a, red); return red; }
+static inline v1d __v1d_reduce_min(v1d a) { v1d red; __PINTS_REDUCE1(min, v1d, a, red); return red; }
+static inline v1f __v1f_reduce_min(v1f a) { v1f red; __PINTS_REDUCE1(min, v1f, a, red); return red; }
+static inline v1i __v1i_reduce_min(v1i a) { v1i red; __PINTS_REDUCE1(min, v1i, a, red); return red; }
+static inline v1l __v1l_reduce_min(v1l a) { v1l red; __PINTS_REDUCE1(min, v1l, a, red); return red; }
+static inline v2d __v2d_reduce_min(v2d a) { v2d red; __PINTS_REDUCE2(min, v2d, a, red); return red; }
+static inline v2f __v2f_reduce_min(v2f a) { v2f red; __PINTS_REDUCE2(min, v2f, a, red); return red; }
+static inline v2i __v2i_reduce_min(v2i a) { v2i red; __PINTS_REDUCE2(min, v2i, a, red); return red; }
+static inline v2l __v2l_reduce_min(v2l a) { v2l red; __PINTS_REDUCE2(min, v2l, a, red); return red; }
+static inline v4d __v4d_reduce_min(v4d a) { v4d red; __PINTS_REDUCE4(min, v4d, a, red); return red; }
+static inline v4f __v4f_reduce_min(v4f a) { v4f red; __PINTS_REDUCE4(min, v4f, a, red); return red; }
+static inline v4i __v4i_reduce_min(v4i a) { v4i red; __PINTS_REDUCE4(min, v4i, a, red); return red; }
+static inline v4l __v4l_reduce_min(v4l a) { v4l red; __PINTS_REDUCE4(min, v4l, a, red); return red; }
+static inline v8d __v8d_reduce_min(v8d a) { v8d red; __PINTS_REDUCE8(min, v8d, a, red); return red; }
+static inline v8f __v8f_reduce_min(v8f a) { v8f red; __PINTS_REDUCE8(min, v8f, a, red); return red; }
+static inline v8i __v8i_reduce_min(v8i a) { v8i red; __PINTS_REDUCE8(min, v8i, a, red); return red; }
+static inline v8l __v8l_reduce_min(v8l a) { v8l red; __PINTS_REDUCE8(min, v8l, a, red); return red; }
+static inline v16f __v16f_reduce_min(v16f a) { v16f red; __PINTS_REDUCE16(min, v16f, a, red); return red; }
+static inline v16i __v16i_reduce_min(v16i a) { v16i red; __PINTS_REDUCE16(min, v16i, a, red); return red; }
+static inline v1d __v1d_reduce_min_v1d(v1d a) { v1d red; __PINTS_1REDUCE1(min, d, a, red); return red; }
+static inline v1f __v1f_reduce_min_v1f(v1f a) { v1f red; __PINTS_1REDUCE1(min, f, a, red); return red; }
+static inline v1i __v1i_reduce_min_v1i(v1i a) { v1i red; __PINTS_1REDUCE1(min, i, a, red); return red; }
+static inline v1l __v1l_reduce_min_v1l(v1l a) { v1l red; __PINTS_1REDUCE1(min, l, a, red); return red; }
+static inline v2d __v2d_reduce_min_v1d(v1d a) { v2d red; __PINTS_2REDUCE1(min, d, a, red); return red; }
+static inline v2f __v2f_reduce_min_v1f(v1f a) { v2f red; __PINTS_2REDUCE1(min, f, a, red); return red; }
+static inline v2i __v2i_reduce_min_v1i(v1i a) { v2i red; __PINTS_2REDUCE1(min, i, a, red); return red; }
+static inline v2l __v2l_reduce_min_v1l(v1l a) { v2l red; __PINTS_2REDUCE1(min, l, a, red); return red; }
+static inline v4d __v4d_reduce_min_v1d(v1d a) { v4d red; __PINTS_4REDUCE1(min, d, a, red); return red; }
+static inline v4f __v4f_reduce_min_v1f(v1f a) { v4f red; __PINTS_4REDUCE1(min, f, a, red); return red; }
+static inline v4i __v4i_reduce_min_v1i(v1i a) { v4i red; __PINTS_4REDUCE1(min, i, a, red); return red; }
+static inline v4l __v4l_reduce_min_v1l(v1l a) { v4l red; __PINTS_4REDUCE1(min, l, a, red); return red; }
+static inline v8d __v8d_reduce_min_v1d(v1d a) { v8d red; __PINTS_8REDUCE1(min, d, a, red); return red; }
+static inline v8f __v8f_reduce_min_v1f(v1f a) { v8f red; __PINTS_8REDUCE1(min, f, a, red); return red; }
+static inline v8i __v8i_reduce_min_v1i(v1i a) { v8i red; __PINTS_8REDUCE1(min, i, a, red); return red; }
+static inline v8l __v8l_reduce_min_v1l(v1l a) { v8l red; __PINTS_8REDUCE1(min, l, a, red); return red; }
+static inline v16f __v16f_reduce_min_v1f(v1f a) { v16f red; __PINTS_16REDUCE1(min, f, a, red); return red; }
+static inline v16i __v16i_reduce_min_v1i(v1i a) { v16i red; __PINTS_16REDUCE1(min, i, a, red); return red; }
+static inline v1d __v1d_reduce_min_v2d(v2d a) { v1d red; __PINTS_1REDUCE2(min, d, a, red); return red; }
+static inline v1f __v1f_reduce_min_v2f(v2f a) { v1f red; __PINTS_1REDUCE2(min, f, a, red); return red; }
+static inline v1i __v1i_reduce_min_v2i(v2i a) { v1i red; __PINTS_1REDUCE2(min, i, a, red); return red; }
+static inline v1l __v1l_reduce_min_v2l(v2l a) { v1l red; __PINTS_1REDUCE2(min, l, a, red); return red; }
+static inline v2d __v2d_reduce_min_v2d(v2d a) { v2d red; __PINTS_2REDUCE2(min, d, a, red); return red; }
+static inline v2f __v2f_reduce_min_v2f(v2f a) { v2f red; __PINTS_2REDUCE2(min, f, a, red); return red; }
+static inline v2i __v2i_reduce_min_v2i(v2i a) { v2i red; __PINTS_2REDUCE2(min, i, a, red); return red; }
+static inline v2l __v2l_reduce_min_v2l(v2l a) { v2l red; __PINTS_2REDUCE2(min, l, a, red); return red; }
+static inline v4d __v4d_reduce_min_v2d(v2d a) { v4d red; __PINTS_4REDUCE2(min, d, a, red); return red; }
+static inline v4f __v4f_reduce_min_v2f(v2f a) { v4f red; __PINTS_4REDUCE2(min, f, a, red); return red; }
+static inline v4i __v4i_reduce_min_v2i(v2i a) { v4i red; __PINTS_4REDUCE2(min, i, a, red); return red; }
+static inline v4l __v4l_reduce_min_v2l(v2l a) { v4l red; __PINTS_4REDUCE2(min, l, a, red); return red; }
+static inline v8d __v8d_reduce_min_v2d(v2d a) { v8d red; __PINTS_8REDUCE2(min, d, a, red); return red; }
+static inline v8f __v8f_reduce_min_v2f(v2f a) { v8f red; __PINTS_8REDUCE2(min, f, a, red); return red; }
+static inline v8i __v8i_reduce_min_v2i(v2i a) { v8i red; __PINTS_8REDUCE2(min, i, a, red); return red; }
+static inline v8l __v8l_reduce_min_v2l(v2l a) { v8l red; __PINTS_8REDUCE2(min, l, a, red); return red; }
+static inline v16f __v16f_reduce_min_v2f(v2f a) { v16f red; __PINTS_16REDUCE2(min, f, a, red); return red; }
+static inline v16i __v16i_reduce_min_v2i(v2i a) { v16i red; __PINTS_16REDUCE2(min, i, a, red); return red; }
+static inline v1d __v1d_reduce_min_v4d(v4d a) { v1d red; __PINTS_1REDUCE4(min, d, a, red); return red; }
+static inline v1f __v1f_reduce_min_v4f(v4f a) { v1f red; __PINTS_1REDUCE4(min, f, a, red); return red; }
+static inline v1i __v1i_reduce_min_v4i(v4i a) { v1i red; __PINTS_1REDUCE4(min, i, a, red); return red; }
+static inline v1l __v1l_reduce_min_v4l(v4l a) { v1l red; __PINTS_1REDUCE4(min, l, a, red); return red; }
+static inline v2d __v2d_reduce_min_v4d(v4d a) { v2d red; __PINTS_2REDUCE4(min, d, a, red); return red; }
+static inline v2f __v2f_reduce_min_v4f(v4f a) { v2f red; __PINTS_2REDUCE4(min, f, a, red); return red; }
+static inline v2i __v2i_reduce_min_v4i(v4i a) { v2i red; __PINTS_2REDUCE4(min, i, a, red); return red; }
+static inline v2l __v2l_reduce_min_v4l(v4l a) { v2l red; __PINTS_2REDUCE4(min, l, a, red); return red; }
+static inline v4d __v4d_reduce_min_v4d(v4d a) { v4d red; __PINTS_4REDUCE4(min, d, a, red); return red; }
+static inline v4f __v4f_reduce_min_v4f(v4f a) { v4f red; __PINTS_4REDUCE4(min, f, a, red); return red; }
+static inline v4i __v4i_reduce_min_v4i(v4i a) { v4i red; __PINTS_4REDUCE4(min, i, a, red); return red; }
+static inline v4l __v4l_reduce_min_v4l(v4l a) { v4l red; __PINTS_4REDUCE4(min, l, a, red); return red; }
+static inline v8d __v8d_reduce_min_v4d(v4d a) { v8d red; __PINTS_8REDUCE4(min, d, a, red); return red; }
+static inline v8f __v8f_reduce_min_v4f(v4f a) { v8f red; __PINTS_8REDUCE4(min, f, a, red); return red; }
+static inline v8i __v8i_reduce_min_v4i(v4i a) { v8i red; __PINTS_8REDUCE4(min, i, a, red); return red; }
+static inline v8l __v8l_reduce_min_v4l(v4l a) { v8l red; __PINTS_8REDUCE4(min, l, a, red); return red; }
+static inline v16f __v16f_reduce_min_v4f(v4f a) { v16f red; __PINTS_16REDUCE4(min, f, a, red); return red; }
+static inline v16i __v16i_reduce_min_v4i(v4i a) { v16i red; __PINTS_16REDUCE4(min, i, a, red); return red; }
+static inline v1d __v1d_reduce_min_v8d(v8d a) { v1d red; __PINTS_1REDUCE8(min, d, a, red); return red; }
+static inline v1f __v1f_reduce_min_v8f(v8f a) { v1f red; __PINTS_1REDUCE8(min, f, a, red); return red; }
+static inline v1i __v1i_reduce_min_v8i(v8i a) { v1i red; __PINTS_1REDUCE8(min, i, a, red); return red; }
+static inline v1l __v1l_reduce_min_v8l(v8l a) { v1l red; __PINTS_1REDUCE8(min, l, a, red); return red; }
+static inline v2d __v2d_reduce_min_v8d(v8d a) { v2d red; __PINTS_2REDUCE8(min, d, a, red); return red; }
+static inline v2f __v2f_reduce_min_v8f(v8f a) { v2f red; __PINTS_2REDUCE8(min, f, a, red); return red; }
+static inline v2i __v2i_reduce_min_v8i(v8i a) { v2i red; __PINTS_2REDUCE8(min, i, a, red); return red; }
+static inline v2l __v2l_reduce_min_v8l(v8l a) { v2l red; __PINTS_2REDUCE8(min, l, a, red); return red; }
+static inline v4d __v4d_reduce_min_v8d(v8d a) { v4d red; __PINTS_4REDUCE8(min, d, a, red); return red; }
+static inline v4f __v4f_reduce_min_v8f(v8f a) { v4f red; __PINTS_4REDUCE8(min, f, a, red); return red; }
+static inline v4i __v4i_reduce_min_v8i(v8i a) { v4i red; __PINTS_4REDUCE8(min, i, a, red); return red; }
+static inline v4l __v4l_reduce_min_v8l(v8l a) { v4l red; __PINTS_4REDUCE8(min, l, a, red); return red; }
+static inline v8d __v8d_reduce_min_v8d(v8d a) { v8d red; __PINTS_8REDUCE8(min, d, a, red); return red; }
+static inline v8f __v8f_reduce_min_v8f(v8f a) { v8f red; __PINTS_8REDUCE8(min, f, a, red); return red; }
+static inline v8i __v8i_reduce_min_v8i(v8i a) { v8i red; __PINTS_8REDUCE8(min, i, a, red); return red; }
+static inline v8l __v8l_reduce_min_v8l(v8l a) { v8l red; __PINTS_8REDUCE8(min, l, a, red); return red; }
+static inline v16f __v16f_reduce_min_v8f(v8f a) { v16f red; __PINTS_16REDUCE8(min, f, a, red); return red; }
+static inline v16i __v16i_reduce_min_v8i(v8i a) { v16i red; __PINTS_16REDUCE8(min, i, a, red); return red; }
+static inline v1f __v1f_reduce_min_v16f(v16f a) { v1f red; __PINTS_1REDUCE16(min, f, a, red); return red; }
+static inline v1i __v1i_reduce_min_v16i(v16i a) { v1i red; __PINTS_1REDUCE16(min, i, a, red); return red; }
+static inline v2f __v2f_reduce_min_v16f(v16f a) { v2f red; __PINTS_2REDUCE16(min, f, a, red); return red; }
+static inline v2i __v2i_reduce_min_v16i(v16i a) { v2i red; __PINTS_2REDUCE16(min, i, a, red); return red; }
+static inline v4f __v4f_reduce_min_v16f(v16f a) { v4f red; __PINTS_4REDUCE16(min, f, a, red); return red; }
+static inline v4i __v4i_reduce_min_v16i(v16i a) { v4i red; __PINTS_4REDUCE16(min, i, a, red); return red; }
+static inline v8f __v8f_reduce_min_v16f(v16f a) { v8f red; __PINTS_8REDUCE16(min, f, a, red); return red; }
+static inline v8i __v8i_reduce_min_v16i(v16i a) { v8i red; __PINTS_8REDUCE16(min, i, a, red); return red; }
+static inline v16f __v16f_reduce_min_v16f(v16f a) { v16f red; __PINTS_16REDUCE16(min, f, a, red); return red; }
+static inline v16i __v16i_reduce_min_v16i(v16i a) { v16i red; __PINTS_16REDUCE16(min, i, a, red); return red; }
+static inline v1d __v1d_reduce_max(v1d a) { v1d red; __PINTS_REDUCE1(max, v1d, a, red); return red; }
+static inline v1f __v1f_reduce_max(v1f a) { v1f red; __PINTS_REDUCE1(max, v1f, a, red); return red; }
+static inline v1i __v1i_reduce_max(v1i a) { v1i red; __PINTS_REDUCE1(max, v1i, a, red); return red; }
+static inline v1l __v1l_reduce_max(v1l a) { v1l red; __PINTS_REDUCE1(max, v1l, a, red); return red; }
+static inline v2d __v2d_reduce_max(v2d a) { v2d red; __PINTS_REDUCE2(max, v2d, a, red); return red; }
+static inline v2f __v2f_reduce_max(v2f a) { v2f red; __PINTS_REDUCE2(max, v2f, a, red); return red; }
+static inline v2i __v2i_reduce_max(v2i a) { v2i red; __PINTS_REDUCE2(max, v2i, a, red); return red; }
+static inline v2l __v2l_reduce_max(v2l a) { v2l red; __PINTS_REDUCE2(max, v2l, a, red); return red; }
+static inline v4d __v4d_reduce_max(v4d a) { v4d red; __PINTS_REDUCE4(max, v4d, a, red); return red; }
+static inline v4f __v4f_reduce_max(v4f a) { v4f red; __PINTS_REDUCE4(max, v4f, a, red); return red; }
+static inline v4i __v4i_reduce_max(v4i a) { v4i red; __PINTS_REDUCE4(max, v4i, a, red); return red; }
+static inline v4l __v4l_reduce_max(v4l a) { v4l red; __PINTS_REDUCE4(max, v4l, a, red); return red; }
+static inline v8d __v8d_reduce_max(v8d a) { v8d red; __PINTS_REDUCE8(max, v8d, a, red); return red; }
+static inline v8f __v8f_reduce_max(v8f a) { v8f red; __PINTS_REDUCE8(max, v8f, a, red); return red; }
+static inline v8i __v8i_reduce_max(v8i a) { v8i red; __PINTS_REDUCE8(max, v8i, a, red); return red; }
+static inline v8l __v8l_reduce_max(v8l a) { v8l red; __PINTS_REDUCE8(max, v8l, a, red); return red; }
+static inline v16f __v16f_reduce_max(v16f a) { v16f red; __PINTS_REDUCE16(max, v16f, a, red); return red; }
+static inline v16i __v16i_reduce_max(v16i a) { v16i red; __PINTS_REDUCE16(max, v16i, a, red); return red; }
+static inline v1d __v1d_reduce_max_v1d(v1d a) { v1d red; __PINTS_1REDUCE1(max, d, a, red); return red; }
+static inline v1f __v1f_reduce_max_v1f(v1f a) { v1f red; __PINTS_1REDUCE1(max, f, a, red); return red; }
+static inline v1i __v1i_reduce_max_v1i(v1i a) { v1i red; __PINTS_1REDUCE1(max, i, a, red); return red; }
+static inline v1l __v1l_reduce_max_v1l(v1l a) { v1l red; __PINTS_1REDUCE1(max, l, a, red); return red; }
+static inline v2d __v2d_reduce_max_v1d(v1d a) { v2d red; __PINTS_2REDUCE1(max, d, a, red); return red; }
+static inline v2f __v2f_reduce_max_v1f(v1f a) { v2f red; __PINTS_2REDUCE1(max, f, a, red); return red; }
+static inline v2i __v2i_reduce_max_v1i(v1i a) { v2i red; __PINTS_2REDUCE1(max, i, a, red); return red; }
+static inline v2l __v2l_reduce_max_v1l(v1l a) { v2l red; __PINTS_2REDUCE1(max, l, a, red); return red; }
+static inline v4d __v4d_reduce_max_v1d(v1d a) { v4d red; __PINTS_4REDUCE1(max, d, a, red); return red; }
+static inline v4f __v4f_reduce_max_v1f(v1f a) { v4f red; __PINTS_4REDUCE1(max, f, a, red); return red; }
+static inline v4i __v4i_reduce_max_v1i(v1i a) { v4i red; __PINTS_4REDUCE1(max, i, a, red); return red; }
+static inline v4l __v4l_reduce_max_v1l(v1l a) { v4l red; __PINTS_4REDUCE1(max, l, a, red); return red; }
+static inline v8d __v8d_reduce_max_v1d(v1d a) { v8d red; __PINTS_8REDUCE1(max, d, a, red); return red; }
+static inline v8f __v8f_reduce_max_v1f(v1f a) { v8f red; __PINTS_8REDUCE1(max, f, a, red); return red; }
+static inline v8i __v8i_reduce_max_v1i(v1i a) { v8i red; __PINTS_8REDUCE1(max, i, a, red); return red; }
+static inline v8l __v8l_reduce_max_v1l(v1l a) { v8l red; __PINTS_8REDUCE1(max, l, a, red); return red; }
+static inline v16f __v16f_reduce_max_v1f(v1f a) { v16f red; __PINTS_16REDUCE1(max, f, a, red); return red; }
+static inline v16i __v16i_reduce_max_v1i(v1i a) { v16i red; __PINTS_16REDUCE1(max, i, a, red); return red; }
+static inline v1d __v1d_reduce_max_v2d(v2d a) { v1d red; __PINTS_1REDUCE2(max, d, a, red); return red; }
+static inline v1f __v1f_reduce_max_v2f(v2f a) { v1f red; __PINTS_1REDUCE2(max, f, a, red); return red; }
+static inline v1i __v1i_reduce_max_v2i(v2i a) { v1i red; __PINTS_1REDUCE2(max, i, a, red); return red; }
+static inline v1l __v1l_reduce_max_v2l(v2l a) { v1l red; __PINTS_1REDUCE2(max, l, a, red); return red; }
+static inline v2d __v2d_reduce_max_v2d(v2d a) { v2d red; __PINTS_2REDUCE2(max, d, a, red); return red; }
+static inline v2f __v2f_reduce_max_v2f(v2f a) { v2f red; __PINTS_2REDUCE2(max, f, a, red); return red; }
+static inline v2i __v2i_reduce_max_v2i(v2i a) { v2i red; __PINTS_2REDUCE2(max, i, a, red); return red; }
+static inline v2l __v2l_reduce_max_v2l(v2l a) { v2l red; __PINTS_2REDUCE2(max, l, a, red); return red; }
+static inline v4d __v4d_reduce_max_v2d(v2d a) { v4d red; __PINTS_4REDUCE2(max, d, a, red); return red; }
+static inline v4f __v4f_reduce_max_v2f(v2f a) { v4f red; __PINTS_4REDUCE2(max, f, a, red); return red; }
+static inline v4i __v4i_reduce_max_v2i(v2i a) { v4i red; __PINTS_4REDUCE2(max, i, a, red); return red; }
+static inline v4l __v4l_reduce_max_v2l(v2l a) { v4l red; __PINTS_4REDUCE2(max, l, a, red); return red; }
+static inline v8d __v8d_reduce_max_v2d(v2d a) { v8d red; __PINTS_8REDUCE2(max, d, a, red); return red; }
+static inline v8f __v8f_reduce_max_v2f(v2f a) { v8f red; __PINTS_8REDUCE2(max, f, a, red); return red; }
+static inline v8i __v8i_reduce_max_v2i(v2i a) { v8i red; __PINTS_8REDUCE2(max, i, a, red); return red; }
+static inline v8l __v8l_reduce_max_v2l(v2l a) { v8l red; __PINTS_8REDUCE2(max, l, a, red); return red; }
+static inline v16f __v16f_reduce_max_v2f(v2f a) { v16f red; __PINTS_16REDUCE2(max, f, a, red); return red; }
+static inline v16i __v16i_reduce_max_v2i(v2i a) { v16i red; __PINTS_16REDUCE2(max, i, a, red); return red; }
+static inline v1d __v1d_reduce_max_v4d(v4d a) { v1d red; __PINTS_1REDUCE4(max, d, a, red); return red; }
+static inline v1f __v1f_reduce_max_v4f(v4f a) { v1f red; __PINTS_1REDUCE4(max, f, a, red); return red; }
+static inline v1i __v1i_reduce_max_v4i(v4i a) { v1i red; __PINTS_1REDUCE4(max, i, a, red); return red; }
+static inline v1l __v1l_reduce_max_v4l(v4l a) { v1l red; __PINTS_1REDUCE4(max, l, a, red); return red; }
+static inline v2d __v2d_reduce_max_v4d(v4d a) { v2d red; __PINTS_2REDUCE4(max, d, a, red); return red; }
+static inline v2f __v2f_reduce_max_v4f(v4f a) { v2f red; __PINTS_2REDUCE4(max, f, a, red); return red; }
+static inline v2i __v2i_reduce_max_v4i(v4i a) { v2i red; __PINTS_2REDUCE4(max, i, a, red); return red; }
+static inline v2l __v2l_reduce_max_v4l(v4l a) { v2l red; __PINTS_2REDUCE4(max, l, a, red); return red; }
+static inline v4d __v4d_reduce_max_v4d(v4d a) { v4d red; __PINTS_4REDUCE4(max, d, a, red); return red; }
+static inline v4f __v4f_reduce_max_v4f(v4f a) { v4f red; __PINTS_4REDUCE4(max, f, a, red); return red; }
+static inline v4i __v4i_reduce_max_v4i(v4i a) { v4i red; __PINTS_4REDUCE4(max, i, a, red); return red; }
+static inline v4l __v4l_reduce_max_v4l(v4l a) { v4l red; __PINTS_4REDUCE4(max, l, a, red); return red; }
+static inline v8d __v8d_reduce_max_v4d(v4d a) { v8d red; __PINTS_8REDUCE4(max, d, a, red); return red; }
+static inline v8f __v8f_reduce_max_v4f(v4f a) { v8f red; __PINTS_8REDUCE4(max, f, a, red); return red; }
+static inline v8i __v8i_reduce_max_v4i(v4i a) { v8i red; __PINTS_8REDUCE4(max, i, a, red); return red; }
+static inline v8l __v8l_reduce_max_v4l(v4l a) { v8l red; __PINTS_8REDUCE4(max, l, a, red); return red; }
+static inline v16f __v16f_reduce_max_v4f(v4f a) { v16f red; __PINTS_16REDUCE4(max, f, a, red); return red; }
+static inline v16i __v16i_reduce_max_v4i(v4i a) { v16i red; __PINTS_16REDUCE4(max, i, a, red); return red; }
+static inline v1d __v1d_reduce_max_v8d(v8d a) { v1d red; __PINTS_1REDUCE8(max, d, a, red); return red; }
+static inline v1f __v1f_reduce_max_v8f(v8f a) { v1f red; __PINTS_1REDUCE8(max, f, a, red); return red; }
+static inline v1i __v1i_reduce_max_v8i(v8i a) { v1i red; __PINTS_1REDUCE8(max, i, a, red); return red; }
+static inline v1l __v1l_reduce_max_v8l(v8l a) { v1l red; __PINTS_1REDUCE8(max, l, a, red); return red; }
+static inline v2d __v2d_reduce_max_v8d(v8d a) { v2d red; __PINTS_2REDUCE8(max, d, a, red); return red; }
+static inline v2f __v2f_reduce_max_v8f(v8f a) { v2f red; __PINTS_2REDUCE8(max, f, a, red); return red; }
+static inline v2i __v2i_reduce_max_v8i(v8i a) { v2i red; __PINTS_2REDUCE8(max, i, a, red); return red; }
+static inline v2l __v2l_reduce_max_v8l(v8l a) { v2l red; __PINTS_2REDUCE8(max, l, a, red); return red; }
+static inline v4d __v4d_reduce_max_v8d(v8d a) { v4d red; __PINTS_4REDUCE8(max, d, a, red); return red; }
+static inline v4f __v4f_reduce_max_v8f(v8f a) { v4f red; __PINTS_4REDUCE8(max, f, a, red); return red; }
+static inline v4i __v4i_reduce_max_v8i(v8i a) { v4i red; __PINTS_4REDUCE8(max, i, a, red); return red; }
+static inline v4l __v4l_reduce_max_v8l(v8l a) { v4l red; __PINTS_4REDUCE8(max, l, a, red); return red; }
+static inline v8d __v8d_reduce_max_v8d(v8d a) { v8d red; __PINTS_8REDUCE8(max, d, a, red); return red; }
+static inline v8f __v8f_reduce_max_v8f(v8f a) { v8f red; __PINTS_8REDUCE8(max, f, a, red); return red; }
+static inline v8i __v8i_reduce_max_v8i(v8i a) { v8i red; __PINTS_8REDUCE8(max, i, a, red); return red; }
+static inline v8l __v8l_reduce_max_v8l(v8l a) { v8l red; __PINTS_8REDUCE8(max, l, a, red); return red; }
+static inline v16f __v16f_reduce_max_v8f(v8f a) { v16f red; __PINTS_16REDUCE8(max, f, a, red); return red; }
+static inline v16i __v16i_reduce_max_v8i(v8i a) { v16i red; __PINTS_16REDUCE8(max, i, a, red); return red; }
+static inline v1f __v1f_reduce_max_v16f(v16f a) { v1f red; __PINTS_1REDUCE16(max, f, a, red); return red; }
+static inline v1i __v1i_reduce_max_v16i(v16i a) { v1i red; __PINTS_1REDUCE16(max, i, a, red); return red; }
+static inline v2f __v2f_reduce_max_v16f(v16f a) { v2f red; __PINTS_2REDUCE16(max, f, a, red); return red; }
+static inline v2i __v2i_reduce_max_v16i(v16i a) { v2i red; __PINTS_2REDUCE16(max, i, a, red); return red; }
+static inline v4f __v4f_reduce_max_v16f(v16f a) { v4f red; __PINTS_4REDUCE16(max, f, a, red); return red; }
+static inline v4i __v4i_reduce_max_v16i(v16i a) { v4i red; __PINTS_4REDUCE16(max, i, a, red); return red; }
+static inline v8f __v8f_reduce_max_v16f(v16f a) { v8f red; __PINTS_8REDUCE16(max, f, a, red); return red; }
+static inline v8i __v8i_reduce_max_v16i(v16i a) { v8i red; __PINTS_8REDUCE16(max, i, a, red); return red; }
+static inline v16f __v16f_reduce_max_v16f(v16f a) { v16f red; __PINTS_16REDUCE16(max, f, a, red); return red; }
+static inline v16i __v16i_reduce_max_v16i(v16i a) { v16i red; __PINTS_16REDUCE16(max, i, a, red); return red; }
 
 
 /* MOVES */
