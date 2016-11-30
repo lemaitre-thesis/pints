@@ -1,7 +1,7 @@
 #ifndef PINTS_SSE_H
 #define PINTS_SSE_H
 
-#ifdef SSE
+#ifdef PINTS_SSE
 #undef v1f
 #undef v2f
 #undef v4f
@@ -10,7 +10,7 @@ typedef __m128  v2f;
 typedef __m128  v4f;
 #endif
 
-#ifdef SSE2
+#ifdef PINTS_SSE2
 #undef v1d
 #undef v1i
 #undef v1l
@@ -31,7 +31,7 @@ typedef __m128i __m128lu __attribute__((aligned(8)));
 typedef __m64 __m64fu __attribute__((aligned(4)));
 #endif
 
-#ifdef SSE
+#ifdef PINTS_SSE
 // 128 bits
 
 #undef v4f_set
@@ -372,7 +372,7 @@ typedef __m64 __m64fu __attribute__((aligned(4)));
 
 #endif
 
-#ifdef SSE2
+#ifdef PINTS_SSE2
 // 128 bits
 
 #undef v2d_set
@@ -1361,12 +1361,12 @@ static inline v2l __sse2_v2l_lt(v2l a, v2l b) {
 
 #endif
 
-#ifdef SSSE3
+#ifdef PINTS_SSSE3
 #undef v4i_abs
 #define v4i_abs(a) _mm_abs_epi32(a, b)
 #endif
 
-#ifdef SSE41
+#ifdef PINTS_SSE41
 
 #undef v4i_mul
 #define v4i_mul(a, b) _mm_mullo_epi32(a, b)
@@ -1422,7 +1422,7 @@ static inline v2l __sse2_v2l_lt(v2l a, v2l b) {
 
 #endif
 
-#ifdef SSE42
+#ifdef PINTS_SSE42
 
 
 #undef v2l_eq

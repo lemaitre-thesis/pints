@@ -2,7 +2,7 @@
 #define PINTS_AVX_H
 
 
-#ifdef AVX
+#ifdef PINTS_AVX
 #undef v4d
 #undef v8f
 #undef v8i
@@ -13,7 +13,7 @@ typedef __m256i v8i;
 typedef __m256i v4l;
 #endif
 
-#ifdef AVX512
+#ifdef PINTS_AVX512
 #undef v8d
 #undef v16f
 #undef v16i
@@ -24,7 +24,7 @@ typedef __m512i v16i;
 typedef __m512i v8l;
 #endif
 
-#ifdef AVX
+#ifdef PINTS_AVX
 // 256 bits
 
 #undef v4d_set
@@ -471,7 +471,7 @@ typedef __m512i v8l;
 
 #endif
 
-#ifdef AVX2
+#ifdef PINTS_AVX2
 
 #undef v4d_load1
 #undef v8f_load1
@@ -551,7 +551,7 @@ typedef __m512i v8l;
 
 #endif
 
-#ifdef AVX_FMA
+#ifdef PINTS_AVX_FMA
 #undef v1d_fmadd
 #undef v1d_fmsub
 #undef v1d_fnmadd
