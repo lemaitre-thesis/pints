@@ -1,7 +1,9 @@
+#include "immintrin.h"
 #include <iostream>
+#include <cstddef>
 #include "pints-cpp.h"
-#include "pints-cpp-sse.h"
-#include "pints-cpp-avx.h"
+//#include "pints-cpp-sse.h"
+//#include "pints-cpp-avx.h"
 
 template <class T> struct Swap_FP_type;
 template <> struct Swap_FP_type<float> { using type = double; };
@@ -33,5 +35,7 @@ template void smul<double, 8>(const double* A, const float* B, double* C, int n)
 template void smul<double, 16>(const double* A, const float* B, double* C, int n);
 
 int main() {
+  std::cout << std::alignment_of<std::max_align_t>::value << "\n";
+  std::cout << std::alignment_of<__m256>::value << "\n";
   return 0;
 }
