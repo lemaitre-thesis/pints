@@ -2,7 +2,6 @@
 #include <iosfwd>
 
 namespace detail {
-  static constexpr int max_ISA = 10;
   static constexpr int max_align = 64;
 
 }
@@ -17,7 +16,7 @@ namespace ISA {
   typedef ISA_tag<2> SSE;
   typedef ISA_tag<3> AVX;
   typedef ISA_tag<4> FMA;
-  typedef ISA_tag<4> max;
+  typedef ISA_tag<10> max;
 }
 
 namespace Op {
@@ -33,6 +32,10 @@ namespace Op {
   template <class T, int N> struct fma  {};
   template <class T1, int N1, class T2, int N2> struct cast   {};
   template <class T1, int N1, class T2, int N2> struct convert{};
+  template <class T, int N, int inner, int outer, class swizzle_t> struct hshuffle{};
+  template <class T, int N, int inner, int outer, class swizzle_t> struct permute{};
+  template <class T, int N, int inner, int outer, class swizzle_t, class mask_t> struct fshuffle{};
+  template <class T, int N, int inner, int outer, class mask_t> struct blend{};
 }
 
 template <class T, int N> class Vec;
@@ -74,6 +77,61 @@ namespace detail {
 
       explicit VecHelper(T t) : inner(t) {}
   };
+
+  template <int... Is>
+  struct index_sequence {};
+
+  template <int N, class T = index_sequence<>>
+  struct make_index_sequence_s;
+
+  template <int N, int... Is>
+  struct make_index_sequence_s<N, index_sequence<Is...>> : public make_index_sequence_s<N-1, index_sequence<N-1, Is...>> {};
+
+  template <int... Is>
+  struct make_index_sequence_s<0, index_sequence<Is...>> {
+    using type = index_sequence<Is...>;
+  };
+
+  template <int N>
+  using make_index_sequence = typename make_index_sequence_s<N>::type;
+
+  template <class T, class S>
+  struct size_s;
+
+  template <class T, template <T...> class S, T... Ts>
+  struct size_s<T, S<Ts...>> {
+    static constexpr int value = sizeof...(Ts);
+  };
+
+  template <class T, int N>
+  struct constexpr_array {
+    T data[N];
+    constexpr T operator[](int i) const {
+      return data[i];
+    }
+  };
+
+  template <class T, class S, class Is = make_index_sequence<(size_s<T, S>::value+1)/2>>
+  struct low_s;
+
+  template <class T, template <T...> class S, T... Ts, int... Is>
+  struct low_s<T, S<Ts...>, index_sequence<Is...>> {
+    using type = S<((constexpr_array<T, sizeof...(Ts)>{Ts...})[Is])...>;
+  };
+
+  template <class T, class S>
+  using low_t = typename low_s<T, S>::type;
+
+  template <class T, class S, class Is = make_index_sequence<size_s<T, S>::value/2>>
+  struct high_s;
+
+  template <class T, template <T...> class S, T... Ts, int... Is>
+  struct high_s<T, S<Ts...>, index_sequence<Is...>> {
+    using type = S<((constexpr_array<T, sizeof...(Ts)>{Ts...})[Is + sizeof...(Ts) - sizeof...(Is)])...>;
+  };
+
+  template <class T, class S>
+  using high_t = typename high_s<T, S>::type;
 }
 
 
@@ -103,6 +161,34 @@ class Vec<T, 1> : public detail::VecHelper<T> {
 template <class T>
 class Vec<T, 0> {};
 
+template <int... rules>
+struct swizzle {
+  static constexpr int size() {
+    return sizeof...(rules);
+  }
+  static constexpr int get(int i) {
+    constexpr int arr[] = {rules...};
+    return arr[i];
+  }
+  constexpr int operator[](int i) const {
+    return get(i);
+  }
+};
+
+template <bool... rules>
+struct mask {
+  static constexpr int size() {
+    return sizeof...(rules);
+  }
+  static constexpr bool get(int i) {
+    constexpr int arr[] = {rules...};
+    return arr[i];
+  }
+  constexpr bool operator[](int i) const {
+    return get(i);
+  }
+};
+
 /**
  * Functions
  */
@@ -131,6 +217,22 @@ Vec<T1, N1> vcast(Vec<T2, N2> a);
 template <class T1, int N1, class T2, int N2>
 Vec<T1, N1> vconvert(Vec<T2, N2> a);
 
+// permute
+template <int inner, int outer, class T, int N, int... swizzle_rule>
+Vec<T, N> vshuffle(Vec<T, N> a, swizzle<swizzle_rule...>);
+
+// half shuffle
+template <int inner, int outer, class T, int N, int... swizzle_rule>
+Vec<T, N> vshuffle(Vec<T, N> a, Vec<T, N> b, swizzle<swizzle_rule...>);
+
+// full shuffle 
+template <int inner, int outer, class T, int N, int... swizzle_rule, bool... mask_rule>
+Vec<T, N> vshuffle(Vec<T, N> a, Vec<T, N> b, swizzle<swizzle_rule...>, mask<mask_rule...>);
+
+// Blend
+template <int inner, int outer, class T, int N, bool... mask_rule>
+Vec<T, N> vblend(Vec<T, N> a, Vec<T, N> b, mask<mask_rule...>);
+
 namespace Op {
   /**
    * Get low
@@ -145,7 +247,7 @@ namespace Op {
    */
   template <class T, int N>
   Vec<T, N/2> call(high<T, N>, ISA::scalar, Vec<T, N> v) {
-    return v.low;
+    return v.high;
   }
 
   /**
@@ -251,11 +353,9 @@ namespace Op {
   // Opt-in fallback when fma is not available but add and mul are
   namespace fallback {
     template <class T, int N>
-    struct fma {
-      static Vec<T, N> call(Vec<T, N> a, Vec<T, N> b, Vec<T, N> c) {
-        return vadd(vmul(a, b), c);
-      }
-    };
+    Vec<T, N> call(fma<T, N>, Vec<T, N> a, Vec<T, N> b, Vec<T, N> c) {
+      return vadd(vmul(a, b), c);
+    }
   }
 
   /**
@@ -301,7 +401,7 @@ namespace Op {
 
   // down convert
   template <class T1, int N1, class T2, int N2, typename std::enable_if<(N1 < N2), int>::type* = nullptr>
-  static Vec<T1, N1> call(convert<T1, N1, T2, N2>, ISA::scalar, Vec<T2, N2> v) {
+  Vec<T1, N1> call(convert<T1, N1, T2, N2>, ISA::scalar, Vec<T2, N2> v) {
     return vconvert<T1, N1>(vcast<T2, N1>(v));
   }
 
@@ -317,71 +417,78 @@ namespace Op {
     return v;
   }
 
-}
-
-/**
- * Functions
- */
-template <class T, int N>
-Vec<T, N/2> vlow(Vec<T, N> a) {
-  return Op::call(Op::low<T, N>{}, ISA::max{}, a);
-}
-template <class T, int N>
-Vec<T, N/2> vhigh(Vec<T, N> a) {
-  return Op::call(Op::high<T, N>{}, ISA::max{}, a);
-}
-template <class T, int N>
-Vec<T, 2*N> vmerge(Vec<T, N> low, Vec<T, N> high) {
-  return Op::call(Op::merge<T, N>{}, ISA::max{}, low, high);
-}
-template <class T, int N>
-Vec<T, N> vload(const T* p) {
-  return Op::call(Op::load<T, N>{}, ISA::max{}, p);
-}
-template <class T, int N>
-void vstore(T* p, Vec<T, N> v) {
-  return Op::call(Op::store<T, N>{}, ISA::max{}, p, v);
-}
-template <class T, int N>
-Vec<T, N> vadd(Vec<T, N> a, Vec<T, N> b) {
-  return Op::call(Op::add<T, N>{}, ISA::max{}, a, b);
-}
-template <class T, int N>
-Vec<T, N> vsub(Vec<T, N> a, Vec<T, N> b) {
-  return Op::call(Op::sub<T, N>{}, ISA::max{}, a, b);
-}
-template <class T, int N>
-Vec<T, N> vmul(Vec<T, N> a, Vec<T, N> b) {
-  return Op::call(Op::mul<T, N>{}, ISA::max{}, a, b);
-}
-template <class T, int N>
-Vec<T, N> vdiv(Vec<T, N> a, Vec<T, N> b) {
-  return Op::call(Op::div<T, N>{}, ISA::max{}, a, b);
-}
-template <class T, int N>
-Vec<T, N> vfma(Vec<T, N> a, Vec<T, N> b, Vec<T, N> c) {
-  return Op::call(Op::fma<T, N>{}, ISA::max{}, a, b, c);
-}
-template <class T1, int N1, class T2, int N2>
-Vec<T1, N1> vcast(Vec<T2, N2> a) {
-  return Op::call(Op::cast<T1, N1, T2, N2>{}, ISA::max{}, a);
-}
-template <class T1, int N1, class T2, int N2>
-Vec<T1, N1> vconvert(Vec<T2, N2> a) {
-  return Op::call(Op::convert<T1, N1, T2, N2>{}, ISA::max{}, a);
-}
-
-/**
- * IO
- */
-template <class T, int N>
-std::ostream& operator>>(std::ostream& out, Vec<T, N> v) {
-  T buf[N];
-  vstore(buf, v);
-
-  for (int i = 0; i < N; ++i) {
-    if (i != 0) out << " ";
-    out << buf[i];
+  /**
+   * Blend
+   */
+  template <class T, int N, bool mask_rule>
+  Vec<T, N> call(blend<T, N, 1, 1, mask<mask_rule>>, ISA::scalar, Vec<T, N> a, Vec<T, N> b) {
+    return mask_rule ? b : a;
   }
-  return out;
+
+  template <class T, int N, int inner, bool... mask_rule>
+  Vec<T, N> call(blend<T, N, inner, 1, mask<mask_rule...>>, ISA::scalar, Vec<T, N> a, Vec<T, N> b) {
+    using mask_t = mask<mask_rule...>;
+    return vmerge(vblend<inner/2, 1>(vlow(a), vlow(b), detail::low_t<bool, mask_t>{}), vblend<inner/2, 1>(vhigh(a), vhigh(b), detail::high_t<bool, mask_t>{}));
+  }
+
+  template <class T, int N, int inner, int outer, bool... mask_rule>
+  Vec<T, N> call(blend<T, N, inner, outer, mask<mask_rule...>>, ISA::scalar, Vec<T, N> a, Vec<T, N> b) {
+    constexpr mask<mask_rule...> m;
+    return vmerge(vblend<inner, outer/2>(vlow(a), vlow(b), m), vblend<inner, outer/2>(vhigh(a), vhigh(b), m));
+  }
+
+
+
+  /**
+   * Shuffles
+   */
+
+  // permute
+  template <class T, int N, int inner, int outer, int... swizzle_rule>
+  Vec<T, N> call(permute<T, N, inner, outer, swizzle<swizzle_rule...>>, ISA::scalar, Vec<T, N> v) {
+    constexpr swizzle<swizzle_rule...> s;
+    return vmerge(vshuffle<inner, outer/2>(vlow(v), s), vshuffle<inner, outer/2>(vhigh(v), s));
+  }
+  template <class T, int N, int inner, int... swizzle_rule>
+  Vec<T, N> call(permute<T, N, inner, 1, swizzle<swizzle_rule...>>, ISA::scalar, Vec<T, N> v) {
+    constexpr swizzle<swizzle_rule...> s;
+    return vshuffle<inner, 1>(v, v, s);
+  }
+  template <class T, int N, int outer, int swizzle_rule>
+  Vec<T, N> call(permute<T, N, 1, outer, swizzle<swizzle_rule>>, ISA::scalar, Vec<T, N> v) {
+    return v;
+  }
+  template <class T, int N, int swizzle_rule>
+  Vec<T, N> call(permute<T, N, 1, 1, swizzle<swizzle_rule>>, ISA::scalar, Vec<T, N> v) {
+    return v;
+  }
+
+  // Full shuffle
+  template <class T, int N, int inner, int outer, int... swizzle_rule, bool... mask_rule>
+  Vec<T, N> call(fshuffle<T, N, inner, outer, swizzle<swizzle_rule...>, mask<mask_rule...>>, ISA::scalar, Vec<T, N> a, Vec<T, N> b) {
+    constexpr swizzle<swizzle_rule...> s;
+    constexpr mask<mask_rule...> m;
+    return vmerge(vshuffle<inner, outer/2>(vlow(a), vlow(b), s, m), vshuffle<inner, outer/2>(vhigh(a), vhigh(b), s, m));
+  }
+
+  template <class T, int N, int inner, int... swizzle_rule, bool... mask_rule>
+  Vec<T, N> call(fshuffle<T, N, inner, 1, swizzle<swizzle_rule...>, mask<mask_rule...>>, ISA::scalar, Vec<T, N> a, Vec<T, N> b) {
+    constexpr swizzle<swizzle_rule...> s;
+    constexpr mask<mask_rule...> m;
+    return vblend<inner, 1>(vshuffle<inner, 1>(a, s), vshuffle<inner, 1>(b, s), m);
+  }
+
+  // Half shuffle
+  template <class T, int N, int inner, int outer, int... swizzle_rule>
+  Vec<T, N> call(hshuffle<T, N, inner, outer, swizzle<swizzle_rule...>>, ISA::scalar, Vec<T, N> a, Vec<T, N> b) {
+    constexpr swizzle<swizzle_rule...> s;
+    return vmerge(vshuffle<inner, outer/2>(vlow(a), vlow(b), s), vshuffle<inner, outer/2>(vhigh(a), vhigh(b), s));
+  }
+
+  template <class T, int N, int inner, int... swizzle_rule>
+  Vec<T, N> call(hshuffle<T, N, inner, 1, swizzle<swizzle_rule...>>, ISA::scalar, Vec<T, N> a, Vec<T, N> b) {
+    using swizzle_t = swizzle<(swizzle_rule & (inner/2-1))...>;
+    using mask_t = mask<(swizzle_rule >= inner/2)...>;
+    return vmerge(vshuffle<inner/2, 1>(vlow(a), vhigh(a), detail::low_t<int, swizzle_t>{}, detail::low_t<bool, mask_t>{}), vshuffle<inner/2, 1>(vlow(b), vhigh(b), detail::high_t<int, swizzle_t>{}, detail::high_t<bool, mask_t>{}));
+  }
 }
