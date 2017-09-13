@@ -2,8 +2,9 @@
 #define PINTS_UTILITY_TYPES
 
 #include <cstdint>
+#include "./fun.h"
 
-namespace PintS {
+namespace pints {
   namespace types {
     // Signed integers
     using  int8  = std:: int8_t;
@@ -20,6 +21,43 @@ namespace PintS {
     // Floating points
     using float32 = float;
     using float64 = double;
+
+
+  }
+  namespace utility {
+    namespace _ {
+      template <int N>
+      struct int_s {};
+
+      template <>
+      struct int_s<8> {
+        using s = types:: int8;
+        using u = types::uint8;
+      };
+
+      template <>
+      struct int_s<16> {
+        using s = types:: int16;
+        using u = types::uint16;
+      };
+
+      template <>
+      struct int_s<32> {
+        using s = types:: int32;
+        using u = types::uint32;
+      };
+
+      template <>
+      struct int_s<64> {
+        using s = types:: int64;
+        using u = types::uint64;
+      };
+    }
+
+
+    // Find smallest int containing N bits
+    template <int N>
+    using smallest_int = _::int_s<max(8, (int)next_power2(N))>;
   }
 }
 

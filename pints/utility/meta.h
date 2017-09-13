@@ -3,7 +3,7 @@
 
 #include <utility>
 
-namespace PintS {
+namespace pints {
   namespace utility {
     // details namespace
     namespace _ {
